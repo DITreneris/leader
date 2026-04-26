@@ -1,0 +1,164 @@
+---
+const languages = [
+  { code: "en", label: "EN" },
+  { code: "lt", label: "LT" },
+];
+---
+
+<div class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 p-1" aria-label="Language selector">
+  {
+    languages.map((language) => (
+      <button
+        type="button"
+        data-language-button={language.code}
+        class="rounded-full px-3 py-1 text-sm font-semibold text-slate-300 transition hover:text-white data-[active=true]:bg-cyan-300 data-[active=true]:text-slate-950"
+      >
+        {language.label}
+      </button>
+    ))
+  }
+</div>
+
+<script>
+  type Scenario = {
+    label: string;
+    input: string;
+    insight: string;
+    decision: string;
+    risks: readonly string[];
+    questions: readonly string[];
+    action: string;
+    prompt: string;
+  };
+
+  type PageCopy = {
+    demo: {
+      copied: string;
+      copyPrompt: string;
+      scenarios: Record<string, Scenario>;
+    };
+  };
+
+  const copy = (window as unknown as { __PA_COPY__: Record<string, PageCopy> }).__PA_COPY__;
+  const languageButtons = document.querySelectorAll<HTMLButtonElement>("[data-language-button]");
+  const textNodes = document.querySelectorAll<HTMLElement>("[data-i18n]");
+  const scenarioButtons = document.querySelectorAll<HTMLButtonElement>("[data-scenario]");
+  const copyPromptButton = document.querySelector<HTMLButtonElement>("[data-copy-prompt]");
+  const storageKey = "pa-language";
+  const readStoredLanguage = () => {
+    try {
+      return localStorage.getItem(storageKey) || "en";
+    } catch {
+      return "en";
+    }
+  };
+  const storeLanguage = (language: string) => {
+    try {
+      localStorage.setItem(storageKey, language);
+    } catch {
+      // Language switching should still work when storage is blocked.
+    }
+  };
+  let activeLanguage = readStoredLanguage();
+  let activeScenario = "meeting";
+
+  const getValue = (path: string, lang: string) => {
+    return path.split(".").reduce<unknown>((current, part) => {
+      if (current && typeof current === "object" && part in current) {
+        return (current as Record<string, unknown>)[part];
+      }
+
+      return "";
+    }, copy[lang]);
+  };
+
+  const renderList = (selector: string, items: readonly string[]) => {
+    const list = document.querySelector<HTMLElement>(selector);
+    if (!list) return;
+
+    const nodes = items.map((item) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = item;
+      return listItem;
+    });
+    list.replaceChildren(...nodes);
+  };
+
+  const renderScenario = () => {
+    const scenario = copy[activeLanguage].demo.scenarios[activeScenario];
+    if (!scenario) return;
+
+    document.querySelectorAll<HTMLElement>("[data-demo-field]").forEach((element) => {
+      const key = element.dataset.demoField as keyof Scenario;
+      const value = scenario[key];
+      if (typeof value === "string") {
+        element.textContent = value;
+      }
+    });
+
+    renderList("[data-demo-risks]", scenario.risks);
+    renderList("[data-demo-questions]", scenario.questions);
+
+    scenarioButtons.forEach((button) => {
+      const scenarioKey = button.dataset.scenario || "";
+      const item = copy[activeLanguage].demo.scenarios[scenarioKey];
+      button.textContent = item?.label ?? scenarioKey;
+      button.dataset.active = String(scenarioKey === activeScenario);
+    });
+
+    if (copyPromptButton) {
+      copyPromptButton.textContent = copy[activeLanguage].demo.copyPrompt;
+      copyPromptButton.removeAttribute("data-copied");
+    }
+  };
+
+  const applyLanguage = (language: string) => {
+    activeLanguage = language in copy ? language : "en";
+    document.documentElement.lang = activeLanguage;
+    storeLanguage(activeLanguage);
+
+    textNodes.forEach((node) => {
+      const value = getValue(node.dataset.i18n || "", activeLanguage);
+      if (typeof value === "string") {
+        node.textContent = value;
+      }
+    });
+
+    languageButtons.forEach((button) => {
+      button.dataset.active = String(button.dataset.languageButton === activeLanguage);
+      button.setAttribute("aria-pressed", String(button.dataset.languageButton === activeLanguage));
+    });
+
+    renderScenario();
+  };
+
+  scenarioButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeScenario = button.dataset.scenario || activeScenario;
+      renderScenario();
+    });
+  });
+
+  copyPromptButton?.addEventListener("click", async () => {
+    const scenario = copy[activeLanguage].demo.scenarios[activeScenario];
+    if (!navigator.clipboard?.writeText) return;
+
+    try {
+      await navigator.clipboard.writeText(scenario.prompt);
+      copyPromptButton.textContent = copy[activeLanguage].demo.copied;
+      copyPromptButton.dataset.copied = "true";
+      window.setTimeout(() => {
+        copyPromptButton.textContent = copy[activeLanguage].demo.copyPrompt;
+        copyPromptButton.removeAttribute("data-copied");
+      }, 1400);
+    } catch {
+      copyPromptButton.textContent = copy[activeLanguage].demo.copyPrompt;
+    }
+  });
+
+  languageButtons.forEach((button) => {
+    button.addEventListener("click", () => applyLanguage(button.dataset.languageButton || "en"));
+  });
+
+  applyLanguage(activeLanguage);
+</script>

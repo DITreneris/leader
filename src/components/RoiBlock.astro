@@ -1,0 +1,28 @@
+---
+const metrics = [0, 1, 2];
+---
+
+<section class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+  <div class="glass-card overflow-hidden rounded-[2rem] p-6 sm:p-10">
+    <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.28em] text-cyan-200" data-i18n="roi.eyebrow">Business value</p>
+        <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl" data-i18n="roi.title">Designed to prove ROI quickly.</h2>
+        <p class="mt-6 text-lg leading-8 text-slate-300" data-i18n="roi.note">
+          The goal is not to make CEOs learn prompt engineering. The goal is to help them experience useful clarity, then install the full system across the team.
+        </p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-3">
+        {
+          metrics.map((index) => (
+            <div class="rounded-[1.5rem] border border-white/10 bg-slate-950/70 p-5">
+              <p class="text-4xl font-black text-cyan-200" data-i18n={`roi.metrics.${index}.0`}>5h</p>
+              <p class="mt-4 text-sm leading-6 text-slate-300" data-i18n={`roi.metrics.${index}.1`}>Potential time saved per leader each week</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

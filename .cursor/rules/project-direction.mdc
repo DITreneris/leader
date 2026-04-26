@@ -1,0 +1,15 @@
+---
+description: Core product direction for the PromptAnatomy Executive OS landing page
+alwaysApply: true
+---
+
+# Project Direction
+
+Build one lean, premium, bilingual landing page for CEOs/COOs.
+
+- Keep the page outcome-first: business clarity, decisions, risks, next actions.
+- Do not turn it into a prompt-engineering course or a complex app.
+- Preserve the static MVP: no backend, no AI API calls, no login, no stored user data.
+- Treat `PromptAnatomy.app` as the mother platform and `ditreneris.github.io/lead/` as the sister proof platform.
+- Primary conversion path: visitor gets an aha moment in the static clarity demo, then clicks to the full PromptAnatomy system.
+- Prefer removing complexity over adding new features.

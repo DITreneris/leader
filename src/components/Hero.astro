@@ -1,0 +1,62 @@
+---
+import LanguageToggle from "./LanguageToggle.astro";
+---
+
+<header class="mx-auto flex max-w-7xl items-center justify-between px-5 py-6 sm:px-8">
+  <a href="#" class="text-sm font-bold uppercase tracking-[0.28em] text-cyan-200" data-i18n="nav.product">
+    Executive Clarity Check
+  </a>
+  <nav class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
+    <a href="#demo" class="hover:text-white" data-i18n="nav.demo">Run the check</a>
+    <a href="#system" class="hover:text-white" data-i18n="nav.system">Full system</a>
+  </nav>
+  <LanguageToggle />
+</header>
+
+<section class="relative mx-auto grid max-w-7xl gap-10 px-5 pb-20 pt-10 sm:px-8 lg:grid-cols-[1.03fr_0.97fr] lg:items-center lg:pb-28 lg:pt-16">
+  <div class="relative z-10">
+    <p class="mb-5 inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-100" data-i18n="hero.eyebrow">
+      Powered by PromptAnatomy.app
+    </p>
+    <h1 class="max-w-4xl text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl" data-i18n="hero.title">
+      Turn business noise into clear decisions.
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl" data-i18n="hero.subtitle">
+      A lean AI clarity check for CEOs and COOs. Paste a messy situation, choose the outcome, and see the decision, risks, and next actions in under 5 minutes.
+    </p>
+    <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+      <a href="#demo" class="accent-glow rounded-full bg-cyan-300 px-6 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-slate-950 transition hover:bg-cyan-200" data-i18n="hero.primaryCta">
+        Run the 3-minute check
+      </a>
+      <a href="#system" class="rounded-full border border-white/15 px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.18em] text-white transition hover:border-cyan-200/70 hover:bg-white/5" data-i18n="hero.secondaryCta">
+        See the full AI system
+      </a>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3 text-sm text-slate-300">
+      <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2" data-i18n="hero.proofOne">Static MVP demo</span>
+      <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2" data-i18n="hero.proofTwo">No login</span>
+      <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2" data-i18n="hero.proofThree">No data sent</span>
+    </div>
+  </div>
+
+  <div class="glass-card relative overflow-hidden rounded-[2rem] p-5 sm:p-7">
+    <div class="absolute inset-x-10 top-0 h-32 rounded-full bg-cyan-300/20 blur-3xl"></div>
+    <div class="relative rounded-[1.5rem] border border-white/10 bg-slate-950/80 p-5">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <span class="text-xs font-bold uppercase tracking-[0.24em] text-cyan-200" data-i18n="hero.visualLabel">Executive output</span>
+        <span class="rounded-full bg-emerald-300/10 px-3 py-1 text-xs font-semibold text-emerald-200">03:12</span>
+      </div>
+      <div class="space-y-4 pt-5">
+        <h2 class="text-2xl font-black text-white" data-i18n="hero.visualTitle">Leadership meeting at 09:00</h2>
+        <div class="rounded-2xl bg-white/[0.06] p-4">
+          <p class="text-sm font-semibold text-cyan-100" data-i18n="demo.insight">Key insight</p>
+          <p class="mt-2 text-slate-200" data-i18n="hero.visualInsight">One decision is blocked by unclear ownership.</p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl bg-rose-300/10 p-4 text-rose-100" data-i18n="hero.visualRisk">Risk: team debates symptoms instead of the trade-off.</div>
+          <div class="rounded-2xl bg-emerald-300/10 p-4 text-emerald-100" data-i18n="hero.visualAction">Next action: assign owner, deadline, and decision criteria.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
