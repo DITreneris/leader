@@ -1,0 +1,42 @@
+name: Content / copy change
+description: Suggest or request changes to EN/LT copy, prompts, or landing flow text.
+title: "[Copy]: "
+labels:
+  - content
+body:
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change?
+      description: Paste the current text and your proposed replacement.
+    validations:
+      required: true
+  - type: dropdown
+    id: locale
+    attributes:
+      label: Locale
+      options:
+        - en
+        - lt
+        - both
+    validations:
+      required: true
+  - type: textarea
+    id: intent
+    attributes:
+      label: Intent
+      description: Why this change improves executive clarity (CEO/COO scan, trust, conversion).
+    validations:
+      required: true
+  - type: checkboxes
+    id: qa
+    attributes:
+      label: Quick checks
+      options:
+        - label: Keeps EN/LT aligned (or notes where they intentionally diverge)
+          required: false
+        - label: Does not add promises that imply analytics / data collection
+          required: false
+        - label: Keeps the kit static-first (no backend expectations)
+          required: false
+
