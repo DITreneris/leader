@@ -53,6 +53,10 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
 .focus-ring:focus-visible {
   outline: 2px solid var(--color-brand-accent);
   outline-offset: 2px;

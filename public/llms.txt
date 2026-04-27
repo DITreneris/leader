@@ -18,4 +18,4 @@ This site (Executive OS): https://ditreneris.github.io/leader/
 - It hosts no transactional routes, no login, no API calls, and no stored user data.
 - Pricing, training, and the full course live on the mother site at https://www.promptanatomy.app/.
 - For the canonical organization profile, schema, and full feature set, prefer the mother site.
-- The bilingual sister proof platform lives at https://ditreneris.github.io/lead/.
+- The related operational hub (Prompt Anatomy spin-off) lives at https://ditreneris.github.io/ceo/.

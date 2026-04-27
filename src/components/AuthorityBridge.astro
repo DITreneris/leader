@@ -9,7 +9,7 @@ interface Props {
 const { lang } = Astro.props;
 const authority = uiCopy[lang].authority;
 const motherHref = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=bridge&utm_campaign=mother";
-const sisterHref = "https://ditreneris.github.io/lead/?utm_source=leader&utm_medium=bridge&utm_campaign=sister";
+const sisterHref = "https://ditreneris.github.io/ceo/?utm_source=leader&utm_medium=bridge&utm_campaign=sister";
 ---
 
 <section id="bridge" class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
@@ -55,7 +55,7 @@ const sisterHref = "https://ditreneris.github.io/lead/?utm_source=leader&utm_med
       <p class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">
         {authority.sister}
       </p>
-      <h3 class="mt-4 text-2xl font-black text-white">Promptų anatomija</h3>
+      <h3 class="mt-4 text-2xl font-black text-white">{authority.sisterTitle}</h3>
       <p class="mt-4 leading-7 text-slate-300">
         {authority.sisterText}
       </p>

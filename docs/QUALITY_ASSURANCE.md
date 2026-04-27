@@ -38,7 +38,7 @@ The build must finish with:
 - Copy uses business language: decision, risk, trade-off, next action, delegation, ROI.
 - Claims are specific and believable.
 - ROI language stays cautious unless backed by proof.
-- Links to the static download, `https://www.promptanatomy.app/`, and `https://ditreneris.github.io/lead/` remain correct.
+- Links to the static download, `https://www.promptanatomy.app/`, and `https://ditreneris.github.io/ceo/` (sister bridge) remain correct.
 
 ## Visual QA Checklist
 

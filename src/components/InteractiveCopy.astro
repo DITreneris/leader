@@ -49,7 +49,7 @@
 
   const tryFocusNearbyPre = (fromButton: HTMLElement) => {
     const pre = fromButton
-      .closest("section, article, [class*=\"max-w-\"]")
+      .closest("section, article")
       ?.querySelector<HTMLElement>("pre[tabindex=\"0\"]");
     pre?.focus();
   };

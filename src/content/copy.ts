@@ -48,9 +48,10 @@ export const uiCopy = {
       eyebrow: "Free Executive Prompt Operating Kit",
       title: "Install a decision system, not another prompt list.",
       subtitle:
-        "Turn leadership work into copy-paste AI workflows. Try the 2-minute practice, grab the kit, then scale the method in PromptAnatomy when your team is ready.",
-      primaryCta: "Download Max Value Kit",
+        "Turn leadership work into decision-ready briefs. Start with the 2-minute practice—then use PromptAnatomy as the team standard.",
+      primaryCta: "Open PromptAnatomy",
       secondaryCta: "Start 2-minute practice",
+      tertiaryCta: "Download kit (PDF)",
       proofOne: "Short printable kit",
       proofTwo: "No login",
       proofThree: "Built on PromptAnatomy",
@@ -59,6 +60,11 @@ export const uiCopy = {
       visualInsight: "Clarify the trade-off, decision criteria, risk, and next action before the meeting starts.",
       visualRisk: "Risk: the team debates symptoms instead of deciding the operating trade-off.",
       visualAction: "Next action: copy the prompt, fill the brackets, and run the decision brief.",
+    },
+    flowScheme: {
+      eyebrow: "How it works",
+      a11yLabel: "Flow: Noise to prompt to decision-ready output to safety check.",
+      nodes: ["Noise", "Prompt", "Decision-ready output", "Safety check"],
     },
     proof: {
       eyebrow: "Why leaders use it",
@@ -80,20 +86,22 @@ export const uiCopy = {
       beforeLabel: "What goes wrong",
       beforeBullets: ["No audience or decision owner.", "No trade-off or success criteria.", "No usable next action for the team."],
       afterTitle: "2. Structure",
-      afterText:
-        "Act as my executive operating partner. Use these notes to identify the decision needed, the trade-off, 3 risks, 3 questions, and the next action with owner and deadline.",
-      afterLabel: "What improves",
+      structureHelper:
+        "Replace [PASTE NOTES] with your raw context. One block below is the only prompt you need—copy it, run it, then compare to the example in step 3.",
+      afterLabel: "What you get from this pattern",
       afterBullets: ["Clear decision frame.", "Risk and questions before discussion.", "Delegation-ready next action."],
       copyPrompt: "Copy structured prompt",
       copied: "Copied",
       prompt:
         "Act as my executive operating partner. Use these notes to identify the decision needed, the trade-off, 3 risks, 3 questions to ask, and the next action with owner and deadline. Notes: [PASTE NOTES].",
       resultTitle: "3. Result",
+      resultMicro: "Example output shape (not your data)",
       resultText:
         "The meeting is not about status. It needs one prioritization decision, three risk checks, and one owner by Friday.",
       checkTitle: "4. Safety check",
       checkText:
         "Before using the output, verify facts, missing context, sensitive claims, and who owns the next action.",
+      checkBridge: "The next block has a copy-paste safety prompt—run it before anything goes to board, client, or team.",
     },
     safety: {
       eyebrow: "30-second executive safety check",
@@ -532,7 +540,9 @@ export const uiCopy = {
       mother: "Mother platform",
       motherText: "PromptAnatomy.app: full AI operating system and commercial home.",
       sister: "Sister platform",
-      sisterText: "Lithuanian practice page: method proof and team use cases.",
+      sisterTitle: "DI Operacinis Centras",
+      sisterText:
+        "CEO/COO hub on GitHub Pages: mode-based prompts, weekly priorities, and a template library (Prompt Anatomy spin-off).",
     },
     cta: {
       eyebrow: "Take the executive kit",
@@ -595,9 +605,10 @@ export const uiCopy = {
       eyebrow: "Nemokamas vadovo promptų operacinis rinkinys",
       title: "Įdiek sprendimų sistemą, ne dar vieną promptų sąrašą.",
       subtitle:
-        "Vadovų darbus paversk kopijuojamomis DI darbo eigomis. Išbandyk 2 min. praktiką, pasiimk rinkinį, tada metodą plėsk PromptAnatomy, kai komanda pasiruošusi.",
-      primaryCta: "Atsisiųsti Max Value Kit",
+        "Vadovų darbą paversk sprendimui paruoštais briefais. Pradėk nuo 2 min. praktikos—tada naudok PromptAnatomy kaip komandos standartą.",
+      primaryCta: "Atidaryti PromptAnatomy",
       secondaryCta: "Pradėti 2 min. praktiką",
+      tertiaryCta: "Atsisiųsti rinkinį (PDF)",
       proofOne: "Trumpas spausdinamas rinkinys",
       proofTwo: "Be prisijungimo",
       proofThree: "Pagrįsta PromptAnatomy",
@@ -606,6 +617,11 @@ export const uiCopy = {
       visualInsight: "Išgrynink kompromisą, sprendimo kriterijus, riziką ir kitą veiksmą dar prieš susitikimą.",
       visualRisk: "Rizika: komanda aptarinės simptomus, užuot priėmusi operacinį sprendimą.",
       visualAction: "Kitas veiksmas: kopijuok promptą, užpildyk skliaustus ir paleisk sprendimo briefą.",
+    },
+    flowScheme: {
+      eyebrow: "Kaip tai veikia",
+      a11yLabel: "Eiga: triukšmas į promptą, į sprendimui paruoštą rezultatą, į saugumo patikrą.",
+      nodes: ["Triukšmas", "Promptas", "Sprendimui paruoštas rezultatas", "Saugumo patikra"],
     },
     proof: {
       eyebrow: "Kodėl vadovai jį naudoja",
@@ -627,20 +643,23 @@ export const uiCopy = {
       beforeLabel: "Kas stringa",
       beforeBullets: ["Nėra auditorijos ir sprendimo savininko.", "Nėra kompromiso ar sėkmės kriterijų.", "Nėra komandai naudingo kito veiksmo."],
       afterTitle: "2. Struktūra",
-      afterText:
-        "Veik kaip mano vadovo operacinis partneris. Pagal šiuos užrašus nustatyk reikalingą sprendimą, kompromisą, 3 rizikas, 3 klausimus ir kitą veiksmą su savininku bei terminu.",
-      afterLabel: "Kas pagerėja",
+      structureHelper:
+        "Užuot [ĮKLIJUOK UŽRAŠUS] įrašyk savo kontekstą. Žemiau vienas blokas – tai visas promptas: kopijuok, paleisk, tada palygink su 3 žingsnio pavyzdžiu.",
+      afterLabel: "Ką duoda šis šablonas",
       afterBullets: ["Aiškus sprendimo rėmas.", "Rizikos ir klausimai prieš diskusiją.", "Kitas veiksmas paruoštas deleguoti."],
       copyPrompt: "Kopijuoti struktūruotą promptą",
       copied: "Nukopijuota",
       prompt:
         "Veik kaip mano vadovo operacinis partneris. Pagal šiuos užrašus nustatyk reikalingą sprendimą, kompromisą, 3 rizikas, 3 klausimus komandai ir kitą veiksmą su savininku bei terminu. Užrašai: [ĮKLIJUOK UŽRAŠUS].",
       resultTitle: "3. Rezultatas",
+      resultMicro: "Pavyzdinė išvestis (ne tavo duomenys)",
       resultText:
         "Tai nėra statuso susitikimas. Reikia vieno prioriteto sprendimo, trijų rizikos patikrų ir vieno savininko iki penktadienio.",
       checkTitle: "4. Patikra",
       checkText:
         "Prieš naudodamas rezultatą, patikrink faktus, trūkstamą kontekstą, jautrius teiginius ir tai, kas valdo kitą veiksmą.",
+      checkBridge:
+        "Kitas blokas turi kopijuojamą saugumo promptą – paleisk jį prieš siųsdant valdybai, klientui ar komandai.",
     },
     safety: {
       eyebrow: "30 sek. vadovo saugumo patikra",
@@ -1081,7 +1100,9 @@ export const uiCopy = {
       mother: "Motininė platforma",
       motherText: "PromptAnatomy.app: pilna DI operacinė sistema ir komercinis namai.",
       sister: "Seserinė platforma",
-      sisterText: "Lietuviškas praktinis puslapis: metodo įrodymas ir komandinis naudojimas.",
+      sisterTitle: "DI Operacinis Centras",
+      sisterText:
+        "CEO/COO operacinis centras: režimai, savaitės prioritetai ir šablonų biblioteka („Promptų anatomijos“ spin-offas).",
     },
     cta: {
       eyebrow: "Pasiimk vadovo rinkinį",

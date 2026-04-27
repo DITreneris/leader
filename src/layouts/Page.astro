@@ -11,7 +11,6 @@ import InteractiveCopy from "../components/InteractiveCopy.astro";
 import MemeMoment from "../components/MemeMoment.astro";
 import PromptAnatomy from "../components/PromptAnatomy.astro";
 import PromptLibrary from "../components/PromptLibrary.astro";
-import ProofStrip from "../components/ProofStrip.astro";
 import QuickPractice from "../components/QuickPractice.astro";
 import RoiPath from "../components/RoiPath.astro";
 import SafetyCheck from "../components/SafetyCheck.astro";
@@ -138,17 +137,6 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
     <a href="#practice" class="skip-link focus-ring">{copy.a11y.skipLink}</a>
     <Hero lang={lang} />
     <main>
-      <ProofStrip lang={lang} />
-      <MemeMoment
-        lang={lang}
-        index={0}
-        src="reward_2.png"
-        alt="Executive holding a key while AI tools pile up around the desk"
-        side="left"
-        accent="gold"
-        width={1280}
-        height={1280}
-      />
       <QuickPractice lang={lang} />
       <SafetyCheck lang={lang} />
       <MemeMoment
@@ -161,44 +149,14 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         width={1280}
         height={1280}
       />
-      <ClarityDemo lang={lang} />
       <PromptAnatomy lang={lang} />
-      <MemeMoment
-        lang={lang}
-        index={2}
-        src="meme-04-delegation-bottleneck.png"
-        alt="Bottleneck with all delegation requests landing back on the CEO desk"
-        side="left"
-        accent="rose"
-        width={1280}
-        height={1280}
-      />
       <RoiPath lang={lang} />
-      <PromptLibrary lang={lang} />
-      <MemeMoment
-        lang={lang}
-        index={3}
-        src="meme-03-clear-decision.png"
-        alt="Clear decision card returned to the executive after a structured prompt"
-        side="right"
-        accent="emerald"
-        width={1280}
-        height={1280}
-      />
       <SystemVisual lang={lang} />
+      <ClarityDemo lang={lang} />
       <Faq lang={lang} />
       <AuthorityBridge lang={lang} />
-      <MemeMoment
-        lang={lang}
-        index={4}
-        src="meme-02-meeting-overload.png"
-        alt="Leadership team drowning in meetings without a shared operating system"
-        side="left"
-        accent="fuchsia"
-        width={1280}
-        height={1280}
-      />
       <CourseCTA lang={lang} />
+      <PromptLibrary lang={lang} />
     </main>
     <footer class="mx-auto flex max-w-7xl flex-col gap-4 border-t border-white/5 px-5 pb-10 pt-8 text-sm text-slate-500 sm:px-8 md:flex-row md:items-center md:justify-between">
       <div class="flex flex-col gap-1">
@@ -230,7 +188,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
       </nav>
     </footer>
     <p
-      class="pointer-events-none fixed bottom-4 left-1/2 z-[100] hidden max-w-md -translate-x-1/2 rounded-xl border border-amber-400/40 bg-slate-950/95 px-4 py-3 text-center text-xs font-medium text-amber-100 shadow-lg backdrop-blur-sm"
+      class="safe-bottom pointer-events-none fixed bottom-4 left-1/2 z-[100] hidden max-w-md -translate-x-1/2 rounded-xl border border-amber-400/40 bg-slate-950/95 px-4 py-3 text-center text-xs font-medium text-amber-100 shadow-lg backdrop-blur-sm"
       data-copy-manual-hint
       role="status"
       aria-live="polite"
