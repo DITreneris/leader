@@ -29,7 +29,7 @@ Order on the live page (top to bottom):
 
 1. `reward_2.png` — *Access is not enough.*
    - Placement: between `ProofStrip` and `QuickPractice`.
-   - Side: image left, copy right. Accent: cyan.
+   - Side: image left, copy right. Accent: gold.
    - Function: emotional hook into why the practice matters.
 
 2. `meme-01-ai-chaos.png` — *Structure creates control.*
@@ -43,9 +43,9 @@ Order on the live page (top to bottom):
    - Function: recognition of the real bottleneck before the ROI path.
 
 4. `meme-03-clear-decision.png` — *Control creates results.*
-   - Placement: between `PromptLibrary` and `SystemVisual`.
+   - Placement: between `CourseCTA` and `SystemVisual`.
    - Side: image right, copy left. Accent: emerald.
-   - Function: payoff moment after the heaviest catalog section.
+   - Function: payoff moment before the system visual.
 
 5. `meme-02-meeting-overload.png` — *Leadership needs the system.*
    - Placement: between `AuthorityBridge` and `CourseCTA`.

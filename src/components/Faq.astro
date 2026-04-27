@@ -18,8 +18,8 @@ const { faq } = uiCopy[lang];
     <div class="mt-10 space-y-3">
       {
         faq.items.map((item) => (
-          <details class="glass-card rounded-2xl border border-white/10 px-5 py-1 open:bg-slate-950/40">
-            <summary class="focus-ring cursor-pointer list-none py-4 text-left text-base font-bold text-white outline-none [&::-webkit-details-marker]:hidden">
+          <details class="glass-card rounded-2xl px-5 py-1">
+            <summary class="focus-ring summary-hover cursor-pointer list-none py-4 text-left text-base font-bold text-white outline-none [&::-webkit-details-marker]:hidden">
               {item.q}
             </summary>
             <p class="border-t border-white/10 pb-4 pt-2 text-sm leading-7 text-slate-300">{item.a}</p>

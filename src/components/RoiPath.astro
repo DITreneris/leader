@@ -8,6 +8,33 @@ interface Props {
 
 const { lang } = Astro.props;
 const roiPath = uiCopy[lang].roiPath;
+const steps = roiPath.steps;
+
+const accentClass = (accent: string) => {
+  switch (accent) {
+    case "risk":
+      return "data-[active=true]:border-rose-200/60 data-[active=true]:shadow-[0_0_60px_rgba(244,63,94,0.18)] hover:border-rose-200/35";
+    case "analysis":
+      return "data-[active=true]:border-sky-200/55 data-[active=true]:shadow-[0_0_60px_rgba(56,189,248,0.14)] hover:border-sky-200/30";
+    case "decision":
+      return "data-[active=true]:border-amber-200/70 data-[active=true]:shadow-[0_0_60px_rgba(232,185,60,0.20)] hover:border-amber-200/45";
+    case "execution":
+      return "data-[active=true]:border-emerald-200/55 data-[active=true]:shadow-[0_0_60px_rgba(16,185,129,0.14)] hover:border-emerald-200/30";
+    case "communication":
+      return "data-[active=true]:border-violet-200/55 data-[active=true]:shadow-[0_0_60px_rgba(167,139,250,0.14)] hover:border-violet-200/30";
+    default:
+      return "data-[active=true]:border-brand-accent/60 data-[active=true]:shadow-[0_0_60px_rgba(207,167,58,0.22)] hover:border-brand-accent/40";
+  }
+};
+
+const desktopPositions = [
+  "left-1/2 top-1 -translate-x-1/2",
+  "right-4 top-[18%]",
+  "right-4 bottom-[18%]",
+  "left-1/2 bottom-1 -translate-x-1/2",
+  "left-4 bottom-[18%]",
+  "left-4 top-[18%]",
+] as const;
 ---
 
 <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
@@ -23,19 +50,203 @@ const roiPath = uiCopy[lang].roiPath;
     </p>
   </div>
 
-  <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-    {
-      roiPath.steps.map(([time, title, body]) => (
-        <article class="glass-card rounded-[1.75rem] p-6">
-          <p class="text-3xl font-black text-brand-accent-hover">{time}</p>
-          <h3 class="mt-4 text-xl font-black text-white">{title}</h3>
-          <p class="mt-3 text-sm leading-6 text-slate-300">{body}</p>
-        </article>
-      ))
-    }
+  <!-- Desktop: weekly cycle -->
+  <div class="mt-10 hidden lg:block">
+    <div class="mx-auto grid max-w-6xl items-center gap-6 lg:grid-cols-[1fr_0.95fr]">
+      <div class="relative mx-auto w-full max-w-[44rem]">
+        <div class="glass-card relative aspect-square overflow-hidden rounded-[2.5rem] p-8">
+          <div class="pointer-events-none absolute inset-x-10 top-0 h-32 rounded-full bg-brand-accent/15 blur-3xl"></div>
+
+          <svg
+            class="pointer-events-none absolute inset-0 h-full w-full"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid meet"
+            aria-hidden="true"
+          >
+            <defs>
+              <marker id="roiArrow" markerWidth="4" markerHeight="4" refX="3.4" refY="2" orient="auto">
+                <path d="M0,0 L4,2 L0,4 Z" fill="rgba(232,185,60,0.55)" />
+              </marker>
+              <linearGradient id="roiRing" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="rgba(207,167,58,0.20)" />
+                <stop offset="0.5" stop-color="rgba(232,185,60,0.55)" />
+                <stop offset="1" stop-color="rgba(207,167,58,0.20)" />
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="34" fill="none" stroke="url(#roiRing)" stroke-width="0.9" opacity="0.7" />
+            <path
+              d="M50 16 A34 34 0 1 1 49.9 16"
+              fill="none"
+              stroke="rgba(226,232,240,0.16)"
+              stroke-width="0.9"
+              marker-end="url(#roiArrow)"
+            />
+          </svg>
+
+          <div class="absolute left-1/2 top-1/2 w-[58%] -translate-x-1/2 -translate-y-1/2 text-center">
+            <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{roiPath.centerLabel}</p>
+            <p class="mt-3 text-base font-bold leading-7 text-slate-200">{roiPath.centerText}</p>
+          </div>
+
+          {steps.map((step, index) => (
+            <button
+              type="button"
+              data-roi-step={index}
+              aria-controls="roi-step-panel"
+              aria-pressed={index === 0 ? "true" : "false"}
+              class:list={[
+                "focus-ring absolute z-10 w-[12rem] rounded-[1.75rem] border border-white/10 bg-slate-950/40 p-4 text-left transition",
+                "hover:shadow-[0_0_40px_rgba(148,163,184,0.12)]",
+                accentClass(step.accent),
+                desktopPositions[index],
+              ]}
+            >
+              <p class="text-xs font-black uppercase tracking-[0.18em] text-brand-accent-hover">0{index + 1}</p>
+              <p class="mt-2 text-sm font-black text-white">{step.time}</p>
+              <p class="mt-2 text-sm font-bold text-slate-200">{step.action}</p>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <aside
+        id="roi-step-panel"
+        class="glass-card rounded-[2rem] p-7"
+        role="region"
+        aria-live="polite"
+        aria-label={roiPath.panelLabel}
+      >
+        <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{roiPath.panelLabel}</p>
+        <p class="mt-4 text-3xl font-black text-brand-accent-hover" data-roi-panel="time"></p>
+        <h3 class="mt-3 text-2xl font-black text-white" data-roi-panel="action"></h3>
+        <p class="mt-3 text-base leading-7 text-slate-200" data-roi-panel="value"></p>
+        <p class="mt-4 text-sm leading-6 text-slate-300" data-roi-panel="description"></p>
+
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <button
+            type="button"
+            data-roi-panel-copy
+            data-copy-label-i18n="roiPath.copyPrompt"
+            data-copy-copied-i18n="roiPath.copied"
+            class="focus-ring btn-outline-accent elevate-hover rounded-full px-4 py-3 text-sm font-bold"
+          >
+            {roiPath.copyPrompt}
+          </button>
+          <p class="text-xs leading-5 text-slate-300">{roiPath.panelHint}</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Mobile/tablet: ordered flow -->
+  <div class="mt-10 lg:hidden">
+    <ol class="space-y-4">
+      {steps.map((step, index) => (
+        <li class="relative">
+          {index !== steps.length - 1 && (
+            <div class="pointer-events-none absolute left-6 top-14 h-[calc(100%+1rem)] w-px bg-gradient-to-b from-brand-accent/20 via-brand-accent/10 to-transparent"></div>
+          )}
+          <div class="surface-panel overflow-hidden rounded-[1.75rem] p-5">
+          <details class="group">
+            <summary class="focus-ring summary-hover cursor-pointer list-none outline-none">
+              <div class="flex items-start gap-4">
+                <div class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-brand-accent/10 text-sm font-black text-brand-accent-hover">
+                  0{index + 1}
+                </div>
+                <div class="flex-1">
+              <p class="mt-2 text-2xl font-black text-brand-accent-hover">{step.time}</p>
+              <h3 class="mt-3 text-lg font-black text-white">{step.action}</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-300">{step.value}</p>
+              <span
+                aria-hidden="true"
+                class="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg font-black text-brand-accent transition motion-safe:group-open:rotate-45"
+              >
+                +
+              </span>
+                </div>
+              </div>
+            </summary>
+
+            <div class="mt-4 border-t border-white/10 pt-4">
+              <p class="text-sm leading-6 text-slate-300">{step.description}</p>
+              <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <button
+                  type="button"
+                  data-copy-i18n={`roiPath.steps.${index}.prompt`}
+                  data-copy-label-i18n="roiPath.copyPrompt"
+                  data-copy-copied-i18n="roiPath.copied"
+                  class="focus-ring btn-outline-accent elevate-hover rounded-full px-4 py-3 text-sm font-bold"
+                >
+                  {roiPath.copyPrompt}
+                </button>
+              </div>
+            </div>
+          </details>
+          </div>
+        </li>
+      ))}
+    </ol>
   </div>
 
   <p class="mx-auto mt-8 max-w-3xl rounded-full border border-brand-accent/25 bg-brand-accent/15 px-5 py-4 text-center text-sm font-bold text-brand-accent-hover">
     {roiPath.total}
   </p>
 </section>
+
+<script>
+  type RoiStep = {
+    time: string;
+    action: string;
+    value: string;
+    description: string;
+    prompt: string;
+  };
+
+  type RoiCopy = {
+    roiPath: {
+      copyPrompt: string;
+      copied: string;
+      steps: RoiStep[];
+    };
+  };
+
+  const copy = (window as unknown as { __PA_COPY__: RoiCopy }).__PA_COPY__;
+  const steps = copy?.roiPath?.steps ?? [];
+
+  const stepButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-roi-step]"));
+  const panelTime = document.querySelector<HTMLElement>("[data-roi-panel=\"time\"]");
+  const panelAction = document.querySelector<HTMLElement>("[data-roi-panel=\"action\"]");
+  const panelValue = document.querySelector<HTMLElement>("[data-roi-panel=\"value\"]");
+  const panelDescription = document.querySelector<HTMLElement>("[data-roi-panel=\"description\"]");
+  const panelCopy = document.querySelector<HTMLButtonElement>("[data-roi-panel-copy]");
+
+  const setActive = (index: number) => {
+    stepButtons.forEach((button) => {
+      const isActive = Number(button.dataset.roiStep || "0") === index;
+      button.dataset.active = String(isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    const step = steps[index];
+    if (!step) return;
+    if (panelTime) panelTime.textContent = step.time;
+    if (panelAction) panelAction.textContent = step.action;
+    if (panelValue) panelValue.textContent = step.value;
+    if (panelDescription) panelDescription.textContent = step.description;
+
+    if (panelCopy) {
+      panelCopy.textContent = copy?.roiPath?.copyPrompt ?? panelCopy.textContent;
+      panelCopy.dataset.copyI18n = `roiPath.steps.${index}.prompt`;
+      panelCopy.removeAttribute("data-copied");
+    }
+  };
+
+  stepButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const index = Number(button.dataset.roiStep || "0");
+      setActive(index);
+    });
+  });
+
+  setActive(0);
+</script>

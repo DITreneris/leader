@@ -13,9 +13,10 @@ Active assets (clean `.png` extension):
 Placement on the landing page (top to bottom):
 
 1. After `ProofStrip`, before `QuickPractice` — `reward_2.png` (cyan accent, image left).
+   - Note: in code, the old `cyan` accent tone is now `gold` to match the PromptAnatomy brand palette.
 2. After `SafetyCheck`, before `ClarityDemo` — `meme-01-ai-chaos.png` (amber accent, image right).
 3. After `PromptAnatomy`, before `RoiPath` — `meme-04-delegation-bottleneck.png` (rose accent, image left).
-4. After `PromptLibrary`, before `SystemVisual` — `meme-03-clear-decision.png` (emerald accent, image right).
+4. After `CourseCTA`, before `SystemVisual` — `meme-03-clear-decision.png` (emerald accent, image right).
 5. After `AuthorityBridge`, before `CourseCTA` — `meme-02-meeting-overload.png` (fuchsia accent, image left).
 
 Rules:

@@ -24,7 +24,7 @@ const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-oper
     </p>
   </div>
 
-  <div class="mx-auto mt-10 max-w-4xl rounded-[1.75rem] border border-white/10 bg-slate-950/55 p-5 sm:p-6">
+  <div class="surface-panel mx-auto mt-10 max-w-4xl rounded-[1.75rem] p-5 sm:p-6">
     <p class="text-center text-xs font-bold uppercase tracking-[0.28em] text-brand-accent">
       {library.starter.pickerEyebrow}
     </p>
@@ -37,7 +37,7 @@ const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-oper
           <button
             type="button"
             data-workflow-pick={categoryIndex}
-            class="focus-ring min-h-11 rounded-full border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:border-brand-accent/40 hover:text-white data-[active=true]:border-brand-accent data-[active=true]:bg-brand-accent/15 data-[active=true]:text-brand-accent-hover"
+            class="focus-ring btn-chip elevate-hover min-h-11 rounded-full px-4 py-3 text-sm font-semibold"
           >
             {category.title}
           </button>
@@ -68,7 +68,7 @@ const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-oper
                 data-copy-i18n={`${path}.prompt`}
                 data-copy-label-i18n="library.copyPrompt"
                 data-copy-copied-i18n="library.copied"
-                class="focus-ring shrink-0 rounded-full border border-brand-accent/40 px-4 py-3 text-sm font-bold text-brand-accent-hover transition hover:bg-brand-accent hover:text-slate-950"
+                class="focus-ring btn-outline-accent elevate-hover shrink-0 rounded-full px-4 py-3 text-sm font-bold"
               >
                 {library.copyPrompt}
               </button>
@@ -93,8 +93,8 @@ const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-oper
     </a>
   </div>
 
-  <details class="mx-auto mt-14 max-w-6xl glass-card group overflow-hidden rounded-[2rem] transition open:bg-slate-950/55">
-    <summary class="library-summary focus-ring cursor-pointer list-none rounded-[2rem] p-6 outline-none transition hover:bg-white/[0.04] focus-visible:bg-white/[0.04]">
+  <details class="mx-auto mt-14 max-w-6xl glass-card group overflow-hidden rounded-[2rem] transition">
+    <summary class="library-summary focus-ring summary-hover cursor-pointer list-none rounded-[2rem] p-6 outline-none">
       <div class="flex items-start justify-between gap-4">
         <div class="flex-1">
           <p class="text-sm font-bold uppercase tracking-[0.28em] text-brand-accent">{library.eyebrow}</p>
@@ -113,8 +113,8 @@ const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-oper
     <div class="grid gap-5 border-t border-white/10 p-6 lg:grid-cols-2">
       {
         library.categories.map((category, categoryIndex) => (
-          <details class="rounded-[1.75rem] border border-white/10 bg-slate-950/55 transition open:bg-slate-950/70">
-            <summary class="focus-ring cursor-pointer list-none rounded-[1.75rem] p-5 outline-none transition hover:bg-white/[0.04] focus-visible:bg-white/[0.04]">
+          <details class="group surface-panel rounded-[1.75rem] transition">
+            <summary class="focus-ring summary-hover cursor-pointer list-none rounded-[1.75rem] p-5 outline-none">
               <div class="flex items-start justify-between gap-4">
                 <div class="flex-1">
                   <p class="text-sm font-bold uppercase tracking-[0.22em] text-brand-accent">0{categoryIndex + 1}</p>
@@ -135,7 +135,7 @@ const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-oper
                 const path = `library.categories.${categoryIndex}.prompts.${promptIndex}`;
 
                 return (
-                  <div class="rounded-[1.5rem] border border-white/10 bg-slate-950/65 p-5">
+                  <div class="surface-panel rounded-[1.5rem] p-5">
                     <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                       <div>
                         <h4 class="text-lg font-black text-white">{promptItem.title}</h4>
@@ -146,12 +146,23 @@ const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-oper
                         data-copy-i18n={`${path}.prompt`}
                         data-copy-label-i18n="library.copyPrompt"
                         data-copy-copied-i18n="library.copied"
-                        class="focus-ring shrink-0 rounded-full border border-brand-accent/40 px-4 py-3 text-sm font-bold text-brand-accent-hover transition hover:bg-brand-accent hover:text-slate-950"
+                        class="focus-ring btn-outline-accent elevate-hover shrink-0 rounded-full px-4 py-3 text-sm font-bold"
                       >
                         {library.copyPrompt}
                       </button>
                     </div>
-                    <p class="mt-4 rounded-2xl bg-white/[0.06] p-4 text-sm leading-6 text-slate-200">{promptItem.prompt}</p>
+                    <details class="group surface-muted mt-4 overflow-hidden rounded-2xl">
+                      <summary class="focus-ring summary-hover cursor-pointer list-none px-4 py-3 text-sm font-bold text-slate-200 outline-none">
+                        Reveal prompt
+                        <span
+                          aria-hidden="true"
+                          class="ml-3 inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-base font-black text-brand-accent transition motion-safe:group-open:rotate-45"
+                        >
+                          +
+                        </span>
+                      </summary>
+                      <p class="border-t border-white/10 p-4 text-sm leading-6 text-slate-200">{promptItem.prompt}</p>
+                    </details>
                   </div>
                 );
               })}

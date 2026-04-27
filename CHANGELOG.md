@@ -5,16 +5,24 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 ## 2026-04-27
 
 ### Changed
-- **Landing clarity pass:** Simplified the above-the-fold journey and removed duplicate “second-hero” proof density. Primary Hero CTA now opens PromptAnatomy, with the PDF download demoted to a secondary link. Reordered the main stack to start with `QuickPractice` → `SafetyCheck` and reduced the meme interruptions down to a single larger visual break.
-- **Prompt library overload:** Moved `PromptLibrary` to the bottom of the page and collapsed the full 35-prompt library behind a single disclosure so the page stays scannable.
+- **Landing clarity pass:** Simplified the above-the-fold journey and removed duplicate “second-hero” proof density. Primary Hero CTA now opens PromptAnatomy, with the PDF download demoted to a secondary link. Reordered the main stack to start with `QuickPractice` → `SafetyCheck` and restored all five fragmented meme moments across the flow (matching `public/assets/memes/README.md`).
+- **Prompt library overload:** Moved `PromptLibrary` to the bottom of the page so the conversion path stays scannable; the 35-prompt depth library remains opt-in behind a top-level disclosure, with each prompt’s full text hidden behind a per-prompt “Reveal prompt”.
 - **Hero visual artifact:** Replaced the previous dense Hero preview card with a static inline SVG flow scheme (Noise → Prompt → Decision-ready output → Safety check) and then upgraded it to a more premium 2×2 layout with subtle icon badges and tiny step numbers.
 - **2-minute practice (learning slide):** Removed duplicate “structure” copy (old gold box repeated the start of the full prompt). One canonical `<pre>` + `structureHelper` microcopy, wider column 2 in the grid, `<ol>` semantics for steps 1–4, `resultMicro` to label the example, `checkBridge` to hand off to the safety section. See `QuickPractice.astro` and `copy.ts` `quickPractice.*`.
+- **2-minute practice (decisive slide pass):** Rewrote the section for 2-second executive scanning: added an outcome-first subtitle, removed the internal scroll UI, tightened each step to short bullets, made the `Result` block visually dominant, reframed safety as a “risk shield”, and added an explicit CTA to PromptAnatomy.
+- **Surface copy trims:** Shortened the highest-surface intro lines (hero, quick-practice trail, library intros) without changing the underlying prompt library content.
+- **Docs alignment:** Updated `docs/VISUAL_CONTENT_MAP.md`, `docs/CODEBASE_OVERVIEW.md`, and `public/assets/memes/README.md` to match the new meme placements and the “library last + opt-in” structure.
 - **Sister platform:** `AuthorityBridge` and copy now point to [DI Operacinis Centras](https://ditreneris.github.io/ceo/) (`/ceo/`) instead of `/lead/`; `authority.sisterTitle` + updated EN/LT `sisterText`. `llms.txt`, `project-direction.mdc`, and `docs/QUALITY_ASSURANCE.md` aligned.
 
 ### Changed (de-frankenstein pass)
 - Tightened bilingual marketing copy in `src/content/copy.ts` (hero, proof, practice, safety, demo, anatomy, `roiPath`, library intros, `systemVisual`, FAQ, authority, CTA) to cut redundant “system / static / ROI” repetition; removed unused `beforeAfter`, `workflows`, `visualBreak`, and `roi` object keys.
 - `PromptLibrary.astro`: category `<details>` panels default to **closed** on first load so the full library is not a wall of open text.
 - **Copyable prompts:** `ClarityDemo.astro`, `QuickPractice.astro`, and `SafetyCheck.astro` now show the full prompt in a scrollable `<pre>` (demo prompt syncs with scenario buttons via `data-demo-field="prompt"`). `Page.astro` + `InteractiveCopy.astro` add a short toast (`a11y.copyManual`) when the Clipboard API is missing or throws, and focus the visible prompt for manual copy.
+
+### Changed (workflow UX polish)
+- **SafetyCheck becomes a process:** Rebuilt the 01–04 cards into a step-by-step ordered flow with a clear “run the 4 checks” micro-label; upgraded the step titles into questions and tightened hero spacing. The safety prompt now shows a preview with a fade (copy still grabs the full prompt) and adds a bilingual `previewHint`.
+- **Weekly ROI path becomes a system:** Rebuilt `RoiPath` from a 2×3 grid into a weekly cycle (desktop) with active step selection, per-step copyable prompts, and a mobile ordered flow. Added `roiPath.centerLabel/centerText`, stronger “time → value” copy, and upgraded `total` into a value claim.
+- **Cross-slide copy consistency:** Standardized prompt preview UX across `QuickPractice` and `ClarityDemo` (preview + fade + `previewHint`, no scroll-UI “cut-off” look). Moved the demo Copy CTA next to the prompt preview so it is unambiguously “copy the prompt”, not output.
 
 ### Added
 - **PDF lead magnet (sister-`lead` pattern):** canonical Markdown at `docs/executive-operating-kit-pdf.md`, build scripts `scripts/build-executive-kit-pdf.ps1` / `scripts/build-executive-kit-pdf.sh` and `scripts/run-build-pdf.mjs`, `npm run build:pdf`, and `docs/SETUP_PDF.md` (Pandoc + Typst or LaTeX, same as [DITreneris/lead](https://github.com/DITreneris/lead) `scripts/build-pdf.*`). The generated `public/assets/downloads/executive-operating-kit.pdf` is committed so GitHub Pages serves a real `.pdf` without CI Pandoc. CTAs were already `*.pdf`; `InteractiveCopy.astro` still falls back to `.html` on 404.
