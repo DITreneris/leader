@@ -16,6 +16,7 @@
       copyPrompt: string;
       scenarios: Record<string, Scenario>;
     };
+    a11y: { copyManual: string; skipLink?: string };
     [key: string]: unknown;
   };
 
@@ -30,10 +31,34 @@
     }, copy);
   };
 
+  const manualMessage = () => {
+    const m = getValue("a11y.copyManual");
+    return typeof m === "string" && m ? m : "Select the prompt text, then copy (Ctrl+C or ⌘+C).";
+  };
+
+  const showCopyHint = (message: string) => {
+    const hint = document.querySelector<HTMLElement>("[data-copy-manual-hint]");
+    if (!hint) return;
+    hint.textContent = message;
+    hint.classList.remove("hidden");
+    window.setTimeout(() => {
+      hint.textContent = "";
+      hint.classList.add("hidden");
+    }, 4500);
+  };
+
+  const tryFocusNearbyPre = (fromButton: HTMLElement) => {
+    const pre = fromButton
+      .closest("section, article, [class*=\"max-w-\"]")
+      ?.querySelector<HTMLElement>("pre[tabindex=\"0\"]");
+    pre?.focus();
+  };
+
   const scenarioButtons = document.querySelectorAll<HTMLButtonElement>("[data-scenario]");
   const copyPromptButton = document.querySelector<HTMLButtonElement>("[data-copy-prompt]");
   const genericCopyButtons = document.querySelectorAll<HTMLButtonElement>("[data-copy-i18n]");
   let activeScenario = "meeting";
+  let copyHintTimeout = 0;
 
   const renderList = (selector: string, items: readonly string[]) => {
     const list = document.querySelector<HTMLElement>(selector);
@@ -94,28 +119,43 @@
 
   copyPromptButton?.addEventListener("click", async () => {
     const scenario = copy.demo.scenarios[activeScenario];
-    if (!navigator.clipboard?.writeText) return;
+    const text = scenario?.prompt ?? "";
+    if (!text) return;
+
+    if (!navigator.clipboard?.writeText) {
+      showCopyHint(manualMessage());
+      document.querySelector<HTMLElement>("[data-demo-field=\"prompt\"]")?.focus();
+      return;
+    }
 
     try {
-      await navigator.clipboard.writeText(scenario.prompt);
+      await navigator.clipboard.writeText(text);
       copyPromptButton.textContent = copy.demo.copied;
       copyPromptButton.dataset.copied = "true";
-      window.setTimeout(() => {
+      window.clearTimeout(copyHintTimeout);
+      copyHintTimeout = window.setTimeout(() => {
         copyPromptButton.textContent = copy.demo.copyPrompt;
         copyPromptButton.removeAttribute("data-copied");
       }, 1400);
     } catch {
-      copyPromptButton.textContent = copy.demo.copyPrompt;
+      showCopyHint(manualMessage());
+      document.querySelector<HTMLElement>("[data-demo-field=\"prompt\"]")?.focus();
     }
   });
 
   genericCopyButtons.forEach((button) => {
     button.addEventListener("click", async () => {
       const prompt = getValue(button.dataset.copyI18n || "");
-      if (typeof prompt !== "string" || !navigator.clipboard?.writeText) return;
+      if (typeof prompt !== "string" || !prompt) return;
 
       const label = getValue(button.dataset.copyLabelI18n || "");
       const copiedLabel = getValue(button.dataset.copyCopiedI18n || "");
+
+      if (!navigator.clipboard?.writeText) {
+        showCopyHint(manualMessage());
+        tryFocusNearbyPre(button);
+        return;
+      }
 
       try {
         await navigator.clipboard.writeText(prompt);
@@ -126,7 +166,8 @@
           button.removeAttribute("data-copied");
         }, 1400);
       } catch {
-        button.textContent = typeof label === "string" ? label : "Copy";
+        showCopyHint(manualMessage());
+        tryFocusNearbyPre(button);
       }
     });
   });

@@ -51,7 +51,14 @@ const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-oper
     </div>
 
     <div class="glass-card rounded-[2rem] p-6">
-      <div class="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">{demo.promptBlockLabel}</p>
+      <pre
+        class="mt-2 max-h-36 overflow-auto rounded-2xl border border-white/10 bg-slate-950/80 p-4 text-left font-mono text-sm leading-6 text-slate-200 whitespace-pre-wrap [tab-size:2]"
+        data-demo-field="prompt"
+        tabindex="0"
+      >{defaultScenario.prompt}</pre>
+
+      <div class="mt-5 flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
         <p class="text-sm font-bold uppercase tracking-[0.22em] text-brand-accent">
           {demo.outputLabel}
         </p>

@@ -108,7 +108,7 @@ const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-oper
   <div class="mt-10 grid gap-5 lg:grid-cols-2">
     {
       library.categories.map((category, categoryIndex) => (
-        <details class="glass-card group overflow-hidden rounded-[2rem] transition open:bg-slate-950/55" open={categoryIndex === 0}>
+        <details class="glass-card group overflow-hidden rounded-[2rem] transition open:bg-slate-950/55">
           <summary class="library-summary focus-ring cursor-pointer list-none rounded-[2rem] p-6 outline-none transition hover:bg-white/[0.04] focus-visible:bg-white/[0.04]">
             <div class="flex items-start justify-between gap-4">
               <div class="flex-1">
