@@ -1,22 +1,64 @@
-<section id="system" class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+---
+import type { Language } from "../content/copy";
+import { uiCopy } from "../content/copy";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const authority = uiCopy[lang].authority;
+const motherHref = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=bridge&utm_campaign=mother";
+const sisterHref = "https://ditreneris.github.io/lead/?utm_source=leader&utm_medium=bridge&utm_campaign=sister";
+---
+
+<section id="bridge" class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
   <div class="mx-auto max-w-3xl text-center">
-    <p class="text-sm font-bold uppercase tracking-[0.28em] text-cyan-200" data-i18n="authority.eyebrow">Brand architecture</p>
-    <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl" data-i18n="authority.title">
-      A lean executive bridge into the full PromptAnatomy system.
+    <p class="text-sm font-bold uppercase tracking-[0.28em] text-brand-accent">
+      {authority.eyebrow}
+    </p>
+    <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
+      {authority.title}
     </h2>
   </div>
 
   <div class="mt-10 grid gap-5 md:grid-cols-2">
-    <a href="https://www.promptanatomy.app/" class="glass-card block rounded-[2rem] p-6 transition hover:-translate-y-1 hover:border-cyan-200/40">
-      <p class="text-sm font-bold uppercase tracking-[0.22em] text-cyan-200" data-i18n="authority.mother">Mother platform</p>
-      <h3 class="mt-4 text-2xl font-black text-white">PromptAnatomy.app</h3>
-      <p class="mt-4 leading-7 text-slate-300" data-i18n="authority.motherText">PromptAnatomy.app remains the main AI Operating System and commercial destination.</p>
+    <a
+      href={motherHref}
+      class="focus-ring glass-card group relative block overflow-hidden rounded-[2rem] border border-brand-accent/40 p-6 transition motion-safe:hover:-translate-y-1 motion-safe:hover:border-brand-accent-hover/70"
+    >
+      <div class="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-brand-accent/15 blur-3xl"></div>
+      <div class="relative flex items-center gap-3">
+        <span class="logo-glow flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#050d14] to-[#103b5a] ring-1 ring-white/10">
+          <svg viewBox="0 0 32 32" aria-hidden="true" class="h-6 w-6">
+            <path
+              fill="#fbd304"
+              transform="translate(4 3)"
+              d="M13.5 1.5 4.5 14.25h6L8.25 22.5 19.5 9.75h-6L13.5 1.5z"
+            />
+          </svg>
+        </span>
+        <span class="rounded-full border border-brand-accent/40 bg-brand-accent/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-brand-accent-hover">
+          {authority.mother}
+        </span>
+      </div>
+      <h3 class="relative mt-5 text-2xl font-black text-white">PromptAnatomy.app</h3>
+      <p class="relative mt-4 leading-7 text-slate-300">
+        {authority.motherText}
+      </p>
     </a>
 
-    <a href="https://ditreneris.github.io/lead/" class="glass-card block rounded-[2rem] p-6 transition hover:-translate-y-1 hover:border-cyan-200/40">
-      <p class="text-sm font-bold uppercase tracking-[0.22em] text-cyan-200" data-i18n="authority.sister">Sister platform</p>
+    <a
+      href={sisterHref}
+      class="focus-ring glass-card relative block rounded-[2rem] p-6 transition motion-safe:hover:-translate-y-1 motion-safe:hover:border-brand-accent/40"
+    >
+      <p class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">
+        {authority.sister}
+      </p>
       <h3 class="mt-4 text-2xl font-black text-white">Promptų anatomija</h3>
-      <p class="mt-4 leading-7 text-slate-300" data-i18n="authority.sisterText">The practical Lithuanian learning page proves the training method and team use cases.</p>
+      <p class="mt-4 leading-7 text-slate-300">
+        {authority.sisterText}
+      </p>
     </a>
   </div>
 </section>

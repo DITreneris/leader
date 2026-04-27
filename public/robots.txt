@@ -1,0 +1,5 @@
+# LLMs: see /llms.txt for a concise site summary.
+User-agent: *
+Allow: /
+
+Sitemap: https://ditreneris.github.io/leader/sitemap-index.xml

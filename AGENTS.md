@@ -4,7 +4,7 @@ Guidance for AI coding agents working on this repository.
 
 ## Mission
 
-This project is a lean bilingual CEO/COO landing page for PromptAnatomy Executive OS. It should create a fast aha moment through a static "3-minute clarity check" and send qualified users to the full PromptAnatomy system.
+This project is a lean bilingual CEO/COO executive prompt operating kit for PromptAnatomy Executive OS. It should create a fast aha moment through practical copyable executive prompts, a safety check, a printable static download, visual proof, and a proof demo that sends qualified users to the full PromptAnatomy system.
 
 ## Non-Negotiables
 
@@ -16,9 +16,10 @@ This project is a lean bilingual CEO/COO landing page for PromptAnatomy Executiv
 
 ## Architecture
 
-- `src/pages/index.astro` composes the page sections.
+- `src/pages/index.astro` redirects `/` to `/en/` (or `/lt/` when `navigator.language` starts with `lt`).
+- `src/pages/en/index.astro` and `src/pages/lt/index.astro` render `src/layouts/Page.astro` with the full section stack.
 - `src/components/` contains section components.
-- `src/content/copy.ts` is the source of bilingual copy and demo scenarios.
+- `src/content/copy.ts` is the source of bilingual copy, operating-kit content, prompt-library content, and demo scenarios.
 - `src/styles/global.css` contains global styling and reusable visual helpers.
 - `public/assets/memes/`, `public/assets/graphics/`, and `public/assets/screenshots/` hold visual assets.
 - `docs/` contains codebase, document management, and quality assurance guidance.
@@ -28,6 +29,6 @@ This project is a lean bilingual CEO/COO landing page for PromptAnatomy Executiv
 
 - Prefer fewer, sharper sections over more content.
 - Use executive copy: decision, risk, trade-off, next action, delegation, ROI.
-- Avoid generic AI claims, prompt-engineering lessons, and feature bloat.
+- Avoid generic AI claims, beginner prompt-engineering lessons, and feature bloat.
 - Run `npm run build` after meaningful code changes.
 - Add a `CHANGELOG.md` entry for daily visible, structural, documentation, or deployment changes.

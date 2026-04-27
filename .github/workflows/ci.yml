@@ -27,5 +27,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          BASE_PATH: /${{ github.event.repository.name }}
+          BASE_PATH: /leader
           SITE_URL: https://${{ github.repository_owner }}.github.io
+
+      - name: Lighthouse CI
+        run: npx lhci autorun

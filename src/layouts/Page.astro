@@ -1,0 +1,234 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import "../styles/global.css";
+import AuthorityBridge from "../components/AuthorityBridge.astro";
+import ClarityDemo from "../components/ClarityDemo.astro";
+import CourseCTA from "../components/CourseCTA.astro";
+import Faq from "../components/Faq.astro";
+import Hero from "../components/Hero.astro";
+import InteractiveCopy from "../components/InteractiveCopy.astro";
+import MemeMoment from "../components/MemeMoment.astro";
+import PromptAnatomy from "../components/PromptAnatomy.astro";
+import PromptLibrary from "../components/PromptLibrary.astro";
+import ProofStrip from "../components/ProofStrip.astro";
+import QuickPractice from "../components/QuickPractice.astro";
+import RoiPath from "../components/RoiPath.astro";
+import SafetyCheck from "../components/SafetyCheck.astro";
+import SystemVisual from "../components/SystemVisual.astro";
+import type { Language } from "../content/copy";
+import { uiCopy } from "../content/copy";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const copy = uiCopy[lang];
+const meta = copy.meta;
+
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://ditreneris.github.io";
+const baseUrl = `${site}${import.meta.env.BASE_URL}`;
+const originBase = baseUrl.replace(/\/$/, "");
+const localeCanonical = `${originBase}/${lang}/`;
+const enCanonical = `${originBase}/en/`;
+const ltCanonical = `${originBase}/lt/`;
+
+const ogLtPath = path.join(process.cwd(), "public", "og-image-lt.png");
+const ogImageFile = lang === "lt" && fs.existsSync(ogLtPath) ? "og-image-lt.png" : "og-image.png";
+const socialImageUrl = new URL(ogImageFile, baseUrl).toString();
+
+const ogLocale = lang === "lt" ? "lt_LT" : "en_US";
+const ogLocaleAlternate = lang === "lt" ? "en_US" : "lt_LT";
+
+const base = import.meta.env.BASE_URL;
+const faviconSvg = `${base}favicon.svg`;
+const favicon32 = `${base}favicon-32x32.png`;
+const favicon16 = `${base}favicon-16x16.png`;
+const appleTouchIcon = `${base}apple-touch-icon.png`;
+const manifestUrl = `${base}site.webmanifest`;
+const serializedCopy = JSON.stringify(copy).replace(/</g, "\\u003c");
+const footerCopy = copy.footer;
+
+const motherOrgId = "https://www.promptanatomy.app/#organization";
+const motherSiteId = "https://www.promptanatomy.app/#website";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": motherOrgId,
+      name: "Promptų anatomija",
+      alternateName: "Prompt Anatomy",
+      url: "https://www.promptanatomy.app",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.promptanatomy.app/og-image.png",
+      },
+      sameAs: ["https://www.promptanatomy.app/"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": motherSiteId,
+      url: "https://www.promptanatomy.app",
+      name: "Prompt Anatomy",
+      publisher: { "@id": motherOrgId },
+      inLanguage: ["en", "lt"],
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${localeCanonical}#webpage`,
+      url: localeCanonical,
+      name: meta.title,
+      description: meta.description,
+      isPartOf: { "@id": motherSiteId },
+      about: { "@id": motherOrgId },
+      inLanguage: lang,
+      primaryImageOfPage: { "@type": "ImageObject", url: socialImageUrl },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${localeCanonical}#faq`,
+      mainEntity: copy.faq.items.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    },
+  ],
+};
+const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c");
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={meta.description} />
+    <link rel="canonical" href={localeCanonical} />
+    <link rel="alternate" hreflang="en" href={enCanonical} />
+    <link rel="alternate" hreflang="lt" href={ltCanonical} />
+    <link rel="alternate" hreflang="x-default" href={enCanonical} />
+    <link rel="icon" type="image/svg+xml" href={faviconSvg} />
+    <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
+    <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
+    <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
+    <link rel="manifest" href={manifestUrl} />
+    <meta property="og:site_name" content="Prompt Anatomy" />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={localeCanonical} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={meta.title} />
+    <meta name="twitter:description" content={meta.description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="theme-color" content="#0b1320" />
+    <title>{meta.title}</title>
+    <script is:inline type="application/ld+json" set:html={serializedJsonLd} />
+    <script is:inline set:html={`window.__PA_COPY__ = ${serializedCopy};`} />
+  </head>
+  <body>
+    <a href="#practice" class="skip-link focus-ring">{copy.a11y.skipLink}</a>
+    <Hero lang={lang} />
+    <main>
+      <ProofStrip lang={lang} />
+      <MemeMoment
+        lang={lang}
+        index={0}
+        src="reward_2.png"
+        alt="Executive holding a key while AI tools pile up around the desk"
+        side="left"
+        accent="gold"
+        width={1280}
+        height={1280}
+      />
+      <QuickPractice lang={lang} />
+      <SafetyCheck lang={lang} />
+      <MemeMoment
+        lang={lang}
+        index={1}
+        src="meme-01-ai-chaos.png"
+        alt="Executive watching scattered AI prompts get rewritten into a single decision"
+        side="right"
+        accent="amber"
+        width={1280}
+        height={1280}
+      />
+      <ClarityDemo lang={lang} />
+      <PromptAnatomy lang={lang} />
+      <MemeMoment
+        lang={lang}
+        index={2}
+        src="meme-04-delegation-bottleneck.png"
+        alt="Bottleneck with all delegation requests landing back on the CEO desk"
+        side="left"
+        accent="rose"
+        width={1280}
+        height={1280}
+      />
+      <RoiPath lang={lang} />
+      <PromptLibrary lang={lang} />
+      <MemeMoment
+        lang={lang}
+        index={3}
+        src="meme-03-clear-decision.png"
+        alt="Clear decision card returned to the executive after a structured prompt"
+        side="right"
+        accent="emerald"
+        width={1280}
+        height={1280}
+      />
+      <SystemVisual lang={lang} />
+      <Faq lang={lang} />
+      <AuthorityBridge lang={lang} />
+      <MemeMoment
+        lang={lang}
+        index={4}
+        src="meme-02-meeting-overload.png"
+        alt="Leadership team drowning in meetings without a shared operating system"
+        side="left"
+        accent="fuchsia"
+        width={1280}
+        height={1280}
+      />
+      <CourseCTA lang={lang} />
+    </main>
+    <footer class="mx-auto flex max-w-7xl flex-col gap-4 border-t border-white/5 px-5 pb-10 pt-8 text-sm text-slate-500 sm:px-8 md:flex-row md:items-center md:justify-between">
+      <div class="flex flex-col gap-1">
+        <p class="font-semibold text-slate-300">
+          {footerCopy.brand}
+          <span aria-hidden="true" class="mx-2 text-slate-600">·</span>
+          <a
+            href="https://www.promptanatomy.app/?utm_source=leader&utm_medium=footer&utm_campaign=brand"
+            class="focus-ring text-brand-accent transition hover:text-brand-accent-hover"
+          >
+            promptanatomy.app
+          </a>
+        </p>
+        <p>{footerCopy.tagline}</p>
+      </div>
+      <nav class="flex flex-wrap items-center gap-4" aria-label="Legal">
+        <a
+          href="https://www.promptanatomy.app/privacy"
+          class="focus-ring transition hover:text-slate-200"
+        >
+          {footerCopy.privacy}
+        </a>
+        <a
+          href="https://www.promptanatomy.app/terms"
+          class="focus-ring transition hover:text-slate-200"
+        >
+          {footerCopy.terms}
+        </a>
+      </nav>
+    </footer>
+    <InteractiveCopy />
+  </body>
+</html>

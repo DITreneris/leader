@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-dark: #0b1320;
+  --color-brand-accent: #cfa73a;
+  --color-brand-accent-hover: #e8b93c;
+}
+
 :root {
   color-scheme: dark;
   font-family:
@@ -7,6 +13,24 @@
     sans-serif;
   background: #050816;
   color: #f8fafc;
+
+  --color-brand-dark: #0b1320;
+  --color-brand-accent: #cfa73a;
+  --color-brand-accent-hover: #e8b93c;
+  --color-cta-from: #ffcc33;
+  --color-cta-to: #ffb300;
+
+  --background-image-cta-gradient: linear-gradient(
+    135deg,
+    var(--color-cta-from) 0%,
+    var(--color-cta-to) 100%
+  );
+
+  --shadow-glow-accent:
+    0 0 20px -4px rgba(207, 167, 58, 0.35),
+    0 10px 25px -5px rgba(207, 167, 58, 0.15);
+  --shadow-cta-shadow: 0 6px 14px rgba(255, 179, 0, 0.3);
+  --drop-shadow-logo-glow: drop-shadow(0 0 6px rgba(255, 196, 0, 0.4));
 }
 
 html {
@@ -19,14 +43,56 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 20% 0%, rgba(34, 211, 238, 0.18), transparent 28rem),
-    radial-gradient(circle at 85% 10%, rgba(99, 102, 241, 0.22), transparent 24rem),
+    radial-gradient(circle at 20% 0%, rgba(255, 196, 0, 0.12), transparent 28rem),
+    radial-gradient(circle at 85% 10%, rgba(11, 19, 32, 0.55), transparent 24rem),
     linear-gradient(180deg, #050816 0%, #08111f 42%, #020617 100%);
 }
 
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-brand-accent);
+  outline-offset: 2px;
+  border-radius: 0.75rem;
+}
+
+.rounded-full.focus-ring:focus-visible,
+.focus-ring.rounded-full:focus-visible {
+  border-radius: 9999px;
+}
+
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link:focus {
+  position: fixed;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 50;
+  margin: 0;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  border-radius: 9999px;
+  background: var(--color-brand-accent);
+  color: #020617;
+  font-weight: 700;
+  font-size: 0.875rem;
 }
 
 .glass-card {
@@ -37,9 +103,42 @@ a {
 }
 
 .accent-glow {
-  box-shadow: 0 0 80px rgba(34, 211, 238, 0.28);
+  box-shadow: var(--shadow-glow-accent);
+}
+
+.cta-gradient {
+  background-image: var(--background-image-cta-gradient);
+  box-shadow: var(--shadow-cta-shadow);
+}
+
+.logo-glow {
+  filter: var(--drop-shadow-logo-glow);
 }
 
 .hidden-lang {
   display: none !important;
+}
+
+summary.library-summary::-webkit-details-marker,
+summary.library-summary::marker {
+  display: none;
+  content: "";
+}
+
+summary.library-summary {
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

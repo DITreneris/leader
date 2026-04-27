@@ -21,29 +21,43 @@ Visuals should make the CEO feel the transformation quickly: business noise beco
    - Message: "Input -> clarity check -> insight -> full system."
    - Placement: proof, authority, or social sharing asset source.
 
-## Meme Slots
+## Meme Moments (Fragmented)
 
-Use 3-5 memes on the landing page. Keep the rest for social posts or course material.
+Five memes are placed on the landing page as fragmented emotional rest stops between heavier reading sections, rendered through `MemeMoment.astro`. They are not a bundle, not a sales section, and never include a CTA — each one is a single recognition beat that reinforces the surrounding teaching point.
 
-1. `reward_2.png`
-   - Message: access to AI is not enough; control creates useful output.
-   - Placement: current landing page meme block.
+Order on the live page (top to bottom):
 
-2. `meme-03-clear-decision.png.png`
-   - Message: adding AI to the same unclear process does not create speed.
-   - Placement: current landing page meme block.
+1. `reward_2.png` — *Access is not enough.*
+   - Placement: between `ProofStrip` and `QuickPractice`.
+   - Side: image left, copy right. Accent: cyan.
+   - Function: emotional hook into why the practice matters.
 
-3. `meme-01-ai-chaos.png.png`
-   - Message: structure changes guessing into understanding and control.
-   - Placement: current landing page meme block.
+2. `meme-01-ai-chaos.png` — *Structure creates control.*
+   - Placement: between `SafetyCheck` and `ClarityDemo`.
+   - Side: image right, copy left. Accent: amber.
+   - Function: validates the safety lesson and primes the demo.
 
-4. `meme-02-meeting-overload.png.png`
-   - Message: the team may already be experimenting; the CEO needs the system.
-   - Placement: current landing page meme block.
+3. `meme-04-delegation-bottleneck.png` — *Tools do not create speed.*
+   - Placement: between `PromptAnatomy` and `RoiPath`.
+   - Side: image left, copy right. Accent: rose.
+   - Function: recognition of the real bottleneck before the ROI path.
 
-5. `meme-04-delegation-bottleneck.png.png`
-   - Message: structured AI turns random output into useful results.
-   - Placement: current landing page meme block.
+4. `meme-03-clear-decision.png` — *Control creates results.*
+   - Placement: between `PromptLibrary` and `SystemVisual`.
+   - Side: image right, copy left. Accent: emerald.
+   - Function: payoff moment after the heaviest catalog section.
+
+5. `meme-02-meeting-overload.png` — *Leadership needs the system.*
+   - Placement: between `AuthorityBridge` and `CourseCTA`.
+   - Side: image left, copy right. Accent: fuchsia.
+   - Function: closes the narrative arc into the final CTA.
+
+Implementation rules:
+
+- Sides alternate (left → right → left → right → left) for visual rhythm.
+- All images are `loading="lazy"` and `decoding="async"` with explicit width/height.
+- Copy comes from `uiCopy.memes.items[index]` so EN/LT stay aligned.
+- Do not collapse the moments back into a single block — fragmentation is the entire point.
 
 ## Quality Rules
 

@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
+    "build:pdf": "node ./scripts/run-build-pdf.mjs",
     "preview": "astro preview",
     "check": "astro check"
   },
@@ -18,9 +19,13 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@astrojs/check": "^0.9.8",
+    "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/postcss": "^4.2.4",
     "astro": "^6.1.9",
     "tailwindcss": "^4.2.4",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.15.1"
   }
 }

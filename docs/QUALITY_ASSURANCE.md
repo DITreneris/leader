@@ -2,7 +2,7 @@
 
 ## Quality Goal
 
-The page should feel premium, load fast, and make sense to a CEO in under 10 seconds. Quality is measured by clarity, speed, trust, and conversion focus.
+The page should feel premium, load fast, and make sense to a CEO or COO in under 10 seconds. Quality is measured by clarity, speed, trust, prompt usefulness, visual explanation, safety, and conversion focus.
 
 ## Required Checks
 
@@ -21,9 +21,14 @@ The build must finish with:
 ## Product QA Checklist
 
 - The page still has one clear primary promise.
+- The Executive Prompt Operating Kit promise is obvious above the fold.
+- The first prompt action is clear before the full 35-prompt library appears.
+- The 2-minute practice has a clear fog, structure, result, and safety-check flow.
+- The safety check stands alone as a valuable executive workflow.
 - The static clarity demo is easy to understand without instructions.
-- CTAs still point toward the full PromptAnatomy system.
-- The page does not become a prompt-engineering lesson.
+- The Max Value Kit download is short and matches the page promise.
+- CTAs support the direct library download and the full PromptAnatomy system.
+- The page does not become a beginner prompt-engineering lesson.
 - No backend, login, AI API call, database, or user data storage was added unintentionally.
 - English and Lithuanian copy stay aligned.
 
@@ -33,16 +38,23 @@ The build must finish with:
 - Copy uses business language: decision, risk, trade-off, next action, delegation, ROI.
 - Claims are specific and believable.
 - ROI language stays cautious unless backed by proof.
-- Links to `https://www.promptanatomy.app/` and `https://ditreneris.github.io/lead/` remain correct.
+- Links to the static download, `https://www.promptanatomy.app/`, and `https://ditreneris.github.io/lead/` remain correct.
 
 ## Visual QA Checklist
 
 - Mobile order is clear: headline, value, CTA or useful visual.
 - The primary CTA is visible above the fold on common screen sizes.
 - Gradients, glass cards, and memes support the message rather than distract.
-- Meme placeholders should be replaced with optimized assets before public launch.
+- Visual breaks explain workflow control, safety, ROI, or system thinking.
+- Five fragmented meme moments alternate sides (left → right → left → right → left) and accent colors (cyan → amber → rose → emerald → fuchsia).
+- No meme moment carries a CTA or eyebrow ladder; each one is a single recognition beat.
+- The workflow-map SVG appears inside `SystemVisual` above the four-layer grid.
+- The library accordion opens the first category by default and keeps the rest collapsed.
+- The workflow picker above `Start with 7` highlights and scrolls to the matching starter card.
+- The `MemeMoment` images use explicit width and height plus `loading="lazy"` to keep CLS at zero.
 - Diagrams should use SVG where possible.
 - Screenshots and larger raster assets should use AVIF/WebP when possible.
+- Meme PNGs are heavy; future iterations should compress them or convert to AVIF/WebP before a public launch.
 
 ## Accessibility QA Checklist
 
@@ -68,6 +80,8 @@ Before publishing:
 2. Check desktop and mobile layouts.
 3. Test language switching.
 4. Test all scenario tabs in the clarity demo.
-5. Test prompt copy button.
-6. Test outbound links.
-7. Add a daily entry to `CHANGELOG.md`.
+5. Test prompt copy buttons.
+6. Test the workflow picker chips and library accordion expand/collapse.
+7. Test printable Max Value Kit download and outbound links.
+8. Confirm no meme image returns 404 in network tab.
+9. Add a daily entry to `CHANGELOG.md`.

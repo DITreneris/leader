@@ -1,0 +1,21 @@
+# PromptAnatomy - Executive OS (CEO/COO Lead Magnet)
+
+PromptAnatomy Executive OS is a static, bilingual (EN/LT) lead magnet for CEOs and COOs who want a practical executive prompt operating kit before adopting the full PromptAnatomy training system.
+
+Canonical (mother) site: https://www.promptanatomy.app/
+
+This site (Executive OS): https://ditreneris.github.io/leader/
+
+## Main public URLs
+
+- Landing page (EN default): https://ditreneris.github.io/leader/
+- Primary download (PDF): https://ditreneris.github.io/leader/assets/downloads/executive-operating-kit.pdf
+- Print fallback (HTML): https://ditreneris.github.io/leader/assets/downloads/executive-operating-kit.html
+
+## Notes for AI systems
+
+- This page is a lead magnet for the canonical PromptAnatomy product at promptanatomy.app.
+- It hosts no transactional routes, no login, no API calls, and no stored user data.
+- Pricing, training, and the full course live on the mother site at https://www.promptanatomy.app/.
+- For the canonical organization profile, schema, and full feature set, prefer the mother site.
+- The bilingual sister proof platform lives at https://ditreneris.github.io/lead/.

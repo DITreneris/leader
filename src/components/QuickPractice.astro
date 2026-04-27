@@ -1,0 +1,90 @@
+---
+import type { Language } from "../content/copy";
+import { uiCopy } from "../content/copy";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const qp = uiCopy[lang].quickPractice;
+---
+
+<section id="practice" class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+  <div class="mx-auto max-w-3xl text-center">
+    <p class="text-sm font-bold uppercase tracking-[0.28em] text-brand-accent">
+      {qp.eyebrow}
+    </p>
+    <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
+      {qp.title}
+    </h2>
+    <p class="mt-5 text-lg leading-8 text-slate-300">
+      {qp.subtitle}
+    </p>
+  </div>
+
+  <div class="mt-10 grid gap-5 lg:grid-cols-4">
+    <article class="rounded-[2rem] border border-rose-200/15 bg-rose-950/20 p-6">
+      <p class="text-sm font-bold uppercase tracking-[0.22em] text-rose-200">
+        {qp.beforeTitle}
+      </p>
+      <p class="mt-5 rounded-3xl bg-black/20 p-5 text-xl font-semibold text-white">
+        {qp.beforeText}
+      </p>
+      <p class="mt-5 text-sm font-bold uppercase tracking-[0.2em] text-rose-100">
+        {qp.beforeLabel}
+      </p>
+      <ul class="mt-4 space-y-2 text-sm leading-6 text-rose-100">
+        {qp.beforeBullets.map((bullet) => (
+          <li>{bullet}</li>
+        ))}
+      </ul>
+    </article>
+
+    <article class="glass-card rounded-[2rem] p-6">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p class="text-sm font-bold uppercase tracking-[0.22em] text-brand-accent">
+          {qp.afterTitle}
+        </p>
+        <button
+          type="button"
+          data-copy-i18n="quickPractice.prompt"
+          data-copy-label-i18n="quickPractice.copyPrompt"
+          data-copy-copied-i18n="quickPractice.copied"
+          class="focus-ring shrink-0 rounded-full border border-brand-accent/40 px-4 py-3 text-sm font-bold text-brand-accent-hover transition hover:bg-brand-accent hover:text-slate-950"
+        >
+          {qp.copyPrompt}
+        </button>
+      </div>
+      <p class="mt-5 rounded-3xl bg-brand-accent/10 p-5 text-xl font-semibold leading-8 text-white">
+        {qp.afterText}
+      </p>
+      <p class="mt-5 text-sm font-bold uppercase tracking-[0.2em] text-brand-accent-hover">
+        {qp.afterLabel}
+      </p>
+      <ul class="mt-4 space-y-2 text-sm leading-6 text-[#f4d27a]">
+        {qp.afterBullets.map((bullet) => (
+          <li>{bullet}</li>
+        ))}
+      </ul>
+    </article>
+
+    <article class="rounded-[2rem] border border-emerald-200/20 bg-emerald-950/20 p-6">
+      <p class="text-sm font-bold uppercase tracking-[0.22em] text-emerald-200">
+        {qp.resultTitle}
+      </p>
+      <p class="mt-5 rounded-3xl bg-emerald-300/10 p-5 text-lg font-semibold leading-8 text-emerald-50">
+        {qp.resultText}
+      </p>
+    </article>
+
+    <article class="rounded-[2rem] border border-amber-200/20 bg-amber-950/20 p-6">
+      <p class="text-sm font-bold uppercase tracking-[0.22em] text-amber-200">
+        {qp.checkTitle}
+      </p>
+      <p class="mt-5 rounded-3xl bg-amber-300/10 p-5 text-lg font-semibold leading-8 text-amber-50">
+        {qp.checkText}
+      </p>
+    </article>
+  </div>
+</section>

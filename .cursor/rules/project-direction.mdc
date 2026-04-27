@@ -5,11 +5,11 @@ alwaysApply: true
 
 # Project Direction
 
-Build one lean, premium, bilingual landing page for CEOs/COOs.
+Build one lean, premium, bilingual executive prompt operating kit for CEOs/COOs.
 
-- Keep the page outcome-first: business clarity, decisions, risks, next actions.
-- Do not turn it into a prompt-engineering course or a complex app.
+- Keep the page outcome-first: business clarity, decisions, risks, next actions, safety checks, visual proof, and practical prompt downloads.
+- Do not turn it into a beginner prompt-engineering course or a complex app.
 - Preserve the static MVP: no backend, no AI API calls, no login, no stored user data.
 - Treat `PromptAnatomy.app` as the mother platform and `ditreneris.github.io/lead/` as the sister proof platform.
-- Primary conversion path: visitor gets an aha moment in the static clarity demo, then clicks to the full PromptAnatomy system.
+- Primary conversion path: visitor experiences the 2-minute practice, downloads the CEO/COO operating kit, gets an aha moment in the static proof demo, then clicks to the full PromptAnatomy system.
 - Prefer removing complexity over adding new features.

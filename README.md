@@ -1,6 +1,6 @@
-# PromptAnatomy Executive OS Landing
+# PromptAnatomy CEO/COO Executive Prompt Operating Kit
 
-Lean bilingual CEO landing page for the static Executive Clarity Check funnel.
+Lean bilingual CEO/COO executive prompt operating kit for the PromptAnatomy Executive OS funnel.
 
 ## Stack
 
@@ -15,6 +15,14 @@ Lean bilingual CEO landing page for the static Executive Clarity Check funnel.
 npm run dev
 npm run build
 npm run preview
+```
+
+### Max Value Kit PDF (optional, for maintainers)
+
+Source: `docs/executive-operating-kit-pdf.md` → output: `public/assets/downloads/executive-operating-kit.pdf`. Toolchain matches the sister [lead](https://github.com/DITreneris/lead) repo (Pandoc + Typst or LaTeX). See `docs/SETUP_PDF.md`.
+
+```bash
+npm run build:pdf
 ```
 
 ## Deployment Environment
@@ -40,4 +48,4 @@ SITE_URL=https://ditreneris.github.io
 - `public/assets/graphics/` for SVG diagrams and schemes.
 - `public/assets/screenshots/` for optimized AVIF/WebP mockups.
 
-The first version uses a static simulated demo, so no AI API key or backend is required.
+The current version uses static prompt workflows, a printable operating kit (PDF plus HTML fallback), and a simulated demo, so no AI API key or backend is required.

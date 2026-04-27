@@ -1,0 +1,144 @@
+---
+description: Lithuanian and English language standard for landing page copy, UI text, and docs
+globs: src/content/**/*,src/components/**/*.astro,public/**/*.md,*.md
+alwaysApply: false
+---
+
+# Language Standard (LT + EN)
+
+This standard applies to every visible text agents touch: marketing copy in `src/content/copy.ts`, UI fallbacks in `src/components/**/*.astro`, the printable kit in `public/assets/downloads/`, and project documentation (`README.md`, `CHANGELOG.md`, `docs/**/*.md`).
+
+## Shared Principles
+
+- Executive voice: decision, risk, trade-off, owner, next action, ROI.
+- Forbidden vocabulary in marketing copy: "learn AI", "prompt engineering tutorial", "AI course", "beginner guide", "step-by-step intro".
+- One idea per sentence. Cut adjectives that do not change meaning.
+- EN and LT must stay aligned: when one section changes, update the other in the same edit.
+- No emoji in landing copy unless explicitly requested by the user.
+- Brand names stay verbatim: `PromptAnatomy`, `PromptAnatomy.app`, `Max Value Kit`, `Promptų anatomija`.
+
+## Lithuanian Standard
+
+### Address: always "Tu", never "Jūs"
+
+Convert formal/plural imperatives to informal singular. The rule of thumb: drop the trailing `-ite`.
+
+| Formal (do not use) | Informal (use this) |
+|---|---|
+| Pradėkite | Pradėk |
+| Atsisiųskite | Atsisiųsk |
+| Naudokite | Naudok |
+| Pasiimkite | Pasiimk |
+| Patikrinkite | Patikrink |
+| Pasirinkite | Pasirink |
+| Nesiųskite | Nesiųsk |
+| Nukopijuokite | Nukopijuok |
+| Paleiskite | Paleisk |
+| Rašykite | Rašyk |
+| Įdiekite | Įdiek |
+| Peržiūrėkite | Peržiūrėk |
+| Išgryninkite | Išgrynink |
+| Paverskite | Paversk |
+| Raskite | Surask |
+| Ištraukite | Ištrauk |
+| Atskirkite | Atskirk |
+| jūsų | tavo |
+| norite | nori |
+| galite | gali |
+| turite | turi |
+
+Button labels use infinitive (neutral), not imperative: `Atsisiųsti`, `Pradėti praktiką`, `Kopijuoti promptą`. Do not turn buttons into "Tu" form.
+
+Prompts addressed to the AI keep "Tu" form already: `Veik kaip...`, `Išanalizuok...`, `Sukurk...`, `Peržiūrėk...`, `Perrašyk...`. Do not change.
+
+### AI → DI in Lithuanian
+
+Always write `DI` (dirbtinis intelektas) in Lithuanian copy. The only place `AI` may appear is the English (`en`) block of `copy.ts`.
+
+- `AI Operating System` → `DI operacinė sistema`
+- `AI darbo eigos` ✗ already correct as `DI darbo eigos`
+- Brand strings inside English fallbacks in `.astro` components stay `AI` because they are replaced at runtime.
+
+### Diacritics are mandatory
+
+Always: `ą č ę ė į š ų ū ž`. Reject ASCII fallbacks like `aciu`, `ka`, `kompromisas`. CI builds and screen readers depend on correct UTF-8.
+
+### Preferred business vocabulary
+
+| English | Use in LT | Avoid |
+|---|---|---|
+| trade-off | kompromisas | kompromisinis sprendimas |
+| bottleneck | butelio kaklelis | siaura vieta |
+| workflow | darbo eiga | darbo srautas, vorkflow |
+| prompt | promptas | užklausa (when meaning the prompt artifact) |
+| brief | briefas | (accepted in LT business jargon) |
+| owner | savininkas | atsakingasis (only in legal context) |
+| next action | kitas veiksmas | sekantis žingsnis |
+| stakeholder | suinteresuota pusė | steikholderis |
+| safety check | saugumo patikra | saugos check |
+| support / account (CRM) | kliento aptarnavimas / paskyra | support / account (do not leave English) |
+
+Loanwords already entrenched in LT business speech are acceptable: `briefas`, `promptas`, `checklist` (in code/UI labels), `lead magnet` (only inside marketing-jargon eyebrows). Do not introduce new anglicisms when a clean LT word exists.
+
+### Punctuation
+
+- Use the long dash `–` (en dash) for emphasis: `Problema – ne prieiga prie DI. Problema – kontrolė.`
+- Lithuanian quotation marks `„..."` preferred in prose. `"..."` is fine inside TS string literals.
+- No double spaces. No trailing commas in prose.
+- Number + unit: `2 min.`, `5 val.`, `35 promptai`. Always a non-breaking space if HTML allows.
+
+### Grammar traps to check
+
+- Agent participles must agree with "Tu" (singular): `Prieš naudodamas...` (m.) — pick masculine generic for executive copy unless audience is explicitly female. Avoid plural `naudodami`.
+- "veiks" (will operate) ≠ "paveiks" (will affect). EN "will affect" → LT `paveiks`.
+- Word order: place the subject before the participle phrase. `DI, prijungtas prie neaiškaus proceso, atskleidžia...` ✓ rather than `Pridėtas DI prie...`.
+
+## English Standard
+
+### Voice
+
+- Sentence case for headings and CTAs: `Download Max Value Kit`, not `Download Max Value KIT` or `Download max value kit`.
+- Active voice. `The kit returns a decision-ready output` ✓ over `A decision-ready output is returned by the kit` ✗.
+- Cut hedges: `helps you to`, `aims to`, `tries to`. State the outcome.
+- Numbers under 10 spelled out only in body prose; in metric chips use digits (`2min`, `35`, `7`).
+
+### Vocabulary
+
+| Prefer | Avoid |
+|---|---|
+| decision, trade-off, risk, owner | insight, synergy, leverage (as a noun) |
+| executive, leadership team | C-suite, leadership cadre |
+| operating kit | playbook (overused) |
+| safety check | guardrails (when speaking to CEOs) |
+| install the system | onboard the system |
+
+### Punctuation
+
+- Em dash `—` (no spaces) for emphatic asides: `Decision first — every prompt points to an owner.`
+- Oxford comma in lists of three or more.
+- Sentence ends with one period only; no `..` or `...` unless quoting.
+
+## Bilingual Alignment Rule
+
+When you change one section in `src/content/copy.ts`, update the matching keys in the other language in the same commit. Do not leave a mixed-language deploy.
+
+## Audit Checklist (run before claiming "done")
+
+When asked to audit Lithuanian copy:
+
+- [ ] No `kite\b` matches in the `lt` block of `copy.ts` (formal imperatives gone).
+- [ ] No `jūsų`, `norite`, `galite`, `turite`.
+- [ ] No `\bAI\b` in the `lt` block.
+- [ ] No leftover English nouns mid-sentence (`support`, `account`, `meeting room` etc.).
+- [ ] All Lithuanian vowels carry their diacritics.
+- [ ] Buttons stay infinitive; section copy uses "Tu".
+- [ ] EN and LT counterparts still describe the same idea.
+
+When asked to audit English copy:
+
+- [ ] No beginner-AI vocabulary.
+- [ ] Headings in sentence case.
+- [ ] No passive voice on key value statements.
+- [ ] Each prompt category description names a decision, risk, trade-off, or next action.
+
+After substantive copy edits, run `npm run build` and add a `CHANGELOG.md` entry under the current date.

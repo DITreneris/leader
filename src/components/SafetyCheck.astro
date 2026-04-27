@@ -1,0 +1,52 @@
+---
+import type { Language } from "../content/copy";
+import { uiCopy } from "../content/copy";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const safety = uiCopy[lang].safety;
+---
+
+<section class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+  <div class="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
+    <div>
+      <p class="text-sm font-bold uppercase tracking-[0.28em] text-amber-200">
+        {safety.eyebrow}
+      </p>
+      <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
+        {safety.title}
+      </h2>
+      <p class="mt-5 text-lg leading-8 text-slate-300">
+        {safety.subtitle}
+      </p>
+      <button
+        type="button"
+        data-copy-i18n="safety.prompt"
+        data-copy-label-i18n="safety.copyPrompt"
+        data-copy-copied-i18n="safety.copied"
+        class="focus-ring mt-8 rounded-full border border-amber-200/50 px-5 py-3 text-sm font-black uppercase tracking-[0.16em] text-amber-100 transition hover:bg-amber-300 hover:text-slate-950"
+      >
+        {safety.copyPrompt}
+      </button>
+    </div>
+
+    <div class="glass-card rounded-[2rem] p-6">
+      <div class="grid gap-4 md:grid-cols-2">
+        {
+          safety.items.map(([title, body], index) => (
+            <article class="rounded-[1.5rem] border border-white/10 bg-slate-950/70 p-5">
+              <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-300/15 text-sm font-black text-amber-100">
+                0{index + 1}
+              </div>
+              <h3 class="text-lg font-black text-white">{title}</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-300">{body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

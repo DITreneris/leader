@@ -1,0 +1,31 @@
+---
+import type { Language } from "../content/copy";
+import { uiCopy } from "../content/copy";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const { faq } = uiCopy[lang];
+---
+
+<section class="mx-auto max-w-7xl px-5 py-16 sm:px-8" aria-labelledby="faq-heading">
+  <div class="mx-auto max-w-3xl">
+    <h2 id="faq-heading" class="text-center text-3xl font-black tracking-tight text-white sm:text-4xl">
+      {faq.sectionTitle}
+    </h2>
+    <div class="mt-10 space-y-3">
+      {
+        faq.items.map((item) => (
+          <details class="glass-card rounded-2xl border border-white/10 px-5 py-1 open:bg-slate-950/40">
+            <summary class="focus-ring cursor-pointer list-none py-4 text-left text-base font-bold text-white outline-none [&::-webkit-details-marker]:hidden">
+              {item.q}
+            </summary>
+            <p class="border-t border-white/10 pb-4 pt-2 text-sm leading-7 text-slate-300">{item.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

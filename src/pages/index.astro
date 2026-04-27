@@ -1,23 +1,9 @@
 ---
-import "../styles/global.css";
-import AuthorityBridge from "../components/AuthorityBridge.astro";
-import BeforeAfter from "../components/BeforeAfter.astro";
-import ClarityDemo from "../components/ClarityDemo.astro";
-import CourseCTA from "../components/CourseCTA.astro";
-import Hero from "../components/Hero.astro";
-import MemeBlock from "../components/MemeBlock.astro";
-import ProofStrip from "../components/ProofStrip.astro";
-import RoiBlock from "../components/RoiBlock.astro";
-import WorkflowCards from "../components/WorkflowCards.astro";
-import { uiCopy } from "../content/copy";
-
-const title = "Executive Clarity Check for CEOs | PromptAnatomy";
-const description =
-  "Turn messy meeting notes, reports, emails, and strategic questions into decisions, risks, questions, and next actions in under 5 minutes.";
-const baseUrl = `${Astro.site?.toString().replace(/\/$/, "") ?? "https://www.promptanatomy.app"}${import.meta.env.BASE_URL}`;
-const canonicalUrl = new URL(".", baseUrl).toString();
-const socialImageUrl = new URL("assets/graphics/workflow-map.svg", baseUrl).toString();
-const serializedCopy = JSON.stringify(uiCopy).replace(/</g, "\\u003c");
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://ditreneris.github.io";
+const base = import.meta.env.BASE_URL;
+const originBase = `${site}${base.replace(/\/$/, "")}`;
+const enUrl = `${originBase}/en/`;
+const ltUrl = `${originBase}/lt/`;
 ---
 
 <!doctype html>
@@ -25,36 +11,25 @@ const serializedCopy = JSON.stringify(uiCopy).replace(/</g, "\\u003c");
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={socialImageUrl} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={socialImageUrl} />
-    <meta name="theme-color" content="#050816" />
-    <title>{title}</title>
-    <script is:inline set:html={`window.__PA_COPY__ = ${serializedCopy};`} />
+    <meta http-equiv="refresh" content="0; url=./en/" />
+    <link rel="canonical" href={enUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="lt" href={ltUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
+    <title>Redirecting…</title>
+    <script is:inline>
+      (function () {
+        var lt = "./lt/";
+        var en = "./en/";
+        try {
+          if (typeof navigator !== "undefined" && navigator.language && navigator.language.toLowerCase().startsWith("lt")) {
+            location.replace(lt);
+            return;
+          }
+        } catch (_) {}
+        location.replace(en);
+      })();
+    </script>
   </head>
-  <body>
-    <Hero />
-    <main>
-      <ProofStrip />
-      <ClarityDemo />
-      <BeforeAfter />
-      <MemeBlock />
-      <WorkflowCards />
-      <RoiBlock />
-      <AuthorityBridge />
-      <CourseCTA />
-    </main>
-    <footer class="mx-auto flex max-w-7xl flex-col gap-3 px-5 pb-10 text-sm text-slate-500 sm:px-8 md:flex-row md:items-center md:justify-between">
-      <p>PromptAnatomy Executive OS concept</p>
-      <p>Static demo. No user data is sent.</p>
-    </footer>
-  </body>
+  <body></body>
 </html>

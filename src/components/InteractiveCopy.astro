@@ -1,0 +1,151 @@
+<script>
+  type Scenario = {
+    label: string;
+    input: string;
+    insight: string;
+    decision: string;
+    risks: readonly string[];
+    questions: readonly string[];
+    action: string;
+    prompt: string;
+  };
+
+  type PageCopy = {
+    demo: {
+      copied: string;
+      copyPrompt: string;
+      scenarios: Record<string, Scenario>;
+    };
+    [key: string]: unknown;
+  };
+
+  const copy = (window as unknown as { __PA_COPY__: PageCopy }).__PA_COPY__;
+
+  const getValue = (path: string) => {
+    return path.split(".").reduce<unknown>((current, part) => {
+      if (current && typeof current === "object" && part in current) {
+        return (current as Record<string, unknown>)[part];
+      }
+      return "";
+    }, copy);
+  };
+
+  const scenarioButtons = document.querySelectorAll<HTMLButtonElement>("[data-scenario]");
+  const copyPromptButton = document.querySelector<HTMLButtonElement>("[data-copy-prompt]");
+  const genericCopyButtons = document.querySelectorAll<HTMLButtonElement>("[data-copy-i18n]");
+  let activeScenario = "meeting";
+
+  const renderList = (selector: string, items: readonly string[]) => {
+    const list = document.querySelector<HTMLElement>(selector);
+    if (!list) return;
+
+    const nodes = items.map((item) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = item;
+      return listItem;
+    });
+    list.replaceChildren(...nodes);
+  };
+
+  const renderScenario = () => {
+    const scenario = copy.demo.scenarios[activeScenario];
+    if (!scenario) return;
+
+    document.querySelectorAll<HTMLElement>("[data-demo-field]").forEach((element) => {
+      const key = element.dataset.demoField as keyof Scenario;
+      const value = scenario[key];
+      if (typeof value === "string") {
+        element.textContent = value;
+      }
+    });
+
+    renderList("[data-demo-risks]", scenario.risks);
+    renderList("[data-demo-questions]", scenario.questions);
+
+    scenarioButtons.forEach((button) => {
+      const scenarioKey = button.dataset.scenario || "";
+      const item = copy.demo.scenarios[scenarioKey];
+      button.textContent = item?.label ?? scenarioKey;
+      button.dataset.active = String(scenarioKey === activeScenario);
+    });
+
+    if (copyPromptButton) {
+      copyPromptButton.textContent = copy.demo.copyPrompt;
+      copyPromptButton.removeAttribute("data-copied");
+    }
+  };
+
+  const resetGenericCopyButtons = () => {
+    genericCopyButtons.forEach((button) => {
+      const label = getValue(button.dataset.copyLabelI18n || "");
+      if (typeof label === "string") {
+        button.textContent = label;
+      }
+      button.removeAttribute("data-copied");
+    });
+  };
+
+  scenarioButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeScenario = button.dataset.scenario || activeScenario;
+      renderScenario();
+    });
+  });
+
+  copyPromptButton?.addEventListener("click", async () => {
+    const scenario = copy.demo.scenarios[activeScenario];
+    if (!navigator.clipboard?.writeText) return;
+
+    try {
+      await navigator.clipboard.writeText(scenario.prompt);
+      copyPromptButton.textContent = copy.demo.copied;
+      copyPromptButton.dataset.copied = "true";
+      window.setTimeout(() => {
+        copyPromptButton.textContent = copy.demo.copyPrompt;
+        copyPromptButton.removeAttribute("data-copied");
+      }, 1400);
+    } catch {
+      copyPromptButton.textContent = copy.demo.copyPrompt;
+    }
+  });
+
+  genericCopyButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const prompt = getValue(button.dataset.copyI18n || "");
+      if (typeof prompt !== "string" || !navigator.clipboard?.writeText) return;
+
+      const label = getValue(button.dataset.copyLabelI18n || "");
+      const copiedLabel = getValue(button.dataset.copyCopiedI18n || "");
+
+      try {
+        await navigator.clipboard.writeText(prompt);
+        button.textContent = typeof copiedLabel === "string" ? copiedLabel : "Copied";
+        button.dataset.copied = "true";
+        window.setTimeout(() => {
+          button.textContent = typeof label === "string" ? label : "Copy";
+          button.removeAttribute("data-copied");
+        }, 1400);
+      } catch {
+        button.textContent = typeof label === "string" ? label : "Copy";
+      }
+    });
+  });
+
+  renderScenario();
+  resetGenericCopyButtons();
+</script>
+
+<script>
+  (function kitPdfFallback() {
+    document.querySelectorAll<HTMLAnchorElement>("a[data-kit-download]").forEach((a) => {
+      const pdfHref = a.getAttribute("href");
+      if (!pdfHref || !pdfHref.endsWith(".pdf")) return;
+      const htmlHref = pdfHref.replace(/\.pdf$/i, ".html");
+      fetch(pdfHref, { method: "HEAD" })
+        .then((r) => {
+          if (r.status === 404) a.setAttribute("href", htmlHref);
+        })
+        .catch(() => {});
+    });
+  })();
+</script>
