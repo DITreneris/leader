@@ -39,6 +39,7 @@ The build must finish with:
 - Claims are specific and believable.
 - ROI language stays cautious unless backed by proof.
 - Links to the static download, `https://www.promptanatomy.app/`, and `https://ditreneris.github.io/ceo/` (sister bridge) remain correct.
+- Shipped English uses **American English** (not UK spellings/phrasing); see **US English (shipped default)** in [`.cursor/rules/language-standard.mdc`](../.cursor/rules/language-standard.mdc).
 
 ## Visual QA Checklist
 

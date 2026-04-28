@@ -1,0 +1,13 @@
+---
+description: EU/Baltic → US-market copy adaptation — use PROMPTS_US_LOCALIZATION_META (not a duplicate of language-standard)
+globs: docs/**/*.md
+alwaysApply: false
+---
+
+# US localization META pointer
+
+When editing **`docs/**/*.md`** and the task is **adapting draft messaging** (EU formal / generic → native US operator voice for founders, operators, executives), open and follow **[`docs/PROMPTS_US_LOCALIZATION_META.md`](../../docs/PROMPTS_US_LOCALIZATION_META.md)**. Copy the fenced **META** block into your LLM; **PRIORITY** (Must / Should / Want) governs output depth, not extra reasoning chains.
+
+**Overlap with `language-standard.mdc`:** that rule owns **shipped** UI copy in `src/content/locales/*.ts`, bilingual alignment, LT “Tu”, DI vs AI, and EN vocabulary tables. This doc is an **LLM playbook** for structured adaptation passes; after you merge adapted English into `en.ts`, still run the **language-standard** checklist.
+
+**Not required:** adding this META to the on-page Prompt Library unless product explicitly wants end-user access.

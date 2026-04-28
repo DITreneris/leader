@@ -12,7 +12,7 @@ interface Props {
 const { lang } = Astro.props;
 const c = uiCopy[lang];
 const bilingualShippedNav = showLanguageSwitcher();
-const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=hero&utm_campaign=secondary";
+const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=hero&utm_campaign=primary";
 ---
 
 <div class="relative z-50 mx-auto max-w-7xl px-5 sm:px-8">
@@ -85,7 +85,7 @@ const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_
         class="focus-ring mt-2 rounded-full border border-white/20 px-4 py-3 text-center text-sm font-semibold normal-case tracking-wide text-white transition hover:bg-white/5"
         data-mobile-menu-link
       >
-        {c.hero.secondaryCta}
+        {c.hero.primaryCta}
       </a>
     </nav>
   </div>
@@ -115,6 +115,12 @@ const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_
         class="focus-ring cta-gradient rounded-full px-6 py-4 text-center text-sm font-semibold normal-case tracking-wide text-slate-950 transition hover:brightness-110"
       >
         {c.hero.primaryCta}
+      </a>
+      <a
+        href="#context"
+        class="focus-ring type-cta-label rounded-full border border-white/20 px-6 py-4 text-center text-sm font-semibold normal-case tracking-wide text-white transition hover:bg-white/5"
+      >
+        {c.hero.secondaryCta}
       </a>
     </div>
   </div>

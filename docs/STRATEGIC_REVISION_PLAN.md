@@ -104,7 +104,7 @@ journey
     Run 2-min practice: 5: CEO
     Copy one prompt: 5: CEO
   section Believe
-    See static demo: 5: CEO
+    Try clarity practice: 5: CEO
   section Commit
     Download kit: 5: CEO
   section Scale

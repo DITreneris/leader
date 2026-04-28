@@ -32,6 +32,7 @@ Read [`docs/README.md`](docs/README.md) for the full index (purpose + when to up
 | Topic | Doc |
 |-------|-----|
 | Source of truth map | [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) |
+| US localization META (EU/Baltic → US drafts) | [`docs/PROMPTS_US_LOCALIZATION_META.md`](docs/PROMPTS_US_LOCALIZATION_META.md) |
 | Landing flow / architecture | [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md) |
 | Memes & visual assets | [`docs/VISUAL_CONTENT_MAP.md`](docs/VISUAL_CONTENT_MAP.md) |
 | Strategy & CTA roadmap (long) | [`docs/STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md) |

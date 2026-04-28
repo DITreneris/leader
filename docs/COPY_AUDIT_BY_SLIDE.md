@@ -6,6 +6,8 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **Taisyklės:** [`.cursor/rules/language-standard.mdc`](../.cursor/rules/language-standard.mdc).
 
+**US tonas (hero, postai, skaidrės):** gilesnei „EU formal / generic“ → **US operator** adaptacijai naudok LLM **META** iš [`PROMPTS_US_LOCALIZATION_META.md`](PROMPTS_US_LOCALIZATION_META.md) (Must / Should / Want valdo išvesties apimtį); į `en.ts` / `lt.ts` įkeldami tekstą vis tiek laikykis **language-standard** ir dviejų kalbų lygiavimo.
+
 ---
 
 ## Cross-cutting (visas puslapis)
@@ -24,6 +26,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 | CC-10 | Meme (`Page.astro` + `MemeMoment.astro`) | `img alt` (`memes.sequenceImageAlts`) ir sekcijos `aria-label` (`memes.sectionAriaLabel`) lokalizuoti (**P1 įgyvendinta**). | P1 |
 | CC-11 | `InteractiveCopy.astro` | Fallback `manualMessage()` pagal `html[lang]` LT/EN jei trūksta `copyManual` (**P2 įgyvendinta**). | P2 |
 | CC-12 | JSON-LD | **`WebPage`** `primaryImageOfPage` ImageObject su **`description: meta.socialImageAlt`**; **`FAQPage.inLanguage`** = puslapio locale (**P3**). | P3 |
+| CC-US | Shipped EN = US English | `en.ts` ir kitas **viešas** angliškas tekstas — **American English**; vengti UK rašybos ir junginių (`behaviour`, `organisation`, `whilst`, ir pan.). Žr. [`.cursor/rules/language-standard.mdc`](../.cursor/rules/language-standard.mdc) — **US English (shipped default)**. **2026-04-28:** grep `en.ts` + `public/assets/downloads/*.html` — UK šablonų atitikmenų nėra. | P1 |
 
 ---
 
@@ -39,7 +42,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 | 5 | Kontekstas + moduliai | `#context` | `modules.*` |
 | 6 | Promo juosta | — | `promoBanner.*` |
 | 7 | Meme 3 | — | `memes.items[2]` |
-| 8 | Statinė demo | `#demo` | `demo.*` |
+| 8 | Aiškumo praktika | `#demo` | `demo.*` |
 | 9 | Meme 4 | — | `memes.items[5]` |
 | 10 | Saugumo patikra | `#safety-check` | `safety.*` |
 | 11 | Rinkinio CTA | `#kit` | `cta.*` |
@@ -99,6 +102,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **Lygiavimas**
 
 - Pirminis CTA keliauja į PromptAnatomy – abiejose kalbose tas pats elgesys.
+- Antrinis CTA – **in-page** `href="#context"` su `hero.secondaryCta` (be UTM); auksinis – `utm_campaign=primary` (`docs/UTM_MATRIX.md`).
 
 **Ne locale**
 
@@ -107,6 +111,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **Veiksmai**
 
 - [x] P1: Hero kietojo teksto i18n (`a11y.logoAriaLabel`, `brandSubtag`, `openMobileMenu`, `nav*Aria`, `languageToggleAria`).
+- [x] **2026-04-28:** Du hero CTA (`Hero.astro`): PA outbound + `#context` secondary; UTM tik ant auksinio.
 
 ---
 
@@ -163,7 +168,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 ## 5. Kontekstas + moduliai (`#context`)
 
 - **Failai:** [`ExecutiveModules.astro`](../src/components/ExecutiveModules.astro), [`InteractiveCopy.astro`](../src/components/InteractiveCopy.astro) (JS kompiliavimas)
-- **Raktai:** `modules.context`, `modules.items[]`, `modules.custom`, `modules.rulesPreview`, `modules.roleLine`, fallback placeholderiai JS
+- **Raktai:** `modules.context`, `modules.contextWarning`, `modules.contextCopyHint`, `modules.items[]`, `modules.custom`, `modules.rulesPreview`, `modules.roleLine`, fallback placeholderiai JS
 
 **LT**
 
@@ -184,6 +189,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 - [x] P2: LT `context.badge` → **„Išlieka“** (EN lieka `PERSISTENT`).
 - [x] P2: `InteractiveCopy` – komentaras apie angliškus placeholderius tuštiems laukams.
 - [x] P3: modulių antraštės + pavyzdinės išvestys LT (`modules.items`, `modules.custom`).
+- [x] **2026-04-28:** `contextCopyHint` (`ExecutiveModules.astro`) — aiškumas, kad kontekstas įeina per modulio **Copy full prompt**, ne kaip atskiras blokas.
 
 ---
 
@@ -198,7 +204,8 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **Veiksmai**
 
-- [ ] Po hero/meta keitinių – perkontroliuoti kartojimą su `cta.*`.
+- [x] **2026-04-28:** Hero/meta ir `promoBanner.*` vs `cta.*` — skirtingas funnelis (vidurinis **handoff** į PA + „demo pirmiau“ vs `#kit` **atsisiuntimas** + PA); antraštės ir body nekopijuoja tos pačios frazės; EN/LT lygiagrečiai.
+- [x] **2026-04-28:** `promoBanner.secondaryCta` nebe „static demo“ — **practice / clarity** (`Try the clarity practice first` / `Pirmiau – aiškumo praktika`); sinchronizuota su `nav.proof` ir `demo.eyebrow`.
 
 ---
 
@@ -212,7 +219,9 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ---
 
-## 8. Statinė demo (`#demo`)
+## 8. Aiškumo praktika (`#demo`)
+
+- **Ženklinimas (EN/LT):** bendra etikete vadinama **`Clarity practice` / `Aiškumo praktika`** — `nav.proof`, `demo.eyebrow`, Promo antrinė nuoroda `promoBanner.secondaryCta`.
 
 - **Failai:** [`ClarityDemo.astro`](../src/components/ClarityDemo.astro)
 - **Raktai:** `demo.*`, `demo.scenarios.meeting | report | decision | delegation | communication`
@@ -278,7 +287,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **Veiksmai**
 
-- [ ] Patikrinti PDF atsisiuntimo kelią ir UTM parametrus po copy keitinių (ne tekstas, bet QA).
+- [x] **2026-04-28:** [`CourseCTA.astro`](../src/components/CourseCTA.astro) → `assets/downloads/executive-operating-kit.pdf` (failas repo); antrinė PA nuorašos UTM = `utm_source=leader&utm_medium=lead_magnet&utm_campaign=executive_prompt_library` — sutampa su [`UTM_MATRIX.md`](UTM_MATRIX.md). PDF statiniu URL be UTM — kaip matricoje.
 
 ---
 
@@ -367,7 +376,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **Veiksmai**
 
-- [ ] Po FAQ redakcijos – `npm run build` ir schema peržiūra.
+- [x] **2026-04-28:** `npm run build` — 0 klaidų; `FAQPage` JSON-LD [`pageJsonLd.ts`](../src/utils/pageJsonLd.ts) map’ina `faq.items[]` (įskaitant `bullets` per `faqAnswerTextForSchema`).
 
 ---
 

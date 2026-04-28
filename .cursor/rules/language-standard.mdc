@@ -118,6 +118,20 @@ Loanwords already entrenched in LT business speech are acceptable: `briefas`, `p
 - Oxford comma in lists of three or more.
 - Sentence ends with one period only; no `..` or `...` unless quoting.
 
+### US English (shipped default)
+
+The default USA-market build uses **American English** in all **user-visible** English: **`src/content/locales/en.ts`**, **`public/**` marketing copy** where prose is shown to visitors (e.g. printable kit body text), and English UI strings in components. Do not ship UK spellings or UK-only connectives into those surfaces.
+
+International B2B terms that read the same in US executive copy (**Q3**, **ARR**, **runway**, **board deck**) stay as-is. **UK-preferred spellings and wording** do not belong in shipped `en`.
+
+| Use (US) | Avoid in shipped EN (UK) |
+|---|---|
+| behavior, organization, analyze, center, license (n.), defense, labeling, modeling | behaviour, organisation, analyse, centre, licence (n.), defence, labelling, modelling |
+| while, among | whilst, amongst |
+| practice (v. and n.) | practise (verb) |
+
+Technical layers follow platform spelling (e.g. CSS `color`, DOM “behavior” in APIs)—that is not marketing copy and is out of scope for this rule.
+
 ## Bilingual Alignment Rule
 
 When you change one section in **`en.ts` / `lt.ts`**, update the matching keys in the other language in the same commit. Do not leave a mixed-language deploy.
@@ -140,5 +154,7 @@ When asked to audit English copy:
 - [ ] Headings in sentence case.
 - [ ] No passive voice on key value statements.
 - [ ] Each prompt category description names a decision, risk, trade-off, or next action.
+- [ ] No UK-preferred spellings in user-visible `en` strings (see **US English (shipped default)** table above).
+- [ ] No UK-only connectives/phrasing where US reads more natural (`whilst`, `amongst`, etc.).
 
 After substantive copy edits, run `npm run build` and add a `CHANGELOG.md` entry under the current date.

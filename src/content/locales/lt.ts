@@ -58,7 +58,7 @@ export const ltCopy = {
     nav: {
       product: "CEO/COO Max Value Kit",
       practice: "Kontekstas + moduliai",
-      proof: "Statinė demo",
+      proof: "Aiškumo praktika",
       system: "Vieta sistemoje",
       library: "Promptų biblioteka",
       demo: "Žiūrėti kaip veikia",
@@ -69,8 +69,8 @@ export const ltCopy = {
       eyebrow: "Vadovo operacinis rinkinys",
       title: "Nuo DI triukšmo iki sprendimo.",
       subtitle: "Vienas struktūruotas briefas: spręsk, įvertink riziką, veik.",
-      primaryCta: "Generuoti briefą",
-      secondaryCta: "Atidaryti PromptAnatomy.app",
+      primaryCta: "Atidaryti PromptAnatomy.app",
+      secondaryCta: "Pradėti nuo konteksto ir modulių",
     },
     heroArtifact: {
       ariaLabel: "Pavyzdinė vadovo brief’o išvesties forma.",
@@ -124,7 +124,20 @@ export const ltCopy = {
       promptAnatomyHeading: "Kas yra PromptAnatomy?",
       promptAnatomyBody:
         "Vadovo lygio standartas, kaip rašyti tokią instrukciją: rolė, kontekstas, sprendimo logika, fiksuota išvesties forma ir saugumo patikra prieš siunčiant.",
-      a11yLabel: "Prieš ir po: netvarkingi užrašai virsta sprendimui paruoštu briefu su saugumo filtru.",
+      workflowTitle: "Šiandienos darbo eiga",
+      workflowBody:
+        "Surink promptą pagal Prompt Anatomy šiame puslapyje, tada įklijuok į AI asistentą, kurį leidžia tavo licencija ir planas. Vienas sukompiliuotas promptas → viena struktūrizuota išvestis.",
+      workflowHint:
+        "Jei reikia, patikslink sukompiliuotą promptą, tada nukopijuok ir įklijuok į ChatGPT, Claude, Gemini ar patvirtintą įrankį.",
+      workflowPrimaryCta: "Kopijuoti promptą ir analizuoti →",
+      workflowContinueLabel: "Tęsk čia:",
+      workflowLicenseNote:
+        "Naudok tiekėją ir paskyrą pagal organizacijos licenciją — laikantis tiekėjo sąlygų ir plano ribų.",
+      openChatgpt: "Atidaryti ChatGPT",
+      openClaude: "Atidaryti Claude",
+      openGemini: "Atidaryti Gemini",
+      a11yLabel:
+        "Prieš ir po: prompto apibrėžimai, šiandienos eiga sukompiliuoti ir įklijuoti į AI, brief'o struktūros diagrama.",
     },
     promoBanner: {
       ariaLabel: "Perėjimo baneris į PromptAnatomy.",
@@ -132,7 +145,7 @@ export const ltCopy = {
       title: "Įdiek PromptAnatomy kaip komandos standartą.",
       subtitle: "Rinkinys duoda rezultato formą. PromptAnatomy paverčia ją kartojama visai komandai.",
       primaryCta: "Atidaryti PromptAnatomy.app",
-      secondaryCta: "Pirmiau pažiūrėti statinę demo",
+      secondaryCta: "Pirmiau – aiškumo praktika",
     },
     modules: {
       eyebrow: "Globalus kontekstas + moduliai",
@@ -154,6 +167,8 @@ export const ltCopy = {
       },
       contextWarning:
         "Be konteksto nėra vertės. Jei paliksi tuščia, sukompiliuotas promptas įdės placeholderius.",
+      contextCopyHint:
+        "Užpildyk vieną kartą. Tai neatskiras kopijuojamas blokas – reikšmės įdedamos į pilną promptą, kai žemiau ant modulio kortelės paspaudi „Kopijuoti pilną promptą“.",
       rulesPreview: {
         title: "Įdedamos taisyklės (neginčijama)",
         items: [
@@ -603,7 +618,7 @@ Pašalinti dabar:
       ],
     },
     demo: {
-      eyebrow: "Statinis demo",
+      eyebrow: "Aiškumo praktika",
       title: "Pasirink scenarijų. Gauk briefą.",
       subtitle: "Sprendimas ir kitas veiksmas, kai reikia.",
       briefLabel: "Briefas",

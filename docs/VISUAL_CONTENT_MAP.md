@@ -33,7 +33,7 @@ Several `MemeMoment.astro` beats break up long reading. Copy always comes from `
 | 4 | 5 | `reward_2.png` | Keep the structure on your desk |
 | 5 | 4 | `meme-02-meeting-overload.png` | Leadership needs the system |
 
-Desktop: `MemeMoment` uses **equal two-column** layout (`lg`), so image width is the same for left- and right-aligned beats; mobile stacks one column.
+Desktop: **`MemeMoment` stacks vertically on all breakpoints**: full-width **16:9** image first, then **title + body** centered beneath for a stronger emotional beat.
 
 Section flow between beats: `BeforeAfter` → `ExecutiveModules` (`#context`) → `PromoBanner` → `ClarityDemo` (`#demo`) → **meme index 5** → `SafetyCheck` → `CourseCTA` (`#kit`) → `AuthorityBridge` → `PromptAnatomy` → `RoiPath` → **meme index 4** → `Faq` → …
 

@@ -5,6 +5,7 @@
 | Document | Purpose | Update when |
 |----------|---------|-------------|
 | [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md) | Canonical map: what is truth for product/flow/copy/visuals | You feel “spec drift” or add new docs/systems |
+| [`PROMPTS_US_LOCALIZATION_META.md`](PROMPTS_US_LOCALIZATION_META.md) | LLM META: EU/Baltic drafts → US-native copy (Must/Should/Want); not a replacement for `language-standard.mdc` on shipped strings | You change US-market messaging workflow or META sections |
 | [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) | Design tokens, `ds/` primitives, section templates, visual anti-patterns | Tokens, spacing, new section layout, or DS enforcement rules change |
 | [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md) | Page stack, folder roles, landing flow (canonical with [`src/layouts/Page.astro`](../src/layouts/Page.astro)) | Section order or major folders change |
 | [`VISUAL_CONTENT_MAP.md`](VISUAL_CONTENT_MAP.md) | Memes, screenshots, diagrams — placement and rules | Meme indices, asset filenames, or visual beats change |

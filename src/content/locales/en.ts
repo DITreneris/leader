@@ -56,7 +56,7 @@ export const enCopy = {
     nav: {
       product: "CEO/COO Max Value Kit",
       practice: "Context + modules",
-      proof: "Static demo",
+      proof: "Clarity practice",
       system: "Where it sits",
       library: "Prompt library",
       demo: "See how it works",
@@ -67,8 +67,8 @@ export const enCopy = {
       eyebrow: "Executive operating kit",
       title: "From AI noise to decision.",
       subtitle: "One structured brief: decide, assess risk, act.",
-      primaryCta: "Generate brief",
-      secondaryCta: "Open PromptAnatomy.app",
+      primaryCta: "Open PromptAnatomy.app",
+      secondaryCta: "Start with context & modules",
     },
     heroArtifact: {
       ariaLabel: "Example executive brief output artifact.",
@@ -119,7 +119,20 @@ export const enCopy = {
       promptAnatomyHeading: "What is PromptAnatomy?",
       promptAnatomyBody:
         "The executive standard for building that instruction: role, context, decision logic, fixed output format, and a safety check before anything is sent.",
-      a11yLabel: "Before and after: messy notes become a decision-ready brief with a safety gate.",
+      workflowTitle: "Today's workflow",
+      workflowBody:
+        "Build the prompt with Prompt Anatomy on this page, then paste it into an AI assistant your license and plan allow. One compiled prompt → one structured answer.",
+      workflowHint:
+        "Compile or tweak the prompt if needed, then copy it and paste it into ChatGPT, Claude, Gemini, or your approved tool.",
+      workflowPrimaryCta: "Copy prompt & analyze →",
+      workflowContinueLabel: "Continue in:",
+      workflowLicenseNote:
+        "Use the provider and account your organization has licensed, subject to each vendor's terms and your plan limits.",
+      openChatgpt: "Open ChatGPT",
+      openClaude: "Open Claude",
+      openGemini: "Open Gemini",
+      a11yLabel:
+        "Before and after: prompt definitions, today's workflow to compile and paste into AI, diagram of decision-ready brief shape.",
     },
     promoBanner: {
       ariaLabel: "Product handoff banner to PromptAnatomy.",
@@ -127,7 +140,7 @@ export const enCopy = {
       title: "Install PromptAnatomy as the team standard.",
       subtitle: "The kit gives you the output shape. PromptAnatomy makes it repeatable across the team.",
       primaryCta: "Open PromptAnatomy.app",
-      secondaryCta: "See the static demo first",
+      secondaryCta: "Try the clarity practice first",
     },
     modules: {
       eyebrow: "Global context + modules",
@@ -149,6 +162,8 @@ export const enCopy = {
       },
       contextWarning:
         "No context = no value. If you leave fields blank, the compiled prompt will include placeholders.",
+      contextCopyHint:
+        "Fill these once. They are not a separate copy target—your values are embedded in the full prompt when you tap Copy full prompt on any module card below.",
       rulesPreview: {
         title: "Rules injected (non-negotiable)",
         items: [
@@ -598,7 +613,7 @@ Eliminate now:
       ],
     },
     demo: {
-      eyebrow: "Static demo",
+      eyebrow: "Clarity practice",
       title: "Pick a scenario. Get the brief.",
       subtitle: "Decision and next action when you need them.",
       briefLabel: "Brief",
