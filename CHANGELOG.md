@@ -21,8 +21,8 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 ### Changed (axis shift: context + modules)
 - **New primary action:** Replaced the standalone `QuickPractice` + `SafetyCheck` chapter with **Global Context + Modules** (`#context`) as the main spine action (define once, inject everywhere).
-- **Modules:** Added 6 executive modules + 1 **Custom module** (task + output example JSON) and a compiled “Copy full prompt” flow with **JSON-first output contract** (JSON object first, then short explanation).
-- **Runtime:** Extended `InteractiveCopy.astro` to compile module prompts from `window.__PA_COPY__`, copy them to clipboard, and validate Custom module JSON client-side.
+- **Modules:** Added 6 executive modules + 1 **Custom module** (task + expected output shape) and a compiled “Copy full prompt” flow with **readable decision-grade outputs** (bullets/sections, owners, deadlines).
+- **Runtime:** Extended `InteractiveCopy.astro` to compile module prompts from `window.__PA_COPY__` and copy them to clipboard (no JSON validation).
 - **Nav/anchors:** Hero nav + primary CTA + skip link now target `#context`.
 - **Docs:** Updated `README.md`, `docs/CODEBASE_OVERVIEW.md`, `docs/STRATEGIC_REVISION_PLAN.md`, and `AGENTS.md` to reflect the new axis.
 
@@ -35,6 +35,17 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 ### Changed (earlier 2026-04-28 stack)
 - **Hero / nav / FlowScheme / conversion:** EN/LT hero + `flowScheme` tone; header shows `#practice`, `#demo`, `#kit` + mobile PromptAnatomy; `CourseCTA` exposes `#kit`; `ClarityDemo` connector + `aria-live`; `AuthorityBridge` Option A; `PromptAnatomy` collapsed `<details>`; quick practice value framing + single demo CTA; ROI copy button SSR keys; library reveal strings; `docs/VISUAL_CONTENT_MAP.md` + `STRATEGIC_REVISION_PLAN` §12 updates.
+
+### Changed (premium + de-overload pass)
+- **Hero proof:** Replaced the hero’s “slide” diagram with an **executive brief artifact** (`HeroArtifact`) and moved the flow diagram into a collapsed “How it works” disclosure.
+- **Surface system:** Softened `glass-card` borders/shadows/blur and introduced a flatter `surface-card` so not everything looks equally elevated.
+- **Context + modules density:** Compressed injected rules and per-module “Expected output” into `<details>` disclosures to reduce first-paint overload while keeping all modules visible.
+- **Memes:** Added `meme-03-clear-decision.png` as the first “breath” beat after `#context` (live meme indices now `3,0,2,4`).
+- **Prompt anatomy:** Calmed typography and de-emphasized the 01–05 step tiles to avoid slide-deck vibes while keeping the section collapsed by default.
+- **Docs:** Added `docs/SOURCE_OF_TRUTH.md` and wired it from `README.md`, `docs/README.md`, and `AGENTS.md`.
+
+### Verified
+- `npm run build`
 
 ## 2026-04-27
 

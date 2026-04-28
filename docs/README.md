@@ -4,6 +4,7 @@
 
 | Document | Purpose | Update when |
 |----------|---------|-------------|
+| [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md) | Canonical map: what is truth for product/flow/copy/visuals | You feel “spec drift” or add new docs/systems |
 | [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md) | Page stack, folder roles, landing flow (canonical with [`src/layouts/Page.astro`](../src/layouts/Page.astro)) | Section order or major folders change |
 | [`VISUAL_CONTENT_MAP.md`](VISUAL_CONTENT_MAP.md) | Memes, screenshots, diagrams — placement and rules | Meme indices, asset filenames, or visual beats change |
 | [`STRATEGIC_REVISION_PLAN.md`](STRATEGIC_REVISION_PLAN.md) | Long-form product/IA/CTA roadmap; status summary at top | Strategic scope or phased decisions change |

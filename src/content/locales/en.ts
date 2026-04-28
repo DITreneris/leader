@@ -51,6 +51,28 @@ export const enCopy = {
       proofTwo: "No login",
       proofThree: "Built on PromptAnatomy",
     },
+    heroArtifact: {
+      ariaLabel: "Example executive brief output artifact.",
+      headerChipOne: "Decision brief",
+      headerChipTwo: "Owner + deadline",
+      headerChipThree: "Decision-grade",
+      title: "Q3 priorities: lock the trade-off and the owner.",
+      subtitle: "This is the output shape you want—tight, actionable, and safe to send.",
+      decisionLabel: "Decision",
+      decisionValue: "Protect revenue delivery in Q3 by pausing one initiative—name the owner and commit to a Friday recommendation.",
+      criteriaLabel: "Criteria",
+      criteriaItems: ["Revenue impact this quarter", "Execution capacity reality", "Reversibility in 30 days"],
+      risksLabel: "Top risks",
+      riskItems: ["Status theatre replaces a decision", "Teams use different assumptions", "No stop rule = hidden scope creep"],
+      ownerLabel: "Owner",
+      ownerValue: "COO (recommendation)",
+      deadlineLabel: "Deadline",
+      deadlineValue: "Friday 17:00",
+      nextActionLabel: "Next action",
+      nextActionValue: "Send a one-page brief before the meeting: trade-off, recommendation, risks, owner, deadline.",
+      helper: "You fill context once, copy a module prompt, and keep the same safety gate before anything leaves your desk.",
+      howItWorksSummary: "How it works (expand)",
+    },
     heroTrust: {
       showPlaceholderLogos: false,
       logosEyebrow: "Adoption signal",
@@ -88,7 +110,7 @@ export const enCopy = {
     modules: {
       eyebrow: "Global context + modules",
       title: "Define context once. Inject it into high-leverage executive modules.",
-      subtitle: "Copy one compiled prompt. Get JSON-first output you can act on.",
+      subtitle: "Copy one compiled prompt. Get decision-grade output you can act on.",
       context: {
         title: "Global context block",
         subtitle: "Mandatory. Define once, inject everywhere.",
@@ -115,9 +137,10 @@ export const enCopy = {
       },
       roleLine: "ROLE: Tier-1 CEO advisor (strategy + operator)",
       missingContextRule: "If context is missing, ask up to 3 targeted questions first.",
-      jsonFirstRule: "Output must be two parts: (1) valid JSON object only; (2) blank line then EXPLANATION: ≤120 words.",
+      jsonFirstRule:
+        "Output must be plain text. Use short bullets, label sections, and include owners + deadlines where possible.",
       taskLabel: "Task",
-      outputLabel: "Expected output (JSON-first)",
+      outputLabel: "Expected output (readable)",
       explanationLabel: "Explanation",
       copyButton: "Copy full prompt",
       copiedButton: "Copied",
@@ -128,19 +151,19 @@ export const enCopy = {
           title: "Strategy breaker",
           subtitle: "Stress-test a strategy before you spend calendar time on it.",
           taskFormat: "Stress-test: [Insert your strategy or plan here]",
-          outputExampleJson: `{
-  \"verdict\": \"proceed | revise | kill\",
-  \"top_risks\": [
-    {
-      \"risk\": \"string\",
-      \"hidden_assumption\": \"string\",
-      \"early_warning_signal\": \"string\",
-      \"mitigation_next_action\": { \"action\": \"string\", \"owner\": \"string\", \"deadline\": \"string\" }
-    }
-  ],
-  \"kill_criteria\": [\"string\"],
-  \"first_48h_moves\": [{ \"action\": \"string\", \"owner\": \"string\", \"deadline\": \"string\" }]
-}`,
+          outputExampleJson: `Verdict: Proceed / Revise / Kill
+
+Top 3 risks (ranked):
+- Risk:
+  - Hidden assumption:
+  - Early warning signal:
+  - Mitigation (next action + owner + deadline):
+
+Kill criteria:
+- ...
+
+First 48h moves:
+- Action — Owner — Deadline`,
         },
         {
           id: "sentiment",
@@ -148,13 +171,18 @@ export const enCopy = {
           title: "Culture decoder",
           subtitle: "Turn raw feedback into the few actions that actually change morale.",
           taskFormat: "Analyze: [Paste team feedback, survey results, or raw text here]",
-          outputExampleJson: `{
-  \"core_emotion\": \"string\",
-  \"top_issues\": [\"string\"],
-  \"unspoken_problem\": \"string\",
-  \"actions_next_town_hall\": [{ \"action\": \"string\", \"owner\": \"string\", \"deadline\": \"string\" }],
-  \"risks_if_ignored\": [\"string\"]
-}`,
+          outputExampleJson: `Core emotion (1 line):
+
+Top 3 real issues:
+- ...
+
+Unspoken problem:
+
+Actions (next Town Hall):
+- Action — Owner — Deadline
+
+Risks if ignored:
+- ...`,
         },
         {
           id: "secondOrder",
@@ -162,14 +190,20 @@ export const enCopy = {
           title: "Decision impact",
           subtitle: "Force second- and third-order effects before you commit.",
           taskFormat: "Evaluate: [Describe a pending decision here]",
-          outputExampleJson: `{
-  \"recommendation\": \"go | delay | reject\",
-  \"immediate_benefit\": \"string\",
-  \"second_order_effects_6_12m\": [\"string\"],
-  \"third_order_risks_12_24m\": [\"string\"],
-  \"reversibility\": \"reversible | partially_reversible | irreversible\",
-  \"next_actions\": [{ \"action\": \"string\", \"owner\": \"string\", \"deadline\": \"string\" }]
-}`,
+          outputExampleJson: `Recommendation: Go / Delay / Reject
+
+Immediate benefit:
+
+2nd-order effects (6–12m):
+- ...
+
+3rd-order risks (12–24m):
+- ...
+
+Reversibility: Reversible / Partially reversible / Irreversible
+
+Next actions:
+- Action — Owner — Deadline`,
         },
         {
           id: "communication",
@@ -177,13 +211,14 @@ export const enCopy = {
           title: "CEO voice",
           subtitle: "Rewrite into a clear stance + one CTA without sounding defensive.",
           taskFormat: "Rewrite: [Paste draft email, memo, or announcement here]",
-          outputExampleJson: `{
-  \"stance\": \"string\",
-  \"message_150_words\": \"string\",
-  \"call_to_action\": \"string\",
-  \"tone_notes\": [\"decisive\", \"human\"],
-  \"risks_of_misinterpretation\": [\"string\"]
-}`,
+          outputExampleJson: `Stance (1 line):
+
+Message (≤150 words):
+
+Call to action (1 line):
+
+Risks of misinterpretation:
+- ...`,
         },
         {
           id: "premortem",
@@ -191,13 +226,17 @@ export const enCopy = {
           title: "Competitive attack",
           subtitle: "Assume you fail. Find the weak point and the defensive move now.",
           taskFormat: "Act as a competitor CEO attacking my current setup.",
-          outputExampleJson: `{
-  \"competitor_best_attack\": \"string\",
-  \"your_blind_spot\": \"string\",
-  \"weakest_point\": \"string\",
-  \"defensive_move_now\": { \"action\": \"string\", \"owner\": \"string\", \"deadline\": \"string\" },
-  \"hardening_checklist\": [\"string\"]
-}`,
+          outputExampleJson: `Competitor’s best attack:
+
+Your blind spot:
+
+Weakest point:
+
+Defensive move (now):
+- Action — Owner — Deadline
+
+Hardening checklist:
+- ...`,
         },
         {
           id: "timeAudit",
@@ -205,12 +244,17 @@ export const enCopy = {
           title: "Leverage filter",
           subtitle: "Cut, delegate, and set focus rules for next week.",
           taskFormat: "Analyze: [Paste list of your calendar events/tasks for the week]",
-          outputExampleJson: `{
-  \"top_20_percent_high_impact\": [\"string\"],
-  \"bottom_30_percent_delegate\": [{ \"task\": \"string\", \"delegate_to\": \"string\", \"when\": \"string\" }],
-  \"eliminate_now\": [\"string\"],
-  \"focus_rules_next_week\": [\"string\"]
-}`,
+          outputExampleJson: `Top 20% impact:
+- ...
+
+Bottom 30% to delegate:
+- Task — Delegate to — When
+
+Eliminate now:
+- ...
+
+3 focus rules (next week):
+- ...`,
         },
       ],
       custom: {
@@ -219,10 +263,10 @@ export const enCopy = {
         subtitle: "Define your own task and output shape. Keep the same context + rules.",
         taskLabel: "Task format",
         taskPlaceholder: "e.g., Diagnose: [Paste weekly exec update here]",
-        outputLabel: "Output example JSON (must be valid JSON)",
+        outputLabel: "Expected output (readable)",
         outputPlaceholder:
-          "{\n  \"recommendation\": \"...\",\n  \"risks\": [\"...\"],\n  \"next_actions\": [{ \"action\": \"...\", \"owner\": \"...\", \"deadline\": \"...\" }]\n}",
-        validationError: "Invalid JSON in Output example. Fix it, then copy again.",
+          "Recommendation:\n\nTop risks:\n- ...\n\nNext actions:\n- Action — Owner — Deadline\n\nNotes:\n- ...",
+        validationError: "",
         copyButton: "Copy custom prompt",
         copiedButton: "Copied",
       },

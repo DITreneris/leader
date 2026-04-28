@@ -52,6 +52,31 @@ export const ltCopy = {
       proofTwo: "Be prisijungimo",
       proofThree: "Pagrįsta PromptAnatomy",
     },
+    heroArtifact: {
+      ariaLabel: "Pavyzdinė vadovo brief’o išvesties forma.",
+      headerChipOne: "Sprendimo briefas",
+      headerChipTwo: "Savininkas + terminas",
+      headerChipThree: "Sprendimo lygis",
+      title: "Q3 prioritetai: užrakink kompromisą ir savininką.",
+      subtitle: "Tokia turi būti išvesties forma—trumpa, vykdoma ir saugi siųsti.",
+      decisionLabel: "Sprendimas",
+      decisionValue:
+        "Saugom Q3 pajamų pristatymą, stabdom vieną iniciatyvą—įvardinam savininką ir iki penktadienio pateikiam rekomendaciją.",
+      criteriaLabel: "Kriterijai",
+      criteriaItems: ["Poveikis pajamoms šį ketvirtį", "Tikras vykdymo pajėgumas", "Grįžtamumas per 30 dienų"],
+      risksLabel: "Svarbiausios rizikos",
+      riskItems: ["Statuso teatras pakeičia sprendimą", "Skirtingos prielaidos tarp komandų", "Be stabdymo taisyklės atsiranda slapta apimtis"],
+      ownerLabel: "Savininkas",
+      ownerValue: "COO (rekomendacija)",
+      deadlineLabel: "Terminas",
+      deadlineValue: "Penktadienis 17:00",
+      nextActionLabel: "Kitas veiksmas",
+      nextActionValue:
+        "Prieš susitikimą nusiųsk 1 puslapio briefą: kompromisas, rekomendacija, rizikos, savininkas, terminas.",
+      helper:
+        "Kontekstą įvedi vieną kartą, kopijuoji modulio promptą ir prieš siunčiant visada paleidi tą pačią patikrą.",
+      howItWorksSummary: "Kaip tai veikia (išskleisti)",
+    },
     heroTrust: {
       showPlaceholderLogos: false,
       logosEyebrow: "Pasitikėjimo signalas",
@@ -91,7 +116,7 @@ export const ltCopy = {
     modules: {
       eyebrow: "Globalus kontekstas + moduliai",
       title: "Kontekstą apibrėžk vieną kartą. Įdėk jį į vadovo svertus.",
-      subtitle: "Kopijuok vieną sukompiliuotą promptą. Gauk JSON‑pirmą rezultatą, pagal kurį galima veikti.",
+      subtitle: "Kopijuok vieną sukompiliuotą promptą. Gauk sprendimo lygio rezultatą, pagal kurį galima veikti.",
       context: {
         title: "Globalus konteksto blokas",
         subtitle: "Privaloma. Vieną kartą įvedi, visur panaudoji.",
@@ -119,9 +144,9 @@ export const ltCopy = {
       roleLine: "ROLĖ: 1 lygio CEO patarėjas (strategija + operacijos)",
       missingContextRule: "Jei trūksta konteksto – pirmiausia užduok iki 3 tikslių klausimų.",
       jsonFirstRule:
-        "Išvestis turi būti dvi dalys: (1) tik validus JSON objektas; (2) tuščia eilutė, tada EXPLANATION: ≤120 žodžių.",
+        "Išvestis turi būti paprastas tekstas. Naudok trumpus punktus, sužymėk skyrius, įdėk savininkus + terminus, kur įmanoma.",
       taskLabel: "Užduotis",
-      outputLabel: "Laukiama išvestis (JSON‑pirma)",
+      outputLabel: "Laukiama išvestis (skaitoma)",
       explanationLabel: "Paaiškinimas",
       copyButton: "Kopijuoti pilną promptą",
       copiedButton: "Nukopijuota",
@@ -132,19 +157,19 @@ export const ltCopy = {
           title: "Strategijos laužytuvas",
           subtitle: "Patikrink strategiją prieš sudegindamas kalendorių.",
           taskFormat: "Patikrink: [Įrašyk strategiją arba planą čia]",
-          outputExampleJson: `{
-  \"verdict\": \"proceed | revise | kill\",
-  \"top_risks\": [
-    {
-      \"risk\": \"string\",
-      \"hidden_assumption\": \"string\",
-      \"early_warning_signal\": \"string\",
-      \"mitigation_next_action\": { \"action\": \"string\", \"owner\": \"string\", \"deadline\": \"string\" }
-    }
-  ],
-  \"kill_criteria\": [\"string\"],
-  \"first_48h_moves\": [{ \"action\": \"string\", \"owner\": \"string\", \"deadline\": \"string\" }]
-}`,
+          outputExampleJson: `Verdiktas: Proceed / Revise / Kill
+
+Top 3 rizikos (pagal svarbą):
+- Rizika:
+  - Paslėpta prielaida:
+  - Ankstyvas signalas:
+  - Mitigacija (kitas veiksmas + savininkas + terminas):
+
+Kill kriterijai:
+- ...
+
+Pirmos 48h:
+- Veiksmas — Savininkas — Terminas`,
         },
         {
           id: "sentiment",
@@ -152,13 +177,18 @@ export const ltCopy = {
           title: "Kultūros dekoderis",
           subtitle: "Žalią feedbacką paversk keliomis veiksmingomis intervencijomis.",
           taskFormat: "Analizuok: [Įklijuok feedbacką, apklausas ar žalią tekstą]",
-          outputExampleJson: `{
-  \"core_emotion\": \"string\",
-  \"top_issues\": [\"string\"],
-  \"unspoken_problem\": \"string\",
-  \"actions_next_town_hall\": [{ \"action\": \"string\", \"owner\": \"string\", \"deadline\": \"string\" }],
-  \"risks_if_ignored\": [\"string\"]
-}`,
+          outputExampleJson: `Pagrindinė emocija (1 eilutė):
+
+Top 3 tikros problemos:
+- ...
+
+Neįvardyta problema:
+
+Veiksmai (kitas Town Hall):
+- Veiksmas — Savininkas — Terminas
+
+Rizika, jei ignoruosim:
+- ...`,
         },
         {
           id: "secondOrder",
@@ -166,14 +196,20 @@ export const ltCopy = {
           title: "Sprendimo pasekmės",
           subtitle: "Priversk 2‑os ir 3‑os eilės efektus prieš įsipareigodamas.",
           taskFormat: "Įvertink: [Aprašyk laukiantį sprendimą]",
-          outputExampleJson: `{
-  \"recommendation\": \"go | delay | reject\",
-  \"immediate_benefit\": \"string\",
-  \"second_order_effects_6_12m\": [\"string\"],
-  \"third_order_risks_12_24m\": [\"string\"],
-  \"reversibility\": \"reversible | partially_reversible | irreversible\",
-  \"next_actions\": [{ \"action\": \"string\", \"owner\": \"string\", \"deadline\": \"string\" }]
-}`,
+          outputExampleJson: `Rekomendacija: Go / Delay / Reject
+
+Momentinė nauda:
+
+2-os eilės efektai (6–12 mėn.):
+- ...
+
+3-os eilės rizikos (12–24 mėn.):
+- ...
+
+Grįžtamumas: Reversible / Partially reversible / Irreversible
+
+Kiti veiksmai:
+- Veiksmas — Savininkas — Terminas`,
         },
         {
           id: "communication",
@@ -181,13 +217,14 @@ export const ltCopy = {
           title: "CEO balsas",
           subtitle: "Perrašyk į aiškią poziciją + vieną CTA be gynybos tono.",
           taskFormat: "Perrašyk: [Įklijuok laiško/memo/žinutės juodraštį]",
-          outputExampleJson: `{
-  \"stance\": \"string\",
-  \"message_150_words\": \"string\",
-  \"call_to_action\": \"string\",
-  \"tone_notes\": [\"decisive\", \"human\"],
-  \"risks_of_misinterpretation\": [\"string\"]
-}`,
+          outputExampleJson: `Pozicija (1 eilutė):
+
+Žinutė (≤150 žodžių):
+
+CTA (1 eilutė):
+
+Nesusipratimo rizikos:
+- ...`,
         },
         {
           id: "premortem",
@@ -195,13 +232,17 @@ export const ltCopy = {
           title: "Konkurento ataka",
           subtitle: "Tarkim, kad žlungei. Rask silpną vietą ir gynybinį veiksmą dabar.",
           taskFormat: "Veik kaip konkurento CEO prieš mano dabartinį setupą.",
-          outputExampleJson: `{
-  \"competitor_best_attack\": \"string\",
-  \"your_blind_spot\": \"string\",
-  \"weakest_point\": \"string\",
-  \"defensive_move_now\": { \"action\": \"string\", \"owner\": \"string\", \"deadline\": \"string\" },
-  \"hardening_checklist\": [\"string\"]
-}`,
+          outputExampleJson: `Geriausia konkurento ataka:
+
+Tavo akloji zona:
+
+Silpniausia vieta:
+
+Gynybinis veiksmas (dabar):
+- Veiksmas — Savininkas — Terminas
+
+Sustiprinimo sąrašas:
+- ...`,
         },
         {
           id: "timeAudit",
@@ -209,12 +250,17 @@ export const ltCopy = {
           title: "Sverto filtras",
           subtitle: "Nukirpk, deleguok ir susirašyk fokusavimo taisykles kitai savaitei.",
           taskFormat: "Analizuok: [Įklijuok savaitės kalendorių / užduočių sąrašą]",
-          outputExampleJson: `{
-  \"top_20_percent_high_impact\": [\"string\"],
-  \"bottom_30_percent_delegate\": [{ \"task\": \"string\", \"delegate_to\": \"string\", \"when\": \"string\" }],
-  \"eliminate_now\": [\"string\"],
-  \"focus_rules_next_week\": [\"string\"]
-}`,
+          outputExampleJson: `Top 20% poveikio:
+- ...
+
+Apatiniai 30% delegavimui:
+- Užduotis — Kam deleguoti — Kada
+
+Šalinti dabar:
+- ...
+
+3 fokusavimo taisyklės (kitai savaitei):
+- ...`,
         },
       ],
       custom: {
@@ -223,10 +269,10 @@ export const ltCopy = {
         subtitle: "Apibrėžk savo užduotį ir išvesties formą. Kontekstas + taisyklės lieka tie patys.",
         taskLabel: "Užduoties formatas",
         taskPlaceholder: "pvz., Diagnozuok: [Įklijuok savaitinį vadovo atnaujinimą]",
-        outputLabel: "Išvesties pavyzdys JSON (turi būti validus JSON)",
+        outputLabel: "Laukiama išvestis (skaitoma)",
         outputPlaceholder:
-          "{\n  \"recommendation\": \"...\",\n  \"risks\": [\"...\"],\n  \"next_actions\": [{ \"action\": \"...\", \"owner\": \"...\", \"deadline\": \"...\" }]\n}",
-        validationError: "JSON neteisingas. Pataisyk išvesties pavyzdį ir bandyk kopijuoti dar kartą.",
+          "Rekomendacija:\n\nTop rizikos:\n- ...\n\nKiti veiksmai:\n- Veiksmas — Savininkas — Terminas\n\nPastabos:\n- ...",
+        validationError: "",
         copyButton: "Kopijuoti custom promptą",
         copiedButton: "Nukopijuota",
       },

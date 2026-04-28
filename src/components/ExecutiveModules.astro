@@ -12,7 +12,7 @@ const modules = uiCopy[lang].modules;
 
 <section id="context" class="mx-auto max-w-7xl px-5 py-20 sm:px-8" aria-labelledby="context-title">
   <div class="mx-auto max-w-3xl text-center">
-    <p class="text-sm font-bold uppercase tracking-[0.28em] text-brand-accent">
+    <p class="text-sm font-semibold tracking-[0.18em] text-brand-accent">
       {modules.eyebrow}
     </p>
     <h2 id="context-title" class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
@@ -23,10 +23,10 @@ const modules = uiCopy[lang].modules;
     </p>
   </div>
 
-  <div class="mx-auto mt-10 grid max-w-6xl gap-5 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+  <div class="mx-auto mt-10 flex max-w-6xl flex-col gap-5">
     <div class="glass-card overflow-hidden rounded-[2rem] p-6 sm:p-8">
       <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{modules.context.title}</p>
+        <p class="text-xs font-semibold tracking-[0.18em] text-brand-accent-hover">{modules.context.title}</p>
         <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.22em] text-slate-200">
           {modules.context.badge}
         </span>
@@ -95,25 +95,27 @@ const modules = uiCopy[lang].modules;
         </div>
       </div>
 
-      <div class="surface-panel mt-6 rounded-[1.75rem] p-5">
-        <p class="text-xs font-bold uppercase tracking-[0.28em] text-slate-400">{modules.rulesPreview.title}</p>
+      <details class="surface-panel mt-6 rounded-[1.75rem] p-5">
+        <summary class="focus-ring summary-hover -m-2 rounded-2xl px-2 py-2 text-xs font-semibold tracking-[0.18em] text-slate-300">
+          {modules.rulesPreview.title}
+        </summary>
         <ul class="mt-4 space-y-2 text-sm leading-6 text-slate-200">
           {modules.rulesPreview.items.map((item) => (
             <li>{item}</li>
           ))}
         </ul>
-      </div>
+      </details>
 
       <p class="mt-4 text-xs leading-5 text-slate-400" data-context-warning>
         {modules.contextWarning}
       </p>
     </div>
 
-    <div class="grid gap-4 sm:grid-cols-2">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {modules.items.map((m) => (
-        <article class="glass-card flex h-full flex-col overflow-hidden rounded-[2rem] p-6" data-module-card data-module-id={m.id}>
+        <article class="surface-card flex h-full flex-col overflow-hidden rounded-[2rem] p-6" data-module-card data-module-id={m.id}>
           <div class="flex-1">
-            <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent">{m.eyebrow}</p>
+            <p class="text-xs font-semibold tracking-[0.18em] text-brand-accent">{m.eyebrow}</p>
             <h3 class="mt-3 text-xl font-black text-white">{m.title}</h3>
             <p class="mt-2 text-sm leading-6 text-slate-300">{m.subtitle}</p>
 
@@ -122,10 +124,12 @@ const modules = uiCopy[lang].modules;
               <p class="mt-2 whitespace-pre-wrap font-mono text-sm leading-6 text-slate-200">{m.taskFormat}</p>
             </div>
 
-            <div class="surface-panel mt-4 rounded-3xl p-4">
-              <p class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-500">{modules.outputLabel}</p>
-              <pre class="mt-2 max-h-40 overflow-auto whitespace-pre-wrap font-mono text-xs leading-5 text-slate-200 [tab-size:2]" tabindex="0">{m.outputExampleJson}</pre>
-            </div>
+            <details class="surface-panel mt-4 rounded-3xl p-4">
+              <summary class="focus-ring summary-hover -m-2 rounded-2xl px-2 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">
+                {modules.outputLabel}
+              </summary>
+              <pre class="mt-3 max-h-40 overflow-auto whitespace-pre-wrap font-mono text-xs leading-5 text-slate-200 [tab-size:2]" tabindex="0">{m.outputExampleJson}</pre>
+            </details>
           </div>
 
           <button
@@ -139,53 +143,53 @@ const modules = uiCopy[lang].modules;
           </button>
         </article>
       ))}
+    </div>
 
-      <article class="glass-card flex h-full flex-col overflow-hidden rounded-[2rem] p-6 sm:col-span-2" data-module-card data-module-id="custom">
-        <div class="flex-1">
-          <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent">{modules.custom.eyebrow}</p>
-          <h3 class="mt-3 text-xl font-black text-white">{modules.custom.title}</h3>
-          <p class="mt-2 text-sm leading-6 text-slate-300">{modules.custom.subtitle}</p>
+    <article class="glass-card flex h-full flex-col overflow-hidden rounded-[2rem] p-6 sm:p-8" data-module-card data-module-id="custom">
+      <div class="flex-1">
+        <p class="text-xs font-semibold tracking-[0.18em] text-brand-accent">{modules.custom.eyebrow}</p>
+        <h3 class="mt-3 text-xl font-black text-white">{modules.custom.title}</h3>
+        <p class="mt-2 text-sm leading-6 text-slate-300">{modules.custom.subtitle}</p>
 
-          <div class="mt-5 grid gap-4 lg:grid-cols-2">
-            <div>
-              <label class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500" for="custom-task">
-                {modules.custom.taskLabel}
-              </label>
-              <textarea
-                id="custom-task"
-                class="focus-ring mt-2 min-h-36 w-full rounded-3xl border border-white/10 bg-slate-950/40 px-4 py-3 font-mono text-sm leading-6 text-slate-100 placeholder:text-slate-600"
-                placeholder={modules.custom.taskPlaceholder}
-                data-custom-task
-              ></textarea>
-            </div>
-
-            <div>
-              <label class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500" for="custom-output">
-                {modules.custom.outputLabel}
-              </label>
-              <textarea
-                id="custom-output"
-                class="focus-ring mt-2 min-h-36 w-full rounded-3xl border border-white/10 bg-slate-950/40 px-4 py-3 font-mono text-sm leading-6 text-slate-100 placeholder:text-slate-600"
-                placeholder={modules.custom.outputPlaceholder}
-                data-custom-output
-              ></textarea>
-            </div>
+        <div class="mt-5 grid gap-4 lg:grid-cols-2">
+          <div>
+            <label class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500" for="custom-task">
+              {modules.custom.taskLabel}
+            </label>
+            <textarea
+              id="custom-task"
+              class="focus-ring mt-2 min-h-36 w-full rounded-3xl border border-white/10 bg-slate-950/40 px-4 py-3 font-mono text-sm leading-6 text-slate-100 placeholder:text-slate-600"
+              placeholder={modules.custom.taskPlaceholder}
+              data-custom-task
+            ></textarea>
           </div>
 
-          <p class="mt-3 text-sm font-semibold text-rose-100 hidden" data-custom-error role="status" aria-live="polite"></p>
+          <div>
+            <label class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500" for="custom-output">
+              {modules.custom.outputLabel}
+            </label>
+            <textarea
+              id="custom-output"
+              class="focus-ring mt-2 min-h-36 w-full rounded-3xl border border-white/10 bg-slate-950/40 px-4 py-3 font-mono text-sm leading-6 text-slate-100 placeholder:text-slate-600"
+              placeholder={modules.custom.outputPlaceholder}
+              data-custom-output
+            ></textarea>
+          </div>
         </div>
 
-        <button
-          type="button"
-          class="focus-ring cta-gradient elevate-hover mt-5 rounded-full px-5 py-4 text-center text-sm font-black uppercase tracking-[0.16em] text-slate-950 transition hover:brightness-110"
-          data-custom-copy
-          data-copy-label-i18n="modules.custom.copyButton"
-          data-copy-copied-i18n="modules.custom.copiedButton"
-        >
-          {modules.custom.copyButton}
-        </button>
-      </article>
-    </div>
+        <p class="mt-3 text-sm font-semibold text-rose-100 hidden" data-custom-error role="status" aria-live="polite"></p>
+      </div>
+
+      <button
+        type="button"
+        class="focus-ring cta-gradient elevate-hover mt-5 rounded-full px-5 py-4 text-center text-sm font-black uppercase tracking-[0.16em] text-slate-950 transition hover:brightness-110"
+        data-custom-copy
+        data-copy-label-i18n="modules.custom.copyButton"
+        data-copy-copied-i18n="modules.custom.copiedButton"
+      >
+        {modules.custom.copyButton}
+      </button>
+    </article>
   </div>
 </section>
 

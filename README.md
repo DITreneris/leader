@@ -6,7 +6,7 @@ Lean bilingual CEO/COO executive prompt operating kit: **Global Context + execut
 [![Deploy](https://github.com/DITreneris/leader/actions/workflows/deploy.yml/badge.svg)](https://github.com/DITreneris/leader/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-**Links**: [Live site](https://ditreneris.github.io/leader/) · [Download PDF kit](https://ditreneris.github.io/leader/assets/downloads/executive-operating-kit.pdf) · [Changelog](./CHANGELOG.md) · [Docs index](./docs/README.md) · [Codebase overview](./docs/CODEBASE_OVERVIEW.md) · [QA](./docs/QUALITY_ASSURANCE.md)
+**Links**: [Live site](https://ditreneris.github.io/leader/) · [Download PDF kit](https://ditreneris.github.io/leader/assets/downloads/executive-operating-kit.pdf) · [Changelog](./CHANGELOG.md) · [Docs index](./docs/README.md) · [Source of truth](./docs/SOURCE_OF_TRUTH.md) · [Codebase overview](./docs/CODEBASE_OVERVIEW.md) · [QA](./docs/QUALITY_ASSURANCE.md)
 
 ## Choose your path
 
@@ -22,7 +22,7 @@ Lean bilingual CEO/COO executive prompt operating kit: **Global Context + execut
 
 Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md): **Hero + FlowScheme** → **HeroTrust** → **Global Context + Modules (`#context`)** → **meme beats** → **ClarityDemo** → **PromptAnatomy** → **AuthorityBridge** → **CourseCTA (`#kit`)** → **RoiPath** → **meme** → **FAQ** → **SystemVisual** → **PromptLibrary**.
 
-- **Global Context + Modules** → define once, inject everywhere; copy a compiled module prompt (6 fixed modules + 1 Custom). Output is **JSON-first** (plus a short explanation).
+- **Global Context + Modules** → define once, inject everywhere; copy a compiled module prompt (6 fixed modules + 1 Custom). Output is **readable and decision-grade** (bullets/sections, owners, deadlines).
 - **ClarityDemo** → selectable scenarios with copyable prompt + output
 - **PromptLibrary** → 7 starters + 35 prompts (accordion, depth last)
 - **Operating kit** → printable Max Value Kit PDF (`#kit`, HTML fallback if PDF missing)

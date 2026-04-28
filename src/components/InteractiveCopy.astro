@@ -207,11 +207,15 @@ TASK (${moduleId}):
 ${taskFormat}
 
 OUTPUT:
-Return output in two parts:
-1) A valid JSON object only (no markdown, no code fences).
-2) Blank line, then ${explanationLabel.toUpperCase()}: ≤120 words.
+Return output as plain text:
+- Short bullets and labeled sections.
+- Include owners + deadlines where possible.
+- Keep it decision-grade (recommendation, risks, next actions).
 
-EXPECTED_JSON_SHAPE:
+${explanationLabel.toUpperCase()}:
+≤120 words, only if needed.
+
+EXPECTED_OUTPUT_SHAPE:
 ${outputExampleJson}`.trim();
   };
 
@@ -325,21 +329,6 @@ ${outputExampleJson}`.trim();
     if (errorEl) {
       errorEl.textContent = "";
       errorEl.classList.add("hidden");
-    }
-
-    try {
-      if (!output) throw new Error("empty");
-      JSON.parse(output);
-    } catch {
-      const msg =
-        typeof copy.modules?.custom?.validationError === "string" && copy.modules.custom.validationError
-          ? copy.modules.custom.validationError
-          : "Invalid JSON.";
-      if (errorEl) {
-        errorEl.textContent = msg;
-        errorEl.classList.remove("hidden");
-      }
-      return;
     }
 
     const compiled = buildCompiledPrompt("custom", task || "[Define task here]", output);

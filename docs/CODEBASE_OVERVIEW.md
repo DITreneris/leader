@@ -16,7 +16,7 @@ This repository contains a lean bilingual CEO/COO executive prompt operating kit
 ## Landing Flow
 
 1. Hero + FlowScheme; hero trust outcomes (compact rail when logo placeholders are off).
-2. **Global context + modules** (`#context`): define context once, then copy a compiled module prompt. Includes 6 fixed modules + 1 Custom module (task + JSON example) with client-side JSON validation.
+2. **Global context + modules** (`#context`): define context once, then copy a compiled module prompt. Includes 6 fixed modules + 1 Custom module (task + expected output shape). Outputs are **readable** (bullets/sections), not JSON.
 3. **Two** meme beats using `copy.memes.items` indices **0, 2**: `reward_2.png`, `meme-04-delegation-bottleneck.png`.
 4. Static clarity demo (`#demo`): scenarios, connector, follow-up link to `#kit`.
 5. Executive prompt anatomy: five blocks in collapsed `<details>` by default (depth, not required to act).
