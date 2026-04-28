@@ -25,6 +25,14 @@ const src = `${baseUrl}assets/graphics/before-after.svg`.replace(/([^:]\/)\/+/g,
       <p class="mt-5 text-lg leading-8 text-slate-300">
         {beforeAfter.subtitle}
       </p>
+      <div class="mt-6 grid gap-3 text-sm leading-6 text-slate-200 sm:text-base">
+        <p>
+          <span class="font-black text-white">Prompt:</span> {beforeAfter.promptDefinition}
+        </p>
+        <p>
+          <span class="font-black text-white">PromptAnatomy:</span> {beforeAfter.promptAnatomyDefinition}
+        </p>
+      </div>
     </div>
 
     <figure class="glass-card overflow-hidden rounded-[2rem] border border-white/10 p-4 sm:p-6">

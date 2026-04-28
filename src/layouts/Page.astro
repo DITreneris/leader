@@ -8,9 +8,9 @@ import CourseCTA from "../components/CourseCTA.astro";
 import Faq from "../components/Faq.astro";
 import BeforeAfter from "../components/BeforeAfter.astro";
 import Hero from "../components/Hero.astro";
-import HeroTrust from "../components/HeroTrust.astro";
 import InteractiveCopy from "../components/InteractiveCopy.astro";
 import ExecutiveModules from "../components/ExecutiveModules.astro";
+import PromoBanner from "../components/PromoBanner.astro";
 import SafetyCheck from "../components/SafetyCheck.astro";
 import MemeMoment from "../components/MemeMoment.astro";
 import PromptAnatomy from "../components/PromptAnatomy.astro";
@@ -107,7 +107,6 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
   <body>
     <a href="#ctx-company" class="skip-link focus-ring">{copy.a11y.skipLink}</a>
     <Hero lang={lang} />
-    <HeroTrust lang={lang} />
     <main>
       <MemeMoment
         lang={lang}
@@ -120,7 +119,28 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         height={1280}
       />
       <BeforeAfter lang={lang} />
+      <MemeMoment
+        lang={lang}
+        index={0}
+        src="meme-01-ai-chaos.png"
+        alt="Meme: AI chaos"
+        side="right"
+        accent="amber"
+        width={1280}
+        height={1280}
+      />
       <ExecutiveModules lang={lang} />
+      <PromoBanner lang={lang} />
+      <MemeMoment
+        lang={lang}
+        index={2}
+        src="meme-04-delegation-bottleneck.png"
+        alt="Meme: delegation bottleneck"
+        side="right"
+        accent="fuchsia"
+        width={1280}
+        height={1280}
+      />
       <ClarityDemo lang={lang} />
       <SafetyCheck lang={lang} />
       <CourseCTA lang={lang} />
