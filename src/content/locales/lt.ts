@@ -3,6 +3,7 @@ export const ltCopy = {
       title: "CEO/COO vykdomasis promptų rinkinys | Prompt Anatomy",
       description:
         "Per savaitę – nuo miglotos DI išvesties iki aiškių vadovybės briefų: vienas standartas komandai. Statinis rinkinys ir demo—be prisijungimo. PromptAnatomy—kai komandai reikia vieno standarto.",
+      socialImageAlt: "Prompt Anatomy — CEO/COO Executive OS statinis rinkinys ir socialinio kortelės vaizdas.",
     },
     a11y: {
       skipLink: "Pereiti prie konteksto laukų",
@@ -15,14 +16,22 @@ export const ltCopy = {
         {
           q: "Ar duomenys kažkur siunčiami?",
           a: "Ne. Statinis puslapis—kopijuojant niekas neužkraunama.",
+          bullets: [],
         },
         {
           q: "Kuo tai ne eilinis promptų sąrašas?",
-          a: "Ne atsitiktinių promptų kratinys: modelis tik generuoja—rinkinys apibrėžia įvestį, logiką ir rezultatą bei tą pačią kartelę prieš valdybą, klientą ar komandą. CEO/COO darbo eiga; patikra prieš siunčiant.",
+          a: "CEO/COO darbo metodas—ne katalogas nuo pradžios iki galo. DI modelis tik generuoja; rinkinys užfiksuoja įvestį, logiką ir išvesties formą, kurią tikrai siunti.",
+          bullets: [
+            "Operacinis modelis: vienas konteksto blokas ir moduliai, kuriuos sudedi į vieną promptą.",
+            "Rinkinys: spausdinamas PDF ir paruošti kopijuoti promptai pasikartojančiam vadovo darbui.",
+            "Kokybės kartelė: tas pats briefų standartas prieš valdybą, klientą ar komandą.",
+            "Sauga: patikros, prieš ką nors siunčiant iš darbo stalo.",
+          ],
         },
         {
           q: "Ar reikia PromptAnatomy paskyros?",
           a: "Ne šiam rinkiniui. Pilnai naudok tik kai nori visos sistemos.",
+          bullets: [],
         },
       ],
     },
@@ -37,16 +46,11 @@ export const ltCopy = {
       kitPdf: "Rinkinys (PDF)",
     },
     hero: {
-      eyebrow: "Vadovo operacinis rinkinys · Sprendimo briefų standartas",
-      title: "Paversk DI chaosą aiškiais sprendimais.",
-      subtitle:
-        "Gauk nuoseklius vadovo lygio briefus: sprendimas, rizikos, kitas veiksmas — kiekvieną kartą.",
-      primaryCta: "Gauti sprendimui parengtą išvestį",
+      eyebrow: "Vadovo operacinis rinkinys",
+      title: "Nuo DI triukšmo iki sprendimo.",
+      subtitle: "Vienas struktūruotas briefas: spręsk, įvertink riziką, veik.",
+      primaryCta: "Generuoti briefą",
       secondaryCta: "Atidaryti PromptAnatomy.app",
-      kitJumpLink: "Spausdinamas rinkinys (PDF)",
-      proofOne: "Trumpas spausdinamas rinkinys",
-      proofTwo: "Be prisijungimo",
-      proofThree: "Pagrįsta PromptAnatomy",
     },
     heroArtifact: {
       ariaLabel: "Pavyzdinė vadovo brief’o išvesties forma.",
@@ -93,7 +97,6 @@ export const ltCopy = {
       chipOne: "Schema",
       chipTwo: "Išvesties forma",
       chipThree: "Sprendimo lygis",
-      title: "Briefas vienu žvilgsniu.",
       flowAriaLabel: "Procesas: kontekstas, modulis, briefas, saugumas",
       flowContext: "Kontekstas",
       flowModule: "Modulis",
@@ -387,6 +390,7 @@ Apatiniai 30% delegavimui:
       eyebrow: "Biblioteka kopijavimui · be prisijungimo",
       title: "CEO/COO promptų biblioteka",
       subtitle: "35 paruoštų promptų pasikartojančiam vadovų darbui.",
+      scanHint: "Naudok kaip nuorodą—kopijuok vieną promptą, kai reikia, ne visą katalogą.",
       instructions: "Pasirink darbo eigą → atverk promptą → nukopijuok į DI.",
       navAriaLabel: "Promptų kategorijos",
       promptSingular: "promptas",

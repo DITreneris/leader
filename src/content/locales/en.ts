@@ -3,6 +3,7 @@ export const enCopy = {
       title: "CEO/COO Executive Prompt Operating Kit | Prompt Anatomy",
       description:
         "Decision-ready leadership AI briefs in one week: standardize how your team uses AI. Static kit + demo—no login. PromptAnatomy when you need a team-wide operating standard.",
+      socialImageAlt: "Prompt Anatomy — CEO/COO Executive OS static kit and social preview.",
     },
     a11y: {
       skipLink: "Skip to the context fields",
@@ -14,14 +15,22 @@ export const enCopy = {
         {
           q: "Does this send my data?",
           a: "No. Static page—nothing uploads when you copy text.",
+          bullets: [],
         },
         {
           q: "What is this vs a prompt list?",
-          a: "CEO/COO workflows—not a random prompt dump. The model only generates; this kit defines input, logic, and output, plus the same bar before board, client, or team sees it. Safety before send; briefs meant for real decisions every week.",
+          a: "A CEO/COO operating method—not a catalog to read cover to cover. The model only generates; this kit pins down input, logic, and the output shape you actually ship.",
+          bullets: [
+            "Operating model: one context block and modules you compile into a single prompt.",
+            "The kit: printable PDF plus copy-ready prompts for recurring leadership work.",
+            "Quality bar: the same brief standard before board, client, or team sees it.",
+            "Safety: run the checks before anything leaves your desk.",
+          ],
         },
         {
           q: "Need a PromptAnatomy account?",
           a: "Not for this kit. Use the full app only when you want the whole OS.",
+          bullets: [],
         },
       ],
     },
@@ -36,16 +45,11 @@ export const enCopy = {
       kitPdf: "Kit (PDF)",
     },
     hero: {
-      eyebrow: "Executive operating kit · Decision brief standard",
-      title: "Turn AI chaos into clear decisions.",
-      subtitle:
-        "Get consistent executive-ready briefs: decision, risks, next action — every time.",
-      primaryCta: "Get decision-ready output",
+      eyebrow: "Executive operating kit",
+      title: "From AI noise to decision.",
+      subtitle: "One structured brief: decide, assess risk, act.",
+      primaryCta: "Generate brief",
       secondaryCta: "Open PromptAnatomy.app",
-      kitJumpLink: "Printable kit (PDF)",
-      proofOne: "Short printable kit",
-      proofTwo: "No login",
-      proofThree: "Built on PromptAnatomy",
     },
     heroArtifact: {
       ariaLabel: "Example executive brief output artifact.",
@@ -89,7 +93,6 @@ export const enCopy = {
       chipOne: "Schema",
       chipTwo: "Output shape",
       chipThree: "Decision-grade",
-      title: "The brief, at a glance.",
       flowAriaLabel: "Process: context, module, brief, safety",
       flowContext: "Context",
       flowModule: "Module",
@@ -379,6 +382,7 @@ Eliminate now:
       eyebrow: "Copy-ready library · no login",
       title: "CEO/COO Prompt Library",
       subtitle: "35 copy-ready prompts for recurring leadership work.",
+      scanHint: "Use as reference—copy one prompt when you need it, not the whole catalog.",
       instructions: "Pick a workflow → open a prompt → copy into AI.",
       navAriaLabel: "Prompt categories",
       promptSingular: "prompt",
