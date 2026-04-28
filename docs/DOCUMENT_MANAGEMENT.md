@@ -11,7 +11,7 @@ Keep documentation useful, short, and close to the work. This is a lean one-page
 - Page architecture (canonical flow): `docs/CODEBASE_OVERVIEW.md` and `src/layouts/Page.astro`
 - Strategy / IA / CTA roadmap (long form): `docs/STRATEGIC_REVISION_PLAN.md`
 - Meme and visual asset rules: `docs/VISUAL_CONTENT_MAP.md`
-- Outbound link tracking: `docs/UTM_MATRIX.md`
+- Outbound link tracking: `docs/UTM_MATRIX.md`; URL builders and legal URLs: `src/constants/outboundLinks.ts`
 - Development commands: `README.md`
 - Quality process: `docs/QUALITY_ASSURANCE.md`
 - Daily updates: `CHANGELOG.md`

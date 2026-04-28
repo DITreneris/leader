@@ -8,6 +8,8 @@ geometry: margin=2.2cm
 fontsize: 10pt
 ---
 
+[//]: # (PDF: avoid one huge pipe-table for the 7 prompts—Pandoc+Typst wraps it in a figure; the table can leave an almost-empty page. Use subsections instead.)
+
 > **www.promptanatomy.app**
 
 A short printable kit for one leadership week: turn messy input into a decision-ready output, run the safety check, and reuse seven starting prompts across the work CEOs and COOs repeat.
@@ -33,15 +35,33 @@ Act as an executive risk reviewer. Review this AI-generated text before I send o
 
 ## Start with these 7 prompts
 
-| Workflow | Title | Prompt |
-|----------|-------|--------|
-| **CEO Decisions** | Board-ready recommendation | Act as a CEO operating partner. Decision: [DECISION]. Context: [FACTS]. Options: [OPTIONS]. Return 1 recommendation, 3 trade-offs, 3 risks, decision criteria, next action with owner and deadline. |
-| **COO Execution** | Delivery risk diagnosis | Act as a COO. Review this execution update: [UPDATE]. Identify the bottleneck, missing owner, delivery risk, dependency, and the one operating change to make this week. |
-| **Meetings** | Decision meeting agenda | Create a leadership meeting agenda for [TOPIC]. Goal: make one decision. Include pre-read, decision question, trade-off, 3 questions to ask, timeboxes, and the closing owner/deadline. |
-| **Reports** | One-page executive brief | Summarize this report for a CEO: [REPORT]. Return key signal, hidden risk, decision needed, 3 questions for the team, and one next action. Do not invent missing numbers. |
-| **Delegation** | Delegation brief | Turn this intent into a delegation brief: [INTENT]. Include objective, audience, constraints, deliverable format, quality bar, and review deadline. |
-| **Communication** | Tense update | Rewrite this leadership update so it is clear, calm, and non-defensive: [MESSAGE]. Structure it as fact, reason, impact, what changes, what stays the same, and next step. |
-| **Safety and Quality** | Hallucination scan | Scan this AI output for possible hallucinations: [TEXT]. List unsupported claims, numbers, dates, named entities, assumptions, and what source would verify each one. |
+### CEO Decisions — Board-ready recommendation
+
+Act as a CEO operating partner. Decision: [DECISION]. Context: [FACTS]. Options: [OPTIONS]. Return 1 recommendation, 3 trade-offs, 3 risks, decision criteria, next action with owner and deadline.
+
+### COO Execution — Delivery risk diagnosis
+
+Act as a COO. Review this execution update: [UPDATE]. Identify the bottleneck, missing owner, delivery risk, dependency, and the one operating change to make this week.
+
+### Meetings — Decision meeting agenda
+
+Create a leadership meeting agenda for [TOPIC]. Goal: make one decision. Include pre-read, decision question, trade-off, 3 questions to ask, timeboxes, and the closing owner/deadline.
+
+### Reports — One-page executive brief
+
+Summarize this report for a CEO: [REPORT]. Return key signal, hidden risk, decision needed, 3 questions for the team, and one next action. Do not invent missing numbers.
+
+### Delegation — Delegation brief
+
+Turn this intent into a delegation brief: [INTENT]. Include objective, audience, constraints, deliverable format, quality bar, and review deadline.
+
+### Communication — Tense update
+
+Rewrite this leadership update so it is clear, calm, and non-defensive: [MESSAGE]. Structure it as fact, reason, impact, what changes, what stays the same, and next step.
+
+### Safety and Quality — Hallucination scan
+
+Scan this AI output for possible hallucinations: [TEXT]. List unsupported claims, numbers, dates, named entities, assumptions, and what source would verify each one.
 
 ## Weekly ROI path
 

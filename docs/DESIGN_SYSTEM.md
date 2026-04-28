@@ -94,6 +94,20 @@ Use only: `.radius-sm` … `.radius-xl`, or meme-specific `.radius-meme-outer` /
 
 New sections should compose these primitives before inventing new layout classes.
 
+### Banner hierarchy (visual weight)
+
+Use a small number of **visual tiers** so callouts feel part of the same page, not random ads:
+
+| Tier | Pattern | Role |
+|------|---------|------|
+| **Ribbon** | `HighlightStrip` `band` (`context` / `panel`) | Short guidance, instructions, “start here” — no competing gold CTA on the same row. |
+| **Glass promo** | `HighlightStrip` `promo` (e.g. [`PromoBanner.astro`](../src/components/PromoBanner.astro)) | Mid-page upgrade: glass + accent border + optional dual CTAs (outbound PA + in-page anchor). |
+| **Gold commitment** | [`CourseCTA.astro`](../src/components/CourseCTA.astro) gradient block | Strongest download / asset moment after the narrative has landed (e.g. after safety check). |
+
+**Rule of thumb:** avoid stacking multiple “brightest” conversion surfaces with no vertical breathing space; see story order in [`Page.astro`](../src/layouts/Page.astro).
+
+**Outbound URLs:** build PromptAnatomy, CEO hub, Telegram, and tracked AI links via [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts); keep [`UTM_MATRIX.md`](UTM_MATRIX.md) aligned when adding destinations.
+
 ---
 
 ## 3. Slide templates (section patterns)

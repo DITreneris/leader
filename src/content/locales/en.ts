@@ -2,7 +2,7 @@ export const enCopy = {
     meta: {
       title: "CEO/COO Executive Prompt Operating Kit | Prompt Anatomy",
       description:
-        "Decision-ready leadership AI briefs in one week: standardize how your team uses AI. Static kit + demo—no login. PromptAnatomy when you need a team-wide operating standard.",
+        "In about a week, standardize leadership AI briefs to the same decision-ready shape every time. Paste into ChatGPT, Claude, or Gemini from this static kit + demo—no login. PromptAnatomy when you need a team-wide operating standard.",
       socialImageAlt: "Prompt Anatomy — CEO/COO Executive OS static kit and social preview.",
     },
     a11y: {
@@ -14,7 +14,7 @@ export const enCopy = {
       navPrimaryAria: "Primary",
       navMobileAria: "Mobile primary",
       languageToggleAria: "Language",
-      footerLegalNavAria: "Legal",
+      footerLegalNavAria: "Footer links",
     },
     faq: {
       sectionTitle: "Quick answers",
@@ -25,9 +25,14 @@ export const enCopy = {
           bullets: [],
         },
         {
+          q: "Can I paste this into ChatGPT, Claude, or Gemini?",
+          a: "Yes. Build and copy one compiled prompt on this page, then paste it into any assistant your organization allows. This site does not connect to those providers—nothing is uploaded here.",
+          bullets: [],
+        },
+        {
           q: "What is PromptAnatomy Executive OS?",
           a:
-            "PromptAnatomy Executive OS is a static one-page lead magnet for CEOs and COOs: a compiled prompt operating kit built from a Global Context Block plus executive modules that standardize how leadership work is briefed to AI, with no login and no uploads. The full PromptAnatomy product and training live on promptanatomy.app.",
+            "PromptAnatomy Executive OS is a static one-page executive kit for CEOs and COOs: a compiled prompt operating kit built from a Global Context Block plus executive modules that standardize how leadership work is briefed to AI, with no login and no uploads. The full PromptAnatomy product and training live on promptanatomy.app.",
           bullets: [],
         },
         {
@@ -61,7 +66,7 @@ export const enCopy = {
       library: "Prompt library",
       demo: "See how it works",
       language: "Language",
-      kitPdf: "Kit (PDF)",
+      kitPdf: "Kit download",
     },
     hero: {
       eyebrow: "Executive operating kit",
@@ -144,7 +149,7 @@ export const enCopy = {
     },
     modules: {
       eyebrow: "Global context + modules",
-      title: "Define context once. Inject it into high-leverage executive modules.",
+      title: "Define context once. Inject it into high-impact executive modules.",
       subtitle: "Copy one compiled prompt. Get decision-grade output you can act on.",
       startHere: "Start here: fill the 4 context fields, then copy 1 module (Decision impact is a safe first pick).",
       context: {
@@ -311,7 +316,8 @@ Eliminate now:
     safety: {
       eyebrow: "Safety check",
       title: "Use this before sending AI output.",
-      subtitle: "Run 4 checks before sending.",
+      subtitle:
+        "Last gate after you compile a prompt from Context + modules—same four checks, before anything ships.",
       processLabel: "4 checks",
       promptBlockLabel: "Prompt to copy",
       previewHint: "The button copies the full prompt above.",
@@ -356,7 +362,7 @@ Eliminate now:
       copyPrompt: "Copy prompt",
       copied: "Copied",
       revealPrompt: "Reveal prompt",
-      pdfAgain: "Download the PDF kit again",
+      pdfAgain: "Need the PDF again? Jump to the kit download.",
       categories: [
         {
           title: "CEO Decisions",
@@ -616,6 +622,7 @@ Eliminate now:
       eyebrow: "Clarity practice",
       title: "Pick a scenario. Get the brief.",
       subtitle: "Decision and next action when you need them.",
+      scenarioHint: "Pick a scenario—the brief updates below.",
       briefLabel: "Brief",
       showDetails: "Show details",
       hideDetails: "Hide details",
@@ -624,13 +631,15 @@ Eliminate now:
       promptBlockLabel: "Sample prompt to copy",
       previewHint: "Copy pulls the full prompt. This box is only a preview.",
       followUpEyebrow: "Keep the structure on your desk",
-      followUpText: "The printable kit is the same shape on paper.",
+      followUpText:
+        "Same structure on one page—the Kit download section (below) has the printable PDF when you want it offline.",
       followUpCta: "Download Max Value Kit",
       pdfAgain: "jump to the kit download.",
+      scenarioLiveStatus: "Scenario: {scenario}. Brief updated.",
       messyInputLabel: "Business noise",
       connectorCaption: "Transforms",
       outputLabel: "Executive clarity output",
-      insight: "Key insight",
+      insight: "Bottom line",
       decision: "Decision needed",
       risks: "Top risks",
       questions: "Questions to ask",
@@ -651,7 +660,7 @@ Eliminate now:
           action:
             "Open with the trade-off in one sentence. Then force one decision and close with owner, criteria, and deadline.",
           prompt:
-            "Analyze these leadership meeting notes for a CEO. Return the key insight (one sentence), the decision needed (one sentence), 3 risks, 3 questions to ask, and one next action.",
+            "Analyze these leadership meeting notes for a CEO. Return the bottom line (one sentence), the decision needed (one sentence), 3 risks, 3 questions to ask, and one next action.",
         },
         report: {
           label: "Report",
@@ -666,7 +675,7 @@ Eliminate now:
           action:
             "Request a one-page churn-risk brief before approving the next growth campaign.",
           prompt:
-            "Summarize this business report for a CEO. Return the key insight (hidden signal, one sentence), the decision needed (one sentence), 3 risks, 3 questions, and one next action.",
+            "Summarize this business report for a CEO. Return the bottom line (hidden signal, one sentence), the decision needed (one sentence), 3 risks, 3 questions, and one next action.",
         },
         decision: {
           label: "Decision",
@@ -681,7 +690,7 @@ Eliminate now:
           action:
             "Run a 30-day pilot with two clients and review against pre-agreed success and stop metrics.",
           prompt:
-            "Help a CEO decide between these options. Return the key insight (one sentence), the decision needed (one sentence), 3 risks, 3 questions, a recommendation with trade-offs and decision criteria, and one next action.",
+            "Help a CEO decide between these options. Return the bottom line (one sentence), the decision needed (one sentence), 3 risks, 3 questions, a recommendation with trade-offs and decision criteria, and one next action.",
         },
         delegation: {
           label: "Delegation",
@@ -739,7 +748,7 @@ Eliminate now:
     roiPath: {
       eyebrow: "5-hour weekly ROI path",
       title: "From one useful prompt to a weekly leadership habit.",
-      subtitle: "Rough time if you use the kit across your real weekly rhythm—not abstract “productivity.”",
+      subtitle: "Rough time anchors when you run the kit in a real week—not abstract productivity.",
       centerLabel: "Executive week",
       centerText: "Six weekly moves—same rhythm each week.",
       panelAriaLabel: "Weekly step detail",
@@ -756,7 +765,7 @@ Eliminate now:
           time: "5-15 min",
           action: "Check before you send",
           value: "Avoid a client/board mistake before it ships.",
-          description: "Review AI-generated text before it reaches a client, board, partner, or team.",
+          description: "Review outbound AI text before board, client, partner, or team sees it.",
           prompt:
             "Act as an executive risk reviewer. Review this text before I send it: [TEXT]. Context: [BOARD / CLIENT / TEAM / PARTNER]. Return 1) facts to verify, 2) legal/reputation risks, 3) missing context, 4) unclear decision/owner, 5) safer wording.",
         },
@@ -766,7 +775,7 @@ Eliminate now:
           time: "20-40 min",
           action: "Scan for signal",
           value: "Find hidden risk + decision before the meeting.",
-          description: "Extract signal, hidden risk, and decision needed from long updates.",
+          description: "Pull signal, hidden risk, and the decision from long updates.",
           prompt:
             "Summarize this long update for a CEO: [UPDATE]. Return key signal, hidden risk, decision needed, 3 questions for the team, and one next action. Do not invent missing numbers.",
         },
@@ -776,7 +785,7 @@ Eliminate now:
           time: "20-45 min",
           action: "Prepare the decision",
           value: "Trade-offs, criteria, risks—written before you decide.",
-          description: "Turn options into trade-offs, criteria, risks, and recommendation.",
+          description: "Options into trade-offs, criteria, risks, and a clear call.",
           prompt:
             "Act as my CEO operating partner. Analyze this decision: [DECISION]. Context: [FACTS]. Options: [OPTIONS]. Return 1 recommendation, 3 trade-offs, 3 risks, decision criteria, and the next action with owner and deadline.",
         },
@@ -786,7 +795,7 @@ Eliminate now:
           time: "15-30 min",
           action: "Clean up the meeting",
           value: "Notes become decisions, owners, deadlines.",
-          description: "Convert notes into decisions, owners, deadlines, and follow-up.",
+          description: "Notes into decisions, owners, deadlines, and follow-up.",
           prompt:
             "Turn these meeting notes into an executive action log: [NOTES]. Return decisions made, open decisions, owners, deadlines, risks, and the first follow-up message to send.",
         },
@@ -796,7 +805,7 @@ Eliminate now:
           time: "15-45 min",
           action: "Delegate with a brief",
           value: "Move work from your head into an executable plan.",
-          description: "Move intent from the CEO's head into an executable team brief.",
+          description: "Turn intent into a brief the team can execute.",
           prompt:
             "Turn this intent into a delegation brief: [INTENT]. Include objective, audience, context, constraints, deliverable format, quality criteria, examples, review deadline, and escalation triggers.",
         },
@@ -806,19 +815,19 @@ Eliminate now:
           time: "10-30 min",
           action: "Send a clear message",
           value: "Reduce uncertainty with one credible update.",
-          description: "Draft clear messages for change, delays, clients, or partners.",
+          description: "Clear messages for change, delays, clients, or partners.",
           prompt:
             "Rewrite this leadership message so it is clear, calm, and non-defensive: [MESSAGE]. Structure it as fact, reason, impact, what changes, what stays the same, and next step.",
         },
       ],
-      total: "~5 hours/week → fewer decision mistakes, clearer ownership, safer outbound communication.",
+      total: "~5 hours/week → fewer bad calls, clearer owners, safer outbound comms.",
       printableOneLiner: "Six moves ≈ ~5h/week — same rhythm on one printable page.",
-      printableKitLink: "Open download banner",
+      printableKitLink: "Get the printable kit (PDF)",
     },
     authority: {
       eyebrow: "Brand architecture",
-      title: "Lead magnet into the full PromptAnatomy system.",
-      chooseNext: "Choose one next step",
+      title: "From the executive kit to the full PromptAnatomy system.",
+      chooseNext: "Choose your next step",
       mother: "Mother platform",
       motherText: "PromptAnatomy.app: full AI operating system and commercial home.",
       sisterEyebrow: "Sister hub",
@@ -837,7 +846,8 @@ Eliminate now:
     },
     footer: {
       brand: "PromptAnatomy · Executive OS",
-      tagline: "Static lead magnet. No login, no data sent.",
+      tagline: "Static executive kit. No login, no data sent.",
+      telegram: "Telegram",
       privacy: "Privacy",
       terms: "Terms",
     },

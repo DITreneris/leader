@@ -14,6 +14,7 @@
     demo: {
       copied: string;
       copyPrompt: string;
+      scenarioLiveStatus?: string;
       scenarios: Record<string, Scenario>;
     };
     modules?: {
@@ -232,6 +233,15 @@ ${outputExampleJson}`.trim();
     button.addEventListener("click", () => {
       activeScenario = button.dataset.scenario || activeScenario;
       renderScenario();
+      const ann = document.getElementById("demo-scenario-status");
+      const scenario = copy.demo.scenarios[activeScenario];
+      const label = scenario?.label ?? activeScenario;
+      const template = copy.demo.scenarioLiveStatus;
+      if (ann && typeof template === "string" && template.includes("{scenario}")) {
+        ann.textContent = template.replace("{scenario}", label);
+      } else if (ann) {
+        ann.textContent = `Scenario: ${label}. Brief updated.`;
+      }
     });
   });
 

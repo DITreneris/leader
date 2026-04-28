@@ -9,6 +9,7 @@ This repository contains a lean **English-first (US-market default)** CEO/COO ex
 - `src/layouts/Page.astro` composes the one-page landing flow (used by `src/pages/en/index.astro`; optional `lt/index` when bilingual is enabled).
 - `src/components/` contains section components.
 - `src/content/copy.ts` re-exports `uiCopy`; English and Lithuanian bundles live in `src/content/locales/en.ts` and `src/content/locales/lt.ts` (prompt library, demo scenarios, and all marketing copy).
+- `src/constants/outboundLinks.ts`: PromptAnatomy / CEO hub / Telegram and UTM-bearing URLs (see [`docs/UTM_MATRIX.md`](UTM_MATRIX.md)).
 - `src/styles/global.css` contains global styling and reusable visual helpers.
 - `public/assets/` contains visual assets for memes, diagrams, and screenshots.
 - `.cursor/rules/`, `.cursor/skills/`, and `AGENTS.md` guide future AI-assisted development.

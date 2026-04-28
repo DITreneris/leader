@@ -1,5 +1,6 @@
 ---
 import SectionHeader from "./SectionHeader.astro";
+import { buildCeoBridgeUrl, buildPromptAnatomyUrl } from "../constants/outboundLinks";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -9,8 +10,8 @@ interface Props {
 
 const { lang } = Astro.props;
 const authority = uiCopy[lang].authority;
-const motherHref = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=bridge&utm_campaign=mother";
-const sisterHref = "https://ditreneris.github.io/ceo/?utm_source=leader&utm_medium=bridge&utm_campaign=sister";
+const motherHref = buildPromptAnatomyUrl({ medium: "bridge", campaign: "mother" });
+const sisterHref = buildCeoBridgeUrl();
 ---
 
 <section id="bridge" class="section-y mx-auto max-w-7xl px-5 sm:px-8">
@@ -20,6 +21,8 @@ const sisterHref = "https://ditreneris.github.io/ceo/?utm_source=leader&utm_medi
   <div class="mx-auto mt-10 max-w-3xl space-y-6">
     <a
       href={motherHref}
+      target="_blank"
+      rel="noopener noreferrer"
       class="focus-ring glass-card radius-xl group relative block overflow-hidden border border-brand-accent/40 p-8 transition motion-safe:hover:-translate-y-1 motion-safe:hover:border-brand-accent-hover/70"
     >
       <div class="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-brand-accent/15 blur-3xl"></div>
@@ -43,20 +46,18 @@ const sisterHref = "https://ditreneris.github.io/ceo/?utm_source=leader&utm_medi
       </p>
     </a>
 
-    <div class="radius-lg border border-white/10 bg-white/[0.02] px-6 py-6 text-center sm:px-8">
-      <p class="type-micro-label text-slate-500">
-        {authority.sisterEyebrow}
-      </p>
-      <h3 class="mt-3 text-lg font-black text-white sm:text-xl">{authority.sisterTitle}</h3>
-      <p class="mt-3 text-sm leading-6 text-slate-400">
-        {authority.sisterText}
-      </p>
+    <p class="text-center text-sm leading-6 text-slate-400">
+      <span class="font-semibold text-slate-300">{authority.sisterEyebrow}:</span>
+      {" "}
+      {authority.sisterText}{" "}
       <a
         href={sisterHref}
-        class="focus-ring mt-4 inline-block text-sm font-semibold text-brand-accent transition hover:text-brand-accent-hover"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="focus-ring font-semibold text-brand-accent transition hover:text-brand-accent-hover"
       >
         {authority.sisterLink}
       </a>
-    </div>
+    </p>
   </div>
 </section>

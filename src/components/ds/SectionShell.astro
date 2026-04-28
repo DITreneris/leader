@@ -7,10 +7,12 @@ interface Props {
   label?: string;
   /** Vertical section rhythm — see `docs/DESIGN_SYSTEM.md` */
   rhythm?: "default" | "tight" | "compact" | "roomy";
+  /** When true, section is focusable for in-page hash navigation (tabindex="-1"). */
+  anchorFocusable?: boolean;
   class?: string;
 }
 
-const { id, labelledby, label, rhythm = "default", class: className } = Astro.props;
+const { id, labelledby, label, rhythm = "default", anchorFocusable = false, class: className } = Astro.props;
 
 const rhythmClass =
   rhythm === "tight"
@@ -24,6 +26,7 @@ const rhythmClass =
 
 <section
   id={id}
+  tabindex={anchorFocusable ? -1 : undefined}
   aria-labelledby={labelledby}
   aria-label={label}
   class:list={[rhythmClass, "mx-auto max-w-7xl px-5 sm:px-8", className]}

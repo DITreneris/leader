@@ -19,6 +19,12 @@ import RoiPath from "../components/RoiPath.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 import { LEADER_PAGE_DATE_MODIFIED, LEADER_PAGE_DATE_PUBLISHED } from "../constants/pageSeo";
+import {
+  PROMPT_ANATOMY_PRIVACY_URL,
+  PROMPT_ANATOMY_TERMS_URL,
+  buildPromptAnatomyUrl,
+  buildTelegramUrl,
+} from "../constants/outboundLinks";
 import { showLanguageSwitcher } from "../constants/siteLocale";
 import { buildClientCopyPayload } from "../utils/clientCopyPayload";
 import { buildLeaderPageJsonLd } from "../utils/pageJsonLd";
@@ -72,15 +78,18 @@ const structuredData = buildLeaderPageJsonLd({
 });
 const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c");
 
-/** Matches MemeMoment order (indices 3, 0, 2, 5, 4). */
+/** Matches MemeMoment order (indices 3, 0, 2, 5, 4); desktop `side` alternates left / right / left / right / left. */
 const memeSequenceAlts = copy.memes.sequenceImageAlts;
+
+const promptAnatomyFooterHref = buildPromptAnatomyUrl({ medium: "footer", campaign: "brand" });
+const telegramHref = buildTelegramUrl();
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={meta.description} />
     <link rel="canonical" href={localeCanonical} />
     <link rel="alternate" hreflang="en" href={enCanonical} />
@@ -114,7 +123,7 @@ const memeSequenceAlts = copy.memes.sequenceImageAlts;
     <script is:inline type="application/ld+json" set:html={serializedJsonLd} />
     <script is:inline set:html={`window.__PA_COPY__ = ${serializedCopy};`} />
   </head>
-  <body>
+  <body id="top">
     <a href="#ctx-company" class="skip-link focus-ring">{copy.a11y.skipLink}</a>
     <Hero lang={lang} />
     <main>
@@ -124,6 +133,7 @@ const memeSequenceAlts = copy.memes.sequenceImageAlts;
         src="meme-03-clear-decision.png"
         alt={memeSequenceAlts[0]}
         accent="gold"
+        side="left"
         width={1280}
         height={720}
         loading="eager"
@@ -136,6 +146,7 @@ const memeSequenceAlts = copy.memes.sequenceImageAlts;
         src="meme-01-ai-chaos.png"
         alt={memeSequenceAlts[1]}
         accent="gold"
+        side="right"
         width={1280}
         height={720}
       />
@@ -147,6 +158,7 @@ const memeSequenceAlts = copy.memes.sequenceImageAlts;
         src="meme-04-delegation-bottleneck.png"
         alt={memeSequenceAlts[2]}
         accent="gold"
+        side="left"
         width={1280}
         height={720}
       />
@@ -157,6 +169,7 @@ const memeSequenceAlts = copy.memes.sequenceImageAlts;
         src="reward_2.png"
         alt={memeSequenceAlts[3]}
         accent="gold"
+        side="right"
         width={1280}
         height={720}
       />
@@ -171,6 +184,7 @@ const memeSequenceAlts = copy.memes.sequenceImageAlts;
         src="meme-02-meeting-overload.png"
         alt={memeSequenceAlts[4]}
         accent="gold"
+        side="left"
         width={1280}
         height={720}
       />
@@ -183,7 +197,7 @@ const memeSequenceAlts = copy.memes.sequenceImageAlts;
           {footerCopy.brand}
           <span aria-hidden="true" class="mx-2 text-slate-600">·</span>
           <a
-            href="https://www.promptanatomy.app/?utm_source=leader&utm_medium=footer&utm_campaign=brand"
+            href={promptAnatomyFooterHref}
             class="focus-ring text-brand-accent transition hover:text-brand-accent-hover"
           >
             promptanatomy.app
@@ -193,13 +207,21 @@ const memeSequenceAlts = copy.memes.sequenceImageAlts;
       </div>
       <nav class="flex flex-wrap items-center gap-4" aria-label={copy.a11y.footerLegalNavAria}>
         <a
-          href="https://www.promptanatomy.app/privacy"
+          href={telegramHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="focus-ring transition hover:text-slate-200"
+        >
+          {footerCopy.telegram}
+        </a>
+        <a
+          href={PROMPT_ANATOMY_PRIVACY_URL}
           class="focus-ring transition hover:text-slate-200"
         >
           {footerCopy.privacy}
         </a>
         <a
-          href="https://www.promptanatomy.app/terms"
+          href={PROMPT_ANATOMY_TERMS_URL}
           class="focus-ring transition hover:text-slate-200"
         >
           {footerCopy.terms}
@@ -213,5 +235,17 @@ const memeSequenceAlts = copy.memes.sequenceImageAlts;
       aria-live="polite"
     ></p>
     <InteractiveCopy />
+    <script is:inline>
+      (() => {
+        const focusHashTarget = () => {
+          const hashdecode = decodeURIComponent(location.hash || "");
+          if (!hashdecode || hashdecode === "#") return;
+          const el = document.querySelector(hashdecode);
+          if (el instanceof HTMLElement) el.focus({ preventScroll: true });
+        };
+        document.addEventListener("DOMContentLoaded", focusHashTarget);
+        window.addEventListener("hashchange", focusHashTarget);
+      })();
+    </script>
   </body>
 </html>

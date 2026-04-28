@@ -33,7 +33,7 @@ Several `MemeMoment.astro` beats break up long reading. Copy always comes from `
 | 4 | 5 | `reward_2.png` | Keep the structure on your desk |
 | 5 | 4 | `meme-02-meeting-overload.png` | Leadership needs the system |
 
-Desktop: **`MemeMoment` stacks vertically on all breakpoints**: full-width **16:9** image first, then **title + body** centered beneath for a stronger emotional beat.
+Desktop (`lg+`): **two-column asymmetric grid** (**1.25fr** image column / **0.75fr** caption column), alternating **`side`** (`left` / `right`) per [`Page.astro`](../src/layouts/Page.astro). Below **`lg`**: stacked — full-width **16:9** image, then title + body (centered).
 
 Section flow between beats: `BeforeAfter` → `ExecutiveModules` (`#context`) → `PromoBanner` → `ClarityDemo` (`#demo`) → **meme index 5** → `SafetyCheck` → `CourseCTA` (`#kit`) → `AuthorityBridge` → `PromptAnatomy` → `RoiPath` → **meme index 4** → `Faq` → …
 
@@ -41,7 +41,7 @@ Index `1` in `memes.items` is not mounted on the page today (reserved / spare).
 
 Implementation rules:
 
-- All images: `loading="lazy"`, `decoding="async"`, explicit width/height.
+- Raster delivery: **`MemeMoment`** emits `<picture>` with **AVIF → WebP → PNG** (PNG is the authoring master; run **`npm run optimize:memes`** after changing a meme PNG). First above-the-fold meme uses `loading="eager"` and `fetchpriority="high"` via props; others stay lazy.
 - Copy from `uiCopy.memes.items[index]` so EN/LT stay aligned (visual titles + captions). Decorative `<img alt>` strings for each beat live in `uiCopy.memes.sequenceImageAlts` in **`Page.astro`** order (localized).
 - Fragmentation is intentional; memes do not carry primary CTAs.
 

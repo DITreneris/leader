@@ -124,7 +124,7 @@ journey
 ### 4.2 CTA rules (revision policy)
 
 1. **One visual primary button** per major viewport section (hero strip, **`#context`** section end, **`#demo`** end, **`#kit`** band).
-2. **Hero:** **Shipped** = gold **PromptAnatomy** primary + **nav** links to **`#context` / `#demo` / `#kit`**. When iterating, choose consciously: comprehension-first (emphasize in-page anchors) vs product-led (emphasize PA)—see §4.1 tension.
+2. **Hero:** **Shipped** = gold **in-page** primary (`#context`) + outlined PromptAnatomy outbound (UTM `hero`/`primary`) + **nav** links to **`#context` / `#demo` / `#kit`**. When iterating, choose consciously: comprehension-first (emphasize in-page anchors) vs product-led (emphasize PA)—see §4.1 tension.
 3. **PromptAnatomy:** Reserve **primary** treatment for **after** demo or after first successful copy action (micro-commitment).
 4. **PDF:** Keep **one** “canonical” download moment in the main story (e.g. post-demo + repeated in footer or library only).
 5. **UTMs:** Keep existing parameters; document a **matrix** in `VISUAL_CONTENT_MAP.md` or a small `docs/UTM_MATRIX.md` so new links stay consistent.
@@ -138,7 +138,7 @@ journey
 | 3 | “Download CEO/COO kit (PDF)” | `#kit` / static PDF |
 | 4 | “Open PromptAnatomy” | `promptanatomy.app` with UTM |
 
-Hero gradient button currently emphasizes **PromptAnatomy** (product-led); in-page anchors live in **header nav** for `#context` / `#demo` / `#kit`. Reconcile hero vs nav per §4.1 intentionally when you iterate.
+Hero gradient button currently emphasizes **`#context`** (comprehension-first); PromptAnatomy outbound remains available as an outlined hero CTA with UTM. Reconcile hero vs nav per §4.1 intentionally when you iterate.
 
 ### 4.4 Authority bridge
 
@@ -280,7 +280,7 @@ Work is split so **each phase** leaves the site shippable (`npm run build`, Ligh
 
 ### Phase 1 — CTA and journey spine (3–7 days)
 
-**Status as of 2026-04-28: spine shipped per baseline.** **`ClarityDemo`** precedes **`PromptAnatomy`** + **`RoiPath`**; **`#kit`** (CourseCTA) comes **before** authority/anatomy spine; FAQ sits **after ROI + meme**, **above PromptLibrary**. **Hero:** gold **primary CTA → PromptAnatomy** (product-led); **`#context` / `#demo` / `#kit`** live in **header nav**.
+**Status as of 2026-04-28: spine shipped per baseline.** **`ClarityDemo`** precedes **`PromptAnatomy`** + **`RoiPath`**; **`#kit`** (CourseCTA) comes **before** authority/anatomy spine; FAQ sits **after ROI + meme**, **above PromptLibrary**. **Hero:** gold primary CTA → **`#context`**; PromptAnatomy outbound is an outlined hero CTA (UTM `hero`/`primary`); **`#context` / `#demo` / `#kit`** also live in **header nav**.
 
 | # | Optional follow-ups (when testing conversion) |
 |---|-------------|
@@ -357,7 +357,7 @@ Use this table when choices are made so future agents do not revert blindly.
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
-| 2026-04-28 | Hero **gold primary CTA** → **PromptAnatomy**; **nav** anchors `#context`/`#demo`/`#kit` (comprehension path not the hero gradient) | Product-led hero vs in-page ladder—documented tension in §4.1 |
+| 2026-04-28 | Hero **gold primary CTA** → **`#context`**; outlined hero CTA → **PromptAnatomy** (UTM `hero`/`primary`); nav anchors `#context`/`#demo`/`#kit` | Hero ladder aligned to comprehension-first; see §4.1 tension |
 | 2026-04-28 | Trust strip = hidden (`showPlaceholderLogos: false`) until real logos | No customer-facing “placeholder” labels |
 | 2026-04-28 | Memes = **5** mounts on page; intentional indices **`3 → 0 → 2 → 5 → 4`** (**`1`** spare); **`VISUAL_CONTENT_MAP` + `Page.astro`** are canonical | Narrative pacing beats array index parity |
 | 2026-04-28 | FAQ after **RoiPath + meme(4)**, before **PromptLibrary**—**not** immediately under `#kit` | Depth last; **`#kit`** conversion band stays mid-page |

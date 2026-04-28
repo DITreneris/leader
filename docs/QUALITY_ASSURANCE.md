@@ -43,6 +43,7 @@ The build must finish with:
 
 ## Visual QA Checklist
 
+- **Mobile UX (deep checklist):** [`MOBILE_UI_AUDIT.md`](MOBILE_UI_AUDIT.md) — touch targets, safe-area gaps, hero menu behavior, clipboard/library interactions.
 - Mobile order is clear: headline, value, CTA or useful visual.
 - The primary CTA is visible above the fold on common screen sizes.
 - Gradients, glass cards, and memes support the message rather than distract.
@@ -55,8 +56,8 @@ The build must finish with:
 - The library section uses a single outer accordion for categories; expand/collapse behaves predictably (no workflow picker).
 - The `MemeMoment` images use explicit width and height for CLS; the first beat (after hero) uses `loading="eager"` and `fetchpriority="high"`; others use lazy loading.
 - Diagrams should use SVG where possible.
+- Meme delivery: [`MemeMoment.astro`](../src/components/MemeMoment.astro) serves **AVIF → WebP → PNG** (`<picture>`); regenerate derivatives after changing a source PNG: `npm run optimize:memes` (requires [`sharp`](https://sharp.pixelplumbing.com/) — see root **`package.json`**).
 - Screenshots and larger raster assets should use AVIF/WebP when possible.
-- Meme PNGs are heavy; future iterations should compress them or convert to AVIF/WebP before a public launch.
 
 ## Design System v1 checklist
 

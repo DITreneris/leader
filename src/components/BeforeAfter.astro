@@ -2,6 +2,7 @@
 import DiagramContainer from "./ds/DiagramContainer.astro";
 import HighlightStrip from "./ds/HighlightStrip.astro";
 import SectionHeader from "./SectionHeader.astro";
+import { buildBeforeAfterWorkflowSearchParams } from "../constants/outboundLinks";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -15,8 +16,7 @@ const beforeAfter = uiCopy[lang].beforeAfter;
 const baseUrl = import.meta.env.BASE_URL;
 const src = `${baseUrl}assets/graphics/before-after.svg`.replace(/([^:]\/)\/+/g, "$1");
 
-const aiUtm = (campaign: string) =>
-  `utm_source=leader&utm_medium=before_after_workflow&utm_campaign=${encodeURIComponent(campaign)}`;
+const aiUtm = (campaign: string) => buildBeforeAfterWorkflowSearchParams(campaign).toString();
 
 const aiOutbound = [
   { href: `https://chatgpt.com/?${aiUtm("chatgpt")}`, label: beforeAfter.openChatgpt },

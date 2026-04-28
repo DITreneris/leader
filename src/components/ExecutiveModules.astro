@@ -14,7 +14,7 @@ const { lang } = Astro.props;
 const modules = uiCopy[lang].modules;
 ---
 
-<SectionShell id="context" labelledby="context-title">
+<SectionShell id="context" labelledby="context-title" anchorFocusable>
   <SectionTitleBlock eyebrow={modules.eyebrow} title={modules.title} subtitle={modules.subtitle} titleId="context-title" />
 
   <div class="mx-auto mt-10 flex max-w-6xl flex-col gap-5">

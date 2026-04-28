@@ -20,6 +20,8 @@ This project is a lean **English-first** CEO/COO executive prompt operating kit 
 - `src/pages/en/index.astro` renders `src/layouts/Page.astro` with the full section stack. Optional `src/pages/lt/index.astro` ships only when bilingual is turned on (not in the default build).
 - `src/components/` contains section components.
 - `src/content/copy.ts` re-exports `uiCopy`; bilingual bundles live in `src/content/locales/en.ts` and `src/content/locales/lt.ts`.
+- `src/constants/outboundLinks.ts` builds PromptAnatomy, CEO operational hub, Telegram, and tracked outbound URLs; pair with [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md).
+- Other `src/constants/` files: locale toggles (`siteLocale.ts`), SEO dates (`pageSeo.ts`).
 - `src/styles/global.css` contains global styling and reusable visual helpers.
 - `public/assets/memes/`, `public/assets/graphics/`, and `public/assets/screenshots/` hold visual assets.
 - `docs/` contains codebase, document management, and quality assurance guidance (see **Documentation map** below).
@@ -36,8 +38,9 @@ Read [`docs/README.md`](docs/README.md) for the full index (purpose + when to up
 | Landing flow / architecture | [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md) |
 | Memes & visual assets | [`docs/VISUAL_CONTENT_MAP.md`](docs/VISUAL_CONTENT_MAP.md) |
 | Strategy & CTA roadmap (long) | [`docs/STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md) |
-| UTM parameters | [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md) |
+| UTM parameters + outbound URL builders (`outboundLinks.ts`) | [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md), [`src/constants/outboundLinks.ts`](src/constants/outboundLinks.ts) |
 | QA checklist | [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md) |
+| Mobile UX audit + interaction map | [`docs/MOBILE_UI_AUDIT.md`](docs/MOBILE_UI_AUDIT.md) |
 | Doc ownership rules | [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md) |
 | PDF build (maintainers) | [`docs/SETUP_PDF.md`](docs/SETUP_PDF.md), [`docs/executive-operating-kit-pdf.md`](docs/executive-operating-kit-pdf.md) |
 

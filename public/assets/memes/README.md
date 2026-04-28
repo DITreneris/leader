@@ -2,7 +2,7 @@
 
 CEO-focused meme images used on the landing page as fragmented emotional rest moments — not as a single bundle. Each meme appears once, between heavier reading sections, and is rendered through `MemeMoment.astro`.
 
-Active assets (clean `.png` extension):
+Active assets (PNG masters in repo; **AVIF** + **WebP** derivatives generated for delivery — see below):
 
 - `reward_2.png` — printable kit / same structure on paper (post–`ClarityDemo` beat; `memes.items[5]`).
 - `meme-01-ai-chaos.png` — AI chaos / structure vs noise (`index={0}`, after `BeforeAfter`).
@@ -23,7 +23,15 @@ Unused on the live page: `memes.items[1]` (“Structure creates control”) — 
 Rules:
 
 - Each meme is a recognition moment, not a sales section. No CTA, no eyebrow ladder.
-- Live page uses a **gold** frame accent only (restrained brand). `MemeMoment` uses a fixed **16:9** viewport (`aspect-video`) and **`object-contain`** so the full meme is visible (no cropping). On all breakpoints the image is **full width** of the content column, with title + caption **below** (centered). New assets should be exported **16:9**.
+- Live page uses a **gold** frame accent only (restrained brand). `MemeMoment` uses a fixed **16:9** viewport (`aspect-video`) and **`object-contain`** so the full meme is visible (no cropping). **Below `lg`:** image is full width of the column, title + caption stacked (centered). **`lg+`:** asymmetric two-column layout (**1.25fr** image / **0.75fr** caption) with alternating **`side`** — image no longer spans the full content width on desktop (restores pre–full-bleed-stacked behavior). New assets should be exported **16:9**.
 - Images use explicit width/height on `<img>` for aspect-ratio hint / CLS; intrinsic PNG sizes may still vary.
 - Do not bundle the memes back into a single block — fragmentation is the point.
 - Future exports should keep the clean `.png` extension. Double extensions like `.png.png` were renamed.
+
+**AVIF / WebP:** [`MemeMoment.astro`](../../src/components/MemeMoment.astro) loads **AVIF → WebP → PNG** (`<picture>`). After replacing or editing a PNG, regenerate matching `.avif` and `.webp` from the project root:
+
+```bash
+npm run optimize:memes
+```
+
+Commit the new derivatives alongside the PNG so deploys do not 404 the `<source>` URLs.

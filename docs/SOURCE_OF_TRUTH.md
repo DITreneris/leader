@@ -38,11 +38,14 @@ Rule: any user-visible string change must keep **`en.ts`** and **`lt.ts`** align
 
 **Copy QA (per slide):** maintain and execute against [`docs/COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md)—grammar, style, EN/LT alignment, and a11y hotspots by section.
 
+**Mobile UX / touch / documented interactions:** [`docs/MOBILE_UI_AUDIT.md`](MOBILE_UI_AUDIT.md) (parity with shipped layout + client scripts; update when mobile interaction surfaces change).
+
 ## Visual system rules
 
 - **Design System v1 (tokens, primitives, templates, anti-patterns)**: [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)
 - **Palette and constraints**: `.cursor/rules/visual-and-copy.mdc`
 - **Global tokens/utilities**: `src/styles/global.css`
+- **Outbound URLs** (PromptAnatomy, CEO hub, Telegram, tracked `utm_*`): code in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts); catalog in [`docs/UTM_MATRIX.md`](UTM_MATRIX.md). Adding or changing destinations or parameters must keep both aligned (see banner hierarchy in **DESIGN_SYSTEM.md**).
 
 Policy: use one primary CTA per major section; keep glass/elevation reserved for primary containers. New sections should prefer [`src/components/ds/`](../src/components/ds/) primitives documented in **DESIGN_SYSTEM.md**.
 

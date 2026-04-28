@@ -16,7 +16,7 @@ const scenarioKeys = ["meeting", "report", "decision", "delegation", "communicat
 const defaultScenario = demo.scenarios.meeting;
 ---
 
-<SectionShell id="demo">
+<SectionShell id="demo" anchorFocusable>
   <SectionTitleBlock eyebrow={demo.eyebrow} title={demo.title} subtitle={demo.subtitle} />
 
   <div class="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
@@ -33,6 +33,12 @@ const defaultScenario = demo.scenarios.meeting;
       ))
     }
   </div>
+
+  {demo.scenarioHint ? (
+    <p class="mx-auto mt-4 max-w-xl text-center text-sm leading-relaxed text-slate-400">{demo.scenarioHint}</p>
+  ) : null}
+
+  <p id="demo-scenario-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
 
   <div class="mx-auto mt-8 max-w-3xl">
     <ContentCard surface="glass" padding="comfort" as="article" ariaLive="polite" ariaAtomic={true}>

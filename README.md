@@ -93,6 +93,6 @@ SITE_URL=https://ditreneris.github.io
 
 ## Asset folders
 
-- `public/assets/memes/` for CEO meme illustrations.
+- `public/assets/memes/` — CEO meme illustrations (PNG masters plus AVIF/WebP generated via **`npm run optimize:memes`** after PNG edits).
 - `public/assets/graphics/` for SVG diagrams and schemes.
 - `public/assets/screenshots/` for optimized AVIF/WebP mockups.

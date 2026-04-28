@@ -1,6 +1,8 @@
 ---
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
+import HighlightStrip from "./ds/HighlightStrip.astro";
+import { buildPromptAnatomyUrl } from "../constants/outboundLinks";
 
 interface Props {
   lang: Language;
@@ -8,14 +10,11 @@ interface Props {
 
 const { lang } = Astro.props;
 const b = uiCopy[lang].promoBanner;
-const href = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=modules&utm_campaign=handoff";
+const primaryHref = buildPromptAnatomyUrl({ medium: "modules", campaign: "handoff" });
 ---
 
 <section class="section-y-tight mx-auto max-w-7xl px-5 sm:px-8" aria-label={b.ariaLabel}>
-  <div class="glass-card radius-xl relative overflow-hidden border border-brand-accent/25 p-7 sm:p-10">
-    <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand-accent/15 blur-3xl"></div>
-    <div class="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-white/5 blur-3xl"></div>
-
+  <HighlightStrip variant="promo">
     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
       <div class="max-w-2xl">
         <p class="type-eyebrow-promo-bright">{b.eyebrow}</p>
@@ -29,21 +28,20 @@ const href = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=module
 
       <div class="flex flex-col gap-3 sm:flex-row lg:shrink-0">
         <a
-          href={href}
+          href={primaryHref}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           class="focus-ring cta-gradient type-cta-label elevate-hover rounded-full px-6 py-4 text-center text-slate-950 transition hover:brightness-110"
         >
           {b.primaryCta}
         </a>
         <a
           href="#demo"
-          class="focus-ring elevate-hover rounded-full border border-white/15 bg-white/[0.02] px-6 py-4 text-center text-sm font-semibold normal-case tracking-wide text-white transition hover:bg-white/[0.05]"
+          class="focus-ring elevate-hover rounded-full border border-white/15 bg-white/[0.02] px-6 py-4 text-center text-sm font-semibold normal-case tracking-wide text-white transition hover:bg-white/5"
         >
           {b.secondaryCta}
         </a>
       </div>
     </div>
-  </div>
+  </HighlightStrip>
 </section>
-

@@ -26,7 +26,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 | CC-10 | Meme (`Page.astro` + `MemeMoment.astro`) | `img alt` (`memes.sequenceImageAlts`) ir sekcijos `aria-label` (`memes.sectionAriaLabel`) lokalizuoti (**P1 įgyvendinta**). | P1 |
 | CC-11 | `InteractiveCopy.astro` | Fallback `manualMessage()` pagal `html[lang]` LT/EN jei trūksta `copyManual` (**P2 įgyvendinta**). | P2 |
 | CC-12 | JSON-LD | **`WebPage`** `primaryImageOfPage` ImageObject su **`description: meta.socialImageAlt`**; **`FAQPage.inLanguage`** = puslapio locale (**P3**). | P3 |
-| CC-US | Shipped EN = US English | `en.ts` ir kitas **viešas** angliškas tekstas — **American English**; vengti UK rašybos ir junginių (`behaviour`, `organisation`, `whilst`, ir pan.). Žr. [`.cursor/rules/language-standard.mdc`](../.cursor/rules/language-standard.mdc) — **US English (shipped default)**. **2026-04-28:** grep `en.ts` + `public/assets/downloads/*.html` — UK šablonų atitikmenų nėra. | P1 |
+| CC-US | Shipped EN = US English | `en.ts` ir kitas **viešas** angliškas tekstas — **American English**; vengti UK rašybos ir junginių (`behaviour`, `organisation`, `whilst`, ir pan.). Žr. [`.cursor/rules/language-standard.mdc`](../.cursor/rules/language-standard.mdc) — **US English (shipped default)**. **2026-04-28:** grep `en.ts` + `public/assets/downloads/*.html` — UK šablonų atitikmenų nėra; **banga (kitas etapas):** pakartotinis grep po konversijos/atitikties copy — vis dar be UK žodžių šablonų. | P1 |
 
 ---
 
@@ -101,8 +101,8 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **Lygiavimas**
 
-- Pirminis CTA keliauja į PromptAnatomy – abiejose kalbose tas pats elgesys.
-- Antrinis CTA – **in-page** `href="#context"` su `hero.secondaryCta` (be UTM); auksinis – `utm_campaign=primary` (`docs/UTM_MATRIX.md`).
+- Pirminis (auksinis) CTA – **in-page** `href="#context"` su `hero.secondaryCta` (be UTM).
+- Antrinis (kontūrinis) CTA keliauja į PromptAnatomy su `utm_medium=hero` ir `utm_campaign=primary` (`docs/UTM_MATRIX.md`).
 
 **Ne locale**
 
@@ -111,7 +111,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **Veiksmai**
 
 - [x] P1: Hero kietojo teksto i18n (`a11y.logoAriaLabel`, `brandSubtag`, `openMobileMenu`, `nav*Aria`, `languageToggleAria`).
-- [x] **2026-04-28:** Du hero CTA (`Hero.astro`): PA outbound + `#context` secondary; UTM tik ant auksinio.
+- [x] **2026-04-28:** Du hero CTA (`Hero.astro`): `#context` (auksinis, be UTM) + PA outbound (kontūrinis, su UTM).
 
 ---
 
@@ -364,11 +364,13 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **LT**
 
 - Atsakymai aiškiai neigia duomenų siuntimą – gerai.
-- Antrame klausime CEO/COO – CC-1.
+- Trečiame klausime CEO/COO – CC-1 (įterptas naujas antras FAQ apie įklijavimą į asistentus).
+- **2026-04-28 (SEO iter. 2):** antras FAQ – intent įklijuoti į ChatGPT / Claude / Gemini; **DI** terminology, prekės ženklų pavadinimai įprasti.
 
 **EN**
 
 - „Quick answers“ – OK.
+- **2026-04-28 (SEO iter. 2):** second FAQ slot – paste-into-assistant intent (after privacy); answer aligned with `beforeAfter.workflowLicenseNote`.
 
 **JSON-LD**
 

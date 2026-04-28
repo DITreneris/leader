@@ -17,6 +17,8 @@ Same principles as the sister [lead](https://github.com/DITreneris/lead) reposit
    - **Typst** — `winget install Typst.Typst` (Pandoc uses `--pdf-engine=typst`), or
    - **LaTeX** — `pdflatex`, `xelatex`, or `lualatex` on PATH (MiKTeX / TeX Live).
 
+**Pagination:** One very wide Markdown pipe-table can become a single unbreakable `figure(table(...))` in Typst and leave an almost-empty page (heading on page *n*, table starting on *n+1*). Prefer subsections or shorter tables; mirror substantive changes in `public/assets/downloads/executive-operating-kit.html` when you use it as a print fallback.
+
 ## Commands
 
 **Windows (PowerShell):**
