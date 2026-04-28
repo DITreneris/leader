@@ -1,8 +1,6 @@
 ---
 import DiagramContainer from "./ds/DiagramContainer.astro";
-import HighlightStrip from "./ds/HighlightStrip.astro";
 import SectionHeader from "./SectionHeader.astro";
-import { buildBeforeAfterWorkflowSearchParams } from "../constants/outboundLinks";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -16,13 +14,6 @@ const beforeAfter = uiCopy[lang].beforeAfter;
 const baseUrl = import.meta.env.BASE_URL;
 const src = `${baseUrl}assets/graphics/before-after.svg`.replace(/([^:]\/)\/+/g, "$1");
 
-const aiUtm = (campaign: string) => buildBeforeAfterWorkflowSearchParams(campaign).toString();
-
-const aiOutbound = [
-  { href: `https://chatgpt.com/?${aiUtm("chatgpt")}`, label: beforeAfter.openChatgpt },
-  { href: `https://claude.ai/?${aiUtm("claude")}`, label: beforeAfter.openClaude },
-  { href: `https://gemini.google.com/?${aiUtm("gemini")}`, label: beforeAfter.openGemini },
-] as const;
 ---
 
 <section class="section-y-compact mx-auto max-w-7xl px-5 sm:px-8" aria-label={beforeAfter.a11yLabel}>
@@ -47,48 +38,6 @@ const aiOutbound = [
             {beforeAfter.promptAnatomyHeading}
           </h3>
           <p class="mt-2">{beforeAfter.promptAnatomyBody}</p>
-        </div>
-        <div
-          class="radius-lg border border-white/10 bg-white/[0.04] p-5 sm:p-6"
-          role="region"
-          aria-labelledby="beforeafter-workflow-title"
-        >
-          <h3
-            id="beforeafter-workflow-title"
-            class="text-base font-black tracking-tight text-white sm:text-lg"
-          >
-            {beforeAfter.workflowTitle}
-          </h3>
-          <p class="mt-2 text-slate-200">{beforeAfter.workflowBody}</p>
-          <div class="mt-4">
-            <HighlightStrip variant="band" bandTone="context">
-              {beforeAfter.workflowHint}
-            </HighlightStrip>
-          </div>
-          <a
-            href="#context"
-            class="focus-ring type-cta-label mt-5 inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-3.5 text-center text-sm font-black text-slate-950 transition hover:bg-brand-accent-hover sm:w-auto"
-          >
-            {beforeAfter.workflowPrimaryCta}
-          </a>
-          <p class="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
-            {beforeAfter.workflowContinueLabel}
-          </p>
-          <div class="mt-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-            {
-              aiOutbound.map(({ href, label }) => (
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="focus-ring type-cta-label inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2.5 text-center text-xs font-semibold text-white transition hover:border-brand-accent/50 hover:bg-white/5 sm:text-sm"
-                >
-                  {label}
-                </a>
-              ))
-            }
-          </div>
-          <p class="mt-4 text-xs leading-relaxed text-slate-500">{beforeAfter.workflowLicenseNote}</p>
         </div>
       </div>
     </div>

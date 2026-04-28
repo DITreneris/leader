@@ -28,15 +28,6 @@ const accentClass = (accent: string) => {
       return "data-[active=true]:border-brand-accent/60 data-[active=true]:shadow-[0_0_60px_rgba(207,167,58,0.22)] data-[active=true]:hover:border-brand-accent/50";
   }
 };
-
-const desktopPositions = [
-  "left-1/2 top-1 -translate-x-1/2",
-  "right-4 top-[18%]",
-  "right-4 bottom-[18%]",
-  "left-1/2 bottom-1 -translate-x-1/2",
-  "left-4 bottom-[18%]",
-  "left-4 top-[18%]",
-] as const;
 ---
 
 <section class="section-y mx-auto max-w-7xl px-5 sm:px-8">
@@ -47,44 +38,28 @@ const desktopPositions = [
     eyebrowTone="promo"
   />
 
-  <!-- Desktop: weekly cycle -->
+  <!-- Desktop: tool-first flow -->
   <div class="mt-10 hidden lg:block">
-    <div class="mx-auto grid max-w-6xl items-center gap-6 lg:grid-cols-[1fr_0.95fr]">
-      <div class="relative mx-auto w-full max-w-[44rem]">
-        <div class="glass-card radius-xl relative aspect-square overflow-hidden p-8">
-          <div class="pointer-events-none absolute inset-x-10 top-0 h-28 rounded-full bg-brand-accent/12 blur-2xl"></div>
-
-          <svg
-            class="pointer-events-none absolute inset-0 h-full w-full"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="xMidYMid meet"
-            aria-hidden="true"
-          >
-            <defs>
-              <marker id="roiArrow" markerWidth="4" markerHeight="4" refX="3.4" refY="2" orient="auto">
-                <path d="M0,0 L4,2 L0,4 Z" fill="rgba(232,185,60,0.55)" />
-              </marker>
-              <linearGradient id="roiRing" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="rgba(207,167,58,0.20)" />
-                <stop offset="0.5" stop-color="rgba(232,185,60,0.55)" />
-                <stop offset="1" stop-color="rgba(207,167,58,0.20)" />
-              </linearGradient>
-            </defs>
-            <circle cx="50" cy="50" r="34" fill="none" stroke="url(#roiRing)" stroke-width="0.9" opacity="0.7" />
-            <path
-              d="M50 16 A34 34 0 1 1 49.9 16"
-              fill="none"
-              stroke="rgba(226,232,240,0.16)"
-              stroke-width="0.9"
-              marker-end="url(#roiArrow)"
-            />
-          </svg>
-
-          <div class="absolute left-1/2 top-1/2 w-[62%] max-w-[14rem] -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="type-micro-label text-brand-accent-hover sm:text-xs">{roiPath.centerLabel}</p>
-            <p class="mt-2 text-sm font-bold leading-snug text-slate-300">{roiPath.centerText}</p>
+    <div class="mx-auto grid max-w-6xl gap-7 lg:grid-cols-[0.85fr_1.15fr]">
+      <nav class="glass-card radius-xl p-6" aria-label={roiPath.eyebrow}>
+        <div class="flex items-center justify-between gap-4">
+          <div class="min-w-0">
+            <p class="type-micro-label text-brand-accent-hover">{roiPath.centerLabel}</p>
+            <p class="mt-1 text-sm font-semibold text-slate-300">{roiPath.centerText}</p>
           </div>
+        </div>
 
+        <button
+          type="button"
+          data-copy-i18n="roiPath.steps.0.prompt"
+          data-copy-label-i18n="roiPath.useStepCopy"
+          data-copy-copied-i18n="roiPath.copied"
+          class="focus-ring btn-outline-accent elevate-hover mt-5 w-full rounded-full px-5 py-3 text-sm font-black"
+        >
+          {roiPath.entryCta}
+        </button>
+
+        <div class="mt-6 flex flex-col gap-3">
           {steps.map((step, index) => (
             <button
               type="button"
@@ -93,24 +68,26 @@ const desktopPositions = [
               aria-controls="roi-step-panel"
               aria-pressed={index === 0 ? "true" : "false"}
               class:list={[
-                "group focus-ring absolute radius-lg text-left transition-all duration-200 ease-out",
-                desktopPositions[index],
-                "data-[active=false]:z-[11] data-[active=false]:w-[9rem] data-[active=false]:max-w-[9rem] data-[active=false]:scale-[0.92] data-[active=false]:opacity-[0.52] data-[active=false]:border-transparent data-[active=false]:bg-slate-950/25 data-[active=false]:p-2.5 data-[active=false]:shadow-none data-[active=false]:hover:bg-white/[0.04]",
-                "data-[active=true]:z-20 data-[active=true]:w-[12.5rem] data-[active=true]:max-w-[13rem] data-[active=true]:scale-100 data-[active=true]:opacity-100 data-[active=true]:border data-[active=true]:border-white/10 data-[active=true]:bg-slate-950/40 data-[active=true]:p-4 data-[active=true]:shadow-[0_0_44px_rgba(148,163,184,0.14)]",
+                "group focus-ring radius-lg w-full border text-left transition",
+                "data-[active=false]:border-white/5 data-[active=false]:bg-white/[0.02] data-[active=false]:hover:border-white/10 data-[active=false]:hover:bg-white/[0.04]",
+                "data-[active=true]:border-white/10 data-[active=true]:bg-slate-950/40 data-[active=true]:shadow-[0_0_44px_rgba(148,163,184,0.14)]",
                 accentClass(step.accent),
               ]}
             >
-              <p class="type-micro-label text-brand-accent-hover group-data-[active=true]:text-xs">
-                0{index + 1}
-              </p>
-              <p class="mt-1 hidden text-sm font-black text-white group-data-[active=true]:mt-2 group-data-[active=true]:block">{step.time}</p>
-              <p class="mt-1 line-clamp-3 text-[0.68rem] font-bold leading-snug text-slate-300 group-data-[active=true]:mt-2 group-data-[active=true]:line-clamp-none group-data-[active=true]:text-sm group-data-[active=true]:font-bold group-data-[active=true]:text-white">
-                {step.action}
-              </p>
+              <div class="flex items-start gap-4 p-4">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-accent/10 text-sm font-black text-brand-accent-hover">
+                  0{index + 1}
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-xs font-semibold tracking-wide text-brand-accent-hover">{step.time}</p>
+                  <p class="mt-1 text-base font-black leading-snug text-white">{step.action}</p>
+                  <p class="mt-2 line-clamp-2 text-sm leading-6 text-slate-300">{step.value}</p>
+                </div>
+              </div>
             </button>
           ))}
         </div>
-      </div>
+      </nav>
 
       <aside
         id="roi-step-panel"
@@ -125,6 +102,7 @@ const desktopPositions = [
         <p class="mt-5 text-3xl font-black text-brand-accent-hover" data-roi-panel="time"></p>
         <h3 class="mt-2 text-2xl font-black leading-tight text-white" data-roi-panel="action"></h3>
         <p class="mt-4 border-l-2 border-brand-accent/35 pl-4 text-base leading-7 text-slate-200" data-roi-panel="value"></p>
+        <p class="mt-4 text-sm leading-6 text-slate-300" data-roi-panel="description"></p>
 
         <div class="mt-7 flex flex-col gap-3">
           <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -161,7 +139,7 @@ const desktopPositions = [
             <div class="pointer-events-none absolute left-[1.125rem] top-11 h-[calc(100%+0.75rem)] w-px bg-gradient-to-b from-brand-accent/20 via-brand-accent/10 to-transparent"></div>
           )}
           <div class="surface-panel radius-lg overflow-hidden p-5">
-            <details class="group relative">
+            <details class="group relative" open={index === 0 ? true : undefined}>
               <summary class="focus-ring summary-hover cursor-pointer list-none pr-10 outline-none">
                 <div class="flex items-start gap-3">
                   <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-accent/10 text-xs font-black text-brand-accent-hover">
@@ -184,23 +162,22 @@ const desktopPositions = [
               <div class="mt-4 border-t border-white/10 pt-4">
                 <p class="text-sm leading-6 text-slate-300">{step.description}</p>
                 <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  {step.id === "safety" ? (
+                  <button
+                    type="button"
+                    data-copy-i18n={`roiPath.steps.${index}.prompt`}
+                    data-copy-label-i18n="roiPath.useStepCopy"
+                    data-copy-copied-i18n="roiPath.copied"
+                    class="focus-ring btn-outline-accent elevate-hover rounded-full px-4 py-3 text-sm font-bold"
+                  >
+                    {roiPath.useStepCopy}
+                  </button>
+                  {step.id === "safety" && (
                     <a
                       href="#safety-check"
                       class="focus-ring rounded-full border border-white/15 px-4 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-brand-accent-hover/60 hover:bg-white/5"
                     >
                       {roiPath.safetyJump}
                     </a>
-                  ) : (
-                    <button
-                      type="button"
-                      data-copy-i18n={`roiPath.steps.${index}.prompt`}
-                      data-copy-label-i18n="roiPath.useStepCopy"
-                      data-copy-copied-i18n="roiPath.copied"
-                      class="focus-ring btn-outline-accent elevate-hover rounded-full px-4 py-3 text-sm font-bold"
-                    >
-                      {roiPath.useStepCopy}
-                    </button>
                   )}
                 </div>
               </div>
@@ -251,6 +228,7 @@ const desktopPositions = [
   const panelTime = document.querySelector<HTMLElement>("[data-roi-panel=\"time\"]");
   const panelAction = document.querySelector<HTMLElement>("[data-roi-panel=\"action\"]");
   const panelValue = document.querySelector<HTMLElement>("[data-roi-panel=\"value\"]");
+  const panelDescription = document.querySelector<HTMLElement>("[data-roi-panel=\"description\"]");
   const panelCopy = document.querySelector<HTMLButtonElement>("[data-roi-panel-copy]");
   const panelSafetyLink = document.querySelector<HTMLAnchorElement>("[data-roi-panel-safety-link]");
 
@@ -273,6 +251,7 @@ const desktopPositions = [
     if (panelTime) panelTime.textContent = step.time;
     if (panelAction) panelAction.textContent = step.action;
     if (panelValue) panelValue.textContent = step.value;
+    if (panelDescription) panelDescription.textContent = step.description;
 
     if (panelCopy) {
       panelCopy.textContent = ctaLabel;
@@ -280,9 +259,8 @@ const desktopPositions = [
       panelCopy.removeAttribute("data-copied");
     }
 
-    if (panelCopy && panelSafetyLink) {
+    if (panelSafetyLink) {
       const isSafety = step?.id === "safety";
-      panelCopy.classList.toggle("hidden", isSafety);
       panelSafetyLink.classList.toggle("hidden", !isSafety);
     }
   };

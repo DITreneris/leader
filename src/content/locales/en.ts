@@ -124,20 +124,30 @@ export const enCopy = {
       promptAnatomyHeading: "What is PromptAnatomy?",
       promptAnatomyBody:
         "The executive standard for building that instruction: role, context, decision logic, fixed output format, and a safety check before anything is sent.",
-      workflowTitle: "Today's workflow",
-      workflowBody:
+      a11yLabel:
+        "Before and after: prompt definitions and diagram of decision-ready brief shape.",
+    },
+    todayWorkflow: {
+      eyebrow: "Today's workflow",
+      title: "Copy one prompt. Get decision-grade output.",
+      subtitle: "Compile on this page → paste into your approved AI → get a structured brief.",
+      body:
         "Build the prompt with Prompt Anatomy on this page, then paste it into an AI assistant your license and plan allow. One compiled prompt → one structured answer.",
-      workflowHint:
+      hint:
         "Compile or tweak the prompt if needed, then copy it and paste it into ChatGPT, Claude, Gemini, or your approved tool.",
-      workflowPrimaryCta: "Copy prompt & analyze →",
-      workflowContinueLabel: "Continue in:",
-      workflowLicenseNote:
+      primaryCta: "Copy prompt & analyze →",
+      continueLabel: "Continue in:",
+      licenseNote:
         "Use the provider and account your organization has licensed, subject to each vendor's terms and your plan limits.",
       openChatgpt: "Open ChatGPT",
       openClaude: "Open Claude",
       openGemini: "Open Gemini",
-      a11yLabel:
-        "Before and after: prompt definitions, today's workflow to compile and paste into AI, diagram of decision-ready brief shape.",
+      schemaAriaLabel: "Workflow schema: compile prompt, paste into AI, get decision brief.",
+      schemaStepOne: "Compile prompt",
+      schemaStepTwo: "Paste into AI",
+      schemaStepThree: "Ask once",
+      schemaOutcome: "Decision brief (owners, risks, next action)",
+      a11yLabel: "Today's workflow: how to compile, paste, and get a decision brief.",
     },
     promoBanner: {
       ariaLabel: "Product handoff banner to PromptAnatomy.",
@@ -747,16 +757,17 @@ Eliminate now:
     },
     roiPath: {
       eyebrow: "5-hour weekly ROI path",
-      title: "From one useful prompt to a weekly leadership habit.",
-      subtitle: "Rough time anchors when you run the kit in a real week—not abstract productivity.",
+      title: "Pick one step. Get a cleaner decision today.",
+      subtitle: "Choose a 5–45 min move, copy the prompt, and run it. Repeat the same rhythm each week.",
       centerLabel: "Executive week",
       centerText: "Six weekly moves—same rhythm each week.",
+      entryCta: "Copy & run Step 1 (5–15 min)",
       panelAriaLabel: "Weekly step detail",
       panelProgressTemplate: "Step {current} of 6",
-      panelHint: "Copies this step’s prompt template.",
-      useStepCopy: "Use this step",
-      safetyJump: "Use the safety prompt above →",
-      copyPrompt: "Copy prompt",
+      panelHint: "Copies this step’s prompt so you can run it now.",
+      useStepCopy: "Copy & run",
+      safetyJump: "Open Safety Check →",
+      copyPrompt: "Copy & run",
       copied: "Copied",
       steps: [
         {

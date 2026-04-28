@@ -1,0 +1,37 @@
+---
+interface Props {
+  /** Optional visually-hidden label for screen readers. */
+  ariaLabel?: string;
+  stepOne: string;
+  stepTwo: string;
+  stepThree: string;
+  outcome: string;
+}
+
+const { ariaLabel = "Workflow schema", stepOne, stepTwo, stepThree, outcome } = Astro.props;
+---
+
+<div class="radius-xl border border-white/10 bg-white/[0.03] p-5" role="img" aria-label={ariaLabel}>
+  <div class="grid items-center gap-3 sm:grid-cols-[1fr_auto_1fr_auto_1fr]">
+    <div class="radius-lg border border-white/10 bg-slate-950/40 px-4 py-3">
+      <p class="type-micro-label text-brand-accent-hover">1</p>
+      <p class="mt-1 text-sm font-black text-white">{stepOne}</p>
+    </div>
+    <div class="text-center text-xl font-black text-brand-accent-hover" aria-hidden="true">→</div>
+    <div class="radius-lg border border-white/10 bg-slate-950/40 px-4 py-3">
+      <p class="type-micro-label text-brand-accent-hover">2</p>
+      <p class="mt-1 text-sm font-black text-white">{stepTwo}</p>
+    </div>
+    <div class="text-center text-xl font-black text-brand-accent-hover" aria-hidden="true">→</div>
+    <div class="radius-lg border border-white/10 bg-slate-950/40 px-4 py-3">
+      <p class="type-micro-label text-brand-accent-hover">3</p>
+      <p class="mt-1 text-sm font-black text-white">{stepThree}</p>
+    </div>
+  </div>
+
+  <div class="mt-4 radius-lg border border-brand-accent/20 bg-brand-accent/10 px-4 py-3">
+    <p class="type-micro-label text-brand-accent-hover">Output</p>
+    <p class="mt-1 text-sm font-black text-brand-accent-hover">{outcome}</p>
+  </div>
+</div>
+

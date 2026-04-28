@@ -16,6 +16,7 @@ import MemeMoment from "../components/MemeMoment.astro";
 import PromptAnatomy from "../components/PromptAnatomy.astro";
 import PromptLibrary from "../components/PromptLibrary.astro";
 import RoiPath from "../components/RoiPath.astro";
+import TodaysWorkflow from "../components/TodaysWorkflow.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 import { LEADER_PAGE_DATE_MODIFIED, LEADER_PAGE_DATE_PUBLISHED } from "../constants/pageSeo";
@@ -140,6 +141,7 @@ const telegramHref = buildTelegramUrl();
         fetchPriority="high"
       />
       <BeforeAfter lang={lang} />
+      <TodaysWorkflow lang={lang} />
       <MemeMoment
         lang={lang}
         index={0}

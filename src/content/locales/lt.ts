@@ -129,20 +129,30 @@ export const ltCopy = {
       promptAnatomyHeading: "Kas yra PromptAnatomy?",
       promptAnatomyBody:
         "Vadovo lygio standartas, kaip rašyti tokią instrukciją: rolė, kontekstas, sprendimo logika, fiksuota išvesties forma ir saugumo patikra prieš siunčiant.",
-      workflowTitle: "Šiandienos darbo eiga",
-      workflowBody:
+      a11yLabel:
+        "Prieš ir po: prompto apibrėžimai ir brief'o struktūros diagrama.",
+    },
+    todayWorkflow: {
+      eyebrow: "Šiandienos darbo eiga",
+      title: "Nukopijuok vieną promptą. Gauk sprendimo lygio išvestį.",
+      subtitle: "Sukompiliuok šiame puslapyje → įklijuok į patvirtintą AI → gauk struktūruotą briefą.",
+      body:
         "Surink promptą pagal Prompt Anatomy šiame puslapyje, tada įklijuok į AI asistentą, kurį leidžia tavo licencija ir planas. Vienas sukompiliuotas promptas → viena struktūrizuota išvestis.",
-      workflowHint:
+      hint:
         "Jei reikia, patikslink sukompiliuotą promptą, tada nukopijuok ir įklijuok į ChatGPT, Claude, Gemini ar patvirtintą įrankį.",
-      workflowPrimaryCta: "Kopijuoti promptą ir analizuoti →",
-      workflowContinueLabel: "Tęsk čia:",
-      workflowLicenseNote:
+      primaryCta: "Kopijuoti promptą ir analizuoti →",
+      continueLabel: "Tęsk čia:",
+      licenseNote:
         "Naudok tiekėją ir paskyrą pagal organizacijos licenciją — laikantis tiekėjo sąlygų ir plano ribų.",
       openChatgpt: "Atidaryti ChatGPT",
       openClaude: "Atidaryti Claude",
       openGemini: "Atidaryti Gemini",
-      a11yLabel:
-        "Prieš ir po: prompto apibrėžimai, šiandienos eiga sukompiliuoti ir įklijuoti į AI, brief'o struktūros diagrama.",
+      schemaAriaLabel: "Darbo eigos schema: sukompiliuok promptą, įklijuok į AI, gauk briefą.",
+      schemaStepOne: "Sukompiliuok promptą",
+      schemaStepTwo: "Įklijuok į AI",
+      schemaStepThree: "Užduok vieną klausimą",
+      schemaOutcome: "Sprendimo briefas (savininkas, rizikos, kitas veiksmas)",
+      a11yLabel: "Šiandienos darbo eiga: kaip sukompiliuoti, įklijuoti ir gauti sprendimo briefą.",
     },
     promoBanner: {
       ariaLabel: "Perėjimo baneris į PromptAnatomy.",
@@ -756,17 +766,17 @@ Pašalinti dabar:
     },
     roiPath: {
       eyebrow: "5 val. savaitinės naudos kelias",
-      title: "Nuo vieno naudingo prompto iki savaitės įpročio.",
-      subtitle:
-        "Apytikslė trukmė, kai naudoji rinkinį savo tikroje savaitėje – ne abstrakčiam „produktyvumui“.",
+      title: "Pasirink vieną žingsnį. Šiandien priimk aiškesnį sprendimą.",
+      subtitle: "Pasirink 5–45 min veiksmą, nukopijuok promptą ir paleisk dabar. Kartok tą patį ritmą kas savaitę.",
       centerLabel: "Vadovo savaitė",
       centerText: "Šeši savaitės žingsniai–tas pats ritmas kas savaitę.",
+      entryCta: "Kopijuoti ir paleisti 1 žingsnį (5–15 min)",
       panelAriaLabel: "Savaitės žingsnio detalė",
       panelProgressTemplate: "Žingsnis {current} iš 6",
-      panelHint: "Nukopijuoja šio žingsnio prompto šabloną.",
-      useStepCopy: "Naudoti šį žingsnį",
-      safetyJump: "Naudok saugumo promptą aukščiau →",
-      copyPrompt: "Kopijuoti promptą",
+      panelHint: "Nukopijuoja šio žingsnio promptą, kad galėtum paleisti dabar.",
+      useStepCopy: "Kopijuoti ir paleisti",
+      safetyJump: "Atidaryti Safety Check →",
+      copyPrompt: "Kopijuoti ir paleisti",
       copied: "Nukopijuota",
       steps: [
         {
