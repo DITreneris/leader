@@ -17,15 +17,21 @@ const flow = uiCopy[lang].flowScheme;
   <div class="pointer-events-none absolute inset-x-10 top-0 h-40 rounded-full bg-brand-accent/12 blur-3xl"></div>
 
   <div class="relative">
-    <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{flow.eyebrow}</p>
+    <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover sm:text-sm">{flow.eyebrow}</p>
 
-    <div class="mt-8 grid gap-5 lg:grid-cols-[1fr_auto_1fr_auto_1.15fr] lg:items-stretch lg:gap-4">
-      <!-- Input -->
+    <div class="mt-6 grid gap-5 sm:mt-8 lg:grid-cols-3 lg:gap-5">
+      <!-- 1 Input -->
       <article
         class="flex flex-col rounded-2xl border border-white/10 bg-slate-950/50 p-5 ring-1 ring-white/[0.04] sm:p-6"
       >
-        <p class="text-[11px] font-black uppercase tracking-[0.2em] text-slate-500">{flow.inputLabel}</p>
-        <p class="mt-3 text-lg font-bold leading-snug text-white sm:text-xl">
+        <span
+          class="mb-3 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white/[0.06] text-xs font-black text-brand-accent-hover"
+          aria-hidden="true"
+        >
+          1
+        </span>
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-slate-400 sm:text-sm">{flow.inputLabel}</p>
+        <p class="mt-3 text-base font-semibold leading-snug text-white sm:text-lg">
           {lang === "lt" ? (
             <>
               <span class="text-slate-500">„</span>
@@ -42,56 +48,33 @@ const flow = uiCopy[lang].flowScheme;
         </p>
       </article>
 
-      <div
-        class="hidden items-center justify-center text-slate-500 lg:flex"
-        aria-hidden="true"
-      >
-        <svg width="28" height="20" viewBox="0 0 28 20" class="shrink-0" fill="none">
-          <path
-            d="M4 10h16M18 6l4 4-4 4"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            opacity="0.45"
-          />
-        </svg>
-      </div>
-
-      <!-- Middle -->
+      <!-- 2 Structure -->
       <article
-        class="flex flex-col justify-between rounded-2xl border border-brand-accent/35 bg-brand-accent/[0.07] p-5 ring-1 ring-brand-accent/20 sm:p-6"
+        class="flex flex-col rounded-2xl border border-brand-accent/35 bg-brand-accent/[0.07] p-5 ring-1 ring-brand-accent/20 sm:p-6"
       >
-        <div>
-          <p class="text-[11px] font-black uppercase tracking-[0.2em] text-brand-accent-hover">{flow.middleLabel}</p>
-          <p class="mt-4 font-mono text-xs font-bold uppercase tracking-widest text-brand-accent sm:text-sm">
-            {flow.middleBadge}
-          </p>
-        </div>
-        <p class="mt-4 text-xs leading-relaxed text-slate-400">{flow.bridgeNote}</p>
+        <span
+          class="mb-3 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-brand-accent/20 text-xs font-black text-brand-accent-hover"
+          aria-hidden="true"
+        >
+          2
+        </span>
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-accent-hover sm:text-sm">{flow.middleLabel}</p>
+        <p class="mt-4 font-mono text-xs font-bold uppercase tracking-widest text-brand-accent sm:text-sm">
+          {flow.middleBadge}
+        </p>
       </article>
 
-      <div
-        class="hidden items-center justify-center text-slate-500 lg:flex"
-        aria-hidden="true"
-      >
-        <svg width="28" height="20" viewBox="0 0 28 20" class="shrink-0" fill="none">
-          <path
-            d="M4 10h16M18 6l4 4-4 4"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            opacity="0.45"
-          />
-        </svg>
-      </div>
-
-      <!-- Output -->
+      <!-- 3 Output -->
       <article
         class="flex flex-col rounded-2xl border-2 border-brand-accent/50 bg-slate-950/60 p-5 shadow-[0_0_40px_-12px_rgba(207,167,58,0.35)] sm:p-6"
       >
-        <p class="text-[11px] font-black uppercase tracking-[0.2em] text-brand-accent-hover">{flow.outputLabel}</p>
+        <span
+          class="mb-3 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-brand-accent/15 text-xs font-black text-brand-accent-hover"
+          aria-hidden="true"
+        >
+          3
+        </span>
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-accent-hover sm:text-sm">{flow.outputLabel}</p>
         <ul class="mt-4 space-y-3 text-sm leading-relaxed text-slate-100 sm:text-base">
           {
             flow.outputBullets.map((line) => (
@@ -108,5 +91,8 @@ const flow = uiCopy[lang].flowScheme;
       </article>
     </div>
 
+    <p class="mt-6 border-t border-white/10 pt-5 text-sm leading-relaxed text-slate-400">
+      {flow.bridgeNote}
+    </p>
   </div>
 </section>

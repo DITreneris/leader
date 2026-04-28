@@ -1,4 +1,10 @@
 ---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+
 const pathname = Astro.url.pathname;
 const p = pathname.endsWith("/") ? pathname : `${pathname}/`;
 const base = import.meta.env.BASE_URL;
@@ -19,15 +25,23 @@ if (p.includes("/lt/")) {
 
 const isEn = p.includes("/en/");
 const isLt = p.includes("/lt/");
+
+const btn = compact
+  ? "min-h-8 min-w-8 px-2 text-[10px] font-bold uppercase tracking-wider"
+  : "min-h-11 min-w-11 px-3 text-xs font-black uppercase tracking-[0.18em]";
+const wrap = compact ? "p-0.5 gap-0.5" : "p-1 gap-1";
 ---
 
-<div class="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1" role="group" aria-label="Language">
+<div
+  class={`flex items-center rounded-full border border-white/10 bg-white/5 ${wrap}`}
+  role="group"
+  aria-label="Language"
+>
   <a
     href={enHref}
     lang="en"
     aria-current={isEn ? "page" : undefined}
-    class={`focus-ring flex min-h-11 min-w-11 items-center justify-center rounded-full px-3 text-xs font-black uppercase tracking-[0.18em] transition hover:text-white ${isEn ? "bg-brand-accent text-slate-950" : "text-slate-300"}`
-    }
+    class={`focus-ring flex items-center justify-center rounded-full transition hover:text-white ${btn} ${isEn ? "bg-brand-accent text-slate-950" : "text-slate-300"}`}
   >
     EN
   </a>
@@ -35,8 +49,7 @@ const isLt = p.includes("/lt/");
     href={ltHref}
     lang="lt"
     aria-current={isLt ? "page" : undefined}
-    class={`focus-ring flex min-h-11 min-w-11 items-center justify-center rounded-full px-3 text-xs font-black uppercase tracking-[0.18em] transition hover:text-white ${isLt ? "bg-brand-accent text-slate-950" : "text-slate-300"}`
-    }
+    class={`focus-ring flex items-center justify-center rounded-full transition hover:text-white ${btn} ${isLt ? "bg-brand-accent text-slate-950" : "text-slate-300"}`}
   >
     LT
   </a>
