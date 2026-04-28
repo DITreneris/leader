@@ -1,4 +1,7 @@
 ---
+import BulletSystem from "./ds/BulletSystem.astro";
+import SectionShell from "./ds/SectionShell.astro";
+import SectionTitleBlock from "./ds/SectionTitleBlock.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -10,11 +13,10 @@ const { lang } = Astro.props;
 const { faq } = uiCopy[lang];
 ---
 
-<section id="faq" class="section-y mx-auto max-w-7xl px-5 sm:px-8" aria-labelledby="faq-heading">
+<SectionShell id="faq" labelledby="faq-heading">
   <div class="mx-auto max-w-2xl">
-    <h2 id="faq-heading" class="text-center text-2xl font-black tracking-tight text-white sm:text-3xl">
-      {faq.sectionTitle}
-    </h2>
+    <SectionTitleBlock title={faq.sectionTitle} titleId="faq-heading" titleScale="compact" />
+
     <div class="mt-8 space-y-2">
       {
         faq.items.map((item) => (
@@ -26,11 +28,11 @@ const { faq } = uiCopy[lang];
               {item.bullets?.length ? (
                 <>
                   <p class="text-slate-300">{item.a}</p>
-                  <ul class="mt-2 list-disc space-y-1.5 pl-5 text-slate-400">
+                  <BulletSystem variant="muted" class="mt-2">
                     {item.bullets.map((line) => (
                       <li>{line}</li>
                     ))}
-                  </ul>
+                  </BulletSystem>
                 </>
               ) : (
                 <p class="text-slate-400">{item.a}</p>
@@ -41,4 +43,4 @@ const { faq } = uiCopy[lang];
       }
     </div>
   </div>
-</section>
+</SectionShell>

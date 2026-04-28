@@ -1,0 +1,58 @@
+---
+interface Props {
+  surface: "glass" | "surface" | "accent";
+  radius?: "lg" | "xl";
+  padding?: "compact" | "comfort" | "none";
+  elevate?: boolean;
+  overflow?: "hidden";
+  /** Semantic wrapper — default `div` */
+  as?: "div" | "article" | "figure";
+  /** For module grid cards — sets `data-module-card` + `data-module-id` */
+  moduleId?: string;
+  moduleCard?: boolean;
+  ariaLive?: "off" | "polite" | "assertive";
+  ariaAtomic?: boolean;
+  class?: string;
+}
+
+const {
+  surface,
+  radius = "xl",
+  padding = "comfort",
+  elevate = false,
+  overflow,
+  as = "div",
+  moduleId,
+  moduleCard,
+  ariaLive,
+  ariaAtomic,
+  class: className = "",
+} = Astro.props as Props;
+
+const surfaceClass =
+  surface === "glass" ? "glass-card" : surface === "surface" ? "surface-card" : "surface-accent";
+
+const radiusClass = radius === "lg" ? "radius-lg" : "radius-xl";
+
+const padClass =
+  padding === "compact" ? "card-padding-compact" : padding === "comfort" ? "card-padding-comfort" : "";
+
+const Tag = as;
+---
+
+<Tag
+  class:list={[
+    surfaceClass,
+    radiusClass,
+    padClass,
+    elevate ? "elevate-hover" : false,
+    overflow === "hidden" ? "overflow-hidden" : false,
+    className,
+  ]}
+  data-module-card={moduleCard ? true : undefined}
+  data-module-id={moduleId}
+  aria-live={ariaLive}
+  aria-atomic={ariaAtomic === true ? "true" : ariaAtomic === false ? "false" : undefined}
+>
+  <slot />
+</Tag>

@@ -24,6 +24,7 @@ Rules:
 
 - Each meme is a recognition moment, not a sales section. No CTA, no eyebrow ladder.
 - Live page uses a **gold** frame accent only (restrained brand). `MemeMoment` uses a fixed **16:9** viewport (`aspect-video`) and **`object-contain`** so the full meme is visible (no cropping). New assets should be exported **16:9**.
+- On **`lg` breakpoints**, the image and caption sit in **two equal-width grid columns** (`1fr` / `1fr`), so the frame is the same size whether the image is `side="left"` or `side="right"` (only order swaps).
 - Images use explicit width/height on `<img>` for aspect-ratio hint / CLS; intrinsic PNG sizes may still vary.
 - Do not bundle the memes back into a single block — fragmentation is the point.
 - Future exports should keep the clean `.png` extension. Double extensions like `.png.png` were renamed.

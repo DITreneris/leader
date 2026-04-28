@@ -1,0 +1,14 @@
+---
+interface Props {
+  padding?: "compact" | "comfort";
+  class?: string;
+}
+
+const { padding = "compact", class: className = "" } = Astro.props;
+
+const padClass = padding === "compact" ? "card-padding-compact" : "card-padding-comfort";
+---
+
+<figure class:list={["glass-card radius-xl overflow-hidden border border-white/10", padClass, className]}>
+  <slot />
+</figure>

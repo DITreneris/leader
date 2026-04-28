@@ -4,20 +4,20 @@ Guidance for AI coding agents working on this repository.
 
 ## Mission
 
-This project is a lean bilingual CEO/COO executive prompt operating kit for PromptAnatomy Executive OS. It should create a fast aha moment through a **Global Context Block + executive modules** (copy one compiled prompt, get decision-grade output), a safety check rule surface, a printable static download, visual proof, and a proof demo that sends qualified users to the full PromptAnatomy system.
+This project is a lean **English-first** CEO/COO executive prompt operating kit for PromptAnatomy Executive OS (default ship targets **US market** copy). It should create a fast aha moment through a **Global Context Block + executive modules** (copy one compiled prompt, get decision-grade output), a safety check rule surface, a printable static download, visual proof, and a proof demo that sends qualified users to the full PromptAnatomy system. Lithuanian strings remain in `locales/lt.ts` for opt-in bilingual builds (see root `README.md` — Locale toggle).
 
 ## Non-Negotiables
 
 - Keep it one page unless the user explicitly asks otherwise.
 - Keep the MVP static: no backend, login, database, analytics lock-in, or AI API call.
 - Keep the page simple enough for an overloaded CEO to understand in under 10 seconds.
-- Keep English and Lithuanian aligned when changing marketing copy.
+- Keep English and Lithuanian **strings aligned in source** when editing `en.ts` / `lt.ts`, even if only English ships by default.
 - Do not edit plan files in `.cursor/plans` or the user's global plan folder unless explicitly requested.
 
 ## Architecture
 
-- `src/pages/index.astro` redirects `/` to `/en/` (or `/lt/` when `navigator.language` starts with `lt`).
-- `src/pages/en/index.astro` and `src/pages/lt/index.astro` render `src/layouts/Page.astro` with the full section stack.
+- `src/pages/index.astro` redirects `/` to **`/en/`** (USA-market default; no `/lt/` route unless bilingual is re-enabled in `src/constants/siteLocale.ts` — see root `README`).
+- `src/pages/en/index.astro` renders `src/layouts/Page.astro` with the full section stack. Optional `src/pages/lt/index.astro` ships only when bilingual is turned on (not in the default build).
 - `src/components/` contains section components.
 - `src/content/copy.ts` re-exports `uiCopy`; bilingual bundles live in `src/content/locales/en.ts` and `src/content/locales/lt.ts`.
 - `src/styles/global.css` contains global styling and reusable visual helpers.

@@ -5,13 +5,16 @@ const basePath = process.env.BASE_PATH ?? "/";
 const base = basePath === "/" ? "/" : `/${basePath.replace(/^\/|\/$/g, "")}/`;
 const site = process.env.SITE_URL ?? "https://ditreneris.github.io";
 
+/** Must mirror `src/constants/siteLocale.ts` `SHIPPED_LOCALES` when shipping LT. See README → Locale toggle. */
+const shippedLocales = ["en"];
+
 export default defineConfig({
   site,
   base,
   // Note: `fallback: { lt: "en" }` is omitted — with static SSG it prevented `/lt/` from emitting.
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "lt"],
+    locales: shippedLocales,
     routing: { prefixDefaultLocale: true, redirectToDefaultLocale: false },
   },
   integrations: [
@@ -20,7 +23,6 @@ export default defineConfig({
         defaultLocale: "en",
         locales: {
           en: "en-US",
-          lt: "lt-LT",
         },
       },
     }),

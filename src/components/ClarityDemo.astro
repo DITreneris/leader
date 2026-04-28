@@ -1,5 +1,8 @@
 ---
-import SectionHeader from "./SectionHeader.astro";
+import ContentCard from "./ds/ContentCard.astro";
+import HighlightStrip from "./ds/HighlightStrip.astro";
+import SectionShell from "./ds/SectionShell.astro";
+import SectionTitleBlock from "./ds/SectionTitleBlock.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -13,8 +16,8 @@ const scenarioKeys = ["meeting", "report", "decision", "delegation", "communicat
 const defaultScenario = demo.scenarios.meeting;
 ---
 
-<section id="demo" class="section-y mx-auto max-w-7xl px-5 sm:px-8">
-  <SectionHeader eyebrow={demo.eyebrow} title={demo.title} subtitle={demo.subtitle} />
+<SectionShell id="demo">
+  <SectionTitleBlock eyebrow={demo.eyebrow} title={demo.title} subtitle={demo.subtitle} />
 
   <div class="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
     {
@@ -32,11 +35,7 @@ const defaultScenario = demo.scenarios.meeting;
   </div>
 
   <div class="mx-auto mt-8 max-w-3xl">
-    <article
-      class="glass-card radius-xl p-6 sm:p-8"
-      aria-live="polite"
-      aria-atomic="true"
-    >
+    <ContentCard surface="glass" padding="comfort" as="article" ariaLive="polite" ariaAtomic={true}>
       <p class="type-micro-label text-brand-accent-hover">
         {demo.briefLabel}
       </p>
@@ -66,7 +65,7 @@ const defaultScenario = demo.scenarios.meeting;
           </p>
         </div>
       </div>
-    </article>
+    </ContentCard>
 
     <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
       <button
@@ -148,7 +147,7 @@ const defaultScenario = demo.scenarios.meeting;
     >{defaultScenario.prompt}</pre>
   </div>
 
-  <div class="radius-lg mx-auto mt-12 max-w-4xl border border-brand-accent/25 bg-brand-accent/[0.07] px-6 py-6 text-center sm:text-left">
+  <HighlightStrip variant="band" bandTone="panel" class="mx-auto mt-12 max-w-4xl">
     <p class="type-eyebrow-inline text-brand-accent-hover">
       {demo.followUpEyebrow}
     </p>
@@ -163,5 +162,5 @@ const defaultScenario = demo.scenarios.meeting;
         {demo.followUpCta}
       </a>
     </div>
-  </div>
-</section>
+  </HighlightStrip>
+</SectionShell>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  id?: string;
+  /** Maps to `aria-labelledby` */
+  labelledby?: string;
+  /** Maps to `aria-label` when no heading id */
+  label?: string;
+  /** Vertical section rhythm — see `docs/DESIGN_SYSTEM.md` */
+  rhythm?: "default" | "tight" | "compact" | "roomy";
+  class?: string;
+}
+
+const { id, labelledby, label, rhythm = "default", class: className } = Astro.props;
+
+const rhythmClass =
+  rhythm === "tight"
+    ? "section-y-tight"
+    : rhythm === "compact"
+      ? "section-y-compact"
+      : rhythm === "roomy"
+        ? "section-y section-y-roomy-lg"
+        : "section-y";
+---
+
+<section
+  id={id}
+  aria-labelledby={labelledby}
+  aria-label={label}
+  class:list={[rhythmClass, "mx-auto max-w-7xl px-5 sm:px-8", className]}
+>
+  <slot />
+</section>

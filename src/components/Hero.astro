@@ -1,6 +1,7 @@
 ---
-import LanguageToggle from "./LanguageToggle.astro";
 import HeroBento from "./HeroBento.astro";
+import LanguageToggle from "./LanguageToggle.astro";
+import { showLanguageSwitcher } from "../constants/siteLocale";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -10,12 +11,13 @@ interface Props {
 
 const { lang } = Astro.props;
 const c = uiCopy[lang];
+const bilingualShippedNav = showLanguageSwitcher();
 const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=hero&utm_campaign=secondary";
 ---
 
 <div class="relative z-50 mx-auto max-w-7xl px-5 sm:px-8">
   <header class="flex items-center justify-between gap-3 py-4 sm:gap-4">
-    <a href="#" class="focus-ring group flex min-w-0 items-center gap-2.5 sm:gap-3" aria-label="Prompt Anatomy Executive OS">
+    <a href="#" class="focus-ring group flex min-w-0 items-center gap-2.5 sm:gap-3" aria-label={c.a11y.logoAriaLabel}>
       <span class="logo-tile logo-glow flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ring-1 ring-white/10 sm:h-10 sm:w-10 sm:rounded-2xl">
         <svg viewBox="0 0 32 32" aria-hidden="true" class="h-5 w-5 sm:h-6 sm:w-6">
           <path
@@ -28,14 +30,14 @@ const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_
       <span class="min-w-0 leading-tight">
         <span class="block text-sm font-black tracking-tight text-white sm:text-base">Prompt Anatomy</span>
         <span class="mt-0.5 block text-[9px] font-semibold uppercase tracking-[0.22em] text-slate-500 sm:text-[10px]">
-          Executive OS · v1.0
+          {c.a11y.brandSubtag}
         </span>
       </span>
     </a>
 
     <nav
       class="hidden items-center gap-5 text-sm font-medium text-slate-300 md:flex"
-      aria-label="Primary"
+      aria-label={c.a11y.navPrimaryAria}
     >
       <a href="#context" class="focus-ring shrink-0 transition hover:text-white">{c.nav.practice}</a>
       <a href="#demo" class="focus-ring shrink-0 transition hover:text-white">{c.nav.proof}</a>
@@ -48,7 +50,7 @@ const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_
         class="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white md:hidden"
         aria-controls="mobile-menu"
         aria-expanded="false"
-        aria-label="Open menu"
+        aria-label={c.a11y.openMobileMenu}
         data-mobile-menu-button
       >
         <span aria-hidden="true" class="flex flex-col gap-1.5">
@@ -57,7 +59,7 @@ const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_
           <span class="block h-0.5 w-5 rounded-full bg-white"></span>
         </span>
       </button>
-      <LanguageToggle compact />
+      {bilingualShippedNav && <LanguageToggle compact groupAriaLabel={c.a11y.languageToggleAria} />}
     </div>
   </header>
 
@@ -66,7 +68,7 @@ const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_
     class="absolute right-0 top-full z-40 mt-2 hidden w-[min(100vw-2.5rem,20rem)] rounded-2xl border border-white/10 bg-slate-950/95 p-4 shadow-2xl backdrop-blur-xl md:hidden"
     data-mobile-menu-panel
   >
-    <nav class="flex flex-col gap-1 text-sm font-medium text-slate-200" aria-label="Mobile primary">
+    <nav class="flex flex-col gap-1 text-sm font-medium text-slate-200" aria-label={c.a11y.navMobileAria}>
       <a href="#context" class="focus-ring rounded-xl px-3 py-2.5 transition hover:bg-white/5" data-mobile-menu-link>
         {c.nav.practice}
       </a>

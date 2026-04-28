@@ -1,9 +1,12 @@
 ---
+import { showLanguageSwitcher } from "../constants/siteLocale";
+
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://ditreneris.github.io";
 const base = import.meta.env.BASE_URL;
 const originBase = `${site}${base.replace(/\/$/, "")}`;
 const enUrl = `${originBase}/en/`;
 const ltUrl = `${originBase}/lt/`;
+const bilingualShippedRoot = showLanguageSwitcher();
 ---
 
 <!doctype html>
@@ -14,21 +17,11 @@ const ltUrl = `${originBase}/lt/`;
     <meta http-equiv="refresh" content="0; url=./en/" />
     <link rel="canonical" href={enUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />
-    <link rel="alternate" hreflang="lt" href={ltUrl} />
+    {bilingualShippedRoot && <link rel="alternate" hreflang="lt" href={ltUrl} />}
     <link rel="alternate" hreflang="x-default" href={enUrl} />
     <title>Redirecting…</title>
     <script is:inline>
-      (function () {
-        var lt = "./lt/";
-        var en = "./en/";
-        try {
-          if (typeof navigator !== "undefined" && navigator.language && navigator.language.toLowerCase().startsWith("lt")) {
-            location.replace(lt);
-            return;
-          }
-        } catch (_) {}
-        location.replace(en);
-      })();
+      location.replace("./en/");
     </script>
   </head>
   <body></body>

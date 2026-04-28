@@ -1,5 +1,8 @@
 ---
-import SectionHeader from "./SectionHeader.astro";
+import ContentCard from "./ds/ContentCard.astro";
+import HighlightStrip from "./ds/HighlightStrip.astro";
+import SectionShell from "./ds/SectionShell.astro";
+import SectionTitleBlock from "./ds/SectionTitleBlock.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -11,11 +14,11 @@ const { lang } = Astro.props;
 const modules = uiCopy[lang].modules;
 ---
 
-<section id="context" class="section-y mx-auto max-w-7xl px-5 sm:px-8" aria-labelledby="context-title">
-  <SectionHeader eyebrow={modules.eyebrow} title={modules.title} subtitle={modules.subtitle} titleId="context-title" />
+<SectionShell id="context" labelledby="context-title">
+  <SectionTitleBlock eyebrow={modules.eyebrow} title={modules.title} subtitle={modules.subtitle} titleId="context-title" />
 
   <div class="mx-auto mt-10 flex max-w-6xl flex-col gap-5">
-    <div class="glass-card radius-xl overflow-hidden p-6 sm:p-8">
+    <ContentCard surface="glass" padding="comfort" overflow="hidden">
       <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <p class="type-eyebrow-inline text-brand-accent-hover">{modules.context.title}</p>
         <span class="type-micro-label rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-slate-200">
@@ -100,15 +103,23 @@ const modules = uiCopy[lang].modules;
       <p class="mt-4 text-xs leading-5 text-slate-400" data-context-warning>
         {modules.contextWarning}
       </p>
-    </div>
+    </ContentCard>
 
-    <p class="radius-md border border-brand-accent/20 bg-brand-accent/10 px-5 py-4 text-sm font-semibold text-brand-accent-hover">
+    <HighlightStrip variant="band" bandTone="context">
       {modules.startHere}
-    </p>
+    </HighlightStrip>
 
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {modules.items.map((m) => (
-        <article class="surface-card radius-xl flex h-full flex-col overflow-hidden p-6" data-module-card data-module-id={m.id}>
+        <ContentCard
+          surface="surface"
+          as="article"
+          padding="none"
+          overflow="hidden"
+          moduleCard
+          moduleId={m.id}
+          class="flex h-full flex-col p-6"
+        >
           <div class="flex-1">
             <p class="type-eyebrow-inline text-brand-accent">{m.eyebrow}</p>
             <h3 class="mt-3 text-xl font-black text-white">{m.title}</h3>
@@ -136,11 +147,11 @@ const modules = uiCopy[lang].modules;
           >
             {modules.copyButton}
           </button>
-        </article>
+        </ContentCard>
       ))}
     </div>
 
-    <article class="glass-card radius-xl flex h-full flex-col overflow-hidden p-6 sm:p-8" data-module-card data-module-id="custom">
+    <ContentCard surface="glass" as="article" overflow="hidden" moduleCard moduleId="custom" class="flex h-full flex-col">
       <div class="flex-1">
         <p class="type-eyebrow-inline text-brand-accent">{modules.custom.eyebrow}</p>
         <h3 class="mt-3 text-xl font-black text-white">{modules.custom.title}</h3>
@@ -184,7 +195,6 @@ const modules = uiCopy[lang].modules;
       >
         {modules.custom.copyButton}
       </button>
-    </article>
+    </ContentCard>
   </div>
-</section>
-
+</SectionShell>

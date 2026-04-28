@@ -9,9 +9,9 @@ description: Improves the PromptAnatomy Executive OS CEO landing page. Use when 
 
 Before changing the page:
 
-1. Read `AGENTS.md`.
-2. Read `src/pages/index.astro`.
-3. Read relevant copy in `src/content/copy.ts`.
+1. Read `AGENTS.md` and `docs/SOURCE_OF_TRUTH.md`.
+2. Read `src/pages/index.astro` and `src/layouts/Page.astro` (section order is canonical).
+3. Read or edit copy in `src/content/locales/en.ts` and `src/content/locales/lt.ts` (re-exported via `src/content/copy.ts`).
 4. Preserve the static, one-page MVP unless the user explicitly asks to expand it.
 
 ## Product Filter
@@ -35,8 +35,8 @@ If the answer is no, do not add it.
 
 ## Visual Rules
 
-- Premium dark SaaS style: dark background, white text, cyan/blue accent.
-- Use glass cards, bento layouts, and restrained gradients.
+- Align with `.cursor/rules/visual-and-copy.mdc`: dark navy base, white text, **gold** brand accent (CTA gradient as on the site). Do not reintroduce cyan/blue as the primary accent.
+- Glass cards, bento-style hero column, restrained gradients—clarity over decoration.
 - Memes are supporting breaks, not the main conversion asset.
 - Prefer SVG for diagrams and AVIF/WebP for screenshots.
 

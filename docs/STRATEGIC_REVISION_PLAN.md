@@ -10,9 +10,11 @@
 
 **Goal:** One static page that orients a CEO in seconds, runs a **Global Context + Modules** action (copy one compiled prompt), proves value in the demo, converts with the printable kit (`#kit`), then optionally hands off to PromptAnatomy — with EN/LT parity and no backend.
 
-**Canonical “what shipped” references:** [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md), [`CHANGELOG.md`](../CHANGELOG.md), [`src/layouts/Page.astro`](../src/layouts/Page.astro).
+**Canonical “what shipped” references:** [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md), [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md), [`CHANGELOG.md`](../CHANGELOG.md), [`src/layouts/Page.astro`](../src/layouts/Page.astro).
 
-**Themes that drive the backlog in §1–12:** (1) one visually primary CTA per major section where possible; (2) deduplicate safety, PDF, and “free/static” messaging; (3) keep depth (anatomy, 35-prompt library) optional and last.
+**Shipped baseline (do not contradict in backlog text):** Hero + **HeroBento** → memes **3 → 0 → 2** (with **BeforeAfter**/Promo between beats) → **ExecutiveModules `#context`** → **ClarityDemo `#demo`** → meme **5** → **SafetyCheck `#safety-check`** → **CourseCTA `#kit`** → **AuthorityBridge** → **PromptAnatomy** → **RoiPath** → meme **4** → **Faq `#faq`** → **PromptLibrary `#library`**. The old `FlowScheme` / `HeroTrust` / **`QuickPractice`** slide code lived in git history only after **2026-04-28** cleanup; live spine is **`ExecutiveModules`**, not QuickPractice.
+
+**Themes that drive the backlog in §1–12:** (1) one visually primary CTA per major section where possible; (2) deduplicate safety, PDF, and “free/static” messaging where still noisy; (3) keep depth (anatomy, 35-prompt library) optional and last.
 
 **Next steps to pull from this doc:** prioritize any open items in §4 (CTA ladder), §5 (content), and §6 (visuals) — treat rows below as the detailed spec, not a daily checklist.
 
@@ -27,7 +29,7 @@
 | One page, fast aha | **Cap** scroll depth and **one** dominant story arc per viewport “chapter.” |
 | Under ~10 seconds to understand | Above-the-fold must answer: *what is this, what do I do, what do I get* without scrolling. |
 | Static MVP | All improvements must remain copy, layout, assets, and light client JS. |
-| Bilingual EN/LT | Every UI string (including disclosure labels) lives in `copy.ts`. |
+| Bilingual EN/LT | Every UI string (including disclosure labels) lives in `src/content/locales/en.ts` and `lt.ts` (re-exported via `copy.ts`). |
 | Conversion path | Context+Modules → proof → kit download → optional PromptAnatomy — **order and emphasis** matter more than new features. |
 
 ### 1.2 North-star outcome
@@ -44,10 +46,12 @@
 
 ## 2. Situation summary (baseline)
 
-- **Strengths:** Strong copy model (decision, risk, trade-off, owner), consistent gold/navy system, clipboard UX with fallback, real `/en/` `/lt/` routes, PDF + schema + FAQ depth.
-- **Friction:** Long vertical stack, **multiple competing primary CTAs**, placeholder trust strip, **meme narrative order** on page vs. `copy.ts` sequence, **FAQ before** final conversion block, **`#demo` missing from nav`**, **`#system` anchor far below** the hero link, safety **repeated** across practice / safety section / ROI step 1, LT gap on library **“Reveal prompt”** string.
+- **Strengths:** Strong copy model (decision, risk, trade-off, owner), consistent gold/navy system, clipboard UX with fallback, real `/en/` `/lt/` routes, PDF + schema + FAQ depth, nav anchors **`#context` / `#demo` / `#kit`**, spine order **demo before** anatomy + ROI **before** FAQ (library last).
+- **Open friction (revisit periodically):** Long vertical stack; hero **primary** still often off-site first; **multiple PDF touchpoints** (demo, CTA, library); safety messaging may still feel adjacent to ROI step copy—tune qualitatively, not by re-breaking the shipped stack without intent.
 
-This plan turns those frictions into **sequenced work**, not a single big-bang rewrite.
+Older issues **resolved** in code (keep for history in `CHANGELOG`): placeholder trust hidden, meme order **documented** (`VISUAL_CONTENT_MAP` + `Page.astro` comments), `#demo` in nav, SystemVisual **merged into FAQ** answer.
+
+This plan turns remaining frictions into **sequenced work**, not a single big-bang rewrite.
 
 ---
 
@@ -78,9 +82,9 @@ flowchart TD
 
 ### 3.3 Current vs target section order (conceptual)
 
-**Current (simplified):** Hero → Trust → Practice → Safety → Memes → Anatomy → Meme → ROI → Demo → FAQ → Bridge → Meme → CTA → Meme → System → Library.
+**Current (shipped — see `Page.astro`):** Hero + HeroBento → meme(3) → BeforeAfter → meme(0) → `#context` (ExecutiveModules) → PromoBanner → meme(2) → `#demo` → meme(5) → SafetyCheck → `#kit` → AuthorityBridge → PromptAnatomy → RoiPath → meme(4) → FAQ → PromptLibrary.
 
-**Target (conceptual — phases may implement partially):**
+**Target (conceptual — phases may implement partially; many items already match “target”):**
 
 1. **Orient:** Hero (+ optional **real** trust signal or remove placeholder strip).
 2. **Act:** Context Block + Modules (compiled prompts) with one safety surface (rules / send-check).
@@ -119,8 +123,8 @@ journey
 
 ### 4.2 CTA rules (revision policy)
 
-1. **One visual primary button** per major viewport section (hero, practice end, demo end, final CTA band).
-2. **Hero:** Prefer **primary = scroll to `#practice`** or **primary = `#demo`** with secondary = PromptAnatomy *or* PDF — pick **one** strategy per iteration and measure qualitatively (internal review).
+1. **One visual primary button** per major viewport section (hero strip, **`#context`** section end, **`#demo`** end, **`#kit`** band).
+2. **Hero:** **Shipped** = gold **PromptAnatomy** primary + **nav** links to **`#context` / `#demo` / `#kit`**. When iterating, choose consciously: comprehension-first (emphasize in-page anchors) vs product-led (emphasize PA)—see §4.1 tension.
 3. **PromptAnatomy:** Reserve **primary** treatment for **after** demo or after first successful copy action (micro-commitment).
 4. **PDF:** Keep **one** “canonical” download moment in the main story (e.g. post-demo + repeated in footer or library only).
 5. **UTMs:** Keep existing parameters; document a **matrix** in `VISUAL_CONTENT_MAP.md` or a small `docs/UTM_MATRIX.md` so new links stay consistent.
@@ -129,12 +133,12 @@ journey
 
 | Step | Primary CTA label intent | Destination |
 |------|--------------------------|-------------|
-| 1 | “See the 2-minute practice” / equivalent | `#practice` |
-| 2 | “Copy template” / “Open demo” | in-page |
-| 3 | “Download CEO/COO kit (PDF)” | static PDF |
+| 1 | “Use context + modules” / 2‑minute framing (if copy says so) | `#context` |
+| 2 | “Open demo” / clarity check | `#demo` |
+| 3 | “Download CEO/COO kit (PDF)” | `#kit` / static PDF |
 | 4 | “Open PromptAnatomy” | `promptanatomy.app` with UTM |
 
-Hero gradient button should align with **row 1** unless you explicitly choose a “product-led” variant for a campaign.
+Hero gradient button currently emphasizes **PromptAnatomy** (product-led); in-page anchors live in **header nav** for `#context` / `#demo` / `#kit`. Reconcile hero vs nav per §4.1 intentionally when you iterate.
 
 ### 4.4 Authority bridge
 
@@ -151,9 +155,9 @@ Hero gradient button should align with **row 1** unless you explicitly choose a 
 |--------|--------|
 | **Tighten** headline/subhead to **one** outcome + **one** mechanism (already improved in changelog; revisit after CTA change). |
 | **Trust:** Replace placeholder row with **real logos**, **client quotes**, or **remove strip** until assets exist — **never** “placeholder” in customer-facing copy. |
-| **Nav:** Add `#demo` and optionally `#library`; keep `#practice` and `#system` or rename “Full system” to match actual content (“How the OS fits together”). |
+| **Nav:** Shipped: `#context`, `#demo`, `#kit`. Optional: `#faq` / `#library` if you add without cluttering mobile. |
 
-### 5.2 Practice + safety (de-duplication)
+### 5.2 Executive modules + safety (de-duplication)
 
 | Action | Detail |
 |--------|--------|
@@ -171,27 +175,27 @@ Hero gradient button should align with **row 1** unless you explicitly choose a 
 
 | Action | Detail |
 |--------|--------|
-| **Move** FAQ **below** final conversion band **or** reduce to **3** questions in the conversion zone and move the rest down. |
+| **FAQ position:** Shipped **after** ROI + last meme, **before** Prompt Library (depth last). Further tweak only if conversion testing says so. |
 | FAQ answers should **not** repeat entire safety essay — link to section anchors. |
 
 ### 5.5 Memes
 
 | Action | Detail |
 |--------|--------|
-| **Fix order** so on-page sequence matches `memes.items` narrative (indices 3 and 4 swap in `Page.astro` **or** reorder copy array with explicit mapping table). |
-| **Update** `docs/VISUAL_CONTENT_MAP.md` to match **actual** `Page.astro` order and remove obsolete `ProofStrip` references. |
+| **Order:** Intentional mapping **3, 0, 2, 5, 4** (index **1** spare). Do not “fix” to `0…4` without updating `VISUAL_CONTENT_MAP` + comments. |
+| **Docs:** `VISUAL_CONTENT_MAP.md` is canonical for meme ↔ file ↔ copy; keep in sync with `Page.astro`. |
 | **Optional:** Reduce from five to **three** moments (keep strongest story beats); A/B via stakeholder review, not code flags unless you add env-based toggles later. |
 
 ### 5.6 Prompt library
 
 | Action | Detail |
 |--------|--------|
-| Move **“Reveal prompt”** to `copy.ts` EN/LT. |
+| **“Reveal prompt”** and library strings: `src/content/locales/en.ts` + `lt.ts`. |
 | Keep library **last**; consider **default closed** for outer `<details>` (verify current behavior). |
 
 ### 5.7 Bilingual checklist (every iteration)
 
-- [ ] All new strings in `uiCopy.en` **and** `uiCopy.lt`
+- [ ] All new strings in **both** `en.ts` and `lt.ts` bundles (via `uiCopy`)
 - [ ] `language-standard.mdc` compliance (forms, DI wording, etc.)
 - [ ] Scenario labels and chip UI in demo + library
 
@@ -203,32 +207,34 @@ Hero gradient button should align with **row 1** unless you explicitly choose a 
 
 | Principle | Application |
 |-----------|-------------|
-| **One focal panel** per section | Avoid 4 equal-weight columns on first paint for practice; use **2×2** or **stepper** on desktop. |
+| **One focal panel** per section | Avoid 4 equal-weight columns on first paint for **`#context`** modules; tighten grid if scan feels noisy. |
 | **Premium over playful** | Memes: either **curated illustration** style aligned with brand **or** fewer memes; avoid stock that reads as “social meme page.” |
 | **Real assets over placeholders** | Ship `VISUAL_CONTENT_MAP.md` priority assets (hero screenshot, before/after) when ready **or** remove references from live layout. |
 
-### 6.2 FlowScheme (hero)
+### 6.2 Hero + HeroBento (orient column)
 
 | Iteration | Improvement |
 |-----------|-------------|
-| I1 | Ensure **one** sentence bridge to `#practice` (already have `bridgeNote` — audit line length for LT). |
-| I2 | Optional: **animate** nothing; if adding motion, respect `prefers-reduced-motion`. |
-| I3 | If hero CTA points to practice, add **subtle** “You are next ↓” affordance (text only, no gimmick). |
+| I1 | Hero right column is **HeroBento** (proof tiles), not a separate flow band on the live page. |
+| I2 | Ensure **one** coherent bridge from hero to `#context` (PromoBanner + nav); audit line length for LT. |
+| I3 | Respect `prefers-reduced-motion`; keep affordances text-first. |
 
-### 6.3 QuickPractice layout (scheme)
+### 6.3 Global Context + Modules (`ExecutiveModules`)
 
-**Problem:** Four parallel columns = boardroom-unfriendly scan.
+**Context:** The old **QuickPractice** slide model is **not** in `Page.astro`; spine “act” is **`ExecutiveModules`** (`#context`) with compiled module prompts + custom task. Deprecated `QuickPractice` / `flowScheme` / `heroTrust` locale keys and components were **removed** **2026-04-28** (see git history)—do not confuse with what ships.
+
+**Problem to watch:** Dense grids can feel boardroom-unfriendly on first paint.
 
 **Directions:**
 
-- **Desktop:** `2×2` grid (rows: Fog+Structure / Result+Safety) **or** horizontal **stepper** with 4 numbered steps and one active panel.
-- **Mobile:** Already vertical — ensure **sticky** “Copy template” on large phones optional (phase 3 polish).
+- Keep **one** focal panel for the compiled prompt; avoid four equal-weight columns on first paint unless layout tests say otherwise.
+- **Mobile:** Vertical stack; ensure copy + copy-to-clipboard stays obvious.
 
 ```mermaid
 flowchart LR
   subgraph desktop["Desktop target (example)"]
-    Q1[Fog] --> Q2[Structure + copy]
-    Q3[Result] --> Q4[Safety]
+    C[Global context fields] --> M[Module picker + compile]
+    M --> P[Copy prompt + output shape]
   end
 ```
 
@@ -248,20 +254,16 @@ flowchart LR
 | I2 | Visual **connector** (arrow or “transforms”) between messy input and structured output. |
 | I3 | After scenario change, **focus management** announcement for screen readers (`aria-live` polite on output region). |
 
-### 6.6 SystemVisual
+### 6.6 SystemVisual (historical)
 
-| Iteration | Improvement |
-|-----------|-------------|
-| I1 | Reconcile with `workflow-map.svg`: either **embed** map again in card header **or** delete orphan asset references from docs. |
-| I2 | Rename nav target if content is “operating layers” not “full product UI.” |
+Standalone **SystemVisual** section was **removed**; OS-fit content lives in the **FAQ** answer (*“What is this vs a prompt list?”*). Remaining work: ensure **workflow-map.svg** references in docs match any live use (e.g. Promo/Authority), or mark asset as optional.
 
 ---
 
 ## 7. Information architecture checklist
 
-- [ ] Single **ordered** `<main>` landmark story (hero trust inside or outside `<main>` — pick semantics and stick to it).
-- [ ] **Meme** `index` vs `copy.memes.items` **mapping table** in code comment + `VISUAL_CONTENT_MAP.md`.
-- [ ] Skip link targets the **first interactive** practice region, not only `#practice` container top — verify focus visibility.
+- [ ] Single **ordered** `<main>` landmark story: **Hero is outside** `<main>`; first focusable practice region matches skip link target (`Page.astro` `#ctx-company` / `#context`—verify when editing).
+- [ ] **Meme** `index` vs `copy.memes.items` **mapping table** in `Page.astro` comments + `VISUAL_CONTENT_MAP.md`.
 - [ ] Footer remains minimal; mother links + legal.
 
 ---
@@ -272,49 +274,36 @@ Work is split so **each phase** leaves the site shippable (`npm run build`, Ligh
 
 ### Phase 0 — Quick wins (1–3 days)
 
-**Goal:** Remove obvious trust and i18n defects; align docs.
-
-| # | Task | Files / area |
-|---|------|----------------|
-| 0.1 | Fix **meme order** to match narrative `items[0]…[4]` OR document intentional shuffle in map + comments | `Page.astro`, `VISUAL_CONTENT_MAP.md` |
-| 0.2 | **“Reveal prompt”** → `copy.ts` + `PromptLibrary.astro` | `copy.ts`, `PromptLibrary.astro` |
-| 0.3 | **Hero nav:** add `#demo`; consider `#kit` anchor on final PDF band | `Hero.astro`, `copy.ts` `nav` |
-| 0.4 | **HeroTrust:** remove or replace placeholder — minimum: **hide** strip via flag until logos exist | `HeroTrust.astro`, `copy.ts` |
-| 0.5 | **CHANGELOG** + this plan: note any scope decision | `CHANGELOG.md` |
-
-**Exit criteria:** No English-only UI in LT library; no contradictory meme map in docs; nav covers demo.
+**Status as of 2026-04-28: closed.** Meme sequencing is **intentionally** mapped (indices **3, 0, 2, 5, 4**; index **1** spare) with `VISUAL_CONTENT_MAP.md` + `Page.astro` comments. Library strings live in **locales** + `PromptLibrary.astro`. Header nav exposes **`#context` / `#demo` / `#kit`**. Further doc-only QA: skim LT line lengths when editing Promo/Hero—not a reopened phase.
 
 ---
 
 ### Phase 1 — CTA and journey spine (3–7 days)
 
-**Goal:** One clear spine: Practice → Demo → PDF → PA.
+**Status as of 2026-04-28: spine shipped per baseline.** **`ClarityDemo`** precedes **`PromptAnatomy`** + **`RoiPath`**; **`#kit`** (CourseCTA) comes **before** authority/anatomy spine; FAQ sits **after ROI + meme**, **above PromptLibrary**. **Hero:** gold **primary CTA → PromptAnatomy** (product-led); **`#context` / `#demo` / `#kit`** live in **header nav**.
 
-| # | Task | Files / area |
-|---|------|----------------|
-| 1.1 | **Hero primary CTA** → `#practice` (or `#demo`); **secondary** → PromptAnatomy or PDF per §4.3 | `Hero.astro`, `copy.ts` hero |
-| 1.2 | **Reorder sections** toward target §3.3 (minimum: move **ClarityDemo** above **RoiPath** + **Anatomy** *or* collapse anatomy) | `Page.astro` |
-| 1.3 | **FAQ** moved below **CourseCTA** (or split FAQ) | `Page.astro` |
-| 1.4 | **PDF canonical:** demote duplicate CTAs in demo/library to **text link** “PDF again” where needed | components + copy |
-| 1.5 | **AuthorityBridge:** implement §4.4 Option A or B with copy change | `AuthorityBridge.astro`, `copy.ts` |
+| # | Optional follow-ups (when testing conversion) |
+|---|-------------|
+| 1.4 | Tune **duplicate PDF touches**—if noisy, soften extras toward “PDF again” tertiary tone. |
+| 1.5 | **AuthorityBridge:** Option **A** is live; revise copy before layout experiments. |
 
-**Exit criteria:** Stakeholder walkthrough: “I know what to click first”; CTAs don’t fight in hero + endcap.
+**Exit criteria (met):** Visitor can navigate practice → demo → kit without structural confusion.
 
 ---
 
 ### Phase 2 — Density and de-duplication (1–2 weeks)
 
-**Goal:** Fewer repeated lessons; faster scan.
+**Goal:** Fewer repeated lessons; faster scan for **`ExecutiveModules`** + **`SafetyCheck`** (`QuickPractice` is **not** on `Page.astro`; legacy code removed **2026-04-28**).
 
 | # | Task | Files / area |
 |---|------|----------------|
-| 2.1 | **Practice layout** redesign (2×2 or stepper) | `QuickPractice.astro`, `global.css` |
-| 2.2 | **Safety + practice** merge or shared section with one `<h2>` | `SafetyCheck.astro`, `QuickPractice.astro`, `Page.astro` |
-| 2.3 | **PromptAnatomy** default collapsed (details) | `PromptAnatomy.astro` |
-| 2.4 | **RoiPath** copy trim + optional SSR `data-copy-i18n` on panel button | `RoiPath.astro`, `copy.ts` |
+| 2.1 | **ExecutiveModules** grid density polish (avoid “four equal bosses” scan) | `ExecutiveModules.astro`, `global.css` |
+| 2.2 | Safety vs **ROI** / modules wording de-duplication (one canonical safety rail) | `SafetyCheck.astro`, `RoiPath.astro`, locales |
+| 2.3 | **PromptAnatomy** default collapsed (`<details>`) — keep decision-grade scan posture | `PromptAnatomy.astro` |
+| 2.4 | **RoiPath** panel trim + SSR `data-copy-*` resilience | `RoiPath.astro`, locales |
 | 2.5 | **Meme count** reduction (optional) + asset audit | `Page.astro`, `public/assets/memes/` |
 
-**Exit criteria:** Practice + safety readable in **under 2 minutes** on a laptop without horizontal scan of four equal columns.
+**Exit criteria:** Reader can follow **modules → demo → safety gate → PDF** without horizontal fatigue on a laptop.
 
 ---
 
@@ -324,10 +313,10 @@ Work is split so **each phase** leaves the site shippable (`npm run build`, Ligh
 
 | # | Task | Files / area |
 |---|------|----------------|
-| 3.1 | Ship **hero screenshot** or **before/after** per `VISUAL_CONTENT_MAP.md` | `public/assets/…`, `Hero` / new section |
-| 3.2 | Replace meme art with **on-brand** illustrations *or* keep 3 strongest | design + `MemeMoment.astro` |
-| 3.3 | **SystemVisual** + workflow map reconciliation | `SystemVisual.astro`, docs |
-| 3.4 | Micro-interactions: demo input/output connector; focus rings audit | components, `global.css` |
+| 3.1 | Ship **hero screenshot** / **before-after** when assets ready | `public/assets/…`, Hero / `BeforeAfter` |
+| 3.2 | Replace meme art with **on-brand** illustrations *or* keep strongest beats only | design + `MemeMoment.astro` |
+| 3.3 | **`workflow-map.svg`** + docs: embed where useful **or** mark optional (post–SystemVisual cleanup) | docs, Promo/Authority as needed |
+| 3.4 | Micro-interactions: demo connector; focus rings audit | components, `global.css` |
 
 **Exit criteria:** No placeholder trust; visuals support one story arc.
 
@@ -368,10 +357,10 @@ Use this table when choices are made so future agents do not revert blindly.
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
-| 2026-04-28 | Hero primary CTA = `#context` (scroll); secondary = PromptAnatomy | Comprehension-first ladder per §4.3 |
+| 2026-04-28 | Hero **gold primary CTA** → **PromptAnatomy**; **nav** anchors `#context`/`#demo`/`#kit` (comprehension path not the hero gradient) | Product-led hero vs in-page ladder—documented tension in §4.1 |
 | 2026-04-28 | Trust strip = hidden (`showPlaceholderLogos: false`) until real logos | No customer-facing “placeholder” labels |
-| 2026-04-28 | Meme count = 5; order fixed to `items[0]…[4]` on page | Matches narrative in `copy.ts` |
-| 2026-04-28 | FAQ position = after `CourseCTA` (`#kit`) | Commit band before depth |
+| 2026-04-28 | Memes = **5** mounts on page; intentional indices **`3 → 0 → 2 → 5 → 4`** (**`1`** spare); **`VISUAL_CONTENT_MAP` + `Page.astro`** are canonical | Narrative pacing beats array index parity |
+| 2026-04-28 | FAQ after **RoiPath + meme(4)**, before **PromptLibrary**—**not** immediately under `#kit` | Depth last; **`#kit`** conversion band stays mid-page |
 | 2026-04-28 | Authority bridge = Option A (mother card, sister text link) | Single visual primary per §4.4 |
 | 2026-04-28 | Spine reorder = `#context` → `#demo` → `#safety-check` → `#kit` | Act → proof → safety gate → commit before depth |
 | 2026-04-28 | RoiPath safety step uses `#safety-check` link instead of duplicating the full safety prompt | Reduce repetition fatigue; one canonical safety prompt surface |

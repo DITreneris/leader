@@ -1,9 +1,11 @@
 ---
 interface Props {
   compact?: boolean;
+  /** Accessible name for the EN/LT toggle group (localized). */
+  groupAriaLabel?: string;
 }
 
-const { compact = false } = Astro.props;
+const { compact = false, groupAriaLabel = "Language" } = Astro.props;
 
 const pathname = Astro.url.pathname;
 const p = pathname.endsWith("/") ? pathname : `${pathname}/`;
@@ -35,7 +37,7 @@ const wrap = compact ? "p-0.5 gap-0.5" : "p-1 gap-1";
 <div
   class={`flex items-center rounded-full border border-white/10 bg-white/5 ${wrap}`}
   role="group"
-  aria-label="Language"
+  aria-label={groupAriaLabel}
 >
   <a
     href={enHref}

@@ -9,8 +9,8 @@ interface Props {
 const { lang } = Astro.props;
 const safety = uiCopy[lang].safety;
 
-/** Fixed scan-row icons (facts → risk → context → owner); order matches `safety.items`. */
-const checkIcons = ["✓", "⚠", "?", "👤"] as const;
+/** Fixed scan-row marks (facts → risk → context → owner); order matches `safety.items`. Last uses a geometric glyph (not emoji). */
+const checkIcons = ["✓", "⚠", "?", "●"] as const;
 ---
 
 <section

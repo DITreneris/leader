@@ -4,6 +4,56 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 ## 2026-04-28
 
+### Added
+
+- **SEO / GEO / AI crawlers:** [`public/robots.txt`](public/robots.txt) — documented max-visibility policy and explicit `Allow` for major AI user-agents (GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, anthropic-ai, PerplexityBot, Google-Extended). [`public/llms.txt`](public/llms.txt) — “Definitions” block + canonical `/en/` landing URL. [`src/constants/pageSeo.ts`](src/constants/pageSeo.ts) — shared `datePublished` / `dateModified` for WebPage freshness (`LEADER_PAGE_DATE_MODIFIED` bump on substantive copy/SEO ships). [`src/utils/pageJsonLd.ts`](src/utils/pageJsonLd.ts) — `WebPage` JSON-LD dates. [`src/layouts/Page.astro`](src/layouts/Page.astro) — `article:published_time` / `article:modified_time` OG tags. **FAQ (GEO):** two citable EN/LT FAQ entries (Executive OS + Global Context Block) in [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts). Docs: [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) — **SEO / GEO / AI crawlers** table; [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md) — **SEO / GEO / AI crawl QA** checklist (8 steps).
+- **`docs/DESIGN_SYSTEM.md`:** Design System v1 — tokens, `src/components/ds/` primitives, five section templates, anti-patterns; links from **`docs/README.md`**, **`docs/SOURCE_OF_TRUTH.md`**, **`.cursor/rules/visual-and-copy.mdc`**.
+- **`src/components/ds/`:** `SectionShell`, `SectionTitleBlock`, `ContentCard`, `BulletSystem`, `HighlightStrip`, `DiagramContainer`; **`global.css`**: `.card-padding-compact`, `.card-padding-comfort`.
+- **`docs/QUALITY_ASSURANCE.md`:** Design System v1 checklist before publish (in addition to SEO/GEO checklist above).
+- **`docs/COPY_AUDIT_BY_SLIDE.md`:** Per-slide copy QA checklist (grammar, style, EN/LT alignment, a11y hotspots, P0–P3)—execution source for locale and component follow-ups.
+
+### Removed
+
+- **Unmounted legacy slide code:** Deleted [`HeroTrust.astro`](src/components/HeroTrust.astro), [`QuickPractice.astro`](src/components/QuickPractice.astro), [`FlowScheme.astro`](src/components/FlowScheme.astro). Removed locale keys **`heroTrust`**, **`practiceSafety`**, **`flowScheme`**, **`quickPractice`** from [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts). Removed **`quickPractice`** from [`clientCopyPayload.ts`](src/utils/clientCopyPayload.ts) (`window.__PA_COPY__` is smaller; restore from git if you need the old 2-minute practice strings).
+- **Docs:** [`COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) priedas, [`STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md), [`DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md), [`CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md) updated to match.
+
+### Fixed
+
+- **`window.__PA_COPY__`:** [`clientCopyPayload.ts`](src/utils/clientCopyPayload.ts) again serializes **`modules`** (was omitted after the trimmed runtime payload refactor). **`InteractiveCopy.astro`** needs `modules.items` and rule/context fields so preset **Copy full prompt** buttons compile and copy compiled text instead of silently no-oping.
+
+### Changed
+
+- **Max Value Kit (lead magnet):** [`docs/executive-operating-kit-pdf.md`](docs/executive-operating-kit-pdf.md) — Fog → Structure mini example, stronger end CTA with bare `https://www.promptanatomy.app/`, slightly tighter CEO/Delegation prompt rows for page budget. Rebuilt [`public/assets/downloads/executive-operating-kit.pdf`](public/assets/downloads/executive-operating-kit.pdf). [`public/assets/downloads/executive-operating-kit.html`](public/assets/downloads/executive-operating-kit.html) mirrored the same content and CTA. [`CourseCTA.astro`](src/components/CourseCTA.astro) — `download="PromptAnatomy-Max-Value-Kit.pdf"` while `href` stays `executive-operating-kit.pdf`. [`InteractiveCopy.astro`](src/components/InteractiveCopy.astro) — on PDF 404 fallback to `.html`, `download` is removed so the suggested filename matches the HTML asset. Docs: [`docs/SETUP_PDF.md`](docs/SETUP_PDF.md), [`CONTRIBUTING.md`](CONTRIBUTING.md).
+- **Locale (USA-market English-only ship):** Added [`siteLocale.ts`](src/constants/siteLocale.ts) (**`SHIPPED_LOCALES = ["en"]`** → **`Language`** is **`"en"`**); removed **`src/pages/lt/index.astro`**; [`astro.config.mjs`](astro.config.mjs) **`locales`** + sitemap **`en` only**; header **language toggle**, **`hreflang`/canonical LT**, **`og:locale:alternate`**, [**`pageJsonLd`**](src/utils/pageJsonLd.ts) `WebSite.inLanguage`, and Lighthouse [`.lighthouserc.json`](.lighthouserc.json) all **dual-locale-aware only when bilingual is opted in**. Lithuanian **`lt.ts`** kept; bilingual restore documented in **`README`**, **`AGENTS.md`**, **`SOURCE_OF_TRUTH.md`**.
+- **`src/pages/index.astro`:** Root `/` redirects to **`/en/`** (**`navigator.language` → LT** removed earlier); **`hreflang="lt`** only emitted when bilingual is enabled in **`siteLocale.ts`** (default: English-only URLs).
+- **`SectionHeader.astro`:** Optional **`titleScale`** (`display` \| `compact`) for DS-aligned headings.
+- **`ExecutiveModules.astro`, `ClarityDemo.astro`, `Faq.astro`:** Use DS primitives (`SectionShell`, `SectionTitleBlock`, `ContentCard`, `HighlightStrip`, `BulletSystem`) as reference implementations.
+- **`BeforeAfter.astro`:** Diagram frame uses **`DiagramContainer`** (DS).
+- **P3 (JSON‑LD + LT module examples):** [`pageJsonLd.ts`](src/utils/pageJsonLd.ts) — **`FAQPage.inLanguage`**; **`WebPage.primaryImageOfPage`** ImageObject includes **`description: meta.socialImageAlt`** (aligned with OG/Twitter `og:image:alt`). [`Page.astro`](src/layouts/Page.astro): first **`MemeMoment`** uses **`memeSequenceAlts[0]`** (localized alt). [`lt.ts`](src/content/locales/lt.ts) **`modules.items`** eyebrows + **`outputExampleJson`** fully Lithuanian; **`modules.custom`** „**Pasirinktinis**“ modulis. [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md): CC‑12 + P3 / library rows.
+- **`docs/VISUAL_CONTENT_MAP.md`:** Notes localized **`memes.sequenceImageAlts`** for meme `<img alt>` strings.
+- **P1 copy / a11y (i18n):** Extended **`a11y.*`** + **`memes.sectionAriaLabel`** / **`memes.sequenceImageAlts`** in [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts). [`Hero.astro`](src/components/Hero.astro) uses localized logo label, tagline (**Executive OS** / **Vadovo OS**), nav and mobile-menu `aria-label`s, kalbos perjungiklis. [`LanguageToggle.astro`](src/components/LanguageToggle.astro) accepts **`groupAriaLabel`**. [`MemeMoment.astro`](src/components/MemeMoment.astro) **`aria-label`** from copy; [`Page.astro`](src/layouts/Page.astro) meme `<img alt>` iš sekos + footer **`aria-label`** teisiniams ryšiams.
+- **`docs/SOURCE_OF_TRUTH.md`:** Under **Copy and i18n**, link to **`docs/COPY_AUDIT_BY_SLIDE.md`** as the section-level QA reference.
+- **`src/content/locales/en.ts`:** `authority.sisterTitle` set to English (**AI Operations Hub**); `roiPath.printableKitLink` fixed (**banner**).
+- **`src/content/locales/lt.ts`:** `meta.socialImageAlt` grammatical fix; `demo.scenarios.meeting.risks[0]` uses **`virsta`** (was `virs`).
+- **P2 LT punctuation + UI labels:** [`lt.ts`](src/content/locales/lt.ts): em dash **`—` → en dash `–`** everywhere; global context chip **`Išlieka`** (EN **`PERSISTENT`**); demo field label **`Pagrindinis signalas`** (`demo.insight`). [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts): **`anatomy.stepPrefix`** (**Step** / **Žingsnis**). [`PromptAnatomy.astro`](src/components/PromptAnatomy.astro): **`id="anatomy"`** + **`aria-labelledby`**. [`SafetyCheck.astro`](src/components/SafetyCheck.astro): fourth row marker **●** (replaces silhouette). [`InteractiveCopy.astro`](src/components/InteractiveCopy.astro): LT/EN **`manualMessage()`** fallback from `document.documentElement.lang` + short comment on English compile placeholders; [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md): P2 rows updated.
+
+### Changed (documentation: single source-of-truth alignment)
+- **`docs/CODEBASE_OVERVIEW.md`**, **`README.md`**: Landing flow matches **`Page.astro`** (HeroBento, BeforeAfter, PromoBanner, SafetyCheck; correct section and meme order).
+- **`docs/SOURCE_OF_TRUTH.md`**: Added **Agent stack** hierarchy (Page → docs → `AGENTS.md` → rules → skills).
+- **`docs/README.md`**, **`DOCUMENT_MANAGEMENT.md`**: Copy canonical files are **`locales/en.ts` / `lt.ts`**; `copy.ts` is the re-export façade.
+- **`docs/STRATEGIC_REVISION_PLAN.md`**: Baseline + friction list aligned with shipped **`Page.astro`** (HeroBento, meme indices, **`ExecutiveModules` vs QuickPractice**, hero CTA vs nav, phases 0–1 marked closed, decision log fixed); **§6** visuals retargeted; **`SystemVisual`** noted as FAQ-merged.
+- **`docs/QUALITY_ASSURANCE.md`**: Product checklist refers to **`#context`** modules + **`SafetyCheck`**, not deprecated 2-column QuickPractice flow.
+- **`visual-and-copy.mdc`**: CTA line matches **in-page ladder** + **2 vs 3 minute** consistency (no orphaned “3‑minute” when locales use 2‑minute framing).
+- **`.cursor/rules` (`astro-quality`, `language-standard`)**, **`.cursor/skills/executive-landing-improvement`**: Point to locale files; skill **Visual** section aligned with **`visual-and-copy.mdc`** (gold accent, not cyan/blue).
+
+### Changed (MemeMoment: equal desktop columns)
+- **`MemeMoment.astro`:** Large-screen grid from **1.25fr / 0.75fr** to **`minmax(0,1fr)` × 2** so image+caption columns are equal; `side="right"` beats no longer render a narrower image frame.
+- **`public/assets/memes/README.md`**, **`docs/VISUAL_CONTENT_MAP.md`:** Note equal `lg` columns.
+
+### Changed (Before/After explainer: SEO + semantics)
+- **`beforeAfter` copy (EN/LT):** Replaced one-line labels with explicit **“What is a prompt?”** / **“What is PromptAnatomy?”** headings plus fuller definitions (decision-ready shape; role, context, logic, format, safety).
+- **`BeforeAfter.astro`:** Definitions render as **`<h3>` + `<p>`** under the section **`h2`** for clearer outline and discoverability.
+
 ### Summary
 - **PromptLibrary:** Removed **“Start with 7”** (picker + seven starter cards + starter headline block); [`PromptLibrary.astro`](src/components/PromptLibrary.astro) now opens with `#kit` link (`pdfAgain`) then the **full copyable library** accordion only. Deleted `library.starter` from [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts).
 - **FAQ absorbs “OS fit”:** Removed standalone `SystemVisual` section from the page; merged model → kit → quality bar into the FAQ answer *“What is this vs a prompt list?”* (EN/LT). Section uses `id="faq"`. Locale keys `systemVisual` removed; JSON-LD FAQPage still driven by `faq.items`.
@@ -136,7 +186,8 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 - **Docs:** Added `docs/SOURCE_OF_TRUTH.md` and wired it from `README.md`, `docs/README.md`, and `AGENTS.md`.
 
 ### Verified
-- `npm run build`
+
+- **`npm run build`:** 0 Astro check errors, 0 warnings (includes post–SEO/GEO/AI crawler + FAQ GEO pass).
 
 ## 2026-04-27
 

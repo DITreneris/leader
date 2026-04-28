@@ -6,9 +6,11 @@ alwaysApply: false
 
 # Visual And Copy Standards
 
+Full token tables, `src/components/ds/` primitives, section templates, and anti-patterns: **`docs/DESIGN_SYSTEM.md`**.
+
 - Use executive language: short, concrete, outcome-driven. Avoid beginner AI education language.
 - Prioritize clarity over decoration. Gradients, glass cards, memes, and motion must support the message.
-- Keep CTAs focused: run the 3-minute check, then go to the full PromptAnatomy system.
+- Keep CTAs focused: run the **check** (`#demo` / clarity scenarios) after `#context`, then go to `#kit` and the full PromptAnatomy system. (Hero and modules framing use **“2-minute”** where copy says so—stay consistent with locales, not mixed “2 vs 3 min.”)
 - Use memes as visual breaks only; do not let them dominate the page.
 - For every new visual section, check mobile order: headline, value, CTA or useful visual.
 - Keep the color system premium and restrained: dark navy base (#0B1320), white text, gold accent (#CFA73A with #E8B93C hover) and the gold CTA gradient (#FFCC33 to #FFB300) matching the PromptAnatomy.app mother brand. Do not reintroduce cyan/blue as the primary accent. Status colors stay functional: rose for risk, emerald for action, amber for warning.

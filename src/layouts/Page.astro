@@ -18,11 +18,14 @@ import PromptLibrary from "../components/PromptLibrary.astro";
 import RoiPath from "../components/RoiPath.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
+import { LEADER_PAGE_DATE_MODIFIED, LEADER_PAGE_DATE_PUBLISHED } from "../constants/pageSeo";
+import { showLanguageSwitcher } from "../constants/siteLocale";
 import { buildClientCopyPayload } from "../utils/clientCopyPayload";
 import { buildLeaderPageJsonLd } from "../utils/pageJsonLd";
 
 /**
  * Meme images use `uiCopy[lang].memes.items` indices 3, 0, 2, 5, 4 (see `Page.astro` order).
+ * Image `alt` text is `uiCopy[lang].memes.sequenceImageAlts[0..4]` in that same order (localized).
  * Post–ClarityDemo beat: index 5 → reward_2.png (printable kit / structure on desk).
  *
  * Live order is documented in `docs/VISUAL_CONTENT_MAP.md`.
@@ -41,13 +44,15 @@ const originBase = baseUrl.replace(/\/$/, "");
 const localeCanonical = `${originBase}/${lang}/`;
 const enCanonical = `${originBase}/en/`;
 const ltCanonical = `${originBase}/lt/`;
+const bilingualShipped = showLanguageSwitcher();
 
 const ogLtPath = path.join(process.cwd(), "public", "og-image-lt.png");
-const ogImageFile = lang === "lt" && fs.existsSync(ogLtPath) ? "og-image-lt.png" : "og-image.png";
+const langTag = lang as string;
+const ogImageFile = langTag === "lt" && fs.existsSync(ogLtPath) ? "og-image-lt.png" : "og-image.png";
 const socialImageUrl = new URL(ogImageFile, baseUrl).toString();
 
-const ogLocale = lang === "lt" ? "lt_LT" : "en_US";
-const ogLocaleAlternate = lang === "lt" ? "en_US" : "lt_LT";
+const ogLocale = langTag === "lt" ? "lt_LT" : "en_US";
+const ogLocaleAlternate = langTag === "lt" ? "en_US" : "lt_LT";
 
 const base = import.meta.env.BASE_URL;
 const faviconSvg = `${base}favicon.svg`;
@@ -66,6 +71,9 @@ const structuredData = buildLeaderPageJsonLd({
   faqItems: copy.faq.items,
 });
 const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c");
+
+/** Matches MemeMoment order (indices 3, 0, 2, 5, 4). */
+const memeSequenceAlts = copy.memes.sequenceImageAlts;
 ---
 
 <!doctype html>
@@ -76,7 +84,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
     <meta name="description" content={meta.description} />
     <link rel="canonical" href={localeCanonical} />
     <link rel="alternate" hreflang="en" href={enCanonical} />
-    <link rel="alternate" hreflang="lt" href={ltCanonical} />
+    {bilingualShipped && <link rel="alternate" hreflang="lt" href={ltCanonical} />}
     <link rel="alternate" hreflang="x-default" href={enCanonical} />
     <link rel="icon" type="image/svg+xml" href={faviconSvg} />
     <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
@@ -87,13 +95,15 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
     <meta property="og:title" content={meta.title} />
     <meta property="og:description" content={meta.description} />
     <meta property="og:type" content="website" />
+    <meta property="article:published_time" content={LEADER_PAGE_DATE_PUBLISHED} />
+    <meta property="article:modified_time" content={LEADER_PAGE_DATE_MODIFIED} />
     <meta property="og:url" content={localeCanonical} />
     <meta property="og:image" content={socialImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={meta.socialImageAlt} />
     <meta property="og:locale" content={ogLocale} />
-    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+    {bilingualShipped && <meta property="og:locale:alternate" content={ogLocaleAlternate} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={meta.title} />
     <meta name="twitter:description" content={meta.description} />
@@ -112,7 +122,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         lang={lang}
         index={3}
         src="meme-03-clear-decision.png"
-        alt="Meme: clear decision brief"
+        alt={memeSequenceAlts[0]}
         side="left"
         accent="gold"
         width={1280}
@@ -125,7 +135,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         lang={lang}
         index={0}
         src="meme-01-ai-chaos.png"
-        alt="Meme: AI chaos"
+        alt={memeSequenceAlts[1]}
         side="right"
         accent="gold"
         width={1280}
@@ -137,7 +147,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         lang={lang}
         index={2}
         src="meme-04-delegation-bottleneck.png"
-        alt="Meme: delegation bottleneck"
+        alt={memeSequenceAlts[2]}
         side="right"
         accent="gold"
         width={1280}
@@ -148,7 +158,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         lang={lang}
         index={5}
         src="reward_2.png"
-        alt="Meme: keep the executive kit structure on your desk"
+        alt={memeSequenceAlts[3]}
         side="left"
         accent="gold"
         width={1280}
@@ -163,7 +173,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         lang={lang}
         index={4}
         src="meme-02-meeting-overload.png"
-        alt="Meme: overloaded calendar"
+        alt={memeSequenceAlts[4]}
         side="left"
         accent="gold"
         width={1280}
@@ -186,7 +196,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         </p>
         <p>{footerCopy.tagline}</p>
       </div>
-      <nav class="flex flex-wrap items-center gap-4" aria-label="Legal">
+      <nav class="flex flex-wrap items-center gap-4" aria-label={copy.a11y.footerLegalNavAria}>
         <a
           href="https://www.promptanatomy.app/privacy"
           class="focus-ring transition hover:text-slate-200"

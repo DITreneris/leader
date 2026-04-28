@@ -7,9 +7,12 @@ interface Props {
   align?: "center" | "start";
   /** `promo` = uppercase accent strip (library, ROI). Default = sentence-case section eyebrow. */
   eyebrowTone?: "section" | "promo";
+  /** `display` = main section titles; `compact` = FAQ-scale headings. */
+  titleScale?: "display" | "compact";
 }
 
-const { eyebrow, title, subtitle, titleId, align = "center", eyebrowTone = "section" } = Astro.props;
+const { eyebrow, title, subtitle, titleId, align = "center", eyebrowTone = "section", titleScale = "display" } =
+  Astro.props;
 
 const wrap =
   align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl text-start";
@@ -22,7 +25,9 @@ const eyebrowClass = eyebrowTone === "promo" ? "type-eyebrow-promo" : "type-sect
   <h2
     id={titleId}
     class:list={[
-      "text-4xl font-black tracking-tight text-white sm:text-5xl",
+      titleScale === "compact"
+        ? "text-2xl font-black tracking-tight text-white sm:text-3xl"
+        : "text-4xl font-black tracking-tight text-white sm:text-5xl",
       eyebrow ? "mt-4" : undefined,
     ]}
   >

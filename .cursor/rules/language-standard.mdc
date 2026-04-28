@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Language Standard (LT + EN)
 
-This standard applies to every visible text agents touch: marketing copy in `src/content/copy.ts`, UI fallbacks in `src/components/**/*.astro`, the printable kit in `public/assets/downloads/`, and project documentation (`README.md`, `CHANGELOG.md`, `docs/**/*.md`).
+This standard applies to every visible text agents touch: marketing copy in **`src/content/locales/en.ts`** and **`src/content/locales/lt.ts`** (re-exported via `src/content/copy.ts`), UI fallbacks in `src/components/**/*.astro`, the printable kit in `public/assets/downloads/`, and project documentation (`README.md`, `CHANGELOG.md`, `docs/**/*.md`).
 
 ## Shared Principles
 
@@ -53,7 +53,7 @@ Prompts addressed to the AI keep "Tu" form already: `Veik kaip...`, `Išanalizuo
 
 ### AI → DI in Lithuanian
 
-Always write `DI` (dirbtinis intelektas) in Lithuanian copy. The only place `AI` may appear is the English (`en`) block of `copy.ts`.
+Always write `DI` (dirbtinis intelektas) in Lithuanian copy. The only place `AI` may appear is the English bundle in `src/content/locales/en.ts`.
 
 - `AI Operating System` → `DI operacinė sistema`
 - `AI darbo eigos` ✗ already correct as `DI darbo eigos`
@@ -120,13 +120,13 @@ Loanwords already entrenched in LT business speech are acceptable: `briefas`, `p
 
 ## Bilingual Alignment Rule
 
-When you change one section in `src/content/copy.ts`, update the matching keys in the other language in the same commit. Do not leave a mixed-language deploy.
+When you change one section in **`en.ts` / `lt.ts`**, update the matching keys in the other language in the same commit. Do not leave a mixed-language deploy.
 
 ## Audit Checklist (run before claiming "done")
 
 When asked to audit Lithuanian copy:
 
-- [ ] No `kite\b` matches in the `lt` block of `copy.ts` (formal imperatives gone).
+- [ ] No `kite\b` matches in the Lithuanian bundle in `lt.ts` (formal imperatives gone).
 - [ ] No `jūsų`, `norite`, `galite`, `turite`.
 - [ ] No `\bAI\b` in the `lt` block.
 - [ ] No leftover English nouns mid-sentence (`support`, `account`, `meeting room` etc.).

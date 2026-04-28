@@ -1,0 +1,21 @@
+---
+/**
+ * Design-system title stack; delegates to `SectionHeader` (single implementation).
+ * @see docs/DESIGN_SYSTEM.md
+ */
+import SectionHeader from "../SectionHeader.astro";
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  titleId?: string;
+  align?: "center" | "start";
+  eyebrowTone?: "section" | "promo";
+  titleScale?: "display" | "compact";
+}
+
+const props = Astro.props as Props;
+---
+
+<SectionHeader {...props} />

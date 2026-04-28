@@ -1,3 +1,5 @@
+import { LEADER_PAGE_DATE_MODIFIED, LEADER_PAGE_DATE_PUBLISHED } from "../constants/pageSeo";
+import { SHIPPED_LOCALES } from "../constants/siteLocale";
 import type { Language } from "../content/copy";
 
 const motherOrgId = "https://www.promptanatomy.app/#organization";
@@ -16,7 +18,8 @@ export function buildLeaderPageJsonLd(input: {
   lang: Language;
   localeCanonical: string;
   socialImageUrl: string;
-  meta: { title: string; description: string };
+  /** Mirrors `<meta name="description">`, `<title>`, and `og:image:alt`. */
+  meta: { title: string; description: string; socialImageAlt: string };
   faqItems: readonly FaqItem[];
 }) {
   const { lang, localeCanonical, socialImageUrl, meta, faqItems } = input;
@@ -42,7 +45,7 @@ export function buildLeaderPageJsonLd(input: {
         url: "https://www.promptanatomy.app",
         name: "Prompt Anatomy",
         publisher: { "@id": motherOrgId },
-        inLanguage: ["en", "lt"],
+        inLanguage: [...SHIPPED_LOCALES],
       },
       {
         "@type": "WebPage",
@@ -50,14 +53,21 @@ export function buildLeaderPageJsonLd(input: {
         url: localeCanonical,
         name: meta.title,
         description: meta.description,
+        datePublished: LEADER_PAGE_DATE_PUBLISHED,
+        dateModified: LEADER_PAGE_DATE_MODIFIED,
         isPartOf: { "@id": motherSiteId },
         about: { "@id": motherOrgId },
         inLanguage: lang,
-        primaryImageOfPage: { "@type": "ImageObject", url: socialImageUrl },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: socialImageUrl,
+          description: meta.socialImageAlt,
+        },
       },
       {
         "@type": "FAQPage",
         "@id": `${localeCanonical}#faq`,
+        inLanguage: lang,
         mainEntity: faqItems.map((item) => ({
           "@type": "Question",
           name: item.q,

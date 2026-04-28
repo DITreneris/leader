@@ -1,4 +1,5 @@
 ---
+import DiagramContainer from "./ds/DiagramContainer.astro";
 import SectionHeader from "./SectionHeader.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
@@ -24,17 +25,23 @@ const src = `${baseUrl}assets/graphics/before-after.svg`.replace(/([^:]\/)\/+/g,
         align="start"
         eyebrowTone="promo"
       />
-      <div class="mt-6 grid gap-3 text-sm leading-6 text-slate-200 sm:text-base">
-        <p>
-          <span class="font-black text-white">Prompt:</span> {beforeAfter.promptDefinition}
-        </p>
-        <p>
-          <span class="font-black text-white">PromptAnatomy:</span> {beforeAfter.promptAnatomyDefinition}
-        </p>
+      <div class="mt-6 grid gap-5 text-sm leading-6 text-slate-200 sm:text-base">
+        <div>
+          <h3 class="text-base font-black tracking-tight text-white">
+            {beforeAfter.promptHeading}
+          </h3>
+          <p class="mt-2">{beforeAfter.promptBody}</p>
+        </div>
+        <div>
+          <h3 class="text-base font-black tracking-tight text-white">
+            {beforeAfter.promptAnatomyHeading}
+          </h3>
+          <p class="mt-2">{beforeAfter.promptAnatomyBody}</p>
+        </div>
       </div>
     </div>
 
-    <figure class="glass-card radius-xl overflow-hidden border border-white/10 p-4 sm:p-6">
+    <DiagramContainer>
       <img
         src={src}
         alt=""
@@ -44,6 +51,6 @@ const src = `${baseUrl}assets/graphics/before-after.svg`.replace(/([^:]\/)\/+/g,
         decoding="async"
         class="block h-auto w-full"
       />
-    </figure>
+    </DiagramContainer>
   </div>
 </section>

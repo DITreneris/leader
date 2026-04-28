@@ -87,6 +87,27 @@
   border-radius: var(--radius-lg);
 }
 
+/* Card padding scale (Design System v1): use via ContentCard or these utilities */
+.card-padding-compact {
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .card-padding-compact {
+    padding: 1.5rem;
+  }
+}
+
+.card-padding-comfort {
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .card-padding-comfort {
+    padding: 2rem;
+  }
+}
+
 /* Typography roles */
 .type-section-eyebrow {
   font-size: 0.875rem;

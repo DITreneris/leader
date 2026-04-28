@@ -23,7 +23,7 @@ The build must finish with:
 - The page still has one clear primary promise.
 - The Executive Prompt Operating Kit promise is obvious above the fold.
 - The first prompt action is clear before the full 35-prompt library appears.
-- The 2-minute practice has a clear fog, structure, result, and safety-check flow.
+- **Global Context + Modules** (`#context`) reads as the main “act” step; **SafetyCheck** follows the demo as a dedicated send/risk surface (see `Page.astro` order).
 - The safety check stands alone as a valuable executive workflow.
 - The static clarity demo is easy to understand without instructions.
 - The Max Value Kit download is short and matches the page promise.
@@ -57,6 +57,15 @@ The build must finish with:
 - Screenshots and larger raster assets should use AVIF/WebP when possible.
 - Meme PNGs are heavy; future iterations should compress them or convert to AVIF/WebP before a public launch.
 
+## Design System v1 checklist
+
+Reference: [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md). Run these when adding a section, changing layout/CSS, or touching `src/components/ds/`.
+
+- **Tokens:** New surfaces use existing radius utilities (`.radius-sm` … `.radius-xl`), section rhythm (`.section-y*` + `px-5 sm:px-8`), and colors from `global.css` / `.cursor/rules/visual-and-copy.mdc` (no new arbitrary accent colors).
+- **Primitives:** Prefer [`src/components/ds/`](../src/components/ds/) (`SectionShell`, `SectionTitleBlock`, `ContentCard`, `BulletSystem`, `HighlightStrip`, `DiagramContainer`) for new or heavily edited sections; document short-lived exceptions in [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) or PR notes.
+- **CTA discipline:** At most one primary conversion CTA per major section; glass/elevation stays on primary containers (see Design System “Do not”).
+- **i18n:** User-visible string changes remain aligned across EN/LT locales.
+
 ## Accessibility QA Checklist
 
 - Buttons and links have clear text.
@@ -72,6 +81,19 @@ The build must finish with:
 - Do not lazy-load above-the-fold hero visuals.
 - Lazy-load below-the-fold images when real assets are added.
 - Define image dimensions or aspect ratio to avoid layout shift.
+
+## SEO / GEO / AI crawl QA
+
+After changes to `public/robots.txt`, `public/llms.txt`, meta, JSON-LD, or FAQ copy:
+
+1. Run `npm run build` (0 Astro check errors; 0 warnings).
+2. Open `dist/en/index.html` and confirm one `<script type="application/ld+json">` block parses as valid JSON (no stray `<` in strings).
+3. Validate structured data (e.g. Google Rich Results Test or schema.org validator) using the deployed or local `dist` HTML — expect `WebPage` with `datePublished` / `dateModified`, `FAQPage` aligned with visible `#faq` questions.
+4. Confirm `public/robots.txt` syntax: `User-agent` / `Allow` / `Sitemap` lines, and that **`Sitemap:`** matches production `SITE_URL` + `BASE_PATH`.
+5. Skim `public/llms.txt` — definitions and `/en/` URL still match the live deploy.
+6. If FAQ items changed, confirm **EN/LT** `faq.items` stay aligned ([`docs/COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md) as needed).
+7. When ship includes copy or on-page SEO changes, bump **`LEADER_PAGE_DATE_MODIFIED`** in [`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts) and re-build.
+8. Optional: run 2–3 English product queries in Perplexity or ChatGPT (with browsing) and note whether Executive OS / Global Context Block citations match `llms.txt` and FAQ.
 
 ## Release Readiness
 

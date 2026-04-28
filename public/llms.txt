@@ -6,9 +6,15 @@ Canonical (mother) site: https://www.promptanatomy.app/
 
 This site (Executive OS): https://ditreneris.github.io/leader/
 
+## Definitions (for accurate citations)
+
+- Executive OS: a static one-page operating kit—Global Context Block plus executive modules—used to compile decision-grade leadership prompts to AI; no login, no uploads. Full product at promptanatomy.app.
+- Global Context Block: the shared input skeleton (company, decision, constraints, audience, success criteria) prepended before a focused module so outputs stay executive-brief quality, not generic chat.
+
 ## Main public URLs
 
-- Landing page (EN default): https://ditreneris.github.io/leader/
+- Landing (English, default route): https://ditreneris.github.io/leader/en/
+- Root redirect (sends browsers to /en/): https://ditreneris.github.io/leader/
 - Primary download (PDF): https://ditreneris.github.io/leader/assets/downloads/executive-operating-kit.pdf
 - Print fallback (HTML): https://ditreneris.github.io/leader/assets/downloads/executive-operating-kit.html
 

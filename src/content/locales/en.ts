@@ -8,6 +8,13 @@ export const enCopy = {
     a11y: {
       skipLink: "Skip to the context fields",
       copyManual: "Copy blocked: select the prompt text above, then press Ctrl+C (or ⌘+C on Mac).",
+      logoAriaLabel: "Prompt Anatomy Executive OS",
+      brandSubtag: "Executive OS · v1.0",
+      openMobileMenu: "Open menu",
+      navPrimaryAria: "Primary",
+      navMobileAria: "Mobile primary",
+      languageToggleAria: "Language",
+      footerLegalNavAria: "Legal",
     },
     faq: {
       sectionTitle: "Quick answers",
@@ -15,6 +22,18 @@ export const enCopy = {
         {
           q: "Does this send my data?",
           a: "No. Static page—nothing uploads when you copy text.",
+          bullets: [],
+        },
+        {
+          q: "What is PromptAnatomy Executive OS?",
+          a:
+            "PromptAnatomy Executive OS is a static one-page lead magnet for CEOs and COOs: a compiled prompt operating kit built from a Global Context Block plus executive modules that standardize how leadership work is briefed to AI, with no login and no uploads. The full PromptAnatomy product and training live on promptanatomy.app.",
+          bullets: [],
+        },
+        {
+          q: "What is the Global Context Block?",
+          a:
+            "The Global Context Block is the shared input skeleton for every executive prompt—company, decision, constraints, audience, and success criteria in one place—so model outputs stay decision-grade instead of generic. You pair it with a focused module (strategy, risk, board prep, and similar) to compile one send-ready brief.",
           bullets: [],
         },
         {
@@ -73,21 +92,6 @@ export const enCopy = {
       helper: "The kit is the method: context → module → brief. Then run the same safety check before anything leaves your desk.",
       howItWorksSummary: "How it works (expand)",
     },
-    heroTrust: {
-      showPlaceholderLogos: false,
-      logosEyebrow: "Adoption signal",
-      logosTitle: "Where leadership teams standardize AI output",
-      logosNote: "Customer logos appear here when provided.",
-      logosAria: "Customer logos",
-      logoSlots: ["Enterprise", "Growth", "Operations", "Board-facing"],
-      outcomesEyebrow: "Outcomes operators care about",
-      outcomesTitle: "What changes once the standard is in use",
-      outcomes: [
-        "Briefs people can execute—not walls of model text.",
-        "Owners and deadlines on anything that leaves your desk.",
-        "Same checks before board, client, partner, or team sees the output.",
-      ],
-    },
     heroBento: {
       ariaLabel: "Brief shape schema with process and outputs.",
       chipOne: "Schema",
@@ -105,31 +109,16 @@ export const enCopy = {
       tileRisks: "Risks",
       tileNextAction: "Next action",
     },
-    practiceSafety: {
-      ariaLandmark: "Two-minute practice and safety checklist",
-    },
-    flowScheme: {
-      eyebrow: "How it works",
-      a11yLabel: "Example flow: leadership request, PromptAnatomy structure applied, decision-ready brief with owners.",
-      bridgeNote: "Fill the context once, then copy a module prompt that forces decision-grade output (plus a pre-send check).",
-      inputLabel: "Input",
-      inputExample:
-        "Tomorrow's leadership meeting has three competing priorities and no clear owner.",
-      middleLabel: "PromptAnatomy",
-      middleBadge: "Structure applied",
-      outputLabel: "Output",
-      outputBullets: [
-        "One decision question with explicit criteria",
-        "Risks, trade-offs, and recommended path",
-        "Owners, deadlines, and next actions",
-      ],
-    },
     beforeAfter: {
       eyebrow: "Proof in one screen",
       title: "Turn business noise into a decision brief.",
       subtitle: "Structure + safety gate → owners, deadlines, next action.",
-      promptDefinition: "A prompt is the instruction that forces the output shape.",
-      promptAnatomyDefinition: "PromptAnatomy is the standard: role, context, decision logic, output format, safety check.",
+      promptHeading: "What is a prompt?",
+      promptBody:
+        "The instruction you give the model so the reply matches a decision-ready shape—trade-offs, risks, owners, deadlines—instead of unstructured text.",
+      promptAnatomyHeading: "What is PromptAnatomy?",
+      promptAnatomyBody:
+        "The executive standard for building that instruction: role, context, decision logic, fixed output format, and a safety check before anything is sent.",
       a11yLabel: "Before and after: messy notes become a decision-ready brief with a safety gate.",
     },
     promoBanner: {
@@ -304,49 +293,6 @@ Eliminate now:
         copiedButton: "Copied",
       },
     },
-    quickPractice: {
-      eyebrow: "2-minute executive practice",
-      title: "Stop drowning in opinions. Leave with one decision.",
-      subtitleLead: "Under two minutes: one decision, one owner, one deadline—without sending half-baked calls to action.",
-      subtitleTrail: "You are not buying a tutorial. You are buying speed, clarity, and fewer expensive mistakes.",
-      promptBlockLabel: "Copyable template",
-      previewHint: "Copy pulls the full template. This box is only a preview.",
-      beforeTitle: "1. The pain",
-      beforeText: "Tomorrow's leadership meeting.\n• Five topics\n• Ten opinions\n• Zero decisions locked",
-      beforeLabel: "Why it stalls",
-      beforeBullets: [
-        "No one names the decision that must be made.",
-        "No single owner—so nothing ships.",
-        "No deadline—so everything slips.",
-      ],
-      afterTitle: "2. What you paste",
-      structureHelper:
-        "Three plain fields in your notes are enough. The model turns them into a tight brief—no prompt-engineering lecture.",
-      afterLabel: "Only this in your notes",
-      afterBullets: [
-        "Which decision must be made",
-        "Who owns the outcome",
-        "When it must be clear",
-      ],
-      copyPrompt: "Copy template",
-      copied: "Copied",
-      prompt:
-        "Act as my executive operating partner. From the notes below, produce one decision brief.\n\nNotes:\n[PASTE NOTES]\n\nDeliver:\n• One clear decision question\n• One owner + deadline\n• Top 3 risks\n• Top 3 clarifying questions\n• One next action\n\nRules: Do not invent numbers or facts. Flag anything missing.",
-      resultTitle: "3. The payoff",
-      resultMicro: "Example shape (not your data)",
-      resultText:
-        "In under two minutes you walk away with:\n• one prioritization decision\n• one named owner\n• one deadline\n\nNot another status recap.",
-      checkTitle: "4. What you skip at your cost",
-      checkText:
-        "Skip the 30-second check and you ship:\n• a decision built on unverified claims\n• calendar time burned with no closure\n• confusion for board, client, partner, or team",
-      checkBridge: "Run the full safety prompt below before anything leaves your desk.",
-      ctaText: "Paste your messy notes into the template above, then see the full chain in the static demo.",
-      ctaDemo: "Try it with your meeting",
-      ctaDemoHref: "#demo",
-      ctaHref: "",
-      ctaLabel: "",
-      safetyAnchorLabel: "Full safety prompt to copy",
-    },
     safety: {
       eyebrow: "Safety check",
       title: "Use this before sending AI output.",
@@ -370,6 +316,8 @@ Eliminate now:
       title: "Five blocks that keep AI useful for leadership work.",
       expandSummary: "Five blocks (expand)",
       subtitle: "Use 2–3 for speed; all five before board or client-facing sends.",
+      /** Micro-label before block number in the expanded grid (e.g. “Step 1”). */
+      stepPrefix: "Step",
       items: [
         ["Role", "Who AI plays as and the business outcome."],
         ["Context", "Audience, constraints, facts the team already has."],
@@ -755,6 +703,15 @@ Eliminate now:
     memes: {
       eyebrow: "Visual proof",
       title: "The problem is not access to AI. It is control.",
+      sectionAriaLabel: "Executive proof moment",
+      /** Order matches `Page.astro` MemeMoment sequence (indices 3, 0, 2, 5, 4). */
+      sequenceImageAlts: [
+        "Meme: clear decision brief",
+        "Meme: AI chaos",
+        "Meme: delegation bottleneck",
+        "Meme: keep the executive kit structure on your desk",
+        "Meme: overloaded calendar",
+      ] as const,
       items: [
         ["AI chaos", "Without structure, output becomes noise."],
         ["Structure creates control", "The shift is simple: stop guessing, define the input, and control the output."],
@@ -841,7 +798,7 @@ Eliminate now:
       ],
       total: "~5 hours/week → fewer decision mistakes, clearer ownership, safer outbound communication.",
       printableOneLiner: "Six moves ≈ ~5h/week — same rhythm on one printable page.",
-      printableKitLink: "Open download band",
+      printableKitLink: "Open download banner",
     },
     authority: {
       eyebrow: "Brand architecture",
@@ -850,7 +807,7 @@ Eliminate now:
       mother: "Mother platform",
       motherText: "PromptAnatomy.app: full AI operating system and commercial home.",
       sisterEyebrow: "Sister hub",
-      sisterTitle: "DI Operacinis Centras",
+      sisterTitle: "AI Operations Hub",
       sisterText:
         "CEO/COO hub on GitHub Pages: mode-based prompts, weekly priorities, and a template library (Prompt Anatomy spin-off).",
       sisterLink: "Open the sister CEO/COO hub →",

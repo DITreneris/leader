@@ -1,0 +1,17 @@
+---
+interface Props {
+  variant?: "default" | "muted";
+  class?: string;
+}
+
+const { variant = "default", class: className = "" } = Astro.props;
+
+const base =
+  variant === "muted"
+    ? "list-disc space-y-1.5 pl-5 text-slate-400"
+    : "list-disc space-y-2 pl-5 text-sm leading-6 text-slate-200";
+---
+
+<ul class:list={[base, className]}>
+  <slot />
+</ul>

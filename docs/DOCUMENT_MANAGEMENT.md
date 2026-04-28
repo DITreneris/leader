@@ -15,7 +15,7 @@ Keep documentation useful, short, and close to the work. This is a lean one-page
 - Development commands: `README.md`
 - Quality process: `docs/QUALITY_ASSURANCE.md`
 - Daily updates: `CHANGELOG.md`
-- Bilingual marketing copy: `src/content/copy.ts` (or `src/content/` modules re-exported from `copy.ts`)
+- Bilingual marketing copy: `src/content/locales/en.ts` and `src/content/locales/lt.ts` (aggregated in `src/content/copy.ts` as `uiCopy`)
 - Printable kit PDF source: `docs/executive-operating-kit-pdf.md`; build: `docs/SETUP_PDF.md`
 
 ## Document Rules

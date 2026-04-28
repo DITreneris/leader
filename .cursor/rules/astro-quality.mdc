@@ -7,7 +7,7 @@ alwaysApply: false
 # Astro Quality
 
 - Keep components small and section-based: hero, demo, proof, CTA.
-- Keep bilingual copy in `src/content/copy.ts`; avoid hardcoding translatable marketing copy inside components unless it is structural fallback text.
+- Keep bilingual copy in `src/content/locales/en.ts` and `src/content/locales/lt.ts` (aggregated through `src/content/copy.ts`); avoid hardcoding translatable marketing copy inside components unless it is structural fallback text.
 - Use Astro for static rendering. Add client JavaScript only for necessary interactions like language switching or static demo state.
 - Maintain the no-backend constraint. Do not add server endpoints, databases, auth, or API keys unless explicitly requested.
 - After substantive changes, run `npm run build` and fix Astro check/build errors.

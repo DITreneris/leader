@@ -1,6 +1,6 @@
 # PromptAnatomy Executive OS (Leader)
 
-Lean bilingual CEO/COO executive prompt operating kit: **Global Context + executive modules**, clarity demo, and a printable Max Value Kit—**static, no backend, no AI API keys**.
+**English-first, US-market** static CEO/COO executive prompt operating kit: **Global Context + executive modules**, clarity demo, and a printable Max Value Kit—**static, no backend, no AI API keys**. Lithuanian copy lives in `src/content/locales/lt.ts`, but the **shipped site is English-only** (no `/lt/` route, no language switch) unless you re-enable bilingual delivery in code—see **[Locale toggle](#locale-toggle-usa-market-build)** below.
 
 [![CI](https://github.com/DITreneris/leader/actions/workflows/ci.yml/badge.svg)](https://github.com/DITreneris/leader/actions/workflows/ci.yml)
 [![Deploy](https://github.com/DITreneris/leader/actions/workflows/deploy.yml/badge.svg)](https://github.com/DITreneris/leader/actions/workflows/deploy.yml)
@@ -18,9 +18,30 @@ Lean bilingual CEO/COO executive prompt operating kit: **Global Context + execut
 | Verify production build | `npm run build` |
 | Deploy (GitHub Pages) | Push to `main` (see env below) |
 
+## Locale toggle (USA market build)
+
+Shipped **`main`** builds are **pure English**: only **`/en/`** (plus `/` → `/en/`), geared toward **US market** positioning. **`/lt/` is not emitted**; the header **EN/LT toggle is hidden**.
+
+To **turn Lithuanian back on** (dual routes + toggle):
+
+1. Set [`src/constants/siteLocale.ts`](src/constants/siteLocale.ts) **`SHIPPED_LOCALES`** to `["en", "lt"] as const`.
+2. In [`astro.config.mjs`](astro.config.mjs), set **`shippedLocales`** / `i18n.locales` to `["en", "lt"]` and restore sitemap **`lt: "lt-LT"`** under `integrations` → `@astrojs/sitemap` → `i18n.locales`.
+3. Re-add **`src/pages/lt/index.astro`** with:
+
+   ```astro
+   ---
+   import Page from "../../layouts/Page.astro";
+   ---
+   <Page lang="lt" />
+   ```
+
+4. Add **`"/lt/index.html"`** back to [`.lighthouserc.json`](.lighthouserc.json) `collect.url` if you rely on Lighthouse CI for `/lt`.
+
+Then run `npm run build` / CI as usual.
+
 ## What’s inside (single-page flow)
 
-Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md): **Hero + FlowScheme** → **HeroTrust** → **Global Context + Modules (`#context`)** → **meme beats** → **ClarityDemo** → **PromptAnatomy** → **AuthorityBridge** → **CourseCTA (`#kit`)** → **RoiPath** → **meme** → **FAQ (`#faq`)** → **PromptLibrary**.
+Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md) and [`src/layouts/Page.astro`](./src/layouts/Page.astro): **Hero + HeroBento** → **meme** → **BeforeAfter** → **meme** → **Global Context + Modules (`#context`)** → **PromoBanner** → **meme** → **ClarityDemo (`#demo`)** → **meme** → **SafetyCheck** → **CourseCTA (`#kit`)** → **AuthorityBridge** → **PromptAnatomy** → **RoiPath** → **meme** → **FAQ (`#faq`)** → **PromptLibrary**.
 
 - **Global Context + Modules** → define once, inject everywhere; copy a compiled module prompt (6 fixed modules + 1 Custom). Output is **readable and decision-grade** (bullets/sections, owners, deadlines).
 - **ClarityDemo** → selectable scenarios with copyable prompt + output

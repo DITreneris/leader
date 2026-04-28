@@ -1,0 +1,39 @@
+---
+/**
+ * Accent callout surfaces — inline band or promo-style glass block.
+ * @see docs/DESIGN_SYSTEM.md
+ */
+interface Props {
+  variant: "band" | "promo";
+  /** `context` = tight strip (e.g. “start here”); `panel` = wider follow-up band */
+  bandTone?: "context" | "panel";
+  class?: string;
+}
+
+const { variant, bandTone = "panel", class: className = "" } = Astro.props;
+
+const bandClasses =
+  bandTone === "context"
+    ? "radius-md border border-brand-accent/20 bg-brand-accent/10 px-5 py-4 text-sm font-semibold text-brand-accent-hover"
+    : "radius-lg border border-brand-accent/25 bg-brand-accent/[0.07] px-6 py-6 text-center sm:text-left";
+---
+
+{
+  variant === "band" && (
+    <div class:list={[bandClasses, className]}>
+      <slot />
+    </div>
+  )
+}
+
+{
+  variant === "promo" && (
+    <div class:list={["glass-card radius-xl relative overflow-hidden border border-brand-accent/25 p-7 sm:p-10", className]}>
+      <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand-accent/15 blur-3xl" aria-hidden="true" />
+      <div class="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-white/5 blur-3xl" aria-hidden="true" />
+      <div class="relative">
+        <slot />
+      </div>
+    </div>
+  )
+}
