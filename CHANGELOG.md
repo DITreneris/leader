@@ -4,12 +4,15 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 ## 2026-04-28
 
+### Changed (hero clarity refresh)
+- **Hero message + conversion:** Reframed the hero for 2-second scanning: shortened the value prop to one promise (clarity/decisions), rewrote the subtitle to outcome-first (no “fill fields / copy prompt” mechanics), and switched the hero to a **single primary CTA** that opens PromptAnatomy (secondary button removed from the hero row). Updated EN/LT hero keys in `src/content/locales/en.ts` + `src/content/locales/lt.ts`.
+- **Hero right-side artifact:** Simplified `HeroBento.astro` to a 3-block executive brief legend (**Decision**, **Risks**, **Next action**) and removed the abstract chips (“Schema / Output shape / Decision-grade”) plus the process strip (“Context → Module → Brief → Safety”) to avoid “system diagram disguised as UI.” Kept the premium accent mapping (gold decision, rose risks, emerald action) and updated EN/LT `heroBento.title`.
+
 ### Changed (ClarityDemo practical pass)
 - **Practical-first demo:** Rewrote `ClarityDemo.astro` from an academic three-column lesson (messy input → arrow → prompt + 5 stacked outputs) into a single tool surface: scenario chips → Brief card (Decision, Next action, Insight) visible by default → action row with `Copy prompt` (primary gold) + `Show details` (Risks + Questions) + `Show input` disclosures. Removed the connector arrow column, "Transforms" caption, prompt preview block, "Preview hint" lecture text, and "Executive clarity output" label. Kept all `data-*` hooks (`data-scenario`, `data-demo-field`, `data-demo-risks`, `data-demo-questions`, `data-copy-prompt`) so `InteractiveCopy.astro` keeps working untouched. Action voice copy in EN/LT (`Pick a scenario. Get the brief.` / `Pasirink scenarijų. Gauk briefą.`) plus new disclosure keys (`briefLabel`, `showDetails`, `hideDetails`, `showInput`, `hideInput`).
 
 ### Changed (hero right-side)
-- **Schema legend bento:** Rewrote `HeroBento.astro` from a Before/After bullet card into an actual schema: a 4-step process strip (`Context → Module → Brief → Safety`) plus a 2+2+1 icon-only legend grid (`Decision`, `Owner`, `Deadline`, `Risks`, `Next action` spanning full width) so the right side reads as flow + outputs, not a manual. Locked premium accents: gold on `Decision`, rose on `Risks`, emerald on `Next action`. Added bilingual `heroBento.flow*`/`tile*` keys (EN/LT).
-- **Removed hero artifact:** Dropped the dense `HeroArtifact` “slide” and replaced it with a scannable GitHub-style bento proof grid (`HeroBento`) to make the right side instantly understandable (EN/LT).
+- **Bento proof surface:** Replaced the dense hero slide with `HeroBento` as the right-side proof container, and iterated it toward a scannable “executive brief” legend with strong premium accents (gold decision, rose risks, emerald next action). (Earlier versions included chips/flow + 5 tiles; current version is 3 tiles to reduce cognitive load.)
 - **Removed HeroTrust block:** Dropped the “Outcomes operators care about” band under the hero to keep the first screen premium and reduce scroll cost.
 ### Changed (proof explainer + breath beat)
 - **Proof explainer:** Added two micro-lines under the Before/After proof clarifying what a prompt is and what PromptAnatomy means (EN/LT), without turning the page into a tutorial.
