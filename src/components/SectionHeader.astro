@@ -1,0 +1,36 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  titleId?: string;
+  align?: "center" | "start";
+  /** `promo` = uppercase accent strip (library, ROI). Default = sentence-case section eyebrow. */
+  eyebrowTone?: "section" | "promo";
+}
+
+const { eyebrow, title, subtitle, titleId, align = "center", eyebrowTone = "section" } = Astro.props;
+
+const wrap =
+  align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl text-start";
+
+const eyebrowClass = eyebrowTone === "promo" ? "type-eyebrow-promo" : "type-section-eyebrow";
+---
+
+<div class={wrap}>
+  {eyebrow && <p class={eyebrowClass}>{eyebrow}</p>}
+  <h2
+    id={titleId}
+    class:list={[
+      "text-4xl font-black tracking-tight text-white sm:text-5xl",
+      eyebrow ? "mt-4" : undefined,
+    ]}
+  >
+    {title}
+  </h2>
+  {
+    subtitle && (
+      <p class="mt-5 text-lg leading-8 text-slate-300">{subtitle}</p>
+    )
+  }
+</div>

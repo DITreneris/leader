@@ -23,15 +23,19 @@ Visuals should make the CEO feel the transformation quickly: business noise beco
 
 ## Meme moments (fragmented)
 
-**Two** memes are live on the page via `MemeMoment.astro` (indices **3, 4** into `uiCopy.memes.items`). Spare assets (e.g. `reward_2.png`, `meme-04-delegation-bottleneck.png`, `meme-01-ai-chaos.png`) stay in `public/assets/memes/` for future use. Live order in `src/layouts/Page.astro` (top to bottom):
+Several `MemeMoment.astro` beats break up long reading. Copy always comes from `uiCopy.memes.items[index]` (EN/LT aligned). Top-to-bottom order in `src/layouts/Page.astro`:
 
-| Order | `index` | File | Copy beat |
-|-------|---------|------|-----------|
+| Order | `index` | File | Copy beat (EN title) |
+|-------|---------|------|----------------------|
 | 1 | 3 | `meme-03-clear-decision.png` | Control creates results |
-| — | — | *(then)* | `BeforeAfter`, `ExecutiveModules` (`#context`), `ClarityDemo` (`#demo`), `SafetyCheck` (`#safety-check`), `CourseCTA` (`#kit`), `AuthorityBridge`, `PromptAnatomy`, `RoiPath` |
-| 2 | 4 | `meme-02-meeting-overload.png` | Leadership needs the system |
+| 2 | 0 | `meme-01-ai-chaos.png` | AI chaos |
+| 3 | 2 | `meme-04-delegation-bottleneck.png` | Delegation bottleneck |
+| 4 | 5 | `reward_2.png` | Keep the structure on your desk |
+| 5 | 4 | `meme-02-meeting-overload.png` | Leadership needs the system |
 
-Sides: left for both beats.
+Section flow between beats: `BeforeAfter` → `ExecutiveModules` (`#context`) → `PromoBanner` → `ClarityDemo` (`#demo`) → **meme index 5** → `SafetyCheck` → `CourseCTA` (`#kit`) → `AuthorityBridge` → `PromptAnatomy` → `RoiPath` → **meme index 4** → `Faq` → …
+
+Index `1` in `memes.items` is not mounted on the page today (reserved / spare).
 
 Implementation rules:
 

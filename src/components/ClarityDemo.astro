@@ -1,4 +1,5 @@
 ---
+import SectionHeader from "./SectionHeader.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -12,18 +13,8 @@ const scenarioKeys = ["meeting", "report", "decision", "delegation", "communicat
 const defaultScenario = demo.scenarios.meeting;
 ---
 
-<section id="demo" class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-  <div class="mx-auto max-w-3xl text-center">
-    <p class="text-sm font-semibold tracking-[0.18em] text-brand-accent">
-      {demo.eyebrow}
-    </p>
-    <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
-      {demo.title}
-    </h2>
-    <p class="mt-5 text-lg leading-8 text-slate-300">
-      {demo.subtitle}
-    </p>
-  </div>
+<section id="demo" class="section-y mx-auto max-w-7xl px-5 sm:px-8">
+  <SectionHeader eyebrow={demo.eyebrow} title={demo.title} subtitle={demo.subtitle} />
 
   <div class="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
     {
@@ -42,32 +33,32 @@ const defaultScenario = demo.scenarios.meeting;
 
   <div class="mx-auto mt-8 max-w-3xl">
     <article
-      class="glass-card rounded-[2rem] p-6 sm:p-8"
+      class="glass-card radius-xl p-6 sm:p-8"
       aria-live="polite"
       aria-atomic="true"
     >
-      <p class="text-[10px] font-black uppercase tracking-[0.22em] text-brand-accent-hover">
+      <p class="type-micro-label text-brand-accent-hover">
         {demo.briefLabel}
       </p>
       <div class="mt-5 grid gap-4">
-        <div class="surface-accent accent-glow rounded-3xl p-5 ring-1 ring-brand-accent/30">
-          <p class="text-[10px] font-black uppercase tracking-[0.22em] text-brand-accent-hover">
+        <div class="surface-accent accent-glow radius-lg p-5 ring-1 ring-brand-accent/30">
+          <p class="type-micro-label text-brand-accent-hover">
             {demo.decision}
           </p>
           <p class="mt-2 text-base font-semibold leading-7 text-white sm:text-lg" data-demo-field="decision">
             {defaultScenario.decision}
           </p>
         </div>
-        <div class="rounded-3xl bg-emerald-300/10 p-5 ring-1 ring-emerald-200/20">
-          <p class="text-[10px] font-black uppercase tracking-[0.22em] text-emerald-100">
+        <div class="radius-lg bg-emerald-300/10 p-5 ring-1 ring-emerald-200/20">
+          <p class="type-micro-label text-emerald-100">
             {demo.action}
           </p>
           <p class="mt-2 text-base font-semibold leading-7 text-white sm:text-lg" data-demo-field="action">
             {defaultScenario.action}
           </p>
         </div>
-        <div class="surface-muted rounded-3xl p-5">
-          <p class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">
+        <div class="surface-muted radius-lg p-5">
+          <p class="text-xs font-semibold tracking-wide text-slate-400">
             {demo.insight}
           </p>
           <p class="mt-2 text-sm leading-6 text-slate-200" data-demo-field="insight">
@@ -81,13 +72,13 @@ const defaultScenario = demo.scenarios.meeting;
       <button
         type="button"
         data-copy-prompt
-        class="focus-ring cta-gradient elevate-hover rounded-full px-6 py-3 text-sm font-black uppercase tracking-[0.16em] text-slate-950 transition hover:brightness-110"
+        class="focus-ring cta-gradient type-cta-label elevate-hover rounded-full px-6 py-3 text-slate-950 transition hover:brightness-110"
       >
         {demo.copyPrompt}
       </button>
 
-      <details class="group rounded-3xl border border-white/10 bg-white/[0.03]">
-        <summary class="focus-ring summary-hover flex cursor-pointer list-none items-center gap-2 rounded-3xl px-5 py-3 text-sm font-semibold text-slate-200 outline-none transition [&::-webkit-details-marker]:hidden">
+      <details class="surface-panel radius-lg group">
+        <summary class="focus-ring summary-hover flex cursor-pointer list-none items-center gap-2 radius-lg px-5 py-3 text-sm font-semibold text-slate-200 outline-none transition [&::-webkit-details-marker]:hidden">
           <span class="block group-open:hidden">{demo.showDetails}</span>
           <span class="hidden group-open:block">{demo.hideDetails}</span>
           <svg
@@ -101,8 +92,8 @@ const defaultScenario = demo.scenarios.meeting;
           </svg>
         </summary>
         <div class="grid gap-4 border-t border-white/10 p-4 sm:p-5 md:grid-cols-2">
-          <div class="rounded-2xl bg-rose-300/10 p-4 ring-1 ring-rose-200/15">
-            <p class="text-[10px] font-black uppercase tracking-[0.22em] text-rose-100">
+          <div class="radius-md bg-rose-300/10 p-4 ring-1 ring-rose-200/15">
+            <p class="type-micro-label text-rose-100">
               {demo.risks}
             </p>
             <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-rose-50" data-demo-risks>
@@ -111,8 +102,8 @@ const defaultScenario = demo.scenarios.meeting;
               ))}
             </ul>
           </div>
-          <div class="rounded-2xl bg-amber-300/10 p-4 ring-1 ring-amber-200/15">
-            <p class="text-[10px] font-black uppercase tracking-[0.22em] text-amber-100">
+          <div class="radius-md bg-amber-300/10 p-4 ring-1 ring-amber-200/15">
+            <p class="type-micro-label text-amber-100">
               {demo.questions}
             </p>
             <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-amber-50" data-demo-questions>
@@ -124,8 +115,8 @@ const defaultScenario = demo.scenarios.meeting;
         </div>
       </details>
 
-      <details class="group rounded-3xl border border-white/10 bg-white/[0.03]">
-        <summary class="focus-ring summary-hover flex cursor-pointer list-none items-center gap-2 rounded-3xl px-5 py-3 text-sm font-semibold text-slate-200 outline-none transition [&::-webkit-details-marker]:hidden">
+      <details class="surface-panel radius-lg group">
+        <summary class="focus-ring summary-hover flex cursor-pointer list-none items-center gap-2 radius-lg px-5 py-3 text-sm font-semibold text-slate-200 outline-none transition [&::-webkit-details-marker]:hidden">
           <span class="block group-open:hidden">{demo.showInput}</span>
           <span class="hidden group-open:block">{demo.hideInput}</span>
           <svg
@@ -139,7 +130,7 @@ const defaultScenario = demo.scenarios.meeting;
           </svg>
         </summary>
         <div class="border-t border-white/10 p-4 sm:p-5">
-          <p class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-500">
+          <p class="text-xs font-semibold tracking-wide text-slate-500">
             {demo.messyInputLabel}
           </p>
           <p class="mt-3 text-sm leading-6 text-slate-200" data-demo-field="input">
@@ -157,8 +148,8 @@ const defaultScenario = demo.scenarios.meeting;
     >{defaultScenario.prompt}</pre>
   </div>
 
-  <div class="mx-auto mt-12 max-w-4xl rounded-[1.75rem] border border-brand-accent/25 bg-brand-accent/[0.07] px-6 py-6 text-center sm:text-left">
-    <p class="text-xs font-semibold tracking-[0.18em] text-brand-accent-hover">
+  <div class="radius-lg mx-auto mt-12 max-w-4xl border border-brand-accent/25 bg-brand-accent/[0.07] px-6 py-6 text-center sm:text-left">
+    <p class="type-eyebrow-inline text-brand-accent-hover">
       {demo.followUpEyebrow}
     </p>
     <div class="mt-2 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -167,7 +158,7 @@ const defaultScenario = demo.scenarios.meeting;
       </p>
       <a
         href="#kit"
-        class="focus-ring cta-gradient elevate-hover shrink-0 rounded-full px-5 py-3 text-center text-sm font-black uppercase tracking-[0.16em] text-slate-950 transition hover:brightness-110"
+        class="focus-ring cta-gradient type-cta-label elevate-hover shrink-0 rounded-full px-5 py-3 text-center text-slate-950 transition hover:brightness-110"
       >
         {demo.followUpCta}
       </a>

@@ -25,6 +25,8 @@ export function buildClientCopyPayload(copy: LocaleBundle) {
       steps: copy.roiPath.steps,
       copyPrompt: copy.roiPath.copyPrompt,
       copied: copy.roiPath.copied,
+      panelProgressTemplate: copy.roiPath.panelProgressTemplate,
+      useStepCopy: copy.roiPath.useStepCopy,
     },
     library: copy.library,
   };

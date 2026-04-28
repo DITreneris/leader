@@ -4,6 +4,47 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 ## 2026-04-28
 
+### Summary
+- **PromptLibrary:** Removed **“Start with 7”** (picker + seven starter cards + starter headline block); [`PromptLibrary.astro`](src/components/PromptLibrary.astro) now opens with `#kit` link (`pdfAgain`) then the **full copyable library** accordion only. Deleted `library.starter` from [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts).
+- **FAQ absorbs “OS fit”:** Removed standalone `SystemVisual` section from the page; merged model → kit → quality bar into the FAQ answer *“What is this vs a prompt list?”* (EN/LT). Section uses `id="faq"`. Locale keys `systemVisual` removed; JSON-LD FAQPage still driven by `faq.items`.
+- **RoiPath (hierarchy / “one moment” UX):** Desktop weekly cycle emphasizes **one active step** (full card + time); inactive steps are smaller, faded, title-only—circle reads as navigation. Right panel shows progress (“Step X of 6”), time → action → single hook (`value`), no long `description`; primary CTA **Use this step** (`useStepCopy`, EN/LT). Center copy shortened; `panelAriaLabel`, `panelProgressTemplate`, shortened `panelHint`. Mobile `<details>` summary tightened (action → time → value); full text stays in expanded body. **`window.__PA_COPY__.roiPath`** extended with `panelProgressTemplate` + `useStepCopy` in [`src/utils/clientCopyPayload.ts`](src/utils/clientCopyPayload.ts).
+- **ClarityDemo:** EN/LT demo copy (KISS/Marry)—brief-aligned prompts, shorter subtitle.
+- **Memes:** Post–`ClarityDemo` beat with `reward_2.png` (`memes.items[5]`); **live page has five** `MemeMoment` placements (indices `3`, `0`, `2`, `5`, `4` in [`src/layouts/Page.astro`](src/layouts/Page.astro)).
+- **SafetyCheck:** Tool-style layout (~70/30), hero prompt block, compact `details` check rail; EN/LT `safety` SCAN/DEEP strings.
+- **Premium UI unification:** Centralized **radius**, **typography roles**, and **section vertical rhythm** in [`src/styles/global.css`](src/styles/global.css); shared [`SectionHeader.astro`](src/components/SectionHeader.astro); landing sections refactored to the new utilities; all **MemeMoment** accents on the live page set to **gold**; [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) documents visual tokens.
+
+### Changed (Premium UI / design system utilities)
+- **`global.css`:** Added `--radius-sm` … `--radius-xl`, helpers `.radius-sm` … `.radius-xl`, `.radius-meme-outer` / `.radius-meme-inner`, typography utilities (`.type-section-eyebrow`, `.type-eyebrow-promo`, `.type-eyebrow-promo-bright`, `.type-eyebrow-inline`, `.type-form-label`, `.type-micro-label`, `.type-cta-label`), section rhythm (`.section-y`, `.section-y-tight`, `.section-y-compact`, `.section-y-roomy-lg`), and `.border-surface`.
+- **`SectionHeader.astro`:** New shared block (`eyebrow`, `title`, `subtitle`, `titleId`, `align`, `eyebrowTone`); wired into [`ExecutiveModules.astro`](src/components/ExecutiveModules.astro), [`ClarityDemo.astro`](src/components/ClarityDemo.astro), [`RoiPath.astro`](src/components/RoiPath.astro), [`BeforeAfter.astro`](src/components/BeforeAfter.astro), [`AuthorityBridge.astro`](src/components/AuthorityBridge.astro).
+- **Spacing + radius sweep:** Major sections use `.section-y*` instead of mixed `py-*`; arbitrary `rounded-[…rem]` replaced with `.radius-*` (incl. [`PromptLibrary.astro`](src/components/PromptLibrary.astro), [`CourseCTA.astro`](src/components/CourseCTA.astro), [`HeroBento.astro`](src/components/HeroBento.astro), [`FlowScheme.astro`](src/components/FlowScheme.astro), [`QuickPractice.astro`](src/components/QuickPractice.astro), [`Faq.astro`](src/components/Faq.astro)).
+- **`Page.astro`:** Every [`MemeMoment`](src/components/MemeMoment.astro) uses `accent="gold"`; meme aside uses `.section-y-tight` + meme radius utilities.
+- **`ClarityDemo.astro`:** Insight and messy-input labels use softer sentence-style emphasis; disclosure shells align with `surface-panel` / shared radii; CTA / follow-up use `.type-cta-label` where applicable.
+- **Consistency pass:** [`PromptAnatomy.astro`](src/components/PromptAnatomy.astro), [`PromoBanner.astro`](src/components/PromoBanner.astro), [`SafetyCheck.astro`](src/components/SafetyCheck.astro), [`HeroTrust.astro`](src/components/HeroTrust.astro) updated for promo/form/CTA classes; **SoT** lists the token set.
+
+### Changed (PromptLibrary: kill “Start with 7”)
+- **`PromptLibrary.astro`:** Removed starter headline, workflow picker, seven-card grid, starter pill note, and workflow scroll script; kept `#library`, `pdfAgain` → `#kit` above the accordion, and full 35-prompt nested accordion.
+- **`en.ts` / `lt.ts`:** Removed entire `library.starter` object.
+- **Docs:** [`README.md`](README.md), [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md), and [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md) updated (no “7 starters” / workflow-picker QA steps).
+
+### Changed (FAQ absorbs OS-fit; remove SystemVisual)
+- **`Page.astro`:** Drops `SystemVisual` import and component; FAQ sits directly above `PromptLibrary`.
+- **`Faq.astro`:** `id="faq"` on the section for `#faq` links.
+- **`en.ts` / `lt.ts`:** Deleted `systemVisual` object; expanded the second FAQ answer with the former system-visual framing.
+
+### Changed (RoiPath hierarchy UX)
+- **`RoiPath.astro`:** `data-active` + Tailwind split so inactive ring chips are smaller/faded/title-only and the active step keeps the full card (time + action + accent border/glow); circle behaves as navigation. Desktop panel drops long `description`; adds dynamic progress (`panelProgressTemplate`), hook emphasis on `value`, primary **`useStepCopy`** button + `data-copy-label-i18n`; `setActive` fills progress and drops description handling.
+- **`en.ts` / `lt.ts`:** Added `panelAriaLabel`, `panelProgressTemplate`, `useStepCopy`; shortened `centerText` and `panelHint`; removed unused `panelLabel`.
+- **`clientCopyPayload.ts`:** Serializes `roiPath.panelProgressTemplate` and `roiPath.useStepCopy` for inline ROI scripts + clipboard labels.
+
+### Changed (SafetyCheck tool layout)
+- **#safety-check:** Reflowed to ~70/30 grid (prompt column first, wider); prompt `<pre>` is the hero (no `max-h-32` crop; scroll with max height for long prompts); single primary copy CTA placed under the prompt; right rail is compact `details`/summary rows with scan labels, icons, and deep text when expanded. Updated EN/LT `safety` strings to SCAN/DEEP pairs and shorter headlines. Files: [`src/components/SafetyCheck.astro`](src/components/SafetyCheck.astro), [`src/content/locales/en.ts`](src/content/locales/en.ts), [`src/content/locales/lt.ts`](src/content/locales/lt.ts).
+
+### Changed (post-demo meme)
+- **After `ClarityDemo`:** Added a `MemeMoment` (`reward_2.png`, `memes.items[5]`) immediately after the demo follow-up (“Keep the structure on your desk” / printable kit band), with matching EN/LT copy. Updated [`src/layouts/Page.astro`](src/layouts/Page.astro), [`src/content/locales/en.ts`](src/content/locales/en.ts), [`src/content/locales/lt.ts`](src/content/locales/lt.ts), [`public/assets/memes/README.md`](public/assets/memes/README.md), and [`docs/VISUAL_CONTENT_MAP.md`](docs/VISUAL_CONTENT_MAP.md).
+
+### Changed (ClarityDemo KISS + Marry copy)
+- **Demo EN/LT:** Replaced the `demo` subtitle buzzphrase with a concrete line aligned to Lithuanian meaning; removed “honest frame” from Communication; split dense next-action lines where needed; aligned every scenario `prompt` with the visible Brief (insight, decision, risks/questions, next action), including Communication’s Fact→Reason→Impact→Unchanged→Next-step structure and Delegation’s audience/strategic angle/review criteria. Updated `src/content/locales/en.ts` and `src/content/locales/lt.ts`.
+
 ### Changed (hero clarity refresh)
 - **Hero message + conversion:** Reframed the hero for 2-second scanning: shortened the value prop to one promise (clarity/decisions), rewrote the subtitle to outcome-first (no “fill fields / copy prompt” mechanics), and switched the hero to a **single primary CTA** that opens PromptAnatomy (secondary button removed from the hero row). Updated EN/LT hero keys in `src/content/locales/en.ts` + `src/content/locales/lt.ts`.
 - **Hero right-side artifact:** Simplified `HeroBento.astro` to a 3-block executive brief legend (**Decision**, **Risks**, **Next action**) and removed the abstract chips (“Schema / Output shape / Decision-grade”) plus the process strip (“Context → Module → Brief → Safety”) to avoid “system diagram disguised as UI.” Kept the premium accent mapping (gold decision, rose risks, emerald action) and updated EN/LT `heroBento.title`.
@@ -24,7 +65,7 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 - **Before/after proof:** Added a minimal premium before/after SVG (`public/assets/graphics/before-after.svg`) and surfaced it near the top of the page as a one-screen transformation proof (EN/LT).
 
 ### Changed (meme beats)
-- **Meme order + reduction:** Set `meme-03-clear-decision` (index `3`) as the first meme beat right after the hero, and reduced the page to **two** meme moments total (indices `3` and `4`).
+- **Meme order:** Set `meme-03-clear-decision` (index `3`) as the first meme beat right after the hero. Further beats use indices `0`, `2`, `5`, and `4` in [`src/layouts/Page.astro`](src/layouts/Page.astro) (see *Changed (post-demo meme)* and [`public/assets/memes/README.md`](public/assets/memes/README.md)). *Earlier “two beats only” wording is outdated.*
 - **No eyebrow:** Removed the eyebrow label from `MemeMoment.astro` so each meme is a single recognition beat (image + title + body only).
 
 ### Changed (Phase 0–1 spine)
@@ -32,7 +73,7 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 - **Modules clarity:** Added a one-line “Start here” guide above the module grid to reduce first-time decision overload (EN/LT).
 - **Demo CTA ladder:** Upgraded the post-demo follow-up into a single clear CTA button that jumps to `#kit` (EN/LT).
 - **Safety dedup:** `RoiPath` now links to `#safety-check` for the safety step instead of duplicating the full safety prompt for copy.
-- **Meme docs alignment:** Fixed `Page.astro` meme index documentation to match the live order (`3,0,2,4`) and `docs/VISUAL_CONTENT_MAP.md`.
+- **Meme docs alignment:** Fixed `Page.astro` meme index documentation to match the live order (`3`, `0`, `2`, `5`, `4`) and `docs/VISUAL_CONTENT_MAP.md`.
 
 ### Changed (codebase improvement roadmap)
 - **Docs:** Added [`docs/README.md`](docs/README.md) as documentation index; expanded [`AGENTS.md`](AGENTS.md) **Documentation map**; fuller **Source of truth** list in [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md); [`README.md`](README.md) synced with landing flow + doc links; **Executive summary** block at top of [`docs/STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md).

@@ -1,4 +1,5 @@
 ---
+import SectionHeader from "./SectionHeader.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -9,21 +10,22 @@ interface Props {
 const { lang } = Astro.props;
 const roiPath = uiCopy[lang].roiPath;
 const steps = roiPath.steps;
+const progressInitial = roiPath.panelProgressTemplate.replace("{current}", "1");
 
 const accentClass = (accent: string) => {
   switch (accent) {
     case "risk":
-      return "data-[active=true]:border-rose-200/60 data-[active=true]:shadow-[0_0_60px_rgba(244,63,94,0.18)] hover:border-rose-200/35";
+      return "data-[active=true]:border-rose-200/60 data-[active=true]:shadow-[0_0_60px_rgba(244,63,94,0.18)] data-[active=true]:hover:border-rose-200/45";
     case "analysis":
-      return "data-[active=true]:border-sky-200/55 data-[active=true]:shadow-[0_0_60px_rgba(56,189,248,0.14)] hover:border-sky-200/30";
+      return "data-[active=true]:border-sky-200/55 data-[active=true]:shadow-[0_0_60px_rgba(56,189,248,0.14)] data-[active=true]:hover:border-sky-200/40";
     case "decision":
-      return "data-[active=true]:border-amber-200/70 data-[active=true]:shadow-[0_0_60px_rgba(232,185,60,0.20)] hover:border-amber-200/45";
+      return "data-[active=true]:border-amber-200/70 data-[active=true]:shadow-[0_0_60px_rgba(232,185,60,0.20)] data-[active=true]:hover:border-amber-200/55";
     case "execution":
-      return "data-[active=true]:border-emerald-200/55 data-[active=true]:shadow-[0_0_60px_rgba(16,185,129,0.14)] hover:border-emerald-200/30";
+      return "data-[active=true]:border-emerald-200/55 data-[active=true]:shadow-[0_0_60px_rgba(16,185,129,0.14)] data-[active=true]:hover:border-emerald-200/45";
     case "communication":
-      return "data-[active=true]:border-violet-200/55 data-[active=true]:shadow-[0_0_60px_rgba(167,139,250,0.14)] hover:border-violet-200/30";
+      return "data-[active=true]:border-violet-200/55 data-[active=true]:shadow-[0_0_60px_rgba(167,139,250,0.14)] data-[active=true]:hover:border-violet-200/45";
     default:
-      return "data-[active=true]:border-brand-accent/60 data-[active=true]:shadow-[0_0_60px_rgba(207,167,58,0.22)] hover:border-brand-accent/40";
+      return "data-[active=true]:border-brand-accent/60 data-[active=true]:shadow-[0_0_60px_rgba(207,167,58,0.22)] data-[active=true]:hover:border-brand-accent/50";
   }
 };
 
@@ -37,25 +39,20 @@ const desktopPositions = [
 ] as const;
 ---
 
-<section class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-  <div class="mx-auto max-w-3xl text-center">
-    <p class="text-sm font-bold uppercase tracking-[0.28em] text-brand-accent">
-      {roiPath.eyebrow}
-    </p>
-    <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
-      {roiPath.title}
-    </h2>
-    <p class="mt-5 text-lg leading-8 text-slate-300">
-      {roiPath.subtitle}
-    </p>
-  </div>
+<section class="section-y mx-auto max-w-7xl px-5 sm:px-8">
+  <SectionHeader
+    eyebrow={roiPath.eyebrow}
+    title={roiPath.title}
+    subtitle={roiPath.subtitle}
+    eyebrowTone="promo"
+  />
 
   <!-- Desktop: weekly cycle -->
   <div class="mt-10 hidden lg:block">
     <div class="mx-auto grid max-w-6xl items-center gap-6 lg:grid-cols-[1fr_0.95fr]">
       <div class="relative mx-auto w-full max-w-[44rem]">
-        <div class="glass-card relative aspect-square overflow-hidden rounded-[2.5rem] p-8">
-          <div class="pointer-events-none absolute inset-x-10 top-0 h-32 rounded-full bg-brand-accent/15 blur-3xl"></div>
+        <div class="glass-card radius-xl relative aspect-square overflow-hidden p-8">
+          <div class="pointer-events-none absolute inset-x-10 top-0 h-28 rounded-full bg-brand-accent/12 blur-2xl"></div>
 
           <svg
             class="pointer-events-none absolute inset-0 h-full w-full"
@@ -83,27 +80,33 @@ const desktopPositions = [
             />
           </svg>
 
-          <div class="absolute left-1/2 top-1/2 w-[58%] -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{roiPath.centerLabel}</p>
-            <p class="mt-3 text-base font-bold leading-7 text-slate-200">{roiPath.centerText}</p>
+          <div class="absolute left-1/2 top-1/2 w-[62%] max-w-[14rem] -translate-x-1/2 -translate-y-1/2 text-center">
+            <p class="type-micro-label text-brand-accent-hover sm:text-xs">{roiPath.centerLabel}</p>
+            <p class="mt-2 text-sm font-bold leading-snug text-slate-300">{roiPath.centerText}</p>
           </div>
 
           {steps.map((step, index) => (
             <button
               type="button"
               data-roi-step={index}
+              data-active={index === 0 ? "true" : "false"}
               aria-controls="roi-step-panel"
               aria-pressed={index === 0 ? "true" : "false"}
               class:list={[
-                "focus-ring absolute z-10 w-[12rem] rounded-[1.75rem] border border-white/10 bg-slate-950/40 p-4 text-left transition",
-                "hover:shadow-[0_0_40px_rgba(148,163,184,0.12)]",
-                accentClass(step.accent),
+                "group focus-ring absolute radius-lg text-left transition-all duration-200 ease-out",
                 desktopPositions[index],
+                "data-[active=false]:z-[11] data-[active=false]:w-[9rem] data-[active=false]:max-w-[9rem] data-[active=false]:scale-[0.92] data-[active=false]:opacity-[0.52] data-[active=false]:border-transparent data-[active=false]:bg-slate-950/25 data-[active=false]:p-2.5 data-[active=false]:shadow-none data-[active=false]:hover:bg-white/[0.04]",
+                "data-[active=true]:z-20 data-[active=true]:w-[12.5rem] data-[active=true]:max-w-[13rem] data-[active=true]:scale-100 data-[active=true]:opacity-100 data-[active=true]:border data-[active=true]:border-white/10 data-[active=true]:bg-slate-950/40 data-[active=true]:p-4 data-[active=true]:shadow-[0_0_44px_rgba(148,163,184,0.14)]",
+                accentClass(step.accent),
               ]}
             >
-              <p class="text-xs font-black uppercase tracking-[0.18em] text-brand-accent-hover">0{index + 1}</p>
-              <p class="mt-2 text-sm font-black text-white">{step.time}</p>
-              <p class="mt-2 text-sm font-bold text-slate-200">{step.action}</p>
+              <p class="type-micro-label text-brand-accent-hover group-data-[active=true]:text-xs">
+                0{index + 1}
+              </p>
+              <p class="mt-1 hidden text-sm font-black text-white group-data-[active=true]:mt-2 group-data-[active=true]:block">{step.time}</p>
+              <p class="mt-1 line-clamp-3 text-[0.68rem] font-bold leading-snug text-slate-300 group-data-[active=true]:mt-2 group-data-[active=true]:line-clamp-none group-data-[active=true]:text-sm group-data-[active=true]:font-bold group-data-[active=true]:text-white">
+                {step.action}
+              </p>
             </button>
           ))}
         </div>
@@ -111,36 +114,39 @@ const desktopPositions = [
 
       <aside
         id="roi-step-panel"
-        class="glass-card rounded-[2rem] p-7"
+        class="glass-card radius-xl p-7"
         role="region"
         aria-live="polite"
-        aria-label={roiPath.panelLabel}
+        aria-label={roiPath.panelAriaLabel}
       >
-        <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{roiPath.panelLabel}</p>
-        <p class="mt-4 text-3xl font-black text-brand-accent-hover" data-roi-panel="time"></p>
-        <h3 class="mt-3 text-2xl font-black text-white" data-roi-panel="action"></h3>
-        <p class="mt-3 text-base leading-7 text-slate-200" data-roi-panel="value"></p>
-        <p class="mt-4 text-sm leading-6 text-slate-300" data-roi-panel="description"></p>
+        <p class="type-eyebrow-promo-bright" data-roi-panel="progress">
+          {progressInitial}
+        </p>
+        <p class="mt-5 text-3xl font-black text-brand-accent-hover" data-roi-panel="time"></p>
+        <h3 class="mt-2 text-2xl font-black leading-tight text-white" data-roi-panel="action"></h3>
+        <p class="mt-4 border-l-2 border-brand-accent/35 pl-4 text-base leading-7 text-slate-200" data-roi-panel="value"></p>
 
-        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <button
-            type="button"
-            data-roi-panel-copy
-            data-copy-i18n="roiPath.steps.0.prompt"
-            data-copy-label-i18n="roiPath.copyPrompt"
-            data-copy-copied-i18n="roiPath.copied"
-            class="focus-ring btn-outline-accent elevate-hover rounded-full px-4 py-3 text-sm font-bold"
-          >
-            {roiPath.copyPrompt}
-          </button>
-          <a
-            href="#safety-check"
-            data-roi-panel-safety-link
-            class="focus-ring hidden rounded-full border border-white/15 px-4 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-brand-accent-hover/60 hover:bg-white/5"
-          >
-            {roiPath.safetyJump}
-          </a>
-          <p class="text-xs leading-5 text-slate-300">{roiPath.panelHint}</p>
+        <div class="mt-7 flex flex-col gap-3">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button
+              type="button"
+              data-roi-panel-copy
+              data-copy-i18n="roiPath.steps.0.prompt"
+              data-copy-label-i18n="roiPath.useStepCopy"
+              data-copy-copied-i18n="roiPath.copied"
+              class="focus-ring btn-outline-accent elevate-hover shrink-0 rounded-full px-5 py-3 text-sm font-bold"
+            >
+              {roiPath.useStepCopy}
+            </button>
+            <a
+              href="#safety-check"
+              data-roi-panel-safety-link
+              class="focus-ring hidden rounded-full border border-white/15 px-5 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-brand-accent-hover/60 hover:bg-white/5"
+            >
+              {roiPath.safetyJump}
+            </a>
+          </div>
+          <p class="text-xs leading-5 text-slate-400">{roiPath.panelHint}</p>
         </div>
       </aside>
     </div>
@@ -152,53 +158,53 @@ const desktopPositions = [
       {steps.map((step, index) => (
         <li class="relative">
           {index !== steps.length - 1 && (
-            <div class="pointer-events-none absolute left-6 top-14 h-[calc(100%+1rem)] w-px bg-gradient-to-b from-brand-accent/20 via-brand-accent/10 to-transparent"></div>
+            <div class="pointer-events-none absolute left-[1.125rem] top-11 h-[calc(100%+0.75rem)] w-px bg-gradient-to-b from-brand-accent/20 via-brand-accent/10 to-transparent"></div>
           )}
-          <div class="surface-panel overflow-hidden rounded-[1.75rem] p-5">
-          <details class="group">
-            <summary class="focus-ring summary-hover cursor-pointer list-none outline-none">
-              <div class="flex items-start gap-4">
-                <div class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-brand-accent/10 text-sm font-black text-brand-accent-hover">
-                  0{index + 1}
+          <div class="surface-panel radius-lg overflow-hidden p-5">
+            <details class="group relative">
+              <summary class="focus-ring summary-hover cursor-pointer list-none pr-10 outline-none">
+                <div class="flex items-start gap-3">
+                  <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-accent/10 text-xs font-black text-brand-accent-hover">
+                    0{index + 1}
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <h3 class="text-base font-black leading-snug text-white">{step.action}</h3>
+                    <p class="mt-1 text-xs font-semibold tracking-wide text-brand-accent-hover">{step.time}</p>
+                    <p class="mt-1.5 text-sm leading-snug text-slate-400">{step.value}</p>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="absolute right-0 top-0 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg font-black text-brand-accent transition motion-safe:group-open:rotate-45"
+                  >
+                    +
+                  </span>
                 </div>
-                <div class="flex-1">
-              <p class="mt-2 text-2xl font-black text-brand-accent-hover">{step.time}</p>
-              <h3 class="mt-3 text-lg font-black text-white">{step.action}</h3>
-              <p class="mt-2 text-sm leading-6 text-slate-300">{step.value}</p>
-              <span
-                aria-hidden="true"
-                class="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg font-black text-brand-accent transition motion-safe:group-open:rotate-45"
-              >
-                +
-              </span>
-                </div>
-              </div>
-            </summary>
+              </summary>
 
-            <div class="mt-4 border-t border-white/10 pt-4">
-              <p class="text-sm leading-6 text-slate-300">{step.description}</p>
-              <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                {step.id === "safety" ? (
-                  <a
-                    href="#safety-check"
-                    class="focus-ring rounded-full border border-white/15 px-4 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-brand-accent-hover/60 hover:bg-white/5"
-                  >
-                    {roiPath.safetyJump}
-                  </a>
-                ) : (
-                  <button
-                    type="button"
-                    data-copy-i18n={`roiPath.steps.${index}.prompt`}
-                    data-copy-label-i18n="roiPath.copyPrompt"
-                    data-copy-copied-i18n="roiPath.copied"
-                    class="focus-ring btn-outline-accent elevate-hover rounded-full px-4 py-3 text-sm font-bold"
-                  >
-                    {roiPath.copyPrompt}
-                  </button>
-                )}
+              <div class="mt-4 border-t border-white/10 pt-4">
+                <p class="text-sm leading-6 text-slate-300">{step.description}</p>
+                <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  {step.id === "safety" ? (
+                    <a
+                      href="#safety-check"
+                      class="focus-ring rounded-full border border-white/15 px-4 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-brand-accent-hover/60 hover:bg-white/5"
+                    >
+                      {roiPath.safetyJump}
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      data-copy-i18n={`roiPath.steps.${index}.prompt`}
+                      data-copy-label-i18n="roiPath.useStepCopy"
+                      data-copy-copied-i18n="roiPath.copied"
+                      class="focus-ring btn-outline-accent elevate-hover rounded-full px-4 py-3 text-sm font-bold"
+                    >
+                      {roiPath.useStepCopy}
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
-          </details>
+            </details>
           </div>
         </li>
       ))}
@@ -231,6 +237,8 @@ const desktopPositions = [
     roiPath: {
       copyPrompt: string;
       copied: string;
+      useStepCopy?: string;
+      panelProgressTemplate?: string;
       steps: RoiStep[];
     };
   };
@@ -239,12 +247,15 @@ const desktopPositions = [
   const steps = copy?.roiPath?.steps ?? [];
 
   const stepButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-roi-step]"));
+  const panelProgress = document.querySelector<HTMLElement>("[data-roi-panel=\"progress\"]");
   const panelTime = document.querySelector<HTMLElement>("[data-roi-panel=\"time\"]");
   const panelAction = document.querySelector<HTMLElement>("[data-roi-panel=\"action\"]");
   const panelValue = document.querySelector<HTMLElement>("[data-roi-panel=\"value\"]");
-  const panelDescription = document.querySelector<HTMLElement>("[data-roi-panel=\"description\"]");
   const panelCopy = document.querySelector<HTMLButtonElement>("[data-roi-panel-copy]");
   const panelSafetyLink = document.querySelector<HTMLAnchorElement>("[data-roi-panel-safety-link]");
+
+  const progressTemplate = copy?.roiPath?.panelProgressTemplate ?? "Step {current} of 6";
+  const ctaLabel = copy?.roiPath?.useStepCopy ?? copy?.roiPath?.copyPrompt ?? "Copy prompt";
 
   const setActive = (index: number) => {
     stepButtons.forEach((button) => {
@@ -255,13 +266,16 @@ const desktopPositions = [
 
     const step = steps[index];
     if (!step) return;
+
+    if (panelProgress) {
+      panelProgress.textContent = progressTemplate.replace("{current}", String(index + 1));
+    }
     if (panelTime) panelTime.textContent = step.time;
     if (panelAction) panelAction.textContent = step.action;
     if (panelValue) panelValue.textContent = step.value;
-    if (panelDescription) panelDescription.textContent = step.description;
 
     if (panelCopy) {
-      panelCopy.textContent = copy?.roiPath?.copyPrompt ?? panelCopy.textContent;
+      panelCopy.textContent = ctaLabel;
       panelCopy.dataset.copyI18n = `roiPath.steps.${index}.prompt`;
       panelCopy.removeAttribute("data-copied");
     }

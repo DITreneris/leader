@@ -49,9 +49,9 @@ The build must finish with:
 - Visual breaks explain workflow control, safety, ROI, or system thinking.
 - Two meme moments are present (indices `3,4`); they remain fragmented recognition beats (no CTA).
 - No meme moment carries a CTA or eyebrow ladder; each one is a single recognition beat.
-- The workflow-map SVG appears inside `SystemVisual` above the four-layer grid.
+- Visual breaks use memes and section rhythm; the former standalone “OS fit” block was removed—its message lives in the FAQ “vs prompt list” answer.
 - The library accordion opens the first category by default and keeps the rest collapsed.
-- The workflow picker above `Start with 7` highlights and scrolls to the matching starter card.
+- The library section uses a single outer accordion for categories; expand/collapse behaves predictably (no workflow picker).
 - The `MemeMoment` images use explicit width and height plus `loading="lazy"` to keep CLS at zero.
 - Diagrams should use SVG where possible.
 - Screenshots and larger raster assets should use AVIF/WebP when possible.
@@ -82,7 +82,7 @@ Before publishing:
 3. Test language switching.
 4. Test all scenario tabs in the clarity demo.
 5. Test prompt copy buttons.
-6. Test the workflow picker chips and library accordion expand/collapse.
+6. Test the library accordion expand/collapse (outer + inner categories).
 7. Test printable Max Value Kit download and outbound links.
 8. Confirm no meme image returns 404 in network tab.
 9. Add a daily entry to `CHANGELOG.md`.

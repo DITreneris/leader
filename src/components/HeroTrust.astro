@@ -18,7 +18,7 @@ const outcomesTitle = (t as { outcomesTitle?: string }).outcomesTitle ?? t.logos
       showLogos ? (
         <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
           <div class="lg:max-w-md">
-            <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{t.logosEyebrow}</p>
+            <p class="type-eyebrow-promo-bright">{t.logosEyebrow}</p>
             <h2 id="hero-trust-heading" class="mt-2 text-xl font-black tracking-tight text-white sm:text-2xl">
               {t.logosTitle}
             </h2>
@@ -35,7 +35,7 @@ const outcomesTitle = (t as { outcomesTitle?: string }).outcomesTitle ?? t.logos
             </div>
           </div>
           <div class="lg:max-w-xl lg:pt-1">
-            <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{t.outcomesEyebrow}</p>
+            <p class="type-eyebrow-promo-bright">{t.outcomesEyebrow}</p>
             <ul class="mt-4 space-y-4">
               {t.outcomes.map((line) => (
                 <li class="flex gap-3 text-sm leading-relaxed text-slate-200 sm:text-base">
@@ -48,7 +48,7 @@ const outcomesTitle = (t as { outcomesTitle?: string }).outcomesTitle ?? t.logos
         </div>
       ) : (
         <div class="mx-auto max-w-3xl">
-          <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{t.outcomesEyebrow}</p>
+          <p class="type-eyebrow-promo-bright">{t.outcomesEyebrow}</p>
           <h2 id="hero-trust-heading" class="mt-2 text-xl font-black tracking-tight text-white sm:text-2xl">
             {outcomesTitle}
           </h2>

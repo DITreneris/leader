@@ -9,23 +9,19 @@ export const enCopy = {
       copyManual: "Copy blocked: select the prompt text above, then press Ctrl+C (or ⌘+C on Mac).",
     },
     faq: {
-      sectionTitle: "Common questions",
+      sectionTitle: "Quick answers",
       items: [
         {
-          q: "Will my data be sent anywhere?",
-          a: "No. This site is static: no analytics here, and copying text does not upload your content.",
+          q: "Does this send my data?",
+          a: "No. Static page—nothing uploads when you copy text.",
         },
         {
-          q: "How is this different from a generic prompt list?",
-          a: "CEO/COO workflows (meetings, reports, decisions, delegation, comms) plus a safety check before you send output.",
+          q: "What is this vs a prompt list?",
+          a: "CEO/COO workflows—not a random prompt dump. The model only generates; this kit defines input, logic, and output, plus the same bar before board, client, or team sees it. Safety before send; briefs meant for real decisions every week.",
         },
         {
-          q: "Do I need a PromptAnatomy account?",
-          a: "Not for this kit. Sign in only when you use the full product.",
-        },
-        {
-          q: "Which roles is the kit designed for?",
-          a: "CEOs, COOs, and senior operators who need decision-ready output every week—not toy prompts.",
+          q: "Need a PromptAnatomy account?",
+          a: "Not for this kit. Use the full app only when you want the whole OS.",
         },
       ],
     },
@@ -33,7 +29,7 @@ export const enCopy = {
       product: "CEO/COO Max Value Kit",
       practice: "Context + modules",
       proof: "Static demo",
-      system: "How the OS fits",
+      system: "Where it sits",
       library: "Prompt library",
       demo: "See how it works",
       language: "Language",
@@ -349,19 +345,19 @@ Eliminate now:
       safetyAnchorLabel: "Full safety prompt to copy",
     },
     safety: {
-      eyebrow: "30-second executive safety check",
-      title: "Same gate as step 4—full prompt to copy.",
-      subtitle: "Four ordered checks before board, client, partner, or team sees the text.",
-      processLabel: "Run the 4 checks in order",
-      promptBlockLabel: "Full prompt to copy",
-      previewHint: "Copy pulls the full prompt. This box is only a preview.",
+      eyebrow: "Safety check",
+      title: "Use this before sending AI output.",
+      subtitle: "Run 4 checks before sending.",
+      processLabel: "4 checks",
+      promptBlockLabel: "Prompt to copy",
+      previewHint: "The button copies the full prompt above.",
       copyPrompt: "Copy safety prompt",
       copied: "Copied",
       items: [
-        ["Are the facts verified?", "What numbers, dates, names, or claims need source verification?"],
-        ["Is the wording risky?", "What wording could create legal, client, or trust exposure?"],
-        ["What context is missing?", "What would a senior operator ask before acting on this output?"],
-        ["Who owns the decision?", "What decision does this output imply, and who owns it?"],
+        ["Facts verified", "What numbers, dates, names, or claims need source verification?"],
+        ["Risk wording", "What wording could create legal, client, or trust exposure?"],
+        ["Missing context", "What would a senior operator ask before acting on this output?"],
+        ["Decision owner", "What decision does this output imply, and who owns it?"],
       ],
       prompt:
         "Act as an executive risk reviewer. Review this AI-generated text before I send or use it: [TEXT]. Context: [BOARD / CLIENT / TEAM / PARTNER]. Return 1) factual risks to verify, 2) legal or reputation risks, 3) missing context, 4) unclear decision or owner, 5) a safer revised version if needed.",
@@ -380,19 +376,16 @@ Eliminate now:
       ],
     },
     library: {
-      eyebrow: "Full copyable library",
-      title: "35 prompts for recurring CEO/COO work.",
-      subtitle: "Depth last: open one workflow when you need it.",
-      starter: {
-        eyebrow: "Start with 7",
-        title: "One starter per workflow—then go deeper if you need it.",
-        subtitle:
-          "Pick this week’s worst time sink, copy the starter, run the safety check.",
-        pickerEyebrow: "Pick this week's heaviest workflow",
-        pickerHelp: "We highlight the starter prompt for that workflow.",
-        note: "Printable kit: 7 starters + safety check + weekly path on one page.",
-        downloadCta: "Download Max Value Kit",
-      },
+      eyebrow: "Copy-ready library · no login",
+      title: "CEO/COO Prompt Library",
+      subtitle: "35 copy-ready prompts for recurring leadership work.",
+      instructions: "Pick a workflow → open a prompt → copy into AI.",
+      navAriaLabel: "Prompt categories",
+      promptSingular: "prompt",
+      promptPlural: "prompts",
+      defaultHintTitle: "Start with CEO Decisions",
+      defaultHintBody:
+        "Use these when options are messy, ownership is unclear, or risk is hidden.",
       copyPrompt: "Copy prompt",
       copied: "Copied",
       revealPrompt: "Reveal prompt",
@@ -400,7 +393,7 @@ Eliminate now:
       categories: [
         {
           title: "CEO Decisions",
-          description: "Turn options, trade-offs, and uncertainty into a decision brief.",
+          description: "Decision briefs from messy options.",
           prompts: [
             {
               title: "Board-ready recommendation",
@@ -436,7 +429,7 @@ Eliminate now:
         },
         {
           title: "COO Execution",
-          description: "Find the bottleneck, owner, operating rhythm, and delivery risk.",
+          description: "Bottlenecks, owners, rhythm, risks.",
           prompts: [
             {
               title: "Delivery risk diagnosis",
@@ -472,7 +465,7 @@ Eliminate now:
         },
         {
           title: "Meetings",
-          description: "Make leadership meetings about decisions, not status theatre.",
+          description: "Decisions, not status theatre.",
           prompts: [
             {
               title: "Decision meeting agenda",
@@ -508,7 +501,7 @@ Eliminate now:
         },
         {
           title: "Reports",
-          description: "Extract signal from long updates without reading every page first.",
+          description: "Signal from long updates, fast.",
           prompts: [
             {
               title: "One-page executive brief",
@@ -544,7 +537,7 @@ Eliminate now:
         },
         {
           title: "Delegation",
-          description: "Convert executive intent into briefs your team can execute.",
+          description: "Intent your team can execute.",
           prompts: [
             {
               title: "Delegation brief",
@@ -580,7 +573,7 @@ Eliminate now:
         },
         {
           title: "Communication",
-          description: "Write clear messages for tense, urgent, or strategic moments.",
+          description: "Clear messages when stakes are high.",
           prompts: [
             {
               title: "Tense update",
@@ -616,7 +609,7 @@ Eliminate now:
         },
         {
           title: "Safety and Quality",
-          description: "Check facts, reputation, missing context, and hallucination risk before output leaves the team.",
+          description: "Verify facts, risk, and ownership before send.",
           prompts: [
             {
               title: "Executive send-check",
@@ -655,7 +648,7 @@ Eliminate now:
     demo: {
       eyebrow: "Static demo",
       title: "Pick a scenario. Get the brief.",
-      subtitle: "Decision, owner-shaped next action, on demand.",
+      subtitle: "Decision and next action when you need them.",
       briefLabel: "Brief",
       showDetails: "Show details",
       hideDetails: "Hide details",
@@ -689,9 +682,9 @@ Eliminate now:
           risks: ["The meeting turns into updates instead of a decision.", "Sales and delivery use different assumptions.", "Hiring freeze becomes a blanket policy instead of a targeted choice."],
           questions: ["Which initiative affects revenue this quarter?", "What capacity is truly missing?", "What would we stop doing if we protect this priority?"],
           action:
-            "Open with the trade-off, force one decision, and end with owner, criteria, and deadline.",
+            "Open with the trade-off in one sentence. Then force one decision and close with owner, criteria, and deadline.",
           prompt:
-            "Analyze these leadership meeting notes for a CEO. Return the key insight, decision needed, 3 risks, 3 questions to ask, and one next action.",
+            "Analyze these leadership meeting notes for a CEO. Return the key insight (one sentence), the decision needed (one sentence), 3 risks, 3 questions to ask, and one next action.",
         },
         report: {
           label: "Report",
@@ -700,13 +693,13 @@ Eliminate now:
           insight:
             "The report hides a retention risk. Support complaints and delayed delivery may be early signals that churn will worsen before revenue shows it.",
           decision:
-            "Decide whether the next leadership action is growth push, retention intervention, or product recovery.",
+            "Choose the next leadership move: growth push, retention intervention, or product recovery.",
           risks: ["Flat revenue creates false confidence.", "Support symptoms are treated separately from product delays.", "Sales pushes for new logos while existing ARR becomes exposed."],
           questions: ["Which accounts are most at risk?", "How much ARR is tied to delayed product work?", "What customer-facing fix can ship in 14 days?"],
           action:
             "Request a one-page churn-risk brief before approving the next growth campaign.",
           prompt:
-            "Summarize this business report for a CEO. Find the hidden signal, decision needed, 3 risks, 3 questions, and one next action.",
+            "Summarize this business report for a CEO. Return the key insight (hidden signal, one sentence), the decision needed (one sentence), 3 risks, 3 questions, and one next action.",
         },
         decision: {
           label: "Decision",
@@ -721,7 +714,7 @@ Eliminate now:
           action:
             "Run a 30-day pilot with two clients and review against pre-agreed success and stop metrics.",
           prompt:
-            "Help a CEO decide between these options. Return recommendation, trade-offs, risks, decision criteria, and next action.",
+            "Help a CEO decide between these options. Return the key insight (one sentence), the decision needed (one sentence), 3 risks, 3 questions, a recommendation with trade-offs and decision criteria, and one next action.",
         },
         delegation: {
           label: "Delegation",
@@ -734,9 +727,9 @@ Eliminate now:
           risks: ["The CEO stays the editor instead of the decision maker.", "The team optimizes wording instead of strategic outcome.", "The partner receives a generic offer."],
           questions: ["What must the partner believe after reading?", "What is the non-negotiable business angle?", "What example shows the quality bar?"],
           action:
-            "Send a delegation brief with objective, audience, strategic angle, constraints, format, and review criteria.",
+            "Send a delegation brief. Spell out objective, audience, strategic angle, constraints, deliverable format, and review criteria.",
           prompt:
-            "Turn this into a delegation brief. Include objective, context, constraints, output format, and quality criteria.",
+            "Turn this into a delegation brief. Include objective, audience, strategic angle, context, constraints, deliverable format, and review criteria (what good looks like).",
         },
         communication: {
           label: "Communication",
@@ -745,13 +738,13 @@ Eliminate now:
           insight:
             "The message must reduce uncertainty first. Then it should name the trade-off, what changes, and what does not change.",
           decision:
-            "Choose the honest frame: quality protection, scope control, or resource constraint.",
+            "Pick the main narrative: protect quality, reduce scope, or name the resource limit.",
           risks: ["Vague language increases anxiety.", "Too much context sounds defensive.", "No next step creates speculation."],
           questions: ["What changes for the team tomorrow?", "What remains unchanged?", "Where should questions go?"],
           action:
-            "Send a short message with fact, reason, impact, unchanged commitments, and next step.",
+            "Draft a short internal message. Lead with the fact and why it happened, then state impact, what stays committed, and one clear next step.",
           prompt:
-            "Rewrite this leadership message. Make it clear, calm, non-defensive, and action-oriented.",
+            "Rewrite this leadership message for internal team comms. Structure the output as: Fact — Reason — Impact — What stays committed (unchanged) — Next step. Tone: clear, calm, direct—not defensive. Message or notes to improve: [paste here]",
         },
       },
     },
@@ -764,6 +757,7 @@ Eliminate now:
         ["Delegation bottleneck", "If the brief is vague, you become the editor."],
         ["Control creates results", "Random requests create random answers."],
         ["Leadership needs the system", "Your team may already be experimenting. The CEO needs a shared operating model."],
+        ["Keep the structure on your desk", "The printable kit is the same shape on paper."],
       ],
     },
     roiPath: {
@@ -771,9 +765,11 @@ Eliminate now:
       title: "From one useful prompt to a weekly leadership habit.",
       subtitle: "Rough time if you use the kit across your real weekly rhythm—not abstract “productivity.”",
       centerLabel: "Executive week",
-      centerText: "Six repeatable moves that turn AI into decision-ready output.",
-      panelLabel: "Selected step",
-      panelHint: "Copy grabs a prompt template for this step.",
+      centerText: "Six weekly moves—same rhythm each week.",
+      panelAriaLabel: "Weekly step detail",
+      panelProgressTemplate: "Step {current} of 6",
+      panelHint: "Copies this step’s prompt template.",
+      useStepCopy: "Use this step",
       safetyJump: "Use the safety prompt above →",
       copyPrompt: "Copy prompt",
       copied: "Copied",
@@ -842,17 +838,6 @@ Eliminate now:
       total: "~5 hours/week → fewer decision mistakes, clearer ownership, safer outbound communication.",
       printableOneLiner: "Six moves ≈ ~5h/week — same rhythm on one printable page.",
       printableKitLink: "Open download band",
-    },
-    systemVisual: {
-      eyebrow: "Reference · how the OS fits",
-      title: "The model gives capability. The process creates repeatable results.",
-      flowCaption: "Messy input → clear output → shared team standard.",
-      items: [
-        ["Model", "Raw generation capacity."],
-        ["Prompt kit", "How you define input, logic, and output."],
-        ["Quality check", "Facts, risks, ownership before send."],
-        ["Team standard", "Same flow across meetings, reports, delegation."],
-      ],
     },
     authority: {
       eyebrow: "Brand architecture",

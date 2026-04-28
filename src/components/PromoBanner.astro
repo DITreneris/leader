@@ -11,14 +11,14 @@ const b = uiCopy[lang].promoBanner;
 const href = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=modules&utm_campaign=handoff";
 ---
 
-<section class="mx-auto max-w-7xl px-5 py-14 sm:px-8" aria-label={b.ariaLabel}>
-  <div class="glass-card relative overflow-hidden rounded-[2rem] border border-brand-accent/25 p-7 sm:p-10">
+<section class="section-y-tight mx-auto max-w-7xl px-5 sm:px-8" aria-label={b.ariaLabel}>
+  <div class="glass-card radius-xl relative overflow-hidden border border-brand-accent/25 p-7 sm:p-10">
     <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand-accent/15 blur-3xl"></div>
     <div class="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-white/5 blur-3xl"></div>
 
     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
       <div class="max-w-2xl">
-        <p class="text-xs font-black uppercase tracking-[0.28em] text-brand-accent-hover">{b.eyebrow}</p>
+        <p class="type-eyebrow-promo-bright">{b.eyebrow}</p>
         <h2 class="mt-3 text-2xl font-black tracking-tight text-white sm:text-3xl">
           {b.title}
         </h2>
@@ -32,7 +32,7 @@ const href = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=module
           href={href}
           target="_blank"
           rel="noreferrer"
-          class="focus-ring cta-gradient elevate-hover rounded-full px-6 py-4 text-center text-sm font-black uppercase tracking-[0.16em] text-slate-950 transition hover:brightness-110"
+          class="focus-ring cta-gradient type-cta-label elevate-hover rounded-full px-6 py-4 text-center text-slate-950 transition hover:brightness-110"
         >
           {b.primaryCta}
         </a>

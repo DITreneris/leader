@@ -11,13 +11,13 @@ const flow = uiCopy[lang].flowScheme;
 ---
 
 <section
-  class="glass-card relative overflow-hidden rounded-[2rem] p-6 sm:p-8"
+  class="glass-card radius-xl relative overflow-hidden p-6 sm:p-8"
   aria-label={flow.a11yLabel}
 >
   <div class="pointer-events-none absolute inset-x-10 top-0 h-40 rounded-full bg-brand-accent/12 blur-3xl"></div>
 
   <div class="relative">
-    <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover sm:text-sm">{flow.eyebrow}</p>
+    <p class="type-eyebrow-promo-bright sm:text-sm">{flow.eyebrow}</p>
 
     <div class="mt-6 grid gap-5 sm:mt-8 lg:grid-cols-3 lg:gap-5">
       <!-- 1 Input -->
@@ -30,7 +30,7 @@ const flow = uiCopy[lang].flowScheme;
         >
           1
         </span>
-        <p class="text-xs font-bold uppercase tracking-[0.22em] text-slate-400 sm:text-sm">{flow.inputLabel}</p>
+        <p class="type-form-label text-slate-400 sm:text-sm">{flow.inputLabel}</p>
         <p class="mt-3 text-base font-semibold leading-snug text-white sm:text-lg">
           {lang === "lt" ? (
             <>
@@ -58,7 +58,7 @@ const flow = uiCopy[lang].flowScheme;
         >
           2
         </span>
-        <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-accent-hover sm:text-sm">{flow.middleLabel}</p>
+        <p class="type-form-label text-brand-accent-hover sm:text-sm">{flow.middleLabel}</p>
         <p class="mt-4 font-mono text-xs font-bold uppercase tracking-widest text-brand-accent sm:text-sm">
           {flow.middleBadge}
         </p>
@@ -74,7 +74,7 @@ const flow = uiCopy[lang].flowScheme;
         >
           3
         </span>
-        <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-accent-hover sm:text-sm">{flow.outputLabel}</p>
+        <p class="type-form-label text-brand-accent-hover sm:text-sm">{flow.outputLabel}</p>
         <ul class="mt-4 space-y-3 text-sm leading-relaxed text-slate-100 sm:text-base">
           {
             flow.outputBullets.map((line) => (

@@ -20,11 +20,11 @@ Lean bilingual CEO/COO executive prompt operating kit: **Global Context + execut
 
 ## What’s inside (single-page flow)
 
-Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md): **Hero + FlowScheme** → **HeroTrust** → **Global Context + Modules (`#context`)** → **meme beats** → **ClarityDemo** → **PromptAnatomy** → **AuthorityBridge** → **CourseCTA (`#kit`)** → **RoiPath** → **meme** → **FAQ** → **SystemVisual** → **PromptLibrary**.
+Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md): **Hero + FlowScheme** → **HeroTrust** → **Global Context + Modules (`#context`)** → **meme beats** → **ClarityDemo** → **PromptAnatomy** → **AuthorityBridge** → **CourseCTA (`#kit`)** → **RoiPath** → **meme** → **FAQ (`#faq`)** → **PromptLibrary**.
 
 - **Global Context + Modules** → define once, inject everywhere; copy a compiled module prompt (6 fixed modules + 1 Custom). Output is **readable and decision-grade** (bullets/sections, owners, deadlines).
 - **ClarityDemo** → selectable scenarios with copyable prompt + output
-- **PromptLibrary** → 7 starters + 35 prompts (accordion, depth last)
+- **PromptLibrary** → full 35-prompt library (accordion, depth last); PDF kit link above block
 - **Operating kit** → printable Max Value Kit PDF (`#kit`, HTML fallback if PDF missing)
 
 ## Stack

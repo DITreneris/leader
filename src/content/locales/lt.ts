@@ -10,23 +10,19 @@ export const ltCopy = {
         "Kopijavimas užblokuotas: pažymėk prompto tekstą aukščiau ir spausk Ctrl+C (arba ⌘+C Mac).",
     },
     faq: {
-      sectionTitle: "Dažni klausimai",
+      sectionTitle: "Trumpai",
       items: [
         {
-          q: "Ar mano duomenys bus kažkur siunčiami?",
-          a: "Ne. Puslapis statinis: analitikos čia nėra, kopijavimas nekelia turinio pas mus.",
+          q: "Ar duomenys kažkur siunčiami?",
+          a: "Ne. Statinis puslapis—kopijuojant niekas neužkraunama.",
         },
         {
-          q: "Kuo tai skiriasi nuo bendro promptų sąrašo?",
-          a: "CEO/COO darbo eigos (susitikimai, ataskaitos, sprendimai, delegavimas, komunikacija) ir patikra prieš siunčiant.",
+          q: "Kuo tai ne eilinis promptų sąrašas?",
+          a: "Ne atsitiktinių promptų kratinys: modelis tik generuoja—rinkinys apibrėžia įvestį, logiką ir rezultatą bei tą pačią kartelę prieš valdybą, klientą ar komandą. CEO/COO darbo eiga; patikra prieš siunčiant.",
         },
         {
           q: "Ar reikia PromptAnatomy paskyros?",
-          a: "Rinkiniui ne. Prisijunk tik naudodamas pilną produktą.",
-        },
-        {
-          q: "Kokioms rolėms skirtas rinkinys?",
-          a: "CEO, COO ir vyresniems operatoriams, kuriems reikia sprendimui paruošto rezultato kas savaitę—ne žaislinių promptų.",
+          a: "Ne šiam rinkiniui. Pilnai naudok tik kai nori visos sistemos.",
         },
       ],
     },
@@ -34,7 +30,7 @@ export const ltCopy = {
       product: "CEO/COO Max Value Kit",
       practice: "Kontekstas + moduliai",
       proof: "Statinė demo",
-      system: "Kaip telpa sistema",
+      system: "Vieta sistemoje",
       library: "Promptų biblioteka",
       demo: "Žiūrėti kaip veikia",
       language: "Kalba",
@@ -357,19 +353,19 @@ Apatiniai 30% delegavimui:
       safetyAnchorLabel: "Pilnas saugumo promptas kopijavimui",
     },
     safety: {
-      eyebrow: "30 sek. vadovo saugumo patikra",
-      title: "Tas pats filtras kaip 4 žingsnyje—pilnas promptas čia.",
-      subtitle: "Keturios patikros eilėje prieš tai, kai tekstą mato valdyba, klientas, partneris ar komanda.",
-      processLabel: "Patikrink 4 rizikas prieš siųsdamas",
-      promptBlockLabel: "Pilnas kopijuojamas promptas",
-      previewHint: "Kopijuojant paimamas pilnas promptas. Čia – tik peržiūra.",
+      eyebrow: "Saugumo patikra",
+      title: "Naudok prieš siųsdami DI išvestį.",
+      subtitle: "Paleisk 4 patikras prieš siuntimą.",
+      processLabel: "4 patikros",
+      promptBlockLabel: "Kopijuojamas promptas",
+      previewHint: "Mygtukas nukopijuos visą promptą aukščiau.",
       copyPrompt: "Kopijuoti patikros promptą",
       copied: "Nukopijuota",
       items: [
-        ["Ar faktai patikrinti?", "Kokius skaičius, datas, vardus ar teiginius reikia patikrinti šaltinyje?"],
-        ["Ar formuluotė rizikinga?", "Kokia formuluotė gali sukurti teisinę, kliento ar pasitikėjimo riziką?"],
-        ["Ko trūksta kontekste?", "Ko paklaustų patyręs vadovas, prieš veikdamas pagal šį rezultatą?"],
-        ["Kas atsako už sprendimą?", "Kokį sprendimą šis rezultatas numato ir kas už jį atsakingas?"],
+        ["Faktai patvirtinti", "Kokius skaičius, datas, vardus ar teiginius reikia patikrinti šaltinyje?"],
+        ["Rizikinga formulė", "Kokia formuluotė gali sukurti teisinę, kliento ar pasitikėjimo riziką?"],
+        ["Trūksta konteksto", "Ko paklaustų patyręs vadovas, prieš veikdamas pagal šį rezultatą?"],
+        ["Sprendimo savininkas", "Kokį sprendimą šis rezultatas numato ir kas už jį atsakingas?"],
       ],
       prompt:
         "Veik kaip vadovo rizikos peržiūrėtojas. Peržiūrėk šį DI parengtą tekstą prieš man jį siunčiant ar naudojant: [TEKSTAS]. Kontekstas: [VALDYBA / KLIENTAS / KOMANDA / PARTNERIS]. Grąžink 1) faktines rizikas patikrai, 2) teisines ar reputacijos rizikas, 3) trūkstamą kontekstą, 4) neaiškų sprendimą ar savininką, 5) saugesnę versiją, jei reikia.",
@@ -388,19 +384,16 @@ Apatiniai 30% delegavimui:
       ],
     },
     library: {
-      eyebrow: "Pilna kopijuojama biblioteka",
-      title: "35 promptai pasikartojančiam CEO/COO darbui.",
-      subtitle: "Gilyn pabaigoje: atidaryk vieną darbo eigą, kai tikrai reikia.",
-      starter: {
-        eyebrow: "Pradėk nuo 7",
-        title: "Vienas startinis promptas darbo eiga—gilyn tik jei reikia.",
-        subtitle:
-          "Pasirink savaitės didžiausią laiko dėžę, kopijuok atitinkamą starterį, paleisk saugumo patikrą.",
-        pickerEyebrow: "Pasirink šios savaitės sunkiausią darbo eigą",
-        pickerHelp: "Paryškiname startinį promptą tai darbo eigai.",
-        note: "Spausdintame rinkinyje: septyni starteriai, patikra ir savaitės kelias viename lape.",
-        downloadCta: "Atsisiųsti Max Value Kit",
-      },
+      eyebrow: "Biblioteka kopijavimui · be prisijungimo",
+      title: "CEO/COO promptų biblioteka",
+      subtitle: "35 paruoštų promptų pasikartojančiam vadovų darbui.",
+      instructions: "Pasirink darbo eigą → atverk promptą → nukopijuok į DI.",
+      navAriaLabel: "Promptų kategorijos",
+      promptSingular: "promptas",
+      promptPlural: "promptai",
+      defaultHintTitle: "Pradėk nuo CEO sprendimų",
+      defaultHintBody:
+        "Naudok, kai variantai sumišę, savininkai neaiškūs ar rizika paslėpta.",
       copyPrompt: "Kopijuoti promptą",
       copied: "Nukopijuota",
       revealPrompt: "Rodyti pilną promptą",
@@ -408,7 +401,7 @@ Apatiniai 30% delegavimui:
       categories: [
         {
           title: "CEO sprendimai",
-          description: "Variantus, kompromisus ir neapibrėžtumą paversk sprendimo briefu.",
+          description: "Sprendimo briefai iš netvarkingų variantų.",
           prompts: [
             {
               title: "Rekomendacija valdybai",
@@ -444,7 +437,7 @@ Apatiniai 30% delegavimui:
         },
         {
           title: "COO vykdymas",
-          description: "Surask butelio kaklelį, savininką, ritmą ir pristatymo riziką.",
+          description: "Butelio kaklelis, savininkai, ritmas, rizikos.",
           prompts: [
             {
               title: "Pristatymo rizikos diagnostika",
@@ -516,7 +509,7 @@ Apatiniai 30% delegavimui:
         },
         {
           title: "Ataskaitos",
-          description: "Ištrauk signalą iš ilgų atnaujinimų dar prieš perskaitydamas viską.",
+          description: "Signalas iš ilgų atnaujinimų, greitai.",
           prompts: [
             {
               title: "Vieno puslapio vadovo briefas",
@@ -552,7 +545,7 @@ Apatiniai 30% delegavimui:
         },
         {
           title: "Delegavimas",
-          description: "Vadovo intenciją paversk aiškiu briefu komandai.",
+          description: "Intencija, kurią komanda gali vykdyti.",
           prompts: [
             {
               title: "Delegavimo briefas",
@@ -588,7 +581,7 @@ Apatiniai 30% delegavimui:
         },
         {
           title: "Komunikacija",
-          description: "Rašyk aiškias žinutes įtemptais, skubiais ar strateginiais momentais.",
+          description: "Aiškios žinutės, kai statoma daug.",
           prompts: [
             {
               title: "Įtemptas atnaujinimas",
@@ -624,7 +617,7 @@ Apatiniai 30% delegavimui:
         },
         {
           title: "Saugumas ir kokybė",
-          description: "Patikrink faktus, reputaciją, trūkstamą kontekstą ir haliucinacijų riziką, prieš naudodamas rezultatą.",
+          description: "Patikrink faktus, riziką ir savininką prieš siunčiant.",
           prompts: [
             {
               title: "Vadovo siuntimo patikra",
@@ -697,9 +690,9 @@ Apatiniai 30% delegavimui:
           risks: ["Susitikimas virs atnaujinimų aptarimu, ne sprendimu.", "Pardavimai ir pristatymas remsis skirtingomis prielaidomis.", "Įdarbinimo stabdymas taps bendra politika, o ne tiksliniu pasirinkimu."],
           questions: ["Kuri iniciatyva keičia šio ketvirčio pajamas?", "Kokio pajėgumo iš tikrųjų trūksta?", "Ko atsisakytume, jei saugome šį prioritetą?"],
           action:
-            "Pradėti nuo pasirinkimo, priversti vieną sprendimą ir baigti savininku, kriterijais bei terminu.",
+            "Pradėk nuo kompromiso viename sakinyje. Tada išgrynink vieną sprendimą ir užbaik su savininku, kriterijais ir terminu.",
           prompt:
-            "Išanalizuok šiuos vadovų susitikimo užrašus CEO lygiu. Grąžink pagrindinę įžvalgą, reikalingą sprendimą, 3 rizikas, 3 klausimus ir vieną kitą veiksmą.",
+            "Išanalizuok šiuos vadovų susitikimo užrašus CEO lygiu. Grąžink pagrindinę įžvalgą (vienas sakinys), reikalingą sprendimą (vienas sakinys), 3 rizikas, 3 klausimus ir vieną kitą veiksmą.",
         },
         report: {
           label: "Ataskaita",
@@ -708,13 +701,13 @@ Apatiniai 30% delegavimui:
           insight:
             "Ataskaitoje slepiasi klientų išlaikymo rizika. Skundai ir produkto vėlavimai gali būti ankstyvas signalas, kad klientų netekimas didės dar prieš pajamoms tai parodant.",
           decision:
-            "Nuspręsti, ar kitas vadovų veiksmas yra augimo kampanija, klientų išlaikymo intervencija, ar produkto atstatymas.",
+            "Nuspręsti kitą vadovų veiksmą: augimo kampanija, klientų išlaikymo intervencija arba produkto atstatymas.",
           risks: ["Stabilios pajamos sukuria klaidingą ramybę.", "Aptarnavimo simptomai atskiriami nuo produkto vėlavimų.", "Pardavimai stumia naujus klientus, kai esamos pajamos tampa rizikingos."],
           questions: ["Kurie klientai rizikingiausi?", "Kiek ARR susieta su vėluojančiais produkto darbais?", "Kokį klientui matomą pataisymą galime pristatyti per 14 dienų?"],
           action:
             "Prieš tvirtinant augimo kampaniją paprašyti vieno puslapio klientų netekimo rizikos santraukos.",
           prompt:
-            "Apibendrink šią verslo ataskaitą CEO lygiu. Rask paslėptą signalą, reikalingą sprendimą, 3 rizikas, 3 klausimus ir vieną kitą veiksmą.",
+            "Apibendrink šią verslo ataskaitą CEO lygiu. Grąžink pagrindinę įžvalgą (paslėptas signalas, vienas sakinys), reikalingą sprendimą (vienas sakinys), 3 rizikas, 3 klausimus ir vieną kitą veiksmą.",
         },
         decision: {
           label: "Sprendimas",
@@ -729,7 +722,7 @@ Apatiniai 30% delegavimui:
           action:
             "Paleisti 30 dienų pilotą su dviem klientais ir vertinti pagal iš anksto sutartas sėkmės bei stabdymo metrikas.",
           prompt:
-            "Padėk CEO pasirinkti tarp šių variantų. Grąžink rekomendaciją, kompromisus, rizikas, sprendimo kriterijus ir kitą veiksmą.",
+            "Padėk CEO pasirinkti tarp šių variantų. Grąžink pagrindinę įžvalgą (vienas sakinys), reikalingą sprendimą (vienas sakinys), 3 rizikas, 3 klausimus, rekomendaciją su kompromisais ir sprendimo kriterijais bei vieną kitą veiksmą.",
         },
         delegation: {
           label: "Delegavimas",
@@ -742,9 +735,9 @@ Apatiniai 30% delegavimui:
           risks: ["Vadovas lieka redaktoriumi, ne sprendimų priėmėju.", "Komanda optimizuoja tekstą, ne strateginį rezultatą.", "Partneris gaus bendrinį pasiūlymą."],
           questions: ["Kuo partneris turi patikėti perskaitęs?", "Koks verslo kampas yra nederamas keisti?", "Koks pavyzdys parodo kokybės kartelę?"],
           action:
-            "Nusiųsti delegavimo briefą su tikslu, auditorija, strateginiu kampu, ribomis, formatu ir vertinimo kriterijais.",
+            "Nusiųsk delegavimo briefą. Aiškiai surašyk tikslą, auditoriją, strateginį kampą, ribas, formatą ir vertinimo kriterijus.",
           prompt:
-            "Paversk tai delegavimo briefu. Įtrauk tikslą, kontekstą, ribas, formatą ir kokybės kriterijus.",
+            "Paversk tai delegavimo briefu. Įtrauk tikslą, auditoriją, strateginį kampą, kontekstą, ribas, pristatymo formatą ir vertinimo kriterijus (kaip atrodo gerai).",
         },
         communication: {
           label: "Komunikacija",
@@ -753,13 +746,13 @@ Apatiniai 30% delegavimui:
           insight:
             "Žinutė pirmiausia turi sumažinti neapibrėžtumą. Tada ji turi įvardyti pasirinkimą, kas keičiasi ir kas nesikeičia.",
           decision:
-            "Pasirinkti sąžiningą rėmą: kokybės apsauga, apimties kontrolė ar resursų riba.",
+            "Pasirinkti pagrindinį pasakojimą: saugoti kokybę, mažinti apimtį arba įvardyti resursų ribą.",
           risks: ["Neaiški kalba didins nerimą.", "Per daug konteksto skambės gynybiškai.", "Be kito žingsnio atsiras spekuliacijos."],
           questions: ["Kas komandai keičiasi rytoj?", "Kas nesikeičia?", "Kur keliauti su klausimais?"],
           action:
-            "Siųsti trumpą žinutę: faktas, priežastis, poveikis, kas nesikeičia ir kitas žingsnis.",
+            "Paruošk trumpą vidinę žinutę. Pirmiausia faktas ir priežastis, tada poveikis, kas lieka įvykdoma, ir vienas aiškus kitas žingsnis.",
           prompt:
-            "Perrašyk šią vadovo žinutę. Padaryk ją aiškią, ramią, negynybišką ir orientuotą į veiksmą.",
+            "Perrašyk šią vadovo žinutę vidinei komandai. Struktūra: Faktas — Priežastis — Poveikis — Kas lieka nepakitę (įsipareigojimai) — Kitas žingsnis. Tonas: aiškus, ramus, tiesus—ne gynybiškas. Žinutė ar užrašai: [įklijuok čia]",
         },
       },
     },
@@ -772,6 +765,7 @@ Apatiniai 30% delegavimui:
         ["Delegavimo butelio kaklelis", "Jei briefas miglotas, tu tampi redaktoriumi."],
         ["Kontrolė kuria rezultatus", "Atsitiktinės užklausos kuria atsitiktinius atsakymus."],
         ["Vadovui reikia sistemos", "Komanda jau gali eksperimentuoti. Vadovui reikia bendro veikimo modelio."],
+        ["Laikyk struktūrą po ranka", "Rinkinys popieriuje išlaiko tą pačią struktūrą."],
       ],
     },
     roiPath: {
@@ -780,9 +774,11 @@ Apatiniai 30% delegavimui:
       subtitle:
         "Apytikslė trukmė, jei naudoji rinkinį savo tikroje savaitinėje eigoje—ne abstrakčiam „produktyvumui“.",
       centerLabel: "Vadovo savaitė",
-      centerText: "Šeši kartojami žingsniai, kurie paverčia DI sprendimui paruoštu rezultatu.",
-      panelLabel: "Pasirinktas žingsnis",
-      panelHint: "Kopijuoji šio žingsnio prompto šabloną.",
+      centerText: "Šeši savaitės žingsniai—tas pats ritmas kas savaitę.",
+      panelAriaLabel: "Savaitės žingsnio detalė",
+      panelProgressTemplate: "Žingsnis {current} iš 6",
+      panelHint: "Nukopijuoja šio žingsnio prompto šabloną.",
+      useStepCopy: "Naudoti šį žingsnį",
       safetyJump: "Naudok saugumo promptą aukščiau →",
       copyPrompt: "Kopijuoti promptą",
       copied: "Nukopijuota",
@@ -851,17 +847,6 @@ Apatiniai 30% delegavimui:
       total: "~5 val. per savaitę → mažiau sprendimo klaidų, aiškesnė atsakomybė, saugesnė komunikacija.",
       printableOneLiner: "Šeši žingsniai ≈ ~5 val./sav. — tas pats ritmas viename spausdinamame lape.",
       printableKitLink: "Atidaryti atsisiuntimo juostą",
-    },
-    systemVisual: {
-      eyebrow: "Nuoroda · kaip telpa sistema",
-      title: "Modelis duoda galimybes. Procesas sukuria kartojamus rezultatus.",
-      flowCaption: "Miglota įvestis → aiškus rezultatas → bendras komandos standartas.",
-      items: [
-        ["Modelis", "Žali generavimo pajėgumai."],
-        ["Promptų rinkinys", "Kaip apibrėži įvestį, logiką ir rezultatą."],
-        ["Kokybės patikra", "Faktai, rizikos, savininkas prieš siunčiant."],
-        ["Komandos standartas", "Ta pati eiga: susitikimai, ataskaitos, delegavimas."],
-      ],
     },
     authority: {
       eyebrow: "Prekės ženklo architektūra",

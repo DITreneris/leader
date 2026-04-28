@@ -1,4 +1,5 @@
 ---
+import SectionHeader from "./SectionHeader.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -12,21 +13,14 @@ const motherHref = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=
 const sisterHref = "https://ditreneris.github.io/ceo/?utm_source=leader&utm_medium=bridge&utm_campaign=sister";
 ---
 
-<section id="bridge" class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-  <div class="mx-auto max-w-3xl text-center">
-    <p class="text-sm font-bold uppercase tracking-[0.28em] text-brand-accent">
-      {authority.eyebrow}
-    </p>
-    <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
-      {authority.title}
-    </h2>
-    <p class="mt-4 text-sm text-slate-400">{authority.chooseNext}</p>
-  </div>
+<section id="bridge" class="section-y mx-auto max-w-7xl px-5 sm:px-8">
+  <SectionHeader eyebrow={authority.eyebrow} title={authority.title} eyebrowTone="promo" />
+  <p class="mx-auto mt-4 max-w-3xl text-center text-sm text-slate-400">{authority.chooseNext}</p>
 
-  <div class="mt-10 mx-auto max-w-3xl space-y-6">
+  <div class="mx-auto mt-10 max-w-3xl space-y-6">
     <a
       href={motherHref}
-      class="focus-ring glass-card group relative block overflow-hidden rounded-[2rem] border border-brand-accent/40 p-8 transition motion-safe:hover:-translate-y-1 motion-safe:hover:border-brand-accent-hover/70"
+      class="focus-ring glass-card radius-xl group relative block overflow-hidden border border-brand-accent/40 p-8 transition motion-safe:hover:-translate-y-1 motion-safe:hover:border-brand-accent-hover/70"
     >
       <div class="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-brand-accent/15 blur-3xl"></div>
       <div class="relative flex items-center gap-3">
@@ -39,7 +33,7 @@ const sisterHref = "https://ditreneris.github.io/ceo/?utm_source=leader&utm_medi
             />
           </svg>
         </span>
-        <span class="rounded-full border border-brand-accent/40 bg-brand-accent/15 px-3 py-1 text-[10px] font-black uppercase tracking-[0.22em] text-brand-accent-hover">
+        <span class="type-micro-label rounded-full border border-brand-accent/40 bg-brand-accent/15 px-3 py-1 text-brand-accent-hover">
           {authority.mother}
         </span>
       </div>
@@ -49,8 +43,8 @@ const sisterHref = "https://ditreneris.github.io/ceo/?utm_source=leader&utm_medi
       </p>
     </a>
 
-    <div class="rounded-[1.75rem] border border-white/10 bg-white/[0.02] px-6 py-6 text-center sm:px-8">
-      <p class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-500">
+    <div class="radius-lg border border-white/10 bg-white/[0.02] px-6 py-6 text-center sm:px-8">
+      <p class="type-micro-label text-slate-500">
         {authority.sisterEyebrow}
       </p>
       <h3 class="mt-3 text-lg font-black text-white sm:text-xl">{authority.sisterTitle}</h3>

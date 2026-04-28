@@ -10,78 +10,8 @@ const { lang } = Astro.props;
 const library = uiCopy[lang].library;
 ---
 
-<section id="library" class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-  <div class="mx-auto max-w-3xl text-center">
-    <p class="text-sm font-bold uppercase tracking-[0.28em] text-brand-accent">
-      {library.starter.eyebrow}
-    </p>
-    <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
-      {library.starter.title}
-    </h2>
-    <p class="mt-5 text-lg leading-8 text-slate-300">
-      {library.starter.subtitle}
-    </p>
-  </div>
-
-  <div class="surface-panel mx-auto mt-10 max-w-4xl rounded-[1.75rem] p-5 sm:p-6">
-    <p class="text-center text-xs font-bold uppercase tracking-[0.28em] text-brand-accent">
-      {library.starter.pickerEyebrow}
-    </p>
-    <p class="mx-auto mt-3 max-w-2xl text-center text-sm leading-6 text-slate-300">
-      {library.starter.pickerHelp}
-    </p>
-    <div class="mt-5 flex flex-wrap justify-center gap-2">
-      {
-        library.categories.map((category, categoryIndex) => (
-          <button
-            type="button"
-            data-workflow-pick={categoryIndex}
-            class="focus-ring btn-chip elevate-hover min-h-11 rounded-full px-4 py-3 text-sm font-semibold"
-          >
-            {category.title}
-          </button>
-        ))
-      }
-    </div>
-  </div>
-
-  <div class="mt-8 grid gap-4 lg:grid-cols-2">
-    {
-      library.categories.map((category, categoryIndex) => {
-        const starter = category.prompts[0];
-        const path = `library.categories.${categoryIndex}.prompts.0`;
-
-        return (
-          <article
-            class="glass-card rounded-[1.75rem] p-5 transition data-[workflow-active=true]:border-brand-accent/60 data-[workflow-active=true]:shadow-[0_0_60px_rgba(207,167,58,0.22)]"
-            data-workflow-card={categoryIndex}
-          >
-            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-accent">{category.title}</p>
-                <h3 class="mt-3 text-xl font-black text-white">{starter.title}</h3>
-                <p class="mt-2 text-sm leading-6 text-slate-300">{starter.outcome}</p>
-              </div>
-              <button
-                type="button"
-                data-copy-i18n={`${path}.prompt`}
-                data-copy-label-i18n="library.copyPrompt"
-                data-copy-copied-i18n="library.copied"
-                class="focus-ring btn-outline-accent elevate-hover shrink-0 rounded-full px-4 py-3 text-sm font-bold"
-              >
-                {library.copyPrompt}
-              </button>
-            </div>
-          </article>
-        );
-      })
-    }
-  </div>
-
-  <div class="mx-auto mt-8 flex max-w-3xl flex-col items-center gap-4 text-center">
-    <p class="rounded-full border border-brand-accent/25 bg-brand-accent/15 px-5 py-3 text-sm font-bold text-brand-accent-hover">
-      {library.starter.note}
-    </p>
+<section id="library" class="section-y mx-auto max-w-7xl px-5 sm:px-8">
+  <div class="mx-auto flex max-w-3xl justify-center pb-6 text-center">
     <a
       href="#kit"
       class="focus-ring text-sm font-semibold text-brand-accent underline decoration-brand-accent/40 underline-offset-4 transition hover:text-brand-accent-hover"
@@ -90,134 +20,214 @@ const library = uiCopy[lang].library;
     </a>
   </div>
 
-  <details class="mx-auto mt-14 max-w-6xl glass-card group overflow-hidden rounded-[2rem] transition">
-    <summary class="library-summary focus-ring summary-hover cursor-pointer list-none rounded-[2rem] p-6 outline-none">
+  <details class="mx-auto max-w-6xl glass-card radius-xl group overflow-hidden transition">
+    <summary class="library-summary focus-ring summary-hover cursor-pointer list-none radius-xl p-6 outline-none">
       <div class="flex items-start justify-between gap-4">
         <div class="flex-1">
-          <p class="text-sm font-bold uppercase tracking-[0.28em] text-brand-accent">{library.eyebrow}</p>
+          <p class="type-eyebrow-promo sm:text-sm">{library.eyebrow}</p>
           <h2 class="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl">{library.title}</h2>
           <p class="mt-3 text-base leading-7 text-slate-300 sm:text-lg">{library.subtitle}</p>
+          <p class="mt-3 text-sm font-semibold leading-6 text-white sm:text-base">{library.instructions}</p>
         </div>
         <span
           aria-hidden="true"
-          class="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xl font-black text-brand-accent transition motion-safe:group-open:rotate-45 group-open:border-brand-accent/40 group-open:bg-brand-accent/15"
+          class="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-brand-accent transition group-open:border-brand-accent/40 group-open:bg-brand-accent/15"
         >
-          +
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="h-6 w-6 motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-open:rotate-180"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+              clip-rule="evenodd"></path>
+          </svg>
         </span>
       </div>
     </summary>
 
-    <div class="grid gap-5 border-t border-white/10 p-6 lg:grid-cols-2">
-      {
-        library.categories.map((category, categoryIndex) => (
-          <details class="group surface-panel rounded-[1.75rem] transition">
-            <summary class="focus-ring summary-hover cursor-pointer list-none rounded-[1.75rem] p-5 outline-none">
-              <div class="flex items-start justify-between gap-4">
-                <div class="flex-1">
-                  <p class="text-sm font-bold uppercase tracking-[0.22em] text-brand-accent">0{categoryIndex + 1}</p>
-                  <h3 class="mt-3 text-xl font-black text-white">{category.title}</h3>
-                  <p class="mt-3 leading-7 text-slate-300">{category.description}</p>
-                </div>
-                <span
-                  aria-hidden="true"
-                  class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg font-black text-brand-accent transition motion-safe:group-open:rotate-45"
+    <div
+      class="border-t border-white/10 p-6"
+      data-prompt-library-inner
+      data-initial-category="0"
+    >
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-8">
+        <nav
+          class="flex shrink-0 flex-col gap-1 lg:w-[min(100%,var(--library-nav-w))]"
+          aria-label={library.navAriaLabel}
+          style="--library-nav-w: 20rem;"
+        >
+          {
+            library.categories.map((category, categoryIndex) => {
+              const count = Number(category.prompts.length);
+              const countLabel =
+                count === 1 ? `1 ${library.promptSingular}` : `${count} ${library.promptPlural}`;
+              const isDefault = categoryIndex === 0;
+
+              return (
+                <button
+                  type="button"
+                  class:list={[
+                    "library-cat-btn focus-ring flex w-full items-center gap-3 rounded-xl border border-transparent px-3 py-3 text-left transition",
+                    "hover:border-white/10 hover:bg-white/[0.04] motion-safe:hover:brightness-110",
+                    isDefault && "library-cat-btn--active border-brand-accent/35 bg-brand-accent/10 accent-glow",
+                  ]}
+                  data-library-cat={String(categoryIndex)}
+                  aria-pressed={isDefault ? "true" : "false"}
+                  aria-controls={`library-panel-${categoryIndex}`}
+                  id={`library-nav-${categoryIndex}`}
                 >
-                  +
-                </span>
-              </div>
-            </summary>
+                  <span class="w-7 shrink-0 text-sm font-bold tabular-nums text-brand-accent">
+                    {String(categoryIndex + 1).padStart(2, "0")}
+                  </span>
+                  <span class="min-w-0 flex-1">
+                    <span class="block font-black text-white">{category.title}</span>
+                    <span class="mt-0.5 block text-xs font-semibold text-slate-400">{countLabel}</span>
+                  </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class:list={[
+                      "library-cat-chevron h-5 w-5 shrink-0 text-brand-accent motion-safe:transition-transform motion-safe:duration-200",
+                      isDefault ? "rotate-90" : "rotate-0",
+                    ]}
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8.22 5.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 11-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 010-1.06z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+              );
+            })
+          }
+        </nav>
 
-            <div class="grid gap-4 border-t border-white/10 p-5">
-              {category.prompts.map((promptItem, promptIndex) => {
-                const path = `library.categories.${categoryIndex}.prompts.${promptIndex}`;
-
-                return (
-                  <div class="surface-panel rounded-[1.5rem] p-5">
-                    <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                      <div>
-                        <h4 class="text-lg font-black text-white">{promptItem.title}</h4>
-                        <p class="mt-2 text-sm leading-6 text-slate-300">{promptItem.outcome}</p>
-                      </div>
-                      <button
-                        type="button"
-                        data-copy-i18n={`${path}.prompt`}
-                        data-copy-label-i18n="library.copyPrompt"
-                        data-copy-copied-i18n="library.copied"
-                        class="focus-ring btn-outline-accent elevate-hover shrink-0 rounded-full px-4 py-3 text-sm font-bold"
-                      >
-                        {library.copyPrompt}
-                      </button>
-                    </div>
-                    <details class="group surface-muted mt-4 overflow-hidden rounded-2xl">
-                      <summary class="focus-ring summary-hover cursor-pointer list-none px-4 py-3 text-sm font-bold text-slate-200 outline-none">
-                        {library.revealPrompt}
-                        <span
-                          aria-hidden="true"
-                          class="ml-3 inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-base font-black text-brand-accent transition motion-safe:group-open:rotate-45"
-                        >
-                          +
-                        </span>
-                      </summary>
-                      <p class="border-t border-white/10 p-4 text-sm leading-6 text-slate-200">{promptItem.prompt}</p>
-                    </details>
+        <div class="min-w-0 flex-1">
+          {
+            library.categories.map((category, categoryIndex) => (
+              <div
+                id={`library-panel-${categoryIndex}`}
+                role="region"
+                aria-labelledby={`library-nav-${categoryIndex}`}
+                class:list={["library-panel", categoryIndex !== 0 && "hidden"]}
+                data-library-panel={String(categoryIndex)}
+              >
+                {categoryIndex === 0 ? (
+                  <div class="mb-5 rounded-2xl border border-brand-accent/25 bg-brand-accent/[0.07] p-4 sm:p-5">
+                    <p class="font-bold text-white">{library.defaultHintTitle}</p>
+                    <p class="mt-2 text-sm leading-6 text-slate-300">{library.defaultHintBody}</p>
                   </div>
-                );
-              })}
-            </div>
-          </details>
-        ))
-      }
+                ) : null}
+
+                <header class="mb-4">
+                  <h3 class="text-xl font-black text-white sm:text-2xl">{category.title}</h3>
+                  <p class="mt-2 text-sm leading-6 text-slate-400">{category.description}</p>
+                </header>
+
+                <ol class="grid gap-3" role="list">
+                  {category.prompts.map((promptItem, promptIndex) => {
+                    const path = `library.categories.${categoryIndex}.prompts.${promptIndex}`;
+                    const num = String(promptIndex + 1).padStart(2, "0");
+
+                    return (
+                      <li class="surface-panel elevate-hover radius-md border border-white/[0.07] p-4 transition sm:p-5">
+                        <div class="flex gap-3 sm:gap-4">
+                          <span class="w-8 shrink-0 pt-0.5 text-sm font-bold tabular-nums text-brand-accent">
+                            {num}
+                          </span>
+                          <div class="min-w-0 flex-1">
+                            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                              <div class="min-w-0">
+                                <h4 class="text-base font-black text-white sm:text-lg">{promptItem.title}</h4>
+                                <p class="mt-1 text-xs leading-5 text-slate-400 sm:text-sm">{promptItem.outcome}</p>
+                              </div>
+                              <button
+                                type="button"
+                                data-copy-i18n={`${path}.prompt`}
+                                data-copy-label-i18n="library.copyPrompt"
+                                data-copy-copied-i18n="library.copied"
+                                class="focus-ring btn-outline-accent elevate-hover shrink-0 rounded-full px-4 py-2.5 text-xs font-bold sm:py-3 sm:text-sm"
+                              >
+                                {library.copyPrompt}
+                              </button>
+                            </div>
+                            <details class="group/prompt surface-muted mt-3 overflow-hidden rounded-xl border border-white/[0.06]">
+                              <summary class="focus-ring summary-hover flex cursor-pointer list-none items-center justify-between gap-2 px-3 py-2.5 outline-none sm:px-4 [&::-webkit-details-marker]:hidden">
+                                <span class="text-xs font-bold text-slate-200 sm:text-sm">{library.revealPrompt}</span>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  fill="currentColor"
+                                  class="h-5 w-5 shrink-0 text-brand-accent motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-open/prompt:rotate-180"
+                                  aria-hidden="true"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                                    clip-rule="evenodd"></path>
+                                </svg>
+                              </summary>
+                              <p class="border-t border-white/10 p-3 text-xs leading-6 text-slate-200 sm:p-4 sm:text-sm">
+                                {promptItem.prompt}
+                              </p>
+                            </details>
+                          </div>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </details>
 </section>
 
-<script>
-  const pickerButtons = document.querySelectorAll<HTMLButtonElement>("[data-workflow-pick]");
-  const workflowCards = document.querySelectorAll<HTMLElement>("[data-workflow-card]");
+<script is:inline>
+  (function () {
+    var root = document.querySelector("[data-prompt-library-inner]");
+    if (!root) return;
 
-  const prefersReducedMotion = () =>
-    typeof window !== "undefined" &&
-    window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches === true;
+    var buttons = root.querySelectorAll("[data-library-cat]");
+    var panels = root.querySelectorAll("[data-library-panel]");
 
-  const shouldScrollToCard = (card: HTMLElement) => {
-    const rect = card.getBoundingClientRect();
-    const viewHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-    if (!viewHeight) return true;
-
-    const margin = 80;
-    const topVisible = rect.top >= margin;
-    const bottomVisible = rect.bottom <= viewHeight - margin;
-    return !(topVisible && bottomVisible);
-  };
-
-  const scrollToCard = (card: HTMLElement) => {
-    if (!shouldScrollToCard(card)) return;
-    const behavior: ScrollBehavior = prefersReducedMotion() ? "auto" : "smooth";
-    const block: ScrollLogicalPosition = window.innerWidth < 640 ? "start" : "center";
-    card.scrollIntoView({ behavior, block });
-  };
-
-  const setActive = (categoryKey: string) => {
-    pickerButtons.forEach((button) => {
-      const isActive = button.dataset.workflowPick === categoryKey;
-      button.dataset.active = String(isActive);
-      button.setAttribute("aria-pressed", String(isActive));
-    });
-
-    workflowCards.forEach((card) => {
-      const isActive = card.dataset.workflowCard === categoryKey;
-      card.dataset.workflowActive = String(isActive);
-    });
-
-    const targetCard = Array.from(workflowCards).find((card) => card.dataset.workflowCard === categoryKey);
-    if (targetCard) {
-      scrollToCard(targetCard);
+    function setActive(idx) {
+      buttons.forEach(function (btn, i) {
+        var on = i === idx;
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+        btn.classList.toggle("library-cat-btn--active", on);
+        btn.classList.toggle("border-brand-accent/35", on);
+        btn.classList.toggle("bg-brand-accent/10", on);
+        btn.classList.toggle("accent-glow", on);
+        btn.classList.toggle("border-transparent", !on);
+        var ch = btn.querySelector(".library-cat-chevron");
+        if (ch) {
+          ch.classList.toggle("rotate-90", on);
+          ch.classList.toggle("rotate-0", !on);
+        }
+      });
+      panels.forEach(function (panel, i) {
+        panel.classList.toggle("hidden", i !== idx);
+      });
     }
-  };
 
-  pickerButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      setActive(button.dataset.workflowPick || "");
+    var initial = parseInt(String(root.getAttribute("data-initial-category") || "0"), 10);
+    if (isNaN(initial) || initial < 0) initial = 0;
+    setActive(initial);
+
+    buttons.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        setActive(i);
+      });
     });
-  });
+  })();
 </script>

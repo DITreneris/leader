@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/*
+  Executive OS visual tokens (radius, type roles, section rhythm).
+  Components should prefer these utilities over one-off rounded-[..] / tracking values.
+*/
+
 @theme {
   --color-brand-dark: #0b1320;
   --color-brand-accent: #cfa73a;
@@ -51,6 +56,129 @@
     0 10px 25px -5px rgba(207, 167, 58, 0.15);
   --shadow-cta-shadow: 0 6px 14px rgba(255, 179, 0, 0.3);
   --drop-shadow-logo-glow: drop-shadow(0 0 6px rgba(255, 196, 0, 0.4));
+
+  /* Border radius scale (premium consistency) */
+  --radius-sm: 1rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+}
+
+/* Radius utilities (use instead of arbitrary rounded-[..rem]) */
+.radius-sm {
+  border-radius: var(--radius-sm);
+}
+.radius-md {
+  border-radius: var(--radius-md);
+}
+.radius-lg {
+  border-radius: var(--radius-lg);
+}
+.radius-xl {
+  border-radius: var(--radius-xl);
+}
+.radius-meme-outer {
+  border-radius: var(--radius-xl);
+}
+.radius-meme-inner {
+  border-radius: var(--radius-lg);
+}
+
+/* Typography roles */
+.type-section-eyebrow {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--color-brand-accent);
+}
+
+.type-eyebrow-promo {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-brand-accent);
+}
+
+.type-eyebrow-promo-bright {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-brand-accent-hover);
+}
+
+.type-micro-label {
+  font-size: 10px;
+  line-height: 1.25;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.type-cta-label {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.type-form-label {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.type-eyebrow-inline {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+/* Vertical section rhythm (horizontal padding stays per-component: px-5 sm:px-8) */
+.section-y {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.section-y-tight {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.section-y-compact {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .section-y-tight {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.section-y-roomy-lg {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-y-roomy-lg {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.border-surface {
+  border-color: var(--color-surface-border);
 }
 
 html {

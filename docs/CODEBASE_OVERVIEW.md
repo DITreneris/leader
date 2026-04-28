@@ -24,9 +24,8 @@ This repository contains a lean bilingual CEO/COO executive prompt operating kit
 7. Final conversion band (`#kit`): Max Value Kit download + PromptAnatomy secondary.
 8. ROI path: weekly cycle after the kit band; printable one-liner links to `#kit`.
 9. Third meme beat `copy.memes.items[4]`: `meme-02-meeting-overload.png`.
-10. FAQ (trimmed; no duplicate “is it free” vs hero).
-11. System visual (`#system`): four-layer grid (reference eyebrow in copy).
-12. Prompt library (`#library`): starters, then accordion depth (reference appendix).
+10. FAQ (`#faq`): quick objections; merged prior “OS fit” idea into the “vs prompt list” answer (JSON-LD FAQPage unchanged).
+11. Prompt library (`#library`): full accordion only (reference appendix); optional PDF kit jump above.
 
 Memes stay short emotional beats—no CTAs on meme rows.
 

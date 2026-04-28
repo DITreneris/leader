@@ -30,6 +30,12 @@ Rule: any user-visible string change must keep EN/LT aligned.
 
 Policy: use one primary CTA per major section; keep glass/elevation reserved for primary containers.
 
+### Visual tokens (`global.css`)
+
+- **Radius**: `--radius-sm` … `--radius-xl` with helpers `.radius-sm` … `.radius-xl`, plus `.radius-meme-outer` / `.radius-meme-inner` for meme frames.
+- **Typography roles**: `.type-section-eyebrow`, `.type-eyebrow-promo`, `.type-eyebrow-promo-bright`, `.type-eyebrow-inline`, `.type-form-label`, `.type-micro-label`, `.type-cta-label`.
+- **Section rhythm**: `.section-y` (standard), `.section-y-tight`, `.section-y-compact`, `.section-y-roomy-lg` (extra vertical space from `lg`); horizontal padding stays `px-5 sm:px-8` on sections.
+
 ## Visual assets
 
 - **Placement and rules**: `docs/VISUAL_CONTENT_MAP.md`
