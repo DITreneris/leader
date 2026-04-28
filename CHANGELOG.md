@@ -5,6 +5,7 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 ## 2026-04-28
 
 ### Changed (hero right-side)
+- **Schema legend bento:** Rewrote `HeroBento.astro` from a Before/After bullet card into an actual schema: a 4-step process strip (`Context → Module → Brief → Safety`) plus a 2+2+1 icon-only legend grid (`Decision`, `Owner`, `Deadline`, `Risks`, `Next action` spanning full width) so the right side reads as flow + outputs, not a manual. Locked premium accents: gold on `Decision`, rose on `Risks`, emerald on `Next action`. Added bilingual `heroBento.flow*`/`tile*` keys (EN/LT).
 - **Removed hero artifact:** Dropped the dense `HeroArtifact` “slide” and replaced it with a scannable GitHub-style bento proof grid (`HeroBento`) to make the right side instantly understandable (EN/LT).
 
 ### Changed (Phase 3 visuals)
