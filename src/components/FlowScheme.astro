@@ -8,161 +8,105 @@ interface Props {
 
 const { lang } = Astro.props;
 const flow = uiCopy[lang].flowScheme;
-const [node1, node2, node3, node4] = flow.nodes;
 ---
 
-<section class="glass-card relative overflow-hidden rounded-[2rem] p-6 sm:p-7" aria-label={flow.a11yLabel}>
-  <div class="pointer-events-none absolute inset-x-10 top-0 h-32 rounded-full bg-brand-accent/15 blur-3xl"></div>
+<section
+  class="glass-card relative overflow-hidden rounded-[2rem] p-6 sm:p-8"
+  aria-label={flow.a11yLabel}
+>
+  <div class="pointer-events-none absolute inset-x-10 top-0 h-40 rounded-full bg-brand-accent/12 blur-3xl"></div>
 
   <div class="relative">
     <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{flow.eyebrow}</p>
 
-    <svg
-      class="mt-4 block h-auto w-full"
-      viewBox="0 0 1200 260"
-      preserveAspectRatio="xMidYMid meet"
-      role="img"
-      aria-label={flow.a11yLabel}
-    >
-      <title>{flow.a11yLabel}</title>
-      <desc>{`${node1} → ${node2} → ${node3} → ${node4}`}</desc>
+    <div class="mt-8 grid gap-5 lg:grid-cols-[1fr_auto_1fr_auto_1.15fr] lg:items-stretch lg:gap-4">
+      <!-- Input -->
+      <article
+        class="flex flex-col rounded-2xl border border-white/10 bg-slate-950/50 p-5 ring-1 ring-white/[0.04] sm:p-6"
+      >
+        <p class="text-[11px] font-black uppercase tracking-[0.2em] text-slate-500">{flow.inputLabel}</p>
+        <p class="mt-3 text-lg font-bold leading-snug text-white sm:text-xl">
+          {lang === "lt" ? (
+            <>
+              <span class="text-slate-500">„</span>
+              {flow.inputExample}
+              <span class="text-slate-500">“</span>
+            </>
+          ) : (
+            <>
+              <span class="text-slate-500">“</span>
+              {flow.inputExample}
+              <span class="text-slate-500">”</span>
+            </>
+          )}
+        </p>
+      </article>
 
-      <defs>
-        <marker id="arrow" markerWidth="14" markerHeight="10" refX="12" refY="5" orient="auto" markerUnits="strokeWidth">
-          <path d="M0,0 L14,5 L0,10 Z" fill="rgba(226,232,240,0.38)" />
-        </marker>
-        <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="rgba(207,167,58,0.18)" />
-          <stop offset="0.5" stop-color="rgba(232,185,60,0.55)" />
-          <stop offset="1" stop-color="rgba(207,167,58,0.18)" />
-        </linearGradient>
-        <linearGradient id="nodeSheen" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="rgba(255,255,255,0.09)" />
-          <stop offset="0.55" stop-color="rgba(255,255,255,0.02)" />
-          <stop offset="1" stop-color="rgba(255,255,255,0)" />
-        </linearGradient>
-        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="10" result="blur" />
-          <feColorMatrix
-            in="blur"
-            type="matrix"
-            values="1 0 0 0 0  0 0.9 0 0 0  0 0 0.55 0 0  0 0 0 0.35 0"
-            result="tint"
+      <div
+        class="hidden items-center justify-center text-slate-500 lg:flex"
+        aria-hidden="true"
+      >
+        <svg width="28" height="20" viewBox="0 0 28 20" class="shrink-0" fill="none">
+          <path
+            d="M4 10h16M18 6l4 4-4 4"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            opacity="0.45"
           />
-          <feMerge>
-            <feMergeNode in="tint" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
+        </svg>
+      </div>
 
-      <!-- connectors: 1 -> 2 -> 3 -> 4 -->
-      <path d="M255 130 L305 130" stroke="rgba(226,232,240,0.26)" stroke-width="3" fill="none" marker-end="url(#arrow)" />
-      <path d="M555 130 L605 130" stroke="rgba(226,232,240,0.22)" stroke-width="3" fill="none" marker-end="url(#arrow)" />
-      <path d="M855 130 L905 130" stroke="rgba(226,232,240,0.26)" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+      <!-- Middle -->
+      <article
+        class="flex flex-col justify-between rounded-2xl border border-brand-accent/35 bg-brand-accent/[0.07] p-5 ring-1 ring-brand-accent/20 sm:p-6"
+      >
+        <div>
+          <p class="text-[11px] font-black uppercase tracking-[0.2em] text-brand-accent-hover">{flow.middleLabel}</p>
+          <p class="mt-4 font-mono text-xs font-bold uppercase tracking-widest text-brand-accent sm:text-sm">
+            {flow.middleBadge}
+          </p>
+        </div>
+        <p class="mt-4 text-xs leading-relaxed text-slate-400">{flow.bridgeNote}</p>
+      </article>
 
-      <!-- node templates (1x4) -->
-      <!-- node 1 -->
-      <g>
-        <rect x="35" y="70" width="220" height="120" rx="30" fill="rgba(2,6,23,0.56)" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
-        <rect x="37" y="72" width="216" height="56" rx="28" fill="url(#nodeSheen)" opacity="0.9" />
+      <div
+        class="hidden items-center justify-center text-slate-500 lg:flex"
+        aria-hidden="true"
+      >
+        <svg width="28" height="20" viewBox="0 0 28 20" class="shrink-0" fill="none">
+          <path
+            d="M4 10h16M18 6l4 4-4 4"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            opacity="0.45"
+          />
+        </svg>
+      </div>
 
-        <circle cx="75" cy="130" r="22" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
-        <text x="75" y="120" text-anchor="middle" dominant-baseline="middle" fill="rgba(226,232,240,0.55)" font-size="12" font-weight="800">
-          1
-        </text>
-        <!-- icon: noise (dots) -->
-        <g fill="rgba(226,232,240,0.75)">
-          <circle cx="68" cy="136" r="2.2" />
-          <circle cx="78" cy="136" r="2.2" />
-          <circle cx="73" cy="142" r="2.2" />
-          <circle cx="83" cy="142" r="2.2" />
-          <circle cx="63" cy="142" r="2.2" />
-        </g>
+      <!-- Output -->
+      <article
+        class="flex flex-col rounded-2xl border-2 border-brand-accent/50 bg-slate-950/60 p-5 shadow-[0_0_40px_-12px_rgba(207,167,58,0.35)] sm:p-6"
+      >
+        <p class="text-[11px] font-black uppercase tracking-[0.2em] text-brand-accent-hover">{flow.outputLabel}</p>
+        <ul class="mt-4 space-y-3 text-sm leading-relaxed text-slate-100 sm:text-base">
+          {
+            flow.outputBullets.map((line) => (
+              <li class="flex gap-3">
+                <span
+                  class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent"
+                  aria-hidden="true"
+                />
+                <span>{line}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+    </div>
 
-        <text x="110" y="130" fill="rgba(226,232,240,0.95)" font-size="22" font-weight="900">
-          {node1}
-        </text>
-      </g>
-
-      <!-- node 2 -->
-      <g>
-        <rect x="305" y="70" width="250" height="120" rx="30" fill="rgba(2,6,23,0.56)" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
-        <rect x="307" y="72" width="246" height="56" rx="28" fill="url(#nodeSheen)" opacity="0.9" />
-
-        <circle cx="345" cy="130" r="22" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
-        <text x="345" y="120" text-anchor="middle" dominant-baseline="middle" fill="rgba(226,232,240,0.55)" font-size="12" font-weight="800">
-          2
-        </text>
-        <!-- icon: prompt (brackets) -->
-        <path
-          d="M337 145c-6 0-10-4-10-10v-10c0-6 4-10 10-10"
-          fill="none"
-          stroke="rgba(226,232,240,0.75)"
-          stroke-width="3"
-          stroke-linecap="round"
-        />
-        <path
-          d="M353 105c6 0 10 4 10 10v10c0 6-4 10-10 10"
-          fill="none"
-          stroke="rgba(226,232,240,0.75)"
-          stroke-width="3"
-          stroke-linecap="round"
-        />
-
-        <text x="385" y="130" fill="rgba(226,232,240,0.95)" font-size="22" font-weight="900">
-          {node2}
-        </text>
-      </g>
-
-      <!-- node 3 -->
-      <g>
-        <rect x="605" y="70" width="250" height="120" rx="30" fill="rgba(2,6,23,0.56)" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
-        <rect x="607" y="72" width="246" height="56" rx="28" fill="url(#nodeSheen)" opacity="0.9" />
-
-        <circle cx="645" cy="130" r="22" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
-        <text x="645" y="120" text-anchor="middle" dominant-baseline="middle" fill="rgba(226,232,240,0.55)" font-size="12" font-weight="800">
-          3
-        </text>
-        <!-- icon: safety (shield) -->
-        <path
-          d="M645 141c10-5 16-10 16-20v-12l-16-7-16 7v12c0 10 6 15 16 20z"
-          fill="none"
-          stroke="rgba(226,232,240,0.75)"
-          stroke-width="3"
-          stroke-linejoin="round"
-        />
-
-        <text x="685" y="130" fill="rgba(226,232,240,0.95)" font-size="20" font-weight="900">
-          {node3}
-        </text>
-      </g>
-
-      <!-- node 4 (accent / outcome) -->
-      <g filter="url(#softGlow)">
-        <rect x="905" y="70" width="260" height="120" rx="30" fill="rgba(2,6,23,0.6)" stroke="url(#accent)" stroke-width="3" />
-        <rect x="905" y="70" width="260" height="120" rx="30" fill="none" stroke="rgba(207,167,58,0.22)" stroke-width="10" />
-        <rect x="907" y="72" width="256" height="56" rx="28" fill="url(#nodeSheen)" opacity="0.95" />
-
-        <circle cx="945" cy="130" r="22" fill="rgba(207,167,58,0.14)" stroke="rgba(232,185,60,0.35)" stroke-width="2" />
-        <text x="945" y="120" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,236,179,0.75)" font-size="12" font-weight="800">
-          4
-        </text>
-        <!-- icon: output (check) -->
-        <path
-          d="M933 134l8 8 18-18"
-          fill="none"
-          stroke="rgba(255,236,179,0.9)"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-
-        <text x="985" y="126" fill="rgba(255,236,179,0.98)" font-size="20" font-weight="950">
-          {node4}
-        </text>
-      </g>
-    </svg>
   </div>
 </section>
-

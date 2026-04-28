@@ -11,13 +11,17 @@ const safety = uiCopy[lang].safety;
 const lastItemIndex = safety.items.length - 1;
 ---
 
-<section class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-14">
+<section
+  id="safety-check"
+  class="mx-auto max-w-7xl border-t border-white/5 px-5 py-16 sm:px-8 lg:py-14"
+  aria-labelledby="safety-check-title"
+>
   <div class="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
     <div>
       <p class="text-sm font-bold uppercase tracking-[0.28em] text-amber-200">
         {safety.eyebrow}
       </p>
-      <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
+      <h2 id="safety-check-title" class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
         {safety.title}
       </h2>
       <p class="mt-5 text-lg leading-8 text-slate-300">

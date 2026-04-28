@@ -7,6 +7,7 @@ import ClarityDemo from "../components/ClarityDemo.astro";
 import CourseCTA from "../components/CourseCTA.astro";
 import Faq from "../components/Faq.astro";
 import Hero from "../components/Hero.astro";
+import HeroTrust from "../components/HeroTrust.astro";
 import InteractiveCopy from "../components/InteractiveCopy.astro";
 import MemeMoment from "../components/MemeMoment.astro";
 import PromptAnatomy from "../components/PromptAnatomy.astro";
@@ -18,6 +19,11 @@ import SystemVisual from "../components/SystemVisual.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
+/**
+ * Meme images map 1:1 to `uiCopy[lang].memes.items[0..4]` narrative order:
+ * 0 reward_2, 1 meme-01, 2 meme-04, 3 meme-03, 4 meme-02.
+ * Section order: practice → safety → memes 0–2 → demo → anatomy → ROI → memes 3–4 → bridge → kit → FAQ → system → library.
+ */
 interface Props {
   lang: Language;
 }
@@ -136,6 +142,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
   <body>
     <a href="#practice" class="skip-link focus-ring">{copy.a11y.skipLink}</a>
     <Hero lang={lang} />
+    <HeroTrust lang={lang} />
     <main>
       <QuickPractice lang={lang} />
       <SafetyCheck lang={lang} />
@@ -159,7 +166,6 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         width={1280}
         height={1280}
       />
-      <PromptAnatomy lang={lang} />
       <MemeMoment
         lang={lang}
         index={2}
@@ -170,21 +176,9 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         width={1280}
         height={1280}
       />
-      <RoiPath lang={lang} />
       <ClarityDemo lang={lang} />
-      <Faq lang={lang} />
-      <AuthorityBridge lang={lang} />
-      <MemeMoment
-        lang={lang}
-        index={4}
-        src="meme-02-meeting-overload.png"
-        alt="Overloaded executive calendar showing why leadership needs a system"
-        side="left"
-        accent="fuchsia"
-        width={1280}
-        height={1280}
-      />
-      <CourseCTA lang={lang} />
+      <PromptAnatomy lang={lang} />
+      <RoiPath lang={lang} />
       <MemeMoment
         lang={lang}
         index={3}
@@ -195,6 +189,19 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         width={1280}
         height={1280}
       />
+      <MemeMoment
+        lang={lang}
+        index={4}
+        src="meme-02-meeting-overload.png"
+        alt="Overloaded executive calendar showing why leadership needs a system"
+        side="left"
+        accent="fuchsia"
+        width={1280}
+        height={1280}
+      />
+      <AuthorityBridge lang={lang} />
+      <CourseCTA lang={lang} />
+      <Faq lang={lang} />
       <SystemVisual lang={lang} />
       <PromptLibrary lang={lang} />
     </main>

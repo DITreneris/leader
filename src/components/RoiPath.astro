@@ -126,6 +126,7 @@ const desktopPositions = [
           <button
             type="button"
             data-roi-panel-copy
+            data-copy-i18n="roiPath.steps.0.prompt"
             data-copy-label-i18n="roiPath.copyPrompt"
             data-copy-copied-i18n="roiPath.copied"
             class="focus-ring btn-outline-accent elevate-hover rounded-full px-4 py-3 text-sm font-bold"
@@ -187,6 +188,13 @@ const desktopPositions = [
       ))}
     </ol>
   </div>
+
+  <p class="mx-auto mt-8 max-w-2xl px-2 text-center text-sm leading-6 text-slate-400">
+    {roiPath.printableOneLiner}{" "}
+    <a href="#kit" class="focus-ring font-semibold text-brand-accent hover:text-brand-accent-hover">
+      {roiPath.printableKitLink}
+    </a>
+  </p>
 
   <p class="mx-auto mt-8 max-w-3xl rounded-full border border-brand-accent/25 bg-brand-accent/15 px-5 py-4 text-center text-sm font-bold text-brand-accent-hover">
     {roiPath.total}

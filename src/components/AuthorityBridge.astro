@@ -20,12 +20,13 @@ const sisterHref = "https://ditreneris.github.io/ceo/?utm_source=leader&utm_medi
     <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
       {authority.title}
     </h2>
+    <p class="mt-4 text-sm text-slate-400">{authority.chooseNext}</p>
   </div>
 
-  <div class="mt-10 grid gap-5 md:grid-cols-2">
+  <div class="mt-10 mx-auto max-w-3xl space-y-6">
     <a
       href={motherHref}
-      class="focus-ring glass-card group relative block overflow-hidden rounded-[2rem] border border-brand-accent/40 p-6 transition motion-safe:hover:-translate-y-1 motion-safe:hover:border-brand-accent-hover/70"
+      class="focus-ring glass-card group relative block overflow-hidden rounded-[2rem] border border-brand-accent/40 p-8 transition motion-safe:hover:-translate-y-1 motion-safe:hover:border-brand-accent-hover/70"
     >
       <div class="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-brand-accent/15 blur-3xl"></div>
       <div class="relative flex items-center gap-3">
@@ -48,17 +49,20 @@ const sisterHref = "https://ditreneris.github.io/ceo/?utm_source=leader&utm_medi
       </p>
     </a>
 
-    <a
-      href={sisterHref}
-      class="focus-ring glass-card relative block rounded-[2rem] p-6 transition motion-safe:hover:-translate-y-1 motion-safe:hover:border-brand-accent/40"
-    >
-      <p class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">
-        {authority.sister}
+    <div class="rounded-[1.75rem] border border-white/10 bg-white/[0.02] px-6 py-6 text-center sm:px-8">
+      <p class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-500">
+        {authority.sisterEyebrow}
       </p>
-      <h3 class="mt-4 text-2xl font-black text-white">{authority.sisterTitle}</h3>
-      <p class="mt-4 leading-7 text-slate-300">
+      <h3 class="mt-3 text-lg font-black text-white sm:text-xl">{authority.sisterTitle}</h3>
+      <p class="mt-3 text-sm leading-6 text-slate-400">
         {authority.sisterText}
       </p>
-    </a>
+      <a
+        href={sisterHref}
+        class="focus-ring mt-4 inline-block text-sm font-semibold text-brand-accent transition hover:text-brand-accent-hover"
+      >
+        {authority.sisterLink}
+      </a>
+    </div>
   </div>
 </section>

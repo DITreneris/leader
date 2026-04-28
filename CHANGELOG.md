@@ -2,6 +2,25 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-04-28
+
+### Added
+- **Strategic revision plan:** `docs/STRATEGIC_REVISION_PLAN.md` — phased roadmap (CTA ladder, journey, de-duplication, visuals, IA checklist, risks, verification) aligned with `AGENTS.md`.
+- **`docs/UTM_MATRIX.md`:** Canonical `utm_source` / `utm_medium` / `utm_campaign` values for hero, practice band, bridge, footer, and lead-magnet links.
+
+### Changed
+- **Main stack (`src/layouts/Page.astro`):** Practice → safety → memes `items[0–2]` → static demo → prompt anatomy → ROI path → memes `items[3–4]` → authority bridge → conversion band (`#kit`) → FAQ → system visual → prompt library. Meme indices align 1:1 with `copy.memes.items` narrative order.
+- **Hero & nav (`Hero.astro`, `copy.ts`):** Primary CTA targets `#practice`; secondary opens PromptAnatomy. Desktop and mobile nav include `#demo`, `#library`, `#kit`, and updated system link label (“How the OS fits” / LT equivalent). Subtle `flowScheme.nextStepHint` link under hero CTAs.
+- **Trust strip (`HeroTrust.astro`):** Logo rail hidden when `heroTrust.showPlaceholderLogos` is `false`; outcomes column unchanged. Neutral copy for future logo slots (no “placeholder” in customer-facing strings).
+- **Conversion path:** `CourseCTA` exposes `id="kit"`. `ClarityDemo` and prompt library starter demote duplicate PDF buttons to `#kit` text links. Practice band: demo primary, PromptAnatomy outline; anchor text to `#safety-check` for the full safety prompt.
+- **Authority bridge (`AuthorityBridge.astro`):** Option A — mother platform remains the primary card; sister hub is a secondary text block with link (not an equal-weight card).
+- **Prompt anatomy (`PromptAnatomy.astro`):** Five blocks wrapped in `<details>` (collapsed by default for scan-first reading).
+- **Quick practice (`QuickPractice.astro`):** Desktop layout uses a **2×2** grid for the four steps.
+- **ROI path (`RoiPath.astro`):** Desktop panel copy button includes SSR `data-copy-i18n="roiPath.steps.0.prompt"`; printable one-liner + link to `#kit` below desktop and mobile flows.
+- **Clarity demo (`ClarityDemo.astro`):** Input/output connector column; `aria-live="polite"` on the output stack; `demo.connectorCaption` / `demo.pdfAgain` in copy.
+- **Prompt library (`PromptLibrary.astro`):** `library.revealPrompt` and `library.pdfAgain` in `copy.ts` (EN/LT); per-prompt disclosure uses translated “Reveal” label.
+- **Docs:** `docs/VISUAL_CONTENT_MAP.md` updated for live meme order and section flow (removed obsolete `ProofStrip` references). `docs/CODEBASE_OVERVIEW.md` landing flow and layout entrypoint corrected. `docs/STRATEGIC_REVISION_PLAN.md` §12 decision log filled for CTA, trust strip, meme order, FAQ position, and authority bridge choices.
+
 ## 2026-04-27
 
 ### Changed

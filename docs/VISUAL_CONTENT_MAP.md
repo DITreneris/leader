@@ -18,46 +18,30 @@ Visuals should make the CEO feel the transformation quickly: business noise beco
 
 3. Workflow map
    - Current file: `public/assets/graphics/workflow-map.svg`
-   - Message: "Input -> clarity check -> insight -> full system."
+   - Message: "Input → clarity check → insight → full system."
    - Placement: proof, authority, or social sharing asset source.
 
-## Meme Moments (Fragmented)
+## Meme moments (fragmented)
 
-Five memes are placed on the landing page as fragmented emotional rest stops between heavier reading sections, rendered through `MemeMoment.astro`. They are not a bundle, not a sales section, and never include a CTA — each one is a single recognition beat that reinforces the surrounding teaching point.
+Five memes are emotional rest stops on the landing page via `MemeMoment.astro`. Copy index `uiCopy.memes.items[index]` matches **narrative order** 0→4. Live order in `src/layouts/Page.astro` (top to bottom):
 
-Order on the live page (top to bottom):
+| Order | `index` | File | Copy beat |
+|-------|---------|------|-----------|
+| 1 | 0 | `reward_2.png` | Access is not enough |
+| 2 | 1 | `meme-01-ai-chaos.png` | Structure creates control |
+| 3 | 2 | `meme-04-delegation-bottleneck.png` | Tools do not create speed |
+| — | — | *(after memes 0–2)* | `ClarityDemo` (`#demo`) |
+| — | — | *(then)* | `PromptAnatomy`, `RoiPath` |
+| 4 | 3 | `meme-03-clear-decision.png` | Control creates results |
+| 5 | 4 | `meme-02-meeting-overload.png` | Leadership needs the system |
 
-1. `reward_2.png` — *Access is not enough.*
-   - Placement: between `ProofStrip` and `QuickPractice`.
-   - Side: image left, copy right. Accent: gold.
-   - Function: emotional hook into why the practice matters.
-
-2. `meme-01-ai-chaos.png` — *Structure creates control.*
-   - Placement: between `SafetyCheck` and `ClarityDemo`.
-   - Side: image right, copy left. Accent: amber.
-   - Function: validates the safety lesson and primes the demo.
-
-3. `meme-04-delegation-bottleneck.png` — *Tools do not create speed.*
-   - Placement: between `PromptAnatomy` and `RoiPath`.
-   - Side: image left, copy right. Accent: rose.
-   - Function: recognition of the real bottleneck before the ROI path.
-
-4. `meme-03-clear-decision.png` — *Control creates results.*
-   - Placement: between `CourseCTA` and `SystemVisual`.
-   - Side: image right, copy left. Accent: emerald.
-   - Function: payoff moment before the system visual.
-
-5. `meme-02-meeting-overload.png` — *Leadership needs the system.*
-   - Placement: between `AuthorityBridge` and `CourseCTA`.
-   - Side: image left, copy right. Accent: fuchsia.
-   - Function: closes the narrative arc into the final CTA.
+Sides alternate left → right → left → right → left for rhythm.
 
 Implementation rules:
 
-- Sides alternate (left → right → left → right → left) for visual rhythm.
-- All images are `loading="lazy"` and `decoding="async"` with explicit width/height.
-- Copy comes from `uiCopy.memes.items[index]` so EN/LT stay aligned.
-- Do not collapse the moments back into a single block — fragmentation is the entire point.
+- All images: `loading="lazy"`, `decoding="async"`, explicit width/height.
+- Copy from `uiCopy.memes.items[index]` so EN/LT stay aligned.
+- Fragmentation is intentional; memes do not carry primary CTAs.
 
 ## Quality Rules
 

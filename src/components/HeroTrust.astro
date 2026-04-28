@@ -1,0 +1,55 @@
+---
+import type { Language } from "../content/copy";
+import { uiCopy } from "../content/copy";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = uiCopy[lang].heroTrust;
+const showLogos = (t as { showPlaceholderLogos?: boolean }).showPlaceholderLogos === true;
+---
+
+<section class="border-y border-white/5 bg-[#070d18]/90 py-10 sm:py-12" aria-labelledby="hero-trust-heading">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+      <div class="lg:max-w-md">
+        <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{t.logosEyebrow}</p>
+        <h2 id="hero-trust-heading" class="mt-2 text-xl font-black tracking-tight text-white sm:text-2xl">
+          {t.logosTitle}
+        </h2>
+        {
+          showLogos && (
+            <>
+              <p class="mt-2 text-xs leading-relaxed text-slate-500">{t.logosNote}</p>
+              <div class="mt-6 flex flex-wrap gap-3" role="list" aria-label={t.logosAria}>
+                {t.logoSlots.map((name) => (
+                  <div
+                    role="listitem"
+                    class="flex h-11 min-w-[6.5rem] items-center justify-center rounded-xl border border-white/10 bg-white/[0.035] px-4 text-[10px] font-black uppercase tracking-[0.18em] text-slate-500"
+                  >
+                    {name}
+                  </div>
+                ))}
+              </div>
+            </>
+          )
+        }
+      </div>
+      <div class="lg:max-w-xl lg:pt-1">
+        <p class="text-xs font-bold uppercase tracking-[0.28em] text-brand-accent-hover">{t.outcomesEyebrow}</p>
+        <ul class="mt-4 space-y-4">
+          {
+            t.outcomes.map((line) => (
+              <li class="flex gap-3 text-sm leading-relaxed text-slate-200 sm:text-base">
+                <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" aria-hidden="true" />
+                <span>{line}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

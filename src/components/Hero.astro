@@ -10,8 +10,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const c = uiCopy[lang];
-const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-operating-kit.pdf`.replace(/([^:]\/)\/+/g, "$1");
-const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=hero&utm_campaign=primary";
+const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_medium=hero&utm_campaign=secondary";
 ---
 
 <div class="relative z-50 mx-auto max-w-7xl px-5 sm:px-8">
@@ -37,9 +36,12 @@ const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_
     </span>
   </a>
 
-  <nav class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex" aria-label="Primary">
-    <a href="#practice" class="focus-ring transition hover:text-white">{c.nav.demo}</a>
+  <nav class="hidden items-center gap-6 text-sm font-medium text-slate-300 lg:flex lg:gap-8" aria-label="Primary">
+    <a href="#practice" class="focus-ring transition hover:text-white">{c.nav.practice}</a>
+    <a href="#demo" class="focus-ring transition hover:text-white">{c.nav.proof}</a>
     <a href="#system" class="focus-ring transition hover:text-white">{c.nav.system}</a>
+    <a href="#library" class="focus-ring transition hover:text-white">{c.nav.library}</a>
+    <a href="#kit" class="focus-ring transition hover:text-white">{c.nav.kitPdf}</a>
   </nav>
 
   <div class="flex items-center gap-3">
@@ -68,28 +70,28 @@ const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_
   >
     <nav class="flex flex-col gap-2 text-sm font-medium text-slate-200" aria-label="Mobile primary">
       <a href="#practice" class="focus-ring rounded-xl px-3 py-3 transition hover:bg-white/5" data-mobile-menu-link>
-        {c.nav.demo}
+        {c.nav.practice}
+      </a>
+      <a href="#demo" class="focus-ring rounded-xl px-3 py-3 transition hover:bg-white/5" data-mobile-menu-link>
+        {c.nav.proof}
       </a>
       <a href="#system" class="focus-ring rounded-xl px-3 py-3 transition hover:bg-white/5" data-mobile-menu-link>
         {c.nav.system}
+      </a>
+      <a href="#library" class="focus-ring rounded-xl px-3 py-3 transition hover:bg-white/5" data-mobile-menu-link>
+        {c.nav.library}
+      </a>
+      <a href="#kit" class="focus-ring rounded-xl px-3 py-3 transition hover:bg-white/5" data-mobile-menu-link>
+        {c.nav.kitPdf}
       </a>
       <a
         href={promptAnatomyHref}
         target="_blank"
         rel="noreferrer"
-        class="focus-ring cta-gradient mt-2 rounded-full px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-slate-950"
+        class="focus-ring mt-2 rounded-full border border-white/20 px-4 py-3 text-center text-xs font-black uppercase tracking-[0.14em] text-white transition hover:bg-white/5"
         data-mobile-menu-link
       >
-        {c.hero.primaryCta}
-      </a>
-      <a
-        href={downloadHref}
-        download
-        data-kit-download
-        class="focus-ring mt-1 rounded-full border border-white/15 px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-white transition hover:border-brand-accent-hover/70 hover:bg-white/5"
-        data-mobile-menu-link
-      >
-        {c.hero.tertiaryCta}
+        {c.hero.secondaryCta}
       </a>
     </nav>
   </div>
@@ -108,30 +110,25 @@ const promptAnatomyHref = "https://www.promptanatomy.app/?utm_source=leader&utm_
     </p>
     <div class="mt-9 flex flex-col gap-3 sm:flex-row">
       <a
-        href={promptAnatomyHref}
-        target="_blank"
-        rel="noreferrer"
+        href="#practice"
         class="focus-ring cta-gradient rounded-full px-6 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-slate-950 transition hover:brightness-110"
       >
         {c.hero.primaryCta}
       </a>
       <a
-        href="#practice"
+        href={promptAnatomyHref}
+        target="_blank"
+        rel="noreferrer"
         class="focus-ring rounded-full border border-white/15 px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.18em] text-white transition hover:border-brand-accent-hover/70 hover:bg-white/5"
       >
         {c.hero.secondaryCta}
       </a>
     </div>
-    <div class="mt-5">
-      <a
-        href={downloadHref}
-        download
-        data-kit-download
-        class="focus-ring inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-200 transition hover:border-brand-accent-hover/60 hover:text-white"
-      >
-        {c.hero.tertiaryCta}
+    <p class="mt-5 text-center text-sm text-slate-500 sm:text-left">
+      <a href="#practice" class="focus-ring font-semibold text-brand-accent-hover/90 underline decoration-brand-accent/40 decoration-1 underline-offset-4 transition hover:text-brand-accent">
+        {c.flowScheme.nextStepHint}
       </a>
-    </div>
+    </p>
   </div>
 
   <FlowScheme lang={lang} />

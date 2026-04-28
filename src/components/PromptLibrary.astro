@@ -8,7 +8,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const library = uiCopy[lang].library;
-const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-operating-kit.pdf`.replace(/([^:]\/)\/+/g, "$1");
 ---
 
 <section id="library" class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
@@ -84,12 +83,10 @@ const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-oper
       {library.starter.note}
     </p>
     <a
-      href={downloadHref}
-      download
-      data-kit-download
-      class="focus-ring cta-gradient rounded-full px-6 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-slate-950 transition hover:brightness-110"
+      href="#kit"
+      class="focus-ring text-sm font-semibold text-brand-accent underline decoration-brand-accent/40 underline-offset-4 transition hover:text-brand-accent-hover"
     >
-      {library.starter.downloadCta}
+      {library.pdfAgain}
     </a>
   </div>
 
@@ -153,7 +150,7 @@ const downloadHref = `${import.meta.env.BASE_URL}assets/downloads/executive-oper
                     </div>
                     <details class="group surface-muted mt-4 overflow-hidden rounded-2xl">
                       <summary class="focus-ring summary-hover cursor-pointer list-none px-4 py-3 text-sm font-bold text-slate-200 outline-none">
-                        Reveal prompt
+                        {library.revealPrompt}
                         <span
                           aria-hidden="true"
                           class="ml-3 inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-base font-black text-brand-accent transition motion-safe:group-open:rotate-45"

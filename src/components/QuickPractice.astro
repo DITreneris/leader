@@ -26,7 +26,7 @@ const qp = uiCopy[lang].quickPractice;
     </p>
   </div>
 
-  <ol class="mt-10 grid list-none gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)_minmax(0,1.55fr)_minmax(0,1fr)] lg:items-start">
+  <ol class="mt-10 grid list-none gap-5 lg:grid-cols-2 lg:items-stretch">
     <li class="rounded-[2rem] border border-rose-200/15 bg-rose-950/20 p-6">
       <p class="text-sm font-bold uppercase tracking-[0.22em] text-rose-200">
         {qp.beforeTitle}
@@ -113,13 +113,28 @@ const qp = uiCopy[lang].quickPractice;
     </li>
   </ol>
 
-  <div class="mx-auto mt-10 flex max-w-4xl flex-col items-center justify-between gap-4 rounded-[1.75rem] border border-brand-accent/25 bg-brand-accent/[0.07] px-6 py-6 text-center sm:flex-row sm:text-left">
+  <div class="mx-auto mt-10 flex max-w-4xl flex-col gap-4 rounded-[1.75rem] border border-brand-accent/25 bg-brand-accent/[0.07] px-6 py-6 text-center sm:text-left">
     <p class="text-sm font-bold text-slate-100">{qp.ctaText}</p>
-    <a
-      href={qp.ctaHref}
-      class="focus-ring cta-gradient rounded-full px-5 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-slate-950 transition hover:brightness-110"
-    >
-      {qp.ctaLabel}
-    </a>
+    <div class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <a
+        href={qp.ctaDemoHref}
+        class="focus-ring cta-gradient rounded-full px-5 py-3 text-center text-sm font-black uppercase tracking-[0.18em] text-slate-950 transition hover:brightness-110"
+      >
+        {qp.ctaDemo}
+      </a>
+      <a
+        href={qp.ctaHref}
+        target="_blank"
+        rel="noreferrer"
+        class="focus-ring rounded-full border border-white/20 px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:border-brand-accent-hover/50 hover:bg-white/5"
+      >
+        {qp.ctaLabel}
+      </a>
+    </div>
+    <p class="text-center text-xs text-slate-500 sm:text-left">
+      <a href="#safety-check" class="focus-ring font-semibold text-amber-200/90 underline decoration-amber-200/30 underline-offset-2 hover:text-amber-100">
+        {qp.safetyAnchorLabel} →
+      </a>
+    </p>
   </div>
 </section>

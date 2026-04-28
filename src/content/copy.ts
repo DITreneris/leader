@@ -7,7 +7,7 @@ export const uiCopy = {
     meta: {
       title: "CEO/COO Executive Prompt Operating Kit | Prompt Anatomy",
       description:
-        "Free static CEO/COO kit: printable prompts, safety check, and a demo—no login. Graduate to PromptAnatomy when your team needs a shared standard.",
+        "Standardize leadership AI: fewer mistakes, faster decisions, clearer outcomes. Free static kit and demo—no login. PromptAnatomy when your team needs one operating standard.",
     },
     a11y: {
       skipLink: "Skip to practice",
@@ -40,18 +40,21 @@ export const uiCopy = {
     },
     nav: {
       product: "CEO/COO Max Value Kit",
-      demo: "Start practice",
-      system: "Full system",
+      practice: "2-minute practice",
+      proof: "Static demo",
+      system: "How the OS fits",
+      library: "Prompt library",
+      demo: "See how it works",
       language: "Language",
+      kitPdf: "Kit (PDF)",
     },
     hero: {
-      eyebrow: "Free Executive Prompt Operating Kit",
-      title: "Install a decision system, not another prompt list.",
+      eyebrow: "Free CEO/COO kit · Executive control surface for AI",
+      title: "From chaotic AI output to controlled decisions in seven days.",
       subtitle:
-        "Turn leadership work into decision-ready briefs. Start with the 2-minute practice.",
-      primaryCta: "Open PromptAnatomy",
-      secondaryCta: "Start 2-minute practice",
-      tertiaryCta: "Download kit (PDF)",
+        "Standardize how your team uses AI: fewer mistakes, faster decisions, clearer outcomes—without another vague prompt list.",
+      primaryCta: "See the 2-minute practice",
+      secondaryCta: "Open PromptAnatomy.app",
       proofOne: "Short printable kit",
       proofTwo: "No login",
       proofThree: "Built on PromptAnatomy",
@@ -61,10 +64,36 @@ export const uiCopy = {
       visualRisk: "Risk: the team debates symptoms instead of deciding the operating trade-off.",
       visualAction: "Next action: copy the prompt, fill the brackets, and run the decision brief.",
     },
+    heroTrust: {
+      showPlaceholderLogos: false,
+      logosEyebrow: "Adoption signal",
+      logosTitle: "Where leadership teams standardize AI output",
+      logosNote: "Customer logos appear here when provided.",
+      logosAria: "Customer logos",
+      logoSlots: ["Enterprise", "Growth", "Operations", "Board-facing"],
+      outcomesEyebrow: "Outcomes operators care about",
+      outcomes: [
+        "Less rework between “the model said it” and “we can decide.”",
+        "Clearer briefs before board, client, partner, or all-hands sees noise.",
+        "One repeatable method: prompts, checks, owners, next actions.",
+      ],
+    },
     flowScheme: {
       eyebrow: "How it works",
-      a11yLabel: "Flow: Messy input to executive prompt to quality and safety check to decision-ready brief.",
-      nodes: ["Messy input", "Executive prompt", "Quality & safety check", "Decision-ready brief"],
+      a11yLabel: "Example flow: concrete request, PromptAnatomy structure applied, decision-ready output with KPIs and owners.",
+      bridgeNote:
+        "Same pattern as the practice block below: role, context, decision logic, output, then the 30-second safety check.",
+      inputLabel: "Input",
+      inputExample: "Prepare a Q2 marketing strategy.",
+      middleLabel: "PromptAnatomy",
+      middleBadge: "Structure applied",
+      outputLabel: "Output",
+      outputBullets: [
+        "Clear KPIs, constraints, and decision criteria",
+        "Channel plan with trade-offs and risks",
+        "Sequenced actions with owners and dates",
+      ],
+      nextStepHint: "Next: the 2-minute practice below",
     },
     proof: {
       eyebrow: "Why leaders use it",
@@ -104,8 +133,11 @@ export const uiCopy = {
         "30-second risk shield: facts verified, sensitive claims flagged, missing context called out, owner clear.",
       checkBridge: "Run the safety prompt before anything goes to board, client, partner, or team.",
       ctaText: "Test this with your next meeting.",
-      ctaHref: "https://www.promptanatomy.app/",
+      ctaDemo: "Open static demo",
+      ctaDemoHref: "#demo",
+      ctaHref: "https://www.promptanatomy.app/?utm_source=leader&utm_medium=practice_band&utm_campaign=demo_followup",
       ctaLabel: "Open PromptAnatomy",
+      safetyAnchorLabel: "Full safety prompt to copy",
     },
     safety: {
       eyebrow: "30-second executive safety check",
@@ -128,6 +160,7 @@ export const uiCopy = {
     anatomy: {
       eyebrow: "Executive prompt anatomy",
       title: "Five blocks that keep AI useful for leadership work.",
+      expandSummary: "Five blocks (expand)",
       subtitle:
         "Quick work: two or three blocks. High-stakes output: use all five.",
       items: [
@@ -154,6 +187,8 @@ export const uiCopy = {
       },
       copyPrompt: "Copy prompt",
       copied: "Copied",
+      revealPrompt: "Reveal prompt",
+      pdfAgain: "Download the PDF kit again",
       categories: [
         {
           title: "CEO Decisions",
@@ -418,7 +453,9 @@ export const uiCopy = {
       followUpEyebrow: "Keep the structure on your desk",
       followUpText: "The printable kit carries the same insight → decision → risks → next-action shape into your week.",
       followUpCta: "Download Max Value Kit",
+      pdfAgain: "Get the PDF again",
       messyInputLabel: "Business noise",
+      connectorCaption: "Transforms",
       outputLabel: "Executive clarity output",
       insight: "Key insight",
       decision: "Decision needed",
@@ -589,6 +626,8 @@ export const uiCopy = {
         },
       ],
       total: "~5 hours/week → fewer decision mistakes, clearer ownership, safer outbound communication.",
+      printableOneLiner: "Six moves ≈ ~5h/week — same rhythm on one printable page.",
+      printableKitLink: "Open download band",
     },
     systemVisual: {
       eyebrow: "AI is an operating system",
@@ -604,12 +643,14 @@ export const uiCopy = {
     authority: {
       eyebrow: "Brand architecture",
       title: "Lead magnet into the full PromptAnatomy system.",
+      chooseNext: "Choose one next step",
       mother: "Mother platform",
       motherText: "PromptAnatomy.app: full AI operating system and commercial home.",
-      sister: "Sister platform",
+      sisterEyebrow: "Sister hub",
       sisterTitle: "DI Operacinis Centras",
       sisterText:
         "CEO/COO hub on GitHub Pages: mode-based prompts, weekly priorities, and a template library (Prompt Anatomy spin-off).",
+      sisterLink: "Open the sister CEO/COO hub →",
     },
     cta: {
       eyebrow: "Take the executive kit",
@@ -630,7 +671,7 @@ export const uiCopy = {
     meta: {
       title: "CEO/COO vykdomasis promptų rinkinys | Prompt Anatomy",
       description:
-        "Nemokamas statinis CEO/COO rinkinys: spausdinami promptai, saugumo patikra ir demo—be prisijungimo. PromptAnatomy—kai komandai reikia bendro standarto.",
+        "Standartizuok vadovybės DI naudojimą: mažiau klaidų, greitesni sprendimai, aiškesni rezultatai. Nemokamas statinis rinkinys ir demo—be prisijungimo. PromptAnatomy—kai komandai reikia vieno standarto.",
     },
     a11y: {
       skipLink: "Pereiti prie praktikos",
@@ -664,18 +705,21 @@ export const uiCopy = {
     },
     nav: {
       product: "CEO/COO Max Value Kit",
-      demo: "Pradėti praktiką",
-      system: "Pilna sistema",
+      practice: "2 min. praktika",
+      proof: "Statinė demo",
+      system: "Kaip telpa sistema",
+      library: "Promptų biblioteka",
+      demo: "Žiūrėti kaip veikia",
       language: "Kalba",
+      kitPdf: "Rinkinys (PDF)",
     },
     hero: {
-      eyebrow: "Nemokamas vadovo promptų operacinis rinkinys",
-      title: "Įdiek sprendimų sistemą, ne dar vieną promptų sąrašą.",
+      eyebrow: "Nemokamas CEO/COO rinkinys · Vadovo valdymo paviršius DI",
+      title: "Nuo chaotiškų DI atsakymų iki valdomų sprendimų per 7 dienas.",
       subtitle:
-        "Vadovų darbą paversk sprendimui paruoštais briefais. Pradėk nuo 2 min. praktikos—tada naudok PromptAnatomy kaip komandos standartą.",
-      primaryCta: "Atidaryti PromptAnatomy",
-      secondaryCta: "Pradėti 2 min. praktiką",
-      tertiaryCta: "Atsisiųsti rinkinį (PDF)",
+        "Standartizuok, kaip komanda naudoja DI: mažiau klaidų, greitesni sprendimai, aiškūs rezultatai—ne dar vienas miglotas promptų sąrašas.",
+      primaryCta: "Žiūrėti 2 min. praktiką",
+      secondaryCta: "Atidaryti PromptAnatomy.app",
       proofOne: "Trumpas spausdinamas rinkinys",
       proofTwo: "Be prisijungimo",
       proofThree: "Pagrįsta PromptAnatomy",
@@ -685,10 +729,37 @@ export const uiCopy = {
       visualRisk: "Rizika: komanda aptarinės simptomus, užuot priėmusi operacinį sprendimą.",
       visualAction: "Kitas veiksmas: kopijuok promptą, užpildyk skliaustus ir paleisk sprendimo briefą.",
     },
+    heroTrust: {
+      showPlaceholderLogos: false,
+      logosEyebrow: "Pasitikėjimo signalas",
+      logosTitle: "Kur vadovybės komandos standartizuoja DI išvestį",
+      logosNote: "Čia bus rodomi klientų logotipai, kai jie bus pateikti.",
+      logosAria: "Klientų logotipai",
+      logoSlots: ["Enterprise", "Augimas", "Operacijos", "Tarybai"],
+      outcomesEyebrow: "Rezultatai, kuriais rūpinasi operatorius",
+      outcomes: [
+        "Mažiau perdarymo tarp „modelis taip pasakė“ ir „galime spręsti“.",
+        "Aiškesni briefai prieš tai, kai taryba, klientas ar komanda mato triukšmą.",
+        "Vienas kartojamas metodas: promptai, patikros, savininkai, kiti veiksmai.",
+      ],
+    },
     flowScheme: {
       eyebrow: "Kaip tai veikia",
-      a11yLabel: "Eiga: miglota įvestis į vadovo promptą, į kokybės ir saugumo patikrą, į sprendimui paruoštą briefą.",
-      nodes: ["Miglota įvestis", "Vadovo promptas", "Kokybės ir saugumo patikra", "Sprendimui paruoštas briefas"],
+      a11yLabel:
+        "Pavyzdinė eiga: konkreti užklausa, pritaikyta PromptAnatomy struktūra, sprendimui paruošta išvestis su KPI ir savininkais.",
+      bridgeNote:
+        "Tas pats šablonas kaip žemiau esančioje praktikoje: rolė, kontekstas, sprendimo logika, išvestis, tada 30 sek. saugumo patikra.",
+      inputLabel: "Įvestis",
+      inputExample: "Paruošk Q2 marketingo strategiją.",
+      middleLabel: "PromptAnatomy",
+      middleBadge: "Struktūra pritaikyta",
+      outputLabel: "Išvestis",
+      outputBullets: [
+        "Aiškūs KPI, ribos ir sprendimo kriterijai",
+        "Kanalų planas su kompromisais ir rizikomis",
+        "Veiksmų seka su savininkais ir datomis",
+      ],
+      nextStepHint: "Toliau: 2 min. praktika žemiau",
     },
     proof: {
       eyebrow: "Kodėl vadovai jį naudoja",
@@ -728,8 +799,11 @@ export const uiCopy = {
         "30 sek. rizikos skydas: patikrinti faktai, pažymėti jautrūs teiginiai, aiškus kontekstas ir savininkas.",
       checkBridge: "Paleisk saugumo promptą prieš siunčiant valdybai, klientui, partneriui ar komandai.",
       ctaText: "Išbandyk su savo kito susitikimo užrašais.",
-      ctaHref: "https://www.promptanatomy.app/",
+      ctaDemo: "Atidaryti statinę demo",
+      ctaDemoHref: "#demo",
+      ctaHref: "https://www.promptanatomy.app/?utm_source=leader&utm_medium=practice_band&utm_campaign=demo_followup",
       ctaLabel: "Atidaryti PromptAnatomy",
+      safetyAnchorLabel: "Pilnas saugumo promptas kopijavimui",
     },
     safety: {
       eyebrow: "30 sek. vadovo saugumo patikra",
@@ -752,6 +826,7 @@ export const uiCopy = {
     anatomy: {
       eyebrow: "Vadovo prompto anatomija",
       title: "Penki blokai, kad DI dirbtų vadovo lygiu.",
+      expandSummary: "Penki blokai (išskleisti)",
       subtitle: "Greitam darbui: du ar trys blokai. Didelė rizika: visi penki.",
       items: [
         ["Rolė", "Kokį vaidmenį atlieka DI ir kokiam verslo rezultatui jis tarnauja."],
@@ -777,6 +852,8 @@ export const uiCopy = {
       },
       copyPrompt: "Kopijuoti promptą",
       copied: "Nukopijuota",
+      revealPrompt: "Rodyti pilną promptą",
+      pdfAgain: "Atsisiųsti PDF rinkinį dar kartą",
       categories: [
         {
           title: "CEO sprendimai",
@@ -1043,7 +1120,9 @@ export const uiCopy = {
       followUpText:
         "Spausdinamas rinkinys perneša tą pačią įžvalga → sprendimas → rizikos → kitas veiksmas į savaitę.",
       followUpCta: "Atsisiųsti Max Value Kit",
+      pdfAgain: "PDF dar kartą",
       messyInputLabel: "Verslo triukšmas",
+      connectorCaption: "Virsta",
       outputLabel: "Aiškus vadovo rezultatas",
       insight: "Pagrindinė įžvalga",
       decision: "Reikalingas sprendimas",
@@ -1215,6 +1294,8 @@ export const uiCopy = {
         },
       ],
       total: "~5 val. per savaitę → mažiau sprendimo klaidų, aiškesnė atsakomybė, saugesnė komunikacija.",
+      printableOneLiner: "Šeši žingsniai ≈ ~5 val./sav. — tas pats ritmas viename spausdinamame lape.",
+      printableKitLink: "Atidaryti atsisiuntimo juostą",
     },
     systemVisual: {
       eyebrow: "DI yra operacinė sistema",
@@ -1230,12 +1311,14 @@ export const uiCopy = {
     authority: {
       eyebrow: "Prekės ženklo architektūra",
       title: "Vedlys į pilną PromptAnatomy sistemą.",
+      chooseNext: "Pasirink vieną kitą žingsnį",
       mother: "Motininė platforma",
       motherText: "PromptAnatomy.app: pilna DI operacinė sistema ir komercinis namai.",
-      sister: "Seserinė platforma",
+      sisterEyebrow: "Seserinis centras",
       sisterTitle: "DI Operacinis Centras",
       sisterText:
         "CEO/COO operacinis centras: režimai, savaitės prioritetai ir šablonų biblioteka („Promptų anatomijos“ spin-offas).",
+      sisterLink: "Atidaryti seserinį CEO/COO centrą →",
     },
     cta: {
       eyebrow: "Pasiimk vadovo rinkinį",
