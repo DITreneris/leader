@@ -47,12 +47,12 @@ The build must finish with:
 - Gradients, glass cards, and memes support the message rather than distract.
 - The before/after proof diagram renders (SVG) and stays low-text.
 - Visual breaks explain workflow control, safety, ROI, or system thinking.
-- Two meme moments are present (indices `3,4`); they remain fragmented recognition beats (no CTA).
+- Five `MemeMoment` beats are present on the live page (see `Page.astro` / `docs/VISUAL_CONTENT_MAP.md`); they remain fragmented recognition beats (no CTA).
 - No meme moment carries a CTA or eyebrow ladder; each one is a single recognition beat.
 - Visual breaks use memes and section rhythm; the former standalone “OS fit” block was removed—its message lives in the FAQ “vs prompt list” answer.
 - The library accordion opens the first category by default and keeps the rest collapsed.
 - The library section uses a single outer accordion for categories; expand/collapse behaves predictably (no workflow picker).
-- The `MemeMoment` images use explicit width and height plus `loading="lazy"` to keep CLS at zero.
+- The `MemeMoment` images use explicit width and height for CLS; the first beat (after hero) uses `loading="eager"` and `fetchpriority="high"`; others use lazy loading.
 - Diagrams should use SVG where possible.
 - Screenshots and larger raster assets should use AVIF/WebP when possible.
 - Meme PNGs are heavy; future iterations should compress them or convert to AVIF/WebP before a public launch.
@@ -85,4 +85,5 @@ Before publishing:
 6. Test the library accordion expand/collapse (outer + inner categories).
 7. Test printable Max Value Kit download and outbound links.
 8. Confirm no meme image returns 404 in network tab.
-9. Add a daily entry to `CHANGELOG.md`.
+9. Confirm `public/og-image.png` (and `og-image-lt.png` when used) are **1200×630** pixels so they match `og:image:width` / `og:image:height` in `Page.astro` (Facebook / LinkedIn / X previews).
+10. Add a daily entry to `CHANGELOG.md`.

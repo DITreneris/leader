@@ -3,7 +3,13 @@ import type { Language } from "../content/copy";
 const motherOrgId = "https://www.promptanatomy.app/#organization";
 const motherSiteId = "https://www.promptanatomy.app/#website";
 
-type FaqItem = { q: string; a: string };
+export type FaqItem = { q: string; a: string; bullets?: readonly string[] };
+
+/** Single plain-text answer for schema.org FAQPage crawlers. */
+export function faqAnswerTextForSchema(item: FaqItem): string {
+  if (!item.bullets?.length) return item.a;
+  return `${item.a}\n${item.bullets.map((b) => `• ${b}`).join("\n")}`;
+}
 
 /** JSON-LD graph for CEO/COO landing FAQ + WebPage (Organization + WebSite reused from mother product). */
 export function buildLeaderPageJsonLd(input: {
@@ -55,7 +61,7 @@ export function buildLeaderPageJsonLd(input: {
         mainEntity: faqItems.map((item) => ({
           "@type": "Question",
           name: item.q,
-          acceptedAnswer: { "@type": "Answer", text: item.a },
+          acceptedAnswer: { "@type": "Answer", text: faqAnswerTextForSchema(item) },
         })),
       },
     ],

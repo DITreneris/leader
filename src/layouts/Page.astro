@@ -91,12 +91,14 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
     <meta property="og:image" content={socialImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={meta.socialImageAlt} />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:locale:alternate" content={ogLocaleAlternate} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={meta.title} />
     <meta name="twitter:description" content={meta.description} />
     <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={meta.socialImageAlt} />
     <meta name="theme-color" content="#0b1320" />
     <title>{meta.title}</title>
     <script is:inline type="application/ld+json" set:html={serializedJsonLd} />
@@ -114,7 +116,9 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         side="left"
         accent="gold"
         width={1280}
-        height={1280}
+        height={720}
+        loading="eager"
+        fetchPriority="high"
       />
       <BeforeAfter lang={lang} />
       <MemeMoment
@@ -125,7 +129,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         side="right"
         accent="gold"
         width={1280}
-        height={1280}
+        height={720}
       />
       <ExecutiveModules lang={lang} />
       <PromoBanner lang={lang} />
@@ -137,7 +141,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         side="right"
         accent="gold"
         width={1280}
-        height={1280}
+        height={720}
       />
       <ClarityDemo lang={lang} />
       <MemeMoment
@@ -148,7 +152,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         side="left"
         accent="gold"
         width={1280}
-        height={1280}
+        height={720}
       />
       <SafetyCheck lang={lang} />
       <CourseCTA lang={lang} />
@@ -163,7 +167,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         side="left"
         accent="gold"
         width={1280}
-        height={1280}
+        height={720}
       />
       <Faq lang={lang} />
       <PromptLibrary lang={lang} />

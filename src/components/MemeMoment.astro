@@ -13,6 +13,8 @@ type Props = {
   accent?: AccentTone;
   width: number;
   height: number;
+  loading?: "lazy" | "eager";
+  fetchPriority?: "high" | "low" | "auto";
 };
 
 const {
@@ -24,6 +26,8 @@ const {
   accent = "gold",
   width,
   height,
+  loading = "lazy",
+  fetchPriority,
 } = Astro.props;
 
 const page = uiCopy[lang];
@@ -74,15 +78,19 @@ const orderClass = isRight ? "lg:[&>figure]:order-2" : "";
       class={`radius-meme-outer group relative overflow-hidden border bg-gradient-to-br via-slate-950/60 to-slate-950/80 p-3 ${tone.wrap}`}
     >
       <div class={`pointer-events-none absolute -inset-10 rounded-full blur-3xl ${tone.glow}`}></div>
-      <img
-        src={imageUrl}
-        alt={alt}
-        loading="lazy"
-        decoding="async"
-        width={width}
-        height={height}
-        class="radius-meme-inner relative block h-auto w-full object-cover transition duration-500 motion-safe:group-hover:scale-[1.015]"
-      />
+      <!-- 16:9 frame; object-contain so nothing is cropped (exports are widescreen memes). -->
+      <div class="relative aspect-video w-full overflow-hidden bg-slate-950/60 radius-meme-inner">
+        <img
+          src={imageUrl}
+          alt={alt}
+          loading={loading}
+          decoding="async"
+          width={width}
+          height={height}
+          fetchpriority={fetchPriority}
+          class="h-full w-full object-contain object-center transition duration-500 motion-safe:group-hover:scale-[1.015]"
+        />
+      </div>
     </figure>
     <div class="flex flex-col gap-3">
       <h3 class="text-2xl font-black tracking-tight text-white sm:text-3xl lg:text-4xl">

@@ -12,6 +12,26 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 - **Memes:** Post–`ClarityDemo` beat with `reward_2.png` (`memes.items[5]`); **live page has five** `MemeMoment` placements (indices `3`, `0`, `2`, `5`, `4` in [`src/layouts/Page.astro`](src/layouts/Page.astro)).
 - **SafetyCheck:** Tool-style layout (~70/30), hero prompt block, compact `details` check rail; EN/LT `safety` SCAN/DEEP strings.
 - **Premium UI unification:** Centralized **radius**, **typography roles**, and **section vertical rhythm** in [`src/styles/global.css`](src/styles/global.css); shared [`SectionHeader.astro`](src/components/SectionHeader.astro); landing sections refactored to the new utilities; all **MemeMoment** accents on the live page set to **gold**; [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) documents visual tokens.
+- **MemeMoment layout:** Meme slot is **16:9** (`aspect-video`) with **`object-contain`** so **widescreen memes are not cropped**; [`Page.astro`](src/layouts/Page.astro) uses **1280×720** on all five `<img>` hints; [`public/assets/memes/README.md`](public/assets/memes/README.md) states 16:9 exports.
+
+### Changed (Micro-refinement: FAQ hierarchy, library scan hint, page token)
+- **`Faq.astro`:** OS-vs-list answer renders as **lead** (`text-slate-300`) + **`<ul>`** bullets (`text-slate-400`); other items stay a single paragraph. Cards use **`.radius-lg`** instead of ad-hoc `rounded-*`; answers use **`leading-relaxed`**. Locale **`faq.items`**: all entries include `bullets` (`[]` or list); second pair expanded EN/LT.
+- **`pageJsonLd.ts`:** Exported **`FaqItem`** with optional **`bullets`**; **`faqAnswerTextForSchema()`** joins lead + bullets for FAQPage **`acceptedAnswer.text`**.
+- **`PromptLibrary.astro` / `en.ts` / `lt.ts`:** **`library.scanHint`**—one line: use as reference, copy one prompt when needed (not the whole catalog).
+- **`global.css`:** **`--color-page-base`** (`#050816`) drives `:root` fill and the body gradient’s top stop; comment notes **page canvas vs `--color-brand-dark`** (manifest/chrome).
+- **`docs/SOURCE_OF_TRUTH.md`:** Documents **`--color-page-base`**.
+
+### Changed (Social preview + first meme load priority)
+- **`en.ts` / `lt.ts`:** **`meta.socialImageAlt`** for Open Graph / Twitter image descriptions (bilingual).
+- **`Page.astro`:** **`og:image:alt`** and **`twitter:image:alt`** wired to `meta.socialImageAlt`.
+- **`MemeMoment.astro`:** Optional **`loading`** (default `lazy`) and **`fetchPriority`** → **`fetchpriority`** on `<img>`.
+- **`Page.astro`:** First post-hero `MemeMoment` uses **`loading="eager"`** and **`fetchPriority="high"`**; other beats unchanged.
+- **`docs/QUALITY_ASSURANCE.md`:** Release step to verify **`og-image.png`** / **`og-image-lt.png`** are **1200×630**; visual QA updated for **five** meme beats and first-beat eager loading.
+
+### Changed (MemeMoment: 16:9, no cropping)
+- **`MemeMoment.astro`:** Image sits in a fixed **16:9** frame (`aspect-video`) with **`object-contain object-center`** and a subtle inner background so the full asset stays visible (no `object-cover` crop). Supersedes an incorrect **square** clip that was wrong for 16:9 PNGs.
+- **`Page.astro`:** Every `MemeMoment` passes `width={1280}` and `height={720}` (was `1280×1280`) for layout/CLS alignment with 16:9 art.
+- **`public/assets/memes/README.md`:** Gold-accent note retained; documents **16:9** pipeline and **no-crop** rendering.
 
 ### Changed (Premium UI / design system utilities)
 - **`global.css`:** Added `--radius-sm` … `--radius-xl`, helpers `.radius-sm` … `.radius-xl`, `.radius-meme-outer` / `.radius-meme-inner`, typography utilities (`.type-section-eyebrow`, `.type-eyebrow-promo`, `.type-eyebrow-promo-bright`, `.type-eyebrow-inline`, `.type-form-label`, `.type-micro-label`, `.type-cta-label`), section rhythm (`.section-y`, `.section-y-tight`, `.section-y-compact`, `.section-y-roomy-lg`), and `.border-surface`.

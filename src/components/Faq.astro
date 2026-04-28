@@ -18,11 +18,24 @@ const { faq } = uiCopy[lang];
     <div class="mt-8 space-y-2">
       {
         faq.items.map((item) => (
-          <details class="glass-card rounded-xl px-4 py-0 sm:rounded-2xl sm:px-5">
+          <details class="glass-card radius-lg px-4 py-0 sm:px-5">
             <summary class="focus-ring summary-hover cursor-pointer list-none py-3.5 text-left text-sm font-bold text-white outline-none sm:text-base [&::-webkit-details-marker]:hidden">
               {item.q}
             </summary>
-            <p class="border-t border-white/10 pb-3.5 pt-2 text-sm leading-6 text-slate-400">{item.a}</p>
+            <div class="border-t border-white/10 pb-3.5 pt-2 text-sm leading-relaxed">
+              {item.bullets?.length ? (
+                <>
+                  <p class="text-slate-300">{item.a}</p>
+                  <ul class="mt-2 list-disc space-y-1.5 pl-5 text-slate-400">
+                    {item.bullets.map((line) => (
+                      <li>{line}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <p class="text-slate-400">{item.a}</p>
+              )}
+            </div>
           </details>
         ))
       }
