@@ -4,6 +4,9 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 ## 2026-04-28
 
+### Changed (hero right-side)
+- **Removed hero artifact:** Dropped the dense `HeroArtifact` “slide” and replaced it with a scannable GitHub-style bento proof grid (`HeroBento`) to make the right side instantly understandable (EN/LT).
+
 ### Changed (Phase 3 visuals)
 - **Before/after proof:** Added a minimal premium before/after SVG (`public/assets/graphics/before-after.svg`) and surfaced it near the top of the page as a one-screen transformation proof (EN/LT).
 

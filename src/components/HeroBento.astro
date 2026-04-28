@@ -1,0 +1,80 @@
+---
+import type { Language } from "../content/copy";
+import { uiCopy } from "../content/copy";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const c = uiCopy[lang];
+const v = c.heroBento;
+---
+
+<aside class="glass-card relative overflow-hidden rounded-[2rem] p-6 sm:p-8" aria-label={v.ariaLabel}>
+  <div class="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-brand-accent/15 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-white/5 blur-3xl"></div>
+
+  <div class="relative">
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-200">
+        {v.chipOne}
+      </span>
+      <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-200">
+        {v.chipTwo}
+      </span>
+      <span class="rounded-full border border-brand-accent/30 bg-brand-accent/15 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-brand-accent-hover">
+        {v.chipThree}
+      </span>
+    </div>
+
+    <h2 class="mt-6 text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl">
+      {v.title}
+    </h2>
+    <p class="mt-2 max-w-xl text-sm leading-6 text-slate-300 sm:text-base sm:leading-7">
+      {v.subtitle}
+    </p>
+
+    <div class="mt-6 grid gap-4 lg:grid-cols-2">
+      <article class="surface-panel rounded-3xl p-5">
+        <p class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-500">{v.beforeLabel}</p>
+        <p class="mt-3 text-sm font-semibold leading-6 text-slate-100">{v.beforeTitle}</p>
+        <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-200">
+          {v.beforeBullets.map((item) => (
+            <li class="flex gap-3">
+              <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500/80" aria-hidden="true" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="surface-accent accent-glow rounded-3xl p-5">
+        <p class="text-[10px] font-black uppercase tracking-[0.22em] text-brand-accent-hover">{v.afterLabel}</p>
+        <p class="mt-3 text-sm font-semibold leading-6 text-slate-100">{v.afterTitle}</p>
+        <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-100">
+          {v.afterBullets.map((item) => (
+            <li class="flex gap-3">
+              <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" aria-hidden="true" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    </div>
+
+    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      <article class="surface-muted rounded-3xl p-5">
+        <p class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-500">{v.ownerChipLabel}</p>
+        <p class="mt-3 text-base font-semibold text-slate-100">{v.ownerChipValue}</p>
+      </article>
+      <article class="surface-muted rounded-3xl p-5">
+        <p class="text-[10px] font-black uppercase tracking-[0.22em] text-slate-500">{v.deadlineChipLabel}</p>
+        <p class="mt-3 text-base font-semibold text-slate-100">{v.deadlineChipValue}</p>
+      </article>
+    </div>
+
+    <p class="mt-5 text-xs leading-5 text-slate-400">{v.helper}</p>
+  </div>
+</aside>
+
