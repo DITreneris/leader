@@ -368,11 +368,13 @@ Use this table when choices are made so future agents do not revert blindly.
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
-| 2026-04-28 | Hero primary CTA = `#practice` (scroll); secondary = PromptAnatomy | Comprehension-first ladder per §4.3 |
+| 2026-04-28 | Hero primary CTA = `#context` (scroll); secondary = PromptAnatomy | Comprehension-first ladder per §4.3 |
 | 2026-04-28 | Trust strip = hidden (`showPlaceholderLogos: false`) until real logos | No customer-facing “placeholder” labels |
 | 2026-04-28 | Meme count = 5; order fixed to `items[0]…[4]` on page | Matches narrative in `copy.ts` |
 | 2026-04-28 | FAQ position = after `CourseCTA` (`#kit`) | Commit band before depth |
 | 2026-04-28 | Authority bridge = Option A (mother card, sister text link) | Single visual primary per §4.4 |
+| 2026-04-28 | Spine reorder = `#context` → `#demo` → `#safety-check` → `#kit` | Act → proof → safety gate → commit before depth |
+| 2026-04-28 | RoiPath safety step uses `#safety-check` link instead of duplicating the full safety prompt | Reduce repetition fatigue; one canonical safety prompt surface |
 
 ---
 

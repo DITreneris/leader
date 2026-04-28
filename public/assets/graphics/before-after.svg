@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-label="Before and after: business noise to decision-ready brief">
+  <defs>
+    <linearGradient id="strokeGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#CFA73A" stop-opacity="0.65" />
+      <stop offset="0.5" stop-color="#E8B93C" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#CFA73A" stop-opacity="0.65" />
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feColorMatrix
+        in="blur"
+        type="matrix"
+        values="1 0 0 0 0
+                0 0.8 0 0 0
+                0 0 0.2 0 0
+                0 0 0 0.7 0"
+        result="tint"
+      />
+      <feMerge>
+        <feMergeNode in="tint" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background is intentionally transparent; the page provides the dark surface. -->
+  <g fill="none">
+    <!-- Left: noise -->
+    <rect x="70" y="78" width="290" height="204" rx="28" stroke="rgba(226,232,240,0.18)" stroke-width="2" />
+    <g stroke="rgba(244,63,94,0.55)" stroke-width="10" stroke-linecap="round">
+      <path d="M120 140 C 150 110, 200 170, 240 140" />
+      <path d="M120 190 C 170 220, 210 160, 290 200" />
+      <path d="M120 240 C 180 210, 230 270, 300 240" />
+    </g>
+
+    <!-- Middle: structure + gate -->
+    <rect x="455" y="78" width="290" height="204" rx="28" stroke="url(#strokeGold)" stroke-width="2.5" />
+    <g stroke="rgba(232,185,60,0.85)" stroke-width="3">
+      <path d="M505 135 H695" />
+      <path d="M505 175 H695" />
+      <path d="M505 215 H650" />
+    </g>
+    <g transform="translate(640 205)">
+      <rect x="0" y="0" width="56" height="56" rx="16" fill="rgba(232,185,60,0.12)" stroke="rgba(232,185,60,0.55)" stroke-width="2" />
+      <path
+        d="M28 16c-7 0-12 5-12 12v6c0 1 1 2 2 2h20c1 0 2-1 2-2v-6c0-7-5-12-12-12Z"
+        stroke="rgba(232,185,60,0.85)"
+        stroke-width="2"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path d="M22 26v-2a6 6 0 1 1 12 0v2" stroke="rgba(232,185,60,0.85)" stroke-width="2" fill="none" stroke-linecap="round" />
+    </g>
+
+    <!-- Right: decision brief -->
+    <rect x="840" y="78" width="290" height="204" rx="28" stroke="rgba(226,232,240,0.18)" stroke-width="2" />
+    <g filter="url(#softGlow)">
+      <rect x="885" y="118" width="200" height="44" rx="18" fill="rgba(16,185,129,0.10)" stroke="rgba(16,185,129,0.45)" stroke-width="2" />
+      <rect x="885" y="176" width="200" height="44" rx="18" fill="rgba(226,232,240,0.06)" stroke="rgba(226,232,240,0.18)" stroke-width="2" />
+      <rect x="885" y="234" width="200" height="28" rx="14" fill="rgba(232,185,60,0.10)" stroke="rgba(232,185,60,0.40)" stroke-width="2" />
+    </g>
+
+    <!-- Arrows -->
+    <path d="M360 180H438" stroke="rgba(232,185,60,0.55)" stroke-width="3" stroke-linecap="round" />
+    <path d="M438 180l-14-8m14 8l-14 8" stroke="rgba(232,185,60,0.55)" stroke-width="3" stroke-linecap="round" />
+
+    <path d="M745 180H823" stroke="rgba(232,185,60,0.55)" stroke-width="3" stroke-linecap="round" />
+    <path d="M823 180l-14-8m14 8l-14 8" stroke="rgba(232,185,60,0.55)" stroke-width="3" stroke-linecap="round" />
+  </g>
+</svg>
+

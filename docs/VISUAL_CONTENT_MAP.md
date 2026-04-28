@@ -14,7 +14,7 @@ Visuals should make the CEO feel the transformation quickly: business noise beco
 2. Before/after graphic
    - File target: `public/assets/graphics/before-after.svg`
    - Message: "Random AI use creates generic output; structured executive workflow creates decisions."
-   - Placement: before/after section.
+   - Placement: `BeforeAfter` section near the top (before `#context`).
 
 3. Workflow map
    - Current file: `public/assets/graphics/workflow-map.svg`
@@ -30,7 +30,7 @@ Visuals should make the CEO feel the transformation quickly: business noise beco
 | 1 | 3 | `meme-03-clear-decision.png` | Control creates results |
 | 2 | 0 | `reward_2.png` | Access is not enough |
 | 3 | 2 | `meme-04-delegation-bottleneck.png` | Tools do not create speed |
-| — | — | *(then)* | `ClarityDemo` (`#demo`), `PromptAnatomy`, `AuthorityBridge`, `CourseCTA` (`#kit`), `RoiPath` |
+| — | — | *(then)* | `ExecutiveModules` (`#context`), `ClarityDemo` (`#demo`), `SafetyCheck` (`#safety-check`), `CourseCTA` (`#kit`), `AuthorityBridge` |
 | 4 | 4 | `meme-02-meeting-overload.png` | Leadership needs the system |
 
 Sides: left → right (first pair), then left after ROI for the final beat.

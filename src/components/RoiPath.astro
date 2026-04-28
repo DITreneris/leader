@@ -133,6 +133,13 @@ const desktopPositions = [
           >
             {roiPath.copyPrompt}
           </button>
+          <a
+            href="#safety-check"
+            data-roi-panel-safety-link
+            class="focus-ring hidden rounded-full border border-white/15 px-4 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-brand-accent-hover/60 hover:bg-white/5"
+          >
+            {roiPath.safetyJump}
+          </a>
           <p class="text-xs leading-5 text-slate-300">{roiPath.panelHint}</p>
         </div>
       </aside>
@@ -171,15 +178,24 @@ const desktopPositions = [
             <div class="mt-4 border-t border-white/10 pt-4">
               <p class="text-sm leading-6 text-slate-300">{step.description}</p>
               <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <button
-                  type="button"
-                  data-copy-i18n={`roiPath.steps.${index}.prompt`}
-                  data-copy-label-i18n="roiPath.copyPrompt"
-                  data-copy-copied-i18n="roiPath.copied"
-                  class="focus-ring btn-outline-accent elevate-hover rounded-full px-4 py-3 text-sm font-bold"
-                >
-                  {roiPath.copyPrompt}
-                </button>
+                {step.id === "safety" ? (
+                  <a
+                    href="#safety-check"
+                    class="focus-ring rounded-full border border-white/15 px-4 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-brand-accent-hover/60 hover:bg-white/5"
+                  >
+                    {roiPath.safetyJump}
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    data-copy-i18n={`roiPath.steps.${index}.prompt`}
+                    data-copy-label-i18n="roiPath.copyPrompt"
+                    data-copy-copied-i18n="roiPath.copied"
+                    class="focus-ring btn-outline-accent elevate-hover rounded-full px-4 py-3 text-sm font-bold"
+                  >
+                    {roiPath.copyPrompt}
+                  </button>
+                )}
               </div>
             </div>
           </details>
@@ -203,6 +219,7 @@ const desktopPositions = [
 
 <script>
   type RoiStep = {
+    id: string;
     time: string;
     action: string;
     value: string;
@@ -227,6 +244,7 @@ const desktopPositions = [
   const panelValue = document.querySelector<HTMLElement>("[data-roi-panel=\"value\"]");
   const panelDescription = document.querySelector<HTMLElement>("[data-roi-panel=\"description\"]");
   const panelCopy = document.querySelector<HTMLButtonElement>("[data-roi-panel-copy]");
+  const panelSafetyLink = document.querySelector<HTMLAnchorElement>("[data-roi-panel-safety-link]");
 
   const setActive = (index: number) => {
     stepButtons.forEach((button) => {
@@ -246,6 +264,12 @@ const desktopPositions = [
       panelCopy.textContent = copy?.roiPath?.copyPrompt ?? panelCopy.textContent;
       panelCopy.dataset.copyI18n = `roiPath.steps.${index}.prompt`;
       panelCopy.removeAttribute("data-copied");
+    }
+
+    if (panelCopy && panelSafetyLink) {
+      const isSafety = step?.id === "safety";
+      panelCopy.classList.toggle("hidden", isSafety);
+      panelSafetyLink.classList.toggle("hidden", !isSafety);
     }
   };
 

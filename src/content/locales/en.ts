@@ -5,7 +5,7 @@ export const enCopy = {
         "Decision-ready leadership AI briefs in one week: standardize how your team uses AI. Free static kit and demo—no login. PromptAnatomy when you need a team-wide operating standard.",
     },
     a11y: {
-      skipLink: "Skip to the context block",
+      skipLink: "Skip to the context fields",
       copyManual: "Copy blocked: select the prompt text above, then press Ctrl+C (or ⌘+C on Mac).",
     },
     faq: {
@@ -107,10 +107,17 @@ export const enCopy = {
         "Owners, deadlines, and next actions",
       ],
     },
+    beforeAfter: {
+      eyebrow: "Proof in one screen",
+      title: "Turn business noise into a decision brief.",
+      subtitle: "Structure + safety gate → owners, deadlines, next action.",
+      a11yLabel: "Before and after: messy notes become a decision-ready brief with a safety gate.",
+    },
     modules: {
       eyebrow: "Global context + modules",
       title: "Define context once. Inject it into high-leverage executive modules.",
       subtitle: "Copy one compiled prompt. Get decision-grade output you can act on.",
+      startHere: "Start here: fill the 4 context fields, then copy 1 module (Decision impact is a safe first pick).",
       context: {
         title: "Global context block",
         subtitle: "Mandatory. Define once, inject everywhere.",
@@ -132,7 +139,6 @@ export const enCopy = {
           "No generic advice. If context is missing, ask up to 3 targeted questions first.",
           "Do not invent numbers or facts. Flag what must be verified.",
           "Output must be decision-grade: recommendation, risks, owners, deadlines.",
-          "Use the same send-check gate before anything goes to board, client, partner, or team.",
         ],
       },
       roleLine: "ROLE: Tier-1 CEO advisor (strategy + operator)",
@@ -625,7 +631,7 @@ Eliminate now:
       promptBlockLabel: "Sample prompt to copy",
       previewHint: "Copy pulls the full prompt. This box is only a preview.",
       followUpEyebrow: "Keep the structure on your desk",
-      followUpText: "The printable kit is the same shape on paper—",
+      followUpText: "The printable kit is the same shape on paper.",
       followUpCta: "Download Max Value Kit",
       pdfAgain: "jump to the kit download.",
       messyInputLabel: "Business noise",
@@ -735,6 +741,7 @@ Eliminate now:
       centerText: "Six repeatable moves that turn AI into decision-ready output.",
       panelLabel: "Selected step",
       panelHint: "Copy grabs a prompt template for this step.",
+      safetyJump: "Use the safety prompt above →",
       copyPrompt: "Copy prompt",
       copied: "Copied",
       steps: [

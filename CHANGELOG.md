@@ -4,6 +4,16 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 ## 2026-04-28
 
+### Changed (Phase 3 visuals)
+- **Before/after proof:** Added a minimal premium before/after SVG (`public/assets/graphics/before-after.svg`) and surfaced it near the top of the page as a one-screen transformation proof (EN/LT).
+
+### Changed (Phase 0–1 spine)
+- **Spine reorder:** Moved the proof + safety + conversion blocks up: `ExecutiveModules` → `ClarityDemo` → `SafetyCheck` → `CourseCTA` → `AuthorityBridge` so the page follows Act → Believe → Commit before depth.
+- **Modules clarity:** Added a one-line “Start here” guide above the module grid to reduce first-time decision overload (EN/LT).
+- **Demo CTA ladder:** Upgraded the post-demo follow-up into a single clear CTA button that jumps to `#kit` (EN/LT).
+- **Safety dedup:** `RoiPath` now links to `#safety-check` for the safety step instead of duplicating the full safety prompt for copy.
+- **Meme docs alignment:** Fixed `Page.astro` meme index documentation to match the live order (`3,0,2,4`) and `docs/VISUAL_CONTENT_MAP.md`.
+
 ### Changed (codebase improvement roadmap)
 - **Docs:** Added [`docs/README.md`](docs/README.md) as documentation index; expanded [`AGENTS.md`](AGENTS.md) **Documentation map**; fuller **Source of truth** list in [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md); [`README.md`](README.md) synced with landing flow + doc links; **Executive summary** block at top of [`docs/STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md).
 - **Copy modularization:** `src/content/copy.ts` re-exports `uiCopy`; locale bodies moved to [`src/content/locales/en.ts`](src/content/locales/en.ts) and [`src/content/locales/lt.ts`](src/content/locales/lt.ts).

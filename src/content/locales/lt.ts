@@ -5,7 +5,7 @@ export const ltCopy = {
         "Per savaitę – nuo miglotos DI išvesties iki aiškių vadovybės briefų: vienas standartas komandai. Nemokamas statinis rinkinys ir demo—be prisijungimo. PromptAnatomy—kai komandai reikia vieno standarto.",
     },
     a11y: {
-      skipLink: "Pereiti prie konteksto bloko",
+      skipLink: "Pereiti prie konteksto laukų",
       copyManual:
         "Kopijavimas užblokuotas: pažymėk prompto tekstą aukščiau ir spausk Ctrl+C (arba ⌘+C Mac).",
     },
@@ -113,10 +113,17 @@ export const ltCopy = {
         "Savininkai, terminai ir kiti veiksmai",
       ],
     },
+    beforeAfter: {
+      eyebrow: "Įrodymas viename ekrane",
+      title: "Paversk verslo triukšmą sprendimo briefu.",
+      subtitle: "Struktūra + saugumo filtras → savininkai, terminai, kitas veiksmas.",
+      a11yLabel: "Prieš ir po: netvarkingi užrašai virsta sprendimui paruoštu briefu su saugumo filtru.",
+    },
     modules: {
       eyebrow: "Globalus kontekstas + moduliai",
       title: "Kontekstą apibrėžk vieną kartą. Įdėk jį į vadovo svertus.",
       subtitle: "Kopijuok vieną sukompiliuotą promptą. Gauk sprendimo lygio rezultatą, pagal kurį galima veikti.",
+      startHere: "Pradėk čia: užpildyk 4 konteksto laukus, tada kopijuok 1 modulį (saugi pradžia – „Sprendimo pasekmės“).",
       context: {
         title: "Globalus konteksto blokas",
         subtitle: "Privaloma. Vieną kartą įvedi, visur panaudoji.",
@@ -138,7 +145,6 @@ export const ltCopy = {
           "Jokio bendrinio patarimo. Jei trūksta konteksto – pirmiausia užduok iki 3 tikslių klausimų.",
           "Neišgalvok skaičių ar faktų. Pažymėk, ką būtina patikrinti.",
           "Išvestis turi būti sprendimo lygio: rekomendacija, rizikos, savininkai, terminai.",
-          "Tas pats patikros filtras prieš viską, kas keliauja valdybai, klientui, partneriui ar komandai.",
         ],
       },
       roleLine: "ROLĖ: 1 lygio CEO patarėjas (strategija + operacijos)",
@@ -634,7 +640,7 @@ Apatiniai 30% delegavimui:
       promptBlockLabel: "Pavyzdinis kopijuojamas promptas",
       previewHint: "Kopijuojant paimamas pilnas promptas. Čia – tik peržiūra.",
       followUpEyebrow: "Laikyk struktūrą po ranka",
-      followUpText: "Rinkinys popieriuje išlaiko tą pačią struktūrą—",
+      followUpText: "Rinkinys popieriuje išlaiko tą pačią struktūrą.",
       followUpCta: "Atsisiųsti Max Value Kit",
       pdfAgain: "pereik prie atsisiuntimo.",
       messyInputLabel: "Verslo triukšmas",
@@ -745,6 +751,7 @@ Apatiniai 30% delegavimui:
       centerText: "Šeši kartojami žingsniai, kurie paverčia DI sprendimui paruoštu rezultatu.",
       panelLabel: "Pasirinktas žingsnis",
       panelHint: "Kopijuoji šio žingsnio prompto šabloną.",
+      safetyJump: "Naudok saugumo promptą aukščiau →",
       copyPrompt: "Kopijuoti promptą",
       copied: "Nukopijuota",
       steps: [

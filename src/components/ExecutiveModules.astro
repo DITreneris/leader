@@ -111,6 +111,10 @@ const modules = uiCopy[lang].modules;
       </p>
     </div>
 
+    <p class="rounded-[1.25rem] border border-brand-accent/20 bg-brand-accent/10 px-5 py-4 text-sm font-semibold text-brand-accent-hover">
+      {modules.startHere}
+    </p>
+
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {modules.items.map((m) => (
         <article class="surface-card flex h-full flex-col overflow-hidden rounded-[2rem] p-6" data-module-card data-module-id={m.id}>

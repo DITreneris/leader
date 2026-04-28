@@ -6,10 +6,12 @@ import AuthorityBridge from "../components/AuthorityBridge.astro";
 import ClarityDemo from "../components/ClarityDemo.astro";
 import CourseCTA from "../components/CourseCTA.astro";
 import Faq from "../components/Faq.astro";
+import BeforeAfter from "../components/BeforeAfter.astro";
 import Hero from "../components/Hero.astro";
 import HeroTrust from "../components/HeroTrust.astro";
 import InteractiveCopy from "../components/InteractiveCopy.astro";
 import ExecutiveModules from "../components/ExecutiveModules.astro";
+import SafetyCheck from "../components/SafetyCheck.astro";
 import MemeMoment from "../components/MemeMoment.astro";
 import PromptAnatomy from "../components/PromptAnatomy.astro";
 import PromptLibrary from "../components/PromptLibrary.astro";
@@ -21,9 +23,13 @@ import { buildClientCopyPayload } from "../utils/clientCopyPayload";
 import { buildLeaderPageJsonLd } from "../utils/pageJsonLd";
 
 /**
- * Meme images use `uiCopy[lang].memes.items` indices 0, 2, 4 only (three beats):
- * 0 reward_2, 2 meme-04, 4 meme-02.
- * Section order: context+modules → memes (0,2) → demo → anatomy → bridge → kit → ROI → meme 4 → FAQ → system → library.
+ * Meme images use `uiCopy[lang].memes.items` indices 3, 0, 2, 4 (four beats):
+ * - 3 meme-03-clear-decision
+ * - 0 reward_2
+ * - 2 meme-04-delegation-bottleneck
+ * - 4 meme-02-meeting-overload
+ *
+ * Live order is documented in `docs/VISUAL_CONTENT_MAP.md`.
  */
 interface Props {
   lang: Language;
@@ -101,11 +107,16 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
     <script is:inline set:html={`window.__PA_COPY__ = ${serializedCopy};`} />
   </head>
   <body>
-    <a href="#context" class="skip-link focus-ring">{copy.a11y.skipLink}</a>
+    <a href="#ctx-company" class="skip-link focus-ring">{copy.a11y.skipLink}</a>
     <Hero lang={lang} />
     <HeroTrust lang={lang} />
     <main>
+      <BeforeAfter lang={lang} />
       <ExecutiveModules lang={lang} />
+      <ClarityDemo lang={lang} />
+      <SafetyCheck lang={lang} />
+      <CourseCTA lang={lang} />
+      <AuthorityBridge lang={lang} />
       <MemeMoment
         lang={lang}
         index={3}
@@ -136,10 +147,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         width={1280}
         height={1280}
       />
-      <ClarityDemo lang={lang} />
       <PromptAnatomy lang={lang} />
-      <AuthorityBridge lang={lang} />
-      <CourseCTA lang={lang} />
       <RoiPath lang={lang} />
       <MemeMoment
         lang={lang}

@@ -1,0 +1,42 @@
+---
+import type { Language } from "../content/copy";
+import { uiCopy } from "../content/copy";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const beforeAfter = uiCopy[lang].beforeAfter;
+
+const baseUrl = import.meta.env.BASE_URL;
+const src = `${baseUrl}assets/graphics/before-after.svg`.replace(/([^:]\/)\/+/g, "$1");
+---
+
+<section class="mx-auto max-w-7xl px-5 py-16 sm:px-8" aria-label={beforeAfter.a11yLabel}>
+  <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+    <div>
+      <p class="text-sm font-bold uppercase tracking-[0.28em] text-brand-accent">
+        {beforeAfter.eyebrow}
+      </p>
+      <h2 class="mt-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
+        {beforeAfter.title}
+      </h2>
+      <p class="mt-5 text-lg leading-8 text-slate-300">
+        {beforeAfter.subtitle}
+      </p>
+    </div>
+
+    <figure class="glass-card overflow-hidden rounded-[2rem] border border-white/10 p-4 sm:p-6">
+      <img
+        src={src}
+        alt=""
+        aria-hidden="true"
+        width="1200"
+        height="360"
+        decoding="async"
+        class="block h-auto w-full"
+      />
+    </figure>
+  </div>
+</section>
