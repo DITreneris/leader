@@ -6,12 +6,17 @@ Keep documentation useful, short, and close to the work. This is a lean one-page
 
 ## Source Of Truth
 
+- **Entry index for all docs:** `docs/README.md` (table of every doc, when to update, links)
 - Product direction: `AGENTS.md` and `.cursor/rules/project-direction.mdc`
-- Page architecture: `docs/CODEBASE_OVERVIEW.md`
+- Page architecture (canonical flow): `docs/CODEBASE_OVERVIEW.md` and `src/layouts/Page.astro`
+- Strategy / IA / CTA roadmap (long form): `docs/STRATEGIC_REVISION_PLAN.md`
+- Meme and visual asset rules: `docs/VISUAL_CONTENT_MAP.md`
+- Outbound link tracking: `docs/UTM_MATRIX.md`
 - Development commands: `README.md`
 - Quality process: `docs/QUALITY_ASSURANCE.md`
 - Daily updates: `CHANGELOG.md`
-- Bilingual marketing copy: `src/content/copy.ts`
+- Bilingual marketing copy: `src/content/copy.ts` (or `src/content/` modules re-exported from `copy.ts`)
+- Printable kit PDF source: `docs/executive-operating-kit-pdf.md`; build: `docs/SETUP_PDF.md`
 
 ## Document Rules
 

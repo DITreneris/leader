@@ -5,24 +5,21 @@ CEO-focused meme images used on the landing page as fragmented emotional rest mo
 Active assets (clean `.png` extension):
 
 - `reward_2.png` — access to AI is not enough; control creates useful output.
-- `meme-01-ai-chaos.png` — structure turns AI guessing into understanding and control.
+- `meme-01-ai-chaos.png` — (spare / not currently on page) structure turns AI guessing into understanding and control.
 - `meme-02-meeting-overload.png` — the team may already be experimenting; the CEO needs the operating system.
-- `meme-03-clear-decision.png` — structured AI turns random output into clear decisions.
+- `meme-03-clear-decision.png` — (spare / not currently on page) structured AI turns random output into clear decisions.
 - `meme-04-delegation-bottleneck.png` — adding AI to an unclear process only makes the bottleneck more visible.
 
-Placement on the landing page (top to bottom):
+Placement on the landing page (see `Page.astro`) — **three** memes, indices `0`, `2`, `4` in `copy.memes.items`:
 
-1. After `ProofStrip`, before `QuickPractice` — `reward_2.png` (cyan accent, image left).
-   - Note: in code, the old `cyan` accent tone is now `gold` to match the PromptAnatomy brand palette.
-2. After `SafetyCheck`, before `ClarityDemo` — `meme-01-ai-chaos.png` (amber accent, image right).
-3. After `PromptAnatomy`, before `RoiPath` — `meme-04-delegation-bottleneck.png` (rose accent, image left).
-4. After `CourseCTA`, before `SystemVisual` — `meme-03-clear-decision.png` (emerald accent, image right).
-5. After `AuthorityBridge`, before `CourseCTA` — `meme-02-meeting-overload.png` (fuchsia accent, image left).
+1. After safety, before `ClarityDemo` — `reward_2.png` (`index={0}`, gold, left).
+2. Still before `ClarityDemo` — `meme-04-delegation-bottleneck.png` (`index={2}`, rose, right).
+3. After `CourseCTA` (`#kit`) and `RoiPath`, before `Faq` — `meme-02-meeting-overload.png` (`index={4}`, fuchsia, left).
 
 Rules:
 
 - Each meme is a recognition moment, not a sales section. No CTA, no eyebrow ladder.
-- Sides alternate (left → right → left → right → left) for visual rhythm.
-- Images are lazy-loaded with explicit width/height to keep CLS at zero.
+- Sides and accents vary by row for rhythm.
+- Images use explicit width/height to keep CLS at zero.
 - Do not bundle the memes back into a single block — fragmentation is the point.
 - Future exports should keep the clean `.png` extension. Double extensions like `.png.png` were renamed.

@@ -9,20 +9,21 @@ import Faq from "../components/Faq.astro";
 import Hero from "../components/Hero.astro";
 import HeroTrust from "../components/HeroTrust.astro";
 import InteractiveCopy from "../components/InteractiveCopy.astro";
+import ExecutiveModules from "../components/ExecutiveModules.astro";
 import MemeMoment from "../components/MemeMoment.astro";
 import PromptAnatomy from "../components/PromptAnatomy.astro";
 import PromptLibrary from "../components/PromptLibrary.astro";
-import QuickPractice from "../components/QuickPractice.astro";
 import RoiPath from "../components/RoiPath.astro";
-import SafetyCheck from "../components/SafetyCheck.astro";
 import SystemVisual from "../components/SystemVisual.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
+import { buildClientCopyPayload } from "../utils/clientCopyPayload";
+import { buildLeaderPageJsonLd } from "../utils/pageJsonLd";
 
 /**
- * Meme images map 1:1 to `uiCopy[lang].memes.items[0..4]` narrative order:
- * 0 reward_2, 1 meme-01, 2 meme-04, 3 meme-03, 4 meme-02.
- * Section order: practice → safety → memes 0–2 → demo → anatomy → ROI → memes 3–4 → bridge → kit → FAQ → system → library.
+ * Meme images use `uiCopy[lang].memes.items` indices 0, 2, 4 only (three beats):
+ * 0 reward_2, 2 meme-04, 4 meme-02.
+ * Section order: context+modules → memes (0,2) → demo → anatomy → bridge → kit → ROI → meme 4 → FAQ → system → library.
  */
 interface Props {
   lang: Language;
@@ -52,56 +53,16 @@ const favicon32 = `${base}favicon-32x32.png`;
 const favicon16 = `${base}favicon-16x16.png`;
 const appleTouchIcon = `${base}apple-touch-icon.png`;
 const manifestUrl = `${base}site.webmanifest`;
-const serializedCopy = JSON.stringify(copy).replace(/</g, "\\u003c");
+const serializedCopy = JSON.stringify(buildClientCopyPayload(copy)).replace(/</g, "\\u003c");
 const footerCopy = copy.footer;
 
-const motherOrgId = "https://www.promptanatomy.app/#organization";
-const motherSiteId = "https://www.promptanatomy.app/#website";
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": motherOrgId,
-      name: "Promptų anatomija",
-      alternateName: "Prompt Anatomy",
-      url: "https://www.promptanatomy.app",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.promptanatomy.app/og-image.png",
-      },
-      sameAs: ["https://www.promptanatomy.app/"],
-    },
-    {
-      "@type": "WebSite",
-      "@id": motherSiteId,
-      url: "https://www.promptanatomy.app",
-      name: "Prompt Anatomy",
-      publisher: { "@id": motherOrgId },
-      inLanguage: ["en", "lt"],
-    },
-    {
-      "@type": "WebPage",
-      "@id": `${localeCanonical}#webpage`,
-      url: localeCanonical,
-      name: meta.title,
-      description: meta.description,
-      isPartOf: { "@id": motherSiteId },
-      about: { "@id": motherOrgId },
-      inLanguage: lang,
-      primaryImageOfPage: { "@type": "ImageObject", url: socialImageUrl },
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${localeCanonical}#faq`,
-      mainEntity: copy.faq.items.map((item) => ({
-        "@type": "Question",
-        name: item.q,
-        acceptedAnswer: { "@type": "Answer", text: item.a },
-      })),
-    },
-  ],
-};
+const structuredData = buildLeaderPageJsonLd({
+  lang,
+  localeCanonical,
+  socialImageUrl,
+  meta,
+  faqItems: copy.faq.items,
+});
 const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c");
 ---
 
@@ -140,12 +101,11 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
     <script is:inline set:html={`window.__PA_COPY__ = ${serializedCopy};`} />
   </head>
   <body>
-    <a href="#practice" class="skip-link focus-ring">{copy.a11y.skipLink}</a>
+    <a href="#context" class="skip-link focus-ring">{copy.a11y.skipLink}</a>
     <Hero lang={lang} />
     <HeroTrust lang={lang} />
     <main>
-      <QuickPractice lang={lang} />
-      <SafetyCheck lang={lang} />
+      <ExecutiveModules lang={lang} />
       <MemeMoment
         lang={lang}
         index={0}
@@ -158,37 +118,19 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
       />
       <MemeMoment
         lang={lang}
-        index={1}
-        src="meme-01-ai-chaos.png"
-        alt="Executive watching scattered AI prompts get rewritten into a single decision"
-        side="right"
-        accent="amber"
-        width={1280}
-        height={1280}
-      />
-      <MemeMoment
-        lang={lang}
         index={2}
         src="meme-04-delegation-bottleneck.png"
         alt="Delegation bottleneck made visible by unclear process"
-        side="left"
+        side="right"
         accent="rose"
         width={1280}
         height={1280}
       />
       <ClarityDemo lang={lang} />
       <PromptAnatomy lang={lang} />
+      <AuthorityBridge lang={lang} />
+      <CourseCTA lang={lang} />
       <RoiPath lang={lang} />
-      <MemeMoment
-        lang={lang}
-        index={3}
-        src="meme-03-clear-decision.png"
-        alt="Clear decision brief produced from structured notes"
-        side="right"
-        accent="emerald"
-        width={1280}
-        height={1280}
-      />
       <MemeMoment
         lang={lang}
         index={4}
@@ -199,8 +141,6 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
         width={1280}
         height={1280}
       />
-      <AuthorityBridge lang={lang} />
-      <CourseCTA lang={lang} />
       <Faq lang={lang} />
       <SystemVisual lang={lang} />
       <PromptLibrary lang={lang} />

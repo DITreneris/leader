@@ -16,6 +16,32 @@
       copyPrompt: string;
       scenarios: Record<string, Scenario>;
     };
+    modules?: {
+      roleLine?: string;
+      jsonFirstRule?: string;
+      missingContextRule?: string;
+      explanationLabel?: string;
+      rulesPreview?: { items?: readonly string[] };
+      context?: {
+        companyPlaceholder?: string;
+        goalPlaceholder?: string;
+        constraintPlaceholder?: string;
+        bottleneckPlaceholder?: string;
+      };
+      items?: ReadonlyArray<{
+        id: string;
+        title: string;
+        taskFormat: string;
+        outputExampleJson: string;
+      }>;
+      custom?: {
+        validationError?: string;
+        copyButton?: string;
+        copiedButton?: string;
+      };
+      copyButton?: string;
+      copiedButton?: string;
+    };
     a11y: { copyManual: string; skipLink?: string };
     [key: string]: unknown;
   };
@@ -57,6 +83,8 @@
   const scenarioButtons = document.querySelectorAll<HTMLButtonElement>("[data-scenario]");
   const copyPromptButton = document.querySelector<HTMLButtonElement>("[data-copy-prompt]");
   const genericCopyButtons = document.querySelectorAll<HTMLButtonElement>("[data-copy-i18n]");
+  const moduleCopyButtons = document.querySelectorAll<HTMLButtonElement>("[data-module-copy]");
+  const customCopyButton = document.querySelector<HTMLButtonElement>("[data-custom-copy]");
   let activeScenario = "meeting";
   let copyHintTimeout = 0;
 
@@ -108,6 +136,92 @@
       }
       button.removeAttribute("data-copied");
     });
+  };
+
+  const readContext = () => {
+    const companyEl = document.querySelector<HTMLInputElement>("[data-context-field=\"company\"]");
+    const goalEl = document.querySelector<HTMLInputElement>("[data-context-field=\"goal\"]");
+    const constraintEl = document.querySelector<HTMLInputElement>("[data-context-field=\"constraint\"]");
+    const bottleneckEl = document.querySelector<HTMLInputElement>("[data-context-field=\"bottleneck\"]");
+
+    const company =
+      (companyEl?.value ?? "").trim() || copy.modules?.context?.companyPlaceholder || "[size, industry]";
+    const goal = (goalEl?.value ?? "").trim() || copy.modules?.context?.goalPlaceholder || "[objective]";
+    const constraint =
+      (constraintEl?.value ?? "").trim() || copy.modules?.context?.constraintPlaceholder || "[budget/time/risk]";
+    const bottleneck =
+      (bottleneckEl?.value ?? "").trim() || copy.modules?.context?.bottleneckPlaceholder || "[main bottleneck]";
+
+    const anyFilled =
+      Boolean((companyEl?.value ?? "").trim()) ||
+      Boolean((goalEl?.value ?? "").trim()) ||
+      Boolean((constraintEl?.value ?? "").trim()) ||
+      Boolean((bottleneckEl?.value ?? "").trim());
+
+    return { company, goal, constraint, bottleneck, anyFilled };
+  };
+
+  const buildRulesBlock = () => {
+    const injected = copy.modules?.rulesPreview?.items ?? [];
+    const baseRules = injected.filter((r): r is string => typeof r === "string" && r.trim().length > 0);
+    const missingContextRule =
+      typeof copy.modules?.missingContextRule === "string" ? copy.modules.missingContextRule : "";
+    const jsonFirstRule = typeof copy.modules?.jsonFirstRule === "string" ? copy.modules.jsonFirstRule : "";
+
+    const merged = [
+      ...baseRules,
+      ...(missingContextRule ? [missingContextRule] : []),
+      ...(jsonFirstRule ? [jsonFirstRule] : []),
+    ];
+
+    const unique = Array.from(new Set(merged.map((r) => r.trim()).filter(Boolean)));
+    if (unique.length === 0) return "";
+    return unique.map((r) => `- ${r}`).join("\n");
+  };
+
+  const buildCompiledPrompt = (moduleId: string, taskFormat: string, outputExampleJson: string) => {
+    const roleLine =
+      typeof copy.modules?.roleLine === "string" && copy.modules.roleLine
+        ? copy.modules.roleLine
+        : "ROLE: Tier-1 CEO advisor (strategy + operator)";
+
+    const { company, goal, constraint, bottleneck } = readContext();
+    const rules = buildRulesBlock();
+    const explanationLabel =
+      typeof copy.modules?.explanationLabel === "string" && copy.modules.explanationLabel
+        ? copy.modules.explanationLabel
+        : "Explanation";
+
+    return `${roleLine}
+
+CONTEXT:
+- Company: ${company}
+- Goal: ${goal}
+- Constraint: ${constraint}
+- Bottleneck: ${bottleneck}
+
+RULES:
+${rules || "- No generic advice\n- Do not invent facts\n- Output must be actionable"}
+
+TASK (${moduleId}):
+${taskFormat}
+
+OUTPUT:
+Return output in two parts:
+1) A valid JSON object only (no markdown, no code fences).
+2) Blank line, then ${explanationLabel.toUpperCase()}: ≤120 words.
+
+EXPECTED_JSON_SHAPE:
+${outputExampleJson}`.trim();
+  };
+
+  const setButtonCopiedState = (button: HTMLButtonElement, copiedText: string, labelText: string) => {
+    button.textContent = copiedText;
+    button.dataset.copied = "true";
+    window.setTimeout(() => {
+      button.textContent = labelText;
+      button.removeAttribute("data-copied");
+    }, 1400);
   };
 
   scenarioButtons.forEach((button) => {
@@ -170,6 +284,81 @@
         tryFocusNearbyPre(button);
       }
     });
+  });
+
+  moduleCopyButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const moduleId = button.dataset.moduleCopy || "";
+      if (!moduleId) return;
+      const modules = copy.modules?.items ?? [];
+      const module = modules.find((m) => m.id === moduleId);
+      if (!module) return;
+
+      const compiled = buildCompiledPrompt(moduleId, module.taskFormat, module.outputExampleJson);
+      const label = getValue(button.dataset.copyLabelI18n || "");
+      const copiedLabel = getValue(button.dataset.copyCopiedI18n || "");
+      const labelText = typeof label === "string" && label ? label : button.textContent || "Copy";
+      const copiedText = typeof copiedLabel === "string" && copiedLabel ? copiedLabel : "Copied";
+
+      if (!navigator.clipboard?.writeText) {
+        showCopyHint(manualMessage());
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(compiled);
+        setButtonCopiedState(button, copiedText, labelText);
+      } catch {
+        showCopyHint(manualMessage());
+      }
+    });
+  });
+
+  customCopyButton?.addEventListener("click", async () => {
+    const taskEl = document.querySelector<HTMLTextAreaElement>("[data-custom-task]");
+    const outputEl = document.querySelector<HTMLTextAreaElement>("[data-custom-output]");
+    const errorEl = document.querySelector<HTMLElement>("[data-custom-error]");
+    if (!taskEl || !outputEl) return;
+
+    const task = (taskEl.value || "").trim();
+    const output = (outputEl.value || "").trim();
+    if (errorEl) {
+      errorEl.textContent = "";
+      errorEl.classList.add("hidden");
+    }
+
+    try {
+      if (!output) throw new Error("empty");
+      JSON.parse(output);
+    } catch {
+      const msg =
+        typeof copy.modules?.custom?.validationError === "string" && copy.modules.custom.validationError
+          ? copy.modules.custom.validationError
+          : "Invalid JSON.";
+      if (errorEl) {
+        errorEl.textContent = msg;
+        errorEl.classList.remove("hidden");
+      }
+      return;
+    }
+
+    const compiled = buildCompiledPrompt("custom", task || "[Define task here]", output);
+    const label = getValue(customCopyButton.dataset.copyLabelI18n || "");
+    const copiedLabel = getValue(customCopyButton.dataset.copyCopiedI18n || "");
+    const labelText = typeof label === "string" && label ? label : customCopyButton.textContent || "Copy";
+    const copiedText = typeof copiedLabel === "string" && copiedLabel ? copiedLabel : "Copied";
+
+    if (!navigator.clipboard?.writeText) {
+      showCopyHint(manualMessage());
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(compiled);
+      setButtonCopiedState(customCopyButton, copiedText, labelText);
+    } catch {
+      showCopyHint(manualMessage());
+    }
   });
 
   renderScenario();

@@ -4,6 +4,28 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 ## 2026-04-28
 
+### Changed (codebase improvement roadmap)
+- **Docs:** Added [`docs/README.md`](docs/README.md) as documentation index; expanded [`AGENTS.md`](AGENTS.md) **Documentation map**; fuller **Source of truth** list in [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md); [`README.md`](README.md) synced with landing flow + doc links; **Executive summary** block at top of [`docs/STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md).
+- **Copy modularization:** `src/content/copy.ts` re-exports `uiCopy`; locale bodies moved to [`src/content/locales/en.ts`](src/content/locales/en.ts) and [`src/content/locales/lt.ts`](src/content/locales/lt.ts).
+- **Runtime payload:** `window.__PA_COPY__` serializes only clipboard-related subtrees via [`src/utils/clientCopyPayload.ts`](src/utils/clientCopyPayload.ts) (`a11y`, `demo`, trimmed `quickPractice`/`safety`, `roiPath` steps + labels, full `library` for nested paths).
+- **SEO helper:** JSON-LD graph builder moved to [`src/utils/pageJsonLd.ts`](src/utils/pageJsonLd.ts); [`Page.astro`](src/layouts/Page.astro) imports it.
+
+### Changed (front-page audit / KMK pass)
+- **Dead copy / components:** Removed unused `hero.visual*` strings; removed unused `proof` strip copy and deleted `ProofStrip.astro` (no longer shipped in `__PA_COPY__`).
+- **Deduped narrative:** `flowScheme.bridgeNote` shortened (no five-block repeat); `anatomy` subtitle and item bodies tightened; `systemVisual.eyebrow` set to reference-style EN/LT.
+- **Practice + safety:** Wrapped in one `role="region"` in `Page.astro` with `practiceSafety.ariaLandmark`; `safety` titles/subtitles reframed as continuation of practice step 4.
+- **HeroTrust:** When `showPlaceholderLogos` is false, single-column layout with `outcomesTitle` + shorter outcome bullets (no empty logo column).
+- **Memes + ROI:** Page now uses **three** memes (`items` indices 0, 2, 4); `RoiPath` moved **after** `#kit` (AuthorityBridge → CourseCTA → RoiPath → meme → FAQ).
+- **PDF / CTA ladder:** Removed duplicate proof chips from `CourseCTA`; demo follow-up copy shortened; FAQ dropped the redundant “is the kit free” pair (EN/LT).
+- **Library:** Shorter `library.subtitle` (depth-last cue).
+
+### Changed (axis shift: context + modules)
+- **New primary action:** Replaced the standalone `QuickPractice` + `SafetyCheck` chapter with **Global Context + Modules** (`#context`) as the main spine action (define once, inject everywhere).
+- **Modules:** Added 6 executive modules + 1 **Custom module** (task + output example JSON) and a compiled “Copy full prompt” flow with **JSON-first output contract** (JSON object first, then short explanation).
+- **Runtime:** Extended `InteractiveCopy.astro` to compile module prompts from `window.__PA_COPY__`, copy them to clipboard, and validate Custom module JSON client-side.
+- **Nav/anchors:** Hero nav + primary CTA + skip link now target `#context`.
+- **Docs:** Updated `README.md`, `docs/CODEBASE_OVERVIEW.md`, `docs/STRATEGIC_REVISION_PLAN.md`, and `AGENTS.md` to reflect the new axis.
+
 ### Docs
 - **Cursor / agents:** Recorded **lead-training** as the conceptual model for this repo (lean static lead page → qualified handoff to PromptAnatomy / full training), instead of treating it as a standalone “executive landing” product. Follow-up work: align `.cursor/skills/*` with `visual-and-copy.mdc`, reinforce subtract-first behavior in `AGENTS.md` and `.cursor/rules/project-direction.mdc`, and rename the skill folder when those edits land.
 
@@ -11,19 +33,8 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 - **Strategic revision plan:** `docs/STRATEGIC_REVISION_PLAN.md` — phased roadmap (CTA ladder, journey, de-duplication, visuals, IA checklist, risks, verification) aligned with `AGENTS.md`.
 - **`docs/UTM_MATRIX.md`:** Canonical `utm_source` / `utm_medium` / `utm_campaign` values for hero, practice band, bridge, footer, and lead-magnet links.
 
-### Changed
-- **Main stack (`src/layouts/Page.astro`):** Practice → safety → memes `items[0–2]` → static demo → prompt anatomy → ROI path → memes `items[3–4]` → authority bridge → conversion band (`#kit`) → FAQ → system visual → prompt library. Meme indices align 1:1 with `copy.memes.items` narrative order.
-- **Hero first screen (`Hero.astro`, `FlowScheme.astro`, `copy.ts`):** EN/LT hero and `flowScheme` tuned for executive tone (leadership meeting example, decision-brief output bullets); smaller `h1` and looser vertical rhythm; primary/secondary CTAs `normal-case` / `font-semibold`; proof chips after CTAs (`hero.proofOne`–`proofThree`); `hero.kitJumpLink` to `#kit`; EN/LT `meta.description` aligned. `FlowScheme`: three numbered columns, larger step labels, `bridgeNote` as a single line under the grid.
-- **Header and primary nav:** Bar shows **only** `#practice`, `#demo`, and `#kit` (system and library anchors removed from the header; those sections remain on the page). Mobile drawer lists the same three in-page links plus PromptAnatomy. Logo area simplified (one title + short subtitle, smaller mark, tighter `py`). `LanguageToggle` gains optional `compact` styling used in `Hero.astro`. Removed unused `nav.more` and the old “More” overflow dropdown.
-- **Trust strip (`HeroTrust.astro`):** Logo rail hidden when `heroTrust.showPlaceholderLogos` is `false`; outcomes column unchanged. Neutral copy for future logo slots (no “placeholder” in customer-facing strings).
-- **Conversion path:** `CourseCTA` exposes `id="kit"`. `ClarityDemo` and prompt library starter demote duplicate PDF buttons to `#kit` text links. Practice band: demo primary, PromptAnatomy outline; anchor text to `#safety-check` for the full safety prompt.
-- **Authority bridge (`AuthorityBridge.astro`):** Option A — mother platform remains the primary card; sister hub is a secondary text block with link (not an equal-weight card).
-- **Prompt anatomy (`PromptAnatomy.astro`):** Five blocks wrapped in `<details>` (collapsed by default for scan-first reading).
-- **Quick practice (`QuickPractice.astro`, `copy.ts` EN/LT):** Reframed the four steps from “process tutorial” to **pain → what to paste → payoff → cost of skipping**; hero lines sell **why/outcome**; copyable prompt uses plain CEO language (no Role/Task/Input headers); practice band **one primary CTA** to `#demo` (“Try it with your meeting” / “Išbandyti su savo susitikimu”); multi-line pain/payoff/check copy uses `whitespace-pre-line`. Desktop layout remains a **2×2** grid for the four steps.
-- **ROI path (`RoiPath.astro`):** Desktop panel copy button includes SSR `data-copy-i18n="roiPath.steps.0.prompt"`; printable one-liner + link to `#kit` below desktop and mobile flows.
-- **Clarity demo (`ClarityDemo.astro`):** Input/output connector column; `aria-live="polite"` on the output stack; `demo.connectorCaption` / `demo.pdfAgain` in copy.
-- **Prompt library (`PromptLibrary.astro`):** `library.revealPrompt` and `library.pdfAgain` in `copy.ts` (EN/LT); per-prompt disclosure uses translated “Reveal” label.
-- **Docs:** `docs/VISUAL_CONTENT_MAP.md` updated for live meme order and section flow (removed obsolete `ProofStrip` references). `docs/CODEBASE_OVERVIEW.md` landing flow and layout entrypoint corrected. `docs/STRATEGIC_REVISION_PLAN.md` §12 decision log filled for CTA, trust strip, meme order, FAQ position, and authority bridge choices.
+### Changed (earlier 2026-04-28 stack)
+- **Hero / nav / FlowScheme / conversion:** EN/LT hero + `flowScheme` tone; header shows `#practice`, `#demo`, `#kit` + mobile PromptAnatomy; `CourseCTA` exposes `#kit`; `ClarityDemo` connector + `aria-live`; `AuthorityBridge` Option A; `PromptAnatomy` collapsed `<details>`; quick practice value framing + single demo CTA; ROI copy button SSR keys; library reveal strings; `docs/VISUAL_CONTENT_MAP.md` + `STRATEGIC_REVISION_PLAN` §12 updates.
 
 ## 2026-04-27
 

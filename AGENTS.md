@@ -4,7 +4,7 @@ Guidance for AI coding agents working on this repository.
 
 ## Mission
 
-This project is a lean bilingual CEO/COO executive prompt operating kit for PromptAnatomy Executive OS. It should create a fast aha moment through practical copyable executive prompts, a safety check, a printable static download, visual proof, and a proof demo that sends qualified users to the full PromptAnatomy system.
+This project is a lean bilingual CEO/COO executive prompt operating kit for PromptAnatomy Executive OS. It should create a fast aha moment through a **Global Context Block + executive modules** (copy one compiled prompt, get decision-grade output), a safety check rule surface, a printable static download, visual proof, and a proof demo that sends qualified users to the full PromptAnatomy system.
 
 ## Non-Negotiables
 
@@ -19,16 +19,31 @@ This project is a lean bilingual CEO/COO executive prompt operating kit for Prom
 - `src/pages/index.astro` redirects `/` to `/en/` (or `/lt/` when `navigator.language` starts with `lt`).
 - `src/pages/en/index.astro` and `src/pages/lt/index.astro` render `src/layouts/Page.astro` with the full section stack.
 - `src/components/` contains section components.
-- `src/content/copy.ts` is the source of bilingual copy, operating-kit content, prompt-library content, and demo scenarios.
+- `src/content/copy.ts` re-exports `uiCopy`; bilingual bundles live in `src/content/locales/en.ts` and `src/content/locales/lt.ts`.
 - `src/styles/global.css` contains global styling and reusable visual helpers.
 - `public/assets/memes/`, `public/assets/graphics/`, and `public/assets/screenshots/` hold visual assets.
-- `docs/` contains codebase, document management, and quality assurance guidance.
+- `docs/` contains codebase, document management, and quality assurance guidance (see **Documentation map** below).
 - `CHANGELOG.md` tracks daily updates.
+
+## Documentation map
+
+Read [`docs/README.md`](docs/README.md) for the full index (purpose + when to update each file). Quick links:
+
+| Topic | Doc |
+|-------|-----|
+| Landing flow / architecture | [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md) |
+| Memes & visual assets | [`docs/VISUAL_CONTENT_MAP.md`](docs/VISUAL_CONTENT_MAP.md) |
+| Strategy & CTA roadmap (long) | [`docs/STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md) |
+| UTM parameters | [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md) |
+| QA checklist | [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md) |
+| Doc ownership rules | [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md) |
+| PDF build (maintainers) | [`docs/SETUP_PDF.md`](docs/SETUP_PDF.md), [`docs/executive-operating-kit-pdf.md`](docs/executive-operating-kit-pdf.md) |
 
 ## Quality Bar
 
 - Prefer fewer, sharper sections over more content.
 - Use executive copy: decision, risk, trade-off, next action, delegation, ROI.
+- Prefer **compiled modules** over long prompt lists on the main story spine (library stays reference/appendix).
 - Avoid generic AI claims, beginner prompt-engineering lessons, and feature bloat.
 - Run `npm run build` after meaningful code changes.
 - Add a `CHANGELOG.md` entry for daily visible, structural, documentation, or deployment changes.

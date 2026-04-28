@@ -23,19 +23,16 @@ Visuals should make the CEO feel the transformation quickly: business noise beco
 
 ## Meme moments (fragmented)
 
-Five memes are emotional rest stops on the landing page via `MemeMoment.astro`. Copy index `uiCopy.memes.items[index]` matches **narrative order** 0→4. Live order in `src/layouts/Page.astro` (top to bottom):
+**Three** memes are live on the page via `MemeMoment.astro` (indices **0, 2, 4** into `uiCopy.memes.items`). Spare assets `meme-01-ai-chaos.png` and `meme-03-clear-decision.png` stay in `public/assets/memes/` for future use. Live order in `src/layouts/Page.astro` (top to bottom):
 
 | Order | `index` | File | Copy beat |
 |-------|---------|------|-----------|
 | 1 | 0 | `reward_2.png` | Access is not enough |
-| 2 | 1 | `meme-01-ai-chaos.png` | Structure creates control |
-| 3 | 2 | `meme-04-delegation-bottleneck.png` | Tools do not create speed |
-| — | — | *(after memes 0–2)* | `ClarityDemo` (`#demo`) |
-| — | — | *(then)* | `PromptAnatomy`, `RoiPath` |
-| 4 | 3 | `meme-03-clear-decision.png` | Control creates results |
-| 5 | 4 | `meme-02-meeting-overload.png` | Leadership needs the system |
+| 2 | 2 | `meme-04-delegation-bottleneck.png` | Tools do not create speed |
+| — | — | *(then)* | `ClarityDemo` (`#demo`), `PromptAnatomy`, `AuthorityBridge`, `CourseCTA` (`#kit`), `RoiPath` |
+| 3 | 4 | `meme-02-meeting-overload.png` | Leadership needs the system |
 
-Sides alternate left → right → left → right → left for rhythm.
+Sides: left → right (first pair), then left after ROI for the final beat.
 
 Implementation rules:
 

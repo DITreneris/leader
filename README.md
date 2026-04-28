@@ -1,12 +1,12 @@
 # PromptAnatomy Executive OS (Leader)
 
-Lean bilingual CEO/COO executive prompt operating kit: 2-minute practice, safety check, clarity demo, and a printable Max Value Kit—**static, no backend, no AI API keys**.
+Lean bilingual CEO/COO executive prompt operating kit: **Global Context + executive modules**, clarity demo, and a printable Max Value Kit—**static, no backend, no AI API keys**.
 
 [![CI](https://github.com/DITreneris/leader/actions/workflows/ci.yml/badge.svg)](https://github.com/DITreneris/leader/actions/workflows/ci.yml)
 [![Deploy](https://github.com/DITreneris/leader/actions/workflows/deploy.yml/badge.svg)](https://github.com/DITreneris/leader/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-**Links**: [Live site](https://ditreneris.github.io/leader/) · [Download PDF kit](https://ditreneris.github.io/leader/assets/downloads/executive-operating-kit.pdf) · [Changelog](./CHANGELOG.md) · [Codebase overview](./docs/CODEBASE_OVERVIEW.md) · [QA](./docs/QUALITY_ASSURANCE.md)
+**Links**: [Live site](https://ditreneris.github.io/leader/) · [Download PDF kit](https://ditreneris.github.io/leader/assets/downloads/executive-operating-kit.pdf) · [Changelog](./CHANGELOG.md) · [Docs index](./docs/README.md) · [Codebase overview](./docs/CODEBASE_OVERVIEW.md) · [QA](./docs/QUALITY_ASSURANCE.md)
 
 ## Choose your path
 
@@ -18,13 +18,14 @@ Lean bilingual CEO/COO executive prompt operating kit: 2-minute practice, safety
 | Verify production build | `npm run build` |
 | Deploy (GitHub Pages) | Push to `main` (see env below) |
 
-## What’s inside
+## What’s inside (single-page flow)
 
-- **QuickPractice** → 2-minute prompt practice (fog → structure → decision-ready output)
-- **SafetyCheck** → executive risk scan (facts, reputation, context, ownership)
+Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md): **Hero + FlowScheme** → **HeroTrust** → **Global Context + Modules (`#context`)** → **meme beats** → **ClarityDemo** → **PromptAnatomy** → **AuthorityBridge** → **CourseCTA (`#kit`)** → **RoiPath** → **meme** → **FAQ** → **SystemVisual** → **PromptLibrary**.
+
+- **Global Context + Modules** → define once, inject everywhere; copy a compiled module prompt (6 fixed modules + 1 Custom). Output is **JSON-first** (plus a short explanation).
 - **ClarityDemo** → selectable scenarios with copyable prompt + output
-- **PromptLibrary** → 7 starters + 35 prompt depth proof (accordion)
-- **Operating kit** → printable Max Value Kit PDF (with HTML fallback)
+- **PromptLibrary** → 7 starters + 35 prompts (accordion, depth last)
+- **Operating kit** → printable Max Value Kit PDF (`#kit`, HTML fallback if PDF missing)
 
 ## Stack
 
@@ -60,11 +61,14 @@ SITE_URL=https://ditreneris.github.io
 
 ## Project docs
 
-- `docs/CODEBASE_OVERVIEW.md` explains the current architecture and page flow.
-- `docs/DOCUMENT_MANAGEMENT.md` defines the documentation source of truth and update rules.
-- `docs/QUALITY_ASSURANCE.md` defines product, content, visual, accessibility, performance, and release checks.
-- `docs/VISUAL_CONTENT_MAP.md` defines meme, screenshot, and diagram content roles.
-- `CHANGELOG.md` tracks daily project updates.
+- **`docs/README.md`** — full documentation index (start here for agents).
+- `docs/CODEBASE_OVERVIEW.md` — architecture and landing flow.
+- `docs/DOCUMENT_MANAGEMENT.md` — source-of-truth rules and changelog discipline.
+- `docs/QUALITY_ASSURANCE.md` — QA before release.
+- `docs/VISUAL_CONTENT_MAP.md` — memes and visual assets.
+- `docs/STRATEGIC_REVISION_PLAN.md` — product/IA roadmap (long form).
+- `docs/UTM_MATRIX.md` — canonical marketing UTMs.
+- `CHANGELOG.md` — daily project updates.
 
 ## Asset folders
 

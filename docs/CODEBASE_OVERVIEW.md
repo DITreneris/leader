@@ -2,34 +2,33 @@
 
 ## Purpose
 
-This repository contains a lean bilingual CEO/COO executive prompt operating kit for PromptAnatomy Executive OS. The page creates a quick aha moment with a 2-minute practice, safety check, simulated clarity demo, 7 recommended starting prompts, 35 copyable prompts as depth proof, a short printable Max Value Kit, and a path to the full PromptAnatomy system.
+This repository contains a lean bilingual CEO/COO executive prompt operating kit for PromptAnatomy Executive OS. The page creates a quick aha moment with a **Global Context Block + executive modules** (copy one compiled prompt, get decision-grade output), a simulated clarity demo, optional prompt anatomy depth, a printable Max Value Kit, and a path to the full PromptAnatomy system.
 
 ## Current Architecture
 
 - `src/layouts/Page.astro` composes the one-page landing flow (used by `src/pages/en/index.astro` and `src/pages/lt/index.astro`).
 - `src/components/` contains section components.
-- `src/content/copy.ts` contains English and Lithuanian copy, including prompt-library content and static demo scenarios.
+- `src/content/copy.ts` re-exports `uiCopy`; English and Lithuanian bundles live in `src/content/locales/en.ts` and `src/content/locales/lt.ts` (prompt library, demo scenarios, and all marketing copy).
 - `src/styles/global.css` contains global styling and reusable visual helpers.
 - `public/assets/` contains visual assets for memes, diagrams, and screenshots.
 - `.cursor/rules/`, `.cursor/skills/`, and `AGENTS.md` guide future AI-assisted development.
 
 ## Landing Flow
 
-1. Hero + hero trust outcomes rail (optional logo row off until assets).
-2. Quick practice: fog, structured prompt, result, and safety preview; end CTAs to demo and PromptAnatomy; link to full safety section.
-3. Executive safety check (`#safety-check`): full copyable prompt and four ordered checks.
-4. Meme moments 0–2 (`reward_2`, `meme-01`, `meme-04`): match `copy.memes.items[0–2]`.
-5. Static clarity demo (`#demo`): scenarios, connector to structured output, follow-up link to `#kit`.
-6. Executive prompt anatomy: five blocks in a collapsed `<details>` by default.
-7. ROI path: weekly cycle; printable one-liner links to `#kit`.
-8. Meme moments 3–4 (`meme-03`, `meme-02`): match `copy.memes.items[3–4]`.
-9. Authority bridge: mother platform card; sister hub as text link.
-10. Final conversion band (`#kit`): Max Value Kit download + PromptAnatomy secondary + chips.
-11. FAQ.
-12. System visual (`#system`): four-layer operating grid.
-13. Prompt library (`#library`): starters, then accordion depth (collapsed by default).
+1. Hero + FlowScheme; hero trust outcomes (compact rail when logo placeholders are off).
+2. **Global context + modules** (`#context`): define context once, then copy a compiled module prompt. Includes 6 fixed modules + 1 Custom module (task + JSON example) with client-side JSON validation.
+3. **Two** meme beats using `copy.memes.items` indices **0, 2**: `reward_2.png`, `meme-04-delegation-bottleneck.png`.
+4. Static clarity demo (`#demo`): scenarios, connector, follow-up link to `#kit`.
+5. Executive prompt anatomy: five blocks in collapsed `<details>` by default (depth, not required to act).
+6. Authority bridge: mother platform card; sister hub as text link.
+7. Final conversion band (`#kit`): Max Value Kit download + PromptAnatomy secondary.
+8. ROI path: weekly cycle after the kit band; printable one-liner links to `#kit`.
+9. Third meme beat `copy.memes.items[4]`: `meme-02-meeting-overload.png`.
+10. FAQ (trimmed; no duplicate “is it free” vs hero).
+11. System visual (`#system`): four-layer grid (reference eyebrow in copy).
+12. Prompt library (`#library`): starters, then accordion depth (reference appendix).
 
-Memes appear as fragmented emotional rest stops, not as one bundled section. They alternate sides and accent colors and never carry CTAs.
+Memes stay short emotional beats—no CTAs on meme rows.
 
 ## Constraints
 

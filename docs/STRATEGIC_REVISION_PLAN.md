@@ -6,6 +6,18 @@
 
 ---
 
+## Executive summary (read this first)
+
+**Goal:** One static page that orients a CEO in seconds, runs a **Global Context + Modules** action (copy one compiled prompt), proves value in the demo, converts with the printable kit (`#kit`), then optionally hands off to PromptAnatomy — with EN/LT parity and no backend.
+
+**Canonical “what shipped” references:** [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md), [`CHANGELOG.md`](../CHANGELOG.md), [`src/layouts/Page.astro`](../src/layouts/Page.astro).
+
+**Themes that drive the backlog in §1–12:** (1) one visually primary CTA per major section where possible; (2) deduplicate safety, PDF, and “free/static” messaging; (3) keep depth (anatomy, 35-prompt library) optional and last.
+
+**Next steps to pull from this doc:** prioritize any open items in §4 (CTA ladder), §5 (content), and §6 (visuals) — treat rows below as the detailed spec, not a daily checklist.
+
+---
+
 ## 1. Purpose and alignment
 
 ### 1.1 Mission (from `AGENTS.md`)
@@ -16,14 +28,14 @@
 | Under ~10 seconds to understand | Above-the-fold must answer: *what is this, what do I do, what do I get* without scrolling. |
 | Static MVP | All improvements must remain copy, layout, assets, and light client JS. |
 | Bilingual EN/LT | Every UI string (including disclosure labels) lives in `copy.ts`. |
-| Conversion path | Practice → proof → kit download → optional PromptAnatomy — **order and emphasis** matter more than new features. |
+| Conversion path | Context+Modules → proof → kit download → optional PromptAnatomy — **order and emphasis** matter more than new features. |
 
 ### 1.2 North-star outcome
 
 **After revision, a CEO should be able to:**
 
 1. Understand the offer in **one screen** (hero).
-2. **Do** the 2-minute practice without cognitive overload.
+2. **Do** the context+modules action without cognitive overload.
 3. **See** static proof (demo) without hunting for it.
 4. **Download** the kit with a clear reason *why* now.
 5. **Optionally** open PromptAnatomy when they want team scale — not before step 2–4 feel complete.
@@ -57,7 +69,7 @@ Assign **exactly one primary job** per zone so CTAs stop competing.
 
 ```mermaid
 flowchart TD
-  A[Land: hero + orient] --> B[Practice: copy template + safety concept]
+  A[Land: hero + orient] --> B[Act: fill_context + copy_module]
   B --> C[Demo: scenario proof]
   C --> D[Conversion: PDF kit]
   D --> E[Scale: PA.app / sister hub]
@@ -71,7 +83,7 @@ flowchart TD
 **Target (conceptual — phases may implement partially):**
 
 1. **Orient:** Hero (+ optional **real** trust signal or remove placeholder strip).
-2. **Act:** Practice **merged or tightly coupled** with “one safety surface” (see §6.2).
+2. **Act:** Context Block + Modules (compiled prompts) with one safety surface (rules / send-check).
 3. **Believe:** Demo **earlier** than long theory blocks *or* theory collapsed behind “How it works” disclosure.
 4. **Habit (optional):** ROI path **after** demo + download motivation *or* shortened to inline strip.
 5. **Commit:** Single **conversion band** (PDF primary, PA secondary).

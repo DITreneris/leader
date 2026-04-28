@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive AI Prompt Library (v2)</title>
+    
+    <!-- Fonts: Inter for that clean, modern SaaS look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+                    },
+                    colors: {
+                        zinc: {
+                            750: '#2d2d33',
+                            850: '#1f1f22',
+                            950: '#09090b',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.3s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #09090b;
+            color: #fafafa;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46;
+        }
+
+        /* Glassmorphism effects */
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(63, 63, 70, 0.4);
+        }
+
+        /* Subtle glowing borders for inputs on focus */
+        .input-glow:focus {
+            box-shadow: 0 0 0 1px #6366f1, 0 0 12px 0 rgba(99, 102, 241, 0.2);
+            border-color: #6366f1;
+        }
+
+        /* Gradient text */
+        .text-gradient {
+            background: linear-gradient(to right, #fff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .accent-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .toast {
+            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            pointer-events: none;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-indigo-500/30">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 border-r border-zinc-800 bg-zinc-950/50 hidden md:flex flex-col justify-between backdrop-blur-xl z-20 shrink-0">
+            <div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-1">
+                        <i data-lucide="command" class="w-5 h-5 text-indigo-400"></i>
+                        <h1 class="font-semibold tracking-tight text-white">ExecAI Library</h1>
+                    </div>
+                    <p class="text-xs text-zinc-500 font-medium tracking-wide">VERSION 2.0</p>
+                </div>
+                
+                <nav class="px-4 space-y-1">
+                    <p class="px-2 text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2 mt-4">Core Framework</p>
+                    <a href="#context" class="flex items-center gap-3 px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800/50 rounded-md transition-colors">
+                        <i data-lucide="layers" class="w-4 h-4 text-zinc-400"></i> Global Context
+                    </a>
+                    
+                    <p class="px-2 text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2 mt-6">Prompt Modules</p>
+                    <a href="#module-1" class="flex items-center gap-3 px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800/50 rounded-md transition-colors">
+                        <i data-lucide="shield-alert" class="w-4 h-4 text-rose-400"></i> 1. Red Team
+                    </a>
+                    <a href="#module-2" class="flex items-center gap-3 px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800/50 rounded-md transition-colors">
+                        <i data-lucide="heart-pulse" class="w-4 h-4 text-emerald-400"></i> 2. Sentiment
+                    </a>
+                    <a href="#module-3" class="flex items-center gap-3 px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800/50 rounded-md transition-colors">
+                        <i data-lucide="git-merge" class="w-4 h-4 text-blue-400"></i> 3. 2nd-Order Thinking
+                    </a>
+                    <a href="#module-4" class="flex items-center gap-3 px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800/50 rounded-md transition-colors">
+                        <i data-lucide="megaphone" class="w-4 h-4 text-amber-400"></i> 4. Communication
+                    </a>
+                    <a href="#module-5" class="flex items-center gap-3 px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800/50 rounded-md transition-colors">
+                        <i data-lucide="crosshairs" class="w-4 h-4 text-purple-400"></i> 5. Pre-Mortem
+                    </a>
+                    <a href="#module-6" class="flex items-center gap-3 px-2 py-2 text-sm text-zinc-300 hover:text-white hover:bg-zinc-800/50 rounded-md transition-colors">
+                        <i data-lucide="clock" class="w-4 h-4 text-cyan-400"></i> 6. Time Audit
+                    </a>
+                </nav>
+            </div>
+            
+            <div class="p-6">
+                <div class="glass-panel p-4 rounded-lg bg-indigo-500/5 border-indigo-500/20">
+                    <p class="text-xs text-indigo-300 font-medium mb-1">Bottom Line</p>
+                    <p class="text-xs text-zinc-400 leading-relaxed">Generic prompts → generic answers. This system forces <strong>decision-grade outputs</strong> for real execution.</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col h-screen overflow-y-auto relative scroll-smooth">
+            
+            <!-- Mobile Header -->
+            <div class="md:hidden flex items-center justify-between p-4 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-30">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="command" class="w-5 h-5 text-indigo-400"></i>
+                    <h1 class="font-semibold text-white">ExecAI Library</h1>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto w-full p-6 md:p-12 pb-24">
+                
+                <!-- Hero Section -->
+                <header class="mb-12 animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800/50 border border-zinc-700 text-xs font-medium text-zinc-300 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        System Active
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gradient mb-4">
+                        Executive AI Prompt Library
+                    </h1>
+                    <p class="text-lg text-zinc-400 max-w-2xl">
+                        From random answers to <span class="text-white font-medium">controlled decisions</span>. Fill your context once, then inject it into high-leverage frameworks.
+                    </p>
+                </header>
+
+                <!-- SECTION 0: Context Block (Interactive) -->
+                <section id="context" class="mb-16 animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="glass-panel rounded-xl border border-zinc-800 overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent pointer-events-none"></div>
+                        
+                        <div class="px-6 py-4 border-b border-zinc-800 bg-zinc-900/50 flex justify-between items-center">
+                            <div>
+                                <h2 class="text-lg font-semibold text-white flex items-center gap-2">
+                                    <i data-lucide="database" class="w-4 h-4 text-indigo-400"></i>
+                                    0. Global Context Block
+                                </h2>
+                                <p class="text-sm text-zinc-400 mt-1">Mandatory. Define once, inject everywhere.</p>
+                            </div>
+                            <span class="text-xs font-mono px-2 py-1 bg-zinc-800 text-zinc-300 rounded border border-zinc-700">PERSISTENT</span>
+                        </div>
+                        
+                        <div class="p-6 bg-zinc-950/30">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-xs font-medium text-zinc-400 mb-1.5 uppercase tracking-wide">Company Info</label>
+                                        <input type="text" id="ctx-company" placeholder="e.g., Series B B2B SaaS, 150 employees" 
+                                            class="w-full bg-zinc-900 border border-zinc-800 rounded-md px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none input-glow transition-all">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-medium text-zinc-400 mb-1.5 uppercase tracking-wide">Current Goal</label>
+                                        <input type="text" id="ctx-goal" placeholder="e.g., Increase enterprise retention by 15% in Q3" 
+                                            class="w-full bg-zinc-900 border border-zinc-800 rounded-md px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none input-glow transition-all">
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-xs font-medium text-zinc-400 mb-1.5 uppercase tracking-wide">Main Constraint</label>
+                                        <input type="text" id="ctx-constraint" placeholder="e.g., Flat headcount budget, 60 days left" 
+                                            class="w-full bg-zinc-900 border border-zinc-800 rounded-md px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none input-glow transition-all">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-medium text-zinc-400 mb-1.5 uppercase tracking-wide">Key Bottleneck</label>
+                                        <input type="text" id="ctx-bottleneck" placeholder="e.g., Engineering speed vs Sales promises" 
+                                            class="w-full bg-zinc-900 border border-zinc-800 rounded-md px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:outline-none input-glow transition-all">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Rules Preview -->
+                            <div class="mt-6 p-4 rounded-md bg-zinc-900/80 border border-zinc-800/80">
+                                <p class="text-xs text-zinc-500 font-mono mb-2 uppercase tracking-wider">System Rules Injected</p>
+                                <ul class="text-sm text-zinc-300 space-y-1">
+                                    <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3 h-3 text-emerald-500"></i> ROLE: Tier-1 CEO advisor (strategy + operator)</li>
+                                    <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3 h-3 text-emerald-500"></i> No generic advice</li>
+                                    <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3 h-3 text-emerald-500"></i> Prioritize impact</li>
+                                    <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-3 h-3 text-emerald-500"></i> Output = actions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="h-px w-full bg-gradient-to-r from-transparent via-zinc-800 to-transparent mb-12"></div>
+
+                <!-- Prompt Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="prompt-container">
+                    <!-- Prompts will be generated by JS -->
+                </div>
+
+                <!-- Meta Sections -->
+                <section class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="glass-panel p-6 rounded-xl border border-zinc-800">
+                        <h3 class="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                            <i data-lucide="play-circle" class="w-4 h-4 text-zinc-400"></i> Usage (MVP Flow)
+                        </h3>
+                        <ol class="text-sm text-zinc-400 space-y-2 list-decimal list-inside">
+                            <li>Fill Context Block</li>
+                            <li>Run 1 prompt</li>
+                            <li>Use output → decision</li>
+                        </ol>
+                    </div>
+                    <div class="glass-panel p-6 rounded-xl border border-zinc-800">
+                        <h3 class="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                            <i data-lucide="scale" class="w-4 h-4 text-zinc-400"></i> Rules
+                        </h3>
+                        <ul class="text-sm text-zinc-400 space-y-2 list-disc list-inside">
+                            <li>No context = no value</li>
+                            <li>Insight ≠ decision</li>
+                            <li>Short > smart-sounding</li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel p-6 rounded-xl border border-rose-900/30 bg-rose-950/10">
+                        <h3 class="text-sm font-semibold text-rose-200 mb-3 flex items-center gap-2">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-400"></i> Common Failures
+                        </h3>
+                        <ul class="text-sm text-zinc-400 space-y-2 list-disc list-inside">
+                            <li>Overbuilding before testing</li>
+                            <li>Vague inputs</li>
+                            <li>No execution step</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast fixed bottom-6 right-6 z-50 flex items-center gap-3 px-4 py-3 bg-zinc-800 text-white rounded-lg shadow-2xl border border-zinc-700">
+        <i data-lucide="check-square" class="w-5 h-5 text-emerald-400"></i>
+        <div>
+            <p class="text-sm font-medium">Prompt Copied!</p>
+            <p class="text-xs text-zinc-400">Ready to paste into your AI.</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Prompt Database
+        const prompts = [
+            {
+                id: 1,
+                title: "Red Team",
+                subtitle: "Strategy Breaker",
+                icon: "shield-alert",
+                iconColor: "text-rose-400",
+                taskFormat: "Stress-test: [Insert your specific strategy here]",
+                outputVars: [
+                    "Top 3 risks (ranked)",
+                    "Hidden assumption (per risk)",
+                    "Mitigation (specific action)",
+                    "Verdict: Proceed / Revise / Kill"
+                ]
+            },
+            {
+                id: 2,
+                title: "Sentiment",
+                subtitle: "Culture Decoder",
+                icon: "heart-pulse",
+                iconColor: "text-emerald-400",
+                taskFormat: "Analyze: [Paste team feedback, survey results, or raw text here]",
+                outputVars: [
+                    "Core emotion (1 line)",
+                    "Top 3 real issues",
+                    "Unspoken problem",
+                    "3 actions (next Town Hall)"
+                ]
+            },
+            {
+                id: 3,
+                title: "Second-Order Thinking",
+                subtitle: "Decision Impact",
+                icon: "git-merge",
+                iconColor: "text-blue-400",
+                taskFormat: "Evaluate: [Describe a pending decision here]",
+                outputVars: [
+                    "Immediate benefit",
+                    "2nd-order effects (6–12m)",
+                    "3rd-order risks (12–24m)",
+                    "Recommendation: Go / Delay / Reject"
+                ]
+            },
+            {
+                id: 4,
+                title: "Communication",
+                subtitle: "CEO Voice",
+                icon: "megaphone",
+                iconColor: "text-amber-400",
+                taskFormat: "Rewrite: [Paste draft email, memo, or announcement here]",
+                outputVars: [
+                    "≤150 words",
+                    "Clear stance",
+                    "1 strong CTA",
+                    "Tone: decisive + human"
+                ]
+            },
+            {
+                id: 5,
+                title: "Pre-Mortem",
+                subtitle: "Competitive Attack",
+                icon: "crosshairs",
+                iconColor: "text-purple-400",
+                taskFormat: "Act as competitor CEO against my current setup.",
+                outputVars: [
+                    "Best attack strategy",
+                    "Your blind spot",
+                    "Weakest point",
+                    "Defensive move (now)"
+                ]
+            },
+            {
+                id: 6,
+                title: "Time Audit",
+                subtitle: "Leverage Filter",
+                icon: "clock",
+                iconColor: "text-cyan-400",
+                taskFormat: "Analyze: [Paste list of your calendar events/tasks for the week]",
+                outputVars: [
+                    "Top 20% impact",
+                    "Bottom 30% to delegate",
+                    "Eliminate (now)",
+                    "3 focus rules (next week)"
+                ]
+            }
+        ];
+
+        // Render Prompts
+        const container = document.getElementById('prompt-container');
+        
+        prompts.forEach((p, index) => {
+            const delay = 0.15 + (index * 0.05); // Staggered animation
+            const outputList = p.outputVars.map(v => `<li class="flex items-start gap-2"><span class="text-zinc-600 mt-0.5">•</span> <span>${v}</span></li>`).join('');
+            
+            const card = document.createElement('div');
+            card.id = `module-${p.id}`;
+            card.className = `glass-panel rounded-xl border border-zinc-800 overflow-hidden flex flex-col group hover:border-zinc-700 transition-all duration-300 animate-fade-in-up scroll-mt-24`;
+            card.style.animationDelay = `${delay}s`;
+            
+            card.innerHTML = `
+                <div class="px-6 py-4 border-b border-zinc-800/50 bg-zinc-900/30 flex justify-between items-center group-hover:bg-zinc-900/60 transition-colors">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 bg-zinc-950 rounded-lg border border-zinc-800 shadow-sm">
+                            <i data-lucide="${p.icon}" class="w-4 h-4 ${p.iconColor}"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-base font-semibold text-white leading-tight">${p.id}. ${p.title}</h2>
+                            <p class="text-xs text-zinc-400 mt-0.5">${p.subtitle}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-6 flex-1 flex flex-col gap-5">
+                    <div class="bg-zinc-950/50 rounded-lg p-3 border border-zinc-800/80">
+                        <span class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1 block">Task</span>
+                        <p class="text-sm font-mono text-zinc-200 break-words">${p.taskFormat}</p>
+                    </div>
+                    
+                    <div>
+                        <span class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-2 block">Expected Output</span>
+                        <ul class="text-sm text-zinc-400 space-y-1.5">
+                            ${outputList}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="px-6 py-4 mt-auto border-t border-zinc-800/50 bg-zinc-900/20">
+                    <button onclick="copyPrompt(${p.id})" class="w-full py-2 px-4 bg-zinc-800 hover:bg-zinc-700 text-white text-sm font-medium rounded-md border border-zinc-700 hover:border-zinc-600 transition-all flex items-center justify-center gap-2 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.15)] focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                        <i data-lucide="copy" class="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors"></i>
+                        Copy Full Prompt
+                    </button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        
+        // Re-init icons for newly added elements
+        lucide.createIcons();
+
+        // Copy Logic
+        function buildContextString() {
+            const company = document.getElementById('ctx-company').value || '[size, industry]';
+            const goal = document.getElementById('ctx-goal').value || '[objective]';
+            const constraint = document.getElementById('ctx-constraint').value || '[budget/time/risk]';
+            const bottleneck = document.getElementById('ctx-bottleneck').value || '[main problem]';
+
+            return `**ROLE:** Tier-1 CEO advisor (strategy + operator)
+
+**CONTEXT:**
+- Company: ${company}
+- Goal: ${goal}
+- Constraint: ${constraint}
+- Bottleneck: ${bottleneck}
+
+**RULES:**
+- No generic advice
+- Prioritize impact
+- Output = actions
+
+---
+
+`;
+        }
+
+        function copyPrompt(id) {
+            const promptData = prompts.find(p => p.id === id);
+            if (!promptData) return;
+
+            const contextBlock = buildContextString();
+            
+            const specificTask = `**TASK:**
+${promptData.taskFormat}
+
+**OUTPUT:**
+${promptData.outputVars.map(v => `- ${v}`).join('\n')}`;
+
+            const finalPrompt = contextBlock + specificTask;
+
+            // Robust copy to clipboard fallback for iframe/canvas compatibility
+            const textarea = document.createElement('textarea');
+            textarea.value = finalPrompt;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'absolute';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast();
+            } catch (err) {
+                console.error('Failed to copy text', err);
+                alert("Clipboard access denied. Please copy manually.");
+            }
+            
+            document.body.removeChild(textarea);
+        }
+
+        // Toast Logic
+        let toastTimeout;
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
