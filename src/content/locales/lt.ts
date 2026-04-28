@@ -2,7 +2,7 @@ export const ltCopy = {
     meta: {
       title: "CEO/COO vykdomasis promptų rinkinys | Prompt Anatomy",
       description:
-        "Per savaitę – nuo miglotos DI išvesties iki aiškių vadovybės briefų: vienas standartas komandai. Nemokamas statinis rinkinys ir demo—be prisijungimo. PromptAnatomy—kai komandai reikia vieno standarto.",
+        "Per savaitę – nuo miglotos DI išvesties iki aiškių vadovybės briefų: vienas standartas komandai. Statinis rinkinys ir demo—be prisijungimo. PromptAnatomy—kai komandai reikia vieno standarto.",
     },
     a11y: {
       skipLink: "Pereiti prie konteksto laukų",
@@ -41,11 +41,11 @@ export const ltCopy = {
       kitPdf: "Rinkinys (PDF)",
     },
     hero: {
-      eyebrow: "Nemokamas CEO/COO rinkinys · Vienas standartas vadovybės DI išvesčiai",
+      eyebrow: "CEO/COO operacinis rinkinys · Sprendimo briefų standartas",
       title: "Per savaitę – nuo išbarstyto DI teksto iki aiškių sprendimų briefų.",
       subtitle:
-        "Standartizuok, kaip komanda naudoja DI: mažiau klaidų, greitesni sprendimai, aiškus savininkas ir kitas veiksmas—ne dar vienas miglotas promptų sąrašas.",
-      primaryCta: "Įvesk kontekstą + kopijuok modulį",
+        "Kontekstą įvesk vieną kartą (4 laukai), kopijuok 1 modulio promptą ir visada gauk tą pačią formą: sprendimas, kompromisai, rizikos, savininkas, terminas, kitas veiksmas.",
+      primaryCta: "Pradėti: kontekstas + promptas",
       secondaryCta: "Atidaryti PromptAnatomy.app",
       kitJumpLink: "Spausdinamas rinkinys (PDF)",
       proofOne: "Trumpas spausdinamas rinkinys",
@@ -74,7 +74,7 @@ export const ltCopy = {
       nextActionValue:
         "Prieš susitikimą nusiųsk 1 puslapio briefą: kompromisas, rekomendacija, rizikos, savininkas, terminas.",
       helper:
-        "Kontekstą įvedi vieną kartą, kopijuoji modulio promptą ir prieš siunčiant visada paleidi tą pačią patikrą.",
+        "Rinkinys yra metodas: kontekstas → modulis → briefas. Tada prieš siunčiant – ta pati saugumo patikra.",
       howItWorksSummary: "Kaip tai veikia (išskleisti)",
     },
     heroTrust: {

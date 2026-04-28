@@ -2,7 +2,7 @@ export const enCopy = {
     meta: {
       title: "CEO/COO Executive Prompt Operating Kit | Prompt Anatomy",
       description:
-        "Decision-ready leadership AI briefs in one week: standardize how your team uses AI. Free static kit and demo—no login. PromptAnatomy when you need a team-wide operating standard.",
+        "Decision-ready leadership AI briefs in one week: standardize how your team uses AI. Static kit + demo—no login. PromptAnatomy when you need a team-wide operating standard.",
     },
     a11y: {
       skipLink: "Skip to the context fields",
@@ -40,11 +40,11 @@ export const enCopy = {
       kitPdf: "Kit (PDF)",
     },
     hero: {
-      eyebrow: "Free CEO/COO kit · Leadership control surface for AI",
+      eyebrow: "CEO/COO operating kit · A simple standard for decision briefs",
       title: "From scattered AI output to decision-ready briefs in one week.",
       subtitle:
-        "Give your team one operating standard for AI: fewer mistakes, faster decisions, clearer ownership—without another vague prompt list.",
-      primaryCta: "Fill context + copy a module",
+        "Fill 4 context fields once, copy 1 prompt module, and get the same output shape every time: decision, trade-offs, risks, owner, deadline, next action.",
+      primaryCta: "Start: fill context + copy a prompt",
       secondaryCta: "Open PromptAnatomy.app",
       kitJumpLink: "Printable kit (PDF)",
       proofOne: "Short printable kit",
@@ -70,7 +70,7 @@ export const enCopy = {
       deadlineValue: "Friday 17:00",
       nextActionLabel: "Next action",
       nextActionValue: "Send a one-page brief before the meeting: trade-off, recommendation, risks, owner, deadline.",
-      helper: "You fill context once, copy a module prompt, and keep the same safety gate before anything leaves your desk.",
+      helper: "The kit is the method: context → module → brief. Then run the same safety check before anything leaves your desk.",
       howItWorksSummary: "How it works (expand)",
     },
     heroTrust: {
