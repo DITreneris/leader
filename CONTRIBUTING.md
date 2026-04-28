@@ -33,7 +33,8 @@ The PDF is a **checked-in artifact** so GitHub Pages can serve it without requir
 
 - Setup and prerequisites: `docs/SETUP_PDF.md`
 - Source: `docs/executive-operating-kit-pdf.md`
-- Output: `public/assets/downloads/executive-operating-kit.pdf`
+- Output: `public/assets/downloads/executive-operating-kit.pdf` (browser save-as name from the kit CTA: `PromptAnatomy-Max-Value-Kit.pdf`)
+- Print fallback HTML: `public/assets/downloads/executive-operating-kit.html` — keep in sync with kit content when you edit the Markdown
 
 ```bash
 npm run build:pdf

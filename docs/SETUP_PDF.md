@@ -2,6 +2,8 @@
 
 Same principles as the sister [lead](https://github.com/DITreneris/lead) repository ([SETUP there](https://github.com/DITreneris/lead/blob/main/SETUP.md)): **Markdown is the source of truth**; the committed `public/assets/downloads/executive-operating-kit.pdf` is the artifact users download.
 
+**URLs vs save-as name:** The file on the server stays `executive-operating-kit.pdf` (stable links in README, `llms.txt`, GitHub Pages). The landing CTA uses the `download` attribute so browsers suggest **`PromptAnatomy-Max-Value-Kit.pdf`** when saving.
+
 | Item | Path |
 |------|------|
 | Source (edit this) | `docs/executive-operating-kit-pdf.md` |
@@ -36,7 +38,7 @@ chmod +x scripts/build-executive-kit-pdf.sh
 npm run build:pdf
 ```
 
-After changing `docs/executive-operating-kit-pdf.md`, rebuild the PDF and **commit the updated `.pdf`** in the same change (or PR), as in `lead`.
+After changing `docs/executive-operating-kit-pdf.md`, rebuild the PDF and **commit the updated `.pdf`** in the same change (or PR), as in `lead`. Open the PDF once and confirm internal links to `https://www.promptanatomy.app/` work (Pandoc + Typst should preserve them).
 
 ## CI
 

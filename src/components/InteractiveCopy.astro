@@ -362,7 +362,10 @@ ${outputExampleJson}`.trim();
       const htmlHref = pdfHref.replace(/\.pdf$/i, ".html");
       fetch(pdfHref, { method: "HEAD" })
         .then((r) => {
-          if (r.status === 404) a.setAttribute("href", htmlHref);
+          if (r.status === 404) {
+            a.setAttribute("href", htmlHref);
+            a.removeAttribute("download");
+          }
         })
         .catch(() => {});
     });

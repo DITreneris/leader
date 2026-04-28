@@ -19,6 +19,12 @@ A short printable kit for one leadership week: turn messy input into a decision-
 3. **Result:** use the AI output as a brief, not as final truth.
 4. **Safety:** verify facts, missing context, sensitive wording, and ownership before sending.
 
+### Quick example (Fog → Structure)
+
+**Fog (paste):** “Board wants vendor X vs Y by Friday; finance prefers X, ops worries about rollout.”
+
+**Structure (add to your prompt):** Ask for one recommendation, three trade-offs, three risks, decision criteria, owner, deadline, and a one-page brief format.
+
 ## 30-second executive safety check
 
 ### Executive send-check
@@ -29,11 +35,11 @@ Act as an executive risk reviewer. Review this AI-generated text before I send o
 
 | Workflow | Title | Prompt |
 |----------|-------|--------|
-| **CEO Decisions** | Board-ready recommendation | Act as a CEO operating partner. Analyze this decision: [DECISION]. Context: [FACTS]. Options: [OPTIONS]. Return 1 recommendation, 3 trade-offs, 3 risks, decision criteria, and the next action with owner and deadline. |
+| **CEO Decisions** | Board-ready recommendation | Act as a CEO operating partner. Decision: [DECISION]. Context: [FACTS]. Options: [OPTIONS]. Return 1 recommendation, 3 trade-offs, 3 risks, decision criteria, next action with owner and deadline. |
 | **COO Execution** | Delivery risk diagnosis | Act as a COO. Review this execution update: [UPDATE]. Identify the bottleneck, missing owner, delivery risk, dependency, and the one operating change to make this week. |
 | **Meetings** | Decision meeting agenda | Create a leadership meeting agenda for [TOPIC]. Goal: make one decision. Include pre-read, decision question, trade-off, 3 questions to ask, timeboxes, and the closing owner/deadline. |
 | **Reports** | One-page executive brief | Summarize this report for a CEO: [REPORT]. Return key signal, hidden risk, decision needed, 3 questions for the team, and one next action. Do not invent missing numbers. |
-| **Delegation** | Delegation brief | Turn this intent into a delegation brief: [INTENT]. Include objective, audience, context, constraints, deliverable format, quality criteria, examples to follow, and review deadline. |
+| **Delegation** | Delegation brief | Turn this intent into a delegation brief: [INTENT]. Include objective, audience, constraints, deliverable format, quality bar, and review deadline. |
 | **Communication** | Tense update | Rewrite this leadership update so it is clear, calm, and non-defensive: [MESSAGE]. Structure it as fact, reason, impact, what changes, what stays the same, and next step. |
 | **Safety and Quality** | Hallucination scan | Scan this AI output for possible hallucinations: [TEXT]. List unsupported claims, numbers, dates, named entities, assumptions, and what source would verify each one. |
 
@@ -47,7 +53,13 @@ Act as an executive risk reviewer. Review this AI-generated text before I send o
 
 ## Next step
 
-Use this short kit for one leadership week. When the same method needs to become a shared operating standard across the team, move it into the full system at [www.promptanatomy.app](https://www.promptanatomy.app/).
+Use this short kit for one leadership week. When the same method needs to become a shared operating standard across the team, move it into the full system at **[www.promptanatomy.app](https://www.promptanatomy.app/)**.
+
+### Go to the full system
+
+<https://www.promptanatomy.app/>
+
+PromptAnatomy Executive OS — scale the same method as a team-wide standard.
 
 ---
 
