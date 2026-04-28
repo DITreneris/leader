@@ -47,7 +47,7 @@ The build must finish with:
 - Gradients, glass cards, and memes support the message rather than distract.
 - The before/after proof diagram renders (SVG) and stays low-text.
 - Visual breaks explain workflow control, safety, ROI, or system thinking.
-- Four meme moments are present (indices `3,0,2,4`); they remain fragmented recognition beats (no CTA).
+- Two meme moments are present (indices `3,4`); they remain fragmented recognition beats (no CTA).
 - No meme moment carries a CTA or eyebrow ladder; each one is a single recognition beat.
 - The workflow-map SVG appears inside `SystemVisual` above the four-layer grid.
 - The library accordion opens the first category by default and keeps the rest collapsed.

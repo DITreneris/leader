@@ -23,17 +23,15 @@ Visuals should make the CEO feel the transformation quickly: business noise beco
 
 ## Meme moments (fragmented)
 
-**Four** memes are live on the page via `MemeMoment.astro` (indices **3, 0, 2, 4** into `uiCopy.memes.items`). Spare asset `meme-01-ai-chaos.png` stays in `public/assets/memes/` for future use. Live order in `src/layouts/Page.astro` (top to bottom):
+**Two** memes are live on the page via `MemeMoment.astro` (indices **3, 4** into `uiCopy.memes.items`). Spare assets (e.g. `reward_2.png`, `meme-04-delegation-bottleneck.png`, `meme-01-ai-chaos.png`) stay in `public/assets/memes/` for future use. Live order in `src/layouts/Page.astro` (top to bottom):
 
 | Order | `index` | File | Copy beat |
 |-------|---------|------|-----------|
 | 1 | 3 | `meme-03-clear-decision.png` | Control creates results |
-| 2 | 0 | `reward_2.png` | Access is not enough |
-| 3 | 2 | `meme-04-delegation-bottleneck.png` | Tools do not create speed |
-| — | — | *(then)* | `ExecutiveModules` (`#context`), `ClarityDemo` (`#demo`), `SafetyCheck` (`#safety-check`), `CourseCTA` (`#kit`), `AuthorityBridge` |
-| 4 | 4 | `meme-02-meeting-overload.png` | Leadership needs the system |
+| — | — | *(then)* | `BeforeAfter`, `ExecutiveModules` (`#context`), `ClarityDemo` (`#demo`), `SafetyCheck` (`#safety-check`), `CourseCTA` (`#kit`), `AuthorityBridge`, `PromptAnatomy`, `RoiPath` |
+| 2 | 4 | `meme-02-meeting-overload.png` | Leadership needs the system |
 
-Sides: left → right (first pair), then left after ROI for the final beat.
+Sides: left for both beats.
 
 Implementation rules:
 

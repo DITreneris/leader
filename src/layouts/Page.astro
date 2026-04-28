@@ -23,10 +23,8 @@ import { buildClientCopyPayload } from "../utils/clientCopyPayload";
 import { buildLeaderPageJsonLd } from "../utils/pageJsonLd";
 
 /**
- * Meme images use `uiCopy[lang].memes.items` indices 3, 0, 2, 4 (four beats):
+ * Meme images use `uiCopy[lang].memes.items` indices 3 and 4 (two beats):
  * - 3 meme-03-clear-decision
- * - 0 reward_2
- * - 2 meme-04-delegation-bottleneck
  * - 4 meme-02-meeting-overload
  *
  * Live order is documented in `docs/VISUAL_CONTENT_MAP.md`.
@@ -111,49 +109,29 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
     <Hero lang={lang} />
     <HeroTrust lang={lang} />
     <main>
+      <MemeMoment
+        lang={lang}
+        index={3}
+        src="meme-03-clear-decision.png"
+        alt="Meme: clear decision brief"
+        side="left"
+        accent="emerald"
+        width={1280}
+        height={1280}
+      />
       <BeforeAfter lang={lang} />
       <ExecutiveModules lang={lang} />
       <ClarityDemo lang={lang} />
       <SafetyCheck lang={lang} />
       <CourseCTA lang={lang} />
       <AuthorityBridge lang={lang} />
-      <MemeMoment
-        lang={lang}
-        index={3}
-        src="meme-03-clear-decision.png"
-        alt="Structured prompt turns scattered notes into a clear decision"
-        side="left"
-        accent="emerald"
-        width={1280}
-        height={1280}
-      />
-      <MemeMoment
-        lang={lang}
-        index={0}
-        src="reward_2.png"
-        alt="Executive looking at AI access and realizing control matters"
-        side="left"
-        accent="gold"
-        width={1280}
-        height={1280}
-      />
-      <MemeMoment
-        lang={lang}
-        index={2}
-        src="meme-04-delegation-bottleneck.png"
-        alt="Delegation bottleneck made visible by unclear process"
-        side="right"
-        accent="rose"
-        width={1280}
-        height={1280}
-      />
       <PromptAnatomy lang={lang} />
       <RoiPath lang={lang} />
       <MemeMoment
         lang={lang}
         index={4}
         src="meme-02-meeting-overload.png"
-        alt="Overloaded executive calendar showing why leadership needs a system"
+        alt="Meme: overloaded calendar"
         side="left"
         accent="fuchsia"
         width={1280}

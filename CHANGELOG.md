@@ -7,6 +7,10 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 ### Changed (Phase 3 visuals)
 - **Before/after proof:** Added a minimal premium before/after SVG (`public/assets/graphics/before-after.svg`) and surfaced it near the top of the page as a one-screen transformation proof (EN/LT).
 
+### Changed (meme beats)
+- **Meme order + reduction:** Set `meme-03-clear-decision` (index `3`) as the first meme beat right after the hero, and reduced the page to **two** meme moments total (indices `3` and `4`).
+- **No eyebrow:** Removed the eyebrow label from `MemeMoment.astro` so each meme is a single recognition beat (image + title + body only).
+
 ### Changed (Phase 0–1 spine)
 - **Spine reorder:** Moved the proof + safety + conversion blocks up: `ExecutiveModules` → `ClarityDemo` → `SafetyCheck` → `CourseCTA` → `AuthorityBridge` so the page follows Act → Believe → Commit before depth.
 - **Modules clarity:** Added a one-line “Start here” guide above the module grid to reduce first-time decision overload (EN/LT).
