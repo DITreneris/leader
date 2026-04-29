@@ -820,6 +820,7 @@ Eliminate now:
     footer: {
       brand: "PromptAnatomy · Executive OS",
       tagline: "Static executive kit. No login, no data sent.",
+      versionAria: "Site version",
       telegram: "Telegram",
       privacy: "Privacy",
       terms: "Terms",

@@ -17,6 +17,7 @@ import PromptLibrary from "../components/PromptLibrary.astro";
 import RoiPath from "../components/RoiPath.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
+import { APP_VERSION } from "../constants/appVersion";
 import { LEADER_PAGE_DATE_MODIFIED, LEADER_PAGE_DATE_PUBLISHED } from "../constants/pageSeo";
 import {
   PROMPT_ANATOMY_PRIVACY_URL,
@@ -118,6 +119,7 @@ const telegramHref = buildTelegramUrl();
     <meta name="twitter:image" content={socialImageUrl} />
     <meta name="twitter:image:alt" content={meta.socialImageAlt} />
     <meta name="theme-color" content="#0b1320" />
+    <meta name="generator" content={`PromptAnatomy Executive OS ${APP_VERSION}`} />
     <title>{meta.title}</title>
     <script is:inline type="application/ld+json" set:html={serializedJsonLd} />
     <script is:inline set:html={`window.__PA_COPY__ = ${serializedCopy};`} />
@@ -191,7 +193,14 @@ const telegramHref = buildTelegramUrl();
             promptanatomy.app
           </a>
         </p>
-        <p>{footerCopy.tagline}</p>
+        <p>
+          {footerCopy.tagline}
+          <span aria-hidden="true" class="mx-2 text-slate-700">·</span>
+          <span
+            class="tabular-nums text-slate-600"
+            aria-label={`${copy.footer.versionAria} ${APP_VERSION}`}>v{APP_VERSION}</span
+          >
+        </p>
       </div>
       <nav class="flex flex-wrap items-center gap-4" aria-label={copy.a11y.footerLegalNavAria}>
         <a

@@ -11,6 +11,10 @@ npm ci
 npm run dev
 ```
 
+### Versioning
+
+The site displays **`vX.Y.Z`** from root **`package.json`** (see [`src/constants/appVersion.ts`](src/constants/appVersion.ts)). When you ship a meaningful change, bump semver there and refresh **`package-lock.json`** (`npm install`). Guidelines: [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md) — **Versioning (semver)**.
+
 ### Build and preview
 
 ```bash

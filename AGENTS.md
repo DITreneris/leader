@@ -21,6 +21,7 @@ This project is a lean **English-first** CEO/COO executive prompt operating kit 
 - `src/components/` contains section components.
 - `src/content/copy.ts` re-exports `uiCopy`; bilingual bundles live in `src/content/locales/en.ts` and `src/content/locales/lt.ts`.
 - `src/constants/outboundLinks.ts` — PromptAnatomy (home + legal URLs), Telegram, **`buildConsumerAiUrl`** (ChatGPT / Claude / Gemini paste strips); pair with [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md). The sister hub `ditreneris.github.io/ceo/` is product context (see `project-direction.mdc`, `llms.txt`); it is not built by this module after AuthorityBridge removal.
+- `src/constants/appVersion.ts` — **`APP_VERSION`** from root `package.json` (footer `vX.Y.Z`, `<meta name="generator">`); bump policy in [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md).
 - Other `src/constants/` files: locale toggles (`siteLocale.ts`), SEO dates (`pageSeo.ts`).
 - `src/styles/global.css` contains global styling and reusable visual helpers.
 - `public/assets/memes/`, `public/assets/graphics/`, and `public/assets/screenshots/` hold visual assets.

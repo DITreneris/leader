@@ -19,6 +19,19 @@ Keep documentation useful, short, and close to the work. This is a lean one-page
 - Daily updates: `CHANGELOG.md`
 - Bilingual marketing copy: `src/content/locales/en.ts` and `src/content/locales/lt.ts` (aggregated in `src/content/copy.ts` as `uiCopy`)
 - Printable kit PDF source: `docs/executive-operating-kit-pdf.md`; build: `docs/SETUP_PDF.md`
+- **Release semver:** root `package.json` `version` — re-exported as `APP_VERSION` in [`src/constants/appVersion.ts`](../src/constants/appVersion.ts) for the footer label and `<meta name="generator">`. Keep `package-lock.json` root `version` in sync when you bump.
+
+## Versioning (semver)
+
+Follow **semantic versioning** for the static landing (marketing + UX surface, not npm library API):
+
+| Bump | When |
+|------|------|
+| **MAJOR** | Breaking IA or shipped routes (e.g. removing `/en/`, replacing the whole page contract). |
+| **MINOR** | New sections, major copy/positioning shifts, new tracked surfaces worth a “release note.” |
+| **PATCH** | Copy tweaks, bugfixes, asset swaps, a11y-only changes. |
+
+**Procedure:** edit `package.json` `version`, run `npm install` so `package-lock.json` matches, note the bump in `CHANGELOG.md`, deploy. The live footer shows `vX.Y.Z` automatically.
 
 ## Document Rules
 

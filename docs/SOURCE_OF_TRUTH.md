@@ -70,6 +70,12 @@ Policy: use one primary CTA per major section; keep glass/elevation reserved for
 
 Strategy may include future experiments. **`Page.astro`**, **`docs/CODEBASE_OVERVIEW.md`**, and **`CHANGELOG.md`** describe deployable reality.
 
+## Release version (semver)
+
+- **Canonical:** root `package.json` `version`
+- **Runtime:** [`src/constants/appVersion.ts`](../src/constants/appVersion.ts) exports **`APP_VERSION`** for the footer and `<meta name="generator">`
+- **Process:** [`docs/DOCUMENT_MANAGEMENT.md`](DOCUMENT_MANAGEMENT.md) — **Versioning (semver)**
+
 ## SEO / GEO / AI crawlers
 
 Canonical files and policy:

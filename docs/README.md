@@ -15,7 +15,7 @@
 | [`UTM_MATRIX.md`](UTM_MATRIX.md) | Canonical `utm_*` values for outbound links; implementation helpers in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts) | New links, campaigns, or URL builder changes |
 | [`QUALITY_ASSURANCE.md`](QUALITY_ASSURANCE.md) | QA checklist before release | Checks or deploy expectations change |
 | [`MOBILE_UI_AUDIT.md`](MOBILE_UI_AUDIT.md) | Mobile UX: touch targets, safe areas, hero menu, clipboard/library interactions | Mobile layout, `global.css`, or client copy/hash behavior changes materially |
-| [`DOCUMENT_MANAGEMENT.md`](DOCUMENT_MANAGEMENT.md) | Which doc is source of truth; changelog rules | Doc process changes |
+| [`DOCUMENT_MANAGEMENT.md`](DOCUMENT_MANAGEMENT.md) | Which doc is source of truth; changelog rules; **semver** (`package.json` ↔ `appVersion.ts`, footer `vX.Y.Z`) | Doc process or release/version policy changes |
 | [`SETUP_PDF.md`](SETUP_PDF.md) | Toolchain for building the printable kit PDF | PDF build pipeline changes |
 | [`executive-operating-kit-pdf.md`](executive-operating-kit-pdf.md) | PDF source content / structure | Kit content changes |
 

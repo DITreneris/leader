@@ -825,6 +825,7 @@ Pašalinti dabar:
     footer: {
       brand: "PromptAnatomy · Vadovo OS",
       tagline: "Statinis vadovo rinkinys. Be prisijungimo, be duomenų siuntimo.",
+      versionAria: "Svetainės versija",
       telegram: "Telegram",
       privacy: "Privatumas",
       terms: "Sąlygos",
