@@ -82,7 +82,7 @@ flowchart TD
 
 ### 3.3 Current vs target section order (conceptual)
 
-**Current (shipped — see `Page.astro`):** Hero + HeroBento → meme(3) → BeforeAfter → meme(0) → `#context` (ExecutiveModules) → PromoBanner → meme(2) → `#demo` → meme(5) → SafetyCheck → `#kit` → PromptAnatomy → RoiPath → FAQ → PromptLibrary.
+**Current (shipped — see `Page.astro`):** Hero + HeroBento → meme(3) → BeforeAfter → meme(0) → `#context` (ExecutiveModules) → PromoBanner → meme(2) → `#demo` → meme(5) → SafetyCheck → `#kit` → PromptAnatomy (`#anatomy`) → RoiPath (`#roi`) → FAQ (`#faq`) → PromptLibrary (`#library`).
 
 **Target (conceptual — phases may implement partially; many items already match “target”):**
 
@@ -361,7 +361,7 @@ Use this table when choices are made so future agents do not revert blindly.
 | 2026-04-29 | **`AuthorityBridge`** section removed from landing | Duplicate PA / architecture story handled elsewhere |
 | 2026-04-28 | Hero **gold primary CTA** → **`#context`**; outlined hero CTA → **PromptAnatomy** (UTM `hero`/`primary`); nav anchors `#context`/`#demo`/`#kit` | Hero ladder aligned to comprehension-first; see §4.1 tension |
 | 2026-04-28 | Trust strip = hidden (`showPlaceholderLogos: false`) until real logos | No customer-facing “placeholder” labels |
-| 2026-04-28 | Memes = **5** mounts on page; intentional indices **`3 → 0 → 2 → 5 → 4`** (**`1`** spare); **`VISUAL_CONTENT_MAP` + `Page.astro`** are canonical | Narrative pacing beats array index parity |
+| 2026-04-28 | Five **`MemeMoment`** mounts ordered **`3 → 0 → 2 → 5 → 4`** (**`1`** spare in `items`); **`VISUAL_CONTENT_MAP` + `Page.astro`** canonical | Superseded **2026-04-29:** post–`RoiPath` **`items[4]`** removed — shipped stack is **four** beats (**`3 → 0 → 2 → 5`**); see row above |
 | 2026-04-28 | FAQ after **RoiPath**, before **PromptLibrary**—**not** immediately under `#kit` | Depth last; **`#kit`** conversion band stays mid-page (**2026-04-29:** post–RoiPath meme later removed) |
 | 2026-04-28 | Authority bridge = Option A (mother card, sister text link) | Single visual primary per §4.4 |
 | 2026-04-28 | Spine reorder = `#context` → `#demo` → `#safety-check` → `#kit` | Act → proof → safety gate → commit before depth |

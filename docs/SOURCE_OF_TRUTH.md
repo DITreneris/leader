@@ -10,7 +10,7 @@ Execution order when instructions conflict:
 2. **`docs/SOURCE_OF_TRUTH.md`**, **`docs/CODEBASE_OVERVIEW.md`**, **`docs/VISUAL_CONTENT_MAP.md`** — map intent to files.
 3. **Root [`AGENTS.md`](../AGENTS.md)** — mission, MVP constraints, doc index.
 4. **`.cursor/rules/`** — `project-direction.mdc` (always on), plus glob-scoped rules (`visual-and-copy.mdc`, `language-standard.mdc`, `astro-quality.mdc`, `us-localization-meta.mdc` for `docs/**` US META pointer).
-5. **`.cursor/skills/`** — task playbooks (e.g. executive landing): must match rules above; if a skill contradicts **`visual-and-copy.mdc`** or **Page section order**, the skill is wrong.
+5. **`.cursor/skills/executive-landing-improvement/SKILL.md`** — landing playbook; must match rules above. If it contradicts **`visual-and-copy.mdc`**, **`language-standard.mdc`**, or **`Page.astro`** section order, update the skill (not the shipped page) unless the product intent changed.
 
 ## Product intent
 
@@ -23,6 +23,7 @@ Execution order when instructions conflict:
 
 - **Rendered by**: `src/layouts/Page.astro`
 - **Documented in**: `docs/CODEBASE_OVERVIEW.md`
+- **Hash anchors** (deep links, skip targets): see **Hash anchors (registry)** in [`docs/CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md).
 
 If these ever disagree, treat `src/layouts/Page.astro` as the canonical truth and update the docs.
 
@@ -45,7 +46,7 @@ Rule: any user-visible string change must keep **`en.ts`** and **`lt.ts`** align
 - **Design System v1 (tokens, primitives, templates, anti-patterns)**: [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)
 - **Palette and constraints**: `.cursor/rules/visual-and-copy.mdc`
 - **Global tokens/utilities**: `src/styles/global.css`
-- **Outbound URLs** (PromptAnatomy, CEO hub, Telegram, tracked `utm_*`): code in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts); catalog in [`docs/UTM_MATRIX.md`](UTM_MATRIX.md). Adding or changing destinations or parameters must keep both aligned (see banner hierarchy in **DESIGN_SYSTEM.md**).
+- **Outbound URLs** (PromptAnatomy, Telegram, consumer-AI paste destinations via `buildConsumerAiUrl`, tracked `utm_*`): code in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts); catalog in [`docs/UTM_MATRIX.md`](UTM_MATRIX.md). Adding or changing destinations or parameters must keep both aligned (see banner hierarchy in **DESIGN_SYSTEM.md**). The sister hub `ditreneris.github.io/ceo/` remains valid product context in prose and crawler docs; it is not a URL builder in this file.
 
 Policy: use one primary CTA per major section; keep glass/elevation reserved for primary containers. New sections should prefer [`src/components/ds/`](../src/components/ds/) primitives documented in **DESIGN_SYSTEM.md**.
 

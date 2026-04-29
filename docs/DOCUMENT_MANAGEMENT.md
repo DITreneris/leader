@@ -8,6 +8,8 @@ Keep documentation useful, short, and close to the work. This is a lean one-page
 
 - **Entry index for all docs:** `docs/README.md` (table of every doc, when to update, links)
 - Product direction: `AGENTS.md` and `.cursor/rules/project-direction.mdc`
+- Cursor landing playbook: `.cursor/skills/executive-landing-improvement/SKILL.md` (subordinate to rules + `Page.astro`)
+- Copy QA by section: `docs/COPY_AUDIT_BY_SLIDE.md` (pair with `language-standard` when editing locales)
 - Page architecture (canonical flow): `docs/CODEBASE_OVERVIEW.md` and `src/layouts/Page.astro`
 - Strategy / IA / CTA roadmap (long form): `docs/STRATEGIC_REVISION_PLAN.md`
 - Meme and visual asset rules: `docs/VISUAL_CONTENT_MAP.md`

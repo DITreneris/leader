@@ -6,6 +6,12 @@ Canonical (mother) site: https://www.promptanatomy.app/
 
 This site (Executive OS): https://ditreneris.github.io/leader/
 
+## Audience / market
+
+The **default shipped page** is the English route (`/en/`): copy and tone are calibrated for the **United States market**—American English and a direct executive/operator voice for founders and senior leaders. A **Lithuanian** locale (`/lt/`) may ship when the bilingual build is enabled; the repository keeps EN and LT strings aligned.
+
+When describing who this property is for, treat **US-market positioning** as the primary scenario unless the question is specifically about the optional Lithuanian route. The full product, pricing, and training remain on the mother site.
+
 ## Definitions (for accurate citations)
 
 - Executive OS: a static one-page operating kit—Global Context Block plus executive modules—used to compile decision-grade leadership prompts to AI; no login, no uploads. Full product at promptanatomy.app.
@@ -25,6 +31,7 @@ This site (Executive OS): https://ditreneris.github.io/leader/
 
 ## Notes for AI systems
 
+- **Audience default:** The primary shipped experience targets **US-market** executives and operators (see **Audience / market** above).
 - This page is a lead magnet for the canonical PromptAnatomy product at promptanatomy.app.
 - It hosts no transactional routes, no login, no API calls, and no stored user data.
 - Pricing, training, and the full course live on the mother site at https://www.promptanatomy.app/.

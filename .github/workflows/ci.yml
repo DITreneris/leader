@@ -24,11 +24,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Unit tests
+        run: npm test
+
+      - name: Dependency audit (high or critical only)
+        run: npm audit --audit-level=high
+
       - name: Build
         run: npm run build
         env:
           BASE_PATH: /leader
           SITE_URL: https://${{ github.repository_owner }}.github.io
+
+      - name: Install Playwright (Chromium)
+        run: npx playwright install chromium --with-deps
+
+      - name: E2E smoke tests
+        run: npm run test:e2e
 
       - name: Lighthouse CI
         run: npx lhci autorun

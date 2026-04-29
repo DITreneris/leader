@@ -34,7 +34,7 @@ Several `MemeMoment.astro` beats break up long reading. Copy always comes from `
 
 Desktop (`lg+`): **two-column asymmetric grid** (**1.25fr** image column / **0.75fr** caption column), alternating **`side`** (`left` / `right`) per [`Page.astro`](../src/layouts/Page.astro). Below **`lg`**: stacked — full-width **16:9** image, then title + body (centered).
 
-Section flow between beats: `BeforeAfter` → `ExecutiveModules` (`#context`) → `PromoBanner` → `ClarityDemo` (`#demo`) → **meme index 5** → `SafetyCheck` → `CourseCTA` (`#kit`) → `PromptAnatomy` → `RoiPath` → `Faq` → …
+Section flow between beats: `BeforeAfter` → `ExecutiveModules` (`#context`) → `PromoBanner` → `ClarityDemo` (`#demo`) → **meme index 5** → `SafetyCheck` → `CourseCTA` (`#kit`) → `PromptAnatomy` → `RoiPath` → `Faq` → `PromptLibrary` (`#library`).
 
 Removed **2026-04-29:** post–`RoiPath` meme `items[4]` (`meme-02-meeting-overload.png`) — see [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).
 

@@ -13,7 +13,9 @@
     "build:pdf": "node ./scripts/run-build-pdf.mjs",
     "preview": "astro preview",
     "check": "astro check",
-    "optimize:memes": "node ./scripts/optimize-meme-images.mjs"
+    "optimize:memes": "node ./scripts/optimize-meme-images.mjs",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +30,8 @@
   },
   "devDependencies": {
     "@lhci/cli": "^0.15.1",
-    "sharp": "^0.34.5"
+    "@playwright/test": "^1.56.0",
+    "sharp": "^0.34.5",
+    "vitest": "^3.2.4"
   }
 }

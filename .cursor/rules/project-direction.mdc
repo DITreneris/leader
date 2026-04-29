@@ -11,5 +11,5 @@ Build one lean, premium, bilingual executive prompt operating kit for CEOs/COOs.
 - Do not turn it into a beginner prompt-engineering course or a complex app.
 - Preserve the static MVP: no backend, no AI API calls, no login, no stored user data.
 - Treat `PromptAnatomy.app` as the mother platform and `ditreneris.github.io/ceo/` as the sister operational hub.
-- Primary conversion path: visitor experiences the 2-minute practice, downloads the CEO/COO operating kit, gets an aha moment in the static proof demo, then clicks to the full PromptAnatomy system.
+- Primary conversion path (matches [`src/layouts/Page.astro`](../../src/layouts/Page.astro) anchors): **`#context`** (Global Context + executive modules) → **`#demo`** (static clarity practice / 2-minute proof) → **`#kit`** (Max Value Kit PDF) → PromptAnatomy.app — with safety and depth sections on the same page between those beats where shipped.
 - Prefer removing complexity over adding new features.

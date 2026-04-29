@@ -8,6 +8,7 @@
 | [`PROMPTS_US_LOCALIZATION_META.md`](PROMPTS_US_LOCALIZATION_META.md) | LLM META: EU/Baltic drafts → US-native copy (Must/Should/Want); not a replacement for `language-standard.mdc` on shipped strings | You change US-market messaging workflow or META sections |
 | [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) | Design tokens, `ds/` primitives, section templates, visual anti-patterns | Tokens, spacing, new section layout, or DS enforcement rules change |
 | [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md) | Page stack, folder roles, landing flow (canonical with [`src/layouts/Page.astro`](../src/layouts/Page.astro)) | Section order or major folders change |
+| [`COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md) | Grammar, EN/LT alignment, a11y hotspots by section | Visible copy, locales, or section structure changes |
 | [`VISUAL_CONTENT_MAP.md`](VISUAL_CONTENT_MAP.md) | Memes, screenshots, diagrams — placement and rules | Meme indices, asset filenames, or visual beats change |
 | [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md) | Meme beats ranked; weakest-first removal guidance | You add/remove memes or debate scroll vs storytelling trade-offs |
 | [`STRATEGIC_REVISION_PLAN.md`](STRATEGIC_REVISION_PLAN.md) | Long-form product/IA/CTA roadmap + phased backlog (must stay consistent with [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md)) | Strategic scope, hero/CTA experiments, or phase status changes |

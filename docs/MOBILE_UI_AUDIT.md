@@ -2,7 +2,7 @@
 
 **Apimtis:** statinė vieno puslapio iškrovimo (`src/layouts/Page.astro`), Tailwind + `global.css`, kliento skriptai (`InteractiveCopy.astro`, įterpti `<script>` kai kuriuose komponentuose).  
 **Data:** 2026-04-28.  
-**Atnaujinta:** 2026-04-28 — įgyvendinti plano **A/B** punktai (touch targets, hero meniu, viewport/safe-area/`100dvh`).  
+**Atnaujinta:** 2026-04-29 — inkarų lentelė ir `#roi` (`RoiPath.astro`); hero nav politika žr. [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md) (Hash anchors).  
 **Tikslas:** identifikuoti trikdžius, rizikas ir tobulinimo galimybes mažuose ekranuose; fiksuoti vartotojo interakcijas kaip vykdymo šaltinį QA ir ateities refaktoriams.
 
 ---
@@ -69,7 +69,8 @@ Ankstesni **P1** (LanguageToggle compact, PromptLibrary Copy), **P2** (mobilaus 
 
 | Interakcija | Vieta | Mechanika |
 |-------------|-------|-----------|
-| Pagrindinė nav (`md+`) | `Hero.astro` | Nuorodos į `#context`, `#demo`, `#kit`. |
+| Pagrindinė nav (`md+`) | `Hero.astro` | Nuorodos į `#context`, `#demo`, `#kit` (tik pagrindinės kopėčios; žr. **Hash anchors** [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md)). |
+| Gilus inkaras ROI | `RoiPath.astro` | `#roi` — išorinė sekcija (`tabindex="-1"`, `aria-labelledby="roi-heading"`); vidinis regionas lieka `#roi-step-panel`. |
 | Mobilus meniu | `Hero.astro` | `[data-mobile-menu-button]` ↔ `[data-mobile-menu-panel]` (`role="dialog"`, `aria-modal`, `aria-label`); `aria-expanded`; Tab ciklas fokusuojamiems elementams panelei; nuorodos `[data-mobile-menu-link]` uždaro panelę. |
 | Hash → fokusas | `Page.astro` (inline) | Po `DOMContentLoaded` / `hashchange` elementas iš inkaro gauna `focus({ preventScroll: true })`. |
 | Skip link | `Page.astro` | Nuoroda į `#ctx-company` (klaviatūros naudotojams). |

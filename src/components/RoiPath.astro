@@ -30,12 +30,18 @@ const accentClass = (accent: string) => {
 };
 ---
 
-<section class="section-y mx-auto max-w-7xl px-5 sm:px-8">
+<section
+  id="roi"
+  tabindex="-1"
+  class="section-y mx-auto max-w-7xl px-5 sm:px-8"
+  aria-labelledby="roi-heading"
+>
   <SectionHeader
     eyebrow={roiPath.eyebrow}
     title={roiPath.title}
     subtitle={roiPath.subtitle}
     eyebrowTone="promo"
+    titleId="roi-heading"
   />
 
   <!-- Desktop: tool-first flow -->

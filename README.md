@@ -59,9 +59,12 @@ Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md) and [`s
 
 ```bash
 npm run dev
+npm run test        # Vitest (outbound URLs, JSON-LD, client copy payload)
 npm run build
 npm run preview
 ```
+
+**E2E smoke** (`npm run test:e2e`): run after a production-like build so `dist/` matches GitHub Pages. Set the same env as deployment (see below), then `npm run build`; Playwright starts `astro preview` and opens `/leader/en/`.
 
 ### Max Value Kit PDF (optional, for maintainers)
 
@@ -79,6 +82,12 @@ GitHub Pages builds require:
 BASE_PATH=/leader
 SITE_URL=https://ditreneris.github.io
 ```
+
+**Pre-deploy checklist**
+
+- `SITE_URL` and `BASE_PATH` match the live URL shape (canonical links, sitemap, assets).
+- [`public/robots.txt`](public/robots.txt) **`Sitemap:`** line uses the same origin and base path as production (e.g. `https://<user>.github.io/leader/sitemap-index.xml`).
+- After changing env or domain, run `npm run build` and smoke-test the live site (hero, outbound PromptAnatomy links, PDF kit).
 
 ## Project docs
 

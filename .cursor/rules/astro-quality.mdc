@@ -8,7 +8,7 @@ alwaysApply: false
 
 - Keep components small and section-based: hero, demo, proof, CTA.
 - Keep bilingual copy in `src/content/locales/en.ts` and `src/content/locales/lt.ts` (aggregated through `src/content/copy.ts`); avoid hardcoding translatable marketing copy inside components unless it is structural fallback text.
-- Use Astro for static rendering. Add client JavaScript only for necessary interactions like language switching or static demo state.
+- Use Astro for static rendering. Add client JavaScript only for necessary interactions: language switching, copy-to-clipboard / demo tabs (`InteractiveCopy.astro`), hash-target focus in `Page.astro`, or other minimal UX that cannot be static HTML alone.
 - Maintain the no-backend constraint. Do not add server endpoints, databases, auth, or API keys unless explicitly requested.
 - After substantive changes, run `npm run build` and fix Astro check/build errors.
 - Prefer semantic HTML, accessible buttons/links, and clear focus/hover states.

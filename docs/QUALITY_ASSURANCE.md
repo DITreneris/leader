@@ -18,6 +18,24 @@ The build must finish with:
 - 0 Astro check warnings
 - Successful static build
 
+### Automated CI (GitHub Actions)
+
+[`../.github/workflows/ci.yml`](../.github/workflows/ci.yml) runs, in order:
+
+1. `npm test` — Vitest unit tests (`src/**/*.test.ts`) for outbound URLs, client copy payload, and JSON-LD helpers.
+2. `npm audit --audit-level=high` — fails the job only on **high or critical** advisories. Moderate/low issues in dev-only chains (e.g. Lighthouse CLI, `@astrojs/check` / YAML language server) are tracked via Dependabot and upgrades; do not use `npm audit fix --force` without reviewing breaking changes.
+3. `npm run build` with `BASE_PATH=/leader` and `SITE_URL` matching the GitHub Pages host.
+4. Playwright E2E smoke (`npm run test:e2e`) against `astro preview` — hero visibility and PromptAnatomy UTM links.
+5. Lighthouse CI (see root [`.lighthouserc.json`](../.lighthouserc.json)).
+
+### Optional follow-ups (Want backlog)
+
+Not in CI today; consider when the landing grows in interactivity:
+
+- Broader Playwright coverage (demo flows, library accordion, ROI panel) with stable `data-testid` contracts.
+- Content-Security-Policy **Report-Only** via meta or edge headers (strict CSP without `unsafe-inline` would require refactoring inline scripts in `Page.astro`).
+- Visual regression (screenshot diff) if layout churn becomes costly.
+
 ## Product QA Checklist
 
 - The page still has one clear primary promise.
