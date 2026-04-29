@@ -97,3 +97,20 @@ Canonical files and policy:
 **When to bump `LEADER_PAGE_DATE_MODIFIED`:** meaningful landing copy, FAQ, or on-page SEO/schema changes ([`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts)).
 
 **Deploy hygiene:** `public/robots.txt` **`Sitemap:`** absolute URL must match production `SITE_URL` + `BASE_PATH` (see root **`README`** / CI env). If you switch domain or base path, update `robots.txt`, verify sitemap, and refresh `llms.txt` URLs in the same change.
+
+## Search intent split (anti-cannibalization)
+
+Use this as the default keyword and copy split across PromptAnatomy properties:
+
+- **`leader` (`ditreneris.github.io/leader`)**: executive decision operations for CEOs/COOs (decision brief, owner + deadline, executive risk review, delegation brief shape).
+- **`promptanatomy.app` (mother)**: canonical product and commercial authority (full system, platform, pricing, team-wide standard).
+- **`promptanatomy.cloud` (sister hub)**: learning and practice surface (framework basics, 2-minute practice, educational path/program framing).
+
+### Allowed vs avoid by property
+
+- **Leader - allowed:** "executive operating kit", "decision-ready brief", "CEO/COO AI operating workflow", "risk-before-send".
+- **Leader - avoid as primary framing:** broad beginner education terms such as "prompt engineering course", "AI lessons", "framework basics".
+- **Sister hub - allowed:** practical learning copy ("start practice", "framework", "learning path", "program").
+- **Mother site - allowed:** canonical product language ("PromptAnatomy platform", "team standard", "pricing", "full system install").
+
+Rule: if a phrase is a primary query target for one property, keep it secondary (or absent) on the others unless there is a deliberate cross-domain campaign.

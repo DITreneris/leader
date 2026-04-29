@@ -2,7 +2,7 @@
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 import HighlightStrip from "./ds/HighlightStrip.astro";
-import { buildPromptAnatomyUrl } from "../constants/outboundLinks";
+import { buildPromptAnatomyUrl, buildSisterHubUrl } from "../constants/outboundLinks";
 
 interface Props {
   lang: Language;
@@ -11,6 +11,7 @@ interface Props {
 const { lang } = Astro.props;
 const b = uiCopy[lang].promoBanner;
 const primaryHref = buildPromptAnatomyUrl({ medium: "modules", campaign: "handoff" });
+const sisterHubHref = buildSisterHubUrl({ medium: "modules", campaign: "sister_hub" });
 ---
 
 <section class="section-y-tight mx-auto max-w-7xl px-5 sm:px-8" aria-label={b.ariaLabel}>
@@ -26,20 +27,30 @@ const primaryHref = buildPromptAnatomyUrl({ medium: "modules", campaign: "handof
         </p>
       </div>
 
-      <div class="flex flex-col gap-3 sm:flex-row lg:shrink-0">
+      <div class="flex flex-col items-start gap-3 lg:shrink-0">
+        <div class="flex w-full flex-col gap-3 sm:flex-row">
+          <a
+            href={primaryHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="focus-ring cta-gradient type-cta-label elevate-hover rounded-full px-6 py-4 text-center text-slate-950 transition hover:brightness-110"
+          >
+            {b.primaryCta}
+          </a>
+          <a
+            href="#demo"
+            class="focus-ring elevate-hover rounded-full border border-white/15 bg-white/[0.02] px-6 py-4 text-center text-sm font-semibold normal-case tracking-wide text-white transition hover:bg-white/5"
+          >
+            {b.secondaryCta}
+          </a>
+        </div>
         <a
-          href={primaryHref}
+          href={sisterHubHref}
           target="_blank"
           rel="noopener noreferrer"
-          class="focus-ring cta-gradient type-cta-label elevate-hover rounded-full px-6 py-4 text-center text-slate-950 transition hover:brightness-110"
+          class="focus-ring text-sm font-semibold text-slate-300 underline decoration-slate-500/70 underline-offset-4 transition hover:text-white"
         >
-          {b.primaryCta}
-        </a>
-        <a
-          href="#demo"
-          class="focus-ring elevate-hover rounded-full border border-white/15 bg-white/[0.02] px-6 py-4 text-center text-sm font-semibold normal-case tracking-wide text-white transition hover:bg-white/5"
-        >
-          {b.secondaryCta}
+          {b.sisterCta}
         </a>
       </div>
     </div>

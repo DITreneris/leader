@@ -1,8 +1,8 @@
 export const ltCopy = {
     meta: {
-      title: "CEO/COO vykdomasis promptų rinkinys | Prompt Anatomy",
+      title: "CEO/COO sprendimų operacinis rinkinys | Prompt Anatomy",
       description:
-        "Standartizuok vadovybės DI briefus iki sprendimui paruoštos formos maždaug per savaitę. Statinis rinkinys + demo – įklijuok į ChatGPT, Claude ar Gemini, be prisijungimo. PromptAnatomy, kai komandai reikia bendro standarto.",
+        "Naudok vieną vadovo sprendimų eigą ir paversk verslo triukšmą sprendimui paruoštu briefu su savininku, rizikomis ir terminu. Statinis rinkinys + demo, be prisijungimo. Pilnam komandos standartui – PromptAnatomy.app.",
       socialImageAlt:
         "Prompt Anatomy – CEO/COO Executive OS statinis rinkinys ir peržiūros paveikslas socialiniams tinklams.",
     },
@@ -34,7 +34,7 @@ export const ltCopy = {
         {
           q: "Kas yra PromptAnatomy Executive OS?",
           a:
-            "Vieno puslapio statinis rinkinys CEO/COO: globalus kontekstas ir moduliai, kad vadovybės užklausos DI būtų nuoseklios – be prisijungimo ir be įkėlimo. Visa sistema ir mokymai – promptanatomy.app.",
+            "Vieno puslapio statinis sprendimų operacinis rinkinys CEO/COO: globalus kontekstas ir moduliai, kad vadovybės užklausos DI būtų nuoseklios – be prisijungimo ir be įkėlimo. Pilna sistema ir komandos standartas – promptanatomy.app.",
           bullets: [],
         },
         {
@@ -45,7 +45,7 @@ export const ltCopy = {
         },
         {
           q: "Kuo tai ne eilinis promptų sąrašas?",
-          a: "CEO/COO darbo metodas–ne katalogas nuo pradžios iki galo. DI modelis tik generuoja; rinkinys užfiksuoja įvestį, logiką ir išvesties formą, kurią tikrai siunti.",
+          a: "CEO/COO sprendimų darbo eiga, o ne pradinio lygio promptų mokymai. DI modelis tik generuoja; rinkinys užfiksuoja įvestį, logiką ir išvesties formą, kurią tikrai siunti.",
           bullets: [
             "Operacinis modelis: vienas konteksto blokas ir moduliai, kuriuos sudedi į vieną promptą.",
             "Rinkinys: spausdinamas PDF ir paruošti kopijuoti promptai pasikartojančiam vadovo darbui.",
@@ -71,9 +71,9 @@ export const ltCopy = {
       kitPdf: "Rinkinio atsisiuntimas",
     },
     hero: {
-      eyebrow: "Vadovo operacinis rinkinys",
+      eyebrow: "Vadovo sprendimų operacinis rinkinys",
       title: "Nuo DI triukšmo iki sprendimo.",
-      subtitle: "Vienas struktūruotas briefas: spręsk, įvertink riziką, veik.",
+      subtitle: "Vienas struktūruotas briefas su savininku, rizikomis, terminu ir kitu veiksmu.",
       primaryCta: "Atidaryti PromptAnatomy.app",
       secondaryCta: "Pradėti nuo konteksto ir modulių",
     },
@@ -136,9 +136,10 @@ export const ltCopy = {
       ariaLabel: "Perėjimo baneris į PromptAnatomy.",
       eyebrow: "Kai nori pilnos sistemos",
       title: "Įdiek PromptAnatomy kaip komandos standartą.",
-      subtitle: "Rinkinys duoda rezultato formą. PromptAnatomy paverčia ją kartojama visai komandai.",
+      subtitle: "Pagrindinis kelias: šią sprendimų eigą perkelk į PromptAnatomy ir kartok komandos mastu.",
       primaryCta: "Atidaryti PromptAnatomy.app",
       secondaryCta: "Pirmiau – aiškumo praktika",
+      sisterCta: "Pirmiau reikia framework praktikos? Atidaryk promptanatomy.cloud",
     },
     modules: {
       eyebrow: "Globalus kontekstas + moduliai",
@@ -820,7 +821,7 @@ Pašalinti dabar:
       subtitle:
         "Atsisiųsk Max Value Kit šiai savaitei. PromptAnatomy atidaryk, kai nori to paties metodo kaip komandos standarto.",
       primary: "Atsisiųsti Max Value Kit",
-      secondary: "Atidaryti PromptAnatomy.app",
+      secondary: "Įdiegti PromptAnatomy komandos standartą",
     },
     footer: {
       brand: "PromptAnatomy · Vadovo OS",

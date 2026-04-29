@@ -6,8 +6,10 @@
 export const UTM_SOURCE_LEADER = "leader";
 
 export const PROMPT_ANATOMY_ORIGIN = "https://www.promptanatomy.app";
+export const PROMPT_ANATOMY_SISTER_HUB_ORIGIN = "https://promptanatomy.cloud";
 
 const PROMPT_HOME = `${PROMPT_ANATOMY_ORIGIN.replace(/\/$/, "")}/`;
+const SISTER_HUB_HOME = `${PROMPT_ANATOMY_SISTER_HUB_ORIGIN.replace(/\/$/, "")}/`;
 
 /** PromptAnatomy home with tracked medium/campaign */
 export function buildPromptAnatomyUrl(params: { medium: string; campaign: string }): string {
@@ -20,6 +22,15 @@ export function buildPromptAnatomyUrl(params: { medium: string; campaign: string
 
 export const PROMPT_ANATOMY_PRIVACY_URL = `${PROMPT_ANATOMY_ORIGIN.replace(/\/$/, "")}/privacy`;
 export const PROMPT_ANATOMY_TERMS_URL = `${PROMPT_ANATOMY_ORIGIN.replace(/\/$/, "")}/terms`;
+
+/** PromptAnatomy sister hub with tracked medium/campaign (secondary learning path, not primary product handoff) */
+export function buildSisterHubUrl(params: { medium: string; campaign: string }): string {
+  const u = new URL(SISTER_HUB_HOME);
+  u.searchParams.set("utm_source", UTM_SOURCE_LEADER);
+  u.searchParams.set("utm_medium", params.medium);
+  u.searchParams.set("utm_campaign", params.campaign);
+  return u.toString();
+}
 
 const TELEGRAM_BASE = "https://t.me/prompt_anatomy";
 

@@ -2,9 +2,12 @@
 
 Use these consistently when adding or changing outbound links. Pattern: `utm_source=leader` + `utm_medium` + `utm_campaign`.
 
+Intent guardrail: keep `leader` CTAs framed as executive decision-ops handoff. Product-install intent belongs to `promptanatomy.app`; learning/framework intent belongs to `promptanatomy.cloud`.
+
 | Location | Medium | Campaign | Notes |
 |----------|--------|----------|--------|
 | PromoBanner primary (PromptAnatomy) | `modules` | `handoff` | Mid-page upgrade CTA from [`PromoBanner.astro`](../src/components/PromoBanner.astro); `utm_source=leader` |
+| PromoBanner sister hub (`promptanatomy.cloud`) | `modules` | `sister_hub` | Secondary text CTA in [`PromoBanner.astro`](../src/components/PromoBanner.astro); built via `buildSisterHubUrl`; `utm_source=leader` |
 | Hero primary CTA (gold, in-page) | — | — | In-page anchor `#context` in [`Hero.astro`](../src/components/Hero.astro) (no UTM). Note: “primary (gold)” refers to visual hierarchy, not UTM campaign naming. |
 | Hero outlined CTA (PromptAnatomy) | `hero` | `primary` | Outbound from [`Hero.astro`](../src/components/Hero.astro); `utm_source=leader` |
 | CourseCTA secondary | `lead_magnet` | `executive_prompt_library` | Full product from conversion band |

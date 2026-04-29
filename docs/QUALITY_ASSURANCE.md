@@ -57,6 +57,7 @@ Not in CI today; consider when the landing grows in interactivity:
 - Claims are specific and believable.
 - ROI language stays cautious unless backed by proof.
 - Links to the static download, `https://www.promptanatomy.app/`, and `https://ditreneris.github.io/ceo/` (sister bridge) remain correct.
+- Search-intent split stays explicit: `leader` = executive decision ops, mother = product authority, sister hub = framework/learning practice.
 - Shipped English uses **American English** (not UK spellings/phrasing); see **US English (shipped default)** in [`.cursor/rules/language-standard.mdc`](../.cursor/rules/language-standard.mdc).
 
 ## Visual QA Checklist
@@ -114,6 +115,7 @@ After changes to `public/robots.txt`, `public/llms.txt`, meta, JSON-LD, or FAQ c
 6. If FAQ items changed, confirm **EN/LT** `faq.items` stay aligned ([`docs/COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md) as needed).
 7. When ship includes copy or on-page SEO changes, bump **`LEADER_PAGE_DATE_MODIFIED`** in [`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts) and re-build.
 8. Optional: run 2–3 English product queries in Perplexity or ChatGPT (with browsing) and note whether Executive OS / Global Context Block citations match `llms.txt` and FAQ.
+9. Verify CTA hierarchy: PromptAnatomy.app remains the primary product handoff; `promptanatomy.cloud` is presented as a secondary learning/practice path.
 
 ## Release Readiness
 

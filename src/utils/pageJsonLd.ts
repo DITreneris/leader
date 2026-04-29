@@ -53,6 +53,12 @@ export function buildLeaderPageJsonLd(input: {
         url: localeCanonical,
         name: meta.title,
         description: meta.description,
+        keywords: [
+          "executive decision operating kit",
+          "CEO COO decision brief",
+          "executive risk review prompt",
+          "owner deadline next action",
+        ],
         datePublished: LEADER_PAGE_DATE_PUBLISHED,
         dateModified: LEADER_PAGE_DATE_MODIFIED,
         isPartOf: { "@id": motherSiteId },

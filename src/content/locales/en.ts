@@ -1,8 +1,8 @@
 export const enCopy = {
     meta: {
-      title: "CEO/COO Executive Prompt Operating Kit | Prompt Anatomy",
+      title: "CEO/COO Executive Decision Operating Kit | Prompt Anatomy",
       description:
-        "Standardize leadership AI briefs to a decision-ready shape in about a week. Static kit + demo—paste into ChatGPT, Claude, or Gemini, no login. PromptAnatomy when you need a team-wide standard.",
+        "Use one executive decision workflow to turn business noise into decision-ready briefs with owners, risks, and deadlines. Static kit + demo, no login. Move to PromptAnatomy.app for the full team standard.",
       socialImageAlt: "Prompt Anatomy — CEO/COO Executive OS static kit and social preview.",
     },
     a11y: {
@@ -32,7 +32,7 @@ export const enCopy = {
         {
           q: "What is PromptAnatomy Executive OS?",
           a:
-            "A static one-page kit for CEOs/COOs: Global Context Block plus executive modules so leadership briefs to AI stay consistent—no login, no uploads. The full product and training are on promptanatomy.app.",
+            "A static one-page decision operating kit for CEOs/COOs: Global Context Block plus executive modules so leadership briefs to AI stay consistent—no login, no uploads. The full product and team standard are on promptanatomy.app.",
           bullets: [],
         },
         {
@@ -43,7 +43,7 @@ export const enCopy = {
         },
         {
           q: "What is this vs a prompt list?",
-          a: "A CEO/COO operating method—not a catalog to read cover to cover. The model only generates; this kit pins down input, logic, and the output shape you actually ship.",
+          a: "A CEO/COO decision workflow, not beginner prompt training. The model only generates; this kit pins down input, logic, and the output shape you actually ship.",
           bullets: [
             "Operating model: one context block and modules you compile into a single prompt.",
             "The kit: printable PDF plus copy-ready prompts for recurring leadership work.",
@@ -69,9 +69,9 @@ export const enCopy = {
       kitPdf: "Kit download",
     },
     hero: {
-      eyebrow: "Executive operating kit",
+      eyebrow: "Executive decision operating kit",
       title: "From AI noise to decision.",
-      subtitle: "One structured brief: decide, assess risk, act.",
+      subtitle: "One structured brief with owner, risks, deadline, next action.",
       primaryCta: "Open PromptAnatomy.app",
       secondaryCta: "Start with context & modules",
     },
@@ -131,9 +131,10 @@ export const enCopy = {
       ariaLabel: "Product handoff banner to PromptAnatomy.",
       eyebrow: "When you want the full system",
       title: "Install PromptAnatomy as the team standard.",
-      subtitle: "The kit gives you the output shape. PromptAnatomy makes it repeatable across the team.",
+      subtitle: "Primary path: move this decision workflow into PromptAnatomy for repeatable team execution.",
       primaryCta: "Open PromptAnatomy.app",
       secondaryCta: "Try the clarity practice first",
+      sisterCta: "Need framework practice first? Open promptanatomy.cloud",
     },
     modules: {
       eyebrow: "Global context + modules",
@@ -815,7 +816,7 @@ Eliminate now:
       subtitle:
         "Download the Max Value Kit for this week. Open PromptAnatomy when you want the same method as a team-wide standard.",
       primary: "Download Max Value Kit",
-      secondary: "Open PromptAnatomy.app",
+      secondary: "Install PromptAnatomy team standard",
     },
     footer: {
       brand: "PromptAnatomy · Executive OS",
