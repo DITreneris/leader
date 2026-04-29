@@ -14,6 +14,8 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 - **Dependencies:** `typescript` **^6.0.3** (major), `astro` **^6.1.10**, `@astrojs/check` **^0.9.9**, `vitest` **^4.1.5** — consolidates Dependabot bumps; `npm test`, `npm run build`, and `npm run test:e2e` verified locally.
 
+- **Social preview hardening (root redirect + Facebook):** [`src/pages/index.astro`](src/pages/index.astro) now includes explicit root-level `og:*`/`twitter:*` tags (`og:url`, `og:title`, `og:description`, `og:image`) so crawlers that scrape `/` no longer infer metadata from the redirect shell (`Redirecting…`). Added optional `fb:app_id` emission in both [`src/pages/index.astro`](src/pages/index.astro) and [`src/layouts/Page.astro`](src/layouts/Page.astro) via env var `PUBLIC_FB_APP_ID`; documented in [`.env.example`](.env.example). Deploy target for the mirror is `SITE_URL=https://promptanatomy.pro`, `BASE_PATH=/`.
+
 ### Added
 
 - **Semver for the landing:** root `package.json` → **`1.1.0`**; [`src/constants/appVersion.ts`](src/constants/appVersion.ts) exports **`APP_VERSION`**; footer shows **`v1.1.0`** next to the tagline (EN/LT **`footer.versionAria`**); `<meta name="generator" content="PromptAnatomy Executive OS …" />`. Docs: [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md) — **Versioning**, [`CONTRIBUTING.md`](CONTRIBUTING.md), [`AGENTS.md`](AGENTS.md), [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md).

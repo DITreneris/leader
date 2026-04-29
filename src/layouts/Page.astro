@@ -59,6 +59,7 @@ const socialImageUrl = new URL(ogImageFile, baseUrl).toString();
 
 const ogLocale = langTag === "lt" ? "lt_LT" : "en_US";
 const ogLocaleAlternate = langTag === "lt" ? "en_US" : "lt_LT";
+const fbAppId = import.meta.env.PUBLIC_FB_APP_ID?.trim();
 
 const base = import.meta.env.BASE_URL;
 const faviconSvg = `${base}favicon.svg`;
@@ -113,6 +114,7 @@ const telegramHref = buildTelegramUrl();
     <meta property="og:image:alt" content={meta.socialImageAlt} />
     <meta property="og:locale" content={ogLocale} />
     {bilingualShipped && <meta property="og:locale:alternate" content={ogLocaleAlternate} />}
+    {fbAppId && <meta property="fb:app_id" content={fbAppId} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={meta.title} />
     <meta name="twitter:description" content={meta.description} />
