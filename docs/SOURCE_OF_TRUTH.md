@@ -48,6 +48,11 @@ Rule: any user-visible string change must keep **`en.ts`** and **`lt.ts`** align
 - **Global tokens/utilities**: `src/styles/global.css`
 - **Outbound URLs** (PromptAnatomy, Telegram, consumer-AI paste destinations via `buildConsumerAiUrl`, tracked `utm_*`): code in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts); catalog in [`docs/UTM_MATRIX.md`](UTM_MATRIX.md). Adding or changing destinations or parameters must keep both aligned (see banner hierarchy in **DESIGN_SYSTEM.md**). The sister hub `ditreneris.github.io/ceo/` remains valid product context in prose and crawler docs; it is not a URL builder in this file.
 
+### Domains (canonical product vs optional deploy)
+
+- **Canonical mother site (this repo):** `https://www.promptanatomy.app` — source of truth for [`outboundLinks.ts`](../src/constants/outboundLinks.ts), JSON-LD mother `Organization` / `WebSite` in [`pageJsonLd.ts`](../src/utils/pageJsonLd.ts), and copy that names the full product. Do **not** bulk-replace this domain because the static kit is hosted on another hostname.
+- **Optional deploy mirror (e.g. Vercel):** the same build may be served at `https://promptanatomy.pro/` (or `www` if configured). That is a **hosting surface**, not a replacement for the canonical PromptAnatomy URL above unless product policy changes and this section is updated on purpose.
+
 Policy: use one primary CTA per major section; keep glass/elevation reserved for primary containers. New sections should prefer [`src/components/ds/`](../src/components/ds/) primitives documented in **DESIGN_SYSTEM.md**.
 
 ### Visual tokens (`global.css`)

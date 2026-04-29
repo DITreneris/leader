@@ -79,7 +79,10 @@ const avifUrl = normalizeUrl(`assets/memes/${stem}.avif`);
   <div class={`pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r ${tone.rule}`}></div>
   <div
     class:list={[
-      "flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:items-center lg:gap-8",
+      "flex flex-col gap-6 lg:grid lg:items-center lg:gap-8",
+      side === "right"
+        ? "lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]"
+        : "lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)]",
     ]}
   >
     <figure

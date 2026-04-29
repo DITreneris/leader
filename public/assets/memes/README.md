@@ -22,8 +22,9 @@ Not mounted: `memes.items[1]` (spare copy); `memes.items[4]` + `meme-02-meeting-
 Rules:
 
 - Each meme is a recognition moment, not a sales section. No CTA, no eyebrow ladder.
-- Live page uses a **gold** frame accent only (restrained brand). `MemeMoment` uses a fixed **16:9** viewport (`aspect-video`) and **`object-contain`** so the full meme is visible (no cropping). **Below `lg`:** image is full width of the column, title + caption stacked (centered). **`lg+`:** asymmetric two-column layout (**1.25fr** image / **0.75fr** caption) with alternating **`side`** — image no longer spans the full content width on desktop (restores pre–full-bleed-stacked behavior). New assets should be exported **16:9**.
-- Images use explicit width/height on `<img>` for aspect-ratio hint / CLS; intrinsic PNG sizes may still vary.
+- Live page uses a **gold** frame accent only (restrained brand). `MemeMoment` uses a fixed **16:9** viewport (`aspect-video`) and **`object-contain`** so the full meme is visible (no cropping). **Below `lg`:** image is full width of the column, title + caption stacked (centered). **`lg+`:** asymmetric two columns — the **image is always in the wider column (1.25fr)** and caption in the narrower (0.75fr). When **`side="left"`**, grid is **1.25fr | 0.75fr** (image | text). When **`side="right"`** (zig-zag), grid is **0.75fr | 1.25fr** (text | image) so the image does not shrink into the narrow column. Alternating **`side`** is intentional pacing, not an accident.
+- **Homogeneity:** all **mounted** meme masters should export as **1600×900** (16:9), same as each other, then run **`npm run optimize:memes`**. (Legacy `meme-01-ai-chaos` was normalized to 1600×900 in-repo when it previously used a non-uniform pixel aspect.)
+- Images use explicit width/height on `<img>` for aspect-ratio hint / CLS (`Page.astro` passes **1280×720** hints for all beats).
 - Do not bundle the memes back into a single block — fragmentation is the point.
 - Future exports should keep the clean `.png` extension. Double extensions like `.png.png` were renamed.
 

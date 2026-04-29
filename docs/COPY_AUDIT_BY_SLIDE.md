@@ -128,6 +128,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 - ~~`Page.astro` `alt`~~ – dabar `memes.sequenceImageAlts[]`.
 - ~~`MemeMoment` sekcijos `aria-label`~~ – `memes.sectionAriaLabel`.
+- **2026-04-29:** `MemeMoment` — kai `side="right"`, `lg` tinklelis **`0.75fr | 1.25fr`**, kad meme visada būtų **plačiame** stulpelyje; visi mounted PNG master **1600×900** — žr. [`VISUAL_CONTENT_MAP.md`](VISUAL_CONTENT_MAP.md), [`public/assets/memes/README.md`](../public/assets/memes/README.md).
 
 **Veiksmai**
 

@@ -32,7 +32,7 @@ Several `MemeMoment.astro` beats break up long reading. Copy always comes from `
 | 3 | 2 | `meme-04-delegation-bottleneck.png` | Delegation bottleneck |
 | 4 | 5 | `reward_2.png` | Keep the structure on your desk |
 
-Desktop (`lg+`): **two-column asymmetric grid** (**1.25fr** image column / **0.75fr** caption column), alternating **`side`** (`left` / `right`) per [`Page.astro`](../src/layouts/Page.astro). Below **`lg`**: stacked — full-width **16:9** image, then title + body (centered).
+Desktop (`lg+`): **two-column asymmetric grid** — the **meme image always occupies the 1.25fr (wide) column** and copy the 0.75fr column. When **`side="left"`**, columns are **1.25fr | 0.75fr** (image left). When **`side="right"`** (zig-zag), [`MemeMoment.astro`](../src/components/MemeMoment.astro) uses **0.75fr | 1.25fr** so the image stays wide on the **right** (previously a bug put the image in the narrow column). Alternating **`side`** per [`Page.astro`](../src/layouts/Page.astro) is intentional. Below **`lg`**: stacked — full-width **16:9** image, then title + body (centered).
 
 Section flow between beats: `BeforeAfter` → `ExecutiveModules` (`#context`) → `PromoBanner` → `ClarityDemo` (`#demo`) → **meme index 5** → `SafetyCheck` → `CourseCTA` (`#kit`) → `PromptAnatomy` → `RoiPath` → `Faq` → `PromptLibrary` (`#library`).
 
