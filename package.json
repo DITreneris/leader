@@ -32,6 +32,6 @@
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.56.0",
     "sharp": "^0.34.5",
-    "vitest": "^3.2.4"
+    "vitest": "^4.1.5"
   }
 }
