@@ -98,19 +98,10 @@ export const enCopy = {
       howItWorksSummary: "How it works (expand)",
     },
     heroBento: {
-      ariaLabel: "Brief shape schema with process and outputs.",
-      chipOne: "Schema",
-      chipTwo: "Output shape",
-      chipThree: "Decision-grade",
-      flowAriaLabel: "Process: context, module, brief, safety",
-      flowContext: "Context",
-      flowModule: "Module",
-      flowBrief: "Brief",
-      flowSafety: "Safety",
-      tilesAriaLabel: "Brief outputs",
+      ariaLabel: "Executive brief output shape: decision, risks, and next action in order.",
+      panelOverline: "One brief · three parts",
+      tilesAriaLabel: "Ordered sections: decision, risks, next action",
       tileDecision: "Decision",
-      tileOwner: "Owner",
-      tileDeadline: "Deadline",
       tileRisks: "Risks",
       tileNextAction: "Next action",
     },
@@ -129,12 +120,9 @@ export const enCopy = {
     },
     todayWorkflow: {
       eyebrow: "Today's workflow",
-      title: "Copy one prompt. Get decision-grade output.",
-      subtitle: "Compile on this page → paste into your approved AI → get a structured brief.",
-      body:
-        "Build the prompt with Prompt Anatomy on this page, then paste it into an AI assistant your license and plan allow. One compiled prompt → one structured answer.",
-      hint:
-        "Compile or tweak the prompt if needed, then copy it and paste it into ChatGPT, Claude, Gemini, or your approved tool.",
+      title: "One structured prompt. One decision-ready brief.",
+      subtitle:
+        "Build it here, copy it, paste it into your approved AI tool, and get a decision brief with owners, risks, trade-offs, and next actions.",
       primaryCta: "Copy prompt & analyze →",
       continueLabel: "Continue in:",
       licenseNote:
@@ -142,12 +130,14 @@ export const enCopy = {
       openChatgpt: "Open ChatGPT",
       openClaude: "Open Claude",
       openGemini: "Open Gemini",
-      schemaAriaLabel: "Workflow schema: compile prompt, paste into AI, get decision brief.",
-      schemaStepOne: "Compile prompt",
-      schemaStepTwo: "Paste into AI",
-      schemaStepThree: "Ask once",
-      schemaOutcome: "Decision brief (owners, risks, next action)",
-      a11yLabel: "Today's workflow: how to compile, paste, and get a decision brief.",
+      schemaAriaLabel: "Workflow: build prompt, copy, paste into AI, get decision brief.",
+      schemaStepBuild: "Build prompt",
+      schemaStepCopy: "Copy",
+      schemaStepPaste: "Paste into AI",
+      schemaStepDecide: "Decide",
+      schemaOutputTitle: "Decision brief",
+      schemaOutputDetail: "Owners · Risks · Trade-offs · Next action",
+      a11yLabel: "Today's workflow: build, copy, paste, and get a decision-ready brief.",
     },
     promoBanner: {
       ariaLabel: "Product handoff banner to PromptAnatomy.",
@@ -160,7 +150,7 @@ export const enCopy = {
     modules: {
       eyebrow: "Global context + modules",
       title: "Define context once. Inject it into high-impact executive modules.",
-      subtitle: "Copy one compiled prompt. Get decision-grade output you can act on.",
+      subtitle: "One compiled prompt → decision-grade output you can act on.",
       startHere: "Start here: fill the 4 context fields, then copy 1 module (Decision impact is a safe first pick).",
       context: {
         title: "Global context block",
@@ -175,10 +165,14 @@ export const enCopy = {
         bottleneckLabel: "Key bottleneck",
         bottleneckPlaceholder: "e.g., Engineering speed vs Sales promises",
       },
-      contextWarning:
-        "No context = no value. If you leave fields blank, the compiled prompt will include placeholders.",
-      contextCopyHint:
-        "Fill these once. They are not a separate copy target—your values are embedded in the full prompt when you tap Copy full prompt on any module card below.",
+      contextFootnote:
+        "No context = no value—blank fields become placeholders. Fill once; values embed in the full prompt when you tap Copy full prompt on a module card below (not a separate copy block).",
+      /** Screen reader label for the 4-field → modules schematic above the context form. */
+      contextMapAriaLabel: "How global context fields flow into compiled prompts",
+      /** Short center chip in the field map (destination). */
+      contextMapInjectLabel: "Into modules",
+      /** One line under the field map diagram. */
+      contextMapCaption: "These four values compile into every module’s Copy full prompt.",
       rulesPreview: {
         title: "Rules injected (non-negotiable)",
         items: [
@@ -347,6 +341,8 @@ Eliminate now:
       title: "Five blocks that keep AI useful for leadership work.",
       expandSummary: "Five blocks (expand)",
       subtitle: "Use 2–3 for speed; all five before board or client-facing sends.",
+      /** Aria-label for the closed-state chip list of block names. */
+      previewAriaLabel: "Five blocks at a glance",
       /** Micro-label before block number in the expanded grid (e.g. “Step 1”). */
       stepPrefix: "Step",
       items: [
@@ -361,8 +357,8 @@ Eliminate now:
       eyebrow: "Copy-ready library · no login",
       title: "CEO/COO Prompt Library",
       subtitle: "35 copy-ready prompts for recurring leadership work.",
-      scanHint: "Use as reference—copy one prompt when you need it, not the whole catalog.",
-      instructions: "Pick a workflow → open a prompt → copy into AI.",
+      summaryLead:
+        "Reference catalog—copy one prompt when you need it, not the whole library. Pick a category → reveal → paste into your AI tool.",
       navAriaLabel: "Prompt categories",
       promptSingular: "prompt",
       promptPlural: "prompts",
@@ -634,10 +630,10 @@ Eliminate now:
       subtitle: "Decision and next action when you need them.",
       scenarioHint: "Pick a scenario—the brief updates below.",
       briefLabel: "Brief",
-      showDetails: "Show details",
-      hideDetails: "Hide details",
-      showInput: "Show input",
-      hideInput: "Hide input",
+      detailsTab: "Details",
+      inputTab: "Input",
+      secondaryPanelHint: "Open Details for risks and questions, or Input for the messy scenario notes.",
+      secondaryTablistAriaLabel: "Brief extras",
       promptBlockLabel: "Sample prompt to copy",
       previewHint: "Copy pulls the full prompt. This box is only a preview.",
       followUpEyebrow: "Keep the structure on your desk",

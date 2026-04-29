@@ -45,8 +45,8 @@ const defaultScenario = demo.scenarios.meeting;
       <p class="type-micro-label text-brand-accent-hover">
         {demo.briefLabel}
       </p>
-      <div class="mt-5 grid gap-4">
-        <div class="surface-accent accent-glow radius-lg p-5 ring-1 ring-brand-accent/30">
+      <div class="mt-5 grid gap-3">
+        <div class="surface-accent accent-glow radius-lg p-4 ring-1 ring-brand-accent/30">
           <p class="type-micro-label text-brand-accent-hover">
             {demo.decision}
           </p>
@@ -54,7 +54,7 @@ const defaultScenario = demo.scenarios.meeting;
             {defaultScenario.decision}
           </p>
         </div>
-        <div class="radius-lg bg-emerald-300/10 p-5 ring-1 ring-emerald-200/20">
+        <div class="radius-lg bg-emerald-300/10 p-4 ring-1 ring-emerald-200/20">
           <p class="type-micro-label text-emerald-100">
             {demo.action}
           </p>
@@ -62,7 +62,7 @@ const defaultScenario = demo.scenarios.meeting;
             {defaultScenario.action}
           </p>
         </div>
-        <div class="surface-muted radius-lg p-5">
+        <div class="surface-muted radius-lg p-4">
           <p class="text-xs font-semibold tracking-wide text-slate-400">
             {demo.insight}
           </p>
@@ -73,76 +73,99 @@ const defaultScenario = demo.scenarios.meeting;
       </div>
     </ContentCard>
 
-    <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-      <button
-        type="button"
-        data-copy-prompt
-        class="focus-ring cta-gradient type-cta-label elevate-hover rounded-full px-6 py-3 text-slate-950 transition hover:brightness-110"
-      >
-        {demo.copyPrompt}
-      </button>
-
-      <details class="surface-panel radius-lg group">
-        <summary class="focus-ring summary-hover flex cursor-pointer list-none items-center gap-2 radius-lg px-5 py-3 text-sm font-semibold text-slate-200 outline-none transition [&::-webkit-details-marker]:hidden">
-          <span class="block group-open:hidden">{demo.showDetails}</span>
-          <span class="hidden group-open:block">{demo.hideDetails}</span>
-          <svg
-            viewBox="0 0 16 16"
-            width="14"
-            height="14"
-            aria-hidden="true"
-            class="ml-1 transition group-open:rotate-180"
+    <div class="mt-5 flex flex-col gap-3">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <button
+          type="button"
+          data-copy-prompt
+          class="focus-ring cta-gradient type-cta-label elevate-hover w-full rounded-full px-6 py-3 text-slate-950 transition hover:brightness-110 sm:w-auto"
+        >
+          {demo.copyPrompt}
+        </button>
+        <div
+          class="inline-flex w-full flex-wrap items-stretch justify-center gap-1 rounded-xl border border-white/10 bg-slate-950/40 p-1 sm:w-auto sm:justify-end"
+          role="tablist"
+          aria-label={demo.secondaryTablistAriaLabel}
+        >
+          <button
+            type="button"
+            class="focus-ring min-h-11 flex-1 rounded-lg px-4 py-2.5 text-sm font-semibold text-slate-300 transition aria-selected:bg-brand-accent/20 aria-selected:text-white sm:min-h-0 sm:flex-none"
+            id="demo-tab-details"
+            role="tab"
+            data-demo-tab="details"
+            aria-selected="false"
+            aria-controls="demo-details-panel"
+            tabindex="0"
           >
-            <path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-          </svg>
-        </summary>
-        <div class="grid gap-4 border-t border-white/10 p-4 sm:p-5 md:grid-cols-2">
-          <div class="radius-md bg-rose-300/10 p-4 ring-1 ring-rose-200/15">
-            <p class="type-micro-label text-rose-100">
-              {demo.risks}
-            </p>
-            <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-rose-50" data-demo-risks>
-              {defaultScenario.risks.map((risk) => (
-                <li>{risk}</li>
-              ))}
-            </ul>
-          </div>
-          <div class="radius-md bg-amber-300/10 p-4 ring-1 ring-amber-200/15">
-            <p class="type-micro-label text-amber-100">
-              {demo.questions}
-            </p>
-            <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-amber-50" data-demo-questions>
-              {defaultScenario.questions.map((question) => (
-                <li>{question}</li>
-              ))}
-            </ul>
+            {demo.detailsTab}
+          </button>
+          <button
+            type="button"
+            class="focus-ring min-h-11 flex-1 rounded-lg px-4 py-2.5 text-sm font-semibold text-slate-300 transition aria-selected:bg-brand-accent/20 aria-selected:text-white sm:min-h-0 sm:flex-none"
+            id="demo-tab-input"
+            role="tab"
+            data-demo-tab="input"
+            aria-selected="false"
+            aria-controls="demo-input-panel"
+            tabindex="-1"
+          >
+            {demo.inputTab}
+          </button>
+        </div>
+      </div>
+
+      <div class="surface-panel radius-lg border border-white/10">
+        <p
+          class="px-4 py-3 text-sm leading-relaxed text-slate-400 sm:px-5"
+          data-demo-secondary-placeholder
+        >
+          {demo.secondaryPanelHint}
+        </p>
+        <div
+          id="demo-details-panel"
+          class="hidden border-t border-white/10"
+          role="tabpanel"
+          aria-labelledby="demo-tab-details"
+        >
+          <div class="grid gap-4 p-4 sm:p-5 md:grid-cols-2">
+            <div class="radius-md bg-rose-300/10 p-4 ring-1 ring-rose-200/15">
+              <p class="type-micro-label text-rose-100">
+                {demo.risks}
+              </p>
+              <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-rose-50" data-demo-risks>
+                {defaultScenario.risks.map((risk) => (
+                  <li>{risk}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="radius-md bg-amber-300/10 p-4 ring-1 ring-amber-200/15">
+              <p class="type-micro-label text-amber-100">
+                {demo.questions}
+              </p>
+              <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-amber-50" data-demo-questions>
+                {defaultScenario.questions.map((question) => (
+                  <li>{question}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </details>
-
-      <details class="surface-panel radius-lg group">
-        <summary class="focus-ring summary-hover flex cursor-pointer list-none items-center gap-2 radius-lg px-5 py-3 text-sm font-semibold text-slate-200 outline-none transition [&::-webkit-details-marker]:hidden">
-          <span class="block group-open:hidden">{demo.showInput}</span>
-          <span class="hidden group-open:block">{demo.hideInput}</span>
-          <svg
-            viewBox="0 0 16 16"
-            width="14"
-            height="14"
-            aria-hidden="true"
-            class="ml-1 transition group-open:rotate-180"
-          >
-            <path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-          </svg>
-        </summary>
-        <div class="border-t border-white/10 p-4 sm:p-5">
-          <p class="text-xs font-semibold tracking-wide text-slate-500">
-            {demo.messyInputLabel}
-          </p>
-          <p class="mt-3 text-sm leading-6 text-slate-200" data-demo-field="input">
-            {defaultScenario.input}
-          </p>
+        <div
+          id="demo-input-panel"
+          class="hidden border-t border-white/10"
+          role="tabpanel"
+          aria-labelledby="demo-tab-input"
+        >
+          <div class="p-4 sm:p-5">
+            <p class="text-xs font-semibold tracking-wide text-slate-500">
+              {demo.messyInputLabel}
+            </p>
+            <p class="mt-3 text-sm leading-6 text-slate-200" data-demo-field="input">
+              {defaultScenario.input}
+            </p>
+          </div>
         </div>
-      </details>
+      </div>
     </div>
 
     <pre
@@ -163,7 +186,7 @@ const defaultScenario = demo.scenarios.meeting;
       </p>
       <a
         href="#kit"
-        class="focus-ring cta-gradient type-cta-label elevate-hover shrink-0 rounded-full px-5 py-3 text-center text-slate-950 transition hover:brightness-110"
+        class="focus-ring shrink-0 rounded-full border border-brand-accent/40 px-5 py-2.5 text-center text-sm font-semibold text-brand-accent-hover transition hover:border-brand-accent/60 hover:bg-brand-accent/10"
       >
         {demo.followUpCta}
       </a>

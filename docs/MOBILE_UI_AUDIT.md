@@ -86,7 +86,7 @@ Ankstesni **P1** (LanguageToggle compact, PromptLibrary Copy), **P2** (mobilaus 
 
 | Interakcija | Vieta | Mechanika |
 |-------------|-------|-----------|
-| Scenarijaus pasirinkimas | `ClarityDemo.astro` + `InteractiveCopy.astro` | `data-scenario` mygtukai; `activeScenario`; DOM atnaujinimas `[data-demo-field]`, `[data-demo-risks]`, `[data-demo-questions]`. |
+| Scenarijaus pasirinkimas | `ClarityDemo.astro` + `InteractiveCopy.astro` | `data-scenario` mygtukai; `activeScenario`; DOM atnaujinimas `[data-demo-field]`, `[data-demo-risks]`, `[data-demo-questions]`. Antrinė zona: vienas panelis su **`[data-demo-tab]`** tabais (Details / Input), placeholder tekstu (`secondaryPanelHint`), aktyvaus tabo pakartotinis paspaudimas grąžina į placeholder. |
 | Ekrano skaitytuvas | `ClarityDemo.astro` | `#demo-scenario-status` (`aria-live`), tekstas iš `demo.scenarioLiveStatus` / fallback. |
 | Kopijuoti promptą | `InteractiveCopy.astro` | `[data-copy-prompt]` — kopijuoja paslėpto `<pre data-demo-field="prompt">` turinį (įterptas į scenarijaus promptą). |
 

@@ -103,19 +103,10 @@ export const ltCopy = {
       howItWorksSummary: "Kaip tai veikia (išskleisti)",
     },
     heroBento: {
-      ariaLabel: "Brief’o formos schema su procesu ir rezultatais.",
-      chipOne: "Schema",
-      chipTwo: "Išvesties forma",
-      chipThree: "Sprendimo lygis",
-      flowAriaLabel: "Procesas: kontekstas, modulis, briefas, saugumas",
-      flowContext: "Kontekstas",
-      flowModule: "Modulis",
-      flowBrief: "Briefas",
-      flowSafety: "Saugumas",
-      tilesAriaLabel: "Brief’o rezultatai",
+      ariaLabel: "Vieno briefo išvestis: sprendimas, rizikos ir kitas veiksmas iš eilės.",
+      panelOverline: "Vienas briefas · trys dalys",
+      tilesAriaLabel: "Trys dalys iš eilės: sprendimas, rizikos, kitas veiksmas",
       tileDecision: "Sprendimas",
-      tileOwner: "Savininkas",
-      tileDeadline: "Terminas",
       tileRisks: "Rizikos",
       tileNextAction: "Kitas veiksmas",
     },
@@ -134,12 +125,9 @@ export const ltCopy = {
     },
     todayWorkflow: {
       eyebrow: "Šiandienos darbo eiga",
-      title: "Nukopijuok vieną promptą. Gauk sprendimo lygio išvestį.",
-      subtitle: "Sukompiliuok šiame puslapyje → įklijuok į patvirtintą AI → gauk struktūruotą briefą.",
-      body:
-        "Surink promptą pagal Prompt Anatomy šiame puslapyje, tada įklijuok į AI asistentą, kurį leidžia tavo licencija ir planas. Vienas sukompiliuotas promptas → viena struktūrizuota išvestis.",
-      hint:
-        "Jei reikia, patikslink sukompiliuotą promptą, tada nukopijuok ir įklijuok į ChatGPT, Claude, Gemini ar patvirtintą įrankį.",
+      title: "Vienas struktūruotas promptas. Vienas sprendimui paruoštas briefas.",
+      subtitle:
+        "Surink čia, nukopijuok, įklijuok į patvirtintą DI įrankį ir gauk briefą su savininkais, rizikomis, kompromisais ir kitais veiksmais.",
       primaryCta: "Kopijuoti promptą ir analizuoti →",
       continueLabel: "Tęsk čia:",
       licenseNote:
@@ -147,12 +135,14 @@ export const ltCopy = {
       openChatgpt: "Atidaryti ChatGPT",
       openClaude: "Atidaryti Claude",
       openGemini: "Atidaryti Gemini",
-      schemaAriaLabel: "Darbo eigos schema: sukompiliuok promptą, įklijuok į AI, gauk briefą.",
-      schemaStepOne: "Sukompiliuok promptą",
-      schemaStepTwo: "Įklijuok į AI",
-      schemaStepThree: "Užduok vieną klausimą",
-      schemaOutcome: "Sprendimo briefas (savininkas, rizikos, kitas veiksmas)",
-      a11yLabel: "Šiandienos darbo eiga: kaip sukompiliuoti, įklijuoti ir gauti sprendimo briefą.",
+      schemaAriaLabel: "Eiga: surink promptą, kopijuok, įklijuok į DI, gauk sprendimo briefą.",
+      schemaStepBuild: "Surink promptą",
+      schemaStepCopy: "Kopijuok",
+      schemaStepPaste: "Įklijuok į DI",
+      schemaStepDecide: "Sprendimas",
+      schemaOutputTitle: "Sprendimo briefas",
+      schemaOutputDetail: "Savininkai · Rizikos · Kompromisai · Kitas veiksmas",
+      a11yLabel: "Šiandienos darbo eiga: surink, kopijuok, įklijuok ir gauk sprendimui paruoštą briefą.",
     },
     promoBanner: {
       ariaLabel: "Perėjimo baneris į PromptAnatomy.",
@@ -165,7 +155,7 @@ export const ltCopy = {
     modules: {
       eyebrow: "Globalus kontekstas + moduliai",
       title: "Kontekstą apibrėžk vieną kartą. Įdėk jį į vadovo svertus.",
-      subtitle: "Kopijuok vieną sukompiliuotą promptą. Gauk sprendimo lygio rezultatą, pagal kurį galima veikti.",
+      subtitle: "Vienas sukompiliuotas promptas → sprendimo lygio rezultatas, pagal kurį galima veikti.",
       startHere: "Pradėk čia: užpildyk 4 konteksto laukus, tada kopijuok 1 modulį (saugi pradžia – „Sprendimo pasekmės“).",
       context: {
         title: "Globalus konteksto blokas",
@@ -180,10 +170,11 @@ export const ltCopy = {
         bottleneckLabel: "Butelio kaklelis",
         bottleneckPlaceholder: "pvz., inžinerijos greitis vs pardavimų pažadai",
       },
-      contextWarning:
-        "Be konteksto nėra vertės. Jei paliksi tuščia, sukompiliuotas promptas įdės placeholderius.",
-      contextCopyHint:
-        "Užpildyk vieną kartą. Tai neatskiras kopijuojamas blokas – reikšmės įdedamos į pilną promptą, kai žemiau ant modulio kortelės paspaudi „Kopijuoti pilną promptą“.",
+      contextFootnote:
+        "Be konteksto nėra vertės – tušti laukai tampa placeholderiais. Užpildyk vieną kartą; reikšmės įdedamos į pilną promptą, kai ant modulio kortelės paspaudi „Kopijuoti pilną promptą“ (ne atskiras kopijuojamas blokas).",
+      contextMapAriaLabel: "Kaip globalūs konteksto laukai patenka į sukompiliuotus promptus",
+      contextMapInjectLabel: "Į modulius",
+      contextMapCaption: "Šios keturios reikšmės įeina į kiekvieno modulio „Kopijuoti pilną promptą“.",
       rulesPreview: {
         title: "Įdedamos taisyklės (neginčijama)",
         items: [
@@ -352,6 +343,7 @@ Pašalinti dabar:
       title: "Penki blokai, kad DI dirbtų vadovo lygiu.",
       expandSummary: "Penki blokai (išskleisti)",
       subtitle: "Greitai: 2–3 blokai. Prieš valdybą ar klientą: visi penki.",
+      previewAriaLabel: "Penki blokai trumpai",
       /** Antraštės žodis prie blokų numerio išskleistame tinklelyje (pvz. „Žingsnis 1“). */
       stepPrefix: "Žingsnis",
       items: [
@@ -366,8 +358,8 @@ Pašalinti dabar:
       eyebrow: "Biblioteka kopijavimui · be prisijungimo",
       title: "CEO/COO promptų biblioteka",
       subtitle: "35 paruoštų promptų pasikartojančiam vadovų darbui.",
-      scanHint: "Naudok kaip nuorodą–kopijuok vieną promptą, kai reikia, ne visą katalogą.",
-      instructions: "Pasirink darbo eigą → atverk promptą → nukopijuok į DI.",
+      summaryLead:
+        "Nuorodų katalogas – kopijuok vieną promptą, kai reikia, ne visą rinkinį. Pasirink kategoriją → rodyti → įklijuok į DI įrankį.",
       navAriaLabel: "Promptų kategorijos",
       promptSingular: "promptas",
       promptPlural: "promptai",
@@ -639,10 +631,10 @@ Pašalinti dabar:
       subtitle: "Sprendimas ir kitas veiksmas, kai reikia.",
       scenarioHint: "Pasirink scenarijų – briefas atsinaujina žemiau.",
       briefLabel: "Briefas",
-      showDetails: "Rodyti detales",
-      hideDetails: "Slėpti detales",
-      showInput: "Rodyti įvestį",
-      hideInput: "Slėpti įvestį",
+      detailsTab: "Detalės",
+      inputTab: "Įvestis",
+      secondaryPanelHint: "Atidaryk Detalėse – rizikas ir klausimus, arba Įvestyje – neapdorotą scenarijaus tekstą.",
+      secondaryTablistAriaLabel: "Papildomas brief turinys",
       promptBlockLabel: "Pavyzdinis kopijuojamas promptas",
       previewHint: "Kopijuojant paimamas pilnas promptas. Čia – tik peržiūra.",
       followUpEyebrow: "Laikyk struktūrą po ranka",

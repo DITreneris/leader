@@ -1,7 +1,5 @@
 ---
-import HighlightStrip from "./ds/HighlightStrip.astro";
 import MiniWorkflowSchema from "./ds/MiniWorkflowSchema.astro";
-import SectionHeader from "./SectionHeader.astro";
 import { buildBeforeAfterWorkflowSearchParams } from "../constants/outboundLinks";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
@@ -11,8 +9,7 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const copy = uiCopy[lang];
-const todayWorkflow = copy.todayWorkflow;
+const todayWorkflow = uiCopy[lang].todayWorkflow;
 
 const aiUtm = (campaign: string) => buildBeforeAfterWorkflowSearchParams(campaign).toString();
 
@@ -24,59 +21,59 @@ const aiOutbound = [
 ---
 
 <section class="section-y-compact mx-auto max-w-7xl px-5 sm:px-8" aria-label={todayWorkflow.a11yLabel}>
-  <div class="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
-    <div>
-      <SectionHeader
-        eyebrow={todayWorkflow.eyebrow}
-        title={todayWorkflow.title}
-        subtitle={todayWorkflow.subtitle}
-        align="start"
-        eyebrowTone="promo"
+  <div
+    class="mx-auto max-w-5xl rounded-3xl border border-white/[0.07] bg-gradient-to-b from-white/[0.035] to-transparent px-6 py-10 backdrop-blur-md sm:px-10 sm:py-12 lg:px-14 lg:py-14"
+  >
+    <header class="mx-auto max-w-3xl text-center">
+      <p class="type-eyebrow-promo-bright">{todayWorkflow.eyebrow}</p>
+      <h2 class="mt-3 text-2xl font-black leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
+        {todayWorkflow.title}
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">{todayWorkflow.subtitle}</p>
+    </header>
+
+    <div class="mt-10 sm:mt-12">
+      <MiniWorkflowSchema
+        ariaLabel={todayWorkflow.schemaAriaLabel}
+        stepBuild={todayWorkflow.schemaStepBuild}
+        stepCopy={todayWorkflow.schemaStepCopy}
+        stepPaste={todayWorkflow.schemaStepPaste}
+        stepDecide={todayWorkflow.schemaStepDecide}
+        outputTitle={todayWorkflow.schemaOutputTitle}
+        outputDetail={todayWorkflow.schemaOutputDetail}
       />
+    </div>
 
-      <div class="mt-6 radius-xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
-        <p class="text-sm leading-6 text-slate-200 sm:text-base">{todayWorkflow.body}</p>
-        <div class="mt-4">
-          <HighlightStrip variant="band" bandTone="context">
-            {todayWorkflow.hint}
-          </HighlightStrip>
-        </div>
+    <div class="mx-auto mt-10 flex max-w-xl flex-col items-center gap-6 border-t border-white/[0.06] pt-10 sm:mt-12 sm:pt-12">
+      <a
+        href="#context"
+        class="focus-ring type-cta-label inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-4 text-center text-sm font-black text-slate-950 shadow-[0_0_40px_rgba(255,255,255,0.08)] transition hover:bg-brand-accent-hover sm:w-auto sm:px-10 sm:text-base"
+      >
+        {todayWorkflow.primaryCta}
+      </a>
 
-        <a
-          href="#context"
-          class="focus-ring type-cta-label mt-5 inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-3.5 text-center text-sm font-black text-slate-950 transition hover:bg-brand-accent-hover sm:w-auto"
-        >
-          {todayWorkflow.primaryCta}
-        </a>
-
-        <p class="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
-          {todayWorkflow.continueLabel}
-        </p>
-        <div class="mt-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+      <div class="w-full text-center">
+        <p class="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-slate-500">{todayWorkflow.continueLabel}</p>
+        <div class="mt-4 flex flex-col items-center gap-1 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-0 sm:gap-y-2">
           {
-            aiOutbound.map(({ href, label }) => (
+            aiOutbound.map(({ href, label }, i) => (
               <a
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="focus-ring type-cta-label inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2.5 text-center text-xs font-semibold text-white transition hover:border-brand-accent/50 hover:bg-white/5 sm:text-sm"
+                class:list={[
+                  "focus-ring rounded-lg px-4 py-2.5 text-center text-sm font-semibold text-slate-400 transition hover:text-white sm:py-2",
+                  i > 0 && "sm:border-l sm:border-white/10 sm:pl-6 sm:ml-6",
+                ]}
               >
                 {label}
               </a>
             ))
           }
         </div>
-        <p class="mt-4 text-xs leading-relaxed text-slate-500">{todayWorkflow.licenseNote}</p>
       </div>
-    </div>
 
-    <MiniWorkflowSchema
-      ariaLabel={todayWorkflow.schemaAriaLabel}
-      stepOne={todayWorkflow.schemaStepOne}
-      stepTwo={todayWorkflow.schemaStepTwo}
-      stepThree={todayWorkflow.schemaStepThree}
-      outcome={todayWorkflow.schemaOutcome}
-    />
+      <p class="max-w-lg text-center text-xs leading-relaxed text-slate-600">{todayWorkflow.licenseNote}</p>
+    </div>
   </div>
 </section>
-

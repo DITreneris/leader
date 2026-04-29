@@ -1,0 +1,83 @@
+---
+interface Props {
+  ariaLabel: string;
+  injectLabel: string;
+  caption: string;
+  fieldCompany: string;
+  fieldGoal: string;
+  fieldConstraint: string;
+  fieldBottleneck: string;
+}
+
+const {
+  ariaLabel,
+  injectLabel,
+  caption,
+  fieldCompany,
+  fieldGoal,
+  fieldConstraint,
+  fieldBottleneck,
+} = Astro.props;
+
+const cell =
+  "min-w-0 flex-1 rounded-lg border border-white/10 bg-slate-950/35 px-2 py-3 text-center sm:py-3.5";
+const arrowHidden =
+  "hidden shrink-0 self-center pt-0 text-base text-white/25 sm:block lg:text-lg";
+---
+
+<div class="w-full" role="img" aria-label={ariaLabel}>
+  <div class="radius-lg border border-white/[0.08] bg-white/[0.02] px-3 py-5 sm:px-6 sm:py-7">
+    <div class="grid grid-cols-2 gap-2 sm:hidden">
+      <div class={cell}>
+        <p class="text-xs font-black leading-snug text-white">{fieldCompany}</p>
+      </div>
+      <div class={cell}>
+        <p class="text-xs font-black leading-snug text-white">{fieldGoal}</p>
+      </div>
+      <div class={cell}>
+        <p class="text-xs font-black leading-snug text-white">{fieldConstraint}</p>
+      </div>
+      <div class={cell}>
+        <p class="text-xs font-black leading-snug text-white">{fieldBottleneck}</p>
+      </div>
+    </div>
+
+    <div
+      class="hidden flex-wrap items-stretch justify-between gap-y-3 sm:flex sm:flex-nowrap sm:overflow-x-auto sm:pb-1 lg:gap-2"
+    >
+      <div class={cell}>
+        <p class="text-xs font-black leading-snug text-white lg:text-sm">{fieldCompany}</p>
+      </div>
+      <span class={arrowHidden} aria-hidden="true">→</span>
+      <div class={cell}>
+        <p class="text-xs font-black leading-snug text-white lg:text-sm">{fieldGoal}</p>
+      </div>
+      <span class={arrowHidden} aria-hidden="true">→</span>
+      <div class={cell}>
+        <p class="text-xs font-black leading-snug text-white lg:text-sm">{fieldConstraint}</p>
+      </div>
+      <span class={arrowHidden} aria-hidden="true">→</span>
+      <div class={cell}>
+        <p class="text-xs font-black leading-snug text-white lg:text-sm">{fieldBottleneck}</p>
+      </div>
+      <span class={arrowHidden} aria-hidden="true">→</span>
+      <div
+        class="flex min-w-[5.5rem] max-w-[9rem] shrink-0 items-center justify-center self-center rounded-full border border-brand-accent/35 bg-brand-accent/10 px-2 py-2.5 sm:min-w-0 sm:max-w-none sm:px-4"
+      >
+        <p class="text-center text-[10px] font-black uppercase leading-tight tracking-wider text-brand-accent-hover sm:text-xs">
+          {injectLabel}
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-4 flex justify-center sm:hidden">
+      <div
+        class="rounded-full border border-brand-accent/35 bg-brand-accent/10 px-4 py-2.5 text-center"
+      >
+        <p class="text-[10px] font-black uppercase tracking-wider text-brand-accent-hover">{injectLabel}</p>
+      </div>
+    </div>
+
+    <p class="mt-4 text-center text-xs leading-5 text-slate-400 sm:mt-5">{caption}</p>
+  </div>
+</div>

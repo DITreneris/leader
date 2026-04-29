@@ -87,6 +87,7 @@
   const moduleCopyButtons = document.querySelectorAll<HTMLButtonElement>("[data-module-copy]");
   const customCopyButton = document.querySelector<HTMLButtonElement>("[data-custom-copy]");
   let activeScenario = "meeting";
+  let activeDemoSubpanel: "details" | "input" | null = null;
   let copyHintTimeout = 0;
 
   const renderList = (selector: string, items: readonly string[]) => {
@@ -128,6 +129,48 @@
       copyPromptButton.removeAttribute("data-copied");
     }
   };
+
+  const placeholderEl = document.querySelector<HTMLElement>("[data-demo-secondary-placeholder]");
+  const detailsPanelEl = document.getElementById("demo-details-panel");
+  const inputPanelEl = document.getElementById("demo-input-panel");
+  const demoTabButtons = document.querySelectorAll<HTMLButtonElement>("[data-demo-tab]");
+
+  const setDemoSubpanel = (next: "details" | "input" | null) => {
+    if (!placeholderEl || !detailsPanelEl || !inputPanelEl) return;
+    activeDemoSubpanel = next;
+    if (next === null) {
+      placeholderEl.classList.remove("hidden");
+      detailsPanelEl.classList.add("hidden");
+      inputPanelEl.classList.add("hidden");
+      demoTabButtons.forEach((t) => {
+        t.setAttribute("aria-selected", "false");
+        t.tabIndex = -1;
+      });
+      const firstTab = document.querySelector<HTMLButtonElement>("[data-demo-tab=\"details\"]");
+      if (firstTab) firstTab.tabIndex = 0;
+      return;
+    }
+    placeholderEl.classList.add("hidden");
+    detailsPanelEl.classList.toggle("hidden", next !== "details");
+    inputPanelEl.classList.toggle("hidden", next !== "input");
+    demoTabButtons.forEach((t) => {
+      const selected = t.dataset.demoTab === next;
+      t.setAttribute("aria-selected", String(selected));
+      t.tabIndex = selected ? 0 : -1;
+    });
+  };
+
+  demoTabButtons.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const key = tab.dataset.demoTab as "details" | "input" | undefined;
+      if (!key) return;
+      if (activeDemoSubpanel === key) {
+        setDemoSubpanel(null);
+        return;
+      }
+      setDemoSubpanel(key);
+    });
+  });
 
   const resetGenericCopyButtons = () => {
     genericCopyButtons.forEach((button) => {

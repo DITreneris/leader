@@ -168,7 +168,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 ## 5. Kontekstas + moduliai (`#context`)
 
 - **Failai:** [`ExecutiveModules.astro`](../src/components/ExecutiveModules.astro), [`InteractiveCopy.astro`](../src/components/InteractiveCopy.astro) (JS kompiliavimas)
-- **Raktai:** `modules.context`, `modules.contextWarning`, `modules.contextCopyHint`, `modules.items[]`, `modules.custom`, `modules.rulesPreview`, `modules.roleLine`, fallback placeholderiai JS
+- **Raktai:** `modules.context`, `modules.contextFootnote`, `modules.contextMapAriaLabel`, `modules.contextMapInjectLabel`, `modules.contextMapCaption`, `modules.items[]`, `modules.custom`, `modules.rulesPreview`, `modules.roleLine`, fallback placeholderiai JS
 
 **LT**
 
@@ -190,6 +190,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 - [x] P2: `InteractiveCopy` – komentaras apie angliškus placeholderius tuštiems laukams.
 - [x] P3: modulių antraštės + pavyzdinės išvestys LT (`modules.items`, `modules.custom`).
 - [x] **2026-04-28:** `contextCopyHint` (`ExecutiveModules.astro`) — aiškumas, kad kontekstas įeina per modulio **Copy full prompt**, ne kaip atskiras blokas.
+- [x] **2026-04-29:** `modules.contextFootnote` — vienas sutrauktas puslapinio teksto blokas vietoj `contextWarning` + `contextCopyHint`; [`ContextFieldMap.astro`](../src/components/ds/ContextFieldMap.astro) (`ExecutiveModules.astro`) — 4 laukų → moduliai schema.
 
 ---
 
@@ -318,12 +319,13 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 ## 13. Penki blokai (anatomija)
 
 - **Failai:** [`PromptAnatomy.astro`](../src/components/PromptAnatomy.astro)
-- **Raktai:** `anatomy.*`
-- **Techninė pastaba:** sekcija **`id="anatomy"`**, antraštė **`#anatomy-heading`** (nav / deep link).
+- **Raktai:** `anatomy.*` (įsk. `previewAriaLabel` — uždarytos būsenos žetonų sąrašo `aria-label`)
+- **Techninė pastaba:** sekcija **`id="anatomy"`**, antraštė **`#anatomy-heading`** (nav / deep link). Uždarytoje santraukoje rodomi **5 blokų pavadinimai** kaip kompaktiški žetonai; išskleistame tinklelyje — pilni aprašymai.
 
 **Veiksmai**
 
 - [x] P2: **`#anatomy`** + lokalizuotas žingsnio priešdėlis (`anatomy.stepPrefix`).
+- [x] **2026-04-29:** uždarytos būsenos **preview** — blokų pavadinimų žetonai + `anatomy.previewAriaLabel`.
 
 ---
 
@@ -385,7 +387,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 ## 17. Biblioteka (`#library`)
 
 - **Failai:** [`PromptLibrary.astro`](../src/components/PromptLibrary.astro)
-- **Raktai:** `library.*` (kategorijos, `prompts[]`, `outcome`, ilgi promptų šablonai)
+- **Raktai:** `library.*` (įsk. **`library.summaryLead`** vietoj `scanHint` + `instructions`), kategorijos, `prompts[]`, `outcome`, ilgi promptų šablonai
 
 **LT**
 

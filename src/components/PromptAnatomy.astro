@@ -25,6 +25,20 @@ const anatomy = uiCopy[lang].anatomy;
           <p class="mt-4 text-lg leading-8 text-slate-300">
             {anatomy.subtitle}
           </p>
+          <ul
+            class="mt-5 flex flex-wrap gap-2"
+            aria-label={anatomy.previewAriaLabel}
+          >
+            {
+              anatomy.items.map(([title]) => (
+                <li class="list-none">
+                  <span class="inline-block rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs font-bold text-slate-200 sm:text-sm">
+                    {title}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
         </div>
         <span
           aria-hidden="true"

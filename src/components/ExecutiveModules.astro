@@ -1,5 +1,6 @@
 ---
 import ContentCard from "./ds/ContentCard.astro";
+import ContextFieldMap from "./ds/ContextFieldMap.astro";
 import HighlightStrip from "./ds/HighlightStrip.astro";
 import SectionShell from "./ds/SectionShell.astro";
 import SectionTitleBlock from "./ds/SectionTitleBlock.astro";
@@ -16,6 +17,18 @@ const modules = uiCopy[lang].modules;
 
 <SectionShell id="context" labelledby="context-title" anchorFocusable>
   <SectionTitleBlock eyebrow={modules.eyebrow} title={modules.title} subtitle={modules.subtitle} titleId="context-title" />
+
+  <div class="mx-auto mt-8 max-w-6xl">
+    <ContextFieldMap
+      ariaLabel={modules.contextMapAriaLabel}
+      injectLabel={modules.contextMapInjectLabel}
+      caption={modules.contextMapCaption}
+      fieldCompany={modules.context.companyLabel}
+      fieldGoal={modules.context.goalLabel}
+      fieldConstraint={modules.context.constraintLabel}
+      fieldBottleneck={modules.context.bottleneckLabel}
+    />
+  </div>
 
   <div class="mx-auto mt-10 flex max-w-6xl flex-col gap-5">
     <ContentCard surface="glass" padding="comfort" overflow="hidden">
@@ -101,9 +114,8 @@ const modules = uiCopy[lang].modules;
       </details>
 
       <p class="mt-4 text-xs leading-5 text-slate-400" data-context-warning>
-        {modules.contextWarning}
+        {modules.contextFootnote}
       </p>
-      <p class="mt-2 text-xs leading-5 text-slate-500">{modules.contextCopyHint}</p>
     </ContentCard>
 
     <HighlightStrip variant="band" bandTone="context">
