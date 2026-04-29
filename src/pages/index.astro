@@ -7,6 +7,11 @@ const originBase = `${site}${base.replace(/\/$/, "")}`;
 const enUrl = `${originBase}/en/`;
 const ltUrl = `${originBase}/lt/`;
 const bilingualShippedRoot = showLanguageSwitcher();
+const rootUrl = `${originBase}/`;
+const socialImageUrl = `${originBase}/og-image.png`;
+const rootTitle = "CEO/COO Executive Prompt Operating Kit | Prompt Anatomy";
+const rootDescription =
+  "Standardize leadership AI briefs to a decision-ready shape in about a week. Static kit + demo—paste into ChatGPT, Claude, or Gemini, no login.";
 ---
 
 <!doctype html>
@@ -14,6 +19,19 @@ const bilingualShippedRoot = showLanguageSwitcher();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content={rootDescription} />
+    <meta property="og:site_name" content="Prompt Anatomy" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={rootUrl} />
+    <meta property="og:title" content={rootTitle} />
+    <meta property="og:description" content={rootDescription} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={rootTitle} />
+    <meta name="twitter:description" content={rootDescription} />
+    <meta name="twitter:image" content={socialImageUrl} />
     <meta http-equiv="refresh" content="0; url=./en/" />
     <link rel="canonical" href={enUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />
