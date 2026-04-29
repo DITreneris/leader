@@ -41,7 +41,7 @@ Then run `npm run build` / CI as usual.
 
 ## What’s inside (single-page flow)
 
-Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md) and [`src/layouts/Page.astro`](./src/layouts/Page.astro): **Hero + HeroBento** → **meme** → **BeforeAfter** → **meme** → **Global Context + Modules (`#context`)** → **PromoBanner** → **meme** → **ClarityDemo (`#demo`)** → **meme** → **SafetyCheck** → **CourseCTA (`#kit`)** → **AuthorityBridge** → **PromptAnatomy** → **RoiPath** → **meme** → **FAQ (`#faq`)** → **PromptLibrary**.
+Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md) and [`src/layouts/Page.astro`](./src/layouts/Page.astro): **Hero + HeroBento** → **meme** → **BeforeAfter** → **meme** → **Global Context + Modules (`#context`)** → **PromoBanner** → **meme** → **ClarityDemo (`#demo`)** → **meme** → **SafetyCheck** → **CourseCTA (`#kit`)** → **PromptAnatomy** → **RoiPath** → **FAQ (`#faq`)** → **PromptLibrary** (four **`MemeMoment`** beats; žr. [`docs/MEME_PRIORITY_REGISTRY.md`](./docs/MEME_PRIORITY_REGISTRY.md)).
 
 - **Global Context + Modules** → define once, inject everywhere; copy a compiled module prompt (6 fixed modules + 1 Custom). Output is **readable and decision-grade** (bullets/sections, owners, deadlines).
 - **ClarityDemo** → selectable scenarios with copyable prompt + output

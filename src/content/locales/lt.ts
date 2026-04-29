@@ -2,7 +2,7 @@ export const ltCopy = {
     meta: {
       title: "CEO/COO vykdomasis promptų rinkinys | Prompt Anatomy",
       description:
-        "Maždaug per savaitę standartizuok vadovybės DI briefus iki tos pačios sprendimui paruoštos formos. Surink vieną parengtą promptą čia ir įklijuok į ChatGPT, Claude ar Gemini—statinis rinkinys ir demo, be prisijungimo. PromptAnatomy, kai komandai reikia vieno standarto.",
+        "Standartizuok vadovybės DI briefus iki sprendimui paruoštos formos maždaug per savaitę. Statinis rinkinys + demo – įklijuok į ChatGPT, Claude ar Gemini, be prisijungimo. PromptAnatomy, kai komandai reikia bendro standarto.",
       socialImageAlt:
         "Prompt Anatomy – CEO/COO Executive OS statinis rinkinys ir peržiūros paveikslas socialiniams tinklams.",
     },
@@ -28,19 +28,19 @@ export const ltCopy = {
         },
         {
           q: "Ar galiu įklijuoti į ChatGPT, Claude ar Gemini?",
-          a: "Taip. Šiame puslapyje surink vieną parengtą promptą ir nukopijuok į bet kurį DI asistentą, kurį leidžia organizacija. Pats puslapis nejungiasi prie tų įrankių – čia niekas neįkeliama.",
+          a: "Taip. Čia surink ir nukopijuok vieną promptą, tada įklijuok į organizacijos leidžiamą asistentą. Puslapis nejungiasi prie įrankių – niekas neužkraunama.",
           bullets: [],
         },
         {
           q: "Kas yra PromptAnatomy Executive OS?",
           a:
-            "PromptAnatomy Executive OS yra statinis vieno puslapio įvadinis rinkinys CEO ir COO: sudėliotas promptų operacinis rinkinys su globaliu konteksto bloku ir vykdomaisiais moduliais, kad vadovybės užklausos DI būtų visuomet to paties standarto—be prisijungimo ir be duomenų įkėlimo. Visa PromptAnatomy sistema ir mokymai yra promptanatomy.app.",
+            "Vieno puslapio statinis rinkinys CEO/COO: globalus kontekstas ir moduliai, kad vadovybės užklausos DI būtų nuoseklios – be prisijungimo ir be įkėlimo. Visa sistema ir mokymai – promptanatomy.app.",
           bullets: [],
         },
         {
           q: "Kas yra globalus konteksto blokas?",
           a:
-            "Globalus konteksto blokas yra bendras įvesties skeletas kiekvienam vykdomajam promptui: įmonė, sprendimas, ribojimai, auditorija ir sėkmės kriterijai vienoje vietoje, kad išvestis liktų sprendimo lygio, o ne bendrinė. Jį sudeda su fokusuotu moduliu (strategija, rizika, pasiruošimas valdybai ir pan.) ir gauni vieną siuntimui paruoštą briefą.",
+            "Bendras įvesties skeletas kiekvienam briefui: įmonė, tikslai, ribos, auditorija, sėkmės kriterijai – kad išvestis liktų sprendimo lygio. Pridėk modulį (strategija, rizika, valdyba ir kt.) ir gauk vieną siuntimui paruoštą briefą.",
           bullets: [],
         },
         {
@@ -98,8 +98,7 @@ export const ltCopy = {
       nextActionLabel: "Kitas veiksmas",
       nextActionValue:
         "Prieš susitikimą nusiųsk 1 puslapio briefą: kompromisas, rekomendacija, rizikos, savininkas, terminas.",
-      helper:
-        "Rinkinys yra metodas: kontekstas → modulis → briefas. Tada prieš siunčiant – ta pati saugumo patikra.",
+      helper: "Kontekstas → modulis → briefas. Prieš siuntimą paleisk saugumo patikrą.",
       howItWorksSummary: "Kaip tai veikia (išskleisti)",
     },
     heroBento: {
@@ -123,26 +122,15 @@ export const ltCopy = {
       a11yLabel:
         "Prieš ir po: prompto apibrėžimai ir brief'o struktūros diagrama.",
     },
-    todayWorkflow: {
-      eyebrow: "Šiandienos darbo eiga",
-      title: "Vienas struktūruotas promptas. Vienas sprendimui paruoštas briefas.",
-      subtitle:
-        "Surink čia, nukopijuok, įklijuok į patvirtintą DI įrankį ir gauk briefą su savininkais, rizikomis, kompromisais ir kitais veiksmais.",
-      primaryCta: "Kopijuoti promptą ir analizuoti →",
+    pasteIntoAssistant: {
+      ariaLabel: "Po kopijavimo: atidaryk patvirtintą DI asistentą ir įklijuok promptą",
+      lead: "Po kopijavimo atidaryk patvirtintą DI įrankį ir įklijuok. Čia niekas nesiunčiama.",
       continueLabel: "Tęsk čia:",
-      licenseNote:
-        "Naudok tiekėją ir paskyrą pagal organizacijos licenciją — laikantis tiekėjo sąlygų ir plano ribų.",
       openChatgpt: "Atidaryti ChatGPT",
       openClaude: "Atidaryti Claude",
       openGemini: "Atidaryti Gemini",
-      schemaAriaLabel: "Eiga: surink promptą, kopijuok, įklijuok į DI, gauk sprendimo briefą.",
-      schemaStepBuild: "Surink promptą",
-      schemaStepCopy: "Kopijuok",
-      schemaStepPaste: "Įklijuok į DI",
-      schemaStepDecide: "Sprendimas",
-      schemaOutputTitle: "Sprendimo briefas",
-      schemaOutputDetail: "Savininkai · Rizikos · Kompromisai · Kitas veiksmas",
-      a11yLabel: "Šiandienos darbo eiga: surink, kopijuok, įklijuok ir gauk sprendimui paruoštą briefą.",
+      licenseNote:
+        "Naudok organizacijos licencijuotą tiekėją ir paskyrą – laikykis tiekėjų sąlygų ir plano ribų.",
     },
     promoBanner: {
       ariaLabel: "Perėjimo baneris į PromptAnatomy.",
@@ -156,7 +144,7 @@ export const ltCopy = {
       eyebrow: "Globalus kontekstas + moduliai",
       title: "Kontekstą apibrėžk vieną kartą. Įdėk jį į vadovo svertus.",
       subtitle: "Vienas sukompiliuotas promptas → sprendimo lygio rezultatas, pagal kurį galima veikti.",
-      startHere: "Pradėk čia: užpildyk 4 konteksto laukus, tada kopijuok 1 modulį (saugi pradžia – „Sprendimo pasekmės“).",
+      startHere: "Užpildyk 4 konteksto laukus, tada kopijuok 1 modulį (saugi pradžia – „Sprendimo pasekmės“).",
       context: {
         title: "Globalus konteksto blokas",
         subtitle: "Privaloma. Vieną kartą įvedi, visur panaudoji.",
@@ -171,7 +159,7 @@ export const ltCopy = {
         bottleneckPlaceholder: "pvz., inžinerijos greitis vs pardavimų pažadai",
       },
       contextFootnote:
-        "Be konteksto nėra vertės – tušti laukai tampa placeholderiais. Užpildyk vieną kartą; reikšmės įdedamos į pilną promptą, kai ant modulio kortelės paspaudi „Kopijuoti pilną promptą“ (ne atskiras kopijuojamas blokas).",
+        "Be konteksto nėra vertės – tušti laukai lieka placeholderiais. Užpildytos reikšmės įeina į kiekvieno modulio „Kopijuoti pilną promptą“ (ant kortelės žemiau, ne atskirame bloku).",
       contextMapAriaLabel: "Kaip globalūs konteksto laukai patenka į sukompiliuotus promptus",
       contextMapInjectLabel: "Į modulius",
       contextMapCaption: "Šios keturios reikšmės įeina į kiekvieno modulio „Kopijuoti pilną promptą“.",
@@ -739,13 +727,12 @@ Pašalinti dabar:
       eyebrow: "Vizualus įrodymas",
       title: "Problema – ne prieiga prie DI. Problema – kontrolė.",
       sectionAriaLabel: "Įrodymo akimirka",
-      /** Eiliškumas kaip `Page.astro` MemeMoment (indeksai 3, 0, 2, 5, 4). */
+      /** Eiliškumas kaip `Page.astro` MemeMoment (indeksai 3, 0, 2, 5). */
       sequenceImageAlts: [
         "Meme: aiškus sprendimo briefas",
         "Meme: DI chaosas",
         "Meme: delegavimo butelio kaklelis",
         "Meme: vadovo rinkinio struktūra ant stalo",
-        "Meme: perkrautas vadovo kalendorius",
       ] as const,
       items: [
         ["DI chaosas", "Be struktūros rezultatas virsta triukšmu."],
@@ -761,10 +748,10 @@ Pašalinti dabar:
       title: "Pasirink vieną žingsnį. Šiandien priimk aiškesnį sprendimą.",
       subtitle: "Pasirink 5–45 min veiksmą, nukopijuok promptą ir paleisk dabar. Kartok tą patį ritmą kas savaitę.",
       centerLabel: "Vadovo savaitė",
-      centerText: "Šeši savaitės žingsniai–tas pats ritmas kas savaitę.",
-      entryCta: "Kopijuoti ir paleisti 1 žingsnį (5–15 min)",
+      centerText: "Penki savaitės žingsniai—tas pats ritmas kas savaitę.",
+      entryCta: "Kopijuoti ir paleisti 1 žingsnį (15–40 min)",
       panelAriaLabel: "Savaitės žingsnio detalė",
-      panelProgressTemplate: "Žingsnis {current} iš 6",
+      panelProgressTemplate: "Žingsnis {current} iš 5",
       panelHint: "Nukopijuoja šio žingsnio promptą, kad galėtum paleisti dabar.",
       useStepCopy: "Kopijuoti ir paleisti",
       safetyJump: "Atidaryti Safety Check →",
@@ -772,14 +759,15 @@ Pašalinti dabar:
       copied: "Nukopijuota",
       steps: [
         {
-          id: "safety",
+          id: "outbound",
           accent: "risk",
-          time: "5-15 min",
-          action: "Patikrink prieš siųsdamas",
-          value: "Išvengi klaidos klientui ar valdybai prieš išsiunčiant.",
-          description: "Peržiūrėk DI tekstą prieš valdybą, klientą, partnerį ar komandą.",
+          time: "15–40 min",
+          action: "Peržiūrėk ir išsiųsk aiškiai",
+          value: "Surenki rizikas prieš siųsdamas; pateik struktūruotą, patikimą žinutę.",
+          description:
+            "Rizikos peržiūra, tada valdybos, kliento, partnerio ar komandos teksto perrašymas — saugiai ir aiškiai.",
           prompt:
-            "Veik kaip vadovo rizikos peržiūrėtojas. Peržiūrėk šį tekstą prieš man jį siunčiant: [TEKSTAS]. Kontekstas: [VALDYBA / KLIENTAS / KOMANDA / PARTNERIS]. Grąžink 1) faktus patikrai, 2) teisines/reputacijos rizikas, 3) trūkstamą kontekstą, 4) neaiškų sprendimą/savininką, 5) saugesnę formuluotę.",
+            "Veik kaip vadovo komunikacijos partneris. Juodraštis ar tekstas patobulinimui: [TEKSTAS]. Auditorija: [VALDYBA / KLIENTAS / KOMANDA / PARTNERIS].\n\n1) RIZIKOS ETAPAS — Prieš siunčiant grąžink: faktus patikrai; teisines/reputacijos rizikas; trūkstamą kontekstą; neaiškų sprendimą/savininką; formuluotes, kurias reikia saugiau.\n\n2) GALUTINĖ ŽINUTĖ — Perrašyk taip, kad būtų aišku, ramu ir be gynybiško tono. Struktūra: faktas — priežastis — poveikis — kas keičiasi — kas lieka — kitas žingsnis. Jei rizikų etape yra esminių problemų, išspręsk jas galutinėje formuluotėje.",
         },
         {
           id: "scan",
@@ -821,32 +809,10 @@ Pašalinti dabar:
           prompt:
             "Paversk šią intenciją delegavimo briefu: [INTENCIJA]. Įtrauk tikslą, auditoriją, kontekstą, ribas, rezultato formatą, kokybės kriterijus, pavyzdžius, peržiūros terminą ir eskalavimo signalus.",
         },
-        {
-          id: "comms",
-          accent: "communication",
-          time: "10-30 min",
-          action: "Komunikuok aiškiai",
-          value: "Mažini neapibrėžtumą viena patikima žinute.",
-          description: "Aiškios žinutės pokyčiams, vėlavimams, klientams ar partneriams.",
-          prompt:
-            "Perrašyk šią vadovo žinutę, kad ji būtų aiški, rami ir negynybiška: [ŽINUTĖ]. Struktūra: faktas, priežastis, poveikis, kas keičiasi, kas nesikeičia ir kitas žingsnis.",
-        },
       ],
       total: "~5 val. per savaitę → mažiau klaidingų sprendimų, aiškesnė atsakomybė, saugesnė komunikacija.",
-      printableOneLiner: "Šeši žingsniai ≈ ~5 val./sav. – tas pats ritmas viename spausdinamame lape.",
+      printableOneLiner: "Penki žingsniai ≈ ~5 val./sav. – tas pats ritmas viename spausdinamame lape.",
       printableKitLink: "Spausdinamas rinkinys (PDF)",
-    },
-    authority: {
-      eyebrow: "Prekės ženklo architektūra",
-      title: "Vedlys į pilną PromptAnatomy sistemą.",
-      chooseNext: "Pasirink savo kitą žingsnį",
-      mother: "Motininė platforma",
-      motherText: "PromptAnatomy.app: pilna DI operacinė sistema ir komercinis namai.",
-      sisterEyebrow: "Seserinis centras",
-      sisterTitle: "DI Operacinis Centras",
-      sisterText:
-        "CEO/COO operacinis centras: režimai, savaitės prioritetai ir šablonų biblioteka („Promptų anatomijos“ spin-offas).",
-      sisterLink: "Atidaryti seserinį CEO/COO centrą →",
     },
     cta: {
       eyebrow: "Pasiimk vadovo rinkinį",

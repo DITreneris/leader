@@ -2,7 +2,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import "../styles/global.css";
-import AuthorityBridge from "../components/AuthorityBridge.astro";
 import ClarityDemo from "../components/ClarityDemo.astro";
 import CourseCTA from "../components/CourseCTA.astro";
 import Faq from "../components/Faq.astro";
@@ -16,7 +15,6 @@ import MemeMoment from "../components/MemeMoment.astro";
 import PromptAnatomy from "../components/PromptAnatomy.astro";
 import PromptLibrary from "../components/PromptLibrary.astro";
 import RoiPath from "../components/RoiPath.astro";
-import TodaysWorkflow from "../components/TodaysWorkflow.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 import { LEADER_PAGE_DATE_MODIFIED, LEADER_PAGE_DATE_PUBLISHED } from "../constants/pageSeo";
@@ -31,8 +29,8 @@ import { buildClientCopyPayload } from "../utils/clientCopyPayload";
 import { buildLeaderPageJsonLd } from "../utils/pageJsonLd";
 
 /**
- * Meme images use `uiCopy[lang].memes.items` indices 3, 0, 2, 5, 4 (see `Page.astro` order).
- * Image `alt` text is `uiCopy[lang].memes.sequenceImageAlts[0..4]` in that same order (localized).
+ * Meme images use `uiCopy[lang].memes.items` indices 3, 0, 2, 5 (see `Page.astro` order).
+ * Image `alt` text is `uiCopy[lang].memes.sequenceImageAlts[0..3]` in that same order (localized).
  * Post–ClarityDemo beat: index 5 → reward_2.png (printable kit / structure on desk).
  *
  * Live order is documented in `docs/VISUAL_CONTENT_MAP.md`.
@@ -79,7 +77,7 @@ const structuredData = buildLeaderPageJsonLd({
 });
 const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c");
 
-/** Matches MemeMoment order (indices 3, 0, 2, 5, 4); desktop `side` alternates left / right / left / right / left. */
+/** Matches MemeMoment order (indices 3, 0, 2, 5); desktop `side` alternates left / right / left / right. */
 const memeSequenceAlts = copy.memes.sequenceImageAlts;
 
 const promptAnatomyFooterHref = buildPromptAnatomyUrl({ medium: "footer", campaign: "brand" });
@@ -141,7 +139,6 @@ const telegramHref = buildTelegramUrl();
         fetchPriority="high"
       />
       <BeforeAfter lang={lang} />
-      <TodaysWorkflow lang={lang} />
       <MemeMoment
         lang={lang}
         index={0}
@@ -177,19 +174,8 @@ const telegramHref = buildTelegramUrl();
       />
       <SafetyCheck lang={lang} />
       <CourseCTA lang={lang} />
-      <AuthorityBridge lang={lang} />
       <PromptAnatomy lang={lang} />
       <RoiPath lang={lang} />
-      <MemeMoment
-        lang={lang}
-        index={4}
-        src="meme-02-meeting-overload.png"
-        alt={memeSequenceAlts[4]}
-        accent="gold"
-        side="left"
-        width={1280}
-        height={720}
-      />
       <Faq lang={lang} />
       <PromptLibrary lang={lang} />
     </main>

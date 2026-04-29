@@ -9,6 +9,7 @@
 | [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) | Design tokens, `ds/` primitives, section templates, visual anti-patterns | Tokens, spacing, new section layout, or DS enforcement rules change |
 | [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md) | Page stack, folder roles, landing flow (canonical with [`src/layouts/Page.astro`](../src/layouts/Page.astro)) | Section order or major folders change |
 | [`VISUAL_CONTENT_MAP.md`](VISUAL_CONTENT_MAP.md) | Memes, screenshots, diagrams — placement and rules | Meme indices, asset filenames, or visual beats change |
+| [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md) | Meme beats ranked; weakest-first removal guidance | You add/remove memes or debate scroll vs storytelling trade-offs |
 | [`STRATEGIC_REVISION_PLAN.md`](STRATEGIC_REVISION_PLAN.md) | Long-form product/IA/CTA roadmap + phased backlog (must stay consistent with [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md)) | Strategic scope, hero/CTA experiments, or phase status changes |
 | [`UTM_MATRIX.md`](UTM_MATRIX.md) | Canonical `utm_*` values for outbound links; implementation helpers in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts) | New links, campaigns, or URL builder changes |
 | [`QUALITY_ASSURANCE.md`](QUALITY_ASSURANCE.md) | QA checklist before release | Checks or deploy expectations change |

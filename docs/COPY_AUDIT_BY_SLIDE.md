@@ -18,7 +18,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 | CC-2 | DI vs AI | LT rinkinyje viešoje kopijoje **`DI`**, ne `AI`. EN – `AI` kur tinkama. Promptų šablonuose į DI modelį – angliškos rolės („Veik kaip CEO…“) sąmoningai. | P1 |
 | CC-3 | Formalus „jūs“ | LT rinkinyje nekviesti `‑kite` / `jūsų`; mygtukai lieka infinityve (žr. language-standard). | P0 (regresijos kontrolė) |
 | CC-4 | Brūkšniai LT | Visame `lt.ts` **`–`** (en dash), ne **`—`** (**P2 įgyvendinta**). | P2 |
-| CC-5 | EN `authority.sisterTitle` | buvo lietuviškas tekstas anglų faile (**P0 pataisyta**: angliškas pavadinimas). | P0 |
+| CC-5 | `authority.*` | Sekcija **AuthorityBridge** pašalinta **2026-04-29** — cross-cutting P0 istorinis; raktų nebėra `en.ts` / `lt.ts`. | — |
 | CC-6 | EN `roiPath.printableKitLink` | „band“ → „banner“ (**P0 pataisyta**). | P0 |
 | CC-7 | LT `meta.socialImageAlt` | gramatinis derinimas (**P0 pataisyta**). | P0 |
 | CC-8 | LT `demo.scenarios.meeting.risks[0]` | `virs` → **`virsta`** (**P0 pataisyta**). | P0 |
@@ -46,13 +46,13 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 | 9 | Meme 4 | — | `memes.items[5]` |
 | 10 | Saugumo patikra | `#safety-check` | `safety.*` |
 | 11 | Rinkinio CTA | `#kit` | `cta.*` |
-| 12 | Authority tiltas | `#bridge` | `authority.*` |
-| 13 | Penki blokai (anatomija) | `#anatomy` | `anatomy.*` |
-| 14 | ROI kelias | — | `roiPath.*` |
-| 15 | Meme 5 | — | `memes.items[4]` |
-| 16 | DUK | `#faq` | `faq.*` |
-| 17 | Biblioteka | `#library` | `library.*` |
-| 18 | Porinės juosta | `<footer>` | `footer.*` |
+| 12 | Penki blokai (anatomija) | `#anatomy` | `anatomy.*` |
+| 13 | ROI kelias | — | `roiPath.*` |
+| 14 | DUK | `#faq` | `faq.*` |
+| 15 | Biblioteka | `#library` | `library.*` |
+| 16 | Porinės juosta | `<footer>` | `footer.*` |
+
+**Nebe skaidrė:** Authority tiltas (`#bridge`) — pašalinta **2026-04-29**. **Nebemontuojamas meme:** `memes.items[4]` (`meme-02-meeting-overload.png`) — **2026-04-29**, žr. [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).
 
 ---
 
@@ -292,31 +292,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ---
 
-## 12. Authority tiltas (`#bridge`)
-
-- **Failai:** [`AuthorityBridge.astro`](../src/components/AuthorityBridge.astro)
-- **Raktai:** `authority.*`
-
-**LT**
-
-- `sisterTitle` / `sisterText` / `sisterLink`: DI / CEO/COO – suderinta su CC-1, CC-2.
-
-**EN**
-
-- `sisterTitle`: **P0** – anglų kalba (ne LT santrauka).
-- `motherText`, `sisterText`: „AI operating system“ – EN OK.
-
-**Lygiavimas**
-
-- Po EN `sisterTitle` taisymo – patikrinti, ar prasme atitinka LT `sisterTitle`.
-
-**Veiksmai**
-
-- [x] EN `authority.sisterTitle` P0.
-
----
-
-## 13. Penki blokai (anatomija)
+## 12. Penki blokai (anatomija)
 
 - **Failai:** [`PromptAnatomy.astro`](../src/components/PromptAnatomy.astro)
 - **Raktai:** `anatomy.*` (įsk. `previewAriaLabel` — uždarytos būsenos žetonų sąrašo `aria-label`)
@@ -329,7 +305,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ---
 
-## 14. ROI kelias
+## 13. ROI kelias
 
 - **Failai:** [`RoiPath.astro`](../src/components/RoiPath.astro)
 - **Raktai:** `roiPath.*` (įsk. `steps[]`, `total`, `printableKitLink`)
@@ -348,17 +324,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ---
 
-## 15. Meme 5 (`memes.items[4]`)
-
-- **Pastabos:** `meme-02-meeting-overload.png`, kaip kiti memai.
-
-**Veiksmai**
-
-- [x] P1: `alt` – `memes.sequenceImageAlts` (žr. CC-10).
-
----
-
-## 16. DUK (`#faq`)
+## 14. DUK (`#faq`)
 
 - **Failai:** [`Faq.astro`](../src/components/Faq.astro)
 - **Raktai:** `faq.sectionTitle`, `faq.items[]`
@@ -384,7 +350,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ---
 
-## 17. Biblioteka (`#library`)
+## 15. Biblioteka (`#library`)
 
 - **Failai:** [`PromptLibrary.astro`](../src/components/PromptLibrary.astro)
 - **Raktai:** `library.*` (įsk. **`library.summaryLead`** vietoj `scanHint` + `instructions`), kategorijos, `prompts[]`, `outcome`, ilgi promptų šablonai
@@ -404,7 +370,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ---
 
-## 18. Porinės juosta
+## 16. Porinės juosta
 
 - **Failai:** [`Page.astro`](../src/layouts/Page.astro) footer
 - **Raktai:** `footer.*`

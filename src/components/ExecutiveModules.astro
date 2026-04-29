@@ -1,6 +1,7 @@
 ---
 import ContentCard from "./ds/ContentCard.astro";
 import ContextFieldMap from "./ds/ContextFieldMap.astro";
+import PasteDestinationStrip from "./ds/PasteDestinationStrip.astro";
 import HighlightStrip from "./ds/HighlightStrip.astro";
 import SectionShell from "./ds/SectionShell.astro";
 import SectionTitleBlock from "./ds/SectionTitleBlock.astro";
@@ -209,5 +210,7 @@ const modules = uiCopy[lang].modules;
         {modules.custom.copyButton}
       </button>
     </ContentCard>
+
+    <PasteDestinationStrip lang={lang} surface="context" />
   </div>
 </SectionShell>

@@ -2,7 +2,7 @@ export const enCopy = {
     meta: {
       title: "CEO/COO Executive Prompt Operating Kit | Prompt Anatomy",
       description:
-        "In about a week, standardize leadership AI briefs to the same decision-ready shape every time. Paste into ChatGPT, Claude, or Gemini from this static kit + demo—no login. PromptAnatomy when you need a team-wide operating standard.",
+        "Standardize leadership AI briefs to a decision-ready shape in about a week. Static kit + demo—paste into ChatGPT, Claude, or Gemini, no login. PromptAnatomy when you need a team-wide standard.",
       socialImageAlt: "Prompt Anatomy — CEO/COO Executive OS static kit and social preview.",
     },
     a11y: {
@@ -26,19 +26,19 @@ export const enCopy = {
         },
         {
           q: "Can I paste this into ChatGPT, Claude, or Gemini?",
-          a: "Yes. Build and copy one compiled prompt on this page, then paste it into any assistant your organization allows. This site does not connect to those providers—nothing is uploaded here.",
+          a: "Yes. Compile and copy one prompt here, then paste into any assistant your org allows. This page does not connect to those tools—nothing uploads.",
           bullets: [],
         },
         {
           q: "What is PromptAnatomy Executive OS?",
           a:
-            "PromptAnatomy Executive OS is a static one-page executive kit for CEOs and COOs: a compiled prompt operating kit built from a Global Context Block plus executive modules that standardize how leadership work is briefed to AI, with no login and no uploads. The full PromptAnatomy product and training live on promptanatomy.app.",
+            "A static one-page kit for CEOs/COOs: Global Context Block plus executive modules so leadership briefs to AI stay consistent—no login, no uploads. The full product and training are on promptanatomy.app.",
           bullets: [],
         },
         {
           q: "What is the Global Context Block?",
           a:
-            "The Global Context Block is the shared input skeleton for every executive prompt—company, decision, constraints, audience, and success criteria in one place—so model outputs stay decision-grade instead of generic. You pair it with a focused module (strategy, risk, board prep, and similar) to compile one send-ready brief.",
+            "Shared input skeleton for every brief—company, goals, constraints, audience, success criteria—so outputs stay decision-grade. Add a module (strategy, risk, board prep, etc.) to compile one send-ready brief.",
           bullets: [],
         },
         {
@@ -94,7 +94,7 @@ export const enCopy = {
       deadlineValue: "Friday 17:00",
       nextActionLabel: "Next action",
       nextActionValue: "Send a one-page brief before the meeting: trade-off, recommendation, risks, owner, deadline.",
-      helper: "The kit is the method: context → module → brief. Then run the same safety check before anything leaves your desk.",
+      helper: "Context → module → brief. Run the safety check before anything ships.",
       howItWorksSummary: "How it works (expand)",
     },
     heroBento: {
@@ -118,26 +118,14 @@ export const enCopy = {
       a11yLabel:
         "Before and after: prompt definitions and diagram of decision-ready brief shape.",
     },
-    todayWorkflow: {
-      eyebrow: "Today's workflow",
-      title: "One structured prompt. One decision-ready brief.",
-      subtitle:
-        "Build it here, copy it, paste it into your approved AI tool, and get a decision brief with owners, risks, trade-offs, and next actions.",
-      primaryCta: "Copy prompt & analyze →",
+    pasteIntoAssistant: {
+      ariaLabel: "After copy: open an approved AI assistant and paste the prompt",
+      lead: "After copy: open your approved AI tool and paste. Nothing leaves this page.",
       continueLabel: "Continue in:",
-      licenseNote:
-        "Use the provider and account your organization has licensed, subject to each vendor's terms and your plan limits.",
       openChatgpt: "Open ChatGPT",
       openClaude: "Open Claude",
       openGemini: "Open Gemini",
-      schemaAriaLabel: "Workflow: build prompt, copy, paste into AI, get decision brief.",
-      schemaStepBuild: "Build prompt",
-      schemaStepCopy: "Copy",
-      schemaStepPaste: "Paste into AI",
-      schemaStepDecide: "Decide",
-      schemaOutputTitle: "Decision brief",
-      schemaOutputDetail: "Owners · Risks · Trade-offs · Next action",
-      a11yLabel: "Today's workflow: build, copy, paste, and get a decision-ready brief.",
+      licenseNote: "Use your org-licensed provider and account; follow each vendor's terms and plan limits.",
     },
     promoBanner: {
       ariaLabel: "Product handoff banner to PromptAnatomy.",
@@ -151,7 +139,7 @@ export const enCopy = {
       eyebrow: "Global context + modules",
       title: "Define context once. Inject it into high-impact executive modules.",
       subtitle: "One compiled prompt → decision-grade output you can act on.",
-      startHere: "Start here: fill the 4 context fields, then copy 1 module (Decision impact is a safe first pick).",
+      startHere: "Fill the 4 context fields, then copy one module (Decision impact is a safe first pick).",
       context: {
         title: "Global context block",
         subtitle: "Mandatory. Define once, inject everywhere.",
@@ -166,7 +154,7 @@ export const enCopy = {
         bottleneckPlaceholder: "e.g., Engineering speed vs Sales promises",
       },
       contextFootnote:
-        "No context = no value—blank fields become placeholders. Fill once; values embed in the full prompt when you tap Copy full prompt on a module card below (not a separate copy block).",
+        "No context, no value—blanks stay placeholders. Filled values embed in each module's Copy full prompt (on the card below—not a separate copy block).",
       /** Screen reader label for the 4-field → modules schematic above the context form. */
       contextMapAriaLabel: "How global context fields flow into compiled prompts",
       /** Short center chip in the field map (destination). */
@@ -734,13 +722,12 @@ Eliminate now:
       eyebrow: "Visual proof",
       title: "The problem is not access to AI. It is control.",
       sectionAriaLabel: "Executive proof moment",
-      /** Order matches `Page.astro` MemeMoment sequence (indices 3, 0, 2, 5, 4). */
+      /** Order matches `Page.astro` MemeMoment sequence (indices 3, 0, 2, 5). */
       sequenceImageAlts: [
         "Meme: clear decision brief",
         "Meme: AI chaos",
         "Meme: delegation bottleneck",
         "Meme: keep the executive kit structure on your desk",
-        "Meme: overloaded calendar",
       ] as const,
       items: [
         ["AI chaos", "Without structure, output becomes noise."],
@@ -756,10 +743,10 @@ Eliminate now:
       title: "Pick one step. Get a cleaner decision today.",
       subtitle: "Choose a 5–45 min move, copy the prompt, and run it. Repeat the same rhythm each week.",
       centerLabel: "Executive week",
-      centerText: "Six weekly moves—same rhythm each week.",
-      entryCta: "Copy & run Step 1 (5–15 min)",
+      centerText: "Five weekly moves—same rhythm each week.",
+      entryCta: "Copy & run Step 1 (15–40 min)",
       panelAriaLabel: "Weekly step detail",
-      panelProgressTemplate: "Step {current} of 6",
+      panelProgressTemplate: "Step {current} of 5",
       panelHint: "Copies this step’s prompt so you can run it now.",
       useStepCopy: "Copy & run",
       safetyJump: "Open Safety Check →",
@@ -767,14 +754,15 @@ Eliminate now:
       copied: "Copied",
       steps: [
         {
-          id: "safety",
+          id: "outbound",
           accent: "risk",
-          time: "5-15 min",
-          action: "Check before you send",
-          value: "Avoid a client/board mistake before it ships.",
-          description: "Review outbound AI text before board, client, partner, or team sees it.",
+          time: "15-40 min",
+          action: "Review & send clearly",
+          value: "Catch risks before send; land a structured, credible update.",
+          description:
+            "Risk-check then rewrite board, client, partner, or team messages so they are safe and clear.",
           prompt:
-            "Act as an executive risk reviewer. Review this text before I send it: [TEXT]. Context: [BOARD / CLIENT / TEAM / PARTNER]. Return 1) facts to verify, 2) legal/reputation risks, 3) missing context, 4) unclear decision/owner, 5) safer wording.",
+            "Act as an executive communications partner. Draft or text to improve: [TEXT]. Audience: [BOARD / CLIENT / TEAM / PARTNER]. \n\n1) RISK PASS — Before anything ships, return: facts to verify; legal/reputation risks; missing context; unclear decision/owner; wording that should be safer.\n\n2) FINAL MESSAGE — Rewrite the text to be clear, calm, and non-defensive. Structure: fact — reason — impact — what changes — what stays the same — next step. Resolve material issues from the risk pass in the final wording.",
         },
         {
           id: "scan",
@@ -816,32 +804,10 @@ Eliminate now:
           prompt:
             "Turn this intent into a delegation brief: [INTENT]. Include objective, audience, context, constraints, deliverable format, quality criteria, examples, review deadline, and escalation triggers.",
         },
-        {
-          id: "comms",
-          accent: "communication",
-          time: "10-30 min",
-          action: "Send a clear message",
-          value: "Reduce uncertainty with one credible update.",
-          description: "Clear messages for change, delays, clients, or partners.",
-          prompt:
-            "Rewrite this leadership message so it is clear, calm, and non-defensive: [MESSAGE]. Structure it as fact, reason, impact, what changes, what stays the same, and next step.",
-        },
       ],
       total: "~5 hours/week → fewer bad calls, clearer owners, safer outbound comms.",
-      printableOneLiner: "Six moves ≈ ~5h/week — same rhythm on one printable page.",
+      printableOneLiner: "Five moves ≈ ~5h/week — same rhythm on one printable page.",
       printableKitLink: "Get the printable kit (PDF)",
-    },
-    authority: {
-      eyebrow: "Brand architecture",
-      title: "From the executive kit to the full PromptAnatomy system.",
-      chooseNext: "Choose your next step",
-      mother: "Mother platform",
-      motherText: "PromptAnatomy.app: full AI operating system and commercial home.",
-      sisterEyebrow: "Sister hub",
-      sisterTitle: "AI Operations Hub",
-      sisterText:
-        "CEO/COO hub on GitHub Pages: mode-based prompts, weekly priorities, and a template library (Prompt Anatomy spin-off).",
-      sisterLink: "Open the sister CEO/COO hub →",
     },
     cta: {
       eyebrow: "Take the executive kit",

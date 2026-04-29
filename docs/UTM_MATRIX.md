@@ -8,11 +8,10 @@ Use these consistently when adding or changing outbound links. Pattern: `utm_sou
 | Hero primary CTA (gold, in-page) | — | — | In-page anchor `#context` in [`Hero.astro`](../src/components/Hero.astro) (no UTM). Note: “primary (gold)” refers to visual hierarchy, not UTM campaign naming. |
 | Hero outlined CTA (PromptAnatomy) | `hero` | `primary` | Outbound from [`Hero.astro`](../src/components/Hero.astro); `utm_source=leader` |
 | CourseCTA secondary | `lead_magnet` | `executive_prompt_library` | Full product from conversion band |
-| Authority bridge mother | `bridge` | `mother` | PromptAnatomy.app |
-| Authority bridge sister | `bridge` | `sister` | GitHub Pages CEO hub |
 | Footer brand | `footer` | `brand` | promptanatomy.app link in [`Page.astro`](../src/layouts/Page.astro) |
 | Footer Telegram | `social` | `telegram` | `https://t.me/prompt_anatomy` (query params may be stripped by client; keep for analytics consistency) |
-| Before/After “Today's workflow” AI links | `before_after_workflow` | `chatgpt` / `claude` / `gemini` | Outbound to consumer AI assistants from [`BeforeAfter.astro`](src/components/BeforeAfter.astro) |
+| Paste strip (after copy) — context | `context_paste` | `chatgpt` / `claude` / `gemini` | [`PasteDestinationStrip`](../src/components/ds/PasteDestinationStrip.astro) on [`ExecutiveModules.astro`](../src/components/ExecutiveModules.astro) |
+| Paste strip (after copy) — demo | `demo_paste` | `chatgpt` / `claude` / `gemini` | [`PasteDestinationStrip`](../src/components/ds/PasteDestinationStrip.astro) on [`ClarityDemo.astro`](../src/components/ClarityDemo.astro) |
 
 Implementation: URL builders live in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts) so `utm_source=leader` stays consistent.
 

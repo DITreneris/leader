@@ -1,5 +1,6 @@
 ---
 import ContentCard from "./ds/ContentCard.astro";
+import PasteDestinationStrip from "./ds/PasteDestinationStrip.astro";
 import HighlightStrip from "./ds/HighlightStrip.astro";
 import SectionShell from "./ds/SectionShell.astro";
 import SectionTitleBlock from "./ds/SectionTitleBlock.astro";
@@ -113,6 +114,8 @@ const defaultScenario = demo.scenarios.meeting;
           </button>
         </div>
       </div>
+
+      <PasteDestinationStrip lang={lang} surface="demo" spacing="tight" />
 
       <div class="surface-panel radius-lg border border-white/10">
         <p

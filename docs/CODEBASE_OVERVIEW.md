@@ -29,14 +29,12 @@ Canonical order is `src/layouts/Page.astro` (see also `docs/VISUAL_CONTENT_MAP.m
 9. **Meme** — index `5` → `reward_2.png` (“keep the structure on your desk”).
 10. **`SafetyCheck`**: safety / escalation rule surface before heavy conversion.
 11. **CourseCTA** (`#kit`): Max Value Kit PDF + PromptAnatomy path.
-12. **AuthorityBridge**: mother platform; sister operational hub link.
-13. **PromptAnatomy**: depth in collapsed `<details>` (reference, not blocking).
-14. **RoiPath**: weekly cycle / printable line back to `#kit`.
-15. **Meme** — index `4` → `meme-02-meeting-overload.png`.
-16. **Faq** (`#faq`): objections (JSON-LD FAQPage).
-17. **PromptLibrary** (`#library`): full accordion appendix; PDF jump above optional.
+12. **PromptAnatomy**: depth in collapsed `<details>` (reference, not blocking).
+13. **RoiPath**: weekly cycle / printable line back to `#kit`.
+14. **Faq** (`#faq`): objections (JSON-LD FAQPage).
+15. **PromptLibrary** (`#library`): full accordion appendix; PDF jump above optional.
 
-Meme index `1` is reserved (not mounted). Memes are emotional beats only—no primary CTAs on meme rows.
+Meme indices **`1`** and **`4`** are not mounted (`4` removed from the stack 2026-04-29 — see [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md)). Memes are emotional beats only—no primary CTAs on meme rows.
 
 ## Constraints
 

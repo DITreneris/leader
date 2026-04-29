@@ -171,7 +171,7 @@ const accentClass = (accent: string) => {
                   >
                     {roiPath.useStepCopy}
                   </button>
-                  {step.id === "safety" && (
+                  {step.id === "outbound" && (
                     <a
                       href="#safety-check"
                       class="focus-ring rounded-full border border-white/15 px-4 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-brand-accent-hover/60 hover:bg-white/5"
@@ -232,7 +232,7 @@ const accentClass = (accent: string) => {
   const panelCopy = document.querySelector<HTMLButtonElement>("[data-roi-panel-copy]");
   const panelSafetyLink = document.querySelector<HTMLAnchorElement>("[data-roi-panel-safety-link]");
 
-  const progressTemplate = copy?.roiPath?.panelProgressTemplate ?? "Step {current} of 6";
+  const progressTemplate = copy?.roiPath?.panelProgressTemplate ?? "Step {current} of 5";
   const ctaLabel = copy?.roiPath?.useStepCopy ?? copy?.roiPath?.copyPrompt ?? "Copy prompt";
 
   const setActive = (index: number) => {
@@ -260,8 +260,8 @@ const accentClass = (accent: string) => {
     }
 
     if (panelSafetyLink) {
-      const isSafety = step?.id === "safety";
-      panelSafetyLink.classList.toggle("hidden", !isSafety);
+      const isOutbound = step?.id === "outbound";
+      panelSafetyLink.classList.toggle("hidden", !isOutbound);
     }
   };
 

@@ -65,7 +65,7 @@ Scan this AI output for possible hallucinations: [TEXT]. List unsupported claims
 
 ## Weekly ROI path
 
-- **5-15 min:** run the safety check before a client, board, partner, or team message.
+- **15-40 min:** risk-check, then rewrite the outbound message (board, client, partner, or team) so it is safe, clear, and structured.
 - **20-40 min:** scan a long report for signal, hidden risk, and decision needed.
 - **20-45 min:** turn options into trade-offs, criteria, risks, and a recommendation.
 - **15-30 min:** convert meeting notes into decisions, owners, deadlines, and follow-up.

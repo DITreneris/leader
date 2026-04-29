@@ -91,7 +91,7 @@ Use only: `.radius-sm` … `.radius-xl`, or meme-specific `.radius-meme-outer` /
 | `BulletSystem` | Disc list with consistent spacing (`default` \| `muted` text) |
 | `HighlightStrip` | Accent callout surfaces: `band` (inline strip), `promo` (glass + accent border + promo blurs) |
 | `DiagramContainer` | Figure shell for SVG/diagrams: glass frame, consistent padding |
-| `ContextFieldMap` | **#context** only: four global context field labels in sequence → “into modules” chip + caption (no second pipeline after `TodaysWorkflow` / `MiniWorkflowSchema`) |
+| `ContextFieldMap` | **#context** only: four global context field labels in sequence → “into modules” chip + caption (single pipeline on the page—do not duplicate a second workflow rail elsewhere) |
 
 New sections should compose these primitives before inventing new layout classes.
 
@@ -121,7 +121,7 @@ Maps “template” → existing components (reference implementation).
 | **Content** | Modules, library, dense value | `SectionShell` + `SectionTitleBlock` + `ContentCard` grid or accordions (`ExecutiveModules`, `PromptLibrary`) |
 | **Comparison** | Before / after or contrast story | `SectionShell` + `SectionTitleBlock` + copy column + `DiagramContainer` (`BeforeAfter`) |
 | **Process** | Steps, ROI path, flow | `SectionShell` + steps or `DiagramContainer` + `BulletSystem` where lists matter (e.g. `RoiPath`, `BeforeAfter`) |
-| **CTA** | Conversion band | One primary CTA per major section; `HighlightStrip` / `CourseCTA` / `AuthorityBridge` patterns; gold `cta-gradient` for primary action |
+| **CTA** | Conversion band | One primary CTA per major section; `HighlightStrip` / `CourseCTA` patterns; gold `cta-gradient` for primary action |
 
 **HeroBento (right column):** One `glass-card` “scene”; every row uses the **same** neutral surface, padding, and `min-height` (`.radius-sm`); **rose / emerald / brand** appear only on the **left rail** and **icon** (functional semantics from §1 Color). Optional step index (`1–3`); do **not** stack `accent-glow` on rows—keep atmosphere on the panel so the hero `cta-gradient` stays the primary bright gold.
 

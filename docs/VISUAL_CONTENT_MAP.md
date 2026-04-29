@@ -31,11 +31,12 @@ Several `MemeMoment.astro` beats break up long reading. Copy always comes from `
 | 2 | 0 | `meme-01-ai-chaos.png` | AI chaos |
 | 3 | 2 | `meme-04-delegation-bottleneck.png` | Delegation bottleneck |
 | 4 | 5 | `reward_2.png` | Keep the structure on your desk |
-| 5 | 4 | `meme-02-meeting-overload.png` | Leadership needs the system |
 
 Desktop (`lg+`): **two-column asymmetric grid** (**1.25fr** image column / **0.75fr** caption column), alternating **`side`** (`left` / `right`) per [`Page.astro`](../src/layouts/Page.astro). Below **`lg`**: stacked — full-width **16:9** image, then title + body (centered).
 
-Section flow between beats: `BeforeAfter` → `ExecutiveModules` (`#context`) → `PromoBanner` → `ClarityDemo` (`#demo`) → **meme index 5** → `SafetyCheck` → `CourseCTA` (`#kit`) → `AuthorityBridge` → `PromptAnatomy` → `RoiPath` → **meme index 4** → `Faq` → …
+Section flow between beats: `BeforeAfter` → `ExecutiveModules` (`#context`) → `PromoBanner` → `ClarityDemo` (`#demo`) → **meme index 5** → `SafetyCheck` → `CourseCTA` (`#kit`) → `PromptAnatomy` → `RoiPath` → `Faq` → …
+
+Removed **2026-04-29:** post–`RoiPath` meme `items[4]` (`meme-02-meeting-overload.png`) — see [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).
 
 Index `1` in `memes.items` is not mounted on the page today (reserved / spare).
 
