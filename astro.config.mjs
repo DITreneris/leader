@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import vercel from "@astrojs/vercel";
 import robotsTxt from "./integrations/robots-txt.mjs";
 import { getAstroBase, getSiteOrigin } from "./scripts/lib/deploy-env.mjs";
 
@@ -21,6 +22,9 @@ export default defineConfig({
     locales: shippedLocales,
     routing: { prefixDefaultLocale: true, redirectToDefaultLocale: false },
   },
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+  }),
   integrations: [
     robotsTxt(),
     sitemap({
