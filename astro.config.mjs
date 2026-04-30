@@ -1,10 +1,10 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "./integrations/robots-txt.mjs";
-import { getAstroBase } from "./scripts/lib/deploy-env.mjs";
+import { getAstroBase, getSiteOrigin } from "./scripts/lib/deploy-env.mjs";
 
 const base = getAstroBase();
-const site = process.env.SITE_URL ?? "https://ditreneris.github.io";
+const site = getSiteOrigin();
 
 /**
  * Must mirror `src/constants/siteLocale.ts` `SHIPPED_LOCALES` and `@astrojs/sitemap` `i18n.locales` keys.
