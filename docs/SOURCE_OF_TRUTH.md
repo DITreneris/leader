@@ -87,7 +87,7 @@ Canonical files and policy:
 
 | Concern | Where |
 |---------|--------|
-| Crawler policy (max visibility; explicit AI user-agents) | [`public/robots.txt`](../public/robots.txt) |
+| Crawler policy (max visibility; explicit AI user-agents) | Template in [`integrations/robots-txt.mjs`](../integrations/robots-txt.mjs) → emitted `dist/robots.txt` at build |
 | Short LLM-oriented summary + citable definitions | [`public/llms.txt`](../public/llms.txt) |
 | Sitemap (Astro integration; env-driven base) | [`astro.config.mjs`](../astro.config.mjs), emitted `sitemap-index.xml` |
 | Meta, canonical, hreflang, OG | [`src/layouts/Page.astro`](../src/layouts/Page.astro), [`src/pages/index.astro`](../src/pages/index.astro) |
@@ -96,7 +96,7 @@ Canonical files and policy:
 
 **When to bump `LEADER_PAGE_DATE_MODIFIED`:** meaningful landing copy, FAQ, or on-page SEO/schema changes ([`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts)).
 
-**Deploy hygiene:** `public/robots.txt` **`Sitemap:`** absolute URL must match production `SITE_URL` + `BASE_PATH` (see root **`README`** / CI env). If you switch domain or base path, update `robots.txt`, verify sitemap, and refresh `llms.txt` URLs in the same change.
+**Deploy hygiene:** **`Sitemap:`** in emitted `dist/robots.txt` is written at build from `SITE_URL` + `BASE_PATH` (see root **`README`** / CI env). If you switch domain or base path, set env, rebuild, verify sitemap, and refresh `llms.txt` URLs when citations must point at the new host.
 
 ## Search intent split (anti-cannibalization)
 

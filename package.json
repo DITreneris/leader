@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
+    "generate:og": "node ./scripts/generate-og-image.mjs",
     "build:pdf": "node ./scripts/run-build-pdf.mjs",
     "preview": "astro preview",
     "check": "astro check",

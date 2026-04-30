@@ -105,12 +105,12 @@ Reference: [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md). Run these when adding a 
 
 ## SEO / GEO / AI crawl QA
 
-After changes to `public/robots.txt`, `public/llms.txt`, meta, JSON-LD, or FAQ copy:
+After changes to [`integrations/robots-txt.mjs`](../integrations/robots-txt.mjs) (crawler policy lines), `public/llms.txt`, meta, JSON-LD, or FAQ copy:
 
 1. Run `npm run build` (0 Astro check errors; 0 warnings).
 2. Open `dist/en/index.html` and confirm one `<script type="application/ld+json">` block parses as valid JSON (no stray `<` in strings).
 3. Validate structured data (e.g. Google Rich Results Test or schema.org validator) using the deployed or local `dist` HTML — expect `WebPage` with `datePublished` / `dateModified`, `FAQPage` aligned with visible `#faq` questions.
-4. Confirm `public/robots.txt` syntax: `User-agent` / `Allow` / `Sitemap` lines, and that **`Sitemap:`** matches production `SITE_URL` + `BASE_PATH`.
+4. Confirm `dist/robots.txt` after build: `User-agent` / `Allow` / `Sitemap` lines, and that **`Sitemap:`** matches production `SITE_URL` + `BASE_PATH` (generated at build from [`scripts/lib/deploy-env.mjs`](../scripts/lib/deploy-env.mjs)).
 5. Skim `public/llms.txt` — definitions and `/en/` URL still match the live deploy.
 6. If FAQ items changed, confirm **EN/LT** `faq.items` stay aligned ([`docs/COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md) as needed).
 7. When ship includes copy or on-page SEO changes, bump **`LEADER_PAGE_DATE_MODIFIED`** in [`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts) and re-build.

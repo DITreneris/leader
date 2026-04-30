@@ -1,8 +1,9 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import robotsTxt from "./integrations/robots-txt.mjs";
+import { getAstroBase } from "./scripts/lib/deploy-env.mjs";
 
-const basePath = process.env.BASE_PATH ?? "/";
-const base = basePath === "/" ? "/" : `/${basePath.replace(/^\/|\/$/g, "")}/`;
+const base = getAstroBase();
 const site = process.env.SITE_URL ?? "https://ditreneris.github.io";
 
 /** Must mirror `src/constants/siteLocale.ts` `SHIPPED_LOCALES` when shipping LT. See README → Locale toggle. */
@@ -18,6 +19,7 @@ export default defineConfig({
     routing: { prefixDefaultLocale: true, redirectToDefaultLocale: false },
   },
   integrations: [
+    robotsTxt(),
     sitemap({
       i18n: {
         defaultLocale: "en",

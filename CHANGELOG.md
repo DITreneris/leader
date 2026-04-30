@@ -2,6 +2,18 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-04-30
+
+### Changed
+
+- **Social preview asset:** committed [`public/og-image.png`](public/og-image.png) (**1200×630**) for Open Graph / X / LinkedIn; maintainers can regenerate via **`npm run generate:og`** ([`scripts/generate-og-image.mjs`](scripts/generate-og-image.mjs), SVG → PNG via `sharp`).
+- **`robots.txt`:** removed static [`public/robots.txt`](public/robots.txt); crawler policy is emitted at **`astro build`** by [`integrations/robots-txt.mjs`](integrations/robots-txt.mjs). The **`Sitemap:`** line uses [`scripts/lib/deploy-env.mjs`](scripts/lib/deploy-env.mjs) (same `SITE_URL` / `BASE_PATH` math as [`astro.config.mjs`](astro.config.mjs)).
+- **Deploy docs:** [`README.md`](README.md) — GitHub Pages vs Vercel env table; [`.env.example`](.env.example) — commented apex mirror. [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md), [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md) — robots path + QA checklist.
+
+### Documentation
+
+- [`src/constants/pageSeo.ts`](src/constants/pageSeo.ts) — `LEADER_PAGE_DATE_MODIFIED` **2026-04-30** (social / crawler infra).
+
 ## 2026-04-29
 
 ### Changed

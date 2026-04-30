@@ -76,18 +76,20 @@ npm run build:pdf
 
 ## Deployment environment
 
-GitHub Pages builds require:
+`SITE_URL` and `BASE_PATH` drive canonical URLs, `og:image` / `twitter:image`, the Astro sitemap, and the **`Sitemap:`** line written to **`dist/robots.txt`** at build time (see [`integrations/robots-txt.mjs`](integrations/robots-txt.mjs), [`scripts/lib/deploy-env.mjs`](scripts/lib/deploy-env.mjs)).
 
-```bash
-BASE_PATH=/leader
-SITE_URL=https://ditreneris.github.io
-```
+| Deploy target | Typical env |
+|---------------|----------------|
+| **GitHub Pages** (this repo’s default path) | `BASE_PATH=/leader`<br>`SITE_URL=https://<user>.github.io` |
+| **Vercel / apex domain** (e.g. optional mirror at `promptanatomy.pro`) | `BASE_PATH=/`<br>`SITE_URL=https://promptanatomy.pro` (use the hostname you actually serve—include `www` if that is canonical) |
+
+GitHub Actions ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) sets `BASE_PATH=/leader` and `SITE_URL` from the repo owner’s GitHub Pages URL.
 
 **Pre-deploy checklist**
 
-- `SITE_URL` and `BASE_PATH` match the live URL shape (canonical links, sitemap, assets).
-- [`public/robots.txt`](public/robots.txt) **`Sitemap:`** line uses the same origin and base path as production (e.g. `https://<user>.github.io/leader/sitemap-index.xml`).
-- After changing env or domain, run `npm run build` and smoke-test the live site (hero, outbound PromptAnatomy links, PDF kit).
+- `SITE_URL` and `BASE_PATH` match the live URL shape (canonical links, sitemap, social preview URLs, assets).
+- Open `dist/robots.txt` after `npm run build` and confirm **`Sitemap:`** matches production origin + base (e.g. `https://<user>.github.io/leader/sitemap-index.xml` or `https://promptanatomy.pro/sitemap-index.xml`).
+- After changing env or domain, run `npm run build` and smoke-test the live site (hero, outbound PromptAnatomy links, PDF kit, `/og-image.png`).
 
 ## Project docs
 
