@@ -10,6 +10,6 @@ Build one lean, premium, bilingual executive prompt operating kit for CEOs/COOs.
 - Keep the page outcome-first: business clarity, decisions, risks, next actions, safety checks, visual proof, and practical prompt downloads.
 - Do not turn it into a beginner prompt-engineering course or a complex app.
 - Preserve the static MVP: no backend, no AI API calls, no login, no stored user data.
-- Treat `PromptAnatomy.app` as the mother platform and `ditreneris.github.io/ceo/` as the sister operational hub.
+- Treat **`PromptAnatomy.app`** as the mother platform. Secondary **learning / framework practice** handoff in shipped UI uses **`promptanatomy.cloud`** (see `buildSisterHubUrl` in `outboundLinks.ts`). The legacy GitHub hub **`ditreneris.github.io/ceo/`** may still appear in prose or `llms.txt` as related context; it is not the tracked outbound target in components.
 - Primary conversion path (matches [`src/layouts/Page.astro`](../../src/layouts/Page.astro) anchors): **`#context`** (Global Context + executive modules) → **`#demo`** (static clarity practice / 2-minute proof) → **`#kit`** (Max Value Kit PDF) → PromptAnatomy.app — with safety and depth sections on the same page between those beats where shipped.
 - Prefer removing complexity over adding new features.

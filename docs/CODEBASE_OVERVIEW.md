@@ -9,7 +9,7 @@ This repository contains a lean **English-first (US-market default)** CEO/COO ex
 - `src/layouts/Page.astro` composes the one-page landing flow (used by `src/pages/en/index.astro`; optional `lt/index` when bilingual is enabled). Footer plus `InteractiveCopy.astro` handle copy-to-clipboard, demo tab state, and the fixed manual-copy hint; an inline script focuses hash targets for a11y.
 - `src/components/` contains section components (`PasteDestinationStrip` after module grid and demo copy surfaces ChatGPT / Claude / Gemini via `buildConsumerAiUrl` in `outboundLinks.ts`).
 - `src/content/copy.ts` re-exports `uiCopy`; English and Lithuanian bundles live in `src/content/locales/en.ts` and `src/content/locales/lt.ts` (prompt library, demo scenarios, and all marketing copy).
-- `src/constants/outboundLinks.ts`: PromptAnatomy (tracked + legal), Telegram, **`buildConsumerAiUrl`** for paste-to-assistant links (see [`docs/UTM_MATRIX.md`](UTM_MATRIX.md)).
+- `src/constants/outboundLinks.ts`: PromptAnatomy (tracked + legal), Telegram, **`buildConsumerAiUrl`** (paste-to-assistant), **`buildSisterHubUrl`** (`promptanatomy.cloud` — secondary learning CTA) (see [`docs/UTM_MATRIX.md`](UTM_MATRIX.md)).
 - `src/styles/global.css` contains global styling and reusable visual helpers.
 - `public/assets/` contains visual assets for memes, diagrams, and screenshots.
 - `.cursor/rules/`, `.cursor/skills/`, and `AGENTS.md` guide future AI-assisted development.

@@ -16,15 +16,15 @@ This project is a lean **English-first** CEO/COO executive prompt operating kit 
 
 ## Architecture
 
-- `src/pages/index.astro` redirects `/` to **`/en/`** (USA-market default; no `/lt/` route unless bilingual is re-enabled in `src/constants/siteLocale.ts` — see root `README`).
+- `src/pages/index.astro` redirects `/` to **`/en/`** (USA-market default; no `/lt/` route unless bilingual is re-enabled in `src/constants/siteLocale.ts` — see root `README`). The root HTML head also emits **OG/Twitter/meta** (including `og:image:alt`, `theme-color`, `og:locale`) so crawlers that scrape `/` get parity with `/en/`.
 - `src/pages/en/index.astro` renders `src/layouts/Page.astro` with the full section stack. Optional `src/pages/lt/index.astro` ships only when bilingual is turned on (not in the default build).
 - `src/components/` contains section components.
 - `src/content/copy.ts` re-exports `uiCopy`; bilingual bundles live in `src/content/locales/en.ts` and `src/content/locales/lt.ts`.
-- `src/constants/outboundLinks.ts` — PromptAnatomy (home + legal URLs), Telegram, **`buildConsumerAiUrl`** (ChatGPT / Claude / Gemini paste strips); pair with [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md). The sister hub `ditreneris.github.io/ceo/` is product context (see `project-direction.mdc`, `llms.txt`); it is not built by this module after AuthorityBridge removal. **Domains:** canonical mother site stays **`https://www.promptanatomy.app`**; see [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) — *Domains (canonical product vs optional deploy)*. Deploying the same static build on Vercel (e.g. `promptanatomy.pro`) does not, by itself, mean outbound links or locales should be rewired.
+- `src/constants/outboundLinks.ts` — PromptAnatomy (home + legal URLs), Telegram, **`buildConsumerAiUrl`** (ChatGPT / Claude / Gemini paste strips), **`buildSisterHubUrl`** (secondary learning path → **`https://promptanatomy.cloud`**); pair with [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md). Legacy GitHub hub **`ditreneris.github.io/ceo/`** may appear in prose or [`public/llms.txt`](public/llms.txt) as related context; shipped CTAs for “framework / practice” intent use **`promptanatomy.cloud`**, not a builder for `ceo/`. **Domains:** canonical mother site stays **`https://www.promptanatomy.app`**; see [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) — *Domains (canonical product vs optional deploy)*. Deploying the same static build on Vercel (e.g. `promptanatomy.pro`) does not, by itself, mean outbound links or locales should be rewired.
 - `src/constants/appVersion.ts` — **`APP_VERSION`** from root `package.json` (footer `vX.Y.Z`, `<meta name="generator">`); bump policy in [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md).
 - Other `src/constants/` files: locale toggles (`siteLocale.ts`), SEO dates (`pageSeo.ts`).
 - `src/styles/global.css` contains global styling and reusable visual helpers.
-- `public/assets/memes/`, `public/assets/graphics/`, and `public/assets/screenshots/` hold visual assets.
+- `public/assets/memes/`, `public/assets/graphics/`, and `public/assets/screenshots/` hold visual assets. **`public/og-image.png`** (1200×630) is the social preview raster; regenerate with **`npm run generate:og`** ([`scripts/generate-og-image.mjs`](scripts/generate-og-image.mjs)). Crawler policy: **`integrations/robots-txt.mjs`** writes **`dist/robots.txt`** at build (no static `public/robots.txt`).
 - `docs/` contains codebase, document management, and quality assurance guidance (see **Documentation map** below).
 - `CHANGELOG.md` tracks daily updates.
 
@@ -59,5 +59,5 @@ Read [`docs/README.md`](docs/README.md) for the full index (purpose + when to up
 - Use executive copy: decision, risk, trade-off, next action, delegation, ROI.
 - Prefer **compiled modules** over long prompt lists on the main story spine (library stays reference/appendix).
 - Avoid generic AI claims, beginner prompt-engineering lessons, and feature bloat.
-- Run `npm run build` after meaningful code changes.
+- Run `npm run build` after meaningful code changes. CI also runs **`npm test`**, Playwright smoke (**`npm run test:e2e`** after build), and Lighthouse CI (see [`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
 - Add a `CHANGELOG.md` entry for daily visible, structural, documentation, or deployment changes.

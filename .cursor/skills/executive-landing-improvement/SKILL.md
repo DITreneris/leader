@@ -10,10 +10,10 @@ description: Improves the PromptAnatomy Executive OS CEO landing page. Use when 
 Before changing the page:
 
 1. Read `AGENTS.md` and `docs/SOURCE_OF_TRUTH.md`.
-2. Read `src/pages/index.astro` and `src/layouts/Page.astro` (section order is canonical).
+2. Read `src/pages/index.astro` (root redirect + crawler **OG/Twitter** head) and `src/layouts/Page.astro` (section order is canonical).
 3. For visuals and section layout, follow `docs/DESIGN_SYSTEM.md` and `.cursor/rules/visual-and-copy.mdc` (tokens, `ds/` primitives, one primary CTA per major section).
 4. Read or edit copy in `src/content/locales/en.ts` and `src/content/locales/lt.ts` (re-exported via `src/content/copy.ts`); use `docs/COPY_AUDIT_BY_SLIDE.md` as the section-by-section QA map after substantive edits.
-5. New outbound or paste-strip links: `src/constants/outboundLinks.ts` + `docs/UTM_MATRIX.md` (including `buildConsumerAiUrl` for ChatGPT / Claude / Gemini).
+5. New outbound or paste-strip links: `src/constants/outboundLinks.ts` + `docs/UTM_MATRIX.md` — include **`buildConsumerAiUrl`** (ChatGPT / Claude / Gemini) and **`buildSisterHubUrl`** (`promptanatomy.cloud`) when touching sister learning CTAs.
 6. Preserve the static, one-page MVP unless the user explicitly asks to expand it.
 
 ## Product Filter

@@ -6,7 +6,10 @@ import { getAstroBase } from "./scripts/lib/deploy-env.mjs";
 const base = getAstroBase();
 const site = process.env.SITE_URL ?? "https://ditreneris.github.io";
 
-/** Must mirror `src/constants/siteLocale.ts` `SHIPPED_LOCALES` when shipping LT. See README → Locale toggle. */
+/**
+ * Must mirror `src/constants/siteLocale.ts` `SHIPPED_LOCALES` and `@astrojs/sitemap` `i18n.locales` keys.
+ * See README → Locale toggle (USA market build).
+ */
 const shippedLocales = ["en"];
 
 export default defineConfig({

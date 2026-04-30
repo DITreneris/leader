@@ -107,7 +107,7 @@ Use a small number of **visual tiers** so callouts feel part of the same page, n
 
 **Rule of thumb:** avoid stacking multiple “brightest” conversion surfaces with no vertical breathing space; see story order in [`Page.astro`](../src/layouts/Page.astro).
 
-**Outbound URLs:** use [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts) for PromptAnatomy, Telegram, and **`buildConsumerAiUrl`** (ChatGPT / Claude / Gemini paste strips); keep [`UTM_MATRIX.md`](UTM_MATRIX.md) aligned when adding destinations or `utm_*` values.
+**Outbound URLs:** use [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts) for PromptAnatomy, Telegram, **`buildConsumerAiUrl`** (ChatGPT / Claude / Gemini paste strips), and **`buildSisterHubUrl`** (`promptanatomy.cloud` — secondary learning path); keep [`UTM_MATRIX.md`](UTM_MATRIX.md) aligned when adding destinations or `utm_*` values.
 
 ---
 

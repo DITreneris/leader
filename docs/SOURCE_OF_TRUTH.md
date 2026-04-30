@@ -46,7 +46,7 @@ Rule: any user-visible string change must keep **`en.ts`** and **`lt.ts`** align
 - **Design System v1 (tokens, primitives, templates, anti-patterns)**: [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)
 - **Palette and constraints**: `.cursor/rules/visual-and-copy.mdc`
 - **Global tokens/utilities**: `src/styles/global.css`
-- **Outbound URLs** (PromptAnatomy, Telegram, consumer-AI paste destinations via `buildConsumerAiUrl`, tracked `utm_*`): code in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts); catalog in [`docs/UTM_MATRIX.md`](UTM_MATRIX.md). Adding or changing destinations or parameters must keep both aligned (see banner hierarchy in **DESIGN_SYSTEM.md**). The sister hub `ditreneris.github.io/ceo/` remains valid product context in prose and crawler docs; it is not a URL builder in this file.
+- **Outbound URLs** (PromptAnatomy, Telegram, consumer-AI paste via `buildConsumerAiUrl`, sister learning hub via **`buildSisterHubUrl`** → **`https://promptanatomy.cloud`**, tracked `utm_*`): code in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts); catalog in [`docs/UTM_MATRIX.md`](UTM_MATRIX.md). Adding or changing destinations or parameters must keep both aligned (see banner hierarchy in **DESIGN_SYSTEM.md**). The legacy GitHub hub **`ditreneris.github.io/ceo/`** may remain in prose or [`public/llms.txt`](../public/llms.txt) as related context; shipped UI does not use a URL builder for that host.
 
 ### Domains (canonical product vs optional deploy)
 
@@ -96,7 +96,15 @@ Canonical files and policy:
 
 **When to bump `LEADER_PAGE_DATE_MODIFIED`:** meaningful landing copy, FAQ, or on-page SEO/schema changes ([`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts)).
 
-**Deploy hygiene:** **`Sitemap:`** in emitted `dist/robots.txt` is written at build from `SITE_URL` + `BASE_PATH` (see root **`README`** / CI env). If you switch domain or base path, set env, rebuild, verify sitemap, and refresh `llms.txt` URLs when citations must point at the new host.
+**Deploy verification (new host, base path, or domain):** run this before calling a cut done.
+
+1. Set **`SITE_URL`** and **`BASE_PATH`** to the **production** values (see root [`README.md`](../README.md) — Deployment environment; CI uses the same pattern in [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)).
+2. `npm run build` locally (or trust the same env in CI).
+3. Open **`dist/robots.txt`** and confirm the **`Sitemap:`** line is a full URL to your live sitemap index (origin + base path, no guesswork).
+4. Spot-check **`dist/en/index.html`**: `link[rel=canonical]`, `property="og:url"`, and `property="og:image"` are **absolute** and match the host you actually serve.
+5. If the **Executive OS public URL** changes, update the site line(s) in [`public/llms.txt`](../public/llms.txt) so AI/index citations stay accurate.
+
+**Deploy hygiene (summary):** **`Sitemap:`** in emitted `dist/robots.txt` is written at build from `SITE_URL` + `BASE_PATH`. Wrong env ⇒ wrong canonicals, wrong social preview image URLs, and a useless `robots.txt` sitemap pointer.
 
 ## Search intent split (anti-cannibalization)
 

@@ -1,5 +1,6 @@
 ---
 import { showLanguageSwitcher } from "../constants/siteLocale";
+import { uiCopy } from "../content/copy";
 
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://ditreneris.github.io";
 const base = import.meta.env.BASE_URL;
@@ -13,6 +14,8 @@ const rootTitle = "CEO/COO Executive Prompt Operating Kit | Prompt Anatomy";
 const rootDescription =
   "Standardize leadership AI briefs to a decision-ready shape in about a week. Static kit + demo—paste into ChatGPT, Claude, or Gemini, no login.";
 const fbAppId = import.meta.env.PUBLIC_FB_APP_ID?.trim();
+/** Matches `<Page>` EN bundle — root `/` crawlers get the same social alt as `/en/`. */
+const rootSocialImageAlt = uiCopy.en.meta.socialImageAlt;
 ---
 
 <!doctype html>
@@ -29,11 +32,16 @@ const fbAppId = import.meta.env.PUBLIC_FB_APP_ID?.trim();
     <meta property="og:image" content={socialImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={rootSocialImageAlt} />
+    <meta property="og:locale" content="en_US" />
+    {bilingualShippedRoot && <meta property="og:locale:alternate" content="lt_LT" />}
     {fbAppId && <meta property="fb:app_id" content={fbAppId} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={rootTitle} />
     <meta name="twitter:description" content={rootDescription} />
     <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={rootSocialImageAlt} />
+    <meta name="theme-color" content="#0b1320" />
     <meta http-equiv="refresh" content="0; url=./en/" />
     <link rel="canonical" href={enUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />

@@ -4,7 +4,7 @@
 
 | Document | Purpose | Update when |
 |----------|---------|-------------|
-| [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md) | Canonical map: product/flow/copy/visuals; **Domains** subsection — mother `www.promptanatomy.app` vs optional deploy (e.g. Vercel on `promptanatomy.pro`) | You feel “spec drift”, add systems, or touch hosting without changing product URLs |
+| [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md) | Canonical map: product/flow/copy/visuals; **Domains** subsection; **Deploy verification** checklist (`SITE_URL` / `BASE_PATH`, `dist/robots.txt`, `dist/en/index.html`, `llms.txt`) | You feel “spec drift”, add systems, change hosting, or change outbound / crawler policy |
 | [`PROMPTS_US_LOCALIZATION_META.md`](PROMPTS_US_LOCALIZATION_META.md) | LLM META: EU/Baltic drafts → US-native copy (Must/Should/Want); not a replacement for `language-standard.mdc` on shipped strings | You change US-market messaging workflow or META sections |
 | [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) | Design tokens, `ds/` primitives, section templates, visual anti-patterns | Tokens, spacing, new section layout, or DS enforcement rules change |
 | [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md) | Page stack, folder roles, landing flow (canonical with [`src/layouts/Page.astro`](../src/layouts/Page.astro)) | Section order or major folders change |

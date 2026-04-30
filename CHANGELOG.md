@@ -6,13 +6,20 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 ### Changed
 
-- **Social preview asset:** committed [`public/og-image.png`](public/og-image.png) (**1200×630**) for Open Graph / X / LinkedIn; maintainers can regenerate via **`npm run generate:og`** ([`scripts/generate-og-image.mjs`](scripts/generate-og-image.mjs), SVG → PNG via `sharp`).
+- **Root `/` social meta parity:** [`src/pages/index.astro`](src/pages/index.astro) — `og:image:alt` / `twitter:image:alt` from **`uiCopy.en.meta.socialImageAlt`** (aligned with [`Page.astro`](src/layouts/Page.astro)), plus `theme-color`, `og:locale` / optional `og:locale:alternate` when bilingual ships — so crawlers hitting `/` get the same accessibility and locale hints as `/en/`.
+
+- **Social preview asset (OG art):** [`scripts/generate-og-image.mjs`](scripts/generate-og-image.mjs) outputs a **best-practice** **1200×630** card (safe-zone type, brand gold, frame, spotlight, bottom bar); **`npm run generate:og`** writes [`public/og-image.png`](public/og-image.png) via `sharp` (binary asset in repo for deploys).
 - **`robots.txt`:** removed static [`public/robots.txt`](public/robots.txt); crawler policy is emitted at **`astro build`** by [`integrations/robots-txt.mjs`](integrations/robots-txt.mjs). The **`Sitemap:`** line uses [`scripts/lib/deploy-env.mjs`](scripts/lib/deploy-env.mjs) (same `SITE_URL` / `BASE_PATH` math as [`astro.config.mjs`](astro.config.mjs)).
-- **Deploy docs:** [`README.md`](README.md) — GitHub Pages vs Vercel env table; [`.env.example`](.env.example) — commented apex mirror. [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md), [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md) — robots path + QA checklist.
+- **Deploy / locale maintainer docs:** [`README.md`](README.md) — GitHub Pages vs Vercel env table; **Locale toggle** step clarifies that [`astro.config.mjs`](astro.config.mjs) **`shippedLocales`**, **`i18n.locales`**, and **`@astrojs/sitemap` → `i18n.locales`** must stay aligned with [`siteLocale.ts`](src/constants/siteLocale.ts) **`SHIPPED_LOCALES`**. [`.env.example`](.env.example) — commented apex mirror. [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md) — robots path + QA checklist.
+
+- **Dual production deploy:** the same static build ships on **GitHub Pages** (repo CI: [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) — typically **`BASE_PATH=/leader`**, **`SITE_URL=https://<owner>.github.io`**) and on **Vercel** for the apex mirror (typically **`BASE_PATH=/`**, **`SITE_URL=https://promptanatomy.pro`** — see [`README.md`](README.md) **Deployment environment**). Each pipeline must set **`SITE_URL`** / **`BASE_PATH`** to match the served URL so canonicals, **`og:image`**, sitemap, and **`dist/robots.txt`** **`Sitemap:`** stay correct per host.
 
 ### Documentation
 
+- [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) — **Deploy verification** numbered checklist (env → build → `dist/robots.txt` **`Sitemap:`** → spot-check **`dist/en/index.html`** canonical / OG URLs → **`llms.txt`** if the public Executive OS URL changes); deploy hygiene summary line.
+- [`astro.config.mjs`](astro.config.mjs) — comment on **`shippedLocales`** mirroring **`siteLocale.ts`** and sitemap **`i18n.locales`** keys.
 - [`src/constants/pageSeo.ts`](src/constants/pageSeo.ts) — `LEADER_PAGE_DATE_MODIFIED` **2026-04-30** (social / crawler infra).
+- **Agent / rules alignment (sister hub + tooling):** [`.cursor/rules/project-direction.mdc`](.cursor/rules/project-direction.mdc) — mother vs **`promptanatomy.cloud`** (shipped learning handoff) vs legacy **`ceo/`** context. [`AGENTS.md`](AGENTS.md) — root **OG** parity, **`buildSisterHubUrl`**, **`generate:og`**, build-time **`robots.txt`**, CI (**Vitest**, Playwright, LHCI). [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md), [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md), [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md), [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md), [`docs/README.md`](docs/README.md) — outbound truth + QA link row. [`.cursor/skills/executive-landing-improvement/SKILL.md`](.cursor/skills/executive-landing-improvement/SKILL.md) — `index.astro` head + sister URL builders. [`.github/pull_request_template.md`](.github/pull_request_template.md) — sister CTA wording.
 
 ## 2026-04-29
 

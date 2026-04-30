@@ -56,7 +56,7 @@ Not in CI today; consider when the landing grows in interactivity:
 - Copy uses business language: decision, risk, trade-off, next action, delegation, ROI.
 - Claims are specific and believable.
 - ROI language stays cautious unless backed by proof.
-- Links to the static download, `https://www.promptanatomy.app/`, and `https://ditreneris.github.io/ceo/` (sister bridge) remain correct.
+- Links to the static download, **`https://www.promptanatomy.app/`**, and the secondary learning hub **`https://promptanatomy.cloud/`** (PromoBanner / `buildSisterHubUrl`) remain correct and UTM-tagged. If `public/llms.txt` still mentions **`https://ditreneris.github.io/ceo/`**, treat it as legacy context only unless product retires that line.
 - Search-intent split stays explicit: `leader` = executive decision ops, mother = product authority, sister hub = framework/learning practice.
 - Shipped English uses **American English** (not UK spellings/phrasing); see **US English (shipped default)** in [`.cursor/rules/language-standard.mdc`](../.cursor/rules/language-standard.mdc).
 

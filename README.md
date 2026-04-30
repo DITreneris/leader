@@ -25,7 +25,7 @@ Shipped **`main`** builds are **pure English**: only **`/en/`** (plus `/` → `/
 To **turn Lithuanian back on** (dual routes + toggle):
 
 1. Set [`src/constants/siteLocale.ts`](src/constants/siteLocale.ts) **`SHIPPED_LOCALES`** to `["en", "lt"] as const`.
-2. In [`astro.config.mjs`](astro.config.mjs), set **`shippedLocales`** / `i18n.locales` to `["en", "lt"]` and restore sitemap **`lt: "lt-LT"`** under `integrations` → `@astrojs/sitemap` → `i18n.locales`.
+2. In [`astro.config.mjs`](astro.config.mjs), set **`shippedLocales`** and **`i18n.locales`** to exactly the same list as step 1 (`["en", "lt"]`), and under `@astrojs/sitemap` → `i18n.locales` restore **`lt: "lt-LT"`** alongside **`en: "en-US"`**. All three must stay in sync—drift breaks routes or hreflang in the sitemap.
 3. Re-add **`src/pages/lt/index.astro`** with:
 
    ```astro
