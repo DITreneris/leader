@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import "../styles/global.css";
+import Analytics from "@vercel/analytics/astro";
 import ClarityDemo from "../components/ClarityDemo.astro";
 import CourseCTA from "../components/CourseCTA.astro";
 import Faq from "../components/Faq.astro";
@@ -123,6 +124,7 @@ const telegramHref = buildTelegramUrl();
     <meta name="theme-color" content="#0b1320" />
     <meta name="generator" content={`PromptAnatomy Executive OS ${APP_VERSION}`} />
     <title>{meta.title}</title>
+    <Analytics />
     <script is:inline type="application/ld+json" set:html={serializedJsonLd} />
     <script is:inline set:html={`window.__PA_COPY__ = ${serializedCopy};`} />
   </head>
