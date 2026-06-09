@@ -6,12 +6,13 @@ Visuals should make the CEO feel the transformation quickly: business noise beco
 
 ## Priority Visuals
 
-1. Hero decision diagram (shipped)
+1. Hero split-compare — premium pass (shipped)
    - Component: [`HeroDecisionDiagram.astro`](../src/components/HeroDecisionDiagram.astro)
-   - Copy: `heroDiagram.*` in locale bundles (3-step pipeline + 5-row sample brief engine card)
-   - Message: "Scattered input → decision context → decision brief with owner, risks, deadline, next action."
-   - Placement: hero right column (native SVG/CSS; no raster required for v1).
-   - Optional Phase 2 raster: `public/assets/screenshots/hero-executive-output.avif` (fallback/LCP only if needed).
+   - Copy: `heroDiagram.brief.decision|why|owner|risk|nextAction` — hierarchical brief (not flat `rows[]`)
+   - Message: "Decision hero block → Why → Owner/Risk → Next — scannable in ~2 seconds."
+   - Visual grammar: blog [`split-compare`](https://github.com/DITreneris/blog/blob/main/data/og/templates/split-compare.mjs); brief panel dominant (~58% flex); center **minimal arrow connector** only (no label, no third panel)
+   - Placement: hero right column; process detail in `#context` workflow rail.
+   - Motion: CSS-only load stagger + panel hover/focus emphasis; static when `prefers-reduced-motion: reduce`.
 
 ### Archival (not mounted on the landing)
 

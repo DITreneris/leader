@@ -2,6 +2,18 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-06-09 (hero split diagram polish)
+
+### Changed
+
+- **Hero:** [`Hero.astro`](src/components/Hero.astro) — desktop header CTA + nav polish; [`HeroDecisionDiagram.astro`](src/components/HeroDecisionDiagram.astro) — split noise → brief panel with minimal arrow connector.
+- **Styles:** [`global.css`](src/styles/global.css) — `hero-split` spatial canvas tokens and brief hierarchy.
+- **Copy:** [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts) — `nav.*`, `hero.*`, `heroDiagram.*` aligned to split diagram; [`e2e/smoke.spec.ts`](e2e/smoke.spec.ts) diagram aria.
+
+### Docs
+
+- [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md), [`docs/VISUAL_CONTENT_MAP.md`](docs/VISUAL_CONTENT_MAP.md).
+
 ## 2026-06-09 (user journey Option A — docs)
 
 ### Docs

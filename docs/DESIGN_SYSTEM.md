@@ -143,11 +143,11 @@ Maps “template” → existing components (reference implementation).
 | **Hero** | First screen: promise + nav + primary/secondary CTAs | `Hero.astro`, `HeroDecisionDiagram.astro` — **exception:** custom hero eyebrow pill, not `SectionTitleBlock` |
 | **Content** | Modules, library, dense value | `SectionShell` + `SectionTitleBlock` + `ContentCard` grid or accordions (`ExecutiveModules`, `PromptLibrary`) |
 | **Comparison** | Before / after or contrast story | `SectionShell` + `SectionTitleBlock` + copy column + `DiagramContainer` (hero diagram ships proof; standalone BeforeAfter removed **2026-06-09**) |
-| **Process** | Steps, ROI path, flow | `SectionShell` + steps or `DiagramContainer` + `BulletSystem` where lists matter (e.g. `RoiPath`, `HeroDecisionDiagram`) |
+| **Process** | Steps, ROI path, flow | `SectionShell` + steps or `DiagramContainer` + `BulletSystem` where lists matter (e.g. `RoiPath`) |
 | **CTA** | Conversion band | One primary CTA per major section; `HighlightStrip` / `CourseCTA` patterns; gold `cta-gradient` for primary action |
 | **Reference** | Optional framework vocabulary (late funnel) | [`PromptAnatomy.astro`](../src/components/PromptAnatomy.astro) — collapsed `<details>`; per block: definition label + body, monospace **example** strip (always populated), **On this page** text link to `#context` / `#demo` / `#safety-check`. Use light bordered cards — **not** `surface-panel` form-style panels. |
 
-**HeroDecisionDiagram (right column):** One `glass-card` panel with a **3-pill pipeline** (Noise → Context → Module), connector arrows (`--color-hero-diagram-line`), and a nested **engine card** with three sample rows (Decision / Risks / Next action). Sample rows use neutral fill + semantic **left border** (gold / rose / emerald); pipeline pills stay compact chips. One subtle glow orb (`--color-hero-diagram-glow`); do **not** stack competing gold on the diagram—hero `cta-gradient` stays the primary bright gold. `prefers-reduced-transparency`: solid surface fallback on `.hero-diagram.glass-card`.
+**HeroDecisionDiagram (right column):** One `glass-card` **split-compare** (`hero-split__*`): Example eyebrow (slate micro-label), **Scattered inputs** (~42% flex, slate titles) → **minimal gold arrow connector** (no center label or line rail) → **Decision brief** panel (~58% flex). Brief uses **hierarchy layout** (not flat rows): Decision hero block (gold label + left accent) → Why → Owner|Risk meta grid (risk amber border) → Next with slate arrow. No inner "Decision brief" panel title. CSS-only motion; process detail in `#context`.
 
 ---
 

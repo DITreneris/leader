@@ -15,14 +15,14 @@ test.describe("smoke", () => {
     await expect(diagram).toBeVisible();
     await expect(diagram).toHaveAttribute(
       "aria-label",
-      "Example executive decision flow: scattered input through decision context to a sample decision brief with owner, risks, deadline, and next action."
+      "Example: scattered executive inputs synthesized into a decision brief with decision, owner, rationale, risk, and next action."
     );
   });
 
   test("PromptAnatomy outbound link includes leader UTM", async ({ page }) => {
     await page.goto("/leader/");
-    // Skip hidden mobile-drawer links; assert a visible hero CTA.
-    const link = page.locator("section.relative a[href*='promptanatomy.app'][target='_blank']").first();
+    const link = page.locator("a[href*='promptanatomy.app'][target='_blank']").filter({ visible: true }).first();
+    await link.scrollIntoViewIfNeeded();
     await expect(link).toBeVisible();
     const href = await link.getAttribute("href");
     expect(href).toMatch(/utm_source=leader/);
@@ -96,7 +96,7 @@ test.describe("smoke", () => {
     await menuBtn.click();
     await expect(menuBtn).toHaveAttribute("aria-expanded", "true");
     await expect(panel).toBeVisible();
-    await panel.locator('a[href="#context"]').click();
+    await panel.getByRole("link", { name: "How it works" }).click();
     await expect(menuBtn).toHaveAttribute("aria-expanded", "false");
     await expect(panel).toBeHidden();
   });

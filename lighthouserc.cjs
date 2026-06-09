@@ -2,13 +2,17 @@
 const basePath = process.env.BASE_PATH ?? "/";
 const normalizedBase =
   basePath === "/" ? "" : `/${String(basePath).replace(/^\/|\/$/g, "")}`;
-const indexPath = `${normalizedBase}/index.html`.replace(/\/+/g, "/") || "/index.html";
+const previewPath = normalizedBase ? `${normalizedBase}/` : "/";
+const port = process.env.LHCI_PREVIEW_PORT || "4321";
+const previewUrl = `http://127.0.0.1:${port}${previewPath}`;
 
 module.exports = {
   ci: {
     collect: {
-      staticDistDir: "./dist",
-      url: [indexPath],
+      // staticDistDir cannot serve Astro base-path builds (/leader/* assets, not /leader/index.html on disk).
+      startServerCommand: `npx astro preview --host 127.0.0.1 --port ${port}`,
+      startServerReadyPattern: String(port),
+      url: [previewUrl],
     },
     assert: {
       assertions: {

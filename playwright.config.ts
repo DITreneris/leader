@@ -3,7 +3,13 @@ import { defineConfig, devices } from "@playwright/test";
 /**
  * E2E expects `dist/` built with the same `BASE_PATH` as production (e.g. `/leader`).
  * CI: build step sets BASE_PATH + SITE_URL, then `npm run test:e2e`.
+ * `astro preview` must receive the same BASE_PATH or `/leader/` never becomes ready.
  */
+const basePath = process.env.BASE_PATH ?? "/leader";
+const previewPath =
+  basePath === "/" ? "/" : `/${String(basePath).replace(/^\/|\/$/g, "")}/`;
+const previewOrigin = "http://127.0.0.1:4321";
+
 export default defineConfig({
   testDir: "e2e",
   fullyParallel: true,
@@ -13,13 +19,17 @@ export default defineConfig({
   reporter: process.env.CI ? "github" : "list",
   use: {
     ...devices["Desktop Chrome"],
-    baseURL: "http://127.0.0.1:4321",
+    baseURL: previewOrigin,
     trace: "on-first-retry",
   },
   webServer: {
     command: "npx astro preview --host 127.0.0.1 --port 4321",
-    url: "http://127.0.0.1:4321/leader/",
+    url: `${previewOrigin}${previewPath}`,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
+    env: {
+      BASE_PATH: basePath,
+      SITE_URL: process.env.SITE_URL ?? "https://ditreneris.github.io",
+    },
   },
 });

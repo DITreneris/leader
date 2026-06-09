@@ -2,6 +2,21 @@
  * Shared SITE_URL + BASE_PATH helpers — must match routing in astro.config.mjs.
  * Used by robots.txt integration and any tooling that needs the deployed sitemap URL.
  */
+
+/** GitHub Pages hostnames are case-insensitive; Astro emits lowercase in canonicals. */
+export function normalizeSiteOrigin(origin) {
+  const trimmed = origin.replace(/\/$/, "");
+  try {
+    const url = new URL(trimmed);
+    if (url.hostname.endsWith(".github.io")) {
+      url.hostname = url.hostname.toLowerCase();
+    }
+    return url.origin;
+  } catch {
+    return trimmed;
+  }
+}
+
 export function getAstroBase() {
   const basePath = process.env.BASE_PATH ?? "/";
   return basePath === "/" ? "/" : `/${basePath.replace(/^\/|\/$/g, "")}/`;
@@ -9,7 +24,7 @@ export function getAstroBase() {
 
 export function getSiteOrigin() {
   const explicit = process.env.SITE_URL?.trim();
-  if (explicit) return explicit.replace(/\/$/, "");
+  if (explicit) return normalizeSiteOrigin(explicit);
 
   // Hosting providers commonly expose the public hostname via env vars.
   // Prefer these over the GitHub Pages default to keep canonicals, OG tags,
@@ -22,7 +37,7 @@ export function getSiteOrigin() {
 
   if (inferredHost) {
     const withProtocol = inferredHost.startsWith("http") ? inferredHost : `https://${inferredHost}`;
-    return withProtocol.replace(/\/$/, "");
+    return normalizeSiteOrigin(withProtocol);
   }
 
   return "https://ditreneris.github.io";
