@@ -18,10 +18,19 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: process.env.CI ? "github" : "list",
   use: {
-    ...devices["Desktop Chrome"],
     baseURL: previewOrigin,
     trace: "on-first-retry",
   },
+  projects: [
+    {
+      name: "desktop",
+      use: { ...devices["Desktop Chrome"] },
+    },
+    {
+      name: "mobile",
+      use: { ...devices["Pixel 5"] },
+    },
+  ],
   webServer: {
     command: "npx astro preview --host 127.0.0.1 --port 4321",
     url: `${previewOrigin}${previewPath}`,

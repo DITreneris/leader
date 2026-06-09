@@ -8,7 +8,7 @@ Canonical conversion spine for PromptAnatomy Executive OS. Section order = [`src
 |------|--------|-----------------|---------------------|-------------|
 | — | (hero) | Executive decision kit | — | Orient |
 | **1** | `#context` | Step 1 · Define your business context | How it works | Fill context, pick module, copy brief |
-| bridge | — | Step 2 next (PromoBanner) | — | Hand off to proof |
+| bridge | — | Prove it next (PromoBanner) | — | Hand off to proof |
 | **2** | `#demo` | Step 2 · Prove on a scenario | Example | Clarity practice on sample scenario |
 | gate | `#safety-check` | Safety check (not numbered) | — | Risk review before send |
 | **3** | `#kit` | Step 3 · Download the kit | What you get | PDF download |
@@ -41,7 +41,7 @@ Never use “Step 1” in Anatomy or ROI — that collides with macro Step 1 at 
 ```mermaid
 flowchart TD
   Hero[Hero Build brief] --> S1["Step1 context"]
-  S1 --> Promo["Promo Step2 next"]
+  S1 --> Promo["Promo ProveItNext"]
   Promo --> S2["Step2 demo"]
   S2 --> Gate[Safety gate]
   Gate --> S3["Step3 kit"]
@@ -92,7 +92,7 @@ See [`STRATEGIC_REVISION_PLAN.md`](STRATEGIC_REVISION_PLAN.md) §4.3 and [`UTM_M
 
 ## QA (5 min)
 
-1. Scroll: Step 1 → Step 2 next → Step 2 → Step 3 eyebrows visible in order.
+1. Scroll: Step 1 eyebrow → Prove it next bridge → Step 2 eyebrow → Download the kit next bridge → Step 3 eyebrow (only three visible “Step N” labels on section eyebrows).
 2. Workflow rail aria: “Within Step 1.”
 3. Anatomy: Block N only. ROI: Move N of 5 only.
 4. Promo `aria-label` matches e2e smoke test.

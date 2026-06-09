@@ -2,7 +2,7 @@
 
 **Apimtis:** statinė vieno puslapio iškrovimo (`src/layouts/Page.astro`), Tailwind + `global.css`, kliento skriptai (`InteractiveCopy.astro`, įterpti `<script>` kai kuriuose komponentuose).  
 **Data:** 2026-04-28.  
-**Atnaujinta:** 2026-04-29 — inkarų lentelė ir `#roi` (`RoiPath.astro`); hero nav politika žr. [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md) (Hash anchors).  
+**Atnaujinta:** 2026-06-09 — Mobile Audit v2 pataisymai (hero animacija, tap targets, iOS inputai); žr. skyrių **Įgyvendinta (2026-06-09)**. Anksčiau: 2026-04-29 — inkarų lentelė ir `#roi` (`RoiPath.astro`); hero nav politika žr. [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md) (Hash anchors).  
 **Tikslas:** identifikuoti trikdžius, rizikas ir tobulinimo galimybes mažuose ekranuose; fiksuoti vartotojo interakcijas kaip vykdymo šaltinį QA ir ateities refaktoriams.
 
 ---
@@ -14,6 +14,20 @@
 - **Hero mobilus meniu:** Tab **focus trap** atidarytai panelei; `Escape` uždaro tik kai meniu atidarytas; **`role="dialog"`**, **`aria-modal="true"`**, **`aria-label`** ant panelės ([`Hero.astro`](../src/components/Hero.astro)).
 - **Viewport / korpusas:** meta **`viewport-fit=cover`** ([`Page.astro`](../src/layouts/Page.astro), [`index.astro`](../src/pages/index.astro)); **`body`** — `padding-*` iš `env(safe-area-inset-*)`; **`min-height: 100dvh`** su `@supports` fallback į `100vh` ([`global.css`](../src/styles/global.css)).
 - **Meme raster (C2):** [`MemeMoment.astro`](../src/components/MemeMoment.astro) — `<picture>` (**AVIF → WebP → PNG**); generavimas **`npm run optimize:memes`** ([`scripts/optimize-meme-images.mjs`](../scripts/optimize-meme-images.mjs), devDependency **`sharp`**).
+
+---
+
+## Įgyvendinta (2026-06-09) — Mobile Audit v2
+
+- **Hero split diagrama (M013/M014):** [`global.css`](../src/styles/global.css) — ant `max-width: 35.99rem` išjungtos jungties ir panelių įžanginės animacijos (`animation: none`), jungtis lieka `rotate(90deg)` (vertikalus srautas); horizontalių `translateX` įėjimų nėra. Panelių `:hover` liftas tik `@media (hover: hover) and (pointer: fine)`.
+- **iOS konteksto laukai (M001):** `.input-executive` — `font-size: 1rem` ≤639px.
+- **Safe-area viršus (M007):** `body` — `padding-top: env(safe-area-inset-top)`.
+- **Touch targets:** mobilus meniu, FAQ, modulių `summary`, footer, paste juosta, custom preset chips, promo sister nuoroda — `min-h-11` kur taikoma.
+- **Kopijos fallback (M018):** `en.ts` `a11y.copyManual` — long-press mobiliajam.
+- **#demo tabai (M008):** trumpi mobilūs etiketės (`*TabShort`) + pilnas `aria-label`.
+- **E2E:** [`playwright.config.ts`](../playwright.config.ts) — `desktop` + `mobile` (Pixel 5 / Chromium); [`e2e/smoke.spec.ts`](../e2e/smoke.spec.ts) — jungties rotacija ir 16px input po 375px.
+
+**QA taisyklė:** keičiant hero animacijas, tikrinti **galutinę** `transform` būseną po `animation-fill-mode: both`, ne tik statinį `@media` bloką.
 
 ---
 

@@ -2,6 +2,37 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-06-09 (mobile audit v2 fixes)
+
+### Fixed
+
+- **Hero diagram (mobile):** [`global.css`](src/styles/global.css) — disable connector/panel entrance animations ≤576px so stacked layout keeps a **downward** arrow (`rotate(90deg)`); panel hover gated to `(hover: hover)`.
+- **iOS forms:** 16px `.input-executive` on viewports ≤639px to prevent focus zoom.
+- **Safe-area:** `padding-top: env(safe-area-inset-top)` on `body`.
+- **Tap targets:** mobile menu links, FAQ/module/library summaries, footer links, paste-destination links, custom preset chips, promo sister link (`min-h-11` where applicable).
+- **Copy fallback:** [`en.ts`](src/content/locales/en.ts) `a11y.copyManual` includes long-press instructions for phone users.
+- **Clarity demo tabs:** short mobile labels (`detailsTabShort` etc.) with full `aria-label` on tab buttons.
+
+### Changed
+
+- **E2E:** [`playwright.config.ts`](playwright.config.ts) — desktop + Pixel 5 (Chromium mobile) projects; [`e2e/smoke.spec.ts`](e2e/smoke.spec.ts) — hero connector rotation and 16px context input assertions at 375px.
+- **Hero:** menu panel width uses `max-w-[20rem]` instead of `100vw`; brand subtag `text-xs`.
+
+### Docs
+
+- [`docs/MOBILE_UI_AUDIT.md`](docs/MOBILE_UI_AUDIT.md) — audit v2 hero animation fix and touch-target batch documented.
+
+## 2026-06-09 (macro step label de-noise)
+
+### Changed
+
+- **Copy trim (Option A):** [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts) — macro **Step 1/2/3** kept on section eyebrows only; bridges (`promoBanner`, `demo.followUpEyebrow`), `modules.startHere`, FAQ Q1, and `anatomy.referenceNote` no longer repeat Step numbers.
+- **E2E:** [`e2e/smoke.spec.ts`](e2e/smoke.spec.ts) — PromoBanner aria label without Step prefix.
+
+### Docs
+
+- [`docs/USER_JOURNEY.md`](docs/USER_JOURNEY.md), [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) — bridge/QA notes aligned.
+
 ## 2026-06-09 (hero split diagram polish)
 
 ### Changed

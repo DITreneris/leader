@@ -27,7 +27,7 @@ const promptAnatomyHref = buildPromptAnatomyUrl({ medium: "hero", campaign: "pri
       </span>
       <span class="min-w-0 leading-tight">
         <span class="block text-sm font-black tracking-tight text-white sm:text-base">{c.a11y.brandWordmark}</span>
-        <span class="mt-0.5 block text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+        <span class="mt-0.5 block text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
           {c.a11y.brandSubtag}
         </span>
       </span>
@@ -69,7 +69,7 @@ const promptAnatomyHref = buildPromptAnatomyUrl({ medium: "hero", campaign: "pri
 
   <div
     id="mobile-menu"
-    class="absolute right-0 top-full z-40 mt-2 hidden w-[min(100vw-2.5rem,20rem)] rounded-2xl border border-white/10 bg-slate-950/95 p-4 shadow-2xl backdrop-blur-xl md:hidden"
+    class="absolute right-0 top-full z-40 mt-2 hidden w-full max-w-[20rem] rounded-2xl border border-white/10 bg-slate-950/95 p-4 shadow-2xl backdrop-blur-xl md:hidden"
     data-mobile-menu-panel
     role="dialog"
     aria-modal="true"
@@ -77,13 +77,13 @@ const promptAnatomyHref = buildPromptAnatomyUrl({ medium: "hero", campaign: "pri
   >
     <p id="mobile-menu-title" class="sr-only">{c.a11y.navMobileAria}</p>
     <nav class="flex flex-col gap-1 text-sm font-medium text-slate-200" aria-label={c.a11y.navMobileAria}>
-      <a href="#context" class="focus-ring rounded-xl px-3 py-2.5 transition hover:bg-white/5" data-mobile-menu-link>
+      <a href="#context" class="focus-ring flex min-h-11 items-center rounded-xl px-3 py-2.5 transition hover:bg-white/5" data-mobile-menu-link>
         {c.nav.practice}
       </a>
-      <a href="#demo" class="focus-ring rounded-xl px-3 py-2.5 transition hover:bg-white/5" data-mobile-menu-link>
+      <a href="#demo" class="focus-ring flex min-h-11 items-center rounded-xl px-3 py-2.5 transition hover:bg-white/5" data-mobile-menu-link>
         {c.nav.proof}
       </a>
-      <a href="#kit" class="focus-ring rounded-xl px-3 py-2.5 transition hover:bg-white/5" data-mobile-menu-link>
+      <a href="#kit" class="focus-ring flex min-h-11 items-center rounded-xl px-3 py-2.5 transition hover:bg-white/5" data-mobile-menu-link>
         {c.nav.kitPdf}
       </a>
       <a
@@ -97,7 +97,7 @@ const promptAnatomyHref = buildPromptAnatomyUrl({ medium: "hero", campaign: "pri
         href={promptAnatomyHref}
         target="_blank"
         rel="noopener noreferrer"
-        class="focus-ring mt-1 px-3 py-2.5 text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white"
+        class="focus-ring mt-1 flex min-h-11 items-center px-3 py-2.5 text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white"
         data-mobile-menu-link
       >
         {c.hero.productCta} →

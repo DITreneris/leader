@@ -227,6 +227,13 @@
   border-color: rgba(207, 167, 58, 0.45);
 }
 
+@media (max-width: 639px) {
+  .input-executive {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
 .module-card-featured {
   box-shadow: var(--shadow-glow-accent);
 }
@@ -304,6 +311,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  padding-top: env(safe-area-inset-top, 0px);
   padding-left: env(safe-area-inset-left, 0px);
   padding-right: env(safe-area-inset-right, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -608,40 +616,42 @@ summary.library-summary {
   opacity: 1;
 }
 
-.hero-split__card:has(.hero-split__panel--noise:hover) .hero-split__panel--brief,
-.hero-split__card:has(.hero-split__panel--noise:focus-within) .hero-split__panel--brief {
-  opacity: 0.45;
-  transform: scale(0.98);
-}
+@media (hover: hover) and (pointer: fine) {
+  .hero-split__card:has(.hero-split__panel--noise:hover) .hero-split__panel--brief,
+  .hero-split__card:has(.hero-split__panel--noise:focus-within) .hero-split__panel--brief {
+    opacity: 0.45;
+    transform: scale(0.98);
+  }
 
-.hero-split__card:has(.hero-split__panel--brief:hover) .hero-split__panel--noise,
-.hero-split__card:has(.hero-split__panel--brief:focus-within) .hero-split__panel--noise {
-  opacity: 0.3;
-  transform: scale(0.98);
-}
+  .hero-split__card:has(.hero-split__panel--brief:hover) .hero-split__panel--noise,
+  .hero-split__card:has(.hero-split__panel--brief:focus-within) .hero-split__panel--noise {
+    opacity: 0.3;
+    transform: scale(0.98);
+  }
 
-.hero-split__panel--noise:hover,
-.hero-split__panel--noise:focus-within {
-  opacity: 1;
-  transform: translateY(-6px) scale(1.04);
-  border-color: rgba(251, 191, 36, 0.5);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-}
+  .hero-split__panel--noise:hover,
+  .hero-split__panel--noise:focus-within {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.04);
+    border-color: rgba(251, 191, 36, 0.5);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  }
 
-.hero-split__panel--brief:hover,
-.hero-split__panel--brief:focus-within {
-  opacity: 1;
-  transform: translateY(-6px) scale(1.04);
-  border-color: rgba(207, 167, 58, 0.65);
-  box-shadow:
-    0 16px 36px rgba(0, 0, 0, 0.35),
-    0 0 28px rgba(207, 167, 58, 0.28);
-}
+  .hero-split__panel--brief:hover,
+  .hero-split__panel--brief:focus-within {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.04);
+    border-color: rgba(207, 167, 58, 0.65);
+    box-shadow:
+      0 16px 36px rgba(0, 0, 0, 0.35),
+      0 0 28px rgba(207, 167, 58, 0.28);
+  }
 
-.hero-split__card:hover .hero-split__connector,
-.hero-split__card:focus-within .hero-split__connector {
-  transform: translateX(4px) scale(1.08);
-  filter: drop-shadow(0 0 8px rgba(207, 167, 58, 0.5));
+  .hero-split__card:hover .hero-split__connector,
+  .hero-split__card:focus-within .hero-split__connector {
+    transform: translateX(4px) scale(1.08);
+    filter: drop-shadow(0 0 8px rgba(207, 167, 58, 0.5));
+  }
 }
 
 .hero-split__panel-title {
@@ -833,17 +843,33 @@ summary.library-summary {
   .hero-split__connector {
     width: auto;
     padding: 0.25rem 0;
+    animation: none;
+    opacity: 1;
     transform: rotate(90deg);
   }
 
-  .hero-split__card:hover .hero-split__connector,
-  .hero-split__card:focus-within .hero-split__connector {
-    transform: rotate(90deg) translateX(4px) scale(1.08);
+  .hero-split__panel--noise,
+  .hero-split__panel--brief,
+  .hero-split__chip,
+  .hero-split__decision-block,
+  .hero-split__why-row,
+  .hero-split__brief-footer {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 
   .hero-split__panel--noise,
   .hero-split__panel--brief {
     flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 35.99rem) and (hover: hover) and (pointer: fine) {
+  .hero-split__card:hover .hero-split__connector,
+  .hero-split__card:focus-within .hero-split__connector {
+    transform: rotate(90deg) translateY(4px) scale(1.08);
+    filter: drop-shadow(0 0 8px rgba(207, 167, 58, 0.5));
   }
 }
 
@@ -996,6 +1022,26 @@ summary.library-summary {
 
   .hero-enter--4 {
     animation-delay: 300ms;
+  }
+}
+
+/* Mobile stack: must follow hero entrance rules so animation:none wins over both. */
+@media (max-width: 35.99rem) {
+  .hero-split__connector {
+    animation: none;
+    opacity: 1;
+    transform: rotate(90deg);
+  }
+
+  .hero-split__panel--noise,
+  .hero-split__panel--brief,
+  .hero-split__chip,
+  .hero-split__decision-block,
+  .hero-split__why-row,
+  .hero-split__brief-footer {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 

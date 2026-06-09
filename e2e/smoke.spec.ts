@@ -33,7 +33,7 @@ test.describe("smoke", () => {
   test("PromoBanner primary CTA targets clarity practice", async ({ page }) => {
     await page.goto("/leader/");
     const promo = page.getByRole("region", {
-      name: "Step 2: prove on a scenario before the full product.",
+      name: "Prove on a scenario before the full product.",
     });
     await expect(promo).toBeVisible();
     const goldCta = promo.locator("a.cta-gradient").first();
@@ -99,6 +99,33 @@ test.describe("smoke", () => {
     await panel.getByRole("link", { name: "How it works" }).click();
     await expect(menuBtn).toHaveAttribute("aria-expanded", "false");
     await expect(panel).toBeHidden();
+  });
+
+  test("hero connector is rotated on narrow viewports after load", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/leader/");
+    const connector = page.getByTestId("hero-connector");
+    await expect(connector).toBeVisible();
+    await page.waitForTimeout(1500);
+    const isRotated = await connector.evaluate((el) => {
+      const transform = getComputedStyle(el).transform;
+      if (transform === "none") return false;
+      if (transform.includes("rotate(90deg)")) return true;
+      const match = transform.match(/matrix\(([^)]+)\)/);
+      if (!match) return false;
+      const values = match[1].split(",").map((part) => parseFloat(part.trim()));
+      const b = values[1];
+      const c = values[2];
+      return Math.abs(b) > 0.5 || Math.abs(c) > 0.5;
+    });
+    expect(isRotated).toBe(true);
+  });
+
+  test("context inputs use 16px font on narrow viewports", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/leader/");
+    const fontSize = await page.locator("#ctx-company").evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
+    expect(fontSize).toBeGreaterThanOrEqual(16);
   });
 
   test("context module copy control is present", async ({ page }) => {

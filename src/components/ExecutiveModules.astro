@@ -108,7 +108,7 @@ const inputClass =
       </p>
 
       <details class="surface-panel radius-lg mt-6 border-white/15 p-4">
-        <summary class="focus-ring summary-hover -m-2 radius-lg px-2 py-2 text-sm font-semibold text-slate-200">
+        <summary class="focus-ring summary-hover -m-2 min-h-11 radius-lg px-2 py-3 text-sm font-semibold text-slate-200">
           {modules.rulesPreview.title}
         </summary>
         <ul class="mt-4 space-y-2 text-sm leading-6 text-slate-200">
@@ -162,14 +162,14 @@ const inputClass =
                 </p>
 
                 <details class="surface-panel radius-lg mt-4 p-4" open={isFeatured ? true : undefined}>
-                  <summary class="focus-ring summary-hover -m-2 radius-lg px-2 py-2 text-sm font-semibold text-slate-200">
+                  <summary class="focus-ring summary-hover -m-2 min-h-11 radius-lg px-2 py-3 text-sm font-semibold text-slate-200">
                     {modules.taskLabel}
                   </summary>
                   <p class="mt-3 whitespace-pre-wrap text-sm leading-6 text-slate-200">{m.taskFormat}</p>
                 </details>
 
                 <details class="surface-panel radius-lg mt-4 p-4">
-                  <summary class="focus-ring summary-hover -m-2 radius-lg px-2 py-2 text-sm font-semibold text-slate-200">
+                  <summary class="focus-ring summary-hover -m-2 min-h-11 radius-lg px-2 py-3 text-sm font-semibold text-slate-200">
                     {modules.outputLabel}
                   </summary>
                   <pre
@@ -179,7 +179,7 @@ const inputClass =
 
                 {isFeatured && (
                   <details class="surface-panel radius-lg mt-4 p-4" data-module-preview={m.id}>
-                    <summary class="focus-ring summary-hover -m-2 radius-lg px-2 py-2 text-sm font-semibold text-slate-200">
+                    <summary class="focus-ring summary-hover -m-2 min-h-11 radius-lg px-2 py-3 text-sm font-semibold text-slate-200">
                       {modules.previewPromptLabel}
                     </summary>
                     <pre
@@ -242,7 +242,7 @@ const inputClass =
                 modules.custom.outputPresets.map((preset) => (
                   <button
                     type="button"
-                    class="focus-ring btn-chip rounded-full px-3 py-2 text-xs font-semibold"
+                    class="focus-ring btn-chip min-h-11 rounded-full px-4 py-3 text-sm font-semibold"
                     data-custom-preset={preset.id}
                   >
                     {preset.label}
