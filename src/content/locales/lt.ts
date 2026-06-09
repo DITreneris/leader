@@ -153,8 +153,8 @@ export const ltCopy = {
       licenseNote: "Use your org-licensed provider and account; follow each vendor's terms and plan limits.",
     },
     promoBanner: {
-      ariaLabel: "Kitas žingsnis: aiškumo praktika prieš pilną produktą.",
-      eyebrow: "Kitas žingsnis",
+      ariaLabel: "Step 2: prove on a scenario before the full product.",
+      eyebrow: "Step 2 next",
       title: "Test the framework on a real executive scenario.",
       subtitle: "Five short cases—then take the kit or open the full app.",
       primaryCta: "Start the scenario",
@@ -165,10 +165,10 @@ export const ltCopy = {
       eyebrow: "Step 1 · Define your business context",
       title: "Define it once. Use it across every executive module.",
       subtitle: "Give the system four facts about your company and current decision environment.",
-      startHere: "Next: use Decision impact on a pending decision.",
+      startHere: "Step 1: fill context and copy a module—or continue to Step 2 below.",
       nextStepCta: "Open Decision impact",
       recommendedBadge: "Recommended first",
-      workflowAriaLabel: "Three steps: define context, choose a module, copy your brief",
+      workflowAriaLabel: "Within Step 1: define context, choose a module, copy your brief",
       workflowSteps: [
         { label: "Define context", desc: "Four fields about your company" },
         { label: "Choose a module", desc: "Pick the decision outcome you need" },
@@ -731,7 +731,7 @@ Eliminate now:
       ],
     },
     demo: {
-      eyebrow: "Aiškumo praktika",
+      eyebrow: "Step 2 · Prove on a scenario",
       title: "Pick a scenario. Structure the decision.",
       subtitle: "Choose one executive situation and copy a decision-ready prompt.",
       scenarioHint: "",
@@ -942,7 +942,7 @@ Eliminate now:
       printableKitLink: "Spausdinamas rinkinys (PDF)",
     },
     cta: {
-      eyebrow: "Vadovo rinkinys",
+      eyebrow: "Step 3 · Download the kit",
       title: "Atsisiųsk rinkinį. Komandos standartą diek PromptAnatomy, kai reikia.",
       subtitle: "",
       primary: "Atsisiųsti Max Value Kit",

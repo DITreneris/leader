@@ -33,7 +33,7 @@ test.describe("smoke", () => {
   test("PromoBanner primary CTA targets clarity practice", async ({ page }) => {
     await page.goto("/leader/");
     const promo = page.getByRole("region", {
-      name: "Next step: clarity practice before full product.",
+      name: "Step 2: prove on a scenario before the full product.",
     });
     await expect(promo).toBeVisible();
     const goldCta = promo.locator("a.cta-gradient").first();
@@ -42,6 +42,19 @@ test.describe("smoke", () => {
     await expect(paLink).toBeVisible();
     const href = await paLink.getAttribute("href");
     expect(href).toMatch(/utm_source=leader/);
+  });
+
+  test("macro step eyebrows appear on conversion spine", async ({ page }) => {
+    await page.goto("/leader/");
+    const context = page.locator("#context");
+    await context.scrollIntoViewIfNeeded();
+    await expect(context).toContainText(/Step 1/);
+    const demo = page.locator("#demo");
+    await demo.scrollIntoViewIfNeeded();
+    await expect(demo).toContainText(/Step 2/);
+    const kit = page.locator("#kit");
+    await kit.scrollIntoViewIfNeeded();
+    await expect(kit).toContainText(/Step 3/);
   });
 
   test("kit section exposes PDF download link", async ({ page }) => {

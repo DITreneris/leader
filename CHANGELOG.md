@@ -10,6 +10,17 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 - [`docs/STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md) §3 — Option A label authority pointer.
 - [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md) — hash table adds macro step column.
 
+## 2026-06-09 (user journey Option A — macro spine)
+
+### Changed
+
+- **Macro Step 1–3 eyebrows:** [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts) — `demo.eyebrow` Step 2, `cta.eyebrow` Step 3, `promoBanner` Step 2 bridge, `modules.workflowAriaLabel` / `startHere` deconflict micro-rail.
+- **E2E:** [`e2e/smoke.spec.ts`](e2e/smoke.spec.ts) — promo aria + macro step eyebrow smoke test.
+
+### Docs
+
+- [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) — slides #5, #6, #8, #11.
+
 ## 2026-06-10 (design system consistency refinement)
 
 ### Changed

@@ -151,8 +151,8 @@ export const enCopy = {
       licenseNote: "Use your org-licensed provider and account; follow each vendor's terms and plan limits.",
     },
     promoBanner: {
-      ariaLabel: "Next step: clarity practice before full product.",
-      eyebrow: "Next step",
+      ariaLabel: "Step 2: prove on a scenario before the full product.",
+      eyebrow: "Step 2 next",
       title: "Test the framework on a real executive scenario.",
       subtitle: "Five short cases—then take the kit or open the full app.",
       primaryCta: "Start the scenario",
@@ -163,10 +163,10 @@ export const enCopy = {
       eyebrow: "Step 1 · Define your business context",
       title: "Define it once. Use it across every executive module.",
       subtitle: "Give the system four facts about your company and current decision environment.",
-      startHere: "Next: use Decision impact on a pending decision.",
+      startHere: "Step 1: fill context and copy a module—or continue to Step 2 below.",
       nextStepCta: "Open Decision impact",
       recommendedBadge: "Recommended first",
-      workflowAriaLabel: "Three steps: define context, choose a module, copy your brief",
+      workflowAriaLabel: "Within Step 1: define context, choose a module, copy your brief",
       workflowSteps: [
         { label: "Define context", desc: "Four fields about your company" },
         { label: "Choose a module", desc: "Pick the decision outcome you need" },
@@ -730,7 +730,7 @@ Eliminate now:
       ],
     },
     demo: {
-      eyebrow: "Clarity practice",
+      eyebrow: "Step 2 · Prove on a scenario",
       title: "Pick a scenario. Structure the decision.",
       subtitle: "Choose one executive situation and copy a decision-ready prompt.",
       scenarioHint: "",
@@ -937,7 +937,7 @@ Eliminate now:
       printableKitLink: "Get the printable kit (PDF)",
     },
     cta: {
-      eyebrow: "Executive kit",
+      eyebrow: "Step 3 · Download the kit",
       title: "Download the kit. Set the team standard on PromptAnatomy when you need it.",
       subtitle: "",
       primary: "Download Max Value Kit",

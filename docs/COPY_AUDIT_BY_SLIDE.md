@@ -156,6 +156,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 - **Failai:** [`ExecutiveModules.astro`](../src/components/ExecutiveModules.astro), [`InteractiveCopy.astro`](../src/components/InteractiveCopy.astro) (JS kompiliavimas)
 - **Raktai:** `modules.context`, `modules.contextFootnote`, `modules.contextMapAriaLabel`, `modules.contextMapInjectLabel`, `modules.contextMapCaption`, `modules.items[]`, `modules.custom`, `modules.rulesPreview`, `modules.roleLine`, fallback placeholderiai JS
+- **EN (shipped Option A):** `modules.eyebrow` = **Step 1 · Define your business context**; `workflowAriaLabel` = **Within Step 1: …**; `startHere` bridges to Step 2 via Promo (no second gold CTA here). Žr. [`USER_JOURNEY.md`](USER_JOURNEY.md).
 
 **LT**
 
@@ -189,6 +190,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **LT / EN**
 
 - CTA hierarchija sutampa su konversijos kopėčiomis.
+- **EN (shipped Option A):** `promoBanner.eyebrow` = **Step 2 next**; `ariaLabel` = **Step 2: prove on a scenario before the full product.** Gold → `#demo`.
 
 **Veiksmai**
 
@@ -210,7 +212,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ## 8. Aiškumo praktika (`#demo`)
 
-- **Ženklinimas (EN/LT):** bendra etikete vadinama **`Clarity practice` / `Aiškumo praktika`** — `nav.proof`, `demo.eyebrow`.
+- **Ženklinimas (EN/LT):** `nav.proof` = **Example** (friendly nav). `demo.eyebrow` = **Step 2 · Prove on a scenario** (macro ladder). Clarity practice lieka turinio/feature pavadinime FAQ ir body kur reikia.
 
 - **Failai:** [`ClarityDemo.astro`](../src/components/ClarityDemo.astro), [`InteractiveCopy.astro`](../src/components/InteractiveCopy.astro)
 - **Raktai:** `demo.*`, `demo.scenarios.*` (incl. `title`, optional `decisionBullets`)
@@ -276,6 +278,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **LT / EN**
 
 - „Pasiimk“ / „Take“ – imperatyvas antraštėje; derina su CTA agresyvumu.
+- **EN (shipped Option A):** `cta.eyebrow` = **Step 3 · Download the kit**; `nav.kitPdf` = **What you get** (unchanged).
 
 **Veiksmai**
 
