@@ -1,0 +1,44 @@
+---
+interface Step {
+  label: string;
+  desc?: string;
+}
+
+interface Props {
+  ariaLabel: string;
+  steps: readonly Step[];
+}
+
+const { ariaLabel, steps } = Astro.props;
+
+const cell =
+  "min-w-0 flex-1 rounded-lg border border-white/15 bg-slate-950/35 px-3 py-3 text-center sm:py-3.5";
+const arrowHidden =
+  "hidden shrink-0 self-center text-base text-white/30 sm:block lg:text-lg";
+---
+
+<nav class="w-full" aria-label={ariaLabel}>
+  <div class="radius-lg border border-white/[0.1] bg-white/[0.03] px-3 py-5 sm:px-6 sm:py-6">
+    <ol class="flex flex-col gap-3 sm:flex-row sm:flex-nowrap sm:items-stretch sm:gap-2">
+      {
+        steps.map((step, index) => (
+          <li class="contents">
+            {index > 0 && (
+              <span class={arrowHidden} aria-hidden="true">
+                →
+              </span>
+            )}
+            <div class={cell}>
+              <p class="text-xs font-bold leading-snug text-brand-accent-hover sm:text-sm">
+                {index + 1}. {step.label}
+              </p>
+              {step.desc && (
+                <p class="mt-1 text-xs leading-snug text-slate-300">{step.desc}</p>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</nav>

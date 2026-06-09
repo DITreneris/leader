@@ -2,6 +2,7 @@
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 import HighlightStrip from "./ds/HighlightStrip.astro";
+import SectionShell from "./ds/SectionShell.astro";
 import { buildPromptAnatomyUrl, buildSisterHubUrl } from "../constants/outboundLinks";
 
 interface Props {
@@ -14,7 +15,7 @@ const promptAnatomyHref = buildPromptAnatomyUrl({ medium: "modules", campaign: "
 const sisterHubHref = buildSisterHubUrl({ medium: "modules", campaign: "sister_hub" });
 ---
 
-<section class="section-y-tight mx-auto max-w-7xl px-5 sm:px-8" aria-label={b.ariaLabel}>
+<SectionShell rhythm="tight" label={b.ariaLabel}>
   <HighlightStrip variant="promo">
     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
       <div class="max-w-2xl">
@@ -31,7 +32,7 @@ const sisterHubHref = buildSisterHubUrl({ medium: "modules", campaign: "sister_h
         <div class="flex w-full flex-col gap-3 sm:flex-row">
           <a
             href="#demo"
-            class="focus-ring cta-gradient type-cta-label elevate-hover rounded-full px-6 py-4 text-center text-slate-950 transition hover:brightness-110"
+            class="focus-ring btn-primary-gold cta-gradient elevate-hover"
           >
             {b.primaryCta}
           </a>
@@ -39,7 +40,7 @@ const sisterHubHref = buildSisterHubUrl({ medium: "modules", campaign: "sister_h
             href={promptAnatomyHref}
             target="_blank"
             rel="noopener noreferrer"
-            class="focus-ring elevate-hover rounded-full border border-white/15 bg-white/[0.02] px-6 py-4 text-center text-sm font-semibold normal-case tracking-wide text-white transition hover:bg-white/5"
+            class="focus-ring btn-outline-neutral elevate-hover rounded-full px-6 py-4 text-center normal-case tracking-wide"
           >
             {b.secondaryCta}
           </a>
@@ -55,4 +56,4 @@ const sisterHubHref = buildSisterHubUrl({ medium: "modules", campaign: "sister_h
       </div>
     </div>
   </HighlightStrip>
-</section>
+</SectionShell>

@@ -1,6 +1,6 @@
 ---
 import ContentCard from "./ds/ContentCard.astro";
-import ContextFieldMap from "./ds/ContextFieldMap.astro";
+import WorkflowStepRail from "./ds/WorkflowStepRail.astro";
 import PasteDestinationStrip from "./ds/PasteDestinationStrip.astro";
 import HighlightStrip from "./ds/HighlightStrip.astro";
 import SectionShell from "./ds/SectionShell.astro";
@@ -14,36 +14,31 @@ interface Props {
 
 const { lang } = Astro.props;
 const modules = uiCopy[lang].modules;
+const FEATURED_MODULE_ID = "secondOrder";
+const inputClass =
+  "focus-ring input-executive mt-2 w-full radius-lg px-4 py-3 text-sm font-semibold text-slate-100";
 ---
 
 <SectionShell id="context" labelledby="context-title" anchorFocusable>
   <SectionTitleBlock eyebrow={modules.eyebrow} title={modules.title} subtitle={modules.subtitle} titleId="context-title" />
 
-  <div class="mx-auto mt-8 max-w-6xl">
-    <ContextFieldMap
-      ariaLabel={modules.contextMapAriaLabel}
-      injectLabel={modules.contextMapInjectLabel}
-      caption={modules.contextMapCaption}
-      fieldCompany={modules.context.companyLabel}
-      fieldGoal={modules.context.goalLabel}
-      fieldConstraint={modules.context.constraintLabel}
-      fieldBottleneck={modules.context.bottleneckLabel}
-    />
+  <div class="mx-auto mt-8 max-w-4xl">
+    <WorkflowStepRail ariaLabel={modules.workflowAriaLabel} steps={modules.workflowSteps} />
   </div>
 
-  <div class="mx-auto mt-10 flex max-w-6xl flex-col gap-5">
-    <ContentCard surface="glass" padding="comfort" overflow="hidden">
+  <div class="mx-auto mt-8 flex max-w-6xl flex-col gap-5">
+    <ContentCard surface="glass" padding="comfort" overflow="hidden" class="mx-auto w-full max-w-4xl">
       <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <p class="type-eyebrow-inline text-brand-accent-hover">{modules.context.title}</p>
         <span class="type-micro-label rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-slate-200">
           {modules.context.badge}
         </span>
       </div>
-      <p class="mt-3 text-sm leading-6 text-slate-300">{modules.context.subtitle}</p>
+      <p class="mt-3 text-sm leading-6 text-slate-200">{modules.context.subtitle}</p>
 
       <div class="mt-6 grid gap-4 sm:grid-cols-2">
         <div>
-          <label class="type-form-label text-slate-500" for="ctx-company">
+          <label class="type-form-label-readable" for="ctx-company">
             {modules.context.companyLabel}
           </label>
           <input
@@ -51,14 +46,14 @@ const modules = uiCopy[lang].modules;
             name="ctx-company"
             type="text"
             placeholder={modules.context.companyPlaceholder}
-            class="focus-ring mt-2 w-full rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm font-semibold text-slate-100 placeholder:text-slate-600"
+            class={inputClass}
             data-context-field="company"
             autocomplete="organization"
           />
         </div>
 
         <div>
-          <label class="type-form-label text-slate-500" for="ctx-goal">
+          <label class="type-form-label-readable" for="ctx-goal">
             {modules.context.goalLabel}
           </label>
           <input
@@ -66,14 +61,14 @@ const modules = uiCopy[lang].modules;
             name="ctx-goal"
             type="text"
             placeholder={modules.context.goalPlaceholder}
-            class="focus-ring mt-2 w-full rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm font-semibold text-slate-100 placeholder:text-slate-600"
+            class={inputClass}
             data-context-field="goal"
             autocomplete="off"
           />
         </div>
 
         <div>
-          <label class="type-form-label text-slate-500" for="ctx-constraint">
+          <label class="type-form-label-readable" for="ctx-constraint">
             {modules.context.constraintLabel}
           </label>
           <input
@@ -81,14 +76,14 @@ const modules = uiCopy[lang].modules;
             name="ctx-constraint"
             type="text"
             placeholder={modules.context.constraintPlaceholder}
-            class="focus-ring mt-2 w-full rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm font-semibold text-slate-100 placeholder:text-slate-600"
+            class={inputClass}
             data-context-field="constraint"
             autocomplete="off"
           />
         </div>
 
         <div>
-          <label class="type-form-label text-slate-500" for="ctx-bottleneck">
+          <label class="type-form-label-readable" for="ctx-bottleneck">
             {modules.context.bottleneckLabel}
           </label>
           <input
@@ -96,15 +91,24 @@ const modules = uiCopy[lang].modules;
             name="ctx-bottleneck"
             type="text"
             placeholder={modules.context.bottleneckPlaceholder}
-            class="focus-ring mt-2 w-full rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm font-semibold text-slate-100 placeholder:text-slate-600"
+            class={inputClass}
             data-context-field="bottleneck"
             autocomplete="off"
           />
         </div>
       </div>
 
-      <details class="surface-panel radius-lg mt-6 p-5">
-        <summary class="focus-ring summary-hover -m-2 rounded-2xl px-2 py-2 text-xs font-semibold tracking-[0.18em] text-slate-300">
+      <p
+        class="mt-4 text-sm leading-6 text-amber-200/90"
+        data-context-status
+        role="status"
+        aria-live="polite"
+      >
+        {modules.contextStatusEmpty}
+      </p>
+
+      <details class="surface-panel radius-lg mt-6 border-white/15 p-4">
+        <summary class="focus-ring summary-hover -m-2 radius-lg px-2 py-2 text-sm font-semibold text-slate-200">
           {modules.rulesPreview.title}
         </summary>
         <ul class="mt-4 space-y-2 text-sm leading-6 text-slate-200">
@@ -113,100 +117,154 @@ const modules = uiCopy[lang].modules;
           ))}
         </ul>
       </details>
-
-      {
-        modules.contextFootnote && (
-          <p class="mt-4 text-xs leading-5 text-slate-400" data-context-warning>
-            {modules.contextFootnote}
-          </p>
-        )
-      }
     </ContentCard>
 
     <HighlightStrip variant="band" bandTone="context">
-      {modules.startHere}
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p>{modules.startHere}</p>
+        <a
+          href="#module-secondOrder"
+          class="focus-ring btn-outline-accent shrink-0 rounded-full px-5 py-3 text-center text-sm font-bold"
+        >
+          {modules.nextStepCta} →
+        </a>
+      </div>
     </HighlightStrip>
 
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {modules.items.map((m) => (
-        <ContentCard
-          surface="surface"
-          as="article"
-          padding="none"
-          overflow="hidden"
-          moduleCard
-          moduleId={m.id}
-          class="flex h-full flex-col p-6"
-        >
-          <div class="flex-1">
-            <p class="type-eyebrow-inline text-brand-accent">{m.eyebrow}</p>
-            <h3 class="mt-3 text-xl font-black text-white">{m.title}</h3>
-            <p class="mt-2 text-sm leading-6 text-slate-300">{m.subtitle}</p>
+      {
+        modules.items.map((m) => {
+          const isFeatured = m.id === FEATURED_MODULE_ID;
+          return (
+            <ContentCard
+              surface={isFeatured ? "accent" : "surface"}
+              as="article"
+              padding="compact"
+              overflow="hidden"
+              moduleCard
+              moduleId={m.id}
+              id={isFeatured ? "module-secondOrder" : undefined}
+              class:list={["flex h-full flex-col", isFeatured && "module-card-featured"]}
+            >
+              <div class="flex-1">
+                {isFeatured && (
+                  <span class="type-micro-label mb-3 inline-block rounded-full border border-brand-accent/35 bg-brand-accent/15 px-3 py-1 text-brand-accent-hover">
+                    {modules.recommendedBadge}
+                  </span>
+                )}
+                <p class="type-eyebrow-inline text-brand-accent">{m.category}</p>
+                <h3 class="mt-3 text-xl font-black text-white">{m.title}</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-200">{m.subtitle}</p>
+                <p class="mt-2 type-body-support">{m.bestFor}</p>
+                <p class="mt-3 type-body-support">
+                  <span class="font-semibold text-slate-200">{modules.outputLabel}:</span>{" "}
+                  {m.outputPreviewLine}
+                </p>
 
-            <div class="surface-panel radius-lg mt-5 p-4">
-              <p class="type-micro-label text-slate-500">{modules.taskLabel}</p>
-              <p class="mt-2 whitespace-pre-wrap font-mono text-sm leading-6 text-slate-200">{m.taskFormat}</p>
-            </div>
+                <details class="surface-panel radius-lg mt-4 p-4" open={isFeatured ? true : undefined}>
+                  <summary class="focus-ring summary-hover -m-2 radius-lg px-2 py-2 text-sm font-semibold text-slate-200">
+                    {modules.taskLabel}
+                  </summary>
+                  <p class="mt-3 whitespace-pre-wrap text-sm leading-6 text-slate-200">{m.taskFormat}</p>
+                </details>
 
-            <details class="surface-panel radius-lg mt-4 p-4">
-              <summary class="focus-ring summary-hover -m-2 rounded-2xl px-2 py-2 type-micro-label text-slate-400">
-                {modules.outputLabel}
-              </summary>
-              <pre class="mt-3 max-h-40 overflow-auto whitespace-pre-wrap font-mono text-xs leading-5 text-slate-200 [tab-size:2]" tabindex="0">{m.outputExampleJson}</pre>
-            </details>
-          </div>
+                <details class="surface-panel radius-lg mt-4 p-4">
+                  <summary class="focus-ring summary-hover -m-2 radius-lg px-2 py-2 text-sm font-semibold text-slate-200">
+                    {modules.outputLabel}
+                  </summary>
+                  <pre
+                    class="text-prompt-preview mt-3 max-h-40 overflow-auto whitespace-pre-wrap [tab-size:2]"
+                    tabindex="0">{m.outputExampleJson}</pre>
+                </details>
 
-          <button
-            type="button"
-            class="focus-ring btn-outline-accent elevate-hover mt-5 rounded-full px-4 py-3 text-sm font-bold"
-            data-module-copy={m.id}
-            data-copy-label-i18n="modules.copyButton"
-            data-copy-copied-i18n="modules.copiedButton"
-          >
-            {modules.copyButton}
-          </button>
-        </ContentCard>
-      ))}
+                {isFeatured && (
+                  <details class="surface-panel radius-lg mt-4 p-4" data-module-preview={m.id}>
+                    <summary class="focus-ring summary-hover -m-2 radius-lg px-2 py-2 text-sm font-semibold text-slate-200">
+                      {modules.previewPromptLabel}
+                    </summary>
+                    <pre
+                      class="text-prompt-preview mt-3 max-h-48 overflow-auto whitespace-pre-wrap [tab-size:2]"
+                      data-module-preview-content={m.id}
+                      tabindex="0"
+                    />
+                  </details>
+                )}
+              </div>
+
+              <button
+                type="button"
+                class="focus-ring btn-outline-accent elevate-hover mt-5 rounded-full px-4 py-3 text-sm font-bold"
+                data-module-copy={m.id}
+                data-copy-label-i18n="modules.copyButton"
+                data-copy-copied-i18n="modules.copiedButton"
+              >
+                {modules.copyButton}
+              </button>
+            </ContentCard>
+          );
+        })
+      }
     </div>
 
-    <ContentCard surface="glass" as="article" overflow="hidden" moduleCard moduleId="custom" class="flex h-full flex-col">
+    <ContentCard
+      surface="glass"
+      as="article"
+      padding="compact"
+      overflow="hidden"
+      moduleCard
+      moduleId="custom"
+      class="flex h-full flex-col"
+    >
       <div class="flex-1">
         <p class="type-eyebrow-inline text-brand-accent">{modules.custom.eyebrow}</p>
         <h3 class="mt-3 text-xl font-black text-white">{modules.custom.title}</h3>
-        <p class="mt-2 text-sm leading-6 text-slate-300">{modules.custom.subtitle}</p>
+        <p class="mt-2 text-sm leading-6 text-slate-200">{modules.custom.subtitle}</p>
 
         <div class="mt-5 grid gap-4 lg:grid-cols-2">
           <div>
-            <label class="type-form-label text-slate-500" for="custom-task">
+            <label class="type-form-label-readable" for="custom-task">
               {modules.custom.taskLabel}
             </label>
             <textarea
               id="custom-task"
-              class="focus-ring mt-2 min-h-36 w-full rounded-3xl border border-white/10 bg-slate-950/40 px-4 py-3 font-mono text-sm leading-6 text-slate-100 placeholder:text-slate-600"
+              class:list={[inputClass, "min-h-36 radius-xl leading-6"]}
               placeholder={modules.custom.taskPlaceholder}
               data-custom-task
-            ></textarea>
+            />
           </div>
 
           <div>
-            <label class="type-form-label text-slate-500" for="custom-output">
+            <label class="type-form-label-readable" for="custom-output">
               {modules.custom.outputLabel}
             </label>
+            <div class="mt-2 flex flex-wrap gap-2">
+              {
+                modules.custom.outputPresets.map((preset) => (
+                  <button
+                    type="button"
+                    class="focus-ring btn-chip rounded-full px-3 py-2 text-xs font-semibold"
+                    data-custom-preset={preset.id}
+                  >
+                    {preset.label}
+                  </button>
+                ))
+              }
+            </div>
             <textarea
               id="custom-output"
-              class="focus-ring mt-2 min-h-36 w-full rounded-3xl border border-white/10 bg-slate-950/40 px-4 py-3 font-mono text-sm leading-6 text-slate-100 placeholder:text-slate-600"
+              class:list={[inputClass, "mt-3 min-h-36 radius-xl leading-6"]}
               placeholder={modules.custom.outputPlaceholder}
               data-custom-output
-            ></textarea>
+            />
           </div>
         </div>
 
-        <p class="mt-3 text-sm font-semibold text-rose-100 hidden" data-custom-error role="status" aria-live="polite"></p>
+        <p class="mt-3 text-sm font-semibold text-rose-100 hidden" data-custom-error role="status" aria-live="polite" />
       </div>
 
       <button
         type="button"
-        class="focus-ring cta-gradient type-cta-label elevate-hover mt-5 rounded-full px-5 py-4 text-center text-slate-950 transition hover:brightness-110"
+        class="focus-ring btn-primary-gold cta-gradient elevate-hover mt-5 max-w-xs self-start"
         data-custom-copy
         data-copy-label-i18n="modules.custom.copyButton"
         data-copy-copied-i18n="modules.custom.copiedButton"
@@ -215,6 +273,6 @@ const modules = uiCopy[lang].modules;
       </button>
     </ContentCard>
 
-    <PasteDestinationStrip lang={lang} surface="context" />
+    <PasteDestinationStrip lang={lang} surface="context" revealOnCopy />
   </div>
 </SectionShell>

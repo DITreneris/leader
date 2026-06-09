@@ -2,6 +2,93 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-06-10 (design system consistency refinement)
+
+### Changed
+
+- **Global tokens:** [`global.css`](src/styles/global.css) — composed `.btn-primary-gold`, `.btn-outline-neutral`, `.btn-outline-warning`; body typography (`.type-body-deck`, `.type-body-support`, `.type-micro-label-readable`, `.text-prompt-preview`); `.stack-after-section-title`, `.card-padding-promo`.
+- **CTA unification:** Hero, PromoBanner, ClarityDemo, ExecutiveModules custom compile use shared primary gold button recipe; PromoBanner secondary → neutral outline.
+- **Readability:** MemeMoment headline cap; ClarityDemo card title demoted to `h3`; FAQ/support copy tones; demo/module micro labels at 11px; unified prompt preview monospace.
+- **SectionShell:** Extended with `as="aside"`; migrated PromoBanner, SafetyCheck, CourseCTA, MemeMoment, RoiPath, PromptLibrary, PromptAnatomy.
+- **Primitives:** HighlightStrip promo padding token; PasteDestinationStrip → `surface-panel`; FAQ accordions → `ContentCard`; PromptLibrary hint → `HighlightStrip`; PromptAnatomy chevron; radius token sweep on inputs/tabs/panels.
+
+### Docs
+
+- [`DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) — button tiers, body tone rules, heading map, promo padding, SectionShell `as` prop, ROI violet note.
+
+## 2026-06-10 (FAQ rewrite, US GEO, author & footer)
+
+### Changed
+
+- **FAQ (10 items):** [`en.ts`](src/content/locales/en.ts) — full US-market rewrite for conversion, trust, output shape, safety-by-reference, free vs full app; in-page section links (`#context`, `#safety-check`, `#kit`); sister hub handoff unchanged.
+- **Footer:** [`Page.astro`](src/layouts/Page.astro) + [`en.ts`](src/content/locales/en.ts) — tagline aligned with privacy FAQ; copyright, creator (Tomas Staniulis), Alameda CA; nav links for Kit download, Quick answers, Contact (`info@promptanatomy.app`).
+- **JSON-LD / E-E-A-T:** [`pageJsonLd.ts`](src/utils/pageJsonLd.ts) — `Person` author, `Organization` US `PostalAddress`, `WebPage.author`; [`publisher.ts`](src/constants/publisher.ts) single source for trust fields.
+- **Faq UI:** [`Faq.astro`](src/components/Faq.astro) — renders `sectionAnchor` links alongside existing sister-hub handoff.
+- **`llms.txt`:** publisher/contact block + FAQ theme list for AI citation boundaries.
+- **`LEADER_PAGE_DATE_MODIFIED`:** bumped in [`pageSeo.ts`](src/constants/pageSeo.ts).
+
+### Frozen locale parity
+
+- [`lt.ts`](src/content/locales/lt.ts) — matching FAQ/footer keys with English placeholders.
+
+## 2026-06-09 (prompt anatomy reference UX)
+
+### Changed
+
+- **`#anatomy` reference cards:** [`PromptAnatomy.astro`](src/components/PromptAnatomy.astro) — definition + example strip + in-page link per block (not empty form panels); Quality Check spans full row; collapsed `referenceNote` signals reference-only.
+- **Anatomy copy:** [`en.ts`](src/content/locales/en.ts) — `anatomy.items` objects with `example`, `onPageHref`, `onPageLabel`; links to `#context`, `#ctx-company`, `#demo`, `#safety-check`.
+
+### Docs
+
+- [`COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) §12; [`DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) reference template row.
+
+## 2026-06-09 (clarity demo + funnel continuity)
+
+### Changed
+
+- **`#demo` unified practice panel:** [`ClarityDemo.astro`](src/components/ClarityDemo.astro) — one `max-w-5xl` card with scenario chips, title, reordered brief (bottom line first), three tabs (Risks and questions / Required input / Prompt preview), inline copy CTA, paste strip reveal-on-copy.
+- **Demo copy honesty:** [`en.ts`](src/content/locales/en.ts) — `Pick a scenario. Structure the decision.`, `Copy decision prompt`, per-scenario titles, meeting `decisionBullets`; [`InteractiveCopy.astro`](src/components/InteractiveCopy.astro) + [`PasteDestinationStrip.astro`](src/components/ds/PasteDestinationStrip.astro) surface-aware reveal.
+- **PromoBanner funnel:** `Start the scenario` primary, product labels without raw URLs (`Open the full app`, `Learn the framework`).
+- **Delegation meme bridge:** `memes.delegationBridge` on meme index 2 — links theme to Delegation chip without false numbering.
+
+### Docs
+
+- [`COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) §6, §8; [`MOBILE_UI_AUDIT.md`](docs/MOBILE_UI_AUDIT.md) §3.
+
+## 2026-06-09 (#context UX revision)
+
+### Changed
+
+- **`#context` readability:** Brighter form labels and placeholders (`.type-form-label-readable`, `.input-executive`); narrower context card; section header + workflow copy in [`en.ts`](src/content/locales/en.ts).
+- **Workflow rail:** Replaced [`ContextFieldMap.astro`](src/components/ds/ContextFieldMap.astro) with [`WorkflowStepRail.astro`](src/components/ds/WorkflowStepRail.astro) (3 steps: define context → choose module → copy brief).
+- **Module hierarchy:** Featured **Decision impact** card (`secondOrder`) with recommended badge, accent surface, collapsed task/output on other modules; business-function categories; **Use module** / **What you get** labels.
+- **Workflow glue:** Live context fill status; compiled prompt preview on featured module; paste strip reveals after copy with provider link styling ([`InteractiveCopy.astro`](src/components/InteractiveCopy.astro), [`PasteDestinationStrip.astro`](src/components/ds/PasteDestinationStrip.astro)).
+- **Custom module:** Clearer field labels, output preset chips, narrower CTA (**Build and copy prompt**).
+
+### Removed
+
+- **`ContextFieldMap.astro`** — redundant field-name diagram replaced by workflow rail.
+
+### Docs
+
+- [`DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md), [`MOBILE_UI_AUDIT.md`](docs/MOBILE_UI_AUDIT.md) §2.
+
+## 2026-06-09 (hero proof cleanup)
+
+### Changed
+
+- **Hero conversion copy:** [`en.ts`](src/content/locales/en.ts) — outcome CTA (`Build your decision brief`), narrative subtitle, subdued secondary link copy (`Open the full app`); [`Hero.astro`](src/components/Hero.astro) — gold primary + text link secondary (no competing pill).
+- **Hero decision diagram:** [`HeroDecisionDiagram.astro`](src/components/HeroDecisionDiagram.astro) + `heroDiagram.*` — customer-facing pipeline (Scattered input → Decision context → Decision brief), five-row sample brief (owner + deadline), dominant third step, connector label, contrast bump on small text.
+
+### Removed
+
+- **`BeforeAfter` section:** [`BeforeAfter.astro`](src/components/BeforeAfter.astro), `before-after.svg`, `beforeAfter.*` locale keys; unmounted from [`Page.astro`](src/layouts/Page.astro). Proof consolidated in hero diagram; tighter meme sandwich (meme 3 → meme 0 → `#context`).
+- **Verify:** `before-after.svg` dropped from [`scripts/verify-build-artifacts.mjs`](scripts/verify-build-artifacts.mjs) required artifacts.
+
+### Docs
+
+- [`CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md), [`VISUAL_CONTENT_MAP.md`](docs/VISUAL_CONTENT_MAP.md), [`COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md), [`STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md), [`MEME_PRIORITY_REGISTRY.md`](docs/MEME_PRIORITY_REGISTRY.md), [`DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md), [`README.md`](README.md).
+
 ## 2026-06-09 (CI prebuild fix)
 
 ### Fixed

@@ -1,15 +1,42 @@
 import { LEADER_PAGE_DATE_MODIFIED, LEADER_PAGE_DATE_PUBLISHED } from "../constants/pageSeo";
+import {
+  AUTHOR_NAME,
+  CONTACT_EMAIL,
+  MAILING_COUNTRY,
+  MAILING_LOCALITY,
+  MAILING_POSTAL_CODE,
+  MAILING_REGION,
+  MAILING_STREET,
+} from "../constants/publisher";
 import { SHIPPED_LOCALES } from "../constants/siteLocale";
 import type { Language } from "../content/copy";
 
 const motherOrgId = "https://www.promptanatomy.app/#organization";
 const motherSiteId = "https://www.promptanatomy.app/#website";
 
+export type FaqSectionAnchor = "context" | "demo" | "kit" | "safety";
+
+const SECTION_ANCHOR_HREF: Record<FaqSectionAnchor, string> = {
+  context: "#context",
+  demo: "#demo",
+  kit: "#kit",
+  safety: "#safety-check",
+};
+
+const SECTION_ANCHOR_SCHEMA_LABEL: Record<FaqSectionAnchor, string> = {
+  context: "Global Context section",
+  demo: "Clarity practice section",
+  kit: "Kit download section",
+  safety: "Safety check section",
+};
+
 export type FaqItem = {
   q: string;
   a: string;
   bullets?: readonly string[];
   handoff?: "sister_hub";
+  sectionAnchor?: FaqSectionAnchor;
+  sectionLinkLabel?: string;
 };
 
 const SISTER_HUB_CANONICAL = "https://promptanatomy.cloud/";
@@ -19,10 +46,16 @@ export function faqAnswerTextForSchema(item: FaqItem): string {
   const base = !item.bullets?.length
     ? item.a
     : `${item.a}\n${item.bullets.map((b) => `• ${b}`).join("\n")}`;
-  if (item.handoff === "sister_hub") {
-    return `${base}\nFramework practice: ${SISTER_HUB_CANONICAL}`;
+  const parts = [base];
+  if (item.sectionAnchor) {
+    parts.push(
+      `${SECTION_ANCHOR_SCHEMA_LABEL[item.sectionAnchor]}: ${SECTION_ANCHOR_HREF[item.sectionAnchor]}`,
+    );
   }
-  return base;
+  if (item.handoff === "sister_hub") {
+    parts.push(`Framework practice: ${SISTER_HUB_CANONICAL}`);
+  }
+  return parts.join("\n");
 }
 
 /** JSON-LD graph for CEO/COO landing FAQ + WebPage (Organization + WebSite reused from mother product). */
@@ -35,6 +68,7 @@ export function buildLeaderPageJsonLd(input: {
   faqItems: readonly FaqItem[];
 }) {
   const { lang, pageCanonical, socialImageUrl, meta, faqItems } = input;
+  const authorId = `${pageCanonical}#author`;
 
   return {
     "@context": "https://schema.org",
@@ -49,6 +83,15 @@ export function buildLeaderPageJsonLd(input: {
           "@type": "ImageObject",
           url: "https://www.promptanatomy.app/og-image.png",
         },
+        email: CONTACT_EMAIL,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: MAILING_STREET,
+          addressLocality: MAILING_LOCALITY,
+          addressRegion: MAILING_REGION,
+          postalCode: MAILING_POSTAL_CODE,
+          addressCountry: MAILING_COUNTRY,
+        },
         sameAs: ["https://www.promptanatomy.app/"],
       },
       {
@@ -58,6 +101,12 @@ export function buildLeaderPageJsonLd(input: {
         name: "Prompt Anatomy",
         publisher: { "@id": motherOrgId },
         inLanguage: [...SHIPPED_LOCALES],
+      },
+      {
+        "@type": "Person",
+        "@id": authorId,
+        name: AUTHOR_NAME,
+        email: CONTACT_EMAIL,
       },
       {
         "@type": "WebPage",
@@ -75,6 +124,7 @@ export function buildLeaderPageJsonLd(input: {
         dateModified: LEADER_PAGE_DATE_MODIFIED,
         isPartOf: { "@id": motherSiteId },
         about: { "@id": motherOrgId },
+        author: { "@id": authorId },
         mainEntity: { "@id": `${pageCanonical}#faq` },
         inLanguage: "en-US",
         primaryImageOfPage: {
@@ -98,3 +148,4 @@ export function buildLeaderPageJsonLd(input: {
     ],
   };
 }
+

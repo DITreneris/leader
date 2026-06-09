@@ -40,7 +40,6 @@ const REQUIRED_DIST_FILES = [
   "android-chrome-512x512.png",
   "og-image.png",
   "site.webmanifest",
-  "assets/graphics/before-after.svg",
 ];
 
 function fail(message) {

@@ -6,8 +6,16 @@ describe("buildClientCopyPayload", () => {
   it("returns a stable top-level shape for en locale", () => {
     const payload = buildClientCopyPayload(enCopy);
     expect(Object.keys(payload).sort()).toEqual(
-      ["a11y", "demo", "library", "modules", "roiPath", "safety"].sort(),
+      ["a11y", "demo", "library", "modules", "pasteIntoAssistant", "roiPath", "safety"].sort(),
     );
+  });
+
+  it("includes paste handoff copy for post-copy reveal", () => {
+    const { pasteIntoAssistant } = buildClientCopyPayload(enCopy);
+    expect(pasteIntoAssistant).toMatchObject({
+      lead: enCopy.pasteIntoAssistant.lead,
+      postCopyLead: enCopy.pasteIntoAssistant.postCopyLead,
+    });
   });
 
   it("includes safety copy fields used by InteractiveCopy", () => {

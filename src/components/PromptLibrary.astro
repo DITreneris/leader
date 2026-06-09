@@ -1,4 +1,6 @@
 ---
+import SectionShell from "./ds/SectionShell.astro";
+import HighlightStrip from "./ds/HighlightStrip.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -10,7 +12,7 @@ const { lang } = Astro.props;
 const library = uiCopy[lang].library;
 ---
 
-<section id="library" class="section-y mx-auto max-w-7xl px-5 sm:px-8">
+<SectionShell id="library">
   <div class="mx-auto flex max-w-3xl justify-center pb-6 text-center">
     <a
       href="#kit"
@@ -71,7 +73,7 @@ const library = uiCopy[lang].library;
                 <button
                   type="button"
                   class:list={[
-                    "library-cat-btn focus-ring flex w-full items-center gap-3 rounded-xl border border-transparent px-3 py-3 text-left transition",
+                    "library-cat-btn focus-ring flex w-full items-center gap-3 radius-lg border border-transparent px-3 py-3 text-left transition",
                     "hover:border-white/10 hover:bg-white/[0.04] motion-safe:hover:brightness-110",
                     isDefault && "library-cat-btn--active border-brand-accent/35 bg-brand-accent/10 accent-glow",
                   ]}
@@ -119,10 +121,10 @@ const library = uiCopy[lang].library;
                 data-library-panel={String(categoryIndex)}
               >
                 {categoryIndex === 0 ? (
-                  <div class="mb-5 rounded-2xl border border-brand-accent/25 bg-brand-accent/[0.07] p-4 sm:p-5">
+                  <HighlightStrip variant="band" bandTone="panel" class="mb-5">
                     <p class="font-bold text-white">{library.defaultHintTitle}</p>
-                    <p class="mt-2 text-sm leading-6 text-slate-300">{library.defaultHintBody}</p>
-                  </div>
+                    <p class="mt-2 type-body-support">{library.defaultHintBody}</p>
+                  </HighlightStrip>
                 ) : null}
 
                 <header class="mb-4">
@@ -157,7 +159,7 @@ const library = uiCopy[lang].library;
                                 {library.copyPrompt}
                               </button>
                             </div>
-                            <details class="group/prompt surface-muted mt-3 overflow-hidden rounded-xl border border-white/[0.06]">
+                            <details class="group/prompt surface-muted mt-3 overflow-hidden radius-lg border border-white/[0.06]">
                               <summary class="focus-ring summary-hover flex cursor-pointer list-none items-center justify-between gap-2 px-3 py-2.5 outline-none sm:px-4 [&::-webkit-details-marker]:hidden">
                                 <span class="text-xs font-bold text-slate-200 sm:text-sm">{library.revealPrompt}</span>
                                 <svg
@@ -190,7 +192,7 @@ const library = uiCopy[lang].library;
       </div>
     </div>
   </details>
-</section>
+</SectionShell>
 
 <script is:inline>
   (function () {

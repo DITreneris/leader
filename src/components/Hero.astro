@@ -83,10 +83,10 @@ const promptAnatomyHref = buildPromptAnatomyUrl({ medium: "hero", campaign: "pri
         href={promptAnatomyHref}
         target="_blank"
         rel="noopener noreferrer"
-        class="focus-ring mt-2 rounded-full border border-white/20 px-4 py-3 text-center text-sm font-semibold normal-case tracking-wide text-white transition hover:bg-white/5"
+        class="focus-ring mt-2 px-3 py-2.5 text-sm font-medium text-slate-400 transition hover:bg-white/5 hover:text-white"
         data-mobile-menu-link
       >
-        {c.hero.productCta}
+        {c.hero.productCta} →
       </a>
     </nav>
   </div>
@@ -111,10 +111,10 @@ const promptAnatomyHref = buildPromptAnatomyUrl({ medium: "hero", campaign: "pri
       {c.hero.subtitle}
     </p>
 
-    <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+    <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
       <a
         href="#context"
-        class="focus-ring cta-gradient rounded-full px-6 py-4 text-center text-sm font-semibold normal-case tracking-wide text-slate-950 transition hover:brightness-110"
+        class="focus-ring btn-primary-gold cta-gradient elevate-hover w-full sm:w-auto"
       >
         {c.hero.inPageCta}
       </a>
@@ -122,12 +122,12 @@ const promptAnatomyHref = buildPromptAnatomyUrl({ medium: "hero", campaign: "pri
         href={promptAnatomyHref}
         target="_blank"
         rel="noopener noreferrer"
-        class="focus-ring type-cta-label rounded-full border border-white/20 px-6 py-4 text-center text-sm font-semibold normal-case tracking-wide text-white transition hover:bg-white/5"
+        class="focus-ring text-sm font-medium text-slate-400 transition hover:text-white"
       >
-        {c.hero.productCta}
+        {c.hero.productCta} →
       </a>
     </div>
-    <p class="mt-4 text-sm text-slate-500">{c.hero.ctaMeta}</p>
+    <p class="mt-4 text-sm text-slate-400">{c.hero.ctaMeta}</p>
   </div>
 
   <HeroDecisionDiagram lang={lang} />

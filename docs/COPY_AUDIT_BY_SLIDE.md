@@ -37,22 +37,21 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 | 0 | Puslapio karkasas | `<head>`, skip | `meta.*`, `a11y.*`, JSON-LD |
 | 1 | Hero | (header + hero blokas) | `nav.*`, `hero.*`, `heroDiagram.*` |
 | 2 | Meme 1 | — | `memes.items[3]` |
-| 3 | Prieš / po | — | `beforeAfter.*` |
-| 4 | Meme 2 | — | `memes.items[0]` |
-| 5 | Kontekstas + moduliai | `#context` | `modules.*` |
-| 6 | Promo juosta | — | `promoBanner.*` |
-| 7 | Meme 3 | — | `memes.items[2]` |
-| 8 | Aiškumo praktika | `#demo` | `demo.*` |
-| 9 | Meme 4 | — | `memes.items[5]` |
-| 10 | Saugumo patikra | `#safety-check` | `safety.*` |
-| 11 | Rinkinio CTA | `#kit` | `cta.*` |
-| 12 | Penki blokai (anatomija) | `#anatomy` | `anatomy.*` |
-| 13 | ROI kelias | — | `roiPath.*` |
-| 14 | DUK | `#faq` | `faq.*` |
-| 15 | Biblioteka | `#library` | `library.*` |
-| 16 | Porinės juosta | `<footer>` | `footer.*` |
+| 3 | Meme 2 | — | `memes.items[0]` |
+| 4 | Kontekstas + moduliai | `#context` | `modules.*` |
+| 5 | Promo juosta | — | `promoBanner.*` |
+| 6 | Meme 3 | — | `memes.items[2]` |
+| 7 | Aiškumo praktika | `#demo` | `demo.*` |
+| 8 | Meme 4 | — | `memes.items[5]` |
+| 9 | Saugumo patikra | `#safety-check` | `safety.*` |
+| 10 | Rinkinio CTA | `#kit` | `cta.*` |
+| 11 | Penki blokai (anatomija) | `#anatomy` | `anatomy.*` |
+| 12 | ROI kelias | — | `roiPath.*` |
+| 13 | DUK | `#faq` | `faq.*` |
+| 14 | Biblioteka | `#library` | `library.*` |
+| 15 | Porinės juosta | `<footer>` | `footer.*` |
 
-**Nebe skaidrė:** Authority tiltas (`#bridge`) — pašalinta **2026-04-29**. **Nebemontuojamas meme:** `memes.items[4]` (`meme-02-meeting-overload.png`) — **2026-04-29**, žr. [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).
+**Nebe skaidrė:** Authority tiltas (`#bridge`) — pašalinta **2026-04-29**. **BeforeAfter** (`beforeAfter.*`) — pašalinta **2026-06-09**; įrodymas konsoliduotas į hero diagramą. **Nebemontuojamas meme:** `memes.items[4]` (`meme-02-meeting-overload.png`) — **2026-04-29**, žr. [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).
 
 ---
 
@@ -101,8 +100,14 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **Lygiavimas**
 
-- Pirminis (auksinis) CTA – **in-page** `href="#context"` su `hero.inPageCta` (be UTM).
-- Antrinis (kontūrinis) CTA keliauja į PromptAnatomy su `utm_medium=hero` ir `utm_campaign=primary` (`hero.productCta`; `docs/UTM_MATRIX.md`).
+- Pirminis (auksinis) CTA – **in-page** `href="#context"` su `hero.inPageCta` (be UTM); **2026-06-09:** `Build your decision brief`.
+- Antrinis CTA – tekstinė nuoroda į PromptAnatomy su `utm_medium=hero` ir `utm_campaign=primary` (`hero.productCta`; `docs/UTM_MATRIX.md`).
+
+**EN (shipped 2026-06-09)**
+
+- `heroDiagram.pipeline`: Scattered input → Decision context → Decision brief (ne „Module“).
+- `heroDiagram.sample`: penkios eilutės (decision, owner, risks, deadline, next action).
+- `heroDiagram.connectorLabel`: „Generated brief“.
 
 **Ne locale**
 
@@ -112,6 +117,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 - [x] P1: Hero kietojo teksto i18n (`a11y.logoAriaLabel`, `brandSubtag`, `openMobileMenu`, `nav*Aria`, `languageToggleAria`).
 - [x] **2026-04-28:** Du hero CTA (`Hero.astro`): `#context` (auksinis, be UTM) + PA outbound (kontūrinis, su UTM).
+- [x] **2026-06-09:** Konversijos kopija + hero diagramos modernizacija; antrinis CTA → tekstinė nuoroda.
 
 ---
 
@@ -136,22 +142,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ---
 
-## 3. Prieš / po
-
-- **Failai:** [`BeforeAfter.astro`](../src/components/BeforeAfter.astro)
-- **Raktai:** `beforeAfter.eyebrow`, `beforeAfter.a11yLabel` (diagram-only; definition copy moved to collapsed `anatomy.subtitle` + FAQ)
-
-**EN (shipped)**
-
-- **2026-06-10:** Section is **eyebrow + SVG only** — removed `title`, `subtitle`, and “What is a prompt?” / “What is PromptAnatomy?” blocks from the story spine.
-
-**Veiksmai**
-
-- [x] Editorial pass: diagram-only Before/After (EN `en.ts`).
-
----
-
-## 4. Meme 2 (`memes.items[0]`)
+## 3. Meme 2 (`memes.items[0]`)
 
 - **Pastabos:** kaip Meme 1; paveikslas `meme-01-ai-chaos.png`, `alt` EN `Page.astro`.
 
@@ -203,6 +194,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 - [x] **2026-04-28:** Hero/meta ir `promoBanner.*` vs `cta.*` — skirtingas funnelis (vidurinis **handoff** į PA + „demo pirmiau“ vs `#kit` **atsisiuntimas** + PA); antraštės ir body nekopijuoja tos pačios frazės; EN/LT lygiagrečiai.
 - [x] **2026-04-28:** `promoBanner.secondaryCta` nebe „static demo“ — **practice / clarity** (`Try the clarity practice first` / `Pirmiau – aiškumo praktika`); sinchronizuota su `nav.proof` ir `demo.eyebrow`.
+- [x] **2026-06-09:** Funnel continuity (tester #05) — `title` *Test the framework on a real executive scenario.*; gold **`Start the scenario`** → `#demo`; outlined PA **`Open the full app`** (domain in `href` only); tertiary **`Learn the framework`** → cloud. Meme index 2: `memes.delegationBridge` ties Delegation chip (not “scenario 1 of 5”).
 
 ---
 
@@ -218,10 +210,10 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ## 8. Aiškumo praktika (`#demo`)
 
-- **Ženklinimas (EN/LT):** bendra etikete vadinama **`Clarity practice` / `Aiškumo praktika`** — `nav.proof`, `demo.eyebrow`, Promo antrinė nuoroda `promoBanner.secondaryCta`.
+- **Ženklinimas (EN/LT):** bendra etikete vadinama **`Clarity practice` / `Aiškumo praktika`** — `nav.proof`, `demo.eyebrow`.
 
-- **Failai:** [`ClarityDemo.astro`](../src/components/ClarityDemo.astro)
-- **Raktai:** `demo.*`, `demo.scenarios.meeting | report | decision | delegation | communication`
+- **Failai:** [`ClarityDemo.astro`](../src/components/ClarityDemo.astro), [`InteractiveCopy.astro`](../src/components/InteractiveCopy.astro)
+- **Raktai:** `demo.*`, `demo.scenarios.*` (incl. `title`, optional `decisionBullets`)
 
 **LT**
 
@@ -229,18 +221,21 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 - Scenarijuose `ARR`, `Q3`, anglų terminai – segmento norma; ne traktuoti kaip klaidų be politikos keitimo.
 - `insight` etiketė vs language-standard „insight avoidance“ – galima vėliau pervadinti į „signalas“ / „esmė“ (**P2** redakcija).
 
-**EN**
+**EN (shipped 2026-06-09 — tester #06)**
 
-- Demo rizikų sąrašai – Oxford comma kur sąrašai (EN).
+- Headline: *Pick a scenario. Structure the decision.* — ne „Get the brief“; CTA **Copy decision prompt**.
+- Vienas `max-w-5xl` panelis: chips + scenario `title` + brief stack (bottom line → decision → how to run it) + 3 tabai (**Risks and questions** / **Required input** / **Prompt preview**) + paste strip **reveal-on-copy** (parity su `#context`).
+- Meeting: `decisionBullets` sąrašas; kiti scenarijai — pastraipa.
 
 **Lygiavimas**
 
-- Kiekvienas scenarijus turi paralelę LT/EN – po keitinių patikrinti abu.
+- Kiekvienas scenarijus turi paralelę LT/EN – po keitinių patikrinti abu. Nauji raktai (`title`, `promptTab`, …) — `lt.ts` angliški placeholderiai.
 
 **Veiksmai**
 
 - [x] LT meeting risk P0.
 - [x] P2: bendra etiketė `demo.insight` LT → **„Pagrindinis signalas“**.
+- [x] **2026-06-09:** Unified practice module UX + copy honesty (PR1 plan).
 
 ---
 
@@ -291,13 +286,20 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 ## 12. Penki blokai (anatomija)
 
 - **Failai:** [`PromptAnatomy.astro`](../src/components/PromptAnatomy.astro)
-- **Raktai:** `anatomy.*` (įsk. `previewAriaLabel` — uždarytos būsenos žetonų sąrašo `aria-label`)
-- **Techninė pastaba:** sekcija **`id="anatomy"`**, antraštė **`#anatomy-heading`** (nav / deep link). Uždarytoje santraukoje rodomi **5 blokų pavadinimai** kaip kompaktiški žetonai; išskleistame tinklelyje — pilni aprašymai.
+- **Raktai:** `anatomy.*` (įsk. `previewAriaLabel`, `definitionLabel`, `exampleLabel`, `onPageLead`, `referenceNote`; `items[].id|title|body|example|onPageLabel|onPageHref`)
+- **Techninė pastaba:** sekcija **`id="anatomy"`**, antraštė **`#anatomy-heading`**. Uždarytoje santraukoje — 5 blokų žetonai + `referenceNote` (reference, ne forma). Išskleistame tinklelyje — kiekvienam blokui: apibrėžimas, **Example** juosta (visada užpildyta), **On this page** nuoroda.
+
+**EN (shipped 2026-06-09 — reference UX)**
+
+- `expandSummary`: *Reference — names the framework (not a form)*; subtitle nurodo, kad blokai jau įdiegti aukščiau.
+- On-page nuorodos: Role/Context → `#context` / `#ctx-company`; Decision Logic/Output → `#demo`; Quality Check → `#safety-check`.
+- Vizualiai: lengvos bordered kortelės, ne tušti input laukai.
 
 **Veiksmai**
 
 - [x] P2: **`#anatomy`** + lokalizuotas žingsnio priešdėlis (`anatomy.stepPrefix`).
 - [x] **2026-04-29:** uždarytos būsenos **preview** — blokų pavadinimų žetonai + `anatomy.previewAriaLabel`.
+- [x] **2026-06-09:** reference bridge — example strip + in-page links; `items` objektų schema.
 
 ---
 

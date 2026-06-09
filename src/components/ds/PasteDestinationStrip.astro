@@ -8,9 +8,11 @@ interface Props {
   surface: "context" | "demo";
   /** Extra top margin: default works for #context; use "tight" under demo copy row */
   spacing?: "default" | "tight";
+  /** Hide until first successful copy (#context modules or #demo prompt) */
+  revealOnCopy?: boolean;
 }
 
-const { lang, surface, spacing = "default" } = Astro.props;
+const { lang, surface, spacing = "default", revealOnCopy = false } = Astro.props;
 const p = uiCopy[lang].pasteIntoAssistant;
 
 const topClass = spacing === "tight" ? "mt-5" : "mt-8 sm:mt-10";
@@ -23,24 +25,28 @@ const links = [
 ---
 
 <div
-  class:list={["mx-auto max-w-2xl rounded-2xl border border-white/[0.06] bg-white/[0.02] px-5 py-5 sm:px-6", topClass]}
+  class:list={[
+    "surface-panel radius-lg card-padding-compact mx-auto max-w-2xl",
+    topClass,
+    revealOnCopy && "hidden",
+  ]}
+  data-paste-destination-strip={revealOnCopy ? surface : undefined}
   aria-label={p.ariaLabel}
 >
-  <p class="text-center text-sm leading-relaxed text-slate-300 sm:text-base">{p.lead}</p>
+  <p class="text-center text-sm leading-relaxed text-slate-200 sm:text-base" data-paste-lead>
+    {p.lead}
+  </p>
 
   <div class="mt-5 text-center">
-    <p class="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-slate-500">{p.continueLabel}</p>
-    <div class="mt-3 flex flex-col items-center gap-1 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-0 sm:gap-y-2">
+    <p class="type-micro-label-readable text-slate-400">{p.continueLabel}</p>
+    <div class="mt-3 flex flex-col items-stretch gap-2 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3">
       {
-        links.map(({ href, label }, i) => (
+        links.map(({ href, label }) => (
           <a
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            class:list={[
-              "focus-ring rounded-lg px-4 py-2.5 text-center text-sm font-semibold text-slate-400 transition hover:text-white sm:py-2",
-              i > 0 && "sm:border-l sm:border-white/10 sm:pl-6 sm:ml-6",
-            ]}
+            class="focus-ring paste-destination-link px-4 py-2.5 text-center text-sm font-semibold text-slate-300"
           >
             {label}
           </a>
@@ -49,5 +55,5 @@ const links = [
     </div>
   </div>
 
-  <p class="mx-auto mt-4 max-w-lg text-center text-xs leading-relaxed text-slate-600">{p.licenseNote}</p>
+  <p class="mx-auto mt-4 max-w-lg text-center text-xs leading-relaxed text-slate-400">{p.licenseNote}</p>
 </div>

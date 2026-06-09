@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { LEADER_PAGE_DATE_MODIFIED, LEADER_PAGE_DATE_PUBLISHED } from "../constants/pageSeo";
+import { AUTHOR_NAME, CONTACT_EMAIL, MAILING_POSTAL_CODE } from "../constants/publisher";
 import { SHIPPED_LOCALES } from "../constants/siteLocale";
 import { buildLeaderPageJsonLd, faqAnswerTextForSchema, type FaqItem } from "./pageJsonLd";
 
@@ -16,6 +17,16 @@ describe("faqAnswerTextForSchema", () => {
       bullets: ["First", "Second"],
     };
     expect(faqAnswerTextForSchema(item)).toBe("Intro.\n• First\n• Second");
+  });
+
+  it("appends section anchor hint for schema parity", () => {
+    const item: FaqItem = {
+      q: "How do I start?",
+      a: "Fill context first.",
+      sectionAnchor: "context",
+      sectionLinkLabel: "Open Global Context",
+    };
+    expect(faqAnswerTextForSchema(item)).toContain("Global Context section: #context");
   });
 
   it("appends sister hub URL for framework handoff FAQ items", () => {
@@ -41,10 +52,10 @@ describe("buildLeaderPageJsonLd", () => {
     faqItems: [{ q: "One?", a: "A1" }] satisfies readonly FaqItem[],
   };
 
-  it("emits schema.org context and four graph nodes", () => {
+  it("emits schema.org context and five graph nodes", () => {
     const data = buildLeaderPageJsonLd(baseInput);
     expect(data["@context"]).toBe("https://schema.org");
-    expect(data["@graph"]).toHaveLength(4);
+    expect(data["@graph"]).toHaveLength(5);
   });
 
   it("sets WebPage dates from pageSeo constants", () => {
@@ -57,18 +68,34 @@ describe("buildLeaderPageJsonLd", () => {
     expect(webPage.inLanguage).toBe("en-US");
   });
 
-  it("links WebPage mainEntity to FAQPage", () => {
+  it("links WebPage mainEntity to FAQPage and author to Person", () => {
     const data = buildLeaderPageJsonLd(baseInput);
     const webPage = data["@graph"].find((n) => n["@type"] === "WebPage") as {
       mainEntity: { "@id": string };
+      author: { "@id": string };
     };
     expect(webPage.mainEntity["@id"]).toBe(`${baseInput.pageCanonical}#faq`);
+    expect(webPage.author["@id"]).toBe(`${baseInput.pageCanonical}#author`);
   });
 
-  it("uses EN-primary Organization name", () => {
+  it("emits Person with author name and email", () => {
     const data = buildLeaderPageJsonLd(baseInput);
-    const org = data["@graph"].find((n) => n["@type"] === "Organization") as { name: string };
+    const person = data["@graph"].find((n) => n["@type"] === "Person") as {
+      name: string;
+      email: string;
+    };
+    expect(person.name).toBe(AUTHOR_NAME);
+    expect(person.email).toBe(CONTACT_EMAIL);
+  });
+
+  it("uses EN-primary Organization name with US mailing address", () => {
+    const data = buildLeaderPageJsonLd(baseInput);
+    const org = data["@graph"].find((n) => n["@type"] === "Organization") as {
+      name: string;
+      address: { postalCode: string };
+    };
     expect(org.name).toBe("Prompt Anatomy");
+    expect(org.address.postalCode).toBe(MAILING_POSTAL_CODE);
   });
 
   it("mirrors WebSite inLanguage from SHIPPED_LOCALES", () => {
@@ -95,3 +122,4 @@ describe("buildLeaderPageJsonLd", () => {
     expect(faq.mainEntity[1].acceptedAnswer.text).toContain("• b");
   });
 });
+

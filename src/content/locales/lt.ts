@@ -20,49 +20,70 @@ export const ltCopy = {
       footerLegalNavAria: "Nuorodos puslapio pabaigoje",
     },
     faq: {
-      sectionTitle: "Trumpai",
-      sisterHubLinkLabel: "Atidaryti framework praktiką promptanatomy.cloud",
+      sectionTitle: "Quick answers",
+      sisterHubLinkLabel: "Open framework practice on promptanatomy.cloud",
       items: [
         {
-          q: "Ar duomenys kažkur siunčiami?",
-          a: "Your brief text and context fields stay on your device—we do not upload them when you copy. On promptanatomy.pro, anonymous page views may be collected; nothing you type is sent to us.",
+          q: "How do I get my first decision brief?",
+          a: "Fill the four Global Context fields, pick one executive module, and copy the compiled prompt—about 60 seconds. Paste into your org-approved assistant. For proof on a sample scenario, use Clarity practice.",
+          bullets: [],
+          sectionAnchor: "context",
+          sectionLinkLabel: "Open Global Context",
+        },
+        {
+          q: "Does this page upload my brief or company context?",
+          a: "No. Your brief text and context fields stay on your device—we do not upload them when you copy. On promptanatomy.pro, anonymous page views may be collected; nothing you type is sent to us.",
           bullets: [],
         },
         {
-          q: "Ar galiu įklijuoti į ChatGPT, Claude ar Gemini?",
-          a: "Taip. Kopijuok čia, įklijuok į organizacijos leidžiamą asistentą. Puslapis nejungiasi prie tų įrankių.",
+          q: "Can I use ChatGPT, Claude, or Gemini?",
+          a: "Yes. Copy here and paste into any assistant your organization approves. This page does not connect to those tools. Use your org-licensed provider and follow each vendor's terms.",
           bullets: [],
         },
         {
-          q: "Kas yra PromptAnatomy Executive OS?",
-          a:
-            "A static one-page decision operating kit for CEOs/COOs: Global Context Block plus executive modules so leadership briefs to AI stay consistent—no login, no upload of what you type. The full product and team standard are on promptanatomy.app.",
+          q: "What is PromptAnatomy Executive OS?",
+          a: "A static one-page decision operating kit for CEOs and COOs: Global Context Block plus executive modules so leadership briefs to AI stay consistent—no login, no upload of what you type. The full product and team standard are on promptanatomy.app.",
           bullets: [],
         },
         {
-          q: "Kas yra globalus konteksto blokas?",
-          a:
-            "Keturi bendri laukai kiekvienam briefui: įmonė, dabartinis tikslas, pagrindinė riba, butelio kaklelis – kad išvestis liktų sprendimo lygio. Pridėk modulį (strategija, rizika, valdyba ir kt.) ir gauk vieną siuntimui paruoštą briefą.",
+          q: "What is the Global Context Block?",
+          a: "Four shared fields for every brief—company, current goal, main constraint, and key bottleneck—so outputs stay decision-grade. Pick a module to compile one send-ready prompt.",
+          bullets: [],
+          sectionAnchor: "context",
+          sectionLinkLabel: "Open Global Context",
+        },
+        {
+          q: "What should the AI output look like?",
+          a: "A decision-grade brief: clear recommendation, ranked risks, named owner, deadline, and next action—not generic advice. The hero example shows the target shape.",
           bullets: [],
         },
         {
-          q: "Kuo tai ne eilinis promptų sąrašas?",
-          a: "CEO/COO sprendimų darbo eiga, o ne pradinio lygio promptų mokymai. DI modelis tik generuoja; rinkinys užfiksuoja įvestį, logiką ir išvesties formą, kurią tikrai siunti.",
+          q: "How is this different from a prompt list or AI course?",
+          a: "This is a CEO/COO decision workflow, not beginner prompt training. The model only generates; this kit pins down input, logic, and the output shape you actually ship.",
           bullets: [
-            "Vienas konteksto blokas + moduliai, sukompiliuoti į vieną promptą, ir spausdinamas PDF rinkinys.",
-            "Tas pats briefų standartas ir saugumo patikros prieš valdybą, klientą ar komandą.",
+            "One context block plus modules compiled into a single prompt, plus a printable PDF kit.",
+            "Same brief standard and safety checks before board, client, or team sees output.",
           ],
         },
         {
-          q: "Naujas struktūruotuose promptuose?",
-          a: "Framework pagrindai ir trumpa praktikos eiga – seserinėje svetainėje. Šis puslapis lieka vadovų sprendimų operacijoms – kontekstas, moduliai ir sprendimo lygio rezultatas.",
+          q: "Do I need a human review before I send?",
+          a: "Yes. Run the four-check safety prompt before board, client, or team sees AI output. This kit structures input and output—you own the send decision.",
           bullets: [],
-          handoff: "sister_hub",
+          sectionAnchor: "safety",
+          sectionLinkLabel: "Open safety check",
         },
         {
-          q: "Ar reikia PromptAnatomy paskyros?",
-          a: "Ne šiam rinkiniui. Pilnai naudok tik kai nori visos sistemos.",
+          q: "Is this free, and when should I open the full app?",
+          a: "This kit and PDF download are free—no account required. Open promptanatomy.app after your first brief or kit download when you want the full team standard, training, and repeatable OS.",
           bullets: [],
+          sectionAnchor: "kit",
+          sectionLinkLabel: "Download the kit",
+        },
+        {
+          q: "New to structured prompts?",
+          a: "Framework basics and a short practice path live on our sister site. This page stays focused on executive decision operations—context, modules, and decision-grade output.",
+          bullets: [],
+          handoff: "sister_hub",
         },
       ],
     },
@@ -72,231 +93,297 @@ export const ltCopy = {
       kitPdf: "Rinkinio atsisiuntimas",
     },
     hero: {
-      eyebrow: "Vadovo sprendimų rinkinys",
-      title: "Nuo DI triukšmo iki sprendimo.",
-      subtitle: "Vienas briefas su savininku, rizikomis, terminu ir kitu veiksmu.",
-      inPageCta: "Pradėti nuo konteksto",
-      productCta: "Atidaryti PromptAnatomy.app",
-      ctaMeta: "Nemokama · Be prisijungimo · kopijuok per 2 min.",
+      eyebrow: "Executive decision kit",
+      title: "From AI noise to decision.",
+      subtitle:
+        "Turn scattered input into one owner-ready brief — risks, deadline, next action.",
+      inPageCta: "Build your decision brief",
+      productCta: "Open the full app",
+      ctaMeta: "Free · No login · Ready in 2 minutes",
     },
     heroDiagram: {
       ariaLabel:
-        "Pavyzdinė vadovo sprendimų eiga: triukšmas per kontekstą ir modulį į briefą su sprendimu, rizikomis ir kitu veiksmu.",
-      label: "Pavyzdys",
-      caption: "Nuo išsklaidytos įvesties iki vieno briefo su savininku",
-      pipelineAriaLabel: "Trys žingsniai: triukšmas, kontekstas, sukompiliuotas modulis",
+        "Example executive decision flow: scattered input through decision context to a sample decision brief with owner, risks, deadline, and next action.",
+      label: "Example",
+      caption: "From scattered input to one owner-ready brief",
+      pipelineAriaLabel: "Three steps: scattered input, decision context, decision brief",
+      connectorLabel: "Generated brief",
       pipeline: [
-        { label: "Triukšmas", desc: "Ataskaitos, KPI, nuomonės" },
-        { label: "Kontekstas", desc: "Tikslas, riba, savininkas" },
-        { label: "Modulis", desc: "Sukompiliuotas promptas" },
+        { label: "Scattered input", desc: "Reports, KPIs, opinions" },
+        { label: "Decision context", desc: "Goal, constraints, owner" },
+        { label: "Decision brief", desc: "Decision, risks, next action" },
       ],
       engine: {
-        title: "Sprendimo briefas",
-        subtitle: "Po vieno įklijavimo",
+        title: "Decision brief",
+        subtitle: "After one paste",
       },
-      sampleAriaLabel: "Briefo dalys: sprendimas, rizikos, kitas veiksmas",
+      sampleAriaLabel:
+        "Sample brief sections: decision, owner, risks, deadline, next action",
       sample: {
         decision: {
-          label: "Sprendimas",
-          line: "Atidėti ES plėtrą; fokusuotis į JAV enterprise — Savininkas: CEO",
+          label: "Decision",
+          line: "Delay EU expansion; focus US enterprise",
+        },
+        owner: {
+          label: "Owner",
+          line: "CEO",
         },
         risks: {
-          label: "Rizikos",
-          line: "Ilgalaikis finansavimas susitraukia, jei Q3 samdos tęsiasi",
+          label: "Risks",
+          line: "Runway tightens if Q3 hiring continues",
+        },
+        deadline: {
+          label: "Deadline",
+          line: "Board review — Friday",
         },
         nextAction: {
-          label: "Kitas veiksmas",
-          line: "CFO iki penktadienio pateikia du scenarijus",
+          label: "Next action",
+          line: "CFO models two scenarios by Friday",
         },
       },
     },
-    beforeAfter: {
-      eyebrow: "Įrodymas viename ekrane",
-      a11yLabel: "Sprendimui paruošto briefo struktūros diagrama.",
-    },
     pasteIntoAssistant: {
-      ariaLabel: "Po kopijavimo: atidaryk patvirtintą DI asistentą ir įklijuok promptą",
+      ariaLabel: "After copy: open an approved AI assistant and paste the prompt",
       lead: "Your prompt stays on your device until you paste it elsewhere.",
-      continueLabel: "Tęsk čia:",
-      openChatgpt: "Atidaryti ChatGPT",
-      openClaude: "Atidaryti Claude",
-      openGemini: "Atidaryti Gemini",
-      licenseNote:
-        "Naudok organizacijos licencijuotą tiekėją ir paskyrą – laikykis tiekėjų sąlygų ir plano ribų.",
+      postCopyLead: "Prompt copied. Continue in:",
+      continueLabel: "Continue in:",
+      openChatgpt: "Open ChatGPT",
+      openClaude: "Open Claude",
+      openGemini: "Open Gemini",
+      licenseNote: "Use your org-licensed provider and account; follow each vendor's terms and plan limits.",
     },
     promoBanner: {
       ariaLabel: "Kitas žingsnis: aiškumo praktika prieš pilną produktą.",
       eyebrow: "Kitas žingsnis",
-      title: "Paleisk aiškumo praktiką su realiu scenarijumi.",
-      subtitle: "Penki statiniai scenarijai – tada pasiimk rinkinį arba atidaryk PromptAnatomy.",
-      primaryCta: "Atidaryti aiškumo praktiką",
-      secondaryCta: "Atidaryti PromptAnatomy.app",
-      sisterCta: "Framework pagrindai → promptanatomy.cloud",
+      title: "Test the framework on a real executive scenario.",
+      subtitle: "Five short cases—then take the kit or open the full app.",
+      primaryCta: "Start the scenario",
+      secondaryCta: "Open the full app",
+      sisterCta: "Learn the framework",
     },
     modules: {
-      eyebrow: "Globalus kontekstas + moduliai",
-      title: "Kontekstą apibrėžk vieną kartą. Paleisk bet kurį modulį.",
-      subtitle: "",
-      startHere: "Užpildyk 4 laukus, tada kopijuok modulį (pradėk nuo „Sprendimo pasekmės“).",
+      eyebrow: "Step 1 · Define your business context",
+      title: "Define it once. Use it across every executive module.",
+      subtitle: "Give the system four facts about your company and current decision environment.",
+      startHere: "Next: use Decision impact on a pending decision.",
+      nextStepCta: "Open Decision impact",
+      recommendedBadge: "Recommended first",
+      workflowAriaLabel: "Three steps: define context, choose a module, copy your brief",
+      workflowSteps: [
+        { label: "Define context", desc: "Four fields about your company" },
+        { label: "Choose a module", desc: "Pick the decision outcome you need" },
+        { label: "Copy your brief", desc: "Paste into your AI tool" },
+      ],
+      contextStatusEmpty:
+        "Context empty — copied prompts will use generic placeholders. Fill the four fields first.",
+      contextStatusReady: "Context ready — included when you copy a module.",
+      previewPromptLabel: "Preview compiled prompt",
       context: {
-        title: "Globalus konteksto blokas",
-        subtitle: "Reikia vieną kartą. Naudojama kiekviename modulyje.",
-        badge: "Išlieka",
-        companyLabel: "Įmonė",
-        companyPlaceholder: "pvz., Series B B2B SaaS, 150 darbuotojų",
-        goalLabel: "Dabartinis tikslas",
-        goalPlaceholder: "pvz., +15% enterprise retention Q3",
-        constraintLabel: "Pagrindinė riba",
-        constraintPlaceholder: "pvz., be headcount augimo, liko 60 dienų",
-        bottleneckLabel: "Butelio kaklelis",
-        bottleneckPlaceholder: "pvz., inžinerijos greitis vs pardavimų pažadai",
+        title: "Global context block",
+        subtitle: "Required once. Used in every module.",
+        badge: "Saved in this session",
+        companyLabel: "Company",
+        companyPlaceholder: "e.g., Series B B2B SaaS, 150 employees",
+        goalLabel: "Current goal",
+        goalPlaceholder: "e.g., Increase enterprise retention by 15% in Q3",
+        constraintLabel: "Main constraint",
+        constraintPlaceholder: "e.g., Flat headcount budget, 60 days left",
+        bottleneckLabel: "Key bottleneck",
+        bottleneckPlaceholder: "e.g., Engineering speed vs Sales promises",
       },
-      contextFootnote: "",
-      contextMapAriaLabel: "Kaip globalūs konteksto laukai patenka į sukompiliuotus promptus",
-      contextMapInjectLabel: "Į modulius",
-      contextMapCaption: "",
       rulesPreview: {
-        title: "Integruotos taisyklės",
+        title: "View built-in decision rules",
         items: [
-          "Jokio bendrinio patarimo. Jei trūksta konteksto – pirmiausia užduok iki 3 tikslių klausimų.",
-          "Neišgalvok skaičių ar faktų. Pažymėk, ką būtina patikrinti.",
-          "Išvestis turi būti sprendimo lygio: rekomendacija, rizikos, savininkai, terminai.",
+          "No generic advice. If context is missing, ask up to 3 targeted questions first.",
+          "Do not invent numbers or facts. Flag what must be verified.",
+          "Output must be decision-grade: recommendation, risks, owners, deadlines.",
         ],
       },
-      roleLine: "ROLĖ: 1 lygio CEO patarėjas (strategija + operacijos)",
-      missingContextRule: "Jei trūksta konteksto – pirmiausia užduok iki 3 tikslių klausimų.",
+      roleLine: "ROLE: Tier-1 CEO advisor (strategy + operator)",
+      missingContextRule: "If context is missing, ask up to 3 targeted questions first.",
       jsonFirstRule:
-        "Išvestis turi būti paprastas tekstas. Naudok trumpus punktus, sužymėk skyrius, įdėk savininkus + terminus, kur įmanoma.",
-      taskLabel: "Užduotis",
-      outputLabel: "Laukiama išvestis (skaitoma)",
-      explanationLabel: "Paaiškinimas",
-      copyButton: "Kopijuoti pilną promptą",
-      copiedButton: "Nukopijuota",
+        "Output must be plain text. Use short bullets, label sections, and include owners + deadlines where possible.",
+      taskLabel: "Task",
+      outputLabel: "What you get",
+      explanationLabel: "Explanation",
+      copyButton: "Use module",
+      copiedButton: "Prompt copied",
       items: [
         {
           id: "redTeam",
-          eyebrow: "1. Raudonoji komanda",
-          title: "Strategijos laužytuvas",
-          subtitle: "Patikrink strategiją prieš kalendoriaus laiką.",
-          taskFormat: "Patikrink: [Įrašyk strategiją arba planą čia]",
-          outputExampleJson: `Verdiktas: vykdyti / peržiūrėti iš naujo / nutraukti
+          category: "Strategy",
+          title: "Strategy breaker",
+          subtitle: "Stress-test strategy before calendar time.",
+          bestFor: "Best for: major strategy bets before board or investor time",
+          outputPreviewLine: "Verdict · Top risks · Kill criteria · First moves",
+          taskFormat: "Stress-test: [Insert your strategy or plan here]",
+          outputExampleJson: `Verdict: Proceed / Revise / Kill
 
-Top 3 rizikos (pagal svarbą):
-- Rizika:
-  - Paslėpta prielaida:
-  - Ankstyvas signalas:
-  - Mitigacija (kitas veiksmas + savininkas + terminas):
+Top 3 risks (ranked):
+- Risk:
+  - Hidden assumption:
+  - Early warning signal:
+  - Mitigation (next action + owner + deadline):
 
-Nutraukimo kriterijai:
+Kill criteria:
 - ...
 
-Pirmos 48 val.:
-- Veiksmas – Savininkas – Terminas`,
+First 48h moves:
+- Action — Owner — Deadline`,
         },
         {
           id: "sentiment",
-          eyebrow: "2. Nuotaikos skaitymas",
-          title: "Kultūros dekoderis",
-          subtitle: "Feedbackas → veiksmai, keičiantys moralę.",
-          taskFormat: "Analizuok: [Įklijuok feedbacką, apklausas ar žalią tekstą]",
-          outputExampleJson: `Pagrindinė emocija (1 eilutė):
+          category: "Culture",
+          title: "Culture decoder",
+          subtitle: "Turn team feedback into actions that improve morale.",
+          bestFor: "Best for: survey results, exit interviews, or raw team feedback",
+          outputPreviewLine: "Core emotion · Top issues · Town Hall actions",
+          taskFormat: "Analyze: [Paste team feedback, survey results, or raw text here]",
+          outputExampleJson: `Core emotion (1 line):
 
-Top 3 tikros problemos:
+Top 3 real issues:
 - ...
 
-Neįvardyta problema:
+Unspoken problem:
 
-Veiksmai (kitas komandos susitikimas):
-- Veiksmas – Savininkas – Terminas
+Actions (next Town Hall):
+- Action — Owner — Deadline
 
-Rizika, jei ignoruosime:
+Risks if ignored:
 - ...`,
         },
         {
           id: "secondOrder",
-          eyebrow: "3. Antros eilės poveikis",
-          title: "Sprendimo pasekmės",
-          subtitle: "2-os ir 3-os eilės poveikis prieš įsipareigojimą.",
-          taskFormat: "Įvertink: [Aprašyk laukiantį sprendimą]",
-          outputExampleJson: `Rekomendacija: vykdyti / atidėti / atmesti
+          category: "Decision",
+          title: "Decision impact",
+          subtitle: "Second- and third-order effects before you commit.",
+          bestFor: "Best for: high-cost or hard-to-reverse decisions",
+          outputPreviewLine: "Recommendation · 2nd-order effects · Reversibility · Next actions",
+          taskFormat: "Evaluate: [Describe a pending decision here]",
+          outputExampleJson: `Recommendation: Go / Delay / Reject
 
-Momentinė nauda:
+Immediate benefit:
 
-2-os eilės efektai (6–12 mėn.):
+2nd-order effects (6–12m):
 - ...
 
-3-os eilės rizikos (12–24 mėn.):
+3rd-order risks (12–24m):
 - ...
 
-Grįžtamumas: grįžtama / iš dalies grįžtama / negrįžtama
+Reversibility: Reversible / Partially reversible / Irreversible
 
-Kiti veiksmai:
-- Veiksmas – Savininkas – Terminas`,
+Next actions:
+- Action — Owner — Deadline`,
         },
         {
           id: "communication",
-          eyebrow: "4. Komunikacija",
-          title: "CEO balsas",
-          subtitle: "Aiški pozicija + vienas CTA, be gynybos tono.",
-          taskFormat: "Perrašyk: [Įklijuok laiško/memo/žinutės juodraštį]",
-          outputExampleJson: `Pozicija (1 eilutė):
+          category: "Communication",
+          title: "CEO voice",
+          subtitle: "Turn a draft into a clear executive message with one call to action.",
+          bestFor: "Best for: board updates, team memos, or external announcements",
+          outputPreviewLine: "Stance · Message · Call to action · Misinterpretation risks",
+          taskFormat: "Rewrite: [Paste draft email, memo, or announcement here]",
+          outputExampleJson: `Stance (1 line):
 
-Žinutė (≤150 žodžių):
+Message (≤150 words):
 
-Veiksmo kvietimas (1 eilutė):
+Call to action (1 line):
 
-Nesusipratimo rizikos:
+Risks of misinterpretation:
 - ...`,
         },
         {
           id: "premortem",
-          eyebrow: "5. Iš anksto numatomas žlugimas",
-          title: "Konkurento ataka",
-          subtitle: "Tarkim, kad žlungei. Surask silpną vietą dabar.",
-          taskFormat: "Veik kaip konkurento CEO prieš mano dabartinį setupą.",
-          outputExampleJson: `Geriausia konkurento ataka:
+          category: "Risk",
+          title: "Competitive attack",
+          subtitle: "Assume failure. Find the weak point now.",
+          bestFor: "Best for: pre-launch plans, market moves, or defensive positioning",
+          outputPreviewLine: "Attack vector · Blind spot · Defensive move · Hardening checklist",
+          taskFormat: "Act as a competitor CEO attacking my current setup.",
+          outputExampleJson: `Competitor's best attack:
 
-Tavo akloji zona:
+Your blind spot:
 
-Silpniausia vieta:
+Weakest point:
 
-Gynybinis veiksmas (dabar):
-- Veiksmas – Savininkas – Terminas
+Defensive move (now):
+- Action — Owner — Deadline
 
-Sustiprinimo sąrašas:
+Hardening checklist:
 - ...`,
         },
         {
           id: "timeAudit",
-          eyebrow: "6. Laiko auditas",
-          title: "Sverto filtras",
-          subtitle: "Nukirpk, deleguok, fokusas kitai savaitei.",
-          taskFormat: "Analizuok: [Įklijuok savaitės kalendorių / užduočių sąrašą]",
-          outputExampleJson: `Didžiausio poveikio 20 %:
+          category: "Focus",
+          title: "Leverage filter",
+          subtitle: "Identify what to cut, delegate, and prioritize next week.",
+          bestFor: "Best for: calendar overload or unclear weekly priorities",
+          outputPreviewLine: "Top 20% impact · Delegate list · Eliminate · Focus rules",
+          taskFormat: "Analyze: [Paste list of your calendar events/tasks for the week]",
+          outputExampleJson: `Top 20% impact:
 - ...
 
-Mažiausio poveikio 30 % delegavimui:
-- Užduotis – Kam deleguoti – Kada
+Bottom 30% to delegate:
+- Task — Delegate to — When
 
-Pašalinti dabar:
+Eliminate now:
 - ...
 
-3 fokusavimo taisyklės (kitai savaitei):
+3 focus rules (next week):
 - ...`,
         },
       ],
       custom: {
-        eyebrow: "7. Pasirinktinis",
-        title: "Pasirinktinis modulis",
-        subtitle: "Tavo užduotis ir išvesties forma. Tas pats kontekstas + taisyklės.",
-        taskLabel: "Užduoties formatas",
-        taskPlaceholder: "pvz., Diagnozuok: [Įklijuok savaitinį vadovo atnaujinimą]",
-        outputLabel: "Laukiama išvestis (skaitoma)",
+        eyebrow: "Custom",
+        title: "Custom module",
+        subtitle: "Create a prompt for a task not covered above.",
+        taskLabel: "What should AI do?",
+        taskPlaceholder:
+          "Review this weekly executive update. Identify blockers, decisions needed, risks, and owners.",
+        outputLabel: "What should the answer include?",
         outputPlaceholder:
-          "Rekomendacija:\n\nTop rizikos:\n- ...\n\nKiti veiksmai:\n- Veiksmas – Savininkas – Terminas\n\nPastabos:\n- ...",
+          "Recommendation:\n\nTop risks:\n- ...\n\nNext actions:\n- Action — Owner — Deadline\n\nNotes:\n- ...",
+        outputPresets: [
+          {
+            id: "brief",
+            label: "Executive brief",
+            template:
+              "Recommendation:\n\nTop risks:\n- ...\n\nNext actions:\n- Action — Owner — Deadline",
+          },
+          {
+            id: "actionPlan",
+            label: "Action plan",
+            template:
+              "Objective:\n\nNext actions:\n- Action — Owner — Deadline\n\nDependencies:\n- ...",
+          },
+          {
+            id: "riskReview",
+            label: "Risk review",
+            template:
+              "Top risks (ranked):\n- Risk — Likelihood — Impact — Mitigation — Owner\n\nEscalation triggers:\n- ...",
+          },
+          {
+            id: "comparison",
+            label: "Comparison",
+            template:
+              "Option A vs Option B:\n\nRecommendation:\n\nTrade-offs:\n- ...\n\nDecision criteria:\n- ...",
+          },
+          {
+            id: "commsDraft",
+            label: "Communication draft",
+            template:
+              "Stance (1 line):\n\nMessage (≤150 words):\n\nCall to action (1 line):",
+          },
+          {
+            id: "custom",
+            label: "Custom structure",
+            template:
+              "Recommendation:\n\nTop risks:\n- ...\n\nNext actions:\n- Action — Owner — Deadline\n\nNotes:\n- ...",
+          },
+        ],
         validationError: "Add a task description before copying.",
-        copyButton: "Kopijuoti custom promptą",
-        copiedButton: "Nukopijuota",
+        copyButton: "Build and copy prompt",
+        copiedButton: "Prompt copied",
       },
     },
     safety: {
@@ -320,18 +407,58 @@ Pašalinti dabar:
     anatomy: {
       eyebrow: "Vadovo prompto anatomija",
       title: "Penki blokai vadovo lygio DI rezultatui.",
-      expandSummary: "Penki blokai (išskleisti)",
+      expandSummary: "Reference — names the framework (not a form)",
       subtitle:
-        "Promptas – instrukcija, kuri formuoja atsakymą. Greitai: 2–3 blokai. Prieš valdybą ar klientą: visi penki.",
+        "A prompt is the instruction that shapes the reply. Use 2–3 blocks for speed; all five before board or client sends. These blocks are already built into the sections above.",
       previewAriaLabel: "Penki blokai trumpai",
       /** Antraštės žodis prie blokų numerio išskleistame tinklelyje (pvz. „Žingsnis 1“). */
       stepPrefix: "Žingsnis",
+      definitionLabel: "Definition",
+      exampleLabel: "Example",
+      onPageLead: "On this page",
+      referenceNote:
+        "Expand only if you want the vocabulary — action is in Context, Practice, and Safety above.",
       items: [
-        ["Rolė", "Kas DI ir kokiam verslo rezultatui."],
-        ["Kontekstas", "Auditorija, ribos, faktai, kuriuos komanda jau turi."],
-        ["Sprendimo logika", "Kriterijai, kompromisai, grįžtamumas, laikas."],
-        ["Rezultatas", "Formatas, savininkas, terminas, sprendimo forma."],
-        ["Kokybės patikra", "Ką patikrinti prieš klientą, valdybą ar komandą."],
+        {
+          id: "role",
+          title: "Role",
+          body: "Who AI plays as and the business outcome.",
+          example: "ROLE: Tier-1 CEO advisor (strategy + operator)",
+          onPageLabel: "See it in Global context →",
+          onPageHref: "#context",
+        },
+        {
+          id: "context",
+          title: "Context",
+          body: "Audience, constraints, facts the team already has.",
+          example: "Company · Goal · Constraint · Bottleneck",
+          onPageLabel: "Fill the four context fields →",
+          onPageHref: "#ctx-company",
+        },
+        {
+          id: "decisionLogic",
+          title: "Decision Logic",
+          body: "Criteria, trade-offs, reversibility, timing.",
+          example: "Smallest proof that matters; stop rules before pilot.",
+          onPageLabel: "Try a clarity scenario →",
+          onPageHref: "#demo",
+        },
+        {
+          id: "output",
+          title: "Output",
+          body: "Format, owner, deadline, decision-ready shape.",
+          example: "Recommendation, risks, owner, deadline — plain text bullets.",
+          onPageLabel: "See the brief shape in practice →",
+          onPageHref: "#demo",
+        },
+        {
+          id: "qualityCheck",
+          title: "Quality Check",
+          body: "Verify before client, board, or team sees it.",
+          example: "Facts, risk wording, missing context, decision owner.",
+          onPageLabel: "Run the safety check →",
+          onPageHref: "#safety-check",
+        },
       ],
     },
     library: {
@@ -605,40 +732,47 @@ Pašalinti dabar:
     },
     demo: {
       eyebrow: "Aiškumo praktika",
-      title: "Pasirink scenarijų. Gauk briefą.",
-      subtitle: "",
+      title: "Pick a scenario. Structure the decision.",
+      subtitle: "Choose one executive situation and copy a decision-ready prompt.",
       scenarioHint: "",
-      briefLabel: "Briefas",
-      detailsTab: "Detalės",
-      inputTab: "Įvestis",
-      secondaryPanelHint: "",
-      secondaryTablistAriaLabel: "Papildomas brief turinys",
+      briefLabel: "Scenario brief",
+      detailsTab: "Risks and questions",
+      inputTab: "Required input",
+      promptTab: "Prompt preview",
+      secondaryPanelHint: "Open a tab for risks, input, or the full prompt.",
+      secondaryTablistAriaLabel: "More detail",
       promptBlockLabel: "Pavyzdinis kopijuojamas promptas",
       previewHint: "",
-      followUpEyebrow: "Laikyk struktūrą po ranka",
-      followUpText: "Ta pati struktūra spausdinamame rinkinyje (žemiau).",
-      followUpCta: "Atsisiųsti Max Value Kit",
+      followUpEyebrow: "Want the same structure offline?",
+      followUpText: "Download the printable decision kit.",
+      followUpCta: "Download PDF kit",
       pdfAgain: "pereik prie atsisiuntimo.",
       scenarioLiveStatus: "Scenarijus: {scenario}. Briefas atnaujintas.",
-      messyInputLabel: "Verslo triukšmas",
+      messyInputLabel: "Scenario setup",
       connectorCaption: "Virsta",
       outputLabel: "Aiškus vadovo rezultatas",
       insight: "Esminė išvada",
       decision: "Reikalingas sprendimas",
       risks: "Svarbiausios rizikos",
       questions: "Klausimai komandai",
-      action: "Kitas veiksmas",
-      copyPrompt: "Kopijuoti promptą",
-      copied: "Nukopijuota",
+      action: "How to run it",
+      copyPrompt: "Copy decision prompt",
+      copied: "Prompt copied",
       scenarios: {
         meeting: {
           label: "Susitikimas",
+          title: "Quarterly priority meeting",
           input:
             "Rytojaus vadovų susitikime bus Q3 pristatymo vėlavimai, silpnesnė pardavimų prognozė ir spaudimas stabdyti įdarbinimą. Kiekvienas skyrius atsiuntė skirtingus užrašus, ir niekas nesutaria, kuri tema svarbiausia.",
           insight:
             "Tai nėra statuso susitikimas. Tai prioritetų sprendimas: saugoti trumpalaikį pajamų pristatymą ar išlaikyti įdarbinimo discipliną.",
           decision:
             "Nuspręsti, kurios Q3 iniciatyvos saugomos, kurios stabdomos ir kas iki penktadienio pateikia rekomendaciją.",
+          decisionBullets: [
+            "Choose which Q3 initiatives stay protected.",
+            "Decide which initiatives pause.",
+            "Name who owns the recommendation by Friday.",
+          ],
           risks: [
             "Susitikimas virsta atnaujinimų kartojimu, o ne sprendimu.",
             "Pardavimai ir pristatymas remsis skirtingomis prielaidomis.",
@@ -652,6 +786,7 @@ Pašalinti dabar:
         },
         report: {
           label: "Ataskaita",
+          title: "Monthly business report",
           input:
             "Mėnesio ataskaita: 18 psl. Pajamos flat, klientų netekimas šiek tiek auga, pristatymas vėlavo, klientų aptarnavimas fiksuoja skundus.",
           insight:
@@ -667,6 +802,7 @@ Pašalinti dabar:
         },
         decision: {
           label: "Sprendimas",
+          title: "New service line decision",
           input:
             "Galime naują paslaugą paleisti dabar, laukti Q4 arba tyliai testuoti su dviem esamais klientais. Pardavimai nori greičio, operacijos įspėja dėl kokybės, finansai nori įrodymų prieš išlaidas.",
           insight:
@@ -682,6 +818,7 @@ Pašalinti dabar:
         },
         delegation: {
           label: "Delegavimas",
+          title: "Partner proposal delegation",
           input:
             "Reikia deleguoti partnerystės pasiūlymą. Ankstesni juodraščiai praleido strateginį kampą – mandagus tekstas, ne verslo argumentas.",
           insight:
@@ -697,6 +834,7 @@ Pašalinti dabar:
         },
         communication: {
           label: "Komunikacija",
+          title: "Deadline shift message",
           input:
             "Turime komandai pranešti, kad svarbus terminas keičiasi. Žmonės jau įsitempę, nenoriu, kad žinutė skambėtų gynybiškai, miglotai ar taip, lyg slepiame tikrą priežastį.",
           insight:
@@ -715,6 +853,7 @@ Pašalinti dabar:
     memes: {
       eyebrow: "Vizualus įrodymas",
       title: "Problema – ne prieiga prie DI. Problema – kontrolė.",
+      delegationBridge: "Same theme as the Delegation scenario below.",
       sectionAriaLabel: "Įrodymo akimirka",
       /** Eiliškumas kaip `Page.astro` MemeMoment (indeksai 3, 0, 2, 5). */
       sequenceImageAlts: [
@@ -810,11 +949,17 @@ Pašalinti dabar:
       secondary: "Atidaryti PromptAnatomy komandos standartą",
     },
     footer: {
-      brand: "PromptAnatomy · Vadovo OS",
-      tagline: "Statinis rinkinys. Be prisijungimo. Duomenys nesiunčiami.",
-      versionAria: "Svetainės versija",
+      brand: "PromptAnatomy · Executive OS",
+      tagline: "Static kit. No login. Your brief stays on your device.",
+      versionAria: "Site version",
+      copyright: "© 2026 Prompt Anatomy",
+      creator: "Created by Tomas Staniulis",
+      location: "Alameda, CA",
+      kitLink: "Kit download",
+      faqLink: "Quick answers",
+      contact: "Contact",
       telegram: "Telegram",
-      privacy: "Privatumas",
-      terms: "Sąlygos",
+      privacy: "Privacy",
+      terms: "Terms",
     },
 } as const;

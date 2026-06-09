@@ -16,14 +16,21 @@
 | Promo eyebrow (uppercase) | `.type-eyebrow-promo`, `.type-eyebrow-promo-bright` | Promo strips, high-contrast labels |
 | Inline label in cards | `.type-eyebrow-inline` | Card subheads, inline section labels |
 | Micro / overline | `.type-micro-label` | Badges, column labels, tight metadata |
+| Micro / overline (readable) | `.type-micro-label-readable` | Field labels in demo and modules (≥11px) |
+| Body deck | `.type-body-deck` | Section subtitles, lead paragraphs (`slate-200`) |
+| Body support | `.type-body-support` | Card body copy (`slate-300`) |
+| Prompt preview | `.text-prompt-preview` | Monospace `<pre>` prompt blocks |
 | Form-style label | `.type-form-label` | Inputs and structured fields |
-| CTA text on gold button | `.type-cta-label` | Primary gradient buttons |
+| CTA text on gold button | `.type-cta-label` | Primary gradient buttons — prefer composed `.btn-primary-gold` |
 | **Section H2 (display)** | `SectionTitleBlock` / `SectionHeader` default (`titleScale="display"`) | Main section titles: `text-4xl` → `sm:text-5xl` |
 | **Section H2 (compact)** | `titleScale="compact"` | FAQ-style sections: `text-2xl` → `sm:text-3xl` |
-| Body (deck) | `text-sm leading-6 text-slate-300` or `text-base` on larger copy blocks | Long-form explanation in cards |
+| **Section H2 (promo)** | In-strip only (e.g. PromoBanner) | `text-2xl` → `sm:text-3xl` — subordinate to display H2 |
+| **Card H3** | Module/demo card titles | `text-xl font-black text-white` |
+| **Meme H3** | MemeMoment copy column | `text-2xl` → `lg:text-4xl` max — subordinate to section H2 |
+| Body (legacy) | `text-sm leading-6 text-slate-300` | Prefer `.type-body-deck` / `.type-body-support` on new work |
 | Hero-specific | Hero keeps its own eyebrow pill and headline scale; not forced through `SectionTitleBlock` | Documented as **Hero** template exception |
 
-Body text on dark surfaces: prefer `text-slate-200` / `text-slate-300` for paragraphs; `text-white` for titles and emphasis.
+Body text on dark surfaces: **deck** = `.type-body-deck` (`slate-200`); **support** = `.type-body-support` (`slate-300`); **metadata** = `text-slate-400` at `text-xs` or smaller only. Titles and emphasis use `text-white`.
 
 ### Spacing
 
@@ -36,13 +43,15 @@ Body text on dark surfaces: prefer `text-slate-200` / `text-slate-300` for parag
 | | `.section-y-tight` | Lighter breaks, promos |
 | | `.section-y-compact` | Dense proof blocks (e.g. before/after row) |
 | | `.section-y` + `.section-y-roomy-lg` | Extra vertical air (e.g. safety block) |
+| After section title | `.stack-after-section-title` | `mt-8` gap before first content block |
 
-**Card padding (only two variants):**
+**Card padding:**
 
 | Variant | Classes | Use |
 |---------|---------|-----|
 | **Compact** | `.card-padding-compact` (`p-4 sm:p-6`) | FAQs, tight cards, nested panels |
 | **Comfort** | `.card-padding-comfort` (`p-6 sm:p-8`) | Primary glass cards, demo article |
+| **Promo** | `.card-padding-promo` (`p-7 sm:p-10`) | `HighlightStrip` promo variant only |
 
 Prefer [`ContentCard`](../src/components/ds/ContentCard.astro) with `padding="compact" | "comfort"` instead of ad-hoc `p-*` on every new card.
 
@@ -56,7 +65,7 @@ Prefer [`ContentCard`](../src/components/ds/ContentCard.astro) with `padding="co
 | Accent hover | `#E8B93C` | Hover text, brighter promo |
 | CTA gradient | `--color-cta-from` → `--color-cta-to` (`#FFCC33` → `#FFB300`) | **Primary conversion** buttons only (`cta-gradient`) |
 | Surfaces | `--color-surface-*`, `--surface-1-bg`, `--surface-2-bg`, `--surface-accent-bg` | Cards and panels via `glass-card`, `surface-card`, `surface-accent` |
-| Functional | Rose (risk), emerald (action), amber (warning) | Only for semantic bands (demo, risks, checks) — see `visual-and-copy.mdc` |
+| Functional | Rose (risk), emerald (action), amber (warning), violet (ROI communication step only) | Semantic bands only — see `visual-and-copy.mdc` |
 
 Do **not** reintroduce cyan/blue as a primary accent.
 
@@ -77,7 +86,21 @@ Do **not** reintroduce cyan/blue as a primary accent.
 
 ### Border radius
 
-Use only: `.radius-sm` … `.radius-xl`, or meme-specific `.radius-meme-outer` / `.radius-meme-inner`. **No new arbitrary `rounded-[…]`** for section-level UI.
+Use only: `.radius-sm` … `.radius-xl`, or meme-specific `.radius-meme-outer` / `.radius-meme-inner`. **No new arbitrary `rounded-[…]`** for section-level UI. **`rounded-full`** for pills, chips, and CTA buttons only. Hero mobile menu may use `rounded-2xl` (documented nav exception).
+
+### Buttons (composed recipes)
+
+Prefer these over inline `cta-gradient` + ad-hoc padding. Always keep class name `cta-gradient` on primary gold links/buttons for tests and legacy selectors.
+
+| Tier | Class | Use |
+|------|-------|-----|
+| Primary gold | `.btn-primary-gold` + `.cta-gradient` + `.elevate-hover` | Hero, PromoBanner, demo copy, custom module compile |
+| Accent outline | `.btn-outline-accent` + `.elevate-hover` (optional) | Per-module copy, ROI step actions |
+| Neutral outline | `.btn-outline-neutral` + `.elevate-hover` (optional) | PromoBanner secondary (PromptAnatomy.app) |
+| Warning outline | `.btn-outline-warning` + `.type-cta-label` | SafetyCheck copy only |
+| Text link | Underlined `text-sm font-semibold` | Sister hub, footer, tertiary |
+
+**Module hierarchy:** custom compile = gold primary; per-module “Use module” = accent outline.
 
 ---
 
@@ -85,13 +108,13 @@ Use only: `.radius-sm` … `.radius-xl`, or meme-specific `.radius-meme-outer` /
 
 | Component | Role |
 |-----------|------|
-| `SectionShell` | Standard section wrapper: rhythm + `max-w-7xl` + horizontal padding + optional `id` / `aria-*` |
+| `SectionShell` | Standard section wrapper: rhythm + `max-w-7xl` + horizontal padding + optional `id` / `aria-*`; optional `as="aside"` for meme beats |
 | `SectionTitleBlock` | Eyebrow + H2 + subtitle; delegates to `SectionHeader` (same API + `titleScale`) |
 | `ContentCard` | `glass` / `surface` / `accent` surface, `lg` / `xl` radius, compact or comfort padding, optional `elevate-hover` |
 | `BulletSystem` | Disc list with consistent spacing (`default` \| `muted` text) |
 | `HighlightStrip` | Accent callout surfaces: `band` (inline strip), `promo` (glass + accent border + promo blurs) |
 | `DiagramContainer` | Figure shell for SVG/diagrams: glass frame, consistent padding |
-| `ContextFieldMap` | **#context** only: four global context field labels in sequence → “into modules” chip + caption (single pipeline on the page—do not duplicate a second workflow rail elsewhere) |
+| `WorkflowStepRail` | **#context** only: three-step journey (define context → choose module → copy brief) |
 
 New sections should compose these primitives before inventing new layout classes.
 
@@ -119,9 +142,10 @@ Maps “template” → existing components (reference implementation).
 |----------|---------|-------------------------|
 | **Hero** | First screen: promise + nav + primary/secondary CTAs | `Hero.astro`, `HeroDecisionDiagram.astro` — **exception:** custom hero eyebrow pill, not `SectionTitleBlock` |
 | **Content** | Modules, library, dense value | `SectionShell` + `SectionTitleBlock` + `ContentCard` grid or accordions (`ExecutiveModules`, `PromptLibrary`) |
-| **Comparison** | Before / after or contrast story | `SectionShell` + `SectionTitleBlock` + copy column + `DiagramContainer` (`BeforeAfter`) |
-| **Process** | Steps, ROI path, flow | `SectionShell` + steps or `DiagramContainer` + `BulletSystem` where lists matter (e.g. `RoiPath`, `BeforeAfter`) |
+| **Comparison** | Before / after or contrast story | `SectionShell` + `SectionTitleBlock` + copy column + `DiagramContainer` (hero diagram ships proof; standalone BeforeAfter removed **2026-06-09**) |
+| **Process** | Steps, ROI path, flow | `SectionShell` + steps or `DiagramContainer` + `BulletSystem` where lists matter (e.g. `RoiPath`, `HeroDecisionDiagram`) |
 | **CTA** | Conversion band | One primary CTA per major section; `HighlightStrip` / `CourseCTA` patterns; gold `cta-gradient` for primary action |
+| **Reference** | Optional framework vocabulary (late funnel) | [`PromptAnatomy.astro`](../src/components/PromptAnatomy.astro) — collapsed `<details>`; per block: definition label + body, monospace **example** strip (always populated), **On this page** text link to `#context` / `#demo` / `#safety-check`. Use light bordered cards — **not** `surface-panel` form-style panels. |
 
 **HeroDecisionDiagram (right column):** One `glass-card` panel with a **3-pill pipeline** (Noise → Context → Module), connector arrows (`--color-hero-diagram-line`), and a nested **engine card** with three sample rows (Decision / Risks / Next action). Sample rows use neutral fill + semantic **left border** (gold / rose / emerald); pipeline pills stay compact chips. One subtle glow orb (`--color-hero-diagram-glow`); do **not** stack competing gold on the diagram—hero `cta-gradient` stays the primary bright gold. `prefers-reduced-transparency`: solid surface fallback on `.hero-diagram.glass-card`.
 

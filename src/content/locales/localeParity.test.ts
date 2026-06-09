@@ -49,11 +49,15 @@ describe("locale parity (en.ts / lt.ts)", () => {
     });
   });
 
-  it("guards PromoBanner CTA label ladder (comprehension-first)", () => {
-    expect(enCopy.promoBanner.primaryCta.toLowerCase()).not.toContain("promptanatomy");
-    expect(enCopy.promoBanner.secondaryCta.toLowerCase()).toContain("promptanatomy");
-    expect(ltCopy.promoBanner.primaryCta.toLowerCase()).not.toContain("promptanatomy");
-    expect(ltCopy.promoBanner.secondaryCta.toLowerCase()).toContain("promptanatomy");
+  it("guards PromoBanner CTA label ladder (comprehension-first, no raw URLs in labels)", () => {
+    for (const bundle of [enCopy, ltCopy] as const) {
+      const { primaryCta, secondaryCta, sisterCta } = bundle.promoBanner;
+      expect(primaryCta.toLowerCase()).not.toContain("promptanatomy");
+      expect(secondaryCta.toLowerCase()).not.toContain("promptanatomy");
+      expect(sisterCta.toLowerCase()).not.toContain("promptanatomy");
+      expect(sisterCta).not.toMatch(/https?:\/\//);
+      expect(secondaryCta).not.toMatch(/https?:\/\//);
+    }
   });
 
   it("requires non-empty meta title and description in both locales", () => {

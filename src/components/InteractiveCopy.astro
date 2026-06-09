@@ -1,9 +1,11 @@
 <script>
   type Scenario = {
     label: string;
+    title?: string;
     input: string;
     insight: string;
     decision: string;
+    decisionBullets?: readonly string[];
     risks: readonly string[];
     questions: readonly string[];
     action: string;
@@ -22,6 +24,8 @@
       jsonFirstRule?: string;
       missingContextRule?: string;
       explanationLabel?: string;
+      contextStatusEmpty?: string;
+      contextStatusReady?: string;
       rulesPreview?: { items?: readonly string[] };
       context?: {
         companyPlaceholder?: string;
@@ -39,9 +43,18 @@
         validationError?: string;
         copyButton?: string;
         copiedButton?: string;
+        outputPresets?: ReadonlyArray<{
+          id: string;
+          label: string;
+          template: string;
+        }>;
       };
       copyButton?: string;
       copiedButton?: string;
+    };
+    pasteIntoAssistant?: {
+      lead?: string;
+      postCopyLead?: string;
     };
     a11y: { copyManual: string; skipLink?: string };
     [key: string]: unknown;
@@ -87,7 +100,7 @@
   const moduleCopyButtons = document.querySelectorAll<HTMLButtonElement>("[data-module-copy]");
   const customCopyButton = document.querySelector<HTMLButtonElement>("[data-custom-copy]");
   let activeScenario = "meeting";
-  let activeDemoSubpanel: "details" | "input" | null = null;
+  let activeDemoSubpanel: "details" | "input" | "prompt" | null = null;
   let copyHintTimeout = 0;
 
   const renderList = (selector: string, items: readonly string[]) => {
@@ -117,6 +130,19 @@
     renderList("[data-demo-risks]", scenario.risks);
     renderList("[data-demo-questions]", scenario.questions);
 
+    const decisionParagraph = document.querySelector<HTMLElement>('[data-demo-field="decision"]');
+    const decisionBulletsList = document.querySelector<HTMLElement>("[data-demo-decision-bullets]");
+    if (decisionParagraph && decisionBulletsList) {
+      if (scenario.decisionBullets && scenario.decisionBullets.length > 0) {
+        renderList("[data-demo-decision-bullets]", scenario.decisionBullets);
+        decisionParagraph.classList.add("hidden");
+        decisionBulletsList.classList.remove("hidden");
+      } else {
+        decisionParagraph.classList.remove("hidden");
+        decisionBulletsList.classList.add("hidden");
+      }
+    }
+
     scenarioButtons.forEach((button) => {
       const scenarioKey = button.dataset.scenario || "";
       const item = copy.demo.scenarios[scenarioKey];
@@ -133,15 +159,17 @@
   const placeholderEl = document.querySelector<HTMLElement>("[data-demo-secondary-placeholder]");
   const detailsPanelEl = document.getElementById("demo-details-panel");
   const inputPanelEl = document.getElementById("demo-input-panel");
+  const promptPanelEl = document.getElementById("demo-prompt-panel");
   const demoTabButtons = document.querySelectorAll<HTMLButtonElement>("[data-demo-tab]");
 
-  const setDemoSubpanel = (next: "details" | "input" | null) => {
+  const setDemoSubpanel = (next: "details" | "input" | "prompt" | null) => {
     if (!placeholderEl || !detailsPanelEl || !inputPanelEl) return;
     activeDemoSubpanel = next;
     if (next === null) {
       placeholderEl.classList.remove("hidden");
       detailsPanelEl.classList.add("hidden");
       inputPanelEl.classList.add("hidden");
+      promptPanelEl?.classList.add("hidden");
       demoTabButtons.forEach((t) => {
         t.setAttribute("aria-selected", "false");
         t.tabIndex = -1;
@@ -153,6 +181,7 @@
     placeholderEl.classList.add("hidden");
     detailsPanelEl.classList.toggle("hidden", next !== "details");
     inputPanelEl.classList.toggle("hidden", next !== "input");
+    promptPanelEl?.classList.toggle("hidden", next !== "prompt");
     demoTabButtons.forEach((t) => {
       const selected = t.dataset.demoTab === next;
       t.setAttribute("aria-selected", String(selected));
@@ -162,7 +191,7 @@
 
   demoTabButtons.forEach((tab) => {
     tab.addEventListener("click", () => {
-      const key = tab.dataset.demoTab as "details" | "input" | undefined;
+      const key = tab.dataset.demoTab as "details" | "input" | "prompt" | undefined;
       if (!key) return;
       if (activeDemoSubpanel === key) {
         setDemoSubpanel(null);
@@ -272,9 +301,86 @@ ${outputExampleJson}`.trim();
     }, 1400);
   };
 
+  const prefersReducedMotion = () =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const revealPasteDestinationStrip = (surface: "context" | "demo" = "context") => {
+    const strip = document.querySelector<HTMLElement>(`[data-paste-destination-strip="${surface}"]`);
+    if (!strip) return;
+    strip.classList.remove("hidden");
+    const lead = strip.querySelector<HTMLElement>("[data-paste-lead]");
+    const postCopyLead = copy.pasteIntoAssistant?.postCopyLead;
+    if (lead && typeof postCopyLead === "string" && postCopyLead) {
+      lead.textContent = postCopyLead;
+    }
+    strip.scrollIntoView({
+      behavior: prefersReducedMotion() ? "auto" : "smooth",
+      block: "nearest",
+    });
+  };
+
+  const updateContextStatus = () => {
+    const statusEl = document.querySelector<HTMLElement>("[data-context-status]");
+    if (!statusEl) return;
+    const { anyFilled } = readContext();
+    const emptyMsg = copy.modules?.contextStatusEmpty;
+    const readyMsg = copy.modules?.contextStatusReady;
+    if (anyFilled) {
+      statusEl.textContent =
+        typeof readyMsg === "string" && readyMsg
+          ? readyMsg
+          : "Context ready — included when you copy a module.";
+      statusEl.classList.remove("text-amber-200/90");
+      statusEl.classList.add("text-emerald-200/90");
+    } else {
+      statusEl.textContent =
+        typeof emptyMsg === "string" && emptyMsg
+          ? emptyMsg
+          : "Context empty — copied prompts will use generic placeholders. Fill the four fields first.";
+      statusEl.classList.remove("text-emerald-200/90");
+      statusEl.classList.add("text-amber-200/90");
+    }
+  };
+
+  const renderModulePreview = (moduleId: string) => {
+    const pre = document.querySelector<HTMLElement>(`[data-module-preview-content="${moduleId}"]`);
+    if (!pre) return;
+    const module = copy.modules?.items?.find((m) => m.id === moduleId);
+    if (!module) return;
+    pre.textContent = buildCompiledPrompt(moduleId, module.taskFormat, module.outputExampleJson);
+  };
+
+  document.querySelectorAll<HTMLDetailsElement>("[data-module-preview]").forEach((details) => {
+    details.addEventListener("toggle", () => {
+      if (!details.open) return;
+      const moduleId = details.dataset.modulePreview;
+      if (moduleId) renderModulePreview(moduleId);
+    });
+  });
+
+  document.querySelectorAll<HTMLInputElement>("[data-context-field]").forEach((field) => {
+    field.addEventListener("input", updateContextStatus);
+  });
+
+  document.querySelectorAll<HTMLButtonElement>("[data-custom-preset]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const presetId = button.dataset.customPreset || "";
+      const presets = copy.modules?.custom?.outputPresets ?? [];
+      const preset = presets.find((p) => p.id === presetId);
+      const outputEl = document.querySelector<HTMLTextAreaElement>("[data-custom-output]");
+      if (preset && outputEl) {
+        outputEl.value = preset.template;
+        outputEl.focus();
+      }
+    });
+  });
+
+  updateContextStatus();
+
   scenarioButtons.forEach((button) => {
     button.addEventListener("click", () => {
       activeScenario = button.dataset.scenario || activeScenario;
+      setDemoSubpanel(null);
       renderScenario();
       const ann = document.getElementById("demo-scenario-status");
       const scenario = copy.demo.scenarios[activeScenario];
@@ -303,6 +409,7 @@ ${outputExampleJson}`.trim();
       await navigator.clipboard.writeText(text);
       copyPromptButton.textContent = copy.demo.copied;
       copyPromptButton.dataset.copied = "true";
+      revealPasteDestinationStrip("demo");
       window.clearTimeout(copyHintTimeout);
       copyHintTimeout = window.setTimeout(() => {
         copyPromptButton.textContent = copy.demo.copyPrompt;
@@ -365,6 +472,7 @@ ${outputExampleJson}`.trim();
       try {
         await navigator.clipboard.writeText(compiled);
         setButtonCopiedState(button, copiedText, labelText);
+        revealPasteDestinationStrip();
       } catch {
         showCopyHint(manualMessage());
       }
@@ -411,6 +519,7 @@ ${outputExampleJson}`.trim();
     try {
       await navigator.clipboard.writeText(compiled);
       setButtonCopiedState(customCopyButton, copiedText, labelText);
+      revealPasteDestinationStrip();
     } catch {
       showCopyHint(manualMessage());
     }

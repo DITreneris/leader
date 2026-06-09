@@ -111,6 +111,20 @@
   }
 }
 
+.card-padding-promo {
+  padding: 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .card-padding-promo {
+    padding: 2.5rem;
+  }
+}
+
+.stack-after-section-title {
+  margin-top: 2rem;
+}
+
 /* Typography roles */
 .type-section-eyebrow {
   font-size: 0.875rem;
@@ -146,6 +160,39 @@
   letter-spacing: 0.2em;
 }
 
+.type-micro-label-readable {
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.type-body-deck {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgb(226 232 240);
+}
+
+.type-body-support {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: rgb(203 213 225);
+}
+
+.text-prompt-preview {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  color: rgb(226 232 240);
+}
+
+@media (min-width: 640px) {
+  .text-prompt-preview {
+    font-size: 0.875rem;
+  }
+}
+
 .type-cta-label {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -160,6 +207,45 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+}
+
+.type-form-label-readable {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgb(203 213 225);
+}
+
+.input-executive {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(2, 6, 23, 0.45);
+}
+
+.input-executive::placeholder {
+  color: rgb(148 163 184);
+}
+
+.input-executive:focus-visible {
+  border-color: rgba(207, 167, 58, 0.45);
+}
+
+.module-card-featured {
+  box-shadow: var(--shadow-glow-accent);
+}
+
+.paste-destination-link {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.paste-destination-link:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .type-eyebrow-inline {
@@ -359,6 +445,57 @@ a {
 .btn-outline-accent:hover {
   background: rgba(207, 167, 58, 0.95);
   color: #020617;
+}
+
+.btn-primary-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  border-radius: 9999px;
+  padding: 0.875rem 1.5rem;
+  text-align: center;
+  color: rgb(2 6 23);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.btn-outline-neutral {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  color: rgb(255 255 255);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  transition:
+    background-color 160ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    filter 200ms ease;
+}
+
+.btn-outline-neutral:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-outline-warning {
+  border: 1px solid rgba(251, 191, 36, 0.5);
+  color: rgb(254 243 199);
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    filter 200ms ease;
+}
+
+.btn-outline-warning:hover {
+  background: rgb(252 211 77);
+  color: rgb(2 6 23);
 }
 
 .btn-chip {

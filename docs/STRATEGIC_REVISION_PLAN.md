@@ -14,7 +14,7 @@
 
 **Canonical “what shipped” references:** [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md), [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md), [`CHANGELOG.md`](../CHANGELOG.md), [`src/layouts/Page.astro`](../src/layouts/Page.astro).
 
-**Shipped baseline (do not contradict in backlog text):** Hero + **HeroDecisionDiagram** → memes **3 → 0 → 2** (with **BeforeAfter**/Promo between beats) → **ExecutiveModules `#context`** → **ClarityDemo `#demo`** → meme **5** → **SafetyCheck `#safety-check`** → **CourseCTA `#kit`** → **PromptAnatomy** → **RoiPath** → **Faq `#faq`** → **PromptLibrary `#library`**. (Four **`MemeMoment`** beats; **`memes.items[4]`** unmounted **2026-04-29** — [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).) The old `FlowScheme` / `HeroTrust` / **`QuickPractice`** slide code lived in git history only after **2026-04-28** cleanup; live spine is **`ExecutiveModules`**, not QuickPractice.
+**Shipped baseline (do not contradict in backlog text):** Hero + **HeroDecisionDiagram** → memes **3 → 0 → 2** (with Promo between beats) → **ExecutiveModules `#context`** → **ClarityDemo `#demo`** → meme **5** → **SafetyCheck `#safety-check`** → **CourseCTA `#kit`** → **PromptAnatomy** → **RoiPath** → **Faq `#faq`** → **PromptLibrary `#library`**. (Four **`MemeMoment`** beats; **`memes.items[4]`** unmounted **2026-04-29** — [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).) **`BeforeAfter`** removed **2026-06-09** — proof consolidated in hero diagram. The old `FlowScheme` / `HeroTrust` / **`QuickPractice`** slide code lived in git history only after **2026-04-28** cleanup; live spine is **`ExecutiveModules`**, not QuickPractice.
 
 **Themes that drive the backlog in §1–12:** (1) one visually primary CTA per major section where possible; (2) deduplicate safety, PDF, and “free/static” messaging where still noisy; (3) keep depth (anatomy, 35-prompt library) optional and last.
 
@@ -84,7 +84,7 @@ flowchart TD
 
 ### 3.3 Current vs target section order (conceptual)
 
-**Current (shipped — see `Page.astro`):** Hero + HeroDecisionDiagram → meme(3) → BeforeAfter → meme(0) → `#context` (ExecutiveModules) → PromoBanner → meme(2) → `#demo` → meme(5) → SafetyCheck → `#kit` → PromptAnatomy (`#anatomy`) → RoiPath (`#roi`) → FAQ (`#faq`) → PromptLibrary (`#library`).
+**Current (shipped — see `Page.astro`):** Hero + HeroDecisionDiagram → meme(3) → meme(0) → `#context` (ExecutiveModules) → PromoBanner → meme(2) → `#demo` → meme(5) → SafetyCheck → `#kit` → PromptAnatomy (`#anatomy`) → RoiPath (`#roi`) → FAQ (`#faq`) → PromptLibrary (`#library`).
 
 **Target (conceptual — phases may implement partially; many items already match “target”):**
 

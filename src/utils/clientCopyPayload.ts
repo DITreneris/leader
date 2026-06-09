@@ -14,6 +14,10 @@ export function buildClientCopyPayload(copy: LocaleBundle) {
     a11y: copy.a11y,
     demo: copy.demo,
     modules: copy.modules,
+    pasteIntoAssistant: {
+      lead: copy.pasteIntoAssistant.lead,
+      postCopyLead: copy.pasteIntoAssistant.postCopyLead,
+    },
     safety: {
       prompt: copy.safety.prompt,
       copyPrompt: copy.safety.copyPrompt,

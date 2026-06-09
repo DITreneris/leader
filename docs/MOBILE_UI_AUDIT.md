@@ -80,16 +80,20 @@ Ankstesni **P1** (LanguageToggle compact, PromptLibrary Copy), **P2** (mobilaus 
 | Interakcija | Vieta | Mechanika |
 |-------------|-------|-----------|
 | Konteksto laukai | `ExecutiveModules.astro` | `data-context-field="company"|"goal"|"constraint"|"bottleneck"` — skaito `InteractiveCopy.astro` (`readContext`) kompiliuojant promptą. |
-| Modulio „Copy full prompt“ | `ExecutiveModules.astro` + `InteractiveCopy.astro` | `data-module-copy={id}` — `buildCompiledPrompt(...)`, tada `clipboard.writeText`. |
-| Custom modulis | `ExecutiveModules.astro` | `data-custom-task`, `data-custom-output`, `data-custom-copy`, `data-custom-error`. |
+| Konteksto būsena | `ExecutiveModules.astro` + `InteractiveCopy.astro` | `[data-context-status]` — `input` ant konteksto laukų atnaujina tuščio / paruošto tekstą (`contextStatusEmpty` / `contextStatusReady`). |
+| Modulio „Use module“ | `ExecutiveModules.astro` + `InteractiveCopy.astro` | `data-module-copy={id}` — `buildCompiledPrompt(...)`, tada `clipboard.writeText`; sėkmės atveju atskleidžia `[data-paste-destination-strip="context"]`. |
+| Featured peržiūra | `ExecutiveModules.astro` + `InteractiveCopy.astro` | `[data-module-preview]` / `[data-module-preview-content]` — `<details>` atidarymas užpildo sukompiliuotą promptą. |
+| Custom modulis | `ExecutiveModules.astro` | `data-custom-task`, `data-custom-output`, `data-custom-preset`, `data-custom-copy`, `data-custom-error`. |
+| Paste juosta | `PasteDestinationStrip.astro` | `#context`: paslėpta iki pirmo sėkmingo modulio/custom kopijavimo; po kopijos lead → `postCopyLead`. |
 
 ### 3. Clarity practice (`#demo`)
 
 | Interakcija | Vieta | Mechanika |
 |-------------|-------|-----------|
-| Scenarijaus pasirinkimas | `ClarityDemo.astro` + `InteractiveCopy.astro` | `data-scenario` mygtukai; `activeScenario`; DOM atnaujinimas `[data-demo-field]`, `[data-demo-risks]`, `[data-demo-questions]`. Antrinė zona: vienas panelis su **`[data-demo-tab]`** tabais (Details / Input), placeholder tekstu (`secondaryPanelHint`), aktyvaus tabo pakartotinis paspaudimas grąžina į placeholder. |
+| Scenarijaus pasirinkimas | `ClarityDemo.astro` + `InteractiveCopy.astro` | Vienas `max-w-5xl` `ContentCard`: chips kortelėje; `data-scenario`; DOM atnaujinimas `[data-demo-field]` (incl. `title`), `[data-demo-decision-bullets]`, `[data-demo-risks]`, `[data-demo-questions]`; scenarijaus keitimas resetina tabą į placeholder. |
+| Tabai | `ClarityDemo.astro` | **`[data-demo-tab]`** — Risks and questions / Required input / **Prompt preview** (matomas `<pre>`); placeholder (`secondaryPanelHint`); toggle off grąžina placeholder. |
 | Ekrano skaitytuvas | `ClarityDemo.astro` | `#demo-scenario-status` (`aria-live`), tekstas iš `demo.scenarioLiveStatus` / fallback. |
-| Kopijuoti promptą | `InteractiveCopy.astro` | `[data-copy-prompt]` — kopijuoja paslėpto `<pre data-demo-field="prompt">` turinį (įterptas į scenarijaus promptą). |
+| Kopijuoti promptą | `InteractiveCopy.astro` | `[data-copy-prompt]` — kopijuoja scenarijaus promptą; sėkmė → `revealPasteDestinationStrip("demo")` (`data-paste-destination-strip="demo"`, paslėpta iki kopijos). |
 
 ### 4. Sauga, biblioteka, PDF
 

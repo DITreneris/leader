@@ -1,5 +1,6 @@
 ---
 import SectionHeader from "./SectionHeader.astro";
+import SectionShell from "./ds/SectionShell.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
@@ -30,12 +31,7 @@ const accentClass = (accent: string) => {
 };
 ---
 
-<section
-  id="roi"
-  tabindex="-1"
-  class="section-y mx-auto max-w-7xl px-5 sm:px-8"
-  aria-labelledby="roi-heading"
->
+<SectionShell id="roi" labelledby="roi-heading" anchorFocusable>
   <SectionHeader
     eyebrow={roiPath.eyebrow}
     title={roiPath.title}
@@ -45,7 +41,7 @@ const accentClass = (accent: string) => {
   />
 
   <!-- Desktop: tool-first flow -->
-  <div class="mt-10 hidden lg:block">
+  <div class="stack-after-section-title hidden lg:block">
     <div class="mx-auto grid max-w-6xl gap-7 lg:grid-cols-[0.85fr_1.15fr]">
       <nav class="glass-card radius-xl p-6" aria-label={roiPath.eyebrow}>
         <div class="flex items-center justify-between gap-4">
@@ -139,7 +135,7 @@ const accentClass = (accent: string) => {
   </div>
 
   <!-- Mobile/tablet: ordered flow -->
-  <div class="mt-10 lg:hidden">
+  <div class="stack-after-section-title lg:hidden">
     <ol class="space-y-4">
       {steps.map((step, index) => (
         <li class="relative">
@@ -206,7 +202,7 @@ const accentClass = (accent: string) => {
   <p class="mx-auto mt-8 max-w-3xl rounded-full border border-brand-accent/25 bg-brand-accent/15 px-5 py-4 text-center text-sm font-bold text-brand-accent-hover">
     {roiPath.total}
   </p>
-</section>
+</SectionShell>
 
 <script>
   type RoiStep = {

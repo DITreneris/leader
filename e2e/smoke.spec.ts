@@ -15,7 +15,7 @@ test.describe("smoke", () => {
     await expect(diagram).toBeVisible();
     await expect(diagram).toHaveAttribute(
       "aria-label",
-      "Example executive decision flow: noise through context and module to a sample decision brief with risks and next action."
+      "Example executive decision flow: scattered input through decision context to a sample decision brief with owner, risks, deadline, and next action."
     );
   });
 
@@ -61,6 +61,17 @@ test.describe("smoke", () => {
     const copyBtn = demo.locator("button[data-copy-prompt]").first();
     await expect(copyBtn).toBeVisible();
     await expect(copyBtn).toBeEnabled();
+    const pasteStrip = demo.locator('[data-paste-destination-strip="demo"]');
+    await expect(pasteStrip).toHaveClass(/hidden/);
+  });
+
+  test("prompt anatomy links blocks to in-page sections", async ({ page }) => {
+    await page.goto("/leader/");
+    const anatomy = page.locator("#anatomy");
+    await anatomy.scrollIntoViewIfNeeded();
+    await anatomy.locator("summary").click();
+    await expect(anatomy.locator('a[href="#context"]').first()).toBeVisible();
+    await expect(anatomy.locator('a[href="#safety-check"]').first()).toBeVisible();
   });
 
   test("mobile menu opens and closes on nav link", async ({ page }) => {

@@ -22,45 +22,66 @@ export const enCopy = {
       sisterHubLinkLabel: "Open framework practice on promptanatomy.cloud",
       items: [
         {
-          q: "Does this send my data?",
-          a: "Your brief text and context fields stay on your device—we do not upload them when you copy. On promptanatomy.pro, anonymous page views may be collected; nothing you type is sent to us.",
+          q: "How do I get my first decision brief?",
+          a: "Fill the four Global Context fields, pick one executive module, and copy the compiled prompt—about 60 seconds. Paste into your org-approved assistant. For proof on a sample scenario, use Clarity practice.",
+          bullets: [],
+          sectionAnchor: "context",
+          sectionLinkLabel: "Open Global Context",
+        },
+        {
+          q: "Does this page upload my brief or company context?",
+          a: "No. Your brief text and context fields stay on your device—we do not upload them when you copy. On promptanatomy.pro, anonymous page views may be collected; nothing you type is sent to us.",
           bullets: [],
         },
         {
-          q: "Can I paste this into ChatGPT, Claude, or Gemini?",
-          a: "Yes. Copy here, paste into any assistant your org allows. This page does not connect to those tools.",
+          q: "Can I use ChatGPT, Claude, or Gemini?",
+          a: "Yes. Copy here and paste into any assistant your organization approves. This page does not connect to those tools. Use your org-licensed provider and follow each vendor's terms.",
           bullets: [],
         },
         {
           q: "What is PromptAnatomy Executive OS?",
-          a:
-            "A static one-page decision operating kit for CEOs/COOs: Global Context Block plus executive modules so leadership briefs to AI stay consistent—no login, no upload of what you type. The full product and team standard are on promptanatomy.app.",
+          a: "A static one-page decision operating kit for CEOs and COOs: Global Context Block plus executive modules so leadership briefs to AI stay consistent—no login, no upload of what you type. The full product and team standard are on promptanatomy.app.",
           bullets: [],
         },
         {
           q: "What is the Global Context Block?",
-          a:
-            "Four shared fields for every brief—company, current goal, main constraint, key bottleneck—so outputs stay decision-grade. Add a module (strategy, risk, board prep, etc.) to compile one send-ready brief.",
+          a: "Four shared fields for every brief—company, current goal, main constraint, and key bottleneck—so outputs stay decision-grade. Pick a module to compile one send-ready prompt.",
+          bullets: [],
+          sectionAnchor: "context",
+          sectionLinkLabel: "Open Global Context",
+        },
+        {
+          q: "What should the AI output look like?",
+          a: "A decision-grade brief: clear recommendation, ranked risks, named owner, deadline, and next action—not generic advice. The hero example shows the target shape.",
           bullets: [],
         },
         {
-          q: "What is this vs a prompt list?",
-          a: "A CEO/COO decision workflow, not beginner prompt training. The model only generates; this kit pins down input, logic, and the output shape you actually ship.",
+          q: "How is this different from a prompt list or AI course?",
+          a: "This is a CEO/COO decision workflow, not beginner prompt training. The model only generates; this kit pins down input, logic, and the output shape you actually ship.",
           bullets: [
-            "One context block + modules compiled into a single prompt, plus a printable PDF kit.",
+            "One context block plus modules compiled into a single prompt, plus a printable PDF kit.",
             "Same brief standard and safety checks before board, client, or team sees output.",
           ],
+        },
+        {
+          q: "Do I need a human review before I send?",
+          a: "Yes. Run the four-check safety prompt before board, client, or team sees AI output. This kit structures input and output—you own the send decision.",
+          bullets: [],
+          sectionAnchor: "safety",
+          sectionLinkLabel: "Open safety check",
+        },
+        {
+          q: "Is this free, and when should I open the full app?",
+          a: "This kit and PDF download are free—no account required. Open promptanatomy.app after your first brief or kit download when you want the full team standard, training, and repeatable OS.",
+          bullets: [],
+          sectionAnchor: "kit",
+          sectionLinkLabel: "Download the kit",
         },
         {
           q: "New to structured prompts?",
           a: "Framework basics and a short practice path live on our sister site. This page stays focused on executive decision operations—context, modules, and decision-grade output.",
           bullets: [],
           handoff: "sister_hub",
-        },
-        {
-          q: "Need a PromptAnatomy account?",
-          a: "Not for this kit. Use the full app only when you want the whole OS.",
-          bullets: [],
         },
       ],
     },
@@ -72,35 +93,46 @@ export const enCopy = {
     hero: {
       eyebrow: "Executive decision kit",
       title: "From AI noise to decision.",
-      subtitle: "One brief with owner, risks, deadline, next action.",
-      inPageCta: "Start with context",
-      productCta: "Open PromptAnatomy.app",
-      ctaMeta: "Free · No login · copy in 2 min",
+      subtitle:
+        "Turn scattered input into one owner-ready brief — risks, deadline, next action.",
+      inPageCta: "Build your decision brief",
+      productCta: "Open the full app",
+      ctaMeta: "Free · No login · Ready in 2 minutes",
     },
     heroDiagram: {
       ariaLabel:
-        "Example executive decision flow: noise through context and module to a sample decision brief with risks and next action.",
+        "Example executive decision flow: scattered input through decision context to a sample decision brief with owner, risks, deadline, and next action.",
       label: "Example",
       caption: "From scattered input to one owner-ready brief",
-      pipelineAriaLabel: "Three steps: noise, context, compiled module",
+      pipelineAriaLabel: "Three steps: scattered input, decision context, decision brief",
+      connectorLabel: "Generated brief",
       pipeline: [
-        { label: "Noise", desc: "Reports, KPIs, opinions" },
-        { label: "Context", desc: "Goal, constraint, owner" },
-        { label: "Module", desc: "Compiled prompt" },
+        { label: "Scattered input", desc: "Reports, KPIs, opinions" },
+        { label: "Decision context", desc: "Goal, constraints, owner" },
+        { label: "Decision brief", desc: "Decision, risks, next action" },
       ],
       engine: {
         title: "Decision brief",
         subtitle: "After one paste",
       },
-      sampleAriaLabel: "Sample brief sections: decision, risks, next action",
+      sampleAriaLabel:
+        "Sample brief sections: decision, owner, risks, deadline, next action",
       sample: {
         decision: {
           label: "Decision",
-          line: "Delay EU expansion; focus US enterprise — Owner: CEO",
+          line: "Delay EU expansion; focus US enterprise",
+        },
+        owner: {
+          label: "Owner",
+          line: "CEO",
         },
         risks: {
           label: "Risks",
           line: "Runway tightens if Q3 hiring continues",
+        },
+        deadline: {
+          label: "Deadline",
+          line: "Board review — Friday",
         },
         nextAction: {
           label: "Next action",
@@ -108,13 +140,10 @@ export const enCopy = {
         },
       },
     },
-    beforeAfter: {
-      eyebrow: "Proof in one screen",
-      a11yLabel: "Diagram of decision-ready brief shape.",
-    },
     pasteIntoAssistant: {
       ariaLabel: "After copy: open an approved AI assistant and paste the prompt",
       lead: "Your prompt stays on your device until you paste it elsewhere.",
+      postCopyLead: "Prompt copied. Continue in:",
       continueLabel: "Continue in:",
       openChatgpt: "Open ChatGPT",
       openClaude: "Open Claude",
@@ -124,21 +153,33 @@ export const enCopy = {
     promoBanner: {
       ariaLabel: "Next step: clarity practice before full product.",
       eyebrow: "Next step",
-      title: "Run clarity practice on a real scenario.",
-      subtitle: "Five static scenarios—then take the kit or open PromptAnatomy.",
-      primaryCta: "Open clarity practice",
-      secondaryCta: "Open PromptAnatomy.app",
-      sisterCta: "Framework basics → promptanatomy.cloud",
+      title: "Test the framework on a real executive scenario.",
+      subtitle: "Five short cases—then take the kit or open the full app.",
+      primaryCta: "Start the scenario",
+      secondaryCta: "Open the full app",
+      sisterCta: "Learn the framework",
     },
     modules: {
-      eyebrow: "Global context + modules",
-      title: "Define context once. Run any executive module.",
-      subtitle: "",
-      startHere: "Fill 4 fields, then copy a module (start with Decision impact).",
+      eyebrow: "Step 1 · Define your business context",
+      title: "Define it once. Use it across every executive module.",
+      subtitle: "Give the system four facts about your company and current decision environment.",
+      startHere: "Next: use Decision impact on a pending decision.",
+      nextStepCta: "Open Decision impact",
+      recommendedBadge: "Recommended first",
+      workflowAriaLabel: "Three steps: define context, choose a module, copy your brief",
+      workflowSteps: [
+        { label: "Define context", desc: "Four fields about your company" },
+        { label: "Choose a module", desc: "Pick the decision outcome you need" },
+        { label: "Copy your brief", desc: "Paste into your AI tool" },
+      ],
+      contextStatusEmpty:
+        "Context empty — copied prompts will use generic placeholders. Fill the four fields first.",
+      contextStatusReady: "Context ready — included when you copy a module.",
+      previewPromptLabel: "Preview compiled prompt",
       context: {
         title: "Global context block",
         subtitle: "Required once. Used in every module.",
-        badge: "PERSISTENT",
+        badge: "Saved in this session",
         companyLabel: "Company",
         companyPlaceholder: "e.g., Series B B2B SaaS, 150 employees",
         goalLabel: "Current goal",
@@ -148,15 +189,8 @@ export const enCopy = {
         bottleneckLabel: "Key bottleneck",
         bottleneckPlaceholder: "e.g., Engineering speed vs Sales promises",
       },
-      contextFootnote: "",
-      /** Screen reader label for the 4-field → modules schematic above the context form. */
-      contextMapAriaLabel: "How global context fields flow into compiled prompts",
-      /** Short center chip in the field map (destination). */
-      contextMapInjectLabel: "Into modules",
-      /** One line under the field map diagram. */
-      contextMapCaption: "",
       rulesPreview: {
-        title: "Built-in rules",
+        title: "View built-in decision rules",
         items: [
           "No generic advice. If context is missing, ask up to 3 targeted questions first.",
           "Do not invent numbers or facts. Flag what must be verified.",
@@ -168,16 +202,18 @@ export const enCopy = {
       jsonFirstRule:
         "Output must be plain text. Use short bullets, label sections, and include owners + deadlines where possible.",
       taskLabel: "Task",
-      outputLabel: "Expected output (readable)",
+      outputLabel: "What you get",
       explanationLabel: "Explanation",
-      copyButton: "Copy full prompt",
-      copiedButton: "Copied",
+      copyButton: "Use module",
+      copiedButton: "Prompt copied",
       items: [
         {
           id: "redTeam",
-          eyebrow: "1. Red team",
+          category: "Strategy",
           title: "Strategy breaker",
           subtitle: "Stress-test strategy before calendar time.",
+          bestFor: "Best for: major strategy bets before board or investor time",
+          outputPreviewLine: "Verdict · Top risks · Kill criteria · First moves",
           taskFormat: "Stress-test: [Insert your strategy or plan here]",
           outputExampleJson: `Verdict: Proceed / Revise / Kill
 
@@ -195,9 +231,11 @@ First 48h moves:
         },
         {
           id: "sentiment",
-          eyebrow: "2. Sentiment",
+          category: "Culture",
           title: "Culture decoder",
-          subtitle: "Feedback into actions that change morale.",
+          subtitle: "Turn team feedback into actions that improve morale.",
+          bestFor: "Best for: survey results, exit interviews, or raw team feedback",
+          outputPreviewLine: "Core emotion · Top issues · Town Hall actions",
           taskFormat: "Analyze: [Paste team feedback, survey results, or raw text here]",
           outputExampleJson: `Core emotion (1 line):
 
@@ -214,9 +252,11 @@ Risks if ignored:
         },
         {
           id: "secondOrder",
-          eyebrow: "3. 2nd-order",
+          category: "Decision",
           title: "Decision impact",
           subtitle: "Second- and third-order effects before you commit.",
+          bestFor: "Best for: high-cost or hard-to-reverse decisions",
+          outputPreviewLine: "Recommendation · 2nd-order effects · Reversibility · Next actions",
           taskFormat: "Evaluate: [Describe a pending decision here]",
           outputExampleJson: `Recommendation: Go / Delay / Reject
 
@@ -235,9 +275,11 @@ Next actions:
         },
         {
           id: "communication",
-          eyebrow: "4. Comms",
+          category: "Communication",
           title: "CEO voice",
-          subtitle: "Clear stance + one CTA, not defensive.",
+          subtitle: "Turn a draft into a clear executive message with one call to action.",
+          bestFor: "Best for: board updates, team memos, or external announcements",
+          outputPreviewLine: "Stance · Message · Call to action · Misinterpretation risks",
           taskFormat: "Rewrite: [Paste draft email, memo, or announcement here]",
           outputExampleJson: `Stance (1 line):
 
@@ -250,9 +292,11 @@ Risks of misinterpretation:
         },
         {
           id: "premortem",
-          eyebrow: "5. Pre-mortem",
+          category: "Risk",
           title: "Competitive attack",
           subtitle: "Assume failure. Find the weak point now.",
+          bestFor: "Best for: pre-launch plans, market moves, or defensive positioning",
+          outputPreviewLine: "Attack vector · Blind spot · Defensive move · Hardening checklist",
           taskFormat: "Act as a competitor CEO attacking my current setup.",
           outputExampleJson: `Competitor’s best attack:
 
@@ -268,9 +312,11 @@ Hardening checklist:
         },
         {
           id: "timeAudit",
-          eyebrow: "6. Time audit",
+          category: "Focus",
           title: "Leverage filter",
-          subtitle: "Cut, delegate, focus rules for next week.",
+          subtitle: "Identify what to cut, delegate, and prioritize next week.",
+          bestFor: "Best for: calendar overload or unclear weekly priorities",
+          outputPreviewLine: "Top 20% impact · Delegate list · Eliminate · Focus rules",
           taskFormat: "Analyze: [Paste list of your calendar events/tasks for the week]",
           outputExampleJson: `Top 20% impact:
 - ...
@@ -286,17 +332,56 @@ Eliminate now:
         },
       ],
       custom: {
-        eyebrow: "7. Custom",
+        eyebrow: "Custom",
         title: "Custom module",
-        subtitle: "Your task and output shape. Same context + rules.",
-        taskLabel: "Task format",
-        taskPlaceholder: "e.g., Diagnose: [Paste weekly exec update here]",
-        outputLabel: "Expected output (readable)",
+        subtitle: "Create a prompt for a task not covered above.",
+        taskLabel: "What should AI do?",
+        taskPlaceholder:
+          "Review this weekly executive update. Identify blockers, decisions needed, risks, and owners.",
+        outputLabel: "What should the answer include?",
         outputPlaceholder:
           "Recommendation:\n\nTop risks:\n- ...\n\nNext actions:\n- Action — Owner — Deadline\n\nNotes:\n- ...",
+        outputPresets: [
+          {
+            id: "brief",
+            label: "Executive brief",
+            template:
+              "Recommendation:\n\nTop risks:\n- ...\n\nNext actions:\n- Action — Owner — Deadline",
+          },
+          {
+            id: "actionPlan",
+            label: "Action plan",
+            template:
+              "Objective:\n\nNext actions:\n- Action — Owner — Deadline\n\nDependencies:\n- ...",
+          },
+          {
+            id: "riskReview",
+            label: "Risk review",
+            template:
+              "Top risks (ranked):\n- Risk — Likelihood — Impact — Mitigation — Owner\n\nEscalation triggers:\n- ...",
+          },
+          {
+            id: "comparison",
+            label: "Comparison",
+            template:
+              "Option A vs Option B:\n\nRecommendation:\n\nTrade-offs:\n- ...\n\nDecision criteria:\n- ...",
+          },
+          {
+            id: "commsDraft",
+            label: "Communication draft",
+            template:
+              "Stance (1 line):\n\nMessage (≤150 words):\n\nCall to action (1 line):",
+          },
+          {
+            id: "custom",
+            label: "Custom structure",
+            template:
+              "Recommendation:\n\nTop risks:\n- ...\n\nNext actions:\n- Action — Owner — Deadline\n\nNotes:\n- ...",
+          },
+        ],
         validationError: "Add a task description before copying.",
-        copyButton: "Copy custom prompt",
-        copiedButton: "Copied",
+        copyButton: "Build and copy prompt",
+        copiedButton: "Prompt copied",
       },
     },
     safety: {
@@ -320,19 +405,59 @@ Eliminate now:
     anatomy: {
       eyebrow: "Executive prompt anatomy",
       title: "Five blocks for leadership-grade AI output.",
-      expandSummary: "Five blocks (expand)",
+      expandSummary: "Reference — names the framework (not a form)",
       subtitle:
-        "A prompt is the instruction that shapes the reply. Use 2–3 blocks for speed; all five before board or client sends.",
+        "A prompt is the instruction that shapes the reply. Use 2–3 blocks for speed; all five before board or client sends. These blocks are already built into the sections above.",
       /** Aria-label for the closed-state chip list of block names. */
       previewAriaLabel: "Five blocks at a glance",
       /** Micro-label before block number in the expanded grid (e.g. “Step 1”). */
       stepPrefix: "Step",
+      definitionLabel: "Definition",
+      exampleLabel: "Example",
+      onPageLead: "On this page",
+      referenceNote:
+        "Expand only if you want the vocabulary — action is in Context, Practice, and Safety above.",
       items: [
-        ["Role", "Who AI plays as and the business outcome."],
-        ["Context", "Audience, constraints, facts the team already has."],
-        ["Decision Logic", "Criteria, trade-offs, reversibility, timing."],
-        ["Output", "Format, owner, deadline, decision-ready shape."],
-        ["Quality Check", "Verify before client, board, or team sees it."],
+        {
+          id: "role",
+          title: "Role",
+          body: "Who AI plays as and the business outcome.",
+          example: "ROLE: Tier-1 CEO advisor (strategy + operator)",
+          onPageLabel: "See it in Global context →",
+          onPageHref: "#context",
+        },
+        {
+          id: "context",
+          title: "Context",
+          body: "Audience, constraints, facts the team already has.",
+          example: "Company · Goal · Constraint · Bottleneck",
+          onPageLabel: "Fill the four context fields →",
+          onPageHref: "#ctx-company",
+        },
+        {
+          id: "decisionLogic",
+          title: "Decision Logic",
+          body: "Criteria, trade-offs, reversibility, timing.",
+          example: "Smallest proof that matters; stop rules before pilot.",
+          onPageLabel: "Try a clarity scenario →",
+          onPageHref: "#demo",
+        },
+        {
+          id: "output",
+          title: "Output",
+          body: "Format, owner, deadline, decision-ready shape.",
+          example: "Recommendation, risks, owner, deadline — plain text bullets.",
+          onPageLabel: "See the brief shape in practice →",
+          onPageHref: "#demo",
+        },
+        {
+          id: "qualityCheck",
+          title: "Quality Check",
+          body: "Verify before client, board, or team sees it.",
+          example: "Facts, risk wording, missing context, decision owner.",
+          onPageLabel: "Run the safety check →",
+          onPageHref: "#safety-check",
+        },
       ],
     },
     library: {
@@ -606,40 +731,47 @@ Eliminate now:
     },
     demo: {
       eyebrow: "Clarity practice",
-      title: "Pick a scenario. Get the brief.",
-      subtitle: "",
+      title: "Pick a scenario. Structure the decision.",
+      subtitle: "Choose one executive situation and copy a decision-ready prompt.",
       scenarioHint: "",
-      briefLabel: "Brief",
-      detailsTab: "Details",
-      inputTab: "Input",
-      secondaryPanelHint: "",
-      secondaryTablistAriaLabel: "Brief extras",
+      briefLabel: "Scenario brief",
+      detailsTab: "Risks and questions",
+      inputTab: "Required input",
+      promptTab: "Prompt preview",
+      secondaryPanelHint: "Open a tab for risks, input, or the full prompt.",
+      secondaryTablistAriaLabel: "More detail",
       promptBlockLabel: "Sample prompt to copy",
       previewHint: "",
-      followUpEyebrow: "Keep the structure on your desk",
-      followUpText: "Same structure in the printable kit (below).",
-      followUpCta: "Download Max Value Kit",
+      followUpEyebrow: "Want the same structure offline?",
+      followUpText: "Download the printable decision kit.",
+      followUpCta: "Download PDF kit",
       pdfAgain: "jump to the kit download.",
       scenarioLiveStatus: "Scenario: {scenario}. Brief updated.",
-      messyInputLabel: "Business noise",
+      messyInputLabel: "Scenario setup",
       connectorCaption: "Transforms",
       outputLabel: "Executive clarity output",
       insight: "Bottom line",
       decision: "Decision needed",
       risks: "Top risks",
       questions: "Questions to ask",
-      action: "Next action",
-      copyPrompt: "Copy prompt",
-      copied: "Copied",
+      action: "How to run it",
+      copyPrompt: "Copy decision prompt",
+      copied: "Prompt copied",
       scenarios: {
         meeting: {
           label: "Meeting",
+          title: "Quarterly priority meeting",
           input:
             "Tomorrow's leadership meeting includes Q3 delivery delays, a weaker sales forecast, and pressure to freeze hiring. Each department sent different notes, and nobody agrees which topic matters most.",
           insight:
             "This is not a status meeting. It is a prioritization decision: protect near-term revenue delivery or preserve hiring discipline.",
           decision:
             "Choose which Q3 initiatives stay protected, which pause, and who owns the recommendation by Friday.",
+          decisionBullets: [
+            "Choose which Q3 initiatives stay protected.",
+            "Decide which initiatives pause.",
+            "Name who owns the recommendation by Friday.",
+          ],
           risks: ["The meeting turns into updates instead of a decision.", "Sales and delivery use different assumptions.", "Hiring freeze becomes a blanket policy instead of a targeted choice."],
           questions: ["Which initiative affects revenue this quarter?", "What capacity is truly missing?", "What would we stop doing if we protect this priority?"],
           action:
@@ -649,6 +781,7 @@ Eliminate now:
         },
         report: {
           label: "Report",
+          title: "Monthly business report",
           input:
             "Monthly report: 18 pages. Revenue flat, churn up slightly, delivery slipped, support flags complaints from key accounts.",
           insight:
@@ -664,6 +797,7 @@ Eliminate now:
         },
         decision: {
           label: "Decision",
+          title: "New service line decision",
           input:
             "We can launch a new service line now, wait until Q4, or test it quietly with two existing clients. Sales wants speed, operations warns about delivery quality, and finance wants proof before spending.",
           insight:
@@ -679,6 +813,7 @@ Eliminate now:
         },
         delegation: {
           label: "Delegation",
+          title: "Partner proposal delegation",
           input:
             "I need to delegate a partner proposal. Past drafts missed the strategic angle—polite text, not a business case.",
           insight:
@@ -694,6 +829,7 @@ Eliminate now:
         },
         communication: {
           label: "Communication",
+          title: "Deadline shift message",
           input:
             "We need to tell the team a major deadline is moving. People are already tense, and I do not want the message to sound defensive, vague, or like we are hiding the real reason.",
           insight:
@@ -712,6 +848,7 @@ Eliminate now:
     memes: {
       eyebrow: "Visual proof",
       title: "The problem is not access to AI. It is control.",
+      delegationBridge: "Same theme as the Delegation scenario below.",
       sectionAriaLabel: "Executive proof moment",
       /** Order matches `Page.astro` MemeMoment sequence (indices 3, 0, 2, 5). */
       sequenceImageAlts: [
@@ -808,8 +945,14 @@ Eliminate now:
     },
     footer: {
       brand: "PromptAnatomy · Executive OS",
-      tagline: "Static kit. No login. No data sent.",
+      tagline: "Static kit. No login. Your brief stays on your device.",
       versionAria: "Site version",
+      copyright: "© 2026 Prompt Anatomy",
+      creator: "Created by Tomas Staniulis",
+      location: "Alameda, CA",
+      kitLink: "Kit download",
+      faqLink: "Quick answers",
+      contact: "Contact",
       telegram: "Telegram",
       privacy: "Privacy",
       terms: "Terms",

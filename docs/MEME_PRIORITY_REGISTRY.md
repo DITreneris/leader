@@ -12,7 +12,7 @@
 
 | Order | `items` index | Asset | EN title (beat) | Role in journey |
 |-------|---------------|-------|-----------------|-----------------|
-| 1 | **3** | `meme-03-clear-decision.png` | Control creates results | After Hero → **BeforeAfter** — outcome-first promise. |
+| 1 | **3** | `meme-03-clear-decision.png` | Control creates results | After Hero — outcome-first emotional beat (proof lives in **HeroDecisionDiagram**). |
 | 2 | **0** | `meme-01-ai-chaos.png` | AI chaos | Pain before **`#context`** — structure vs noise. |
 | 3 | **2** | `meme-04-delegation-bottleneck.png` | Delegation bottleneck | Before **`#demo`** — vague brief → editor trap. |
 | 4 | **5** | `reward_2.png` | Keep the structure on your desk | Post-demo → kit / PDF cue toward **`#kit`**. |

@@ -8,18 +8,14 @@ Visuals should make the CEO feel the transformation quickly: business noise beco
 
 1. Hero decision diagram (shipped)
    - Component: [`HeroDecisionDiagram.astro`](../src/components/HeroDecisionDiagram.astro)
-   - Copy: `heroDiagram.*` in locale bundles (3-step pipeline + sample brief engine card)
-   - Message: "Noise → context → module produces a decision-ready brief with sample lines."
+   - Copy: `heroDiagram.*` in locale bundles (3-step pipeline + 5-row sample brief engine card)
+   - Message: "Scattered input → decision context → decision brief with owner, risks, deadline, next action."
    - Placement: hero right column (native SVG/CSS; no raster required for v1).
    - Optional Phase 2 raster: `public/assets/screenshots/hero-executive-output.avif` (fallback/LCP only if needed).
 
-2. Before/after graphic
-   - File target: `public/assets/graphics/before-after.svg`
-   - Message: "Random AI use creates generic output; structured executive workflow creates decisions."
-   - Placement: `BeforeAfter` section near the top (before `#context`).
-
 ### Archival (not mounted on the landing)
 
+2. Before/after graphic — **removed 2026-06-09** (`BeforeAfter.astro`, `before-after.svg` deleted; proof consolidated in hero diagram).
 3. Workflow map
    - File: `public/assets/graphics/workflow-map.svg`
    - Status: **archival only** — not referenced in [`Page.astro`](../src/layouts/Page.astro). Social sharing uses `public/og-image.png`. Keep in repo for legacy/docs context; do not treat as a live page beat unless product re-embeds it.
@@ -37,7 +33,7 @@ Several `MemeMoment.astro` beats break up long reading. Copy always comes from `
 
 Desktop (`lg+`): **two-column asymmetric grid** — the **meme image always occupies the 1.25fr (wide) column** and copy the 0.75fr column. When **`side="left"`**, columns are **1.25fr | 0.75fr** (image left). When **`side="right"`** (zig-zag), [`MemeMoment.astro`](../src/components/MemeMoment.astro) uses **0.75fr | 1.25fr** so the image stays wide on the **right** (previously a bug put the image in the narrow column). Alternating **`side`** per [`Page.astro`](../src/layouts/Page.astro) is intentional. Below **`lg`**: stacked — full-width **16:9** image, then title + body (centered).
 
-Section flow between beats: `BeforeAfter` → `ExecutiveModules` (`#context`) → `PromoBanner` → `ClarityDemo` (`#demo`) → **meme index 5** → `SafetyCheck` → `CourseCTA` (`#kit`) → `PromptAnatomy` → `RoiPath` → `Faq` → `PromptLibrary` (`#library`).
+Section flow between beats: `ExecutiveModules` (`#context`) → `PromoBanner` → `ClarityDemo` (`#demo`) → **meme index 5** → `SafetyCheck` → `CourseCTA` (`#kit`) → `PromptAnatomy` → `RoiPath` → `Faq` → `PromptLibrary` (`#library`).
 
 Removed **2026-04-29:** post–`RoiPath` meme `items[4]` (`meme-02-meeting-overload.png`) — see [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).
 

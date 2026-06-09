@@ -12,6 +12,7 @@ interface Props {
   moduleCard?: boolean;
   ariaLive?: "off" | "polite" | "assertive";
   ariaAtomic?: boolean;
+  id?: string;
   class?: string;
 }
 
@@ -26,6 +27,7 @@ const {
   moduleCard,
   ariaLive,
   ariaAtomic,
+  id,
   class: className = "",
 } = Astro.props as Props;
 
@@ -41,6 +43,7 @@ const Tag = as;
 ---
 
 <Tag
+  id={id}
   class:list={[
     surfaceClass,
     radiusClass,

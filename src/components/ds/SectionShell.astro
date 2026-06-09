@@ -9,10 +9,20 @@ interface Props {
   rhythm?: "default" | "tight" | "compact" | "roomy";
   /** When true, section is focusable for in-page hash navigation (tabindex="-1"). */
   anchorFocusable?: boolean;
+  /** Semantic wrapper — default `section`; use `aside` for MemeMoment beats */
+  as?: "section" | "aside";
   class?: string;
 }
 
-const { id, labelledby, label, rhythm = "default", anchorFocusable = false, class: className } = Astro.props;
+const {
+  id,
+  labelledby,
+  label,
+  rhythm = "default",
+  anchorFocusable = false,
+  as = "section",
+  class: className,
+} = Astro.props as Props;
 
 const rhythmClass =
   rhythm === "tight"
@@ -22,9 +32,11 @@ const rhythmClass =
       : rhythm === "roomy"
         ? "section-y section-y-roomy-lg"
         : "section-y";
+
+const Tag = as;
 ---
 
-<section
+<Tag
   id={id}
   tabindex={anchorFocusable ? -1 : undefined}
   aria-labelledby={labelledby}
@@ -32,4 +44,4 @@ const rhythmClass =
   class:list={[rhythmClass, "mx-auto max-w-7xl px-5 sm:px-8", className]}
 >
   <slot />
-</section>
+</Tag>
