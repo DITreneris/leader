@@ -412,12 +412,12 @@ Eliminate now:
         "A prompt is the instruction that shapes the reply. Use 2–3 blocks for speed; all five before board or client sends. These blocks are already built into the sections above.",
       previewAriaLabel: "Penki blokai trumpai",
       /** Antraštės žodis prie blokų numerio išskleistame tinklelyje (pvz. „Žingsnis 1“). */
-      stepPrefix: "Žingsnis",
+      stepPrefix: "Block",
       definitionLabel: "Definition",
       exampleLabel: "Example",
       onPageLead: "On this page",
       referenceNote:
-        "Expand only if you want the vocabulary — action is in Context, Practice, and Safety above.",
+        "Expand only if you want the vocabulary — action is in Context, Practice, and Safety above. Reference vocabulary—not part of Steps 1–3 above.",
       items: [
         {
           id: "role",
@@ -873,14 +873,14 @@ Eliminate now:
     },
     roiPath: {
       eyebrow: "Savaitės naudos kelias",
-      title: "Vienas žingsnis šiandien. Tas pats ritmas kas savaitę.",
-      subtitle: "Penki veiksmai, 5–45 min kiekvienas.",
-      centerLabel: "Vadovo savaitė",
+      title: "One move today. Same rhythm each week.",
+      subtitle: "Five moves, 5–45 minutes each.",
+      centerLabel: "Executive week",
       centerText: "",
-      entryCta: "Kopijuoti ir paleisti 1 žingsnį (15–40 min)",
-      panelAriaLabel: "Savaitės žingsnio detalė",
-      panelProgressTemplate: "Žingsnis {current} iš 5",
-      panelHint: "Nukopijuoja šio žingsnio promptą, kad galėtum paleisti dabar.",
+      entryCta: "Copy & run Move 1 (15–40 min)",
+      panelAriaLabel: "Weekly move detail",
+      panelProgressTemplate: "Move {current} of 5",
+      panelHint: "Copies this move’s prompt so you can run it now.",
       useStepCopy: "Kopijuoti ir paleisti",
       safetyJump: "Atidaryti Safety Check →",
       copyPrompt: "Kopijuoti ir paleisti",

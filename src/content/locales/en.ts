@@ -411,12 +411,12 @@ Eliminate now:
       /** Aria-label for the closed-state chip list of block names. */
       previewAriaLabel: "Five blocks at a glance",
       /** Micro-label before block number in the expanded grid (e.g. “Step 1”). */
-      stepPrefix: "Step",
+      stepPrefix: "Block",
       definitionLabel: "Definition",
       exampleLabel: "Example",
       onPageLead: "On this page",
       referenceNote:
-        "Expand only if you want the vocabulary — action is in Context, Practice, and Safety above.",
+        "Expand only if you want the vocabulary — action is in Context, Practice, and Safety above. Reference vocabulary—not part of Steps 1–3 above.",
       items: [
         {
           id: "role",
@@ -868,14 +868,14 @@ Eliminate now:
     },
     roiPath: {
       eyebrow: "Weekly ROI path",
-      title: "One step today. Same rhythm each week.",
+      title: "One move today. Same rhythm each week.",
       subtitle: "Five moves, 5–45 minutes each.",
       centerLabel: "Executive week",
       centerText: "",
-      entryCta: "Copy & run Step 1 (15–40 min)",
-      panelAriaLabel: "Weekly step detail",
-      panelProgressTemplate: "Step {current} of 5",
-      panelHint: "Copies this step’s prompt so you can run it now.",
+      entryCta: "Copy & run Move 1 (15–40 min)",
+      panelAriaLabel: "Weekly move detail",
+      panelProgressTemplate: "Move {current} of 5",
+      panelHint: "Copies this move’s prompt so you can run it now.",
       useStepCopy: "Copy & run",
       safetyJump: "Open Safety Check →",
       copyPrompt: "Copy & run",

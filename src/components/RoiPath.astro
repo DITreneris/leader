@@ -236,7 +236,7 @@ const accentClass = (accent: string) => {
   const panelCopy = document.querySelector<HTMLButtonElement>("[data-roi-panel-copy]");
   const panelSafetyLink = document.querySelector<HTMLAnchorElement>("[data-roi-panel-safety-link]");
 
-  const progressTemplate = copy?.roiPath?.panelProgressTemplate ?? "Step {current} of 5";
+  const progressTemplate = copy?.roiPath?.panelProgressTemplate ?? "Move {current} of 5";
   const ctaLabel = copy?.roiPath?.useStepCopy ?? copy?.roiPath?.copyPrompt ?? "Copy prompt";
 
   const setActive = (index: number) => {

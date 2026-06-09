@@ -297,6 +297,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 - `expandSummary`: *Reference — names the framework (not a form)*; subtitle nurodo, kad blokai jau įdiegti aukščiau.
 - On-page nuorodos: Role/Context → `#context` / `#ctx-company`; Decision Logic/Output → `#demo`; Quality Check → `#safety-check`.
 - Vizualiai: lengvos bordered kortelės, ne tušti input laukai.
+- **EN (shipped Option A):** `anatomy.stepPrefix` = **Block** (ne Step); `referenceNote` nurodo, kad tai ne macro Steps 1–3.
 
 **Veiksmai**
 
@@ -314,6 +315,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **EN**
 
 - `printableKitLink`: **P0** „banner“ (žr. CC-6).
+- **EN (shipped Option A):** `panelProgressTemplate` = **Move {current} of 5**; `entryCta` = **Copy & run Move 1**; `title` = **One move today. Same rhythm each week.** — ne macro Step 1.
 
 **LT**
 

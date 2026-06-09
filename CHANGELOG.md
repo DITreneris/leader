@@ -21,6 +21,16 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 - [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) — slides #5, #6, #8, #11.
 
+## 2026-06-09 (user journey Option A — depth vocabulary)
+
+### Changed
+
+- **Depth deconflict:** [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts) — `anatomy.stepPrefix` → **Block**; `roiPath` → **Move N of 5**; [`RoiPath.astro`](src/components/RoiPath.astro) fallback template.
+
+### Docs
+
+- [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) — slides #12 (anatomy), #13 (roiPath).
+
 ## 2026-06-10 (design system consistency refinement)
 
 ### Changed
