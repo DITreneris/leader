@@ -2,6 +2,14 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-06-09 (user journey Option A — docs)
+
+### Docs
+
+- **New:** [`docs/USER_JOURNEY.md`](docs/USER_JOURNEY.md) — macro Step 1–3 spine, persona paths, label authority, anti-patterns.
+- [`docs/STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md) §3 — Option A label authority pointer.
+- [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md) — hash table adds macro step column.
+
 ## 2026-06-10 (design system consistency refinement)
 
 ### Changed

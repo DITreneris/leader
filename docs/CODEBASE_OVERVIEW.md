@@ -18,7 +18,7 @@ This repository contains a lean **English-only (US-market)** CEO/COO executive p
 
 Canonical order is `src/layouts/Page.astro` (see also `docs/VISUAL_CONTENT_MAP.md` for meme indices and filenames).
 
-1. **Hero** (`Hero.astro`): header nav (`#context`, `#demo`, `#kit`) + **`HeroDecisionDiagram`** (right column: pipeline + sample brief engine — sole above-fold proof surface).
+1. **Hero** (`Hero.astro`): header nav (`#context`, `#demo`, `#kit`) + outline **`Build a brief`** + **`HeroDecisionDiagram`** (Scattered inputs → arrow → Decision brief — sole above-fold proof surface).
 2. **Meme** — `copy.memes.items[3]` → `meme-03-clear-decision.png`.
 3. **Meme** — index `0` → `meme-01-ai-chaos.png`.
 4. **Executive modules + global context** (`#context`): compiled module prompts; readable output shapes.
@@ -39,17 +39,17 @@ Meme indices **`1`** and **`4`** are not mounted (`4` removed from the stack 202
 
 Canonical `id` values on shipped sections (for deep links, QA, and `hashchange` focus in `Page.astro`). Inner-only ids (e.g. `#roi-step-panel`, `#ctx-company`) are omitted here.
 
-| Anchor | Component | Notes |
-|--------|-------------|--------|
-| `#top` | `Page.astro` (`body`) | Return to page start. |
-| `#context` | `ExecutiveModules.astro` | Global Context Block + modules; focusable section (`SectionShell` + `anchorFocusable`). |
-| `#demo` | `ClarityDemo.astro` | Clarity practice; focusable section. |
-| `#safety-check` | `SafetyCheck.astro` | Safety rules surface. |
-| `#kit` | `CourseCTA.astro` | Max Value Kit / PDF ladder. |
-| `#anatomy` | `PromptAnatomy.astro` | Collapsed Prompt Anatomy depth. |
-| `#roi` | `RoiPath.astro` | Weekly ROI path; section `tabindex="-1"` + `aria-labelledby="roi-heading"`. |
-| `#faq` | `Faq.astro` | FAQ (JSON-LD source). |
-| `#library` | `PromptLibrary.astro` | Prompt library appendix. |
+| Anchor | Component | Macro step | Notes |
+|--------|-------------|------------|--------|
+| `#top` | `Page.astro` (`body`) | — | Return to page start. |
+| `#context` | `ExecutiveModules.astro` | **Step 1** | Global Context Block + modules; focusable section (`SectionShell` + `anchorFocusable`). |
+| `#demo` | `ClarityDemo.astro` | **Step 2** | Clarity practice; focusable section. |
+| `#safety-check` | `SafetyCheck.astro` | gate | Safety rules surface (not numbered). |
+| `#kit` | `CourseCTA.astro` | **Step 3** | Max Value Kit / PDF ladder. |
+| `#anatomy` | `PromptAnatomy.astro` | depth | Collapsed Prompt Anatomy depth (Block 1–5). |
+| `#roi` | `RoiPath.astro` | depth | Weekly ROI path (Move 1–5); `tabindex="-1"` + `aria-labelledby="roi-heading"`. |
+| `#faq` | `Faq.astro` | — | FAQ (JSON-LD source). |
+| `#library` | `PromptLibrary.astro` | depth | Prompt library appendix. |
 
 **Skip link:** `#ctx-company` (first context field in `ExecutiveModules.astro`) — not a section wrapper; pairs with `a11y.skipLink`.
 

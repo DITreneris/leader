@@ -59,6 +59,8 @@ This plan turns remaining frictions into **sequenced work**, not a single big-ba
 
 ## 3. Target user journey (strategic)
 
+**Label authority (Option A — shipped in copy):** Macro **Step 1–3** live on section eyebrows at `#context`, `#demo`, and `#kit`. Hero nav keeps friendly shorthand (`nav.practice` / `nav.proof` / `nav.kitPdf`). Context `WorkflowStepRail` 1–2–3 is **within Step 1** only. Anatomy uses **Block**; ROI uses **Move** — not page steps. Full spec: [`USER_JOURNEY.md`](USER_JOURNEY.md).
+
 ### 3.1 Funnel roles
 
 Assign **exactly one primary job** per zone so CTAs stop competing.
