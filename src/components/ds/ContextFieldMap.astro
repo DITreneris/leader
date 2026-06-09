@@ -2,7 +2,7 @@
 interface Props {
   ariaLabel: string;
   injectLabel: string;
-  caption: string;
+  caption?: string;
   fieldCompany: string;
   fieldGoal: string;
   fieldConstraint: string;
@@ -78,6 +78,6 @@ const arrowHidden =
       </div>
     </div>
 
-    <p class="mt-4 text-center text-xs leading-5 text-slate-400 sm:mt-5">{caption}</p>
+    {caption && <p class="mt-4 text-center text-xs leading-5 text-slate-400 sm:mt-5">{caption}</p>}
   </div>
 </div>

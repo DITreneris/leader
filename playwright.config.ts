@@ -18,7 +18,7 @@ export default defineConfig({
   },
   webServer: {
     command: "npx astro preview --host 127.0.0.1 --port 4321",
-    url: "http://127.0.0.1:4321/leader/en/",
+    url: "http://127.0.0.1:4321/leader/",
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
   },

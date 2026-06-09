@@ -7,6 +7,7 @@ Keep documentation useful, short, and close to the work. This is a lean one-page
 ## Source Of Truth
 
 - **Entry index for all docs:** `docs/README.md` (table of every doc, when to update, links)
+- **Completion router:** `docs/DEFINITION_OF_DONE.md` (universal minimum + task-type gates)
 - Product direction: `AGENTS.md` and `.cursor/rules/project-direction.mdc`
 - Cursor landing playbook: `.cursor/skills/executive-landing-improvement/SKILL.md` (subordinate to rules + `Page.astro`)
 - Copy QA by section: `docs/COPY_AUDIT_BY_SLIDE.md` (pair with `language-standard` when editing locales)
@@ -17,7 +18,7 @@ Keep documentation useful, short, and close to the work. This is a lean one-page
 - Development commands: `README.md`
 - Quality process: `docs/QUALITY_ASSURANCE.md`
 - Daily updates: `CHANGELOG.md`
-- Bilingual marketing copy: `src/content/locales/en.ts` and `src/content/locales/lt.ts` (aggregated in `src/content/copy.ts` as `uiCopy`)
+- Marketing copy (active): `src/content/locales/en.ts` (aggregated in `src/content/copy.ts` as `uiCopy`). `lt.ts` is a **frozen archive** — EN-only development unless product unfreezes bilingual delivery.
 - Printable kit PDF source: `docs/executive-operating-kit-pdf.md`; build: `docs/SETUP_PDF.md`
 - **Release semver:** root `package.json` `version` — re-exported as `APP_VERSION` in [`src/constants/appVersion.ts`](../src/constants/appVersion.ts) for the footer label and `<meta name="generator">`. Keep `package-lock.json` root `version` in sync when you bump.
 
@@ -60,6 +61,10 @@ Update `docs/QUALITY_ASSURANCE.md` when:
 - New checks are added.
 - Quality expectations change.
 - Deployment or release validation changes.
+
+Update `docs/DEFINITION_OF_DONE.md` when:
+
+- Done criteria or task-router rows change.
 
 Update `CHANGELOG.md` daily when:
 

@@ -1,0 +1,315 @@
+# PromptAnatomy Executive OS — full English prompt library
+
+CEO/COO decision operating kit: Global Context Block plus copy-ready executive prompts.
+Canonical site: https://promptanatomy.pro/
+Mother product: https://www.promptanatomy.app/
+
+Search-intent boundary: executive decision operations only. Framework basics and learning path: https://promptanatomy.cloud/
+
+## CEO Decisions
+
+Decision briefs from messy options.
+
+### Board-ready recommendation
+
+Outcome: Recommendation, trade-offs, risks, decision criteria.
+
+Act as a CEO operating partner. Analyze this decision: [DECISION]. Context: [FACTS]. Options: [OPTIONS]. Return 1 recommendation, 3 trade-offs, 3 risks, decision criteria, and the next action with owner and deadline.
+
+---
+
+### Reversible vs irreversible choice
+
+Outcome: Speed vs proof decisions, separated.
+
+Classify this decision as reversible or irreversible: [DECISION]. Explain what evidence is enough, what risk remains, and whether we should decide now, run a test, or wait. Return a concise CEO brief.
+
+---
+
+### Trade-off map
+
+Outcome: Gains, losses, delays, and risks mapped.
+
+Map the trade-off in this decision: [DECISION]. Return what we gain, what we lose, what gets delayed, what risk increases, what risk decreases, and the decision I should make if speed matters most.
+
+---
+
+### Stop / continue / change
+
+Outcome: Messy initiative → clear executive call.
+
+Review this initiative: [INITIATIVE UPDATE]. Recommend whether to stop, continue, or change it. Include evidence, risk, opportunity cost, owner, and the next checkpoint date.
+
+---
+
+### Budget decision brief
+
+Outcome: Spend with criteria and downside protection.
+
+Prepare a CEO budget decision brief for [SPEND / INVESTMENT]. Include strategic reason, expected return, downside risk, decision criteria, approval conditions, and what we will stop funding if this is approved.
+
+---
+
+## COO Execution
+
+Bottlenecks, owners, rhythm, risks.
+
+### Delivery risk diagnosis
+
+Outcome: Where execution is stuck this week.
+
+Act as a COO. Review this execution update: [UPDATE]. Identify the bottleneck, missing owner, delivery risk, dependency, and the one operating change to make this week.
+
+---
+
+### Operating rhythm reset
+
+Outcome: Cadence, metrics, owners, escalation rules.
+
+Design a simple operating rhythm for [TEAM/PROJECT]. Include weekly cadence, decision points, metrics, owners, escalation triggers, and what should stop being discussed.
+
+---
+
+### Owner clarity
+
+Outcome: Who decides, owns, supports, escalates.
+
+Clarify ownership for [PROJECT / PROCESS]. Return decision owner, execution owner, supporting roles, escalation path, approval needed, and what each person must deliver by when.
+
+---
+
+### Escalation rule
+
+Outcome: When to solve, escalate, or stop.
+
+Create escalation rules for [WORKFLOW]. Define what the team can decide alone, what requires COO/CEO input, what must stop immediately, and the signals that trigger escalation.
+
+---
+
+### Capacity constraint scan
+
+Outcome: Real bottleneck before adding headcount.
+
+Analyze this capacity problem: [SITUATION]. Identify the bottleneck, false bottlenecks, work to stop, work to sequence, owner, and the smallest change that would improve throughput this week.
+
+---
+
+## Meetings
+
+Decisions, not status theatre.
+
+### Decision meeting agenda
+
+Outcome: Forces trade-off, prevents drift.
+
+Create a leadership meeting agenda for [TOPIC]. Goal: make one decision. Include pre-read, decision question, trade-off, 3 questions to ask, timeboxes, and the closing owner/deadline.
+
+---
+
+### Post-meeting action extraction
+
+Outcome: Owners, deadlines, risks, open questions.
+
+Turn these meeting notes into an executive action log: [NOTES]. Return decisions made, open decisions, owners, deadlines, risks, and the first follow-up message to send.
+
+---
+
+### Pre-read extraction
+
+Outcome: Prepare before the room burns time.
+
+Create a leadership pre-read from this material: [MATERIAL]. Include the decision needed, facts already known, assumptions, open questions, risks, and what each participant should prepare.
+
+---
+
+### Conflict resolution frame
+
+Outcome: Disagreement → criteria and decision path.
+
+Frame this leadership disagreement: [DISAGREEMENT]. Separate facts, assumptions, interests, risks, decision criteria, and the smallest next decision that can move the team forward.
+
+---
+
+### Weekly leadership rhythm
+
+Outcome: Decisions and execution signals only.
+
+Design a weekly leadership meeting rhythm for [TEAM]. Include recurring agenda, required inputs, decision slots, risk review, owner accountability, and what should move async.
+
+---
+
+## Reports
+
+Signal from long updates, fast.
+
+### One-page executive brief
+
+Outcome: Signal, risk, decision, next action.
+
+Summarize this report for a CEO: [REPORT]. Return key signal, hidden risk, decision needed, 3 questions for the team, and one next action. Do not invent missing numbers.
+
+---
+
+### Risk signal scan
+
+Outcome: Early warnings across customer, revenue, delivery, people.
+
+Scan this update for weak signals: [UPDATE]. Separate customer, revenue, delivery, people, and reputation risks. Mark each as low/medium/high and suggest what to verify next.
+
+---
+
+### KPI anomaly explanation
+
+Outcome: Noise vs operating signal.
+
+Analyze this KPI anomaly: [DATA / CONTEXT]. Explain possible causes, what evidence supports each, what to verify next, and whether this needs a decision, monitoring, or immediate action.
+
+---
+
+### Customer risk brief
+
+Outcome: Support noise → retention action.
+
+Create a customer risk brief from this information: [NOTES]. Identify accounts at risk, root causes, revenue exposure, owner, action in 7 days, and executive message if needed.
+
+---
+
+### Board summary
+
+Outcome: Operating update → board signal.
+
+Turn this operating update into a board summary: [UPDATE]. Include headline, progress, risks, decision needed, financial or customer impact, and the one question we need the board to help answer.
+
+---
+
+## Delegation
+
+Intent your team can execute.
+
+### Delegation brief
+
+Outcome: Objective, constraints, quality bar, review criteria.
+
+Turn this intent into a delegation brief: [INTENT]. Include objective, audience, context, constraints, deliverable format, quality criteria, examples to follow, and review deadline.
+
+---
+
+### Quality bar before review
+
+Outcome: Standard upfront, fewer CEO rewrites.
+
+Create a quality checklist for this task: [TASK]. Include must-have points, common mistakes, examples of good output, and what should be escalated before submission.
+
+---
+
+### Reviewer checklist
+
+Outcome: Faster, less subjective review.
+
+Create a reviewer checklist for [DELIVERABLE]. Include strategic fit, factual accuracy, audience clarity, risk, missing context, and pass/fail criteria.
+
+---
+
+### Owner handoff
+
+Outcome: CEO head → owner execution.
+
+Create an owner handoff for [WORK]. Include context, decision already made, owner responsibilities, constraints, milestones, escalation rules, and first update format.
+
+---
+
+### Team instruction
+
+Outcome: Intent → team-ready task.
+
+Write a team instruction for [TASK]. Include why it matters, what done means, constraints, examples, owner, deadline, and how progress should be reported.
+
+---
+
+## Communication
+
+Clear messages when stakes are high.
+
+### Tense update
+
+Outcome: Calm, honest, clear next step.
+
+Rewrite this leadership update so it is clear, calm, and non-defensive: [MESSAGE]. Structure it as fact, reason, impact, what changes, what stays the same, and next step.
+
+---
+
+### Partner/client message
+
+Outcome: Trust and momentum protected.
+
+Draft a concise partner/client message about [SITUATION]. Tone: direct, warm, credible. Include the business context, decision, impact, and one clear next action. Keep it under 120 words.
+
+---
+
+### Internal change note
+
+Outcome: Change without uncertainty.
+
+Write an internal change note about [CHANGE]. Include what is changing, why, what stays the same, impact by team, decision owner, and where questions should go.
+
+---
+
+### Deadline shift
+
+Outcome: Delay without sounding defensive.
+
+Draft a deadline-shift message for [AUDIENCE]. Include the fact, reason, trade-off, new date, what we are doing to protect quality, and next update time.
+
+---
+
+### Partner proposal frame
+
+Outcome: Polite text → business case.
+
+Frame this partner proposal: [IDEA]. Include strategic reason, value for partner, value for us, proof, risk, next step, and a concise executive opening paragraph.
+
+---
+
+## Safety and Quality
+
+Verify facts, risk, and ownership before send.
+
+### Executive send-check
+
+Outcome: Final check before outbound send.
+
+Act as an executive risk reviewer. Review this text before I send it: [TEXT]. Context: [BOARD / CLIENT / TEAM / PARTNER]. Return factual risks, legal/reputation risks, missing context, unclear owner, and safer wording if needed.
+
+---
+
+### Hallucination scan
+
+Outcome: Claims AI may have invented.
+
+Scan this AI output for possible hallucinations: [TEXT]. List unsupported claims, numbers, dates, named entities, assumptions, and what source would verify each one.
+
+---
+
+### Legal / reputation risk
+
+Outcome: Wording that creates exposure.
+
+Review this message for legal, confidentiality, client trust, and reputation risk: [MESSAGE]. Return risk level, risky phrases, safer alternatives, and what must be approved before sending.
+
+---
+
+### Missing context check
+
+Outcome: What a senior leader would ask first.
+
+Review this output for missing context: [OUTPUT]. What facts, constraints, stakeholder views, risks, or decision criteria are missing before a CEO/COO should act on it?
+
+---
+
+### Decision owner check
+
+Outcome: Every recommendation has ownership.
+
+Check this recommendation for decision readiness: [RECOMMENDATION]. Identify decision owner, execution owner, deadline, success criteria, risks, and what would make this recommendation invalid.
+
+---

@@ -2,6 +2,90 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-06-09 (launch readiness)
+
+### Changed
+
+- **Privacy / trust copy:** FAQ Q1 and Executive OS answer plus `pasteIntoAssistant.lead` in [`en.ts`](src/content/locales/en.ts) — brief content stays client-side; anonymous page views on `promptanatomy.pro` called out explicitly (JSON-LD FAQ follows same strings).
+- **Vercel Analytics gate:** [`Page.astro`](src/layouts/Page.astro) renders `<Analytics />` only when `PUBLIC_ENABLE_ANALYTICS=true` (set on Vercel primary deploy). GitHub Pages mirror builds omit analytics script.
+- **Verify / CI:** [`scripts/verify-build-artifacts.mjs`](scripts/verify-build-artifacts.mjs) — PDF kit, meme AVIF/WebP/PNG, favicons, manifest icons, `before-after.svg`, `og-image.png` 1200×630, kit PDF link in HTML. Lighthouse CI uses [`lighthouserc.cjs`](lighthouserc.cjs) with `BASE_PATH`-aware index URL.
+- **Custom module UX:** empty task validation in [`InteractiveCopy.astro`](src/components/InteractiveCopy.astro) + `modules.custom.validationError`.
+- **Mobile menu a11y:** sr-only dialog title + `aria-labelledby` in [`Hero.astro`](src/components/Hero.astro).
+- **Docs:** [`PRE_LAUNCH_AUDIT.md`](PRE_LAUNCH_AUDIT.md), [`CONFIGURATION.md`](docs/CONFIGURATION.md), [`COMMANDS.md`](docs/COMMANDS.md), [`QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md), [`VISUAL_CONTENT_MAP.md`](docs/VISUAL_CONTENT_MAP.md) (workflow-map archival).
+
+### Added
+
+- Playwright smokes: mobile menu, module copy control, library accordion, meme asset 200 ([`e2e/smoke.spec.ts`](e2e/smoke.spec.ts)).
+
+### Removed
+
+- Unused [`LanguageToggle.astro`](src/components/LanguageToggle.astro) (EN-only ship; component was not mounted).
+
+## 2026-06-09 (flat root + SEO)
+
+### Changed
+
+- **Flat English routing:** Landing ships at `/` (mirror: `/leader/`). Removed Astro `i18n` locale prefixes. [`src/pages/index.astro`](src/pages/index.astro) renders [`Page.astro`](src/layouts/Page.astro) directly; legacy `/en/` and `/lt/` are noindex redirect stubs (HTTP 301 via [`vercel.json`](vercel.json) on Vercel).
+- **SEO / GEO:** Removed hreflang and invalid `article:*` OG tags; added `og:image:type`, `llms.txt` discovery link; JSON-LD EN-primary org name, `WebPage.mainEntity` → FAQ, image dimensions; expanded AI/preview crawlers in [`integrations/robots-txt.mjs`](integrations/robots-txt.mjs); sitemap filter excludes legacy stubs.
+- **`public/llms.txt`**, [`scripts/generate-llms-full.mjs`](scripts/generate-llms-full.mjs), [`public/llms-full.txt`](public/llms-full.txt) — root landing URLs.
+- **Verify / CI:** [`scripts/verify-build-artifacts.mjs`](scripts/verify-build-artifacts.mjs) asserts `dist/index.html`, single sitemap URL, legacy stub noindex; Playwright/Lighthouse paths updated.
+- **Docs:** README, AGENTS, CONFIGURATION, GETTING_STARTED, SOURCE_OF_TRUTH, CODEBASE_OVERVIEW, QA references.
+- [`src/constants/pageSeo.ts`](src/constants/pageSeo.ts) — `LEADER_PAGE_DATE_MODIFIED` **2026-06-09**.
+
+### Added
+
+- [`vercel.json`](vercel.json) — permanent redirects from `/en/` and `/lt/` to `/`.
+- `npm run prebuild` — regenerates `llms-full.txt` before each build.
+
+## 2026-06-10
+
+### Changed
+
+- **EN-only development policy:** Lithuanian (`lt.ts`) frozen — active copy work in `en.ts` only. Updated [`AGENTS.md`](AGENTS.md), [`.cursor/rules/`](.cursor/rules/) (`project-direction`, `language-standard`, `astro-quality`, `us-localization-meta`), [`.cursor/skills/executive-landing-improvement/SKILL.md`](.cursor/skills/executive-landing-improvement/SKILL.md), [`README.md`](README.md), [`CONTRIBUTING.md`](CONTRIBUTING.md), PR template, and docs (`DEFINITION_OF_DONE`, `SOURCE_OF_TRUTH`, `QUALITY_ASSURANCE`, `DOCUMENT_MANAGEMENT`, `DESIGN_SYSTEM`, `README` index, `PROMPTS_US_LOCALIZATION_META`). [`siteLocale.ts`](src/constants/siteLocale.ts) + [`localeParity.test.ts`](src/content/locales/localeParity.test.ts) note structural key parity only (English placeholders in `lt.ts` when keys change).
+- **Editorial copy reduction (EN):** deduplicated story spine in [`en.ts`](src/content/locales/en.ts) — Before/After diagram-only ([`BeforeAfter.astro`](src/components/BeforeAfter.astro)); trimmed hero, modules, promo, demo hints, safety, kit CTA, anatomy, ROI, library outcomes, FAQ bullets; optional UI guards for empty hint strings. E2E/verify: `promoBanner.ariaLabel` updated; [`public/llms-full.txt`](public/llms-full.txt) regenerated.
+
+- **Hero decision diagram:** Replaced [`HeroBento.astro`](src/components/HeroBento.astro) with [`HeroDecisionDiagram.astro`](src/components/HeroDecisionDiagram.astro) — simplified blog-style pipeline (Noise → Context → Module), engine card with sample Decision / Risks / Next action lines, connector tokens in [`global.css`](src/styles/global.css). Locale keys `heroDiagram.*` + `hero.ctaMeta` (EN/LT). Docs: [`VISUAL_CONTENT_MAP.md`](docs/VISUAL_CONTENT_MAP.md), [`DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md), [`COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md).
+- **P2 ecosystem + hardening:** FAQ sister-hub handoff (`handoff: "sister_hub"`, UTM `faq`/`framework_basics`); hero CTA keys renamed to `inPageCta` / `productCta`; `a11y.brandWordmark`; kit PDF `download="executive-operating-kit.pdf"`.
+- **Dual-deploy CI:** matrix build+`verify:build` for GitHub Pages and Vercel env; expanded Playwright smoke (`#kit` PDF, demo copy button).
+- **Docs:** [`docs/ROADMAP.md`](docs/ROADMAP.md) (open backlog); strategic plan points to ROADMAP; CONFIGURATION/COMMANDS/DOD/PR template updates.
+
+### Added
+
+- **`public/llms-full.txt`** + [`scripts/generate-llms-full.mjs`](scripts/generate-llms-full.mjs) (`npm run generate:llms-full`); `llms.txt` full-content pointer; `verify:build` checks `dist/llms-full.txt`.
+- Vitest: FAQ schema handoff in [`pageJsonLd.test.ts`](src/utils/pageJsonLd.test.ts).
+- [`src/constants/pageSeo.ts`](src/constants/pageSeo.ts) — `LEADER_PAGE_DATE_MODIFIED` **2026-06-10**.
+
+## 2026-06-09
+
+### Changed
+
+- **PromoBanner CTA ladder (P0):** gold primary → in-page `#demo`; outlined secondary → PromptAnatomy.app; tertiary text link → promptanatomy.cloud unchanged. Mid-funnel copy reframe in EN/LT (`promoBanner` in [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts)). Docs: [`DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) PromoBanner tiers, [`STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md) §4, [`QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md) CTA check.
+- **Editorial remediation (Phase 1–4):** unified root `/` meta with [`uiCopy.en.meta`](src/content/locales/en.ts) in [`src/pages/index.astro`](src/pages/index.astro); promoted **promptanatomy.pro** as primary public URL in [`README.md`](README.md), [`public/llms.txt`](public/llms.txt), [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md); aligned FAQ + `llms.txt` Global Context to **four fields** (EN/LT); fixed stale doc counts (four memes, EN-first locale); removed `v1.0` from hero `brandSubtag`; pruned dead locale keys (`heroArtifact`, unused `nav.*`).
+- **Lean agent system:** trimmed [`AGENTS.md`](AGENTS.md) (Start here + shorter Architecture); deduplicated [`.cursor/skills/executive-landing-improvement/SKILL.md`](.cursor/skills/executive-landing-improvement/SKILL.md); DOD pointers in [`.cursor/rules/project-direction.mdc`](.cursor/rules/project-direction.mdc), [`astro-quality.mdc`](.cursor/rules/astro-quality.mdc), [`language-standard.mdc`](.cursor/rules/language-standard.mdc); **Who reads what** in [`docs/README.md`](docs/README.md); bilingual QA step fix in [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md).
+- **Telemetry docs:** [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md) — user brief content stays client-side; anonymous page views via Vercel Analytics on Vercel deploy (FAQ unchanged).
+- **Kit PDF fallback UX:** [`InteractiveCopy.astro`](src/components/InteractiveCopy.astro) sets `data-kit-fallback="html"` and `title` when PDF 404s.
+- [`src/constants/pageSeo.ts`](src/constants/pageSeo.ts) — `LEADER_PAGE_DATE_MODIFIED` **2026-06-09**.
+
+### Added
+
+- **Automated guardrails (P1):** [`localeParity.test.ts`](src/content/locales/localeParity.test.ts) (EN/LT key paths, FAQ shape, PromoBanner label ladder); [`pageSeo.test.ts`](src/constants/pageSeo.test.ts); post-build [`scripts/verify-build-artifacts.mjs`](scripts/verify-build-artifacts.mjs) (`npm run verify:build`, `npm run verify`); CI step after build; Playwright PromoBanner `#demo` regression in [`e2e/smoke.spec.ts`](e2e/smoke.spec.ts).
+- **[`docs/DEFINITION_OF_DONE.md`](docs/DEFINITION_OF_DONE.md)** — single completion router (universal minimum + task-type gates); wired from [`AGENTS.md`](AGENTS.md), rules, skill, [`docs/README.md`](docs/README.md), [`CONTRIBUTING.md`](CONTRIBUTING.md), PR template.
+- Maintainer docs: [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md), [`docs/COMMANDS.md`](docs/COMMANDS.md), [`docs/CONFIGURATION.md`](docs/CONFIGURATION.md); index rows in [`docs/README.md`](docs/README.md) (+ [`CLARITY_DEMO_KISS_MARRY_KILL.md`](docs/CLARITY_DEMO_KISS_MARRY_KILL.md)).
+- Vitest: [`buildSisterHubUrl`](src/constants/outboundLinks.test.ts).
+- Dual-deploy smoke table in [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md); PR checklist rows in [`.github/pull_request_template.md`](.github/pull_request_template.md).
+- [`package.json`](package.json) `description`, `keywords`, `author`.
+
+### Removed / archived
+
+- Pre-Astro prototype moved to [`archive/snippet.html`](archive/snippet.html).
+- [`golden_memo.md`](docs/archive/golden_memo.md) moved to [`docs/archive/`](docs/archive/) (local artifact; see [`.gitignore`](.gitignore)).
+
+### Documentation
+
+- [`EDITORIAL_REPORT.md`](EDITORIAL_REPORT.md) — post-audit addendum (remediation status).
+- [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md) — hero nav keys documented as shipped trio only.
+- [`docs/STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md) — `/en/` shipped baseline wording.
+
 ## 2026-04-30
 
 ### Changed

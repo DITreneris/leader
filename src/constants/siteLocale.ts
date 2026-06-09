@@ -1,15 +1,8 @@
 /**
- * Routes and shipped UI locales. Default deployment is USA-market English-only;
- * Lithuanian strings remain in {@link "../content/locales/lt"} for opt-in restores.
- *
- * To re-enable bilingual delivery:
- *   1. Set `SHIPPED_LOCALES` below to `["en", "lt"] as const`
- *   2. Mirror that list in {@link ../../astro.config.mjs} (`i18n.locales`) and sitemap `locales`
- *   3. Restore `src/pages/lt/index.astro` with `<Page lang="lt" />`
- * Details: root `README.md` — “Locale toggle (USA build)”
+ * English-only landing — flat URLs at `/` (no `/en/` or `/lt/` prefix).
+ * Copy lives in `en.ts`; `lt.ts` is frozen for parity tests only.
  */
-export const SHIPPED_LOCALES = ["en"] as const;
+export const DEFAULT_LANGUAGE = "en" as const;
 
-/** True when `/lt/` and the header EN/LT switch ship alongside `/en/`. */
-export const showLanguageSwitcher = (): boolean =>
-  (SHIPPED_LOCALES as readonly string[]).includes("lt");
+/** Used by JSON-LD `inLanguage` on the mother WebSite node. */
+export const SHIPPED_LOCALES = ["en"] as const;

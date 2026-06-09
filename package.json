@@ -1,7 +1,7 @@
 {
   "name": "066_leader",
   "version": "1.1.0",
-  "description": "",
+  "description": "Static CEO/COO executive decision operating kit for PromptAnatomy Executive OS",
   "private": true,
   "type": "module",
   "engines": {
@@ -9,17 +9,21 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node ./scripts/generate-llms-full.mjs",
     "build": "astro check && astro build",
     "generate:og": "node ./scripts/generate-og-image.mjs",
+    "generate:llms-full": "node ./scripts/generate-llms-full.mjs",
     "build:pdf": "node ./scripts/run-build-pdf.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "optimize:memes": "node ./scripts/optimize-meme-images.mjs",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "verify:build": "node ./scripts/verify-build-artifacts.mjs",
+    "verify": "npm test && npm run verify:build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["promptanatomy", "executive", "ceo", "coo", "astro", "landing"],
+  "author": "PromptAnatomy",
   "license": "MIT",
   "dependencies": {
     "@astrojs/check": "^0.9.9",

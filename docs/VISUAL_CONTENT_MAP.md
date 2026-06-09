@@ -6,20 +6,23 @@ Visuals should make the CEO feel the transformation quickly: business noise beco
 
 ## Priority Visuals
 
-1. Hero UI mockup
-   - File target: `public/assets/screenshots/hero-executive-output.avif`
-   - Message: "This is what a useful executive AI output looks like."
-   - Placement: hero right side.
+1. Hero decision diagram (shipped)
+   - Component: [`HeroDecisionDiagram.astro`](../src/components/HeroDecisionDiagram.astro)
+   - Copy: `heroDiagram.*` in locale bundles (3-step pipeline + sample brief engine card)
+   - Message: "Noise → context → module produces a decision-ready brief with sample lines."
+   - Placement: hero right column (native SVG/CSS; no raster required for v1).
+   - Optional Phase 2 raster: `public/assets/screenshots/hero-executive-output.avif` (fallback/LCP only if needed).
 
 2. Before/after graphic
    - File target: `public/assets/graphics/before-after.svg`
    - Message: "Random AI use creates generic output; structured executive workflow creates decisions."
    - Placement: `BeforeAfter` section near the top (before `#context`).
 
+### Archival (not mounted on the landing)
+
 3. Workflow map
-   - Current file: `public/assets/graphics/workflow-map.svg`
-   - Message: "Input → clarity check → insight → full system."
-   - Placement: proof, authority, or social sharing asset source.
+   - File: `public/assets/graphics/workflow-map.svg`
+   - Status: **archival only** — not referenced in [`Page.astro`](../src/layouts/Page.astro). Social sharing uses `public/og-image.png`. Keep in repo for legacy/docs context; do not treat as a live page beat unless product re-embeds it.
 
 ## Meme moments (fragmented)
 

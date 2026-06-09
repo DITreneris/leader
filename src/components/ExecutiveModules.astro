@@ -114,9 +114,13 @@ const modules = uiCopy[lang].modules;
         </ul>
       </details>
 
-      <p class="mt-4 text-xs leading-5 text-slate-400" data-context-warning>
-        {modules.contextFootnote}
-      </p>
+      {
+        modules.contextFootnote && (
+          <p class="mt-4 text-xs leading-5 text-slate-400" data-context-warning>
+            {modules.contextFootnote}
+          </p>
+        )
+      }
     </ContentCard>
 
     <HighlightStrip variant="band" bandTone="context">

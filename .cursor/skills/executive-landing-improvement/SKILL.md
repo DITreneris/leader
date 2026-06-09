@@ -1,53 +1,38 @@
 ---
 name: executive-landing-improvement
-description: Improves the PromptAnatomy Executive OS CEO landing page. Use when editing landing copy, sections, visual hierarchy, static clarity demo scenarios, bilingual EN/LT content, conversion flow, or SaaS-style page polish.
+description: Landing copy, sections, EN-only development, conversion flow. Static one-page MVP only.
 ---
 
 # Executive Landing Improvement
 
-## Quick Start
+## Before you edit
 
-Before changing the page:
+1. [`AGENTS.md`](../../AGENTS.md) + [`docs/DEFINITION_OF_DONE.md`](../../docs/DEFINITION_OF_DONE.md)
+2. [`src/layouts/Page.astro`](../../src/layouts/Page.astro) — section order is canonical
+3. Edit [`src/content/locales/en.ts`](../../src/content/locales/en.ts) only for copy (**`lt.ts` is frozen**); scoped rules apply automatically
+4. Outbound changes → [`src/constants/outboundLinks.ts`](../../src/constants/outboundLinks.ts) + [`docs/UTM_MATRIX.md`](../../docs/UTM_MATRIX.md)
 
-1. Read `AGENTS.md` and `docs/SOURCE_OF_TRUTH.md`.
-2. Read `src/pages/index.astro` (root redirect + crawler **OG/Twitter** head) and `src/layouts/Page.astro` (section order is canonical).
-3. For visuals and section layout, follow `docs/DESIGN_SYSTEM.md` and `.cursor/rules/visual-and-copy.mdc` (tokens, `ds/` primitives, one primary CTA per major section).
-4. Read or edit copy in `src/content/locales/en.ts` and `src/content/locales/lt.ts` (re-exported via `src/content/copy.ts`); use `docs/COPY_AUDIT_BY_SLIDE.md` as the section-by-section QA map after substantive edits.
-5. New outbound or paste-strip links: `src/constants/outboundLinks.ts` + `docs/UTM_MATRIX.md` — include **`buildConsumerAiUrl`** (ChatGPT / Claude / Gemini) and **`buildSisterHubUrl`** (`promptanatomy.cloud`) when touching sister learning CTAs.
-6. Preserve the static, one-page MVP unless the user explicitly asks to expand it.
-
-## Product Filter
+## Product filter
 
 Every change should pass this test:
 
 - Does it help a CEO/COO get clarity faster?
 - Does it strengthen the path from aha moment to PromptAnatomy.app?
 - Does it keep the page simpler, not heavier?
-- Does it preserve both English and Lithuanian content?
 
 If the answer is no, do not add it.
 
-## Content Rules
+## Standards (do not re-state here)
 
-- Use executive words: decision, risk, trade-off, next action, delegation, ROI.
-- Avoid beginner terms: prompt engineering, learn AI, tutorial, course module.
-- Keep headings short and specific.
-- Keep the static demo useful even without real AI.
-- When changing a scenario, update both `en.demo.scenarios` and `lt.demo.scenarios`.
+- Copy: [`.cursor/rules/language-standard.mdc`](../../.cursor/rules/language-standard.mdc)
+- Visuals: [`.cursor/rules/visual-and-copy.mdc`](../../.cursor/rules/visual-and-copy.mdc) + [`docs/DESIGN_SYSTEM.md`](../../docs/DESIGN_SYSTEM.md)
+- Code: [`.cursor/rules/astro-quality.mdc`](../../.cursor/rules/astro-quality.mdc)
 
-## Visual Rules
+## Done
 
-- Align with `.cursor/rules/visual-and-copy.mdc`: dark navy base, white text, **gold** brand accent (CTA gradient as on the site). Do not reintroduce cyan/blue as the primary accent.
-- Glass cards, bento-style hero column, restrained gradients—clarity over decoration.
-- Memes are supporting breaks, not the main conversion asset.
-- Prefer SVG for diagrams and AVIF/WebP for screenshots.
+Follow [`docs/DEFINITION_OF_DONE.md`](../../docs/DEFINITION_OF_DONE.md). Always:
 
-## Verification
+- `npm test` and `npm run build`
+- `CHANGELOG.md` if user-visible
 
-After meaningful changes:
-
-```bash
-npm run build
-```
-
-Fix any Astro check or build errors before finishing.
+After substantive copy: skim [`docs/COPY_AUDIT_BY_SLIDE.md`](../../docs/COPY_AUDIT_BY_SLIDE.md) for touched sections (English).

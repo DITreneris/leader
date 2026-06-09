@@ -10,7 +10,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const b = uiCopy[lang].promoBanner;
-const primaryHref = buildPromptAnatomyUrl({ medium: "modules", campaign: "handoff" });
+const promptAnatomyHref = buildPromptAnatomyUrl({ medium: "modules", campaign: "handoff" });
 const sisterHubHref = buildSisterHubUrl({ medium: "modules", campaign: "sister_hub" });
 ---
 
@@ -30,15 +30,15 @@ const sisterHubHref = buildSisterHubUrl({ medium: "modules", campaign: "sister_h
       <div class="flex flex-col items-start gap-3 lg:shrink-0">
         <div class="flex w-full flex-col gap-3 sm:flex-row">
           <a
-            href={primaryHref}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#demo"
             class="focus-ring cta-gradient type-cta-label elevate-hover rounded-full px-6 py-4 text-center text-slate-950 transition hover:brightness-110"
           >
             {b.primaryCta}
           </a>
           <a
-            href="#demo"
+            href={promptAnatomyHref}
+            target="_blank"
+            rel="noopener noreferrer"
             class="focus-ring elevate-hover rounded-full border border-white/15 bg-white/[0.02] px-6 py-4 text-center text-sm font-semibold normal-case tracking-wide text-white transition hover:bg-white/5"
           >
             {b.secondaryCta}

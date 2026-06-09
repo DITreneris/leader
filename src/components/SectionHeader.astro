@@ -1,7 +1,7 @@
 ---
 interface Props {
   eyebrow?: string;
-  title: string;
+  title?: string;
   subtitle?: string;
   titleId?: string;
   align?: "center" | "start";
@@ -22,17 +22,21 @@ const eyebrowClass = eyebrowTone === "promo" ? "type-eyebrow-promo" : "type-sect
 
 <div class={wrap}>
   {eyebrow && <p class={eyebrowClass}>{eyebrow}</p>}
-  <h2
-    id={titleId}
-    class:list={[
-      titleScale === "compact"
-        ? "text-2xl font-black tracking-tight text-white sm:text-3xl"
-        : "text-4xl font-black tracking-tight text-white sm:text-5xl",
-      eyebrow ? "mt-4" : undefined,
-    ]}
-  >
-    {title}
-  </h2>
+  {
+    title && (
+      <h2
+        id={titleId}
+        class:list={[
+          titleScale === "compact"
+            ? "text-2xl font-black tracking-tight text-white sm:text-3xl"
+            : "text-4xl font-black tracking-tight text-white sm:text-5xl",
+          eyebrow ? "mt-4" : undefined,
+        ]}
+      >
+        {title}
+      </h2>
+    )
+  }
   {
     subtitle && (
       <p class="mt-5 text-lg leading-8 text-slate-300">{subtitle}</p>

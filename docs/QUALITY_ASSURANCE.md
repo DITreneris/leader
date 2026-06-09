@@ -1,5 +1,7 @@
 # Quality Assurance
 
+**Agents:** start at [`DEFINITION_OF_DONE.md`](DEFINITION_OF_DONE.md). This doc is release-depth QA.
+
 ## Quality Goal
 
 The page should feel premium, load fast, and make sense to a CEO or COO in under 10 seconds. Quality is measured by clarity, speed, trust, prompt usefulness, visual explanation, safety, and conversion focus.
@@ -26,7 +28,7 @@ The build must finish with:
 2. `npm audit --audit-level=high` — fails the job only on **high or critical** advisories. Moderate/low issues in dev-only chains (e.g. Lighthouse CLI, `@astrojs/check` / YAML language server) are tracked via Dependabot and upgrades; do not use `npm audit fix --force` without reviewing breaking changes.
 3. `npm run build` with `BASE_PATH=/leader` and `SITE_URL` matching the GitHub Pages host.
 4. Playwright E2E smoke (`npm run test:e2e`) against `astro preview` — hero visibility and PromptAnatomy UTM links.
-5. Lighthouse CI (see root [`.lighthouserc.json`](../.lighthouserc.json)).
+5. Lighthouse CI (see root [`lighthouserc.cjs`](../lighthouserc.cjs)).
 
 ### Optional follow-ups (Want backlog)
 
@@ -39,7 +41,7 @@ Not in CI today; consider when the landing grows in interactivity:
 ## Product QA Checklist
 
 - The page still has one clear primary promise.
-- The Executive Prompt Operating Kit promise is obvious above the fold.
+- The Executive Decision Operating Kit promise is obvious above the fold.
 - The first prompt action is clear before the full 35-prompt library appears.
 - **Global Context + Modules** (`#context`) reads as the main “act” step; **SafetyCheck** follows the demo as a dedicated send/risk surface (see `Page.astro` order).
 - The safety check stands alone as a valuable executive workflow.
@@ -48,7 +50,7 @@ Not in CI today; consider when the landing grows in interactivity:
 - CTAs support the direct library download and the full PromptAnatomy system.
 - The page does not become a beginner prompt-engineering lesson.
 - No backend, login, AI API call, database, or user data storage was added unintentionally.
-- English and Lithuanian copy stay aligned.
+- English copy in `en.ts` is accurate; Lithuanian (`lt.ts`) is frozen — no LT parity checks during EN-only development.
 
 ## Content QA Checklist
 
@@ -68,7 +70,7 @@ Not in CI today; consider when the landing grows in interactivity:
 - Gradients, glass cards, and memes support the message rather than distract.
 - The before/after proof diagram renders (SVG) and stays low-text.
 - Visual breaks explain workflow control, safety, ROI, or system thinking.
-- Five `MemeMoment` beats are present on the live page (see `Page.astro` / `docs/VISUAL_CONTENT_MAP.md`); they remain fragmented recognition beats (no CTA).
+- Four `MemeMoment` beats are present on the live page (see `Page.astro` / `docs/VISUAL_CONTENT_MAP.md`); they remain fragmented recognition beats (no CTA).
 - No meme moment carries a CTA or eyebrow ladder; each one is a single recognition beat.
 - Visual breaks use memes and section rhythm; the former standalone “OS fit” block was removed—its message lives in the FAQ “vs prompt list” answer.
 - The library accordion opens the first category by default and keeps the rest collapsed.
@@ -85,7 +87,7 @@ Reference: [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md). Run these when adding a 
 - **Tokens:** New surfaces use existing radius utilities (`.radius-sm` … `.radius-xl`), section rhythm (`.section-y*` + `px-5 sm:px-8`), and colors from `global.css` / `.cursor/rules/visual-and-copy.mdc` (no new arbitrary accent colors).
 - **Primitives:** Prefer [`src/components/ds/`](../src/components/ds/) (`SectionShell`, `SectionTitleBlock`, `ContentCard`, `BulletSystem`, `HighlightStrip`, `DiagramContainer`) for new or heavily edited sections; document short-lived exceptions in [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) or PR notes.
 - **CTA discipline:** At most one primary conversion CTA per major section; glass/elevation stays on primary containers (see Design System “Do not”).
-- **i18n:** User-visible string changes remain aligned across EN/LT locales.
+- **i18n:** User-visible string changes go in `en.ts` only (`lt.ts` frozen). If keys changed, `lt.ts` has matching keys (English placeholders OK).
 
 ## Accessibility QA Checklist
 
@@ -108,22 +110,34 @@ Reference: [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md). Run these when adding a 
 After changes to [`integrations/robots-txt.mjs`](../integrations/robots-txt.mjs) (crawler policy lines), `public/llms.txt`, meta, JSON-LD, or FAQ copy:
 
 1. Run `npm run build` (0 Astro check errors; 0 warnings).
-2. Open `dist/en/index.html` and confirm one `<script type="application/ld+json">` block parses as valid JSON (no stray `<` in strings).
+2. Open `dist/index.html` and confirm one `<script type="application/ld+json">` block parses as valid JSON (no stray `<` in strings).
 3. Validate structured data (e.g. Google Rich Results Test or schema.org validator) using the deployed or local `dist` HTML — expect `WebPage` with `datePublished` / `dateModified`, `FAQPage` aligned with visible `#faq` questions.
-4. Confirm `dist/robots.txt` after build: `User-agent` / `Allow` / `Sitemap` lines, and that **`Sitemap:`** matches production `SITE_URL` + `BASE_PATH` (generated at build from [`scripts/lib/deploy-env.mjs`](../scripts/lib/deploy-env.mjs)).
-5. Skim `public/llms.txt` — definitions and `/en/` URL still match the live deploy.
-6. If FAQ items changed, confirm **EN/LT** `faq.items` stay aligned ([`docs/COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md) as needed).
+4. Confirm `dist/robots.txt` after build: `User-agent` / `Allow` / `Sitemap` lines, and that **`Sitemap:`** matches production `SITE_URL` + `BASE_PATH` — **`npm run verify:build`** automates this when env matches the build (see [`docs/COMMANDS.md`](COMMANDS.md)).
+5. Skim `public/llms.txt` — definitions and root landing URL still match the live deploy (`verify:build` also checks `dist/llms.txt` exists).
+6. If FAQ items changed, confirm `en.ts` `faq.items` and `llms.txt` stay consistent ([`docs/COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md) as needed).
 7. When ship includes copy or on-page SEO changes, bump **`LEADER_PAGE_DATE_MODIFIED`** in [`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts) and re-build.
 8. Optional: run 2–3 English product queries in Perplexity or ChatGPT (with browsing) and note whether Executive OS / Global Context Block citations match `llms.txt` and FAQ.
-9. Verify CTA hierarchy: PromptAnatomy.app remains the primary product handoff; `promptanatomy.cloud` is presented as a secondary learning/practice path.
+9. Verify CTA hierarchy: in-page gold CTAs follow **`#context` → `#demo` → `#kit`** (Hero, PromoBanner, ClarityDemo follow-up, CourseCTA); PromptAnatomy.app is the **canonical product destination** after the funnel (outlined/text in Hero, PromoBanner, `#kit`, footer)—not gold before `#demo`; `promptanatomy.cloud` stays a tertiary learning path.
+
+## Dual-deploy smoke checklist
+
+After env or hosting changes, spot-check **each** production host:
+
+| Host | Build env | Spot-check |
+|------|-----------|------------|
+| **promptanatomy.pro** (primary) | `SITE_URL=https://promptanatomy.pro`, `BASE_PATH=/` | `/`, PDF kit, `/og-image.png`, `dist/robots.txt` `Sitemap:` → `https://promptanatomy.pro/sitemap-index.xml` |
+| **ditreneris.github.io/leader** (mirror) | `SITE_URL=https://<owner>.github.io`, `BASE_PATH=/leader` | `/leader/`, PDF under `/leader/assets/…`, sitemap under `/leader/` |
+
+Confirm canonical and `og:url` in `dist/index.html` match the host you built for. Legacy `/en/` and `/lt/` should redirect to root (301 on Vercel; noindex stubs on mirror).
 
 ## Release Readiness
 
 Before publishing:
 
-1. Run `npm run build`.
-2. Check desktop and mobile layouts.
-3. Test language switching.
+1. Run `npm run build` with production `SITE_URL` + `BASE_PATH`, then `npm run verify` (unit tests + `verify:build` — includes PDF/memes/favicons and `og-image.png` 1200×630).
+2. Set `PUBLIC_ENABLE_ANALYTICS=true` on **Vercel only** (`promptanatomy.pro`); leave unset on GitHub Pages mirror.
+3. Check desktop and mobile layouts.
+3. If bilingual enabled ([`siteLocale.ts`](../src/constants/siteLocale.ts)): test language switching; else skip.
 4. Test all scenario tabs in the clarity demo.
 5. Test prompt copy buttons.
 6. Test the library accordion expand/collapse (outer + inner categories).

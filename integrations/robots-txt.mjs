@@ -6,6 +6,7 @@ const template = (sitemapUrl) => `# PromptAnatomy Executive OS — robots.txt
 #
 # Policy: maximum search + AI citation visibility (retrieval and training crawlers allowed).
 # Human / LLM site summary: /llms.txt
+# Full English prompt library: /llms-full.txt
 #
 # If you need "retrieval-only" later (block model training but allow live search), use
 # targeted Disallow per user-agent and keep ChatGPT-User / PerplexityBot / OAI-SearchBot allowed.
@@ -14,6 +15,38 @@ const template = (sitemapUrl) => `# PromptAnatomy Executive OS — robots.txt
 # Sitemap URL is written at build time from SITE_URL + BASE_PATH (see astro.config.mjs).
 
 User-agent: *
+Allow: /
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Social / link preview
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: WhatsApp
 Allow: /
 
 # OpenAI
@@ -37,8 +70,43 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Google — Gemini / Bard training corpus (search + AI Overviews use Googlebot; keep Googlebot allowed via * above)
+# Google — Gemini training corpus (search + AI Overviews use Googlebot via * above)
 User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+
+# ByteDance
+User-agent: Bytespider
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
 Allow: /
 
 Sitemap: ${sitemapUrl}

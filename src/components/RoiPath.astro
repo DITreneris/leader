@@ -51,7 +51,9 @@ const accentClass = (accent: string) => {
         <div class="flex items-center justify-between gap-4">
           <div class="min-w-0">
             <p class="type-micro-label text-brand-accent-hover">{roiPath.centerLabel}</p>
-            <p class="mt-1 text-sm font-semibold text-slate-300">{roiPath.centerText}</p>
+            {roiPath.centerText && (
+              <p class="mt-1 text-sm font-semibold text-slate-300">{roiPath.centerText}</p>
+            )}
           </div>
         </div>
 

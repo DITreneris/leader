@@ -50,7 +50,7 @@ const checkIcons = ["✓", "⚠", "?", "●"] as const;
       >
         {safety.copyPrompt}
       </button>
-      <p class="mt-4 text-xs leading-5 text-slate-500">{safety.previewHint}</p>
+      {safety.previewHint && <p class="mt-4 text-xs leading-5 text-slate-500">{safety.previewHint}</p>}
     </div>
 
     <aside class="lg:sticky lg:top-28" aria-label={safety.processLabel}>

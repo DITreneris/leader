@@ -2,13 +2,13 @@
 
 ## Purpose
 
-This repository contains a lean **English-first (US-market default)** CEO/COO executive prompt operating kit for PromptAnatomy Executive OS; Lithuanian copy remains in `locales/lt.ts` for opt-in bilingual restores (see root `README` — Locale toggle). The page creates a quick aha moment with a **Global Context Block + executive modules** (copy one compiled prompt, get decision-grade output), a simulated clarity demo, optional prompt anatomy depth, a printable Max Value Kit, and a path to the full PromptAnatomy system.
+This repository contains a lean **English-only (US-market)** CEO/COO executive prompt operating kit for PromptAnatomy Executive OS. Active copy lives in `locales/en.ts`; `locales/lt.ts` is a **frozen archive** (no LT development unless product unfreezes bilingual delivery — root `README` — Locale toggle). The page creates a quick aha moment with a **Global Context Block + executive modules** (copy one compiled prompt, get decision-grade output), a simulated clarity demo, optional prompt anatomy depth, a printable Max Value Kit, and a path to the full PromptAnatomy system.
 
 ## Current Architecture
 
-- `src/layouts/Page.astro` composes the one-page landing flow (used by `src/pages/en/index.astro`; optional `lt/index` when bilingual is enabled). Footer plus `InteractiveCopy.astro` handle copy-to-clipboard, demo tab state, and the fixed manual-copy hint; an inline script focuses hash targets for a11y.
+- `src/layouts/Page.astro` composes the one-page landing flow (used by `src/pages/index.astro` at `/`). Legacy `/en/` and `/lt/` are noindex redirect stubs only. Footer plus `InteractiveCopy.astro` handle copy-to-clipboard, demo tab state, and the fixed manual-copy hint; an inline script focuses hash targets for a11y.
 - `src/components/` contains section components (`PasteDestinationStrip` after module grid and demo copy surfaces ChatGPT / Claude / Gemini via `buildConsumerAiUrl` in `outboundLinks.ts`).
-- `src/content/copy.ts` re-exports `uiCopy`; English and Lithuanian bundles live in `src/content/locales/en.ts` and `src/content/locales/lt.ts` (prompt library, demo scenarios, and all marketing copy).
+- `src/content/copy.ts` re-exports `uiCopy` from `src/content/locales/en.ts` (active). `lt.ts` remains in repo as frozen archive.
 - `src/constants/outboundLinks.ts`: PromptAnatomy (tracked + legal), Telegram, **`buildConsumerAiUrl`** (paste-to-assistant), **`buildSisterHubUrl`** (`promptanatomy.cloud` — secondary learning CTA) (see [`docs/UTM_MATRIX.md`](UTM_MATRIX.md)).
 - `src/styles/global.css` contains global styling and reusable visual helpers.
 - `public/assets/` contains visual assets for memes, diagrams, and screenshots.
@@ -18,7 +18,7 @@ This repository contains a lean **English-first (US-market default)** CEO/COO ex
 
 Canonical order is `src/layouts/Page.astro` (see also `docs/VISUAL_CONTENT_MAP.md` for meme indices and filenames).
 
-1. **Hero** (`Hero.astro`): header nav (`#context`, `#demo`, `#kit`) + **`HeroBento`** (right column proof tiles).
+1. **Hero** (`Hero.astro`): header nav (`#context`, `#demo`, `#kit`) + **`HeroDecisionDiagram`** (right column: pipeline + sample brief engine).
 2. **Meme** — `copy.memes.items[3]` → `meme-03-clear-decision.png`.
 3. **`BeforeAfter`**: before/after workflow graphic (gates into practice).
 4. **Meme** — index `0` → `meme-01-ai-chaos.png`.
@@ -54,12 +54,12 @@ Canonical `id` values on shipped sections (for deep links, QA, and `hashchange` 
 
 **Skip link:** `#ctx-company` (first context field in `ExecutiveModules.astro`) — not a section wrapper; pairs with `a11y.skipLink`.
 
-**Hero nav (`Hero.astro`):** desktop and mobile menus expose only **`#context`**, **`#demo`**, **`#kit`** (primary conversion ladder). Locale files may define additional `nav.*` strings (`product`, `system`, `library`, `demo`, etc.) for i18n parity and optional reuse; they are **not** required to appear in the header — keeping the bar minimal is intentional (see **DESIGN_SYSTEM.md** — one primary CTA discipline per major section).
+**Hero nav (`Hero.astro`):** desktop and mobile menus expose only **`#context`**, **`#demo`**, **`#kit`** (labels: `nav.practice`, `nav.proof`, `nav.kitPdf`). Keeping the bar minimal is intentional (see **DESIGN_SYSTEM.md** — one primary CTA discipline per major section).
 
 ## Constraints
 
 - Keep the MVP static.
 - Keep the product one page unless explicitly expanded.
-- Keep English and Lithuanian aligned.
+- Develop copy in `en.ts` only (`lt.ts` frozen).
 - Do not add backend, login, database, or AI API calls without explicit approval.
 - Prioritize practical executive prompts, safety, visuals, and clarity over educational depth.

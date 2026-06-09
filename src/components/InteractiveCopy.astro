@@ -384,7 +384,20 @@ ${outputExampleJson}`.trim();
       errorEl.classList.add("hidden");
     }
 
-    const compiled = buildCompiledPrompt("custom", task || "[Define task here]", output);
+    if (!task) {
+      const validationMsg = getValue("modules.custom.validationError");
+      if (errorEl) {
+        errorEl.textContent =
+          typeof validationMsg === "string" && validationMsg
+            ? validationMsg
+            : "Add a task description before copying.";
+        errorEl.classList.remove("hidden");
+      }
+      taskEl.focus();
+      return;
+    }
+
+    const compiled = buildCompiledPrompt("custom", task, output);
     const label = getValue(customCopyButton.dataset.copyLabelI18n || "");
     const copiedLabel = getValue(customCopyButton.dataset.copyCopiedI18n || "");
     const labelText = typeof label === "string" && label ? label : customCopyButton.textContent || "Copy";
@@ -403,6 +416,13 @@ ${outputExampleJson}`.trim();
     }
   });
 
+  document.querySelector<HTMLTextAreaElement>("[data-custom-task]")?.addEventListener("input", () => {
+    const errorEl = document.querySelector<HTMLElement>("[data-custom-error]");
+    if (!errorEl) return;
+    errorEl.textContent = "";
+    errorEl.classList.add("hidden");
+  });
+
   renderScenario();
   resetGenericCopyButtons();
 </script>
@@ -418,6 +438,11 @@ ${outputExampleJson}`.trim();
           if (r.status === 404) {
             a.setAttribute("href", htmlHref);
             a.removeAttribute("download");
+            a.setAttribute("data-kit-fallback", "html");
+            a.setAttribute(
+              "title",
+              "PDF unavailable on this host; opens the printable HTML kit instead."
+            );
           }
         })
         .catch(() => {});

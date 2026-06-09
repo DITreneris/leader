@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Project Direction
 
-Build one lean, premium, bilingual executive prompt operating kit for CEOs/COOs.
+Build one lean, premium, **English-only** executive prompt operating kit for CEOs/COOs (US-market copy). Lithuanian (`lt.ts`) is frozen in source — develop in `en.ts` only unless product explicitly unfreezes bilingual delivery.
 
 - Keep the page outcome-first: business clarity, decisions, risks, next actions, safety checks, visual proof, and practical prompt downloads.
 - Do not turn it into a beginner prompt-engineering course or a complex app.
@@ -13,3 +13,5 @@ Build one lean, premium, bilingual executive prompt operating kit for CEOs/COOs.
 - Treat **`PromptAnatomy.app`** as the mother platform. Secondary **learning / framework practice** handoff in shipped UI uses **`promptanatomy.cloud`** (see `buildSisterHubUrl` in `outboundLinks.ts`). The legacy GitHub hub **`ditreneris.github.io/ceo/`** may still appear in prose or `llms.txt` as related context; it is not the tracked outbound target in components.
 - Primary conversion path (matches [`src/layouts/Page.astro`](../../src/layouts/Page.astro) anchors): **`#context`** (Global Context + executive modules) → **`#demo`** (static clarity practice / 2-minute proof) → **`#kit`** (Max Value Kit PDF) → PromptAnatomy.app — with safety and depth sections on the same page between those beats where shipped.
 - Prefer removing complexity over adding new features.
+
+Before claiming done → [`docs/DEFINITION_OF_DONE.md`](../../docs/DEFINITION_OF_DONE.md).

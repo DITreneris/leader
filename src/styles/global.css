@@ -60,6 +60,9 @@
   --shadow-cta-shadow: 0 6px 14px rgba(255, 179, 0, 0.3);
   --drop-shadow-logo-glow: drop-shadow(0 0 6px rgba(255, 196, 0, 0.4));
 
+  --color-hero-diagram-line: rgba(207, 167, 58, 0.45);
+  --color-hero-diagram-glow: rgba(207, 167, 58, 0.1);
+
   /* Border radius scale (premium consistency) */
   --radius-sm: 1rem;
   --radius-md: 1.25rem;
@@ -398,6 +401,23 @@ summary.library-summary::marker {
 
 summary.library-summary {
   list-style: none;
+}
+
+.hero-diagram__glow {
+  background: var(--color-hero-diagram-glow);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .hero-diagram.glass-card {
+    background: var(--color-surface-1-hi);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .hero-diagram__engine,
+  .hero-diagram__pill {
+    background: rgba(15, 23, 42, 0.92);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

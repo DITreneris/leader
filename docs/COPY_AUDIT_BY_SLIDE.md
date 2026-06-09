@@ -35,7 +35,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 | # | Skaidrė | Anchor | Pagrindiniai raktai |
 |---|---------|--------|---------------------|
 | 0 | Puslapio karkasas | `<head>`, skip | `meta.*`, `a11y.*`, JSON-LD |
-| 1 | Hero | (header + hero blokas) | `nav.*`, `hero.*`, `heroArtifact.*`, `heroBento.*` |
+| 1 | Hero | (header + hero blokas) | `nav.*`, `hero.*`, `heroDiagram.*` |
 | 2 | Meme 1 | — | `memes.items[3]` |
 | 3 | Prieš / po | — | `beforeAfter.*` |
 | 4 | Meme 2 | — | `memes.items[0]` |
@@ -85,15 +85,15 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ---
 
-## 1. Hero (antraštė + HeroBento)
+## 1. Hero (antraštė + HeroDecisionDiagram)
 
-- **Failai:** [`Hero.astro`](../src/components/Hero.astro), [`HeroBento.astro`](../src/components/HeroBento.astro)
-- **Raktai:** `nav.*`, `hero.*`, `heroArtifact.*`, `heroBento.*`
+- **Failai:** [`Hero.astro`](../src/components/Hero.astro), [`HeroDecisionDiagram.astro`](../src/components/HeroDecisionDiagram.astro)
+- **Raktai:** `nav.*`, `hero.*` (įsk. `ctaMeta`), `heroDiagram.*`
 
 **LT**
 
 - `hero.title` / `subtitle`: tonas „tu“ netiesiogiai vykdomajame plane – OK.
-- `heroArtifact`: „brief“ žargonas – sąmoningas (`brief'o` vietoje galima vienoda „brief“/„briefas forma visur – P2).
+- `heroDiagram.sample.*`: „brief“ žargonas briefe – sąmoningas; pavyzdinės eilutės turi būti vykdomojo tono (ne KPI savaitės ops).
 
 **EN**
 
@@ -101,8 +101,8 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **Lygiavimas**
 
-- Pirminis (auksinis) CTA – **in-page** `href="#context"` su `hero.secondaryCta` (be UTM).
-- Antrinis (kontūrinis) CTA keliauja į PromptAnatomy su `utm_medium=hero` ir `utm_campaign=primary` (`docs/UTM_MATRIX.md`).
+- Pirminis (auksinis) CTA – **in-page** `href="#context"` su `hero.inPageCta` (be UTM).
+- Antrinis (kontūrinis) CTA keliauja į PromptAnatomy su `utm_medium=hero` ir `utm_campaign=primary` (`hero.productCta`; `docs/UTM_MATRIX.md`).
 
 **Ne locale**
 
@@ -139,20 +139,15 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 ## 3. Prieš / po
 
 - **Failai:** [`BeforeAfter.astro`](../src/components/BeforeAfter.astro)
-- **Raktai:** `beforeAfter.*`
+- **Raktai:** `beforeAfter.eyebrow`, `beforeAfter.a11yLabel` (diagram-only; definition copy moved to collapsed `anatomy.subtitle` + FAQ)
 
-**LT**
+**EN (shipped)**
 
-- `promptBody` / `promptAnatomyBody`: aiškūs, vykdomasis tonas – gerai.
-- Skyryba: ilgieji brūkšniai – žr. CC-4.
-
-**EN**
-
-- Headline sentence case – laikytis.
+- **2026-06-10:** Section is **eyebrow + SVG only** — removed `title`, `subtitle`, and “What is a prompt?” / “What is PromptAnatomy?” blocks from the story spine.
 
 **Veiksmai**
 
-- [x] P2: brūkšnių suvienodinimas `lt.ts` (žr. CC-4).
+- [x] Editorial pass: diagram-only Before/After (EN `en.ts`).
 
 ---
 
@@ -340,6 +335,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 - „Quick answers“ – OK.
 - **2026-04-28 (SEO iter. 2):** second FAQ slot – paste-into-assistant intent (after privacy); answer aligned with `beforeAfter.workflowLicenseNote`.
+- **2026-06-09 (launch readiness):** FAQ Q1 + Executive OS answer distinguish client-side brief content from anonymous page views on `promptanatomy.pro`; `pasteIntoAssistant.lead` no longer claims “nothing leaves this page” (paste strip accuracy).
 
 **JSON-LD**
 

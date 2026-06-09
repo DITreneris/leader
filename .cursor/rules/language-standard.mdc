@@ -1,97 +1,30 @@
 ---
-description: Lithuanian and English language standard for landing page copy, UI text, and docs
-globs: src/content/**/*,src/components/**/*.astro,public/**/*.md,*.md
+description: English language standard for landing copy (LT frozen — EN-only development)
+globs: src/**/*.{astro,ts,css}
 alwaysApply: false
 ---
 
-# Language Standard (LT + EN)
+# Language Standard (EN active · LT frozen)
 
-This standard applies to every visible text agents touch: marketing copy in **`src/content/locales/en.ts`** and **`src/content/locales/lt.ts`** (re-exported via `src/content/copy.ts`), UI fallbacks in `src/components/**/*.astro`, the printable kit in `public/assets/downloads/`, and project documentation (`README.md`, `CHANGELOG.md`, `docs/**/*.md`).
+**Policy:** Active development is **English only**. Edit shipped copy in **`src/content/locales/en.ts`** (re-exported via `src/content/copy.ts`), EN UI fallbacks in `src/components/**/*.astro`, English prose in `public/assets/downloads/`, and project docs. **Do not update Lithuanian strings** in **`lt.ts`** unless the user explicitly unfreezes bilingual delivery.
+
+`lt.ts` remains in the repo as a **frozen archive** (no `/lt/` route ships by default). Do not run LT prose audits or maintain EN/LT parity during normal work.
 
 ## Shared Principles
 
 - Executive voice: decision, risk, trade-off, owner, next action, ROI.
 - Forbidden vocabulary in marketing copy: "learn AI", "prompt engineering tutorial", "AI course", "beginner guide", "step-by-step intro".
 - One idea per sentence. Cut adjectives that do not change meaning.
-- EN and LT must stay aligned: when one section changes, update the other in the same edit.
 - No emoji in landing copy unless explicitly requested by the user.
-- Brand names stay verbatim: `PromptAnatomy`, `PromptAnatomy.app`, `Max Value Kit`, `Promptų anatomija`.
+- Brand names stay verbatim: `PromptAnatomy`, `PromptAnatomy.app`, `Max Value Kit`.
 
-## Lithuanian Standard
+## Quick gate (copy edits)
 
-### Address: always "Tu", never "Jūs"
-
-Convert formal/plural imperatives to informal singular. The rule of thumb: drop the trailing `-ite`.
-
-| Formal (do not use) | Informal (use this) |
-|---|---|
-| Pradėkite | Pradėk |
-| Atsisiųskite | Atsisiųsk |
-| Naudokite | Naudok |
-| Pasiimkite | Pasiimk |
-| Patikrinkite | Patikrink |
-| Pasirinkite | Pasirink |
-| Nesiųskite | Nesiųsk |
-| Nukopijuokite | Nukopijuok |
-| Paleiskite | Paleisk |
-| Rašykite | Rašyk |
-| Įdiekite | Įdiek |
-| Peržiūrėkite | Peržiūrėk |
-| Išgryninkite | Išgrynink |
-| Paverskite | Paversk |
-| Raskite | Surask |
-| Ištraukite | Ištrauk |
-| Atskirkite | Atskirk |
-| jūsų | tavo |
-| norite | nori |
-| galite | gali |
-| turite | turi |
-
-Button labels use infinitive (neutral), not imperative: `Atsisiųsti`, `Pradėti praktiką`, `Kopijuoti promptą`. Do not turn buttons into "Tu" form.
-
-Prompts addressed to the AI keep "Tu" form already: `Veik kaip...`, `Išanalizuok...`, `Sukurk...`, `Peržiūrėk...`, `Perrašyk...`. Do not change.
-
-### AI → DI in Lithuanian
-
-Always write `DI` (dirbtinis intelektas) in Lithuanian copy. The only place `AI` may appear is the English bundle in `src/content/locales/en.ts`.
-
-- `AI Operating System` → `DI operacinė sistema`
-- `AI darbo eigos` ✗ already correct as `DI darbo eigos`
-- Brand strings inside English fallbacks in `.astro` components stay `AI` because they are replaced at runtime.
-
-### Diacritics are mandatory
-
-Always: `ą č ę ė į š ų ū ž`. Reject ASCII fallbacks like `aciu`, `ka`, `kompromisas`. CI builds and screen readers depend on correct UTF-8.
-
-### Preferred business vocabulary
-
-| English | Use in LT | Avoid |
-|---|---|---|
-| trade-off | kompromisas | kompromisinis sprendimas |
-| bottleneck | butelio kaklelis | siaura vieta |
-| workflow | darbo eiga | darbo srautas, vorkflow |
-| prompt | promptas | užklausa (when meaning the prompt artifact) |
-| brief | briefas | (accepted in LT business jargon) |
-| owner | savininkas | atsakingasis (only in legal context) |
-| next action | kitas veiksmas | sekantis žingsnis |
-| stakeholder | suinteresuota pusė | steikholderis |
-| safety check | saugumo patikra | saugos check |
-| support / account (CRM) | kliento aptarnavimas / paskyra | support / account (do not leave English) |
-
-Loanwords already entrenched in LT business speech are acceptable: `briefas`, `promptas`, `checklist` (in code/UI labels), `lead magnet` (only inside marketing-jargon eyebrows). Do not introduce new anglicisms when a clean LT word exists.
-
-### Punctuation
-
-- Use the long dash `–` (en dash) for emphasis: `Problema – ne prieiga prie DI. Problema – kontrolė.`
-- Lithuanian quotation marks `„..."` preferred in prose. `"..."` is fine inside TS string literals.
-- No double spaces. No trailing commas in prose.
-- Number + unit: `2 min.`, `5 val.`, `35 promptai`. Always a non-breaking space if HTML allows.
-
-### Grammar traps to check
-
-- Agent participles must agree with "Tu" (singular): `Prieš naudodamas...` (m.) — pick masculine generic for executive copy unless audience is explicitly female. Avoid plural `naudodami`.
-- "veiks" (will operate) ≠ "paveiks" (will affect). EN "will affect" → LT `paveiks`.
-- Word order: place the subject before the participle phrase. `DI, prijungtas prie neaiškaus proceso, atskleidžia...` ✓ rather than `Pridėtas DI prie...`.
+- User-visible changes go in **`en.ts`** (or EN component fallbacks) only.
+- Shipped EN uses American English (see US table below).
+- No beginner-AI vocabulary in marketing copy.
+- If you **add or remove locale keys** in `en.ts`, add matching keys in `lt.ts` with **English placeholder strings** so `localeParity.test.ts` passes — do not translate into Lithuanian while LT is frozen.
+- Full completion bar → [`docs/DEFINITION_OF_DONE.md`](../../docs/DEFINITION_OF_DONE.md).
 
 ## English Standard
 
@@ -132,21 +65,7 @@ International B2B terms that read the same in US executive copy (**Q3**, **ARR**
 
 Technical layers follow platform spelling (e.g. CSS `color`, DOM “behavior” in APIs)—that is not marketing copy and is out of scope for this rule.
 
-## Bilingual Alignment Rule
-
-When you change one section in **`en.ts` / `lt.ts`**, update the matching keys in the other language in the same commit. Do not leave a mixed-language deploy.
-
-## Audit Checklist (run before claiming "done")
-
-When asked to audit Lithuanian copy:
-
-- [ ] No `kite\b` matches in the Lithuanian bundle in `lt.ts` (formal imperatives gone).
-- [ ] No `jūsų`, `norite`, `galite`, `turite`.
-- [ ] No `\bAI\b` in the `lt` block.
-- [ ] No leftover English nouns mid-sentence (`support`, `account`, `meeting room` etc.).
-- [ ] All Lithuanian vowels carry their diacritics.
-- [ ] Buttons stay infinitive; section copy uses "Tu".
-- [ ] EN and LT counterparts still describe the same idea.
+## English audit checklist
 
 When asked to audit English copy:
 
@@ -157,4 +76,17 @@ When asked to audit English copy:
 - [ ] No UK-preferred spellings in user-visible `en` strings (see **US English (shipped default)** table above).
 - [ ] No UK-only connectives/phrasing where US reads more natural (`whilst`, `amongst`, etc.).
 
-After substantive copy edits, run `npm run build` and add a `CHANGELOG.md` entry under the current date.
+After substantive copy edits, follow [`docs/DEFINITION_OF_DONE.md`](../../docs/DEFINITION_OF_DONE.md) (build, test, CHANGELOG).
+
+## Lithuanian archive (frozen — do not edit)
+
+`src/content/locales/lt.ts` is **not maintained**. Unfreeze only when product re-enables bilingual delivery (see root `README.md` — Locale toggle) and explicitly asks for LT work.
+
+Reference material if unfreezing later:
+
+- Address: **Tu** (not Jūs); buttons use infinitive labels.
+- **DI** (not AI) in Lithuanian copy.
+- Mandatory diacritics: `ą č ę ė į š ų ū ž`.
+- Long dash `–` for emphasis; preferred business vocabulary (`kompromisas`, `butelio kaklelis`, `darbo eiga`, `promptas`).
+
+Do not apply LT rules during EN-only development.

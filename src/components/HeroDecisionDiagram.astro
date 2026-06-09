@@ -1,0 +1,105 @@
+---
+import type { Language } from "../content/copy";
+import { uiCopy } from "../content/copy";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const v = uiCopy[lang].heroDiagram;
+
+const rowBase =
+  "flex min-h-[3.75rem] flex-col justify-center gap-0.5 border border-white/[0.08] bg-white/[0.04] py-3 pl-4 pr-4 shadow-none radius-sm sm:min-h-[4rem]";
+
+const sampleRows = [
+  {
+    key: "decision" as const,
+    border: "border-l-4 border-l-[var(--color-brand-accent)]",
+    data: v.sample.decision,
+  },
+  {
+    key: "risks" as const,
+    border: "border-l-4 border-l-rose-400/70",
+    data: v.sample.risks,
+  },
+  {
+    key: "nextAction" as const,
+    border: "border-l-4 border-l-emerald-400/70",
+    data: v.sample.nextAction,
+  },
+];
+---
+
+<aside
+  class="hero-diagram glass-card radius-xl relative overflow-hidden p-6 sm:p-8"
+  aria-label={v.ariaLabel}
+  data-testid="hero-diagram"
+>
+  <div class="hero-diagram__glow pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full blur-3xl" aria-hidden="true">
+  </div>
+
+  <div class="relative">
+    <div class="mb-5 text-center sm:text-left">
+      <p class="type-micro-label text-brand-accent-hover">{v.label}</p>
+      <p class="mt-1 text-sm leading-snug text-slate-400">{v.caption}</p>
+    </div>
+
+    <ol
+      class="hero-diagram__pipeline m-0 flex list-none flex-wrap items-center justify-center gap-1.5 p-0 sm:justify-start sm:gap-2"
+      aria-label={v.pipelineAriaLabel}
+    >
+      {
+        v.pipeline.map((step, index) => (
+          <li class="flex items-center gap-1.5 sm:gap-2">
+            <span class="hero-diagram__pill flex min-w-[5.5rem] flex-col radius-sm border border-white/[0.1] bg-white/[0.03] px-3 py-2.5 sm:max-w-[9rem]">
+              <span class="text-xs font-black uppercase tracking-wide text-white">{step.label}</span>
+              <span class="mt-0.5 text-[11px] leading-snug text-slate-400">{step.desc}</span>
+            </span>
+            {index < v.pipeline.length - 1 && (
+              <span class="hero-diagram__arrow shrink-0" aria-hidden="true">
+                <svg
+                  class="h-4 w-5 text-[var(--color-hero-diagram-line)]"
+                  viewBox="0 0 20 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M2 8h14M12 4l4 4-4 4" />
+                </svg>
+              </span>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="hero-diagram__stem mx-auto my-3 flex justify-center sm:my-4" aria-hidden="true">
+      <svg class="h-6 w-px sm:h-8" viewBox="0 0 2 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="1" y1="0" x2="1" y2="32" stroke="var(--color-hero-diagram-line)" stroke-width="2" stroke-dasharray="4 3" />
+      </svg>
+    </div>
+
+    <article class="hero-diagram__engine radius-md border border-white/[0.1] bg-white/[0.03] p-4 sm:p-5">
+      <header class="mb-4 border-b border-white/[0.08] pb-3">
+        <h2 class="text-base font-black tracking-tight text-white sm:text-lg">{v.engine.title}</h2>
+        <p class="mt-0.5 text-xs text-slate-400">{v.engine.subtitle}</p>
+      </header>
+
+      <ol class="m-0 flex list-none flex-col gap-3 p-0" aria-label={v.sampleAriaLabel}>
+        {
+          sampleRows.map((row, index) => (
+            <li aria-posinset={index + 1} aria-setsize={3}>
+              <article class:list={[rowBase, row.border]}>
+                <span class="text-[11px] font-semibold uppercase tracking-wide text-slate-400">{row.data.label}</span>
+                <p class="text-sm font-medium leading-snug text-white">{row.data.line}</p>
+              </article>
+            </li>
+          ))
+        }
+      </ol>
+    </article>
+  </div>
+</aside>

@@ -6,10 +6,21 @@ import {
   UTM_SOURCE_LEADER,
   buildConsumerAiUrl,
   buildPromptAnatomyUrl,
+  buildSisterHubUrl,
   buildTelegramUrl,
+  PROMPT_ANATOMY_SISTER_HUB_ORIGIN,
 } from "./outboundLinks";
 
 describe("outboundLinks", () => {
+  it("uses leader as utm_source for sister hub", () => {
+    const url = buildSisterHubUrl({ medium: "modules", campaign: "sister_hub" });
+    const u = new URL(url);
+    expect(u.origin + u.pathname).toBe(`${PROMPT_ANATOMY_SISTER_HUB_ORIGIN}/`);
+    expect(u.searchParams.get("utm_source")).toBe(UTM_SOURCE_LEADER);
+    expect(u.searchParams.get("utm_medium")).toBe("modules");
+    expect(u.searchParams.get("utm_campaign")).toBe("sister_hub");
+  });
+
   it("uses leader as utm_source for PromptAnatomy home", () => {
     const url = buildPromptAnatomyUrl({ medium: "hero", campaign: "primary" });
     const u = new URL(url);

@@ -15,6 +15,7 @@ Intent guardrail: keep `leader` CTAs framed as executive decision-ops handoff. P
 | Footer Telegram | `social` | `telegram` | `https://t.me/prompt_anatomy` (query params may be stripped by client; keep for analytics consistency) |
 | Paste strip (after copy) — context | `context_paste` | `chatgpt` / `claude` / `gemini` | [`PasteDestinationStrip`](../src/components/ds/PasteDestinationStrip.astro) on [`ExecutiveModules.astro`](../src/components/ExecutiveModules.astro) |
 | Paste strip (after copy) — demo | `demo_paste` | `chatgpt` / `claude` / `gemini` | [`PasteDestinationStrip`](../src/components/ds/PasteDestinationStrip.astro) on [`ClarityDemo.astro`](../src/components/ClarityDemo.astro) |
+| FAQ sister hub (`promptanatomy.cloud`) | `faq` | `framework_basics` | Tracked link in [`Faq.astro`](../src/components/Faq.astro) when FAQ item has `handoff: "sister_hub"`; built via `buildSisterHubUrl` |
 
 Implementation: URL builders live in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts) so `utm_source=leader` stays consistent.
 

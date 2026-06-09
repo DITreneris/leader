@@ -1,5 +1,7 @@
 # Strategic revision plan — PromptAnatomy Executive OS (CEO/COO landing)
 
+**Open backlog:** [`ROADMAP.md`](ROADMAP.md). This file keeps historical strategy, phased notes, and the **decision log**—not the day-to-day task list.
+
 **Audience:** product owner, design, and engineering.  
 **Scope:** content, information architecture, CTAs, visuals, diagrams/schemes, bilingual parity, and static MVP constraints from `AGENTS.md` / `project-direction.mdc`.  
 **Non-goals:** backend, login, analytics scripts, or turning the page into a course app.
@@ -12,7 +14,7 @@
 
 **Canonical “what shipped” references:** [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md), [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md), [`CHANGELOG.md`](../CHANGELOG.md), [`src/layouts/Page.astro`](../src/layouts/Page.astro).
 
-**Shipped baseline (do not contradict in backlog text):** Hero + **HeroBento** → memes **3 → 0 → 2** (with **BeforeAfter**/Promo between beats) → **ExecutiveModules `#context`** → **ClarityDemo `#demo`** → meme **5** → **SafetyCheck `#safety-check`** → **CourseCTA `#kit`** → **PromptAnatomy** → **RoiPath** → **Faq `#faq`** → **PromptLibrary `#library`**. (Four **`MemeMoment`** beats; **`memes.items[4]`** unmounted **2026-04-29** — [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).) The old `FlowScheme` / `HeroTrust` / **`QuickPractice`** slide code lived in git history only after **2026-04-28** cleanup; live spine is **`ExecutiveModules`**, not QuickPractice.
+**Shipped baseline (do not contradict in backlog text):** Hero + **HeroDecisionDiagram** → memes **3 → 0 → 2** (with **BeforeAfter**/Promo between beats) → **ExecutiveModules `#context`** → **ClarityDemo `#demo`** → meme **5** → **SafetyCheck `#safety-check`** → **CourseCTA `#kit`** → **PromptAnatomy** → **RoiPath** → **Faq `#faq`** → **PromptLibrary `#library`**. (Four **`MemeMoment`** beats; **`memes.items[4]`** unmounted **2026-04-29** — [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).) The old `FlowScheme` / `HeroTrust` / **`QuickPractice`** slide code lived in git history only after **2026-04-28** cleanup; live spine is **`ExecutiveModules`**, not QuickPractice.
 
 **Themes that drive the backlog in §1–12:** (1) one visually primary CTA per major section where possible; (2) deduplicate safety, PDF, and “free/static” messaging where still noisy; (3) keep depth (anatomy, 35-prompt library) optional and last.
 
@@ -46,7 +48,7 @@
 
 ## 2. Situation summary (baseline)
 
-- **Strengths:** Strong copy model (decision, risk, trade-off, owner), consistent gold/navy system, clipboard UX with fallback, real `/en/` `/lt/` routes, PDF + schema + FAQ depth, nav anchors **`#context` / `#demo` / `#kit`**, spine order **demo before** anatomy + ROI **before** FAQ (library last).
+- **Strengths:** Strong copy model (decision, risk, trade-off, owner), consistent gold/navy system, clipboard UX with fallback, **`/en/` shipped** (`/lt/` opt-in via `siteLocale.ts`), PDF + schema + FAQ depth, nav anchors **`#context` / `#demo` / `#kit`**, spine order **demo before** anatomy + ROI **before** FAQ (library last).
 - **Open friction (revisit periodically):** Long vertical stack; hero **primary** still often off-site first; **multiple PDF touchpoints** (demo, CTA, library); safety messaging may still feel adjacent to ROI step copy—tune qualitatively, not by re-breaking the shipped stack without intent.
 
 Older issues **resolved** in code (keep for history in `CHANGELOG`): placeholder trust hidden, meme order **documented** (`VISUAL_CONTENT_MAP` + `Page.astro` comments), `#demo` in nav, SystemVisual **merged into FAQ** answer.
@@ -82,7 +84,7 @@ flowchart TD
 
 ### 3.3 Current vs target section order (conceptual)
 
-**Current (shipped — see `Page.astro`):** Hero + HeroBento → meme(3) → BeforeAfter → meme(0) → `#context` (ExecutiveModules) → PromoBanner → meme(2) → `#demo` → meme(5) → SafetyCheck → `#kit` → PromptAnatomy (`#anatomy`) → RoiPath (`#roi`) → FAQ (`#faq`) → PromptLibrary (`#library`).
+**Current (shipped — see `Page.astro`):** Hero + HeroDecisionDiagram → meme(3) → BeforeAfter → meme(0) → `#context` (ExecutiveModules) → PromoBanner → meme(2) → `#demo` → meme(5) → SafetyCheck → `#kit` → PromptAnatomy (`#anatomy`) → RoiPath (`#roi`) → FAQ (`#faq`) → PromptLibrary (`#library`).
 
 **Target (conceptual — phases may implement partially; many items already match “target”):**
 
@@ -117,7 +119,8 @@ journey
 
 ### 4.1 Problems today
 
-- Hero **primary** pushes **off-site** before practice (conversion-first vs. comprehension-first tension).
+- ~~Hero **primary** pushes **off-site** before practice~~ — **Hero shipped:** gold `#context` + outlined PA (2026-04-28).
+- ~~**PromoBanner** gold primary pushed PromptAnatomy.app before `#demo`~~ — **Fixed 2026-06-09:** gold `#demo`, outlined PA, tertiary cloud link; copy reframed to proof-before-scale.
 - **PDF** appears in mobile menu, demo follow-up, library, course CTA — good for reach, **bad for story** (“when should I click?”).
 - ~~**Two destinations** on AuthorityBridge split attention~~ — **AuthorityBridge removed 2026-04-29**; PA handoff remains via Hero / PromoBanner / `#kit` / footer.
 
@@ -138,7 +141,7 @@ journey
 | 3 | “Download CEO/COO kit (PDF)” | `#kit` / static PDF |
 | 4 | “Open PromptAnatomy” | `promptanatomy.app` with UTM |
 
-Hero gradient button currently emphasizes **`#context`** (comprehension-first); PromptAnatomy outbound remains available as an outlined hero CTA with UTM. Reconcile hero vs nav per §4.1 intentionally when you iterate.
+Hero gradient button currently emphasizes **`#context`** (comprehension-first); PromptAnatomy outbound remains available as an outlined hero CTA with UTM. **PromoBanner (shipped 2026-06-09):** gold **`#demo`**, outlined PA, text link to cloud — comprehension-first mid-funnel beat between `#context` and demo section.
 
 ### 4.4 Authority bridge
 
@@ -211,11 +214,11 @@ Hero gradient button currently emphasizes **`#context`** (comprehension-first); 
 | **Premium over playful** | Memes: either **curated illustration** style aligned with brand **or** fewer memes; avoid stock that reads as “social meme page.” |
 | **Real assets over placeholders** | Ship `VISUAL_CONTENT_MAP.md` priority assets (hero screenshot, before/after) when ready **or** remove references from live layout. |
 
-### 6.2 Hero + HeroBento (orient column)
+### 6.2 Hero + HeroDecisionDiagram (orient column)
 
 | Iteration | Improvement |
 |-----------|-------------|
-| I1 | Hero right column is **HeroBento** (proof tiles), not a separate flow band on the live page. |
+| I1 | Hero right column is **HeroDecisionDiagram** (pipeline + sample brief engine), not a separate flow band on the live page. |
 | I2 | Ensure **one** coherent bridge from hero to `#context` (PromoBanner + nav); audit line length for LT. |
 | I3 | Respect `prefers-reduced-motion`; keep affordances text-first. |
 
@@ -357,6 +360,7 @@ Use this table when choices are made so future agents do not revert blindly.
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
+| 2026-06-09 | **PromoBanner** gold primary → **`#demo`**; outlined PA; tertiary cloud text link; mid-funnel copy reframe | Comprehension-first ladder aligned to §4.3; PA product handoff after proof, not before demo |
 | 2026-04-29 | Post–`RoiPath` meme **`memes.items[4]`** (`meme-02-meeting-overload.png`) **unmounted** | Redundant vs PromoBanner / PromptAnatomy; lowest marginal clarity late in funnel — [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md) |
 | 2026-04-29 | **`AuthorityBridge`** section removed from landing | Duplicate PA / architecture story handled elsewhere |
 | 2026-04-28 | Hero **gold primary CTA** → **`#context`**; outlined hero CTA → **PromptAnatomy** (UTM `hero`/`primary`); nav anchors `#context`/`#demo`/`#kit` | Hero ladder aligned to comprehension-first; see §4.1 tension |

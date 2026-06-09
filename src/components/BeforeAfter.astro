@@ -13,34 +13,11 @@ const beforeAfter = uiCopy[lang].beforeAfter;
 
 const baseUrl = import.meta.env.BASE_URL;
 const src = `${baseUrl}assets/graphics/before-after.svg`.replace(/([^:]\/)\/+/g, "$1");
-
 ---
 
 <section class="section-y-compact mx-auto max-w-7xl px-5 sm:px-8" aria-label={beforeAfter.a11yLabel}>
   <div class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-    <div>
-      <SectionHeader
-        eyebrow={beforeAfter.eyebrow}
-        title={beforeAfter.title}
-        subtitle={beforeAfter.subtitle}
-        align="start"
-        eyebrowTone="promo"
-      />
-      <div class="mt-6 grid gap-5 text-sm leading-6 text-slate-200 sm:text-base">
-        <div>
-          <h3 class="text-base font-black tracking-tight text-white">
-            {beforeAfter.promptHeading}
-          </h3>
-          <p class="mt-2">{beforeAfter.promptBody}</p>
-        </div>
-        <div>
-          <h3 class="text-base font-black tracking-tight text-white">
-            {beforeAfter.promptAnatomyHeading}
-          </h3>
-          <p class="mt-2">{beforeAfter.promptAnatomyBody}</p>
-        </div>
-      </div>
-    </div>
+    <SectionHeader eyebrow={beforeAfter.eyebrow} align="start" eyebrowTone="promo" />
 
     <DiagramContainer>
       <img

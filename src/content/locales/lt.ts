@@ -2,7 +2,7 @@ export const ltCopy = {
     meta: {
       title: "CEO/COO sprendimų operacinis rinkinys | Prompt Anatomy",
       description:
-        "Naudok vieną vadovo sprendimų eigą ir paversk verslo triukšmą sprendimui paruoštu briefu su savininku, rizikomis ir terminu. Statinis rinkinys + demo, be prisijungimo. Pilnam komandos standartui – PromptAnatomy.app.",
+        "Viena vadovo eiga paverčia verslo triukšmą sprendimo briefais su savininku, rizikomis ir terminais. Statinis rinkinys ir demo – be prisijungimo. Komandos standartas PromptAnatomy.app.",
       socialImageAlt:
         "Prompt Anatomy – CEO/COO Executive OS statinis rinkinys ir peržiūros paveikslas socialiniams tinklams.",
     },
@@ -11,7 +11,8 @@ export const ltCopy = {
       copyManual:
         "Kopijavimas užblokuotas: pažymėk prompto tekstą aukščiau ir spausk Ctrl+C (arba ⌘+C Mac).",
       logoAriaLabel: "Prompt Anatomy – vadovo OS",
-      brandSubtag: "Vadovo OS · v1.0",
+      brandWordmark: "Prompt Anatomy",
+      brandSubtag: "Vadovo OS",
       openMobileMenu: "Atidaryti meniu",
       navPrimaryAria: "Pagrindinė navigacija",
       navMobileAria: "Mobilioji navigacija",
@@ -20,38 +21,43 @@ export const ltCopy = {
     },
     faq: {
       sectionTitle: "Trumpai",
+      sisterHubLinkLabel: "Atidaryti framework praktiką promptanatomy.cloud",
       items: [
         {
           q: "Ar duomenys kažkur siunčiami?",
-          a: "Ne. Statinis puslapis–kopijuojant niekas neužkraunama.",
+          a: "Your brief text and context fields stay on your device—we do not upload them when you copy. On promptanatomy.pro, anonymous page views may be collected; nothing you type is sent to us.",
           bullets: [],
         },
         {
           q: "Ar galiu įklijuoti į ChatGPT, Claude ar Gemini?",
-          a: "Taip. Čia surink ir nukopijuok vieną promptą, tada įklijuok į organizacijos leidžiamą asistentą. Puslapis nejungiasi prie įrankių – niekas neužkraunama.",
+          a: "Taip. Kopijuok čia, įklijuok į organizacijos leidžiamą asistentą. Puslapis nejungiasi prie tų įrankių.",
           bullets: [],
         },
         {
           q: "Kas yra PromptAnatomy Executive OS?",
           a:
-            "Vieno puslapio statinis sprendimų operacinis rinkinys CEO/COO: globalus kontekstas ir moduliai, kad vadovybės užklausos DI būtų nuoseklios – be prisijungimo ir be įkėlimo. Pilna sistema ir komandos standartas – promptanatomy.app.",
+            "A static one-page decision operating kit for CEOs/COOs: Global Context Block plus executive modules so leadership briefs to AI stay consistent—no login, no upload of what you type. The full product and team standard are on promptanatomy.app.",
           bullets: [],
         },
         {
           q: "Kas yra globalus konteksto blokas?",
           a:
-            "Bendras įvesties skeletas kiekvienam briefui: įmonė, tikslai, ribos, auditorija, sėkmės kriterijai – kad išvestis liktų sprendimo lygio. Pridėk modulį (strategija, rizika, valdyba ir kt.) ir gauk vieną siuntimui paruoštą briefą.",
+            "Keturi bendri laukai kiekvienam briefui: įmonė, dabartinis tikslas, pagrindinė riba, butelio kaklelis – kad išvestis liktų sprendimo lygio. Pridėk modulį (strategija, rizika, valdyba ir kt.) ir gauk vieną siuntimui paruoštą briefą.",
           bullets: [],
         },
         {
           q: "Kuo tai ne eilinis promptų sąrašas?",
           a: "CEO/COO sprendimų darbo eiga, o ne pradinio lygio promptų mokymai. DI modelis tik generuoja; rinkinys užfiksuoja įvestį, logiką ir išvesties formą, kurią tikrai siunti.",
           bullets: [
-            "Operacinis modelis: vienas konteksto blokas ir moduliai, kuriuos sudedi į vieną promptą.",
-            "Rinkinys: spausdinamas PDF ir paruošti kopijuoti promptai pasikartojančiam vadovo darbui.",
-            "Kokybės kartelė: tas pats briefų standartas prieš valdybą, klientą ar komandą.",
-            "Sauga: patikros, prieš ką nors siunčiant iš darbo stalo.",
+            "Vienas konteksto blokas + moduliai, sukompiliuoti į vieną promptą, ir spausdinamas PDF rinkinys.",
+            "Tas pats briefų standartas ir saugumo patikros prieš valdybą, klientą ar komandą.",
           ],
+        },
+        {
+          q: "Naujas struktūruotuose promptuose?",
+          a: "Framework pagrindai ir trumpa praktikos eiga – seserinėje svetainėje. Šis puslapis lieka vadovų sprendimų operacijoms – kontekstas, moduliai ir sprendimo lygio rezultatas.",
+          bullets: [],
+          handoff: "sister_hub",
         },
         {
           q: "Ar reikia PromptAnatomy paskyros?",
@@ -61,70 +67,56 @@ export const ltCopy = {
       ],
     },
     nav: {
-      product: "CEO/COO Max Value Kit",
-      practice: "Kontekstas + moduliai",
+      practice: "Kontekstas",
       proof: "Aiškumo praktika",
-      system: "Vieta sistemoje",
-      library: "Promptų biblioteka",
-      demo: "Žiūrėti kaip veikia",
-      language: "Kalba",
       kitPdf: "Rinkinio atsisiuntimas",
     },
     hero: {
-      eyebrow: "Vadovo sprendimų operacinis rinkinys",
+      eyebrow: "Vadovo sprendimų rinkinys",
       title: "Nuo DI triukšmo iki sprendimo.",
-      subtitle: "Vienas struktūruotas briefas su savininku, rizikomis, terminu ir kitu veiksmu.",
-      primaryCta: "Atidaryti PromptAnatomy.app",
-      secondaryCta: "Pradėti nuo konteksto ir modulių",
+      subtitle: "Vienas briefas su savininku, rizikomis, terminu ir kitu veiksmu.",
+      inPageCta: "Pradėti nuo konteksto",
+      productCta: "Atidaryti PromptAnatomy.app",
+      ctaMeta: "Nemokama · Be prisijungimo · kopijuok per 2 min.",
     },
-    heroArtifact: {
-      ariaLabel: "Pavyzdinė vadovo brief’o išvesties forma.",
-      headerChipOne: "Sprendimo briefas",
-      headerChipTwo: "Savininkas + terminas",
-      headerChipThree: "Sprendimo lygis",
-      title: "Q3 prioritetai: užrakink kompromisą ir savininką.",
-      subtitle: "Tokia turi būti išvesties forma–trumpa, vykdoma ir saugi siųsti.",
-      decisionLabel: "Sprendimas",
-      decisionValue:
-        "Saugom Q3 pajamų pristatymą, stabdom vieną iniciatyvą–įvardinam savininką ir iki penktadienio pateikiam rekomendaciją.",
-      criteriaLabel: "Kriterijai",
-      criteriaItems: ["Poveikis pajamoms šį ketvirtį", "Tikras vykdymo pajėgumas", "Grįžtamumas per 30 dienų"],
-      risksLabel: "Svarbiausios rizikos",
-      riskItems: ["Statuso teatras pakeičia sprendimą", "Skirtingos prielaidos tarp komandų", "Be stabdymo taisyklės atsiranda slapta apimtis"],
-      ownerLabel: "Savininkas",
-      ownerValue: "COO (rekomendacija)",
-      deadlineLabel: "Terminas",
-      deadlineValue: "Penktadienis 17:00",
-      nextActionLabel: "Kitas veiksmas",
-      nextActionValue:
-        "Prieš susitikimą nusiųsk 1 puslapio briefą: kompromisas, rekomendacija, rizikos, savininkas, terminas.",
-      helper: "Kontekstas → modulis → briefas. Prieš siuntimą paleisk saugumo patikrą.",
-      howItWorksSummary: "Kaip tai veikia (išskleisti)",
-    },
-    heroBento: {
-      ariaLabel: "Vieno briefo išvestis: sprendimas, rizikos ir kitas veiksmas iš eilės.",
-      panelOverline: "Vienas briefas · trys dalys",
-      tilesAriaLabel: "Trys dalys iš eilės: sprendimas, rizikos, kitas veiksmas",
-      tileDecision: "Sprendimas",
-      tileRisks: "Rizikos",
-      tileNextAction: "Kitas veiksmas",
+    heroDiagram: {
+      ariaLabel:
+        "Pavyzdinė vadovo sprendimų eiga: triukšmas per kontekstą ir modulį į briefą su sprendimu, rizikomis ir kitu veiksmu.",
+      label: "Pavyzdys",
+      caption: "Nuo išsklaidytos įvesties iki vieno briefo su savininku",
+      pipelineAriaLabel: "Trys žingsniai: triukšmas, kontekstas, sukompiliuotas modulis",
+      pipeline: [
+        { label: "Triukšmas", desc: "Ataskaitos, KPI, nuomonės" },
+        { label: "Kontekstas", desc: "Tikslas, riba, savininkas" },
+        { label: "Modulis", desc: "Sukompiliuotas promptas" },
+      ],
+      engine: {
+        title: "Sprendimo briefas",
+        subtitle: "Po vieno įklijavimo",
+      },
+      sampleAriaLabel: "Briefo dalys: sprendimas, rizikos, kitas veiksmas",
+      sample: {
+        decision: {
+          label: "Sprendimas",
+          line: "Atidėti ES plėtrą; fokusuotis į JAV enterprise — Savininkas: CEO",
+        },
+        risks: {
+          label: "Rizikos",
+          line: "Ilgalaikis finansavimas susitraukia, jei Q3 samdos tęsiasi",
+        },
+        nextAction: {
+          label: "Kitas veiksmas",
+          line: "CFO iki penktadienio pateikia du scenarijus",
+        },
+      },
     },
     beforeAfter: {
       eyebrow: "Įrodymas viename ekrane",
-      title: "Paversk verslo triukšmą sprendimo briefu.",
-      subtitle: "Struktūra + saugumo filtras → savininkai, terminai, kitas veiksmas.",
-      promptHeading: "Kas yra promptas?",
-      promptBody:
-        "Instrukcija modeliui, kad atsakymas atitiktų sprendimui paruoštą formą–kompromisai, rizikos, savininkai, terminai–ne nestruktūruotas tekstas.",
-      promptAnatomyHeading: "Kas yra PromptAnatomy?",
-      promptAnatomyBody:
-        "Vadovo lygio standartas, kaip rašyti tokią instrukciją: rolė, kontekstas, sprendimo logika, fiksuota išvesties forma ir saugumo patikra prieš siunčiant.",
-      a11yLabel:
-        "Prieš ir po: prompto apibrėžimai ir brief'o struktūros diagrama.",
+      a11yLabel: "Sprendimui paruošto briefo struktūros diagrama.",
     },
     pasteIntoAssistant: {
       ariaLabel: "Po kopijavimo: atidaryk patvirtintą DI asistentą ir įklijuok promptą",
-      lead: "Po kopijavimo atidaryk patvirtintą DI įrankį ir įklijuok. Čia niekas nesiunčiama.",
+      lead: "Your prompt stays on your device until you paste it elsewhere.",
       continueLabel: "Tęsk čia:",
       openChatgpt: "Atidaryti ChatGPT",
       openClaude: "Atidaryti Claude",
@@ -133,22 +125,22 @@ export const ltCopy = {
         "Naudok organizacijos licencijuotą tiekėją ir paskyrą – laikykis tiekėjų sąlygų ir plano ribų.",
     },
     promoBanner: {
-      ariaLabel: "Perėjimo baneris į PromptAnatomy.",
-      eyebrow: "Kai nori pilnos sistemos",
-      title: "Įdiek PromptAnatomy kaip komandos standartą.",
-      subtitle: "Pagrindinis kelias: šią sprendimų eigą perkelk į PromptAnatomy ir kartok komandos mastu.",
-      primaryCta: "Atidaryti PromptAnatomy.app",
-      secondaryCta: "Pirmiau – aiškumo praktika",
-      sisterCta: "Pirmiau reikia framework praktikos? Atidaryk promptanatomy.cloud",
+      ariaLabel: "Kitas žingsnis: aiškumo praktika prieš pilną produktą.",
+      eyebrow: "Kitas žingsnis",
+      title: "Paleisk aiškumo praktiką su realiu scenarijumi.",
+      subtitle: "Penki statiniai scenarijai – tada pasiimk rinkinį arba atidaryk PromptAnatomy.",
+      primaryCta: "Atidaryti aiškumo praktiką",
+      secondaryCta: "Atidaryti PromptAnatomy.app",
+      sisterCta: "Framework pagrindai → promptanatomy.cloud",
     },
     modules: {
       eyebrow: "Globalus kontekstas + moduliai",
-      title: "Kontekstą apibrėžk vieną kartą. Įdėk jį į vadovo svertus.",
-      subtitle: "Vienas sukompiliuotas promptas → sprendimo lygio rezultatas, pagal kurį galima veikti.",
-      startHere: "Užpildyk 4 konteksto laukus, tada kopijuok 1 modulį (saugi pradžia – „Sprendimo pasekmės“).",
+      title: "Kontekstą apibrėžk vieną kartą. Paleisk bet kurį modulį.",
+      subtitle: "",
+      startHere: "Užpildyk 4 laukus, tada kopijuok modulį (pradėk nuo „Sprendimo pasekmės“).",
       context: {
         title: "Globalus konteksto blokas",
-        subtitle: "Privaloma. Vieną kartą įvedi, visur panaudoji.",
+        subtitle: "Reikia vieną kartą. Naudojama kiekviename modulyje.",
         badge: "Išlieka",
         companyLabel: "Įmonė",
         companyPlaceholder: "pvz., Series B B2B SaaS, 150 darbuotojų",
@@ -159,13 +151,12 @@ export const ltCopy = {
         bottleneckLabel: "Butelio kaklelis",
         bottleneckPlaceholder: "pvz., inžinerijos greitis vs pardavimų pažadai",
       },
-      contextFootnote:
-        "Be konteksto nėra vertės – tušti laukai lieka placeholderiais. Užpildytos reikšmės įeina į kiekvieno modulio „Kopijuoti pilną promptą“ (ant kortelės žemiau, ne atskirame bloku).",
+      contextFootnote: "",
       contextMapAriaLabel: "Kaip globalūs konteksto laukai patenka į sukompiliuotus promptus",
       contextMapInjectLabel: "Į modulius",
-      contextMapCaption: "Šios keturios reikšmės įeina į kiekvieno modulio „Kopijuoti pilną promptą“.",
+      contextMapCaption: "",
       rulesPreview: {
-        title: "Įdedamos taisyklės (neginčijama)",
+        title: "Integruotos taisyklės",
         items: [
           "Jokio bendrinio patarimo. Jei trūksta konteksto – pirmiausia užduok iki 3 tikslių klausimų.",
           "Neišgalvok skaičių ar faktų. Pažymėk, ką būtina patikrinti.",
@@ -186,7 +177,7 @@ export const ltCopy = {
           id: "redTeam",
           eyebrow: "1. Raudonoji komanda",
           title: "Strategijos laužytuvas",
-          subtitle: "Patikrink strategiją prieš sudegindamas kalendorių.",
+          subtitle: "Patikrink strategiją prieš kalendoriaus laiką.",
           taskFormat: "Patikrink: [Įrašyk strategiją arba planą čia]",
           outputExampleJson: `Verdiktas: vykdyti / peržiūrėti iš naujo / nutraukti
 
@@ -206,7 +197,7 @@ Pirmos 48 val.:
           id: "sentiment",
           eyebrow: "2. Nuotaikos skaitymas",
           title: "Kultūros dekoderis",
-          subtitle: "Žalią feedbacką paversk keliomis veiksmingomis intervencijomis.",
+          subtitle: "Feedbackas → veiksmai, keičiantys moralę.",
           taskFormat: "Analizuok: [Įklijuok feedbacką, apklausas ar žalią tekstą]",
           outputExampleJson: `Pagrindinė emocija (1 eilutė):
 
@@ -225,7 +216,7 @@ Rizika, jei ignoruosime:
           id: "secondOrder",
           eyebrow: "3. Antros eilės poveikis",
           title: "Sprendimo pasekmės",
-          subtitle: "Priversk 2‑os ir 3‑os eilės efektus prieš įsipareigodamas.",
+          subtitle: "2-os ir 3-os eilės poveikis prieš įsipareigojimą.",
           taskFormat: "Įvertink: [Aprašyk laukiantį sprendimą]",
           outputExampleJson: `Rekomendacija: vykdyti / atidėti / atmesti
 
@@ -246,7 +237,7 @@ Kiti veiksmai:
           id: "communication",
           eyebrow: "4. Komunikacija",
           title: "CEO balsas",
-          subtitle: "Perrašyk į aiškią poziciją + vieną CTA be gynybos tono.",
+          subtitle: "Aiški pozicija + vienas CTA, be gynybos tono.",
           taskFormat: "Perrašyk: [Įklijuok laiško/memo/žinutės juodraštį]",
           outputExampleJson: `Pozicija (1 eilutė):
 
@@ -261,7 +252,7 @@ Nesusipratimo rizikos:
           id: "premortem",
           eyebrow: "5. Iš anksto numatomas žlugimas",
           title: "Konkurento ataka",
-          subtitle: "Tarkim, kad žlungei. Rask silpną vietą ir gynybinį veiksmą dabar.",
+          subtitle: "Tarkim, kad žlungei. Surask silpną vietą dabar.",
           taskFormat: "Veik kaip konkurento CEO prieš mano dabartinį setupą.",
           outputExampleJson: `Geriausia konkurento ataka:
 
@@ -279,7 +270,7 @@ Sustiprinimo sąrašas:
           id: "timeAudit",
           eyebrow: "6. Laiko auditas",
           title: "Sverto filtras",
-          subtitle: "Nukirpk, deleguok ir susirašyk fokusavimo taisykles kitai savaitei.",
+          subtitle: "Nukirpk, deleguok, fokusas kitai savaitei.",
           taskFormat: "Analizuok: [Įklijuok savaitės kalendorių / užduočių sąrašą]",
           outputExampleJson: `Didžiausio poveikio 20 %:
 - ...
@@ -297,25 +288,24 @@ Pašalinti dabar:
       custom: {
         eyebrow: "7. Pasirinktinis",
         title: "Pasirinktinis modulis",
-        subtitle: "Apibrėžk savo užduotį ir išvesties formą. Kontekstas + taisyklės lieka tie patys.",
+        subtitle: "Tavo užduotis ir išvesties forma. Tas pats kontekstas + taisyklės.",
         taskLabel: "Užduoties formatas",
         taskPlaceholder: "pvz., Diagnozuok: [Įklijuok savaitinį vadovo atnaujinimą]",
         outputLabel: "Laukiama išvestis (skaitoma)",
         outputPlaceholder:
           "Rekomendacija:\n\nTop rizikos:\n- ...\n\nKiti veiksmai:\n- Veiksmas – Savininkas – Terminas\n\nPastabos:\n- ...",
-        validationError: "",
+        validationError: "Add a task description before copying.",
         copyButton: "Kopijuoti custom promptą",
         copiedButton: "Nukopijuota",
       },
     },
     safety: {
       eyebrow: "Saugumo patikra",
-      title: "Naudok prieš siųsdami DI išvestį.",
-      subtitle:
-        "Paskutinis žingsnis po to, kai surenkai promptą iš Konteksto + modulių–tos pačios keturios patikros, prieš siuntimą.",
+      title: "Paleisk prieš siųsdamas DI išvestį.",
+      subtitle: "Keturios patikros prieš siuntimą.",
       processLabel: "4 patikros",
       promptBlockLabel: "Kopijuojamas promptas",
-      previewHint: "Mygtukas nukopijuos visą promptą aukščiau.",
+      previewHint: "",
       copyPrompt: "Kopijuoti patikros promptą",
       copied: "Nukopijuota",
       items: [
@@ -329,9 +319,10 @@ Pašalinti dabar:
     },
     anatomy: {
       eyebrow: "Vadovo prompto anatomija",
-      title: "Penki blokai, kad DI dirbtų vadovo lygiu.",
+      title: "Penki blokai vadovo lygio DI rezultatui.",
       expandSummary: "Penki blokai (išskleisti)",
-      subtitle: "Greitai: 2–3 blokai. Prieš valdybą ar klientą: visi penki.",
+      subtitle:
+        "Promptas – instrukcija, kuri formuoja atsakymą. Greitai: 2–3 blokai. Prieš valdybą ar klientą: visi penki.",
       previewAriaLabel: "Penki blokai trumpai",
       /** Antraštės žodis prie blokų numerio išskleistame tinklelyje (pvz. „Žingsnis 1“). */
       stepPrefix: "Žingsnis",
@@ -344,17 +335,15 @@ Pašalinti dabar:
       ],
     },
     library: {
-      eyebrow: "Biblioteka kopijavimui · be prisijungimo",
+      eyebrow: "Biblioteka kopijavimui",
       title: "CEO/COO promptų biblioteka",
-      subtitle: "35 paruoštų promptų pasikartojančiam vadovų darbui.",
-      summaryLead:
-        "Nuorodų katalogas – kopijuok vieną promptą, kai reikia, ne visą rinkinį. Pasirink kategoriją → rodyti → įklijuok į DI įrankį.",
+      subtitle: "35 promptai pasikartojančiam vadovų darbui.",
+      summaryLead: "Kopijuok vieną pagal kategoriją – be prisijungimo.",
       navAriaLabel: "Promptų kategorijos",
       promptSingular: "promptas",
       promptPlural: "promptai",
       defaultHintTitle: "Pradėk nuo CEO sprendimų",
-      defaultHintBody:
-        "Naudok, kai variantai sumišę, savininkai neaiškūs ar rizika paslėpta.",
+      defaultHintBody: "Kai variantai sumišę ar savininkai neaiškūs.",
       copyPrompt: "Kopijuoti promptą",
       copied: "Nukopijuota",
       revealPrompt: "Rodyti pilną promptą",
@@ -366,31 +355,31 @@ Pašalinti dabar:
           prompts: [
             {
               title: "Rekomendacija valdybai",
-              outcome: "Rekomendacija, kompromisai, rizikos ir sprendimo kriterijai.",
+              outcome: "Rekomendacija, kompromisai, rizikos, sprendimo kriterijai.",
               prompt:
                 "Veik kaip CEO operacinis partneris. Išanalizuok šį sprendimą: [SPRENDIMAS]. Kontekstas: [FAKTAI]. Variantai: [VARIANTAI]. Grąžink 1 rekomendaciją, 3 kompromisus, 3 rizikas, sprendimo kriterijus ir kitą veiksmą su savininku bei terminu.",
             },
             {
               title: "Grįžtamas ar negrįžtamas sprendimas",
-              outcome: "Atskirk, kur reikia greičio, o kur – daugiau įrodymų.",
+              outcome: "Greitis vs įrodymai – atskirta.",
               prompt:
                 "Suklasifikuok šį sprendimą kaip grįžtamą arba negrįžtamą: [SPRENDIMAS]. Paaiškink, kokių įrodymų pakanka, kokia rizika lieka ir ar turime spręsti dabar, testuoti ar laukti. Grąžink trumpą CEO briefą.",
             },
             {
               title: "Kompromiso žemėlapis",
-              outcome: "Parodo, ką verslas gauna, praranda, atideda ir rizikuoja.",
+              outcome: "Ką gauname, prarandame, atidedame, rizikuojame.",
               prompt:
                 "Sudaryk šio sprendimo kompromiso žemėlapį: [SPRENDIMAS]. Grąžink ką laimime, ką prarandame, kas atidedama, kokia rizika didėja, kokia mažėja ir kokį sprendimą priimti, jei svarbiausias greitis.",
             },
             {
               title: "Stabdyti / tęsti / keisti",
-              outcome: "Miglota iniciatyvos peržiūra tampa aiškiu vadovo sprendimu.",
+              outcome: "Miglota iniciatyva → aiškus sprendimas.",
               prompt:
                 "Peržiūrėk šią iniciatyvą: [INICIATYVOS ATNAUJINIMAS]. Rekomenduok stabdyti, tęsti ar keisti. Įtrauk įrodymus, riziką, alternatyvią kainą, savininką ir kitą peržiūros datą.",
             },
             {
               title: "Biudžeto sprendimo briefas",
-              outcome: "Išlaidų sprendimas su kriterijais ir rizikos apsauga.",
+              outcome: "Išlaidos su kriterijais ir rizikos apsauga.",
               prompt:
                 "Paruošk CEO biudžeto sprendimo briefą dėl [IŠLAIDOS / INVESTICIJOS]. Įtrauk strateginę priežastį, tikėtiną grąžą, blogiausią riziką, sprendimo kriterijus, patvirtinimo sąlygas ir ką nustotume finansuoti, jei tai patvirtinama.",
             },
@@ -402,31 +391,31 @@ Pašalinti dabar:
           prompts: [
             {
               title: "Pristatymo rizikos diagnostika",
-              outcome: "Kur stringa vykdymas ir ką keisti šią savaitę.",
+              outcome: "Kur stringa vykdymas šią savaitę.",
               prompt:
                 "Veik kaip COO. Peržiūrėk šį vykdymo atnaujinimą: [ATNAUJINIMAS]. Nustatyk butelio kaklelį, trūkstamą savininką, pristatymo riziką, priklausomybę ir vieną operacinį pakeitimą šiai savaitei.",
             },
             {
               title: "Operacinio ritmo atstatymas",
-              outcome: "Susitikimų ritmas, metrikos, savininkai ir eskalavimo taisyklės.",
+              outcome: "Ritmas, metrikos, savininkai, eskalavimas.",
               prompt:
                 "Sukurk paprastą operacinį ritmą [KOMANDAI/PROJEKTUI]. Įtrauk savaitinį ritmą, sprendimo taškus, metrikas, savininkus, eskalavimo signalus ir ką nustoti aptarinėti.",
             },
             {
               title: "Savininkų aiškumas",
-              outcome: "Pašalina neaiškumą, kas sprendžia, vykdo, padeda ir eskaluoja.",
+              outcome: "Kas sprendžia, vykdo, padeda, eskaluoja.",
               prompt:
                 "Išgrynink atsakomybes šiam darbui: [PROJEKTAS / PROCESAS]. Grąžink sprendimo savininką, vykdymo savininką, palaikančias roles, eskalavimo kelią, reikalingą patvirtinimą ir kas ką turi pristatyti iki kada.",
             },
             {
               title: "Eskalavimo taisyklė",
-              outcome: "Apibrėžia, kada komanda sprendžia, eskaluoja ar stabdo.",
+              outcome: "Kada spręsti, eskaluoti ar stabdyti.",
               prompt:
                 "Sukurk eskalavimo taisykles darbo eigai [DARBO EIGA]. Apibrėžk, ką komanda gali spręsti pati, kam reikia COO/CEO įsikišimo, ką stabdyti iškart ir kokie signalai įjungia eskalavimą.",
             },
             {
               title: "Pajėgumo ribos skenavimas",
-              outcome: "Randa tikrą butelio kaklelį prieš pridedant žmones ar biudžetą.",
+              outcome: "Tikras butelio kaklelis prieš samdant.",
               prompt:
                 "Išanalizuok šią pajėgumo problemą: [SITUACIJA]. Nustatyk butelio kaklelį, netikrus butelio kaklelius, ką stabdyti, ką sekuoti, savininką ir mažiausią pakeitimą, kuris pagerintų pralaidumą šią savaitę.",
             },
@@ -438,31 +427,31 @@ Pašalinti dabar:
           prompts: [
             {
               title: "Sprendimo susitikimo darbotvarkė",
-              outcome: "Darbotvarkė, kuri priverčia spręsti kompromisą.",
+              outcome: "Priverčia kompromisą, stabdo nukrypimą.",
               prompt:
                 "Sukurk vadovų susitikimo darbotvarkę tema [TEMA]. Tikslas: priimti vieną sprendimą. Įtrauk paruošiamą medžiagą, sprendimo klausimą, kompromisą, 3 klausimus, laiko rėmus ir uždarymo savininką bei terminą.",
             },
             {
               title: "Veiksmų ištraukimas po susitikimo",
-              outcome: "Aiškūs savininkai, terminai, rizikos ir atviri klausimai.",
+              outcome: "Savininkai, terminai, rizikos, atviri klausimai.",
               prompt:
                 "Paversk šiuos susitikimo užrašus vadovo veiksmų žurnalu: [UŽRAŠAI]. Grąžink priimtus sprendimus, atvirus sprendimus, savininkus, terminus, rizikas ir pirmą tęstinę žinutę.",
             },
             {
               title: "Paruošiamosios medžiagos ištraukimas",
-              outcome: "Paruošia susitikimą prieš švaistant laiką kambaryje.",
+              outcome: "Paruošimas prieš susitikimą kambaryje.",
               prompt:
                 "Sukurk vadovų paruošiamąją medžiagą iš šios medžiagos: [MEDŽIAGA]. Įtrauk reikalingą sprendimą, žinomus faktus, prielaidas, atvirus klausimus, rizikas ir ką kiekvienas dalyvis turi pasiruošti.",
             },
             {
               title: "Konflikto sprendimo rėmas",
-              outcome: "Paverčia nesutarimą kriterijais, variantais ir sprendimo keliu.",
+              outcome: "Nesutarimas → kriterijai ir sprendimo kelias.",
               prompt:
                 "Sustruktūruok šį vadovų nesutarimą: [NESUTARIMAS]. Atskirk faktus, prielaidas, interesus, rizikas, sprendimo kriterijus ir mažiausią kitą sprendimą, kuris pajudintų komandą į priekį.",
             },
             {
               title: "Savaitinis vadovų ritmas",
-              outcome: "Laiko savaitinius susitikimus ties sprendimais ir vykdymo signalais.",
+              outcome: "Tik sprendimai ir vykdymo signalai.",
               prompt:
                 "Sukurk savaitinį vadovų susitikimo ritmą [KOMANDAI]. Įtrauk pasikartojančią darbotvarkę, privalomas įvestis, sprendimų blokus, rizikos peržiūrą, savininkų atsakomybę ir ką perkelti į asinchroninį formatą.",
             },
@@ -474,31 +463,31 @@ Pašalinti dabar:
           prompts: [
             {
               title: "Vieno puslapio vadovo briefas",
-              outcome: "Signalas, rizika, sprendimas ir kitas veiksmas iš ilgos ataskaitos.",
+              outcome: "Signalas, rizika, sprendimas, kitas veiksmas.",
               prompt:
                 "Apibendrink šią ataskaitą CEO lygiu: [ATASKAITA]. Grąžink pagrindinį signalą, paslėptą riziką, reikalingą sprendimą, 3 klausimus komandai ir vieną kitą veiksmą. Neišgalvok trūkstamų skaičių.",
             },
             {
               title: "Rizikos signalų skenavimas",
-              outcome: "Ankstyvi klientų, pajamų, pristatymo ir reputacijos signalai.",
+              outcome: "Ankstyvi signalai: klientai, pajamos, pristatymas, žmonės.",
               prompt:
                 "Perskenuok šį atnaujinimą dėl silpnų signalų: [ATNAUJINIMAS]. Atskirk klientų, pajamų, pristatymo, žmonių ir reputacijos rizikas. Pažymėk kiekvieną kaip žemą/vidutinę/aukštą ir pasiūlyk, ką tikrinti toliau.",
             },
             {
               title: "KPI anomalijos paaiškinimas",
-              outcome: "Atskirk triukšmą nuo operacinio signalo.",
+              outcome: "Triukšmas vs operacinis signalas.",
               prompt:
                 "Išanalizuok šią KPI anomaliją: [DUOMENYS / KONTEKSTAS]. Paaiškink galimas priežastis, kokie įrodymai jas palaiko, ką tikrinti toliau ir ar reikia sprendimo, stebėjimo ar skubaus veiksmo.",
             },
             {
               title: "Kliento rizikos briefas",
-              outcome: "Paverčia kliento aptarnavimo ir paskyros triukšmą išlaikymo veiksmu.",
+              outcome: "Aptarnavimo triukšmas → išlaikymo veiksmas.",
               prompt:
                 "Sukurk kliento rizikos briefą iš šios informacijos: [UŽRAŠAI]. Nustatyk rizikingas paskyras, priežastis, pajamų ekspoziciją, savininką, veiksmą per 7 dienas ir vadovo žinutę, jei reikia.",
             },
             {
               title: "Valdybos santrauka",
-              outcome: "Operacinis atnaujinimas tampa valdybos lygio signalu.",
+              outcome: "Operacinis atnaujinimas → valdybos signalas.",
               prompt:
                 "Paversk šį operacinį atnaujinimą valdybos santrauka: [ATNAUJINIMAS]. Įtrauk pagrindinę žinutę, progresą, rizikas, reikalingą sprendimą, finansinį ar kliento poveikį ir vieną klausimą, kuriame reikia valdybos pagalbos.",
             },
@@ -510,31 +499,31 @@ Pašalinti dabar:
           prompts: [
             {
               title: "Delegavimo briefas",
-              outcome: "Tikslas, kontekstas, ribos, kokybės kartelė ir peržiūros kriterijai.",
+              outcome: "Tikslas, ribos, kokybės kartelė, peržiūros kriterijai.",
               prompt:
                 "Paversk šią intenciją delegavimo briefu: [INTENCIJA]. Įtrauk tikslą, auditoriją, kontekstą, ribas, rezultato formatą, kokybės kriterijus, pavyzdžius ir peržiūros terminą.",
             },
             {
               title: "Kokybės kartelė prieš peržiūrą",
-              outcome: "Mažiau CEO perrašymo, nes standartas aiškus iš anksto.",
+              outcome: "Standartas iš anksto – mažiau perrašymo.",
               prompt:
                 "Sukurk kokybės kontrolės sąrašą šiai užduočiai: [UŽDUOTIS]. Įtrauk privalomus punktus, dažnas klaidas, gero rezultato pavyzdžius ir ką eskaluoti prieš pateikiant.",
             },
             {
               title: "Peržiūrėtojo kontrolės sąrašas",
-              outcome: "Peržiūra tampa greitesnė ir mažiau subjektyvi.",
+              outcome: "Greitesnė, mažiau subjektyvi peržiūra.",
               prompt:
                 "Sukurk peržiūrėtojo kontrolės sąrašą šiam rezultatui: [REZULTATAS]. Įtrauk strateginį atitikimą, faktų tikslumą, auditorijos aiškumą, riziką, trūkstamą kontekstą ir tinka/netinka kriterijus.",
             },
             {
               title: "Savininko perdavimas",
-              outcome: "Darbas iš CEO galvos pereina į savininko vykdymą.",
+              outcome: "CEO galva → savininko vykdymas.",
               prompt:
                 "Sukurk savininko perdavimą darbui [DARBAS]. Įtrauk kontekstą, jau priimtą sprendimą, savininko atsakomybes, ribas, etapus, eskalavimo taisykles ir pirmo atnaujinimo formatą.",
             },
             {
               title: "Instrukcija komandai",
-              outcome: "Vadovo intencija tampa komandai paruošta užduotimi.",
+              outcome: "Intencija → komandai paruošta užduotis.",
               prompt:
                 "Parašyk instrukciją komandai užduočiai [UŽDUOTIS]. Įtrauk kodėl tai svarbu, ką reiškia padaryta, ribas, pavyzdžius, savininką, terminą ir kaip raportuoti progresą.",
             },
@@ -546,31 +535,31 @@ Pašalinti dabar:
           prompts: [
             {
               title: "Įtemptas atnaujinimas",
-              outcome: "Rami, sąžininga komunikacija su aiškiu kitu žingsniu.",
+              outcome: "Ramu, sąžiningai, aiškus kitas žingsnis.",
               prompt:
                 "Perrašyk šį vadovo atnaujinimą, kad jis būtų aiškus, ramus ir negynybiškas: [ŽINUTĖ]. Struktūra: faktas, priežastis, poveikis, kas keičiasi, kas nesikeičia ir kitas žingsnis.",
             },
             {
               title: "Partnerio/kliento žinutė",
-              outcome: "Vadovo lygio žinutė, kuri saugo pasitikėjimą ir tempą.",
+              outcome: "Pasitikėjimas ir tempas saugomi.",
               prompt:
                 "Parašyk trumpą partnerio/kliento žinutę apie [SITUACIJA]. Tonas: tiesus, šiltas, patikimas. Įtrauk verslo kontekstą, sprendimą, poveikį ir vieną aiškų kitą veiksmą. Iki 120 žodžių.",
             },
             {
               title: "Vidinis pokyčio pranešimas",
-              outcome: "Paaiškina pokytį nekuriant neapibrėžtumo.",
+              outcome: "Pokytis be neapibrėžtumo.",
               prompt:
                 "Parašyk vidinį pokyčio pranešimą apie [POKYTIS]. Įtrauk kas keičiasi, kodėl, kas nesikeičia, poveikį komandoms, sprendimo savininką ir kur keliauja klausimai.",
             },
             {
               title: "Termino pakeitimas",
-              outcome: "Praneša apie vėlavimą negynybiškai.",
+              outcome: "Vėlavimas be gynybiško tono.",
               prompt:
                 "Paruošk termino keitimo žinutę auditorijai [AUDITORIJA]. Įtrauk faktą, priežastį, kompromisą, naują datą, ką darome kokybei apsaugoti ir kada bus kitas atnaujinimas.",
             },
             {
               title: "Partnerystės pasiūlymo rėmas",
-              outcome: "Mandagus tekstas tampa verslo argumentu.",
+              outcome: "Mandagus tekstas → verslo argumentas.",
               prompt:
                 "Sustruktūruok šį partnerystės pasiūlymą: [IDĖJA]. Įtrauk strateginę priežastį, vertę partneriui, vertę mums, įrodymą, riziką, kitą žingsnį ir trumpą vadovo lygio pradžios pastraipą.",
             },
@@ -582,31 +571,31 @@ Pašalinti dabar:
           prompts: [
             {
               title: "Vadovo siuntimo patikra",
-              outcome: "Galutinė patikra prieš siunčiant valdybai, klientui, partneriui ar komandai.",
+              outcome: "Galutinė patikra prieš siuntimą.",
               prompt:
                 "Veik kaip vadovo rizikos peržiūrėtojas. Peržiūrėk šį tekstą prieš man jį siunčiant: [TEKSTAS]. Kontekstas: [VALDYBA / KLIENTAS / KOMANDA / PARTNERIS]. Grąžink faktines rizikas, teisines/reputacijos rizikas, trūkstamą kontekstą, neaiškų savininką ir saugesnę formuluotę, jei reikia.",
             },
             {
               title: "Haliucinacijų skenavimas",
-              outcome: "Randa teiginius, kuriuos DI galėjo išgalvoti ar pervertinti.",
+              outcome: "Teiginiai, kuriuos DI galėjo išgalvoti.",
               prompt:
                 "Perskenuok šį DI rezultatą dėl galimų haliucinacijų: [TEKSTAS]. Išvardyk nepagrįstus teiginius, skaičius, datas, įvardintus subjektus, prielaidas ir kokiu šaltiniu tikrinti kiekvieną.",
             },
             {
               title: "Teisinė / reputacijos rizika",
-              outcome: "Pagauna formuluotes, kurios kuria nereikalingą ekspoziciją.",
+              outcome: "Formuluotės, kurios kuria ekspoziciją.",
               prompt:
                 "Peržiūrėk šią žinutę dėl teisinės, konfidencialumo, kliento pasitikėjimo ir reputacijos rizikos: [ŽINUTĖ]. Grąžink rizikos lygį, rizikingas frazes, saugesnes alternatyvas ir ką reikia patvirtinti prieš siunčiant.",
             },
             {
               title: "Trūkstamo konteksto patikra",
-              outcome: "Nustato, ko vadovui trūksta prieš veikiant.",
+              outcome: "Ką vadovas paklaustų pirmiausia.",
               prompt:
                 "Peržiūrėk šį rezultatą dėl trūkstamo konteksto: [REZULTATAS]. Kokių faktų, ribų, suinteresuotų pusių požiūrių, rizikų ar sprendimo kriterijų trūksta prieš CEO/COO veikiant?",
             },
             {
               title: "Sprendimo savininko patikra",
-              outcome: "Užtikrina, kad rekomendacija turi atsakomybę.",
+              outcome: "Kiekviena rekomendacija turi savininką.",
               prompt:
                 "Patikrink šią rekomendaciją dėl sprendimo paruoštumo: [REKOMENDACIJA]. Nustatyk sprendimo savininką, vykdymo savininką, terminą, sėkmės kriterijus, rizikas ir kas padarytų rekomendaciją netinkamą.",
             },
@@ -617,18 +606,17 @@ Pašalinti dabar:
     demo: {
       eyebrow: "Aiškumo praktika",
       title: "Pasirink scenarijų. Gauk briefą.",
-      subtitle: "Sprendimas ir kitas veiksmas, kai reikia.",
-      scenarioHint: "Pasirink scenarijų – briefas atsinaujina žemiau.",
+      subtitle: "",
+      scenarioHint: "",
       briefLabel: "Briefas",
       detailsTab: "Detalės",
       inputTab: "Įvestis",
-      secondaryPanelHint: "Atidaryk Detalėse – rizikas ir klausimus, arba Įvestyje – neapdorotą scenarijaus tekstą.",
+      secondaryPanelHint: "",
       secondaryTablistAriaLabel: "Papildomas brief turinys",
       promptBlockLabel: "Pavyzdinis kopijuojamas promptas",
-      previewHint: "Kopijuojant paimamas pilnas promptas. Čia – tik peržiūra.",
+      previewHint: "",
       followUpEyebrow: "Laikyk struktūrą po ranka",
-      followUpText:
-        "Ta pati struktūra viename lape – spausdinamas PDF yra Rinkinio atsisiuntimo skiltyje žemiau.",
+      followUpText: "Ta pati struktūra spausdinamame rinkinyje (žemiau).",
       followUpCta: "Atsisiųsti Max Value Kit",
       pdfAgain: "pereik prie atsisiuntimo.",
       scenarioLiveStatus: "Scenarijus: {scenario}. Briefas atnaujintas.",
@@ -665,7 +653,7 @@ Pašalinti dabar:
         report: {
           label: "Ataskaita",
           input:
-            "Mėnesio ataskaita turi 18 puslapių. Pajamos neauga, klientų netekimas šiek tiek didėja, produkto pristatymas vėl vėlavo, o klientų aptarnavimas mato daugiau skundų iš kelių svarbių klientų.",
+            "Mėnesio ataskaita: 18 psl. Pajamos flat, klientų netekimas šiek tiek auga, pristatymas vėlavo, klientų aptarnavimas fiksuoja skundus.",
           insight:
             "Ataskaitoje slepiasi klientų išlaikymo rizika. Skundai ir produkto vėlavimai gali būti ankstyvas signalas, kad klientų netekimas didės dar prieš pajamoms tai parodant.",
           decision:
@@ -695,7 +683,7 @@ Pašalinti dabar:
         delegation: {
           label: "Delegavimas",
           input:
-            "Reikia deleguoti partnerystės pasiūlymą, bet ankstesni juodraščiai praleido strateginį kampą. Komanda parašė mandagų tekstą, ne verslo argumentą, todėl didžiąją dalį turėjau perrašyti pats.",
+            "Reikia deleguoti partnerystės pasiūlymą. Ankstesni juodraščiai praleido strateginį kampą – mandagus tekstas, ne verslo argumentas.",
           insight:
             "Butelio kaklelis nėra rašymas. Komandai trūksta sprendimo konteksto, auditorijos rezultato ir kokybės kartelės.",
           decision:
@@ -737,19 +725,19 @@ Pašalinti dabar:
       ] as const,
       items: [
         ["DI chaosas", "Be struktūros rezultatas virsta triukšmu."],
-        ["Struktūra kuria kontrolę", "Pokytis paprastas: nustok spėlioti, aiškiai apibrėžk įvestį ir valdyk rezultatą."],
+        ["Struktūra kuria kontrolę", "Apibrėžk įvestį. Valdyk rezultatą."],
         ["Delegavimo butelio kaklelis", "Jei briefas miglotas, tu tampi redaktoriumi."],
         ["Kontrolė kuria rezultatus", "Atsitiktinės užklausos kuria atsitiktinius atsakymus."],
         ["Vadovui reikia sistemos", "Komanda jau gali eksperimentuoti. Vadovui reikia bendro veikimo modelio."],
-        ["Laikyk struktūrą po ranka", "Rinkinys popieriuje išlaiko tą pačią struktūrą."],
+        ["Laikyk struktūrą po ranka", "Spausdinamas rinkinys – ta pati forma popieriuje."],
       ],
     },
     roiPath: {
-      eyebrow: "5 val. savaitinės naudos kelias",
-      title: "Pasirink vieną žingsnį. Šiandien priimk aiškesnį sprendimą.",
-      subtitle: "Pasirink 5–45 min veiksmą, nukopijuok promptą ir paleisk dabar. Kartok tą patį ritmą kas savaitę.",
+      eyebrow: "Savaitės naudos kelias",
+      title: "Vienas žingsnis šiandien. Tas pats ritmas kas savaitę.",
+      subtitle: "Penki veiksmai, 5–45 min kiekvienas.",
       centerLabel: "Vadovo savaitė",
-      centerText: "Penki savaitės žingsniai—tas pats ritmas kas savaitę.",
+      centerText: "",
       entryCta: "Kopijuoti ir paleisti 1 žingsnį (15–40 min)",
       panelAriaLabel: "Savaitės žingsnio detalė",
       panelProgressTemplate: "Žingsnis {current} iš 5",
@@ -765,8 +753,7 @@ Pašalinti dabar:
           time: "15–40 min",
           action: "Peržiūrėk ir išsiųsk aiškiai",
           value: "Surenki rizikas prieš siųsdamas; pateik struktūruotą, patikimą žinutę.",
-          description:
-            "Rizikos peržiūra, tada valdybos, kliento, partnerio ar komandos teksto perrašymas — saugiai ir aiškiai.",
+          description: "Rizikos peržiūra ir aiškus išsiuntimas.",
           prompt:
             "Veik kaip vadovo komunikacijos partneris. Juodraštis ar tekstas patobulinimui: [TEKSTAS]. Auditorija: [VALDYBA / KLIENTAS / KOMANDA / PARTNERIS].\n\n1) RIZIKOS ETAPAS — Prieš siunčiant grąžink: faktus patikrai; teisines/reputacijos rizikas; trūkstamą kontekstą; neaiškų sprendimą/savininką; formuluotes, kurias reikia saugiau.\n\n2) GALUTINĖ ŽINUTĖ — Perrašyk taip, kad būtų aišku, ramu ir be gynybiško tono. Struktūra: faktas — priežastis — poveikis — kas keičiasi — kas lieka — kitas žingsnis. Jei rizikų etape yra esminių problemų, išspręsk jas galutinėje formuluotėje.",
         },
@@ -776,7 +763,7 @@ Pašalinti dabar:
           time: "20-40 min",
           action: "Išfiltruok signalą",
           value: "Randi paslėptą riziką ir sprendimą dar prieš susitikimą.",
-          description: "Signalas, paslėpta rizika ir sprendimas iš ilgų atnaujinimų.",
+          description: "Signalas, paslėpta rizika, sprendimas iš ilgų atnaujinimų.",
           prompt:
             "Apibendrink šį ilgą atnaujinimą CEO lygiu: [ATNAUJINIMAS]. Grąžink pagrindinį signalą, paslėptą riziką, reikalingą sprendimą, 3 klausimus komandai ir vieną kitą veiksmą. Neišgalvok trūkstamų skaičių.",
         },
@@ -786,7 +773,7 @@ Pašalinti dabar:
           time: "20-45 min",
           action: "Suformuok sprendimą",
           value: "Kompromisai, kriterijai, rizikos–užrašyta prieš sprendžiant.",
-          description: "Variantai tampa kompromisais, kriterijais, rizika ir aiškia išvada.",
+          description: "Kompromisai, kriterijai, rizika ir aiški išvada.",
           prompt:
             "Veik kaip mano CEO operacinis partneris. Išanalizuok sprendimą: [SPRENDIMAS]. Kontekstas: [FAKTAI]. Variantai: [VARIANTAI]. Grąžink 1 rekomendaciją, 3 kompromisus, 3 rizikas, sprendimo kriterijus ir kitą veiksmą su savininku bei terminu.",
         },
@@ -796,7 +783,7 @@ Pašalinti dabar:
           time: "15-30 min",
           action: "Sutvarkyk po susitikimo",
           value: "Užrašai tampa sprendimais, savininkais, terminais.",
-          description: "Užrašai tampa sprendimais, savininkais, terminais ir tęsiniu.",
+          description: "Sprendimai, savininkai, terminai, tęsinys.",
           prompt:
             "Paversk šiuos susitikimo užrašus vadovo veiksmų žurnalu: [UŽRAŠAI]. Grąžink priimtus sprendimus, atvirus sprendimus, savininkus, terminus, rizikas ir pirmą tęstinę žinutę.",
         },
@@ -806,26 +793,25 @@ Pašalinti dabar:
           time: "15-45 min",
           action: "Deleguok per briefą",
           value: "Darbas išeina iš galvos į komandai vykdomą planą.",
-          description: "Intencija tampa briefu, kurį komanda gali vykdyti.",
+          description: "Intencija → briefas, kurį komanda vykdo.",
           prompt:
             "Paversk šią intenciją delegavimo briefu: [INTENCIJA]. Įtrauk tikslą, auditoriją, kontekstą, ribas, rezultato formatą, kokybės kriterijus, pavyzdžius, peržiūros terminą ir eskalavimo signalus.",
         },
       ],
-      total: "~5 val. per savaitę → mažiau klaidingų sprendimų, aiškesnė atsakomybė, saugesnė komunikacija.",
+      total: "~5 val./sav. → mažiau klaidingų sprendimų, aiškesnė atsakomybė, saugesni siuntimai.",
       printableOneLiner: "Penki žingsniai ≈ ~5 val./sav. – tas pats ritmas viename spausdinamame lape.",
       printableKitLink: "Spausdinamas rinkinys (PDF)",
     },
     cta: {
-      eyebrow: "Pasiimk vadovo rinkinį",
-      title: "Pasiimk trumpą rinkinį. Sistemą diek tada, kai komandai reikia standarto.",
-      subtitle:
-        "Atsisiųsk Max Value Kit šiai savaitei. PromptAnatomy atidaryk, kai nori to paties metodo kaip komandos standarto.",
+      eyebrow: "Vadovo rinkinys",
+      title: "Atsisiųsk rinkinį. Komandos standartą diek PromptAnatomy, kai reikia.",
+      subtitle: "",
       primary: "Atsisiųsti Max Value Kit",
-      secondary: "Įdiegti PromptAnatomy komandos standartą",
+      secondary: "Atidaryti PromptAnatomy komandos standartą",
     },
     footer: {
       brand: "PromptAnatomy · Vadovo OS",
-      tagline: "Statinis vadovo rinkinys. Be prisijungimo, be duomenų siuntimo.",
+      tagline: "Statinis rinkinys. Be prisijungimo. Duomenys nesiunčiami.",
       versionAria: "Svetainės versija",
       telegram: "Telegram",
       privacy: "Privatumas",

@@ -24,13 +24,17 @@ const promptAnatomySecondaryHref = buildPromptAnatomyUrl({
       <h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
         {cta.title}
       </h2>
-      <p class="mt-5 text-lg leading-8 text-slate-800">
-        {cta.subtitle}
-      </p>
+      {
+        cta.subtitle && (
+          <p class="mt-5 text-lg leading-8 text-slate-800">
+            {cta.subtitle}
+          </p>
+        )
+      }
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
         <a
           href={downloadHref}
-          download="www.promptanatomy.app.pdf"
+          download="executive-operating-kit.pdf"
           data-kit-download
           class="focus-ring type-cta-label elevate-hover rounded-full bg-slate-950 px-6 py-4 text-center text-white transition hover:bg-slate-800"
         >

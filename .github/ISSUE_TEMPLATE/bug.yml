@@ -16,7 +16,7 @@ body:
     attributes:
       label: URL
       description: Page URL where the issue occurs (include locale path).
-      placeholder: "https://ditreneris.github.io/leader/en/"
+      placeholder: "https://ditreneris.github.io/leader/"
     validations:
       required: true
   - type: textarea

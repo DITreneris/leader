@@ -4,34 +4,37 @@ Guidance for AI coding agents working on this repository.
 
 ## Mission
 
-This project is a lean **English-first** CEO/COO executive prompt operating kit for PromptAnatomy Executive OS (default ship targets **US market** copy). It should create a fast aha moment through a **Global Context Block + executive modules** (copy one compiled prompt, get decision-grade output), a safety check rule surface, a printable static download, visual proof, and a proof demo that sends qualified users to the full PromptAnatomy system. Lithuanian strings remain in `locales/lt.ts` for opt-in bilingual builds (see root `README.md` — Locale toggle).
+This project is a lean **English-only** CEO/COO executive prompt operating kit for PromptAnatomy Executive OS (ships **US market** copy at `/`). It should create a fast aha moment through a **Global Context Block + executive modules** (copy one compiled prompt, get decision-grade output), a safety check rule surface, a printable static download, visual proof, and a proof demo that sends qualified users to the full PromptAnatomy system. **Lithuanian development is frozen** — edit `en.ts` only; `lt.ts` stays in repo as archive until product explicitly unfreezes bilingual delivery.
+
+## Start here (agents)
+
+1. Read this file (mission + non-negotiables).
+2. Open [`docs/DEFINITION_OF_DONE.md`](docs/DEFINITION_OF_DONE.md) — completion router for your task type.
+3. Canonical page order: [`src/layouts/Page.astro`](src/layouts/Page.astro).
+4. Open only the docs row you need from the map below (or [`docs/README.md`](docs/README.md)).
+5. Landing edits: use skill [`.cursor/skills/executive-landing-improvement/SKILL.md`](.cursor/skills/executive-landing-improvement/SKILL.md).
 
 ## Non-Negotiables
 
 - Keep it one page unless the user explicitly asks otherwise.
 - Keep the MVP static: no backend, login, database, analytics lock-in, or AI API call.
 - Keep the page simple enough for an overloaded CEO to understand in under 10 seconds.
-- Keep English and Lithuanian **strings aligned in source** when editing `en.ts` / `lt.ts`, even if only English ships by default.
+- **EN-only development:** edit `src/content/locales/en.ts` for copy. Do not update Lithuanian strings in `lt.ts` unless the user explicitly unfreezes bilingual work. If you add/remove keys in `en.ts`, add matching keys in `lt.ts` with English placeholders only so `localeParity.test.ts` passes.
 - Do not edit plan files in `.cursor/plans` or the user's global plan folder unless explicitly requested.
 
 ## Architecture
 
-- `src/pages/index.astro` redirects `/` to **`/en/`** (USA-market default; no `/lt/` route unless bilingual is re-enabled in `src/constants/siteLocale.ts` — see root `README`). The root HTML head also emits **OG/Twitter/meta** (including `og:image:alt`, `theme-color`, `og:locale`) so crawlers that scrape `/` get parity with `/en/`.
-- `src/pages/en/index.astro` renders `src/layouts/Page.astro` with the full section stack. Optional `src/pages/lt/index.astro` ships only when bilingual is turned on (not in the default build).
-- `src/components/` contains section components.
-- `src/content/copy.ts` re-exports `uiCopy`; bilingual bundles live in `src/content/locales/en.ts` and `src/content/locales/lt.ts`.
-- `src/constants/outboundLinks.ts` — PromptAnatomy (home + legal URLs), Telegram, **`buildConsumerAiUrl`** (ChatGPT / Claude / Gemini paste strips), **`buildSisterHubUrl`** (secondary learning path → **`https://promptanatomy.cloud`**); pair with [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md). Legacy GitHub hub **`ditreneris.github.io/ceo/`** may appear in prose or [`public/llms.txt`](public/llms.txt) as related context; shipped CTAs for “framework / practice” intent use **`promptanatomy.cloud`**, not a builder for `ceo/`. **Domains:** canonical mother site stays **`https://www.promptanatomy.app`**; see [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) — *Domains (canonical product vs optional deploy)*. Deploying the same static build on Vercel (e.g. `promptanatomy.pro`) does not, by itself, mean outbound links or locales should be rewired.
-- `src/constants/appVersion.ts` — **`APP_VERSION`** from root `package.json` (footer `vX.Y.Z`, `<meta name="generator">`); bump policy in [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md).
-- Other `src/constants/` files: locale toggles (`siteLocale.ts`), SEO dates (`pageSeo.ts`).
-- `src/styles/global.css` contains global styling and reusable visual helpers.
-- `public/assets/memes/`, `public/assets/graphics/`, and `public/assets/screenshots/` hold visual assets. **`public/og-image.png`** (1200×630) is the social preview raster; regenerate with **`npm run generate:og`** ([`scripts/generate-og-image.mjs`](scripts/generate-og-image.mjs)). Crawler policy: **`integrations/robots-txt.mjs`** writes **`dist/robots.txt`** at build (no static `public/robots.txt`).
-- `docs/` contains codebase, document management, and quality assurance guidance (see **Documentation map** below).
-- `CHANGELOG.md` tracks daily updates.
+- [`src/pages/index.astro`](src/pages/index.astro) renders [`src/layouts/Page.astro`](src/layouts/Page.astro) at `/`; legacy `/en/` and `/lt/` are noindex redirect stubs — details in [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md).
+- Copy (active): [`src/content/locales/en.ts`](src/content/locales/en.ts) via [`src/content/copy.ts`](src/content/copy.ts). Frozen archive: [`lt.ts`](src/content/locales/lt.ts).
+- Outbound URLs: [`src/constants/outboundLinks.ts`](src/constants/outboundLinks.ts) + [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md); domains in [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md).
+- Components: [`src/components/`](src/components/); styles: [`src/styles/global.css`](src/styles/global.css).
+- Assets, OG image, robots — [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) + [`docs/COMMANDS.md`](docs/COMMANDS.md).
+- [`CHANGELOG.md`](CHANGELOG.md) tracks daily updates.
 
 ## Cursor rules and skills
 
 - **Rules:** `.cursor/rules/` — `project-direction.mdc` (always on); scoped rules for `src/**` (`visual-and-copy.mdc`, `language-standard.mdc`, `astro-quality.mdc`) and `docs/**` US META (`us-localization-meta.mdc`). On conflict with shipped UI, **`src/layouts/Page.astro`** wins — then update the doc.
-- **Skill:** [`.cursor/skills/executive-landing-improvement/SKILL.md`](.cursor/skills/executive-landing-improvement/SKILL.md) — landing copy, sections, EN/LT, conversion polish (must stay aligned with rules above).
+- **Skill:** [`.cursor/skills/executive-landing-improvement/SKILL.md`](.cursor/skills/executive-landing-improvement/SKILL.md) — landing copy, sections, EN-only development, conversion polish (must stay aligned with rules above).
 
 ## Documentation map
 
@@ -39,6 +42,7 @@ Read [`docs/README.md`](docs/README.md) for the full index (purpose + when to up
 
 | Topic | Doc |
 |-------|-----|
+| Definition of done | [`docs/DEFINITION_OF_DONE.md`](docs/DEFINITION_OF_DONE.md) |
 | Source of truth map | [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) |
 | US localization META (EU/Baltic → US drafts) | [`docs/PROMPTS_US_LOCALIZATION_META.md`](docs/PROMPTS_US_LOCALIZATION_META.md) |
 | Landing flow / architecture | [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md) |
@@ -59,5 +63,4 @@ Read [`docs/README.md`](docs/README.md) for the full index (purpose + when to up
 - Use executive copy: decision, risk, trade-off, next action, delegation, ROI.
 - Prefer **compiled modules** over long prompt lists on the main story spine (library stays reference/appendix).
 - Avoid generic AI claims, beginner prompt-engineering lessons, and feature bloat.
-- Run `npm run build` after meaningful code changes. CI also runs **`npm test`**, Playwright smoke (**`npm run test:e2e`** after build), and Lighthouse CI (see [`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
-- Add a `CHANGELOG.md` entry for daily visible, structural, documentation, or deployment changes.
+- **Done gate:** follow [`docs/DEFINITION_OF_DONE.md`](docs/DEFINITION_OF_DONE.md). Before release: `npm run build` then `npm run verify` (see [`docs/COMMANDS.md`](docs/COMMANDS.md)).

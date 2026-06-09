@@ -102,7 +102,7 @@ Use a small number of **visual tiers** so callouts feel part of the same page, n
 | Tier | Pattern | Role |
 |------|---------|------|
 | **Ribbon** | `HighlightStrip` `band` (`context` / `panel`) | Short guidance, instructions, “start here” — no competing gold CTA on the same row. |
-| **Glass promo** | `HighlightStrip` `promo` (e.g. [`PromoBanner.astro`](../src/components/PromoBanner.astro)) | Mid-page upgrade: glass + accent border + optional dual CTAs (outbound PA + in-page anchor). |
+| **Glass promo** | `HighlightStrip` `promo` (e.g. [`PromoBanner.astro`](../src/components/PromoBanner.astro)) | Mid-funnel next step: gold in-page `#demo`; outlined PromptAnatomy.app; tertiary text link to promptanatomy.cloud. |
 | **Gold commitment** | [`CourseCTA.astro`](../src/components/CourseCTA.astro) gradient block | Strongest download / asset moment after the narrative has landed (e.g. after safety check). |
 
 **Rule of thumb:** avoid stacking multiple “brightest” conversion surfaces with no vertical breathing space; see story order in [`Page.astro`](../src/layouts/Page.astro).
@@ -117,13 +117,13 @@ Maps “template” → existing components (reference implementation).
 
 | Template | Purpose | Typical building blocks |
 |----------|---------|-------------------------|
-| **Hero** | First screen: promise + nav + primary/secondary CTAs | `Hero.astro`, `HeroBento.astro` — **exception:** custom hero eyebrow pill, not `SectionTitleBlock` |
+| **Hero** | First screen: promise + nav + primary/secondary CTAs | `Hero.astro`, `HeroDecisionDiagram.astro` — **exception:** custom hero eyebrow pill, not `SectionTitleBlock` |
 | **Content** | Modules, library, dense value | `SectionShell` + `SectionTitleBlock` + `ContentCard` grid or accordions (`ExecutiveModules`, `PromptLibrary`) |
 | **Comparison** | Before / after or contrast story | `SectionShell` + `SectionTitleBlock` + copy column + `DiagramContainer` (`BeforeAfter`) |
 | **Process** | Steps, ROI path, flow | `SectionShell` + steps or `DiagramContainer` + `BulletSystem` where lists matter (e.g. `RoiPath`, `BeforeAfter`) |
 | **CTA** | Conversion band | One primary CTA per major section; `HighlightStrip` / `CourseCTA` patterns; gold `cta-gradient` for primary action |
 
-**HeroBento (right column):** One `glass-card` “scene”; every row uses the **same** neutral surface, padding, and `min-height` (`.radius-sm`); **rose / emerald / brand** appear only on the **left rail** and **icon** (functional semantics from §1 Color). Optional step index (`1–3`); do **not** stack `accent-glow` on rows—keep atmosphere on the panel so the hero `cta-gradient` stays the primary bright gold.
+**HeroDecisionDiagram (right column):** One `glass-card` panel with a **3-pill pipeline** (Noise → Context → Module), connector arrows (`--color-hero-diagram-line`), and a nested **engine card** with three sample rows (Decision / Risks / Next action). Sample rows use neutral fill + semantic **left border** (gold / rose / emerald); pipeline pills stay compact chips. One subtle glow orb (`--color-hero-diagram-glow`); do **not** stack competing gold on the diagram—hero `cta-gradient` stays the primary bright gold. `prefers-reduced-transparency`: solid surface fallback on `.hero-diagram.glass-card`.
 
 ---
 
@@ -131,6 +131,15 @@ Maps “template” → existing components (reference implementation).
 
 - **One primary CTA** per major section (see [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md)).
 - **Meme sections** are recognition breaks only: no CTA, no eyebrow ladder ([`VISUAL_CONTENT_MAP.md`](VISUAL_CONTENT_MAP.md)).
+
+**PromoBanner CTA tiers** ([`PromoBanner.astro`](../src/components/PromoBanner.astro)):
+
+| Tier | Visual | Destination |
+|------|--------|-------------|
+| 1 (gold) | `cta-gradient` | In-page `#demo` (clarity practice) |
+| 2 (outline) | Border button | PromptAnatomy.app (`buildPromptAnatomyUrl`, UTM `modules` / `handoff`) |
+| 3 (text) | Underlined link | promptanatomy.cloud (`buildSisterHubUrl`) |
+
 - **New section:** use `SectionShell` + `SectionTitleBlock` unless you are intentionally using the **Hero** template.
 - **Diagrams:** SVG preferred; wrap in `DiagramContainer` (or equivalent classes) for frame consistency.
 
@@ -140,7 +149,7 @@ Maps “template” → existing components (reference implementation).
 - Scatter multiple “primary” conversion actions in one section.
 - Apply `glass-card` to every nested element (reserve for primary surfaces).
 - Introduce new arbitrary border-radius or spacing scales without updating this doc and `global.css`.
-- Change user-visible copy in one locale only — keep EN/LT aligned ([`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md)).
+- Change user-visible copy in `en.ts` only — `lt.ts` is frozen ([`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md)).
 
 ---
 

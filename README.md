@@ -1,109 +1,117 @@
-# PromptAnatomy Executive OS (Leader)
+# PromptAnatomy Executive OS
 
-**English-first, US-market** static CEO/COO executive prompt operating kit: **Global Context + executive modules**, clarity demo, and a printable Max Value Kit—**static, no backend, no AI API keys**. Lithuanian copy lives in `src/content/locales/lt.ts`, but the **shipped site is English-only** (no `/lt/` route, no language switch) unless you re-enable bilingual delivery in code—see **[Locale toggle](#locale-toggle-usa-market-build)** below.
+**A static CEO/COO decision operating kit**—Global Context, executive modules, clarity practice, and a printable Max Value Kit. Copy compiled prompts into your approved AI assistant. No login. Your brief content stays on your device.
+
+**Live:** [promptanatomy.pro](https://promptanatomy.pro/) · **Full product:** [PromptAnatomy.app](https://www.promptanatomy.app)
+
+**English-only development.** US-market copy ships at the site root (`/`). Lithuanian (`src/content/locales/lt.ts`) is **frozen** — do not maintain LT strings during normal work. Legacy `/en/` and `/lt/` paths redirect to `/` (301 on Vercel; noindex stubs on GitHub Pages mirror).
 
 [![CI](https://github.com/DITreneris/leader/actions/workflows/ci.yml/badge.svg)](https://github.com/DITreneris/leader/actions/workflows/ci.yml)
 [![Deploy](https://github.com/DITreneris/leader/actions/workflows/deploy.yml/badge.svg)](https://github.com/DITreneris/leader/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-**Links**: [Live site](https://ditreneris.github.io/leader/) · [Download PDF kit](https://ditreneris.github.io/leader/assets/downloads/executive-operating-kit.pdf) · [Changelog](./CHANGELOG.md) · [Docs index](./docs/README.md) · [Source of truth](./docs/SOURCE_OF_TRUTH.md) · [Codebase overview](./docs/CODEBASE_OVERVIEW.md) · [QA](./docs/QUALITY_ASSURANCE.md)
+**Links**: [Live site](https://promptanatomy.pro/) · [Download PDF kit](https://promptanatomy.pro/assets/downloads/executive-operating-kit.pdf) · [GitHub Pages mirror](https://ditreneris.github.io/leader/) · [Changelog](./CHANGELOG.md) · [Docs index](./docs/README.md) · [Getting started](./docs/GETTING_STARTED.md) · [Commands](./docs/COMMANDS.md) · [Configuration](./docs/CONFIGURATION.md)
 
 ## Choose your path
 
 | Goal | Fast path |
 |---|---|
-| Evaluate in browser | Open the [live site](https://ditreneris.github.io/leader/) |
-| Download the kit | Get the [PDF](https://ditreneris.github.io/leader/assets/downloads/executive-operating-kit.pdf) |
-| Run locally | `npm ci` → `npm run dev` |
+| Evaluate in browser | Open the [live site](https://promptanatomy.pro/) |
+| Download the kit | Get the [PDF](https://promptanatomy.pro/assets/downloads/executive-operating-kit.pdf) |
+| Run locally | `npm ci` → `npm run dev` → http://localhost:4321/ |
 | Verify production build | `npm run build` |
-| Deploy (GitHub Pages) | Push to `main` (see env below) |
+| Deploy | GitHub Pages (push to `main`) or Vercel (`promptanatomy.pro`) — see [Configuration](./docs/CONFIGURATION.md) |
+| Agent / AI work | [`AGENTS.md`](./AGENTS.md) → [`docs/DEFINITION_OF_DONE.md`](./docs/DEFINITION_OF_DONE.md) |
 
-## Locale toggle (USA market build)
+## What's on the page
 
-Shipped **`main`** builds are **pure English**: only **`/en/`** (plus `/` → `/en/`), geared toward **US market** positioning. **`/lt/` is not emitted**; the header **EN/LT toggle is hidden**.
+Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md) and [`src/layouts/Page.astro`](./src/layouts/Page.astro): **Hero + HeroDecisionDiagram** → **meme** → **BeforeAfter** → **meme** → **Global Context + Modules (`#context`)** → **PromoBanner** → **meme** → **ClarityDemo (`#demo`)** → **meme** → **SafetyCheck** → **CourseCTA (`#kit`)** → **PromptAnatomy** → **RoiPath** → **FAQ (`#faq`)** → **PromptLibrary** (four **`MemeMoment`** beats; see [`docs/MEME_PRIORITY_REGISTRY.md`](./docs/MEME_PRIORITY_REGISTRY.md)).
 
-To **turn Lithuanian back on** (dual routes + toggle):
+**Conversion ladder:** `#context` → `#demo` → `#kit` → [PromptAnatomy.app](https://www.promptanatomy.app)
 
-1. Set [`src/constants/siteLocale.ts`](src/constants/siteLocale.ts) **`SHIPPED_LOCALES`** to `["en", "lt"] as const`.
-2. In [`astro.config.mjs`](astro.config.mjs), set **`shippedLocales`** and **`i18n.locales`** to exactly the same list as step 1 (`["en", "lt"]`), and under `@astrojs/sitemap` → `i18n.locales` restore **`lt: "lt-LT"`** alongside **`en: "en-US"`**. All three must stay in sync—drift breaks routes or hreflang in the sitemap.
-3. Re-add **`src/pages/lt/index.astro`** with:
-
-   ```astro
-   ---
-   import Page from "../../layouts/Page.astro";
-   ---
-   <Page lang="lt" />
-   ```
-
-4. Add **`"/lt/index.html"`** back to [`.lighthouserc.json`](.lighthouserc.json) `collect.url` if you rely on Lighthouse CI for `/lt`.
-
-Then run `npm run build` / CI as usual.
-
-## What’s inside (single-page flow)
-
-Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md) and [`src/layouts/Page.astro`](./src/layouts/Page.astro): **Hero + HeroBento** → **meme** → **BeforeAfter** → **meme** → **Global Context + Modules (`#context`)** → **PromoBanner** → **meme** → **ClarityDemo (`#demo`)** → **meme** → **SafetyCheck** → **CourseCTA (`#kit`)** → **PromptAnatomy** → **RoiPath** → **FAQ (`#faq`)** → **PromptLibrary** (four **`MemeMoment`** beats; žr. [`docs/MEME_PRIORITY_REGISTRY.md`](./docs/MEME_PRIORITY_REGISTRY.md)).
-
-- **Global Context + Modules** → define once, inject everywhere; copy a compiled module prompt (6 fixed modules + 1 Custom). Output is **readable and decision-grade** (bullets/sections, owners, deadlines).
-- **ClarityDemo** → selectable scenarios with copyable prompt + output
-- **PromptLibrary** → full 35-prompt library (accordion, depth last); PDF kit link above block
-- **Operating kit** → printable Max Value Kit PDF (`#kit`, HTML fallback if PDF missing)
+- **Global Context + Modules** — four context fields; compile and copy one of six presets or a custom module.
+- **Clarity practice** — five static scenarios with copyable prompt + output.
+- **Safety check** — send/risk gate before anything leaves your desk.
+- **Max Value Kit** — printable PDF at `#kit` (HTML fallback if PDF missing).
+- **Prompt library** — 35-prompt appendix (depth last).
 
 ## Stack
 
-- Astro
+- Astro (static SSG)
 - Tailwind CSS
 - TypeScript
-- GitHub Pages
+- Deploy: Vercel (`promptanatomy.pro`) + GitHub Pages mirror
+
+## Prerequisites
+
+- Node.js `>=22.12.0`
 
 ## Commands
 
+See [`docs/COMMANDS.md`](docs/COMMANDS.md) for the full list. Quick reference:
+
 ```bash
-npm run dev
-npm run test        # Vitest (outbound URLs, JSON-LD, client copy payload)
-npm run build
-npm run preview
+npm run dev          # local dev server
+npm run test         # Vitest (outbound URLs, JSON-LD, client copy payload)
+npm run build        # astro check + production build
+npm run preview      # serve dist/ locally
+npm run test:e2e     # Playwright smoke (after build with deploy env)
+npm run generate:og  # regenerate public/og-image.png
+npm run optimize:memes
+npm run build:pdf    # maintainer PDF toolchain
 ```
 
-**E2E smoke** (`npm run test:e2e`): run after a production-like build so `dist/` matches GitHub Pages. Set the same env as deployment (see below), then `npm run build`; Playwright starts `astro preview` and opens `/leader/en/`.
+**E2E smoke:** run after a production-like build. GitHub Pages CI uses `BASE_PATH=/leader`; Playwright opens `/leader/`. For Vercel parity locally, build with `BASE_PATH=/` and `SITE_URL=https://promptanatomy.pro`.
 
-### Max Value Kit PDF (optional, for maintainers)
+### Max Value Kit PDF (maintainers)
 
-Source: `docs/executive-operating-kit-pdf.md` → output: `public/assets/downloads/executive-operating-kit.pdf`. Toolchain matches the sister [lead](https://github.com/DITreneris/lead) repo (Pandoc + Typst or LaTeX). See `docs/SETUP_PDF.md`.
+Source: `docs/executive-operating-kit-pdf.md` → output: `public/assets/downloads/executive-operating-kit.pdf`. See `docs/SETUP_PDF.md`.
 
 ```bash
 npm run build:pdf
 ```
 
-## Deployment environment
+## Configuration
 
-`SITE_URL` and `BASE_PATH` drive canonical URLs, `og:image` / `twitter:image`, the Astro sitemap, and the **`Sitemap:`** line written to **`dist/robots.txt`** at build time (see [`integrations/robots-txt.mjs`](integrations/robots-txt.mjs), [`scripts/lib/deploy-env.mjs`](scripts/lib/deploy-env.mjs)).
+`SITE_URL` and `BASE_PATH` drive canonical URLs, social previews, sitemap, and `dist/robots.txt`. Full table: [`docs/CONFIGURATION.md`](docs/CONFIGURATION.md).
 
 | Deploy target | Typical env |
 |---------------|----------------|
-| **GitHub Pages** (this repo’s default path) | `BASE_PATH=/leader`<br>`SITE_URL=https://<user>.github.io` |
-| **Vercel / apex domain** (e.g. optional mirror at `promptanatomy.pro`) | `BASE_PATH=/`<br>`SITE_URL=https://promptanatomy.pro` (use the hostname you actually serve—include `www` if that is canonical) |
+| **Vercel** (primary — `promptanatomy.pro`) | `BASE_PATH=/`<br>`SITE_URL=https://promptanatomy.pro` |
+| **GitHub Pages** (mirror) | `BASE_PATH=/leader`<br>`SITE_URL=https://<user>.github.io` |
 
-GitHub Actions ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) sets `BASE_PATH=/leader` and `SITE_URL` from the repo owner’s GitHub Pages URL.
+Optional: `PUBLIC_FB_APP_ID` for Facebook `fb:app_id` meta (see [`.env.example`](.env.example)).
 
 **Pre-deploy checklist**
 
-- `SITE_URL` and `BASE_PATH` match the live URL shape (canonical links, sitemap, social preview URLs, assets).
-- Open `dist/robots.txt` after `npm run build` and confirm **`Sitemap:`** matches production origin + base (e.g. `https://<user>.github.io/leader/sitemap-index.xml` or `https://promptanatomy.pro/sitemap-index.xml`).
-- After changing env or domain, run `npm run build` and smoke-test the live site (hero, outbound PromptAnatomy links, PDF kit, `/og-image.png`).
+- `SITE_URL` and `BASE_PATH` match the live URL shape.
+- Open `dist/robots.txt` after build — confirm `Sitemap:` matches production.
+- Smoke-test hero, outbound PromptAnatomy links, PDF kit, `/og-image.png`.
+
+## English-only routing
+
+Shipped **`main`** builds serve **one English page at `/`** (mirror: `/leader/`). Copy source: [`src/content/locales/en.ts`](src/content/locales/en.ts). **`lt.ts` is frozen** — edit `en.ts` only; add matching keys in `lt.ts` with English placeholders when keys change ([`localeParity.test.ts`](src/content/locales/localeParity.test.ts)).
+
+Legacy locale paths **`/en/`** and **`/lt/`** redirect to `/` (HTTP 301 via [`vercel.json`](vercel.json) on Vercel; noindex HTML stubs on GitHub Pages).
 
 ## Project docs
 
-- **`docs/README.md`** — full documentation index (start here for agents).
-- `docs/CODEBASE_OVERVIEW.md` — architecture and landing flow.
-- `docs/DOCUMENT_MANAGEMENT.md` — source-of-truth rules and changelog discipline.
-- `docs/QUALITY_ASSURANCE.md` — QA before release.
-- `docs/VISUAL_CONTENT_MAP.md` — memes and visual assets.
-- `docs/STRATEGIC_REVISION_PLAN.md` — product/IA roadmap (long form).
-- `docs/UTM_MATRIX.md` — canonical marketing UTMs.
-- `CHANGELOG.md` — daily project updates.
+- **`docs/README.md`** — full documentation index.
+- [`docs/DEFINITION_OF_DONE.md`](docs/DEFINITION_OF_DONE.md) — completion router (agents + pre-PR).
+- [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md) — install and first run.
+- [`docs/COMMANDS.md`](docs/COMMANDS.md) — npm scripts.
+- [`docs/CONFIGURATION.md`](docs/CONFIGURATION.md) — env vars and dual deploy.
+- [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md) — architecture and landing flow.
+- [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) — canonical map.
+- [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md) — QA before release.
+- [`CHANGELOG.md`](CHANGELOG.md) — daily project updates.
 
 ## Asset folders
 
-- `public/assets/memes/` — CEO meme illustrations (PNG masters plus AVIF/WebP generated via **`npm run optimize:memes`** after PNG edits).
-- `public/assets/graphics/` for SVG diagrams and schemes.
-- `public/assets/screenshots/` for optimized AVIF/WebP mockups.
+- `public/assets/memes/` — PNG masters + AVIF/WebP via **`npm run optimize:memes`**
+- `public/assets/graphics/` — SVG diagrams
+- `public/assets/screenshots/` — optimized mockups
+
+## License and security
+
+MIT — see [`LICENSE`](./LICENSE). Security reports: [`SECURITY.md`](./SECURITY.md) → `info@promptanatomy.app`.

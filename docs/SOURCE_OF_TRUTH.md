@@ -9,8 +9,9 @@ Execution order when instructions conflict:
 1. **`src/layouts/Page.astro`** + shipped UI — canonical behavior.
 2. **`docs/SOURCE_OF_TRUTH.md`**, **`docs/CODEBASE_OVERVIEW.md`**, **`docs/VISUAL_CONTENT_MAP.md`** — map intent to files.
 3. **Root [`AGENTS.md`](../AGENTS.md)** — mission, MVP constraints, doc index.
-4. **`.cursor/rules/`** — `project-direction.mdc` (always on), plus glob-scoped rules (`visual-and-copy.mdc`, `language-standard.mdc`, `astro-quality.mdc`, `us-localization-meta.mdc` for `docs/**` US META pointer).
-5. **`.cursor/skills/executive-landing-improvement/SKILL.md`** — landing playbook; must match rules above. If it contradicts **`visual-and-copy.mdc`**, **`language-standard.mdc`**, or **`Page.astro`** section order, update the skill (not the shipped page) unless the product intent changed.
+4. **[`docs/DEFINITION_OF_DONE.md`](DEFINITION_OF_DONE.md)** — completion router before deep QA.
+5. **`.cursor/rules/`** — `project-direction.mdc` (always on), plus glob-scoped rules (`visual-and-copy.mdc`, `language-standard.mdc`, `astro-quality.mdc`, `us-localization-meta.mdc` for `docs/**` US META pointer).
+6. **`.cursor/skills/executive-landing-improvement/SKILL.md`** — landing playbook; must match rules above. If it contradicts **`visual-and-copy.mdc`**, **`language-standard.mdc`**, or **`Page.astro`** section order, update the skill (not the shipped page) unless the product intent changed.
 
 ## Product intent
 
@@ -18,6 +19,11 @@ Execution order when instructions conflict:
 - **Promise**: decision-grade output (decision, trade-offs, risks, owner, deadline, next action).
 - **Primary conversion ladder**: `#context` → `#demo` → `#kit` → PromptAnatomy.
 - **Non-goals**: course app, backend, login, analytics lock-in, AI API calls.
+
+### User data and telemetry
+
+- **User content:** Brief text, context fields, and compiled prompts **never leave the browser** to this app’s backend—there is no backend. Copy-to-clipboard is client-side only.
+- **Telemetry:** Anonymous **page-view** analytics via Vercel Analytics on the Vercel-hosted deploy (`https://promptanatomy.pro/`). No prompt text, form values, accounts, or uploads are collected. FAQ answers about “nothing uploads” refer to **user brief content**, not page views.
 
 ## Canonical landing flow (what ships)
 
@@ -29,15 +35,19 @@ If these ever disagree, treat `src/layouts/Page.astro` as the canonical truth an
 
 ## Copy and i18n
 
-- **Single source of truth**: `src/content/locales/en.ts` and `src/content/locales/lt.ts`
+- **Active source of truth**: `src/content/locales/en.ts` — all copy development happens here.
+- **Frozen archive**: `src/content/locales/lt.ts` — **do not edit Lithuanian strings** unless product explicitly unfreezes bilingual delivery.
 - **Public API**: `src/content/copy.ts` re-exports `uiCopy`
-- **Shipped default**: English-only route (`/en/`), USA-market positioning; Lithuanian **`/lt/`** and header language toggle are **off** unless opted in via [`src/constants/siteLocale.ts`](../src/constants/siteLocale.ts) (see root **`README`** — Locale toggle).
+- **Shipped default**: English-only at site root (`/`), USA-market positioning; **`lt.ts`** is frozen (see [`src/constants/siteLocale.ts`](../src/constants/siteLocale.ts)).
 
-Rule: any user-visible string change must keep **`en.ts`** and **`lt.ts`** aligned in source, even when only English ships (default US-market build).
+Rules:
+
+- User-visible string changes → **`en.ts`** only.
+- If you add or remove keys in **`en.ts`**, add matching keys in **`lt.ts`** with **English placeholder strings** so [`localeParity.test.ts`](../src/content/locales/localeParity.test.ts) passes — no LT translation work while frozen.
 
 **US adaptation (drafts / EU tone → US delivery):** full LLM META with Must / Should / Want priorities lives in [`docs/PROMPTS_US_LOCALIZATION_META.md`](PROMPTS_US_LOCALIZATION_META.md). Use it for posts, slides, and long-form polish; shipped locale strings still obey **`language-standard.mdc`** after you merge copy.
 
-**Copy QA (per slide):** maintain and execute against [`docs/COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md)—grammar, style, EN/LT alignment, and a11y hotspots by section.
+**Copy QA (per slide):** maintain and execute against [`docs/COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md)—grammar, style, English copy, and a11y hotspots by section.
 
 **Mobile UX / touch / documented interactions:** [`docs/MOBILE_UI_AUDIT.md`](MOBILE_UI_AUDIT.md) (parity with shipped layout + client scripts; update when mobile interaction surfaces change).
 
@@ -51,7 +61,8 @@ Rule: any user-visible string change must keep **`en.ts`** and **`lt.ts`** align
 ### Domains (canonical product vs optional deploy)
 
 - **Canonical mother site (this repo):** `https://www.promptanatomy.app` — source of truth for [`outboundLinks.ts`](../src/constants/outboundLinks.ts), JSON-LD mother `Organization` / `WebSite` in [`pageJsonLd.ts`](../src/utils/pageJsonLd.ts), and copy that names the full product. Do **not** bulk-replace this domain because the static kit is hosted on another hostname.
-- **Optional deploy mirror (e.g. Vercel):** the same build may be served at `https://promptanatomy.pro/` (or `www` if configured). That is a **hosting surface**, not a replacement for the canonical PromptAnatomy URL above unless product policy changes and this section is updated on purpose.
+- **Primary Executive OS deploy (Vercel):** `https://promptanatomy.pro/` — public links in README and [`public/llms.txt`](../public/llms.txt) lead here (`BASE_PATH=/`, `SITE_URL=https://promptanatomy.pro`). Hosting surface only—not a replacement for the canonical PromptAnatomy product URL above.
+- **GitHub Pages mirror:** `https://ditreneris.github.io/leader/` — same static build with `BASE_PATH=/leader` (CI in [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)).
 
 Policy: use one primary CTA per major section; keep glass/elevation reserved for primary containers. New sections should prefer [`src/components/ds/`](../src/components/ds/) primitives documented in **DESIGN_SYSTEM.md**.
 
@@ -90,9 +101,9 @@ Canonical files and policy:
 | Crawler policy (max visibility; explicit AI user-agents) | Template in [`integrations/robots-txt.mjs`](../integrations/robots-txt.mjs) → emitted `dist/robots.txt` at build |
 | Short LLM-oriented summary + citable definitions | [`public/llms.txt`](../public/llms.txt) |
 | Sitemap (Astro integration; env-driven base) | [`astro.config.mjs`](../astro.config.mjs), emitted `sitemap-index.xml` |
-| Meta, canonical, hreflang, OG | [`src/layouts/Page.astro`](../src/layouts/Page.astro), [`src/pages/index.astro`](../src/pages/index.astro) |
+| Meta, canonical, OG | [`src/layouts/Page.astro`](../src/layouts/Page.astro), [`src/pages/index.astro`](../src/pages/index.astro) |
 | JSON-LD (`WebPage` dates, `FAQPage`, Organization) | [`src/utils/pageJsonLd.ts`](../src/utils/pageJsonLd.ts), [`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts) |
-| Indexable FAQ copy (EN/LT aligned) | [`src/content/locales/en.ts`](../src/content/locales/en.ts), [`src/content/locales/lt.ts`](../src/content/locales/lt.ts) |
+| Indexable FAQ copy | [`src/content/locales/en.ts`](../src/content/locales/en.ts) (`lt.ts` frozen) |
 
 **When to bump `LEADER_PAGE_DATE_MODIFIED`:** meaningful landing copy, FAQ, or on-page SEO/schema changes ([`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts)).
 
@@ -101,8 +112,9 @@ Canonical files and policy:
 1. Set **`SITE_URL`** and **`BASE_PATH`** to the **production** values (see root [`README.md`](../README.md) — Deployment environment; CI uses the same pattern in [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)).
 2. `npm run build` locally (or trust the same env in CI).
 3. Open **`dist/robots.txt`** and confirm the **`Sitemap:`** line is a full URL to your live sitemap index (origin + base path, no guesswork).
-4. Spot-check **`dist/en/index.html`**: `link[rel=canonical]`, `property="og:url"`, and `property="og:image"` are **absolute** and match the host you actually serve.
-5. If the **Executive OS public URL** changes, update the site line(s) in [`public/llms.txt`](../public/llms.txt) so AI/index citations stay accurate.
+4. Spot-check **`dist/index.html`**: `link[rel=canonical]`, `property="og:url"`, and `property="og:image"` are **absolute** and match the host you actually serve.
+5. Legacy **`/en/`** and **`/lt/`**: Vercel serves HTTP **301** to `/` via [`vercel.json`](../vercel.json); GitHub Pages mirror uses **noindex** redirect stubs in `dist/en/index.html` and `dist/lt/index.html` (platform cannot emit true 301 from static HTML).
+6. If the **Executive OS public URL** changes, update the site line(s) in [`public/llms.txt`](../public/llms.txt) so AI/index citations stay accurate.
 
 **Deploy hygiene (summary):** **`Sitemap:`** in emitted `dist/robots.txt` is written at build from `SITE_URL` + `BASE_PATH`. Wrong env ⇒ wrong canonicals, wrong social preview image URLs, and a useless `robots.txt` sitemap pointer.
 
@@ -110,7 +122,7 @@ Canonical files and policy:
 
 Use this as the default keyword and copy split across PromptAnatomy properties:
 
-- **`leader` (`ditreneris.github.io/leader`)**: executive decision operations for CEOs/COOs (decision brief, owner + deadline, executive risk review, delegation brief shape).
+- **`leader` (`promptanatomy.pro` — primary; `ditreneris.github.io/leader` mirror)**: executive decision operations for CEOs/COOs (decision brief, owner + deadline, executive risk review, delegation brief shape).
 - **`promptanatomy.app` (mother)**: canonical product and commercial authority (full system, platform, pricing, team-wide standard).
 - **`promptanatomy.cloud` (sister hub)**: learning and practice surface (framework basics, 2-minute practice, educational path/program framing).
 

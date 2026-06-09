@@ -118,12 +118,16 @@ const defaultScenario = demo.scenarios.meeting;
       <PasteDestinationStrip lang={lang} surface="demo" spacing="tight" />
 
       <div class="surface-panel radius-lg border border-white/10">
-        <p
-          class="px-4 py-3 text-sm leading-relaxed text-slate-400 sm:px-5"
-          data-demo-secondary-placeholder
-        >
-          {demo.secondaryPanelHint}
-        </p>
+        {
+          demo.secondaryPanelHint && (
+            <p
+              class="px-4 py-3 text-sm leading-relaxed text-slate-400 sm:px-5"
+              data-demo-secondary-placeholder
+            >
+              {demo.secondaryPanelHint}
+            </p>
+          )
+        }
         <div
           id="demo-details-panel"
           class="hidden border-t border-white/10"

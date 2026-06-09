@@ -2,7 +2,7 @@
 
 **Purpose:** Copy this entire **META** block into your LLM when adapting **drafts** (posts, landing copy, slides, ads) from European/Baltic tone to **native US-market** delivery for founders, operators, and executives—without changing core meaning.
 
-**Not a substitute for:** Routine edits to shipped UI strings in [`src/content/locales/en.ts`](../src/content/locales/en.ts) / [`lt.ts`](../src/content/locales/lt.ts). Those still follow [`.cursor/rules/language-standard.mdc`](../.cursor/rules/language-standard.mdc) (EN voice, LT “Tu”, DI vs AI, bilingual alignment). Use this META for **structured adaptation passes**; merge results into locales using **language-standard** as the final gate.
+**Not a substitute for:** Routine edits to shipped UI strings in [`src/content/locales/en.ts`](../src/content/locales/en.ts). Those follow [`.cursor/rules/language-standard.mdc`](../.cursor/rules/language-standard.mdc) (EN voice, US spelling). `lt.ts` is **frozen** — merge adapted English into `en.ts` only unless product unfreezes bilingual delivery. Use this META for **structured adaptation passes**; **language-standard** is the final gate.
 
 **PRIORITY** below governs **substance and output length**, not an extra chain of meta-reasoning—keep answers tight.
 
