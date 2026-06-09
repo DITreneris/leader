@@ -104,3 +104,4 @@ jobs:
         run: npx lhci autorun
         env:
           BASE_PATH: /leader
+          SITE_URL: https://${{ github.repository_owner }}.github.io
