@@ -2,6 +2,7 @@
 /**
  * Generate public/llms-full.txt from English executive prompt library (en.ts).
  * Run after library prompt edits: npm run generate:llms-full
+ * Requires Node --experimental-strip-types (see package.json prebuild script).
  */
 import { writeFileSync } from "node:fs";
 import path from "node:path";

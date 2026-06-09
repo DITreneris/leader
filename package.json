@@ -9,10 +9,10 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node ./scripts/generate-llms-full.mjs",
+    "prebuild": "node --experimental-strip-types ./scripts/generate-llms-full.mjs",
     "build": "astro check && astro build",
     "generate:og": "node ./scripts/generate-og-image.mjs",
-    "generate:llms-full": "node ./scripts/generate-llms-full.mjs",
+    "generate:llms-full": "node --experimental-strip-types ./scripts/generate-llms-full.mjs",
     "build:pdf": "node ./scripts/run-build-pdf.mjs",
     "preview": "astro preview",
     "check": "astro check",

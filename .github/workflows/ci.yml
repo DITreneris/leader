@@ -27,6 +27,9 @@ jobs:
       - name: Unit tests
         run: npm test
 
+      - name: Smoke prebuild (llms-full generator)
+        run: npm run generate:llms-full
+
       - name: Dependency audit (high or critical only)
         run: npm audit --audit-level=high
 

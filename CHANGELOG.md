@@ -2,6 +2,12 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-06-09 (CI prebuild fix)
+
+### Fixed
+
+- **`generate:llms-full` on GitHub Actions:** `prebuild` / `generate:llms-full` now run with `node --experimental-strip-types` so Node 22.12 can import `src/content/locales/en.ts` on Linux CI (local Node 22.22+ could mask the failure).
+
 ## 2026-06-09 (launch readiness)
 
 ### Changed

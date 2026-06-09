@@ -10,7 +10,7 @@ All npm scripts from root `package.json`. Run from the repository root.
 | `check` | `npm run check` | Astro/TypeScript diagnostics only (no emit) |
 | `test` | `npm run test` | Vitest unit tests (`src/**/*.test.ts`) |
 | `test:e2e` | `npm run test:e2e` | Playwright smoke against `astro preview` — **after** `build` with deploy env |
-| `generate:llms-full` | `npm run generate:llms-full` | Regenerate `public/llms-full.txt` from English library in `en.ts` — commit after library prompt edits |
+| `generate:llms-full` | `npm run generate:llms-full` | Regenerate `public/llms-full.txt` from English library in `en.ts` — uses Node `--experimental-strip-types` (required on CI Node 22.12); commit after library prompt edits |
 | `verify:build` | `npm run verify:build` | Post-build checks on `dist/` (robots sitemap, canonical/OG, PromoBanner CTA, kit PDF link, deploy assets PDF/memes/favicons/OG 1200×630, `llms.txt`, `llms-full.txt`) — **after** `build`; **`SITE_URL` + `BASE_PATH` must match the build** |
 | `verify` | `npm run verify` | `npm test` then `verify:build` — run `npm run build` first with production env |
 | `generate:og` | `npm run generate:og` | Regenerate `public/og-image.png` (1200×630) after brand/copy changes |
