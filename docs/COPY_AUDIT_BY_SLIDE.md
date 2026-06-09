@@ -156,7 +156,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 - **Failai:** [`ExecutiveModules.astro`](../src/components/ExecutiveModules.astro), [`InteractiveCopy.astro`](../src/components/InteractiveCopy.astro) (JS kompiliavimas)
 - **Raktai:** `modules.context`, `modules.contextFootnote`, `modules.contextMapAriaLabel`, `modules.contextMapInjectLabel`, `modules.contextMapCaption`, `modules.items[]`, `modules.custom`, `modules.rulesPreview`, `modules.roleLine`, fallback placeholderiai JS
-- **EN (shipped Option A):** `modules.eyebrow` = **Step 1 · Define your business context**; `workflowAriaLabel` = **Within Step 1: …**; `startHere` bridges to Step 2 via Promo (no second gold CTA here). Žr. [`USER_JOURNEY.md`](USER_JOURNEY.md).
+- **EN (shipped Option A):** `modules.eyebrow` = **Step 1 · Define your business context**; `workflowAriaLabel` = **Within Step 1: …**; `startHere` bridges to scenario via Promo without repeating Step numbers (no second gold CTA here). Žr. [`USER_JOURNEY.md`](USER_JOURNEY.md).
 
 **LT**
 
@@ -190,7 +190,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **LT / EN**
 
 - CTA hierarchija sutampa su konversijos kopėčiomis.
-- **EN (shipped Option A):** `promoBanner.eyebrow` = **Step 2 next**; `ariaLabel` = **Step 2: prove on a scenario before the full product.** Gold → `#demo`.
+- **EN (shipped Option A):** `promoBanner.eyebrow` = **Prove it next**; `ariaLabel` = **Prove on a scenario before the full product.** Gold → `#demo`.
 
 **Veiksmai**
 
@@ -212,7 +212,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ## 8. Aiškumo praktika (`#demo`)
 
-- **Ženklinimas (EN/LT):** `nav.proof` = **Example** (friendly nav). `demo.eyebrow` = **Step 2 · Prove on a scenario** (macro ladder). Clarity practice lieka turinio/feature pavadinime FAQ ir body kur reikia.
+- **Ženklinimas (EN/LT):** `nav.proof` = **Example** (friendly nav). `demo.eyebrow` = **Step 2 · Prove on a scenario** (macro ladder). `demo.followUpEyebrow` = **Download the kit next** (bridge be Step skaičiaus). Clarity practice lieka turinio/feature pavadinime FAQ ir body kur reikia.
 
 - **Failai:** [`ClarityDemo.astro`](../src/components/ClarityDemo.astro), [`InteractiveCopy.astro`](../src/components/InteractiveCopy.astro)
 - **Raktai:** `demo.*`, `demo.scenarios.*` (incl. `title`, optional `decisionBullets`)
@@ -297,7 +297,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 - `expandSummary`: *Reference — names the framework (not a form)*; subtitle nurodo, kad blokai jau įdiegti aukščiau.
 - On-page nuorodos: Role/Context → `#context` / `#ctx-company`; Decision Logic/Output → `#demo`; Quality Check → `#safety-check`.
 - Vizualiai: lengvos bordered kortelės, ne tušti input laukai.
-- **EN (shipped Option A):** `anatomy.stepPrefix` = **Block** (ne Step); `referenceNote` nurodo, kad tai ne macro Steps 1–3.
+- **EN (shipped Option A):** `anatomy.stepPrefix` = **Block** (ne Step); `referenceNote` nurodo, kad tai ne action sections (Context, Practice, Safety).
 
 **Veiksmai**
 
@@ -343,7 +343,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 - „Quick answers“ – OK.
 - **2026-04-28 (SEO iter. 2):** second FAQ slot – paste-into-assistant intent (after privacy); answer aligned with `beforeAfter.workflowLicenseNote`.
 - **2026-06-09 (launch readiness):** FAQ Q1 + Executive OS answer distinguish client-side brief content from anonymous page views on `promptanatomy.pro`; `pasteIntoAssistant.lead` no longer claims “nothing leaves this page” (paste strip accuracy).
-- **EN (shipped Option A):** FAQ Q1 answer names **Step 1** (context) and **Step 2 (Clarity practice at #demo)**; `demo.followUpEyebrow` = **Step 3 next**; JSON-LD demo label = **Step 2 clarity practice section**.
+- **EN (shipped Option A):** FAQ Q1 answer references Global Context and Clarity practice by name (no Step numbers); `demo.followUpEyebrow` = **Download the kit next**; JSON-LD demo label = **Step 2 clarity practice section**.
 
 **JSON-LD**
 

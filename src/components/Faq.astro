@@ -33,7 +33,7 @@ const sectionAnchorHref: Record<FaqSectionAnchor, string> = {
         faq.items.map((item) => (
           <ContentCard surface="glass" radius="lg" padding="compact" as="div">
             <details class="group">
-            <summary class="focus-ring summary-hover cursor-pointer list-none py-1 text-left text-sm font-semibold text-slate-200 outline-none sm:text-base [&::-webkit-details-marker]:hidden">
+            <summary class="focus-ring summary-hover min-h-11 cursor-pointer list-none py-3 text-left text-sm font-semibold text-slate-200 outline-none sm:text-base [&::-webkit-details-marker]:hidden">
               {item.q}
             </summary>
             <div class="border-t border-white/10 pb-1 pt-2 text-sm leading-relaxed">

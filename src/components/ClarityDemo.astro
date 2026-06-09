@@ -121,10 +121,12 @@ const hasDecisionBullets =
           role="tab"
           data-demo-tab="details"
           aria-selected="false"
+          aria-label={demo.detailsTab}
           aria-controls="demo-details-panel"
           tabindex="0"
         >
-          {demo.detailsTab}
+          <span class="sm:hidden">{demo.detailsTabShort}</span>
+          <span class="hidden sm:inline">{demo.detailsTab}</span>
         </button>
         <button
           type="button"
@@ -133,10 +135,12 @@ const hasDecisionBullets =
           role="tab"
           data-demo-tab="input"
           aria-selected="false"
+          aria-label={demo.inputTab}
           aria-controls="demo-input-panel"
           tabindex="-1"
         >
-          {demo.inputTab}
+          <span class="sm:hidden">{demo.inputTabShort}</span>
+          <span class="hidden sm:inline">{demo.inputTab}</span>
         </button>
         <button
           type="button"
@@ -145,10 +149,12 @@ const hasDecisionBullets =
           role="tab"
           data-demo-tab="prompt"
           aria-selected="false"
+          aria-label={demo.promptTab}
           aria-controls="demo-prompt-panel"
           tabindex="-1"
         >
-          {demo.promptTab}
+          <span class="sm:hidden">{demo.promptTabShort}</span>
+          <span class="hidden sm:inline">{demo.promptTab}</span>
         </button>
       </div>
 

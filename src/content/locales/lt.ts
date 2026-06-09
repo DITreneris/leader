@@ -9,7 +9,7 @@ export const ltCopy = {
     a11y: {
       skipLink: "Pereiti prie konteksto laukų",
       copyManual:
-        "Kopijavimas užblokuotas: pažymėk prompto tekstą aukščiau ir spausk Ctrl+C (arba ⌘+C Mac).",
+        "Copy blocked: select the prompt text above, then copy (long-press → Copy on phone, or Ctrl+C / ⌘+C on desktop).",
       logoAriaLabel: "Prompt Anatomy – vadovo OS",
       brandWordmark: "Prompt Anatomy",
       brandSubtag: "Vadovo OS",
@@ -25,7 +25,7 @@ export const ltCopy = {
       items: [
         {
           q: "How do I get my first decision brief?",
-          a: "Step 1: fill the four Global Context fields, pick one executive module, and copy the compiled prompt—about 60 seconds. Paste into your org-approved assistant. For proof on a sample scenario, use Step 2 (Clarity practice at #demo).",
+          a: "Fill the four Global Context fields, pick one executive module, and copy the compiled prompt—about 60 seconds. Paste into your org-approved assistant. For proof on a sample scenario, open Clarity practice (#demo).",
           bullets: [],
           sectionAnchor: "context",
           sectionLinkLabel: "Open Global Context",
@@ -138,8 +138,8 @@ export const ltCopy = {
       licenseNote: "Use your org-licensed provider and account; follow each vendor's terms and plan limits.",
     },
     promoBanner: {
-      ariaLabel: "Step 2: prove on a scenario before the full product.",
-      eyebrow: "Step 2 next",
+      ariaLabel: "Prove on a scenario before the full product.",
+      eyebrow: "Prove it next",
       title: "Test the framework on a real executive scenario.",
       subtitle: "Five short cases—then take the kit or open the full app.",
       primaryCta: "Start the scenario",
@@ -150,7 +150,7 @@ export const ltCopy = {
       eyebrow: "Step 1 · Define your business context",
       title: "Define it once. Use it across every executive module.",
       subtitle: "Give the system four facts about your company and current decision environment.",
-      startHere: "Step 1: fill context and copy a module—or continue to Step 2 below.",
+      startHere: "Fill context and copy a module—or try a scenario below.",
       nextStepCta: "Open Decision impact",
       recommendedBadge: "Recommended first",
       workflowAriaLabel: "Within Step 1: define context, choose a module, copy your brief",
@@ -402,7 +402,7 @@ Eliminate now:
       exampleLabel: "Example",
       onPageLead: "On this page",
       referenceNote:
-        "Expand only if you want the vocabulary — action is in Context, Practice, and Safety above. Reference vocabulary—not part of Steps 1–3 above.",
+        "Expand only if you want the vocabulary — action is in Context, Practice, and Safety above. Reference vocabulary only—not part of the action sections above.",
       items: [
         {
           id: "role",
@@ -722,13 +722,16 @@ Eliminate now:
       scenarioHint: "",
       briefLabel: "Scenario brief",
       detailsTab: "Risks and questions",
+      detailsTabShort: "Risks",
       inputTab: "Required input",
+      inputTabShort: "Input",
       promptTab: "Prompt preview",
+      promptTabShort: "Prompt",
       secondaryPanelHint: "Open a tab for risks, input, or the full prompt.",
       secondaryTablistAriaLabel: "More detail",
       promptBlockLabel: "Pavyzdinis kopijuojamas promptas",
       previewHint: "",
-      followUpEyebrow: "Step 3 next",
+      followUpEyebrow: "Download the kit next",
       followUpText: "Download the printable decision kit—same structure offline.",
       followUpCta: "Download PDF kit",
       pdfAgain: "pereik prie atsisiuntimo.",
