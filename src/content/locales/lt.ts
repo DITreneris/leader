@@ -25,7 +25,7 @@ export const ltCopy = {
       items: [
         {
           q: "How do I get my first decision brief?",
-          a: "Fill the four Global Context fields, pick one executive module, and copy the compiled prompt—about 60 seconds. Paste into your org-approved assistant. For proof on a sample scenario, use Clarity practice.",
+          a: "Step 1: fill the four Global Context fields, pick one executive module, and copy the compiled prompt—about 60 seconds. Paste into your org-approved assistant. For proof on a sample scenario, use Step 2 (Clarity practice at #demo).",
           bullets: [],
           sectionAnchor: "context",
           sectionLinkLabel: "Open Global Context",
@@ -743,8 +743,8 @@ Eliminate now:
       secondaryTablistAriaLabel: "More detail",
       promptBlockLabel: "Pavyzdinis kopijuojamas promptas",
       previewHint: "",
-      followUpEyebrow: "Want the same structure offline?",
-      followUpText: "Download the printable decision kit.",
+      followUpEyebrow: "Step 3 next",
+      followUpText: "Download the printable decision kit—same structure offline.",
       followUpCta: "Download PDF kit",
       pdfAgain: "pereik prie atsisiuntimo.",
       scenarioLiveStatus: "Scenarijus: {scenario}. Briefas atnaujintas.",

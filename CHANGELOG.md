@@ -31,6 +31,17 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 - [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) — slides #12 (anatomy), #13 (roiPath).
 
+## 2026-06-09 (user journey Option A — satellite alignment)
+
+### Changed
+
+- **FAQ + demo follow-up:** [`en.ts`](src/content/locales/en.ts) / [`lt.ts`](src/content/locales/lt.ts) — FAQ Q1 Step 1/2 framing; `demo.followUp*` → Step 3 bridge.
+- **SEO/GEO:** [`pageJsonLd.ts`](src/utils/pageJsonLd.ts) demo schema label; [`public/llms.txt`](public/llms.txt) macro Step 1–3 journey section.
+
+### Docs
+
+- [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) — slide #14 (FAQ).
+
 ## 2026-06-10 (design system consistency refinement)
 
 ### Changed

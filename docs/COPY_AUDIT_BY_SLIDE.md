@@ -343,6 +343,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 - „Quick answers“ – OK.
 - **2026-04-28 (SEO iter. 2):** second FAQ slot – paste-into-assistant intent (after privacy); answer aligned with `beforeAfter.workflowLicenseNote`.
 - **2026-06-09 (launch readiness):** FAQ Q1 + Executive OS answer distinguish client-side brief content from anonymous page views on `promptanatomy.pro`; `pasteIntoAssistant.lead` no longer claims “nothing leaves this page” (paste strip accuracy).
+- **EN (shipped Option A):** FAQ Q1 answer names **Step 1** (context) and **Step 2 (Clarity practice at #demo)**; `demo.followUpEyebrow` = **Step 3 next**; JSON-LD demo label = **Step 2 clarity practice section**.
 
 **JSON-LD**
 
