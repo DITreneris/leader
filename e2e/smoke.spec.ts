@@ -15,7 +15,7 @@ test.describe("smoke", () => {
     await expect(diagram).toBeVisible();
     await expect(diagram).toHaveAttribute(
       "aria-label",
-      "Example executive decision flow: scattered input through decision context to a sample decision brief with owner, risks, deadline, and next action."
+      "Example: scattered executive inputs synthesized into a decision brief with decision, owner, rationale, risk, and next action."
     );
   });
 

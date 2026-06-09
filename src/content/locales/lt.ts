@@ -88,58 +88,43 @@ export const ltCopy = {
       ],
     },
     nav: {
-      practice: "Kontekstas",
-      proof: "Aiškumo praktika",
-      kitPdf: "Rinkinio atsisiuntimas",
+      practice: "How it works",
+      proof: "Example",
+      kitPdf: "What you get",
+      headerCta: "Build a brief",
     },
     hero: {
       eyebrow: "Executive decision kit",
-      title: "From AI noise to decision.",
+      title: "Turn AI noise into one clear decision.",
       subtitle:
-        "Turn scattered input into one owner-ready brief — risks, deadline, next action.",
-      inPageCta: "Build your decision brief",
+        "Turn reports, KPIs and competing opinions into a decision brief with a clear owner and next action.",
+      inPageCta: "Build my decision brief",
       productCta: "Open the full app",
       ctaMeta: "Free · No login · Ready in 2 minutes",
     },
     heroDiagram: {
       ariaLabel:
-        "Example executive decision flow: scattered input through decision context to a sample decision brief with owner, risks, deadline, and next action.",
+        "Example: scattered executive inputs synthesized into a decision brief with decision, owner, rationale, risk, and next action.",
       label: "Example",
-      caption: "From scattered input to one owner-ready brief",
-      pipelineAriaLabel: "Three steps: scattered input, decision context, decision brief",
-      connectorLabel: "Generated brief",
-      pipeline: [
-        { label: "Scattered input", desc: "Reports, KPIs, opinions" },
-        { label: "Decision context", desc: "Goal, constraints, owner" },
-        { label: "Decision brief", desc: "Decision, risks, next action" },
-      ],
-      engine: {
-        title: "Decision brief",
-        subtitle: "After one paste",
+      noise: {
+        title: "Scattered inputs",
+        chips: [
+          { label: "KPI report", detail: "3 reports" },
+          { label: "Sales forecast", detail: "Q3 variance" },
+          { label: "Management opinion", detail: "4 takes" },
+          { label: "Ownership", detail: "Unassigned" },
+        ],
       },
-      sampleAriaLabel:
-        "Sample brief sections: decision, owner, risks, deadline, next action",
-      sample: {
+      synthesis: { label: "AI synthesis" },
+      brief: {
         decision: {
           label: "Decision",
-          line: "Delay EU expansion; focus US enterprise",
+          lines: ["Delay EU expansion.", "Prioritise US enterprise."],
         },
-        owner: {
-          label: "Owner",
-          line: "CEO",
-        },
-        risks: {
-          label: "Risks",
-          line: "Runway tightens if Q3 hiring continues",
-        },
-        deadline: {
-          label: "Deadline",
-          line: "Board review — Friday",
-        },
-        nextAction: {
-          label: "Next action",
-          line: "CFO models two scenarios by Friday",
-        },
+        why: { label: "Why", line: "Higher near-term ROI in US enterprise." },
+        owner: { label: "Owner", line: "CEO" },
+        risk: { label: "Risk", line: "Runway below 12 months." },
+        nextAction: { label: "Next", line: "CFO models two scenarios by Friday." },
       },
     },
     pasteIntoAssistant: {
