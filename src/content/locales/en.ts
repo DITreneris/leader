@@ -24,7 +24,7 @@ export const enCopy = {
       items: [
         {
           q: "How do I get my first decision brief?",
-          a: "Fill the four Global Context fields, pick one executive module, and copy the compiled prompt—about 60 seconds. Paste into your org-approved assistant. For proof on a sample scenario, open Clarity practice (#demo).",
+          a: "Fill the four Global Context fields, pick one executive module, and copy the compiled prompt—60 seconds. Paste into your org-approved assistant. For proof on a scenario, open clarity practice (#demo).",
           bullets: [],
           sectionAnchor: "context",
           sectionLinkLabel: "Open Global Context",
@@ -41,7 +41,7 @@ export const enCopy = {
         },
         {
           q: "What is PromptAnatomy Executive OS?",
-          a: "A static one-page decision operating kit for CEOs and COOs: Global Context Block plus executive modules so leadership briefs to AI stay consistent—no login, no upload of what you type. The full product and team standard are on promptanatomy.app.",
+          a: "A static one-page decision operating kit for CEOs and COOs: Global Context Block plus executive modules so leadership briefs to AI stay consistent—no login, no upload of what you type. The full product and team standard are on PromptAnatomy.app.",
           bullets: [],
         },
         {
@@ -73,7 +73,7 @@ export const enCopy = {
         },
         {
           q: "Is this free, and when should I open the full app?",
-          a: "This kit and PDF download are free—no account required. Open promptanatomy.app after your first brief or kit download when you want the full team standard, training, and repeatable OS.",
+          a: "This kit and PDF download are free—no account required. Open PromptAnatomy.app after your first brief or kit download when you want the full team standard, training, and repeatable OS.",
           bullets: [],
           sectionAnchor: "kit",
           sectionLinkLabel: "Download the kit",
@@ -96,7 +96,7 @@ export const enCopy = {
       eyebrow: "Executive decision kit",
       title: "Turn AI noise into one clear decision.",
       subtitle:
-        "Turn reports, KPIs and competing opinions into a decision brief with a clear owner and next action.",
+        "Turn reports, KPIs, and competing opinions into a decision brief with owner and next action.",
       inPageCta: "Build my decision brief",
       productCta: "Open the full app",
       ctaMeta: "Free · No login · Ready in 2 minutes",
@@ -118,7 +118,7 @@ export const enCopy = {
       brief: {
         decision: {
           label: "Decision",
-          lines: ["Delay EU expansion.", "Prioritise US enterprise."],
+          lines: ["Delay EU expansion.", "Prioritize US enterprise."],
         },
         why: { label: "Why", line: "Higher near-term ROI in US enterprise." },
         owner: { label: "Owner", line: "CEO" },
@@ -128,7 +128,7 @@ export const enCopy = {
     },
     pasteIntoAssistant: {
       ariaLabel: "After copy: open an approved AI assistant and paste the prompt",
-      lead: "Your prompt stays on your device until you paste it elsewhere.",
+      lead: "Your prompt stays on your device until you paste it.",
       postCopyLead: "Prompt copied. Continue in:",
       continueLabel: "Continue in:",
       openChatgpt: "Open ChatGPT",
@@ -139,33 +139,33 @@ export const enCopy = {
     promoBanner: {
       ariaLabel: "Prove on a scenario before the full product.",
       eyebrow: "Prove it next",
-      title: "Test the framework on a real executive scenario.",
-      subtitle: "Five short cases—then take the kit or open the full app.",
+      title: "Prove the framework on one scenario.",
+      subtitle: "Five cases—then take the kit or open the full app.",
       primaryCta: "Start the scenario",
       secondaryCta: "Open the full app",
-      sisterCta: "Learn the framework",
+      sisterCta: "Practice the framework",
     },
     modules: {
-      eyebrow: "Step 1 · Define your business context",
-      title: "Define it once. Use it across every executive module.",
-      subtitle: "Give the system four facts about your company and current decision environment.",
-      startHere: "Fill context and copy a module—or try a scenario below.",
+      eyebrow: "Step 1 · Define context",
+      title: "Define it once. Use it across every module.",
+      subtitle: "Four facts about your company and the decision.",
+      startHere: "Fill the four fields, copy a module—or prove on a scenario below.",
       nextStepCta: "Open Decision impact",
       recommendedBadge: "Recommended first",
       workflowAriaLabel: "Within Step 1: define context, choose a module, copy your brief",
       workflowSteps: [
-        { label: "Define context", desc: "Four fields about your company" },
-        { label: "Choose a module", desc: "Pick the decision outcome you need" },
-        { label: "Copy your brief", desc: "Paste into your AI tool" },
+        { label: "Define context", desc: "Four company fields" },
+        { label: "Choose a module", desc: "Pick the outcome you need" },
+        { label: "Copy your brief", desc: "Paste into AI tool" },
       ],
       contextStatusEmpty:
-        "Context empty — copied prompts will use generic placeholders. Fill the four fields first.",
-      contextStatusReady: "Context ready — included when you copy a module.",
+        "Context empty—copied prompts will use generic placeholders. Fill the four fields first.",
+      contextStatusReady: "Context ready—included when you copy a module.",
       previewPromptLabel: "Preview compiled prompt",
       context: {
-        title: "Global context block",
+        title: "Global Context Block",
         subtitle: "Required once. Used in every module.",
-        badge: "Saved in this session",
+        badge: "Saved in session",
         companyLabel: "Company",
         companyPlaceholder: "e.g., Series B B2B SaaS, 150 employees",
         goalLabel: "Current goal",
@@ -176,7 +176,7 @@ export const enCopy = {
         bottleneckPlaceholder: "e.g., Engineering speed vs Sales promises",
       },
       rulesPreview: {
-        title: "View built-in decision rules",
+        title: "View decision rules",
         items: [
           "No generic advice. If context is missing, ask up to 3 targeted questions first.",
           "Do not invent numbers or facts. Flag what must be verified.",
@@ -284,7 +284,7 @@ Risks of misinterpretation:
           bestFor: "Best for: pre-launch plans, market moves, or defensive positioning",
           outputPreviewLine: "Attack vector · Blind spot · Defensive move · Hardening checklist",
           taskFormat: "Act as a competitor CEO attacking my current setup.",
-          outputExampleJson: `Competitor’s best attack:
+          outputExampleJson: `Competitor's best attack:
 
 Your blind spot:
 
@@ -299,7 +299,7 @@ Hardening checklist:
         {
           id: "timeAudit",
           category: "Focus",
-          title: "Leverage filter",
+          title: "Impact filter",
           subtitle: "Identify what to cut, delegate, and prioritize next week.",
           bestFor: "Best for: calendar overload or unclear weekly priorities",
           outputPreviewLine: "Top 20% impact · Delegate list · Eliminate · Focus rules",
@@ -391,9 +391,9 @@ Eliminate now:
     anatomy: {
       eyebrow: "Executive prompt anatomy",
       title: "Five blocks for leadership-grade AI output.",
-      expandSummary: "Reference — names the framework (not a form)",
+      expandSummary: "Reference—names the framework (not a form)",
       subtitle:
-        "A prompt is the instruction that shapes the reply. Use 2–3 blocks for speed; all five before board or client sends. These blocks are already built into the sections above.",
+        "A prompt shapes the reply. Use 2–3 blocks for speed; all five before board or client sends.",
       /** Aria-label for the closed-state chip list of block names. */
       previewAriaLabel: "Five blocks at a glance",
       /** Micro-label before block number in the expanded grid (e.g. “Step 1”). */
@@ -402,27 +402,27 @@ Eliminate now:
       exampleLabel: "Example",
       onPageLead: "On this page",
       referenceNote:
-        "Expand only if you want the vocabulary — action is in Context, Practice, and Safety above. Reference vocabulary only—not part of the action sections above.",
+        "Expand if you want vocabulary—action is in Context, Practice, and Safety above.",
       items: [
         {
           id: "role",
           title: "Role",
           body: "Who AI plays as and the business outcome.",
           example: "ROLE: Tier-1 CEO advisor (strategy + operator)",
-          onPageLabel: "See it in Global context →",
+          onPageLabel: "See it in Global Context →",
           onPageHref: "#context",
         },
         {
           id: "context",
           title: "Context",
-          body: "Audience, constraints, facts the team already has.",
+          body: "Audience, constraints, facts the team has.",
           example: "Company · Goal · Constraint · Bottleneck",
           onPageLabel: "Fill the four context fields →",
           onPageHref: "#ctx-company",
         },
         {
           id: "decisionLogic",
-          title: "Decision Logic",
+          title: "Decision logic",
           body: "Criteria, trade-offs, reversibility, timing.",
           example: "Smallest proof that matters; stop rules before pilot.",
           onPageLabel: "Try a clarity scenario →",
@@ -432,13 +432,13 @@ Eliminate now:
           id: "output",
           title: "Output",
           body: "Format, owner, deadline, decision-ready shape.",
-          example: "Recommendation, risks, owner, deadline — plain text bullets.",
+          example: "Recommendation, risks, owner, deadline—plain text bullets.",
           onPageLabel: "See the brief shape in practice →",
           onPageHref: "#demo",
         },
         {
           id: "qualityCheck",
-          title: "Quality Check",
+          title: "Quality check",
           body: "Verify before client, board, or team sees it.",
           example: "Facts, risk wording, missing context, decision owner.",
           onPageLabel: "Run the safety check →",
@@ -449,7 +449,7 @@ Eliminate now:
     library: {
       eyebrow: "Copy-ready library",
       title: "CEO/COO prompt library",
-      subtitle: "35 prompts for recurring leadership work.",
+      subtitle: "35 prompts for leadership work.",
       summaryLead: "Copy one by category—no login.",
       navAriaLabel: "Prompt categories",
       promptSingular: "prompt",
@@ -459,7 +459,7 @@ Eliminate now:
       copyPrompt: "Copy prompt",
       copied: "Copied",
       revealPrompt: "Reveal prompt",
-      pdfAgain: "Need the PDF again? Jump to the kit download.",
+      pdfAgain: "Need the Max Value Kit PDF again? Jump to the kit download.",
       categories: [
         {
           title: "CEO Decisions",
@@ -535,7 +535,7 @@ Eliminate now:
         },
         {
           title: "Meetings",
-          description: "Decisions, not status theatre.",
+          description: "Decisions, not status theater.",
           prompts: [
             {
               title: "Decision meeting agenda",
@@ -718,7 +718,7 @@ Eliminate now:
     demo: {
       eyebrow: "Step 2 · Prove on a scenario",
       title: "Pick a scenario. Structure the decision.",
-      subtitle: "Choose one executive situation and copy a decision-ready prompt.",
+      subtitle: "Choose one situation and copy a decision-ready prompt.",
       scenarioHint: "",
       briefLabel: "Scenario brief",
       detailsTab: "Risks and questions",
@@ -727,13 +727,13 @@ Eliminate now:
       inputTabShort: "Input",
       promptTab: "Prompt preview",
       promptTabShort: "Prompt",
-      secondaryPanelHint: "Open a tab for risks, input, or the full prompt.",
+      secondaryPanelHint: "Open a tab for risks, input, or prompt.",
       secondaryTablistAriaLabel: "More detail",
       promptBlockLabel: "Sample prompt to copy",
       previewHint: "",
-      followUpEyebrow: "Download the kit next",
-      followUpText: "Download the printable decision kit—same structure offline.",
-      followUpCta: "Download PDF kit",
+      followUpEyebrow: "Download kit next",
+      followUpText: "Printable Max Value Kit—same decision structure offline.",
+      followUpCta: "Download Max Value Kit",
       pdfAgain: "jump to the kit download.",
       scenarioLiveStatus: "Scenario: {scenario}. Brief updated.",
       messyInputLabel: "Scenario setup",
@@ -858,7 +858,7 @@ Eliminate now:
     roiPath: {
       eyebrow: "Weekly ROI path",
       title: "One move today. Same rhythm each week.",
-      subtitle: "Five moves, 5–45 minutes each.",
+      subtitle: "Five moves · 5–45 min each.",
       centerLabel: "Executive week",
       centerText: "",
       entryCta: "Copy & run Move 1 (15–40 min)",
@@ -873,9 +873,9 @@ Eliminate now:
         {
           id: "outbound",
           accent: "risk",
-          time: "15-40 min",
+          time: "15–40 min",
           action: "Review & send clearly",
-          value: "Catch risks before send; land a structured, credible update.",
+          value: "Catch risks before send.",
           description: "Risk-check and rewrite outbound messages for clarity.",
           prompt:
             "Act as an executive communications partner. Draft or text to improve: [TEXT]. Audience: [BOARD / CLIENT / TEAM / PARTNER]. \n\n1) RISK PASS — Before anything ships, return: facts to verify; legal/reputation risks; missing context; unclear decision/owner; wording that should be safer.\n\n2) FINAL MESSAGE — Rewrite the text to be clear, calm, and non-defensive. Structure: fact — reason — impact — what changes — what stays the same — next step. Resolve material issues from the risk pass in the final wording.",
@@ -883,9 +883,9 @@ Eliminate now:
         {
           id: "scan",
           accent: "analysis",
-          time: "20-40 min",
+          time: "20–40 min",
           action: "Scan for signal",
-          value: "Find hidden risk + decision before the meeting.",
+          value: "Hidden risk + decision before the meeting.",
           description: "Signal, hidden risk, and decision from long updates.",
           prompt:
             "Summarize this long update for a CEO: [UPDATE]. Return key signal, hidden risk, decision needed, 3 questions for the team, and one next action. Do not invent missing numbers.",
@@ -893,9 +893,9 @@ Eliminate now:
         {
           id: "decision",
           accent: "decision",
-          time: "20-45 min",
+          time: "20–45 min",
           action: "Prepare the decision",
-          value: "Trade-offs, criteria, risks—written before you decide.",
+          value: "Trade-offs and criteria before you decide.",
           description: "Trade-offs, criteria, risks, and a clear call.",
           prompt:
             "Act as my CEO operating partner. Analyze this decision: [DECISION]. Context: [FACTS]. Options: [OPTIONS]. Return 1 recommendation, 3 trade-offs, 3 risks, decision criteria, and the next action with owner and deadline.",
@@ -903,9 +903,9 @@ Eliminate now:
         {
           id: "meeting",
           accent: "execution",
-          time: "15-30 min",
+          time: "15–30 min",
           action: "Clean up the meeting",
-          value: "Notes become decisions, owners, deadlines.",
+          value: "Notes → decisions, owners, deadlines.",
           description: "Decisions, owners, deadlines, follow-up.",
           prompt:
             "Turn these meeting notes into an executive action log: [NOTES]. Return decisions made, open decisions, owners, deadlines, risks, and the first follow-up message to send.",
@@ -913,28 +913,29 @@ Eliminate now:
         {
           id: "delegation",
           accent: "execution",
-          time: "15-45 min",
+          time: "15–45 min",
           action: "Delegate with a brief",
-          value: "Move work from your head into an executable plan.",
+          value: "Intent → executable plan.",
           description: "Intent into a brief the team can execute.",
           prompt:
             "Turn this intent into a delegation brief: [INTENT]. Include objective, audience, context, constraints, deliverable format, quality criteria, examples, review deadline, and escalation triggers.",
         },
       ],
-      total: "~5 hrs/week → fewer bad calls, clearer owners, safer sends.",
-      printableOneLiner: "Five moves ≈ ~5h/week — same rhythm on one printable page.",
+      total: "~5h/week → clearer owners, safer sends.",
+      printableOneLiner: "Five moves · ~5h/week—one printable page.",
       printableKitLink: "Get the printable kit (PDF)",
     },
     cta: {
       eyebrow: "Step 3 · Download the kit",
-      title: "Download the kit. Set the team standard on PromptAnatomy when you need it.",
+      title: "Download Max Value Kit. Open PromptAnatomy.app when you need the team standard.",
       subtitle: "",
       primary: "Download Max Value Kit",
       secondary: "Open PromptAnatomy team standard",
     },
     footer: {
-      brand: "PromptAnatomy · Executive OS",
-      tagline: "Static kit. No login. Your brief stays on your device.",
+      brand: "Part of Prompt Anatomy · Training & checkout →",
+      entityLink: "promptanatomy.app",
+      tagline: "Executive OS static kit. No login. Your brief stays on your device.",
       versionAria: "Site version",
       copyright: "© 2026 Prompt Anatomy",
       creator: "Created by Tomas Staniulis",

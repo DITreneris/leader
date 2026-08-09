@@ -5,6 +5,12 @@
 
 export const UTM_SOURCE_LEADER = "leader";
 
+/**
+ * Domain shortname for hub ecosystem entity footer (QW1b).
+ * Live host is promptanatomy.pro; conversion CTAs elsewhere keep `utm_source=leader`.
+ */
+export const UTM_SOURCE_ENTITY_FOOTER = "pro";
+
 export const PROMPT_ANATOMY_ORIGIN = "https://www.promptanatomy.app";
 export const PROMPT_ANATOMY_SISTER_HUB_ORIGIN = "https://promptanatomy.cloud";
 
@@ -17,6 +23,15 @@ export function buildPromptAnatomyUrl(params: { medium: string; campaign: string
   u.searchParams.set("utm_source", UTM_SOURCE_LEADER);
   u.searchParams.set("utm_medium", params.medium);
   u.searchParams.set("utm_campaign", params.campaign);
+  return u.toString();
+}
+
+/** Hub sibling entity footer → `.app` (ecosystem governance QW1b) */
+export function buildEntityFooterUrl(): string {
+  const u = new URL(PROMPT_HOME);
+  u.searchParams.set("utm_source", UTM_SOURCE_ENTITY_FOOTER);
+  u.searchParams.set("utm_medium", "entity_footer");
+  u.searchParams.set("utm_campaign", "ecosystem");
   return u.toString();
 }
 

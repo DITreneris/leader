@@ -21,7 +21,7 @@ Historical decisions and long-form strategy: [`docs/STRATEGIC_REVISION_PLAN.md`]
 | Item | Intent | Notes |
 |------|--------|--------|
 | Safety + practice narrative merge | One “risk shield” story; SafetyCheck as appendix/collapsible | Strategic plan §5.2 |
-| ROI path trim | Shorter copy; mobile-linear canonical story | §5.3 |
+| ROI path trim | Shorter copy shipped 2026-08-09; mobile-linear diagram still optional | §5.3 |
 | Prompt anatomy default closed | Already `<details>`; revisit copy density | §5.3 |
 | Trust strip | Real logos/quotes or stay hidden | No placeholder labels |
 
@@ -40,7 +40,7 @@ Historical decisions and long-form strategy: [`docs/STRATEGIC_REVISION_PLAN.md`]
 
 | Item | Intent |
 |------|--------|
-| Expand Playwright | Demo copy success path, FAQ sister link smoke |
+| Expand Playwright | Demo copy + Promo/FAQ sister hub — shipped 2026-08-09 in `e2e/smoke.spec.ts` |
 | `STRATEGIC_REVISION_PLAN.md` trim | Keep decision log; point here for open items |
 | Quarterly doc freshness | See [`DOCUMENT_MANAGEMENT.md`](DOCUMENT_MANAGEMENT.md) |
 

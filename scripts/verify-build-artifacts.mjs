@@ -147,7 +147,7 @@ if (landingHtml !== null) {
     fail(`dist/index.html: data-kit-download href must end with .pdf (got ${kitDownload[1]})`);
   }
 
-  const promoLabel = "Step 2: prove on a scenario before the full product.";
+  const promoLabel = "Prove on a scenario before the full product.";
   const promoIndex = landingHtml.indexOf(promoLabel);
   if (promoIndex === -1) {
     fail("dist/index.html: PromoBanner aria-label copy not found (EN promo section missing?)");

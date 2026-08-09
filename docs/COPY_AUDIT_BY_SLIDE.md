@@ -26,7 +26,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 | CC-10 | Meme (`Page.astro` + `MemeMoment.astro`) | `img alt` (`memes.sequenceImageAlts`) ir sekcijos `aria-label` (`memes.sectionAriaLabel`) lokalizuoti (**P1 įgyvendinta**). | P1 |
 | CC-11 | `InteractiveCopy.astro` | Fallback `manualMessage()` pagal `html[lang]` LT/EN jei trūksta `copyManual` (**P2 įgyvendinta**). | P2 |
 | CC-12 | JSON-LD | **`WebPage`** `primaryImageOfPage` ImageObject su **`description: meta.socialImageAlt`**; **`FAQPage.inLanguage`** = puslapio locale (**P3**). | P3 |
-| CC-US | Shipped EN = US English | `en.ts` ir kitas **viešas** angliškas tekstas — **American English**; vengti UK rašybos ir junginių (`behaviour`, `organisation`, `whilst`, ir pan.). Žr. [`.cursor/rules/language-standard.mdc`](../.cursor/rules/language-standard.mdc) — **US English (shipped default)**. **2026-04-28:** grep `en.ts` + `public/assets/downloads/*.html` — UK šablonų atitikmenų nėra; **banga (kitas etapas):** pakartotinis grep po konversijos/atitikties copy — vis dar be UK žodžių šablonų. | P1 |
+| CC-US | Shipped EN = US English | `en.ts` ir kitas **viešas** angliškas tekstas — **American English**; vengti UK rašybos ir junginių (`behaviour`, `organisation`, `whilst`, ir pan.). Žr. [`.cursor/rules/language-standard.mdc`](../.cursor/rules/language-standard.mdc) — **US English (shipped default)**. **2026-08-09:** deep EN audit + max-ROI session — UK fixes; `Impact filter`; sister CTA **Practice the framework**; **Global Context Block**; prose **PromptAnatomy.app**; spine/ROI trim. | P1 |
 
 ---
 
@@ -156,7 +156,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 - **Failai:** [`ExecutiveModules.astro`](../src/components/ExecutiveModules.astro), [`InteractiveCopy.astro`](../src/components/InteractiveCopy.astro) (JS kompiliavimas)
 - **Raktai:** `modules.context`, `modules.contextFootnote`, `modules.contextMapAriaLabel`, `modules.contextMapInjectLabel`, `modules.contextMapCaption`, `modules.items[]`, `modules.custom`, `modules.rulesPreview`, `modules.roleLine`, fallback placeholderiai JS
-- **EN (shipped Option A):** `modules.eyebrow` = **Step 1 · Define your business context**; `workflowAriaLabel` = **Within Step 1: …**; `startHere` bridges to scenario via Promo without repeating Step numbers (no second gold CTA here). Žr. [`USER_JOURNEY.md`](USER_JOURNEY.md).
+- **EN (shipped Option A):** `modules.eyebrow` = **Step 1 · Define context**; `workflowAriaLabel` = **Within Step 1: …**; `startHere` bridges to scenario via Promo without repeating Step numbers (no second gold CTA here). Žr. [`USER_JOURNEY.md`](USER_JOURNEY.md).
 
 **LT**
 
@@ -196,7 +196,8 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 - [x] **2026-04-28:** Hero/meta ir `promoBanner.*` vs `cta.*` — skirtingas funnelis (vidurinis **handoff** į PA + „demo pirmiau“ vs `#kit` **atsisiuntimas** + PA); antraštės ir body nekopijuoja tos pačios frazės; EN/LT lygiagrečiai.
 - [x] **2026-04-28:** `promoBanner.secondaryCta` nebe „static demo“ — **practice / clarity** (`Try the clarity practice first` / `Pirmiau – aiškumo praktika`); sinchronizuota su `nav.proof` ir `demo.eyebrow`.
-- [x] **2026-06-09:** Funnel continuity (tester #05) — `title` *Test the framework on a real executive scenario.*; gold **`Start the scenario`** → `#demo`; outlined PA **`Open the full app`** (domain in `href` only); tertiary **`Learn the framework`** → cloud. Meme index 2: `memes.delegationBridge` ties Delegation chip (not “scenario 1 of 5”).
+- [x] **2026-06-09:** Funnel continuity (tester #05) — gold **`Start the scenario`** → `#demo`; outlined PA **`Open the full app`**; tertiary sister → cloud. Meme index 2: `memes.delegationBridge` ties Delegation chip (not “scenario 1 of 5”).
+- [x] **2026-08-09:** Promo title *Prove the framework on one scenario.*; tertiary **`Practice the framework`**; module **Impact filter**; context UI **Global Context Block**; spine micro-cut (40 zero-loss words).
 
 ---
 
@@ -212,7 +213,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ## 8. Aiškumo praktika (`#demo`)
 
-- **Ženklinimas (EN/LT):** `nav.proof` = **Example** (friendly nav). `demo.eyebrow` = **Step 2 · Prove on a scenario** (macro ladder). `demo.followUpEyebrow` = **Download the kit next** (bridge be Step skaičiaus). Clarity practice lieka turinio/feature pavadinime FAQ ir body kur reikia.
+- **Ženklinimas (EN/LT):** `nav.proof` = **Example** (friendly nav). `demo.eyebrow` = **Step 2 · Prove on a scenario** (macro ladder). `demo.followUpEyebrow` = **Download kit next** (bridge be Step skaičiaus). Clarity practice lieka turinio/feature pavadinime FAQ ir body kur reikia.
 
 - **Failai:** [`ClarityDemo.astro`](../src/components/ClarityDemo.astro), [`InteractiveCopy.astro`](../src/components/InteractiveCopy.astro)
 - **Raktai:** `demo.*`, `demo.scenarios.*` (incl. `title`, optional `decisionBullets`)
@@ -343,7 +344,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 - „Quick answers“ – OK.
 - **2026-04-28 (SEO iter. 2):** second FAQ slot – paste-into-assistant intent (after privacy); answer aligned with `beforeAfter.workflowLicenseNote`.
 - **2026-06-09 (launch readiness):** FAQ Q1 + Executive OS answer distinguish client-side brief content from anonymous page views on `promptanatomy.pro`; `pasteIntoAssistant.lead` no longer claims “nothing leaves this page” (paste strip accuracy).
-- **EN (shipped Option A):** FAQ Q1 answer references Global Context and Clarity practice by name (no Step numbers); `demo.followUpEyebrow` = **Download the kit next**; JSON-LD demo label = **Step 2 clarity practice section**.
+- **EN (shipped Option A):** FAQ Q1 answer references Global Context and Clarity practice by name (no Step numbers); `demo.followUpEyebrow` = **Download kit next**; JSON-LD demo label = **Step 2 clarity practice section**.
 
 **JSON-LD**
 
@@ -382,19 +383,20 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **LT**
 
-- ~~`brand` „Vadovo OS“ vs hero~~ – **suvienodinta** (`a11y.brandSubtag`).
+- ~~`brand` „Vadovo OS“ vs hero~~ – historical; LT UI frozen. Entity line uses EN hub contract placeholders in `lt.ts`.
 
 **EN**
 
-- „Executive OS“ – brand line.
+- Hub QW1b entity line: `footer.brand` + `footer.entityLink` — `Part of Prompt Anatomy · Training & checkout → promptanatomy.app` (exact). Executive OS kit reassurance lives in `footer.tagline`.
 
 **Ne locale**
 
-- Nuoroda `promptanatomy.app` – fiksuota.
+- Entity href via `buildEntityFooterUrl()` (`utm_source=pro`).
 
 **Veiksmai**
 
-- [x] P1: footeryje `aria-label` iš `a11y.footerLegalNavAria` (EN „Legal“, LT „Teisinės nuorodos“); Hero `brandSubtag` LT sutampa su `footer.brand` („Vadovo OS“).
+- [x] P1: footeryje `aria-label` iš `a11y.footerLegalNavAria`.
+- [x] **2026-08-09:** Hub entity footer (QW1b) integrated; founder remains on copyright line.
 
 ---
 

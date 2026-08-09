@@ -13,6 +13,7 @@ This project is a lean **English-only** CEO/COO executive prompt operating kit f
 3. Canonical page order: [`src/layouts/Page.astro`](src/layouts/Page.astro).
 4. Open only the docs row you need from the map below (or [`docs/README.md`](docs/README.md)).
 5. Landing edits: use skill [`.cursor/skills/executive-landing-improvement/SKILL.md`](.cursor/skills/executive-landing-improvement/SKILL.md).
+6. Recurring gotchas: [`docs/LESSONS.md`](docs/LESSONS.md) (e.g. hub entity footer QW1b, cut-only spine polish).
 
 ## Non-Negotiables
 
@@ -26,7 +27,7 @@ This project is a lean **English-only** CEO/COO executive prompt operating kit f
 
 - [`src/pages/index.astro`](src/pages/index.astro) renders [`src/layouts/Page.astro`](src/layouts/Page.astro) at `/`; legacy `/en/` and `/lt/` are noindex redirect stubs — details in [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md).
 - Copy (active): [`src/content/locales/en.ts`](src/content/locales/en.ts) via [`src/content/copy.ts`](src/content/copy.ts). Frozen archive: [`lt.ts`](src/content/locales/lt.ts).
-- Outbound URLs: [`src/constants/outboundLinks.ts`](src/constants/outboundLinks.ts) + [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md); domains in [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md).
+- Outbound URLs: [`src/constants/outboundLinks.ts`](src/constants/outboundLinks.ts) + [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md); domains in [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md). Conversion CTAs use `utm_source=leader`; hub **entity footer** (QW1b) uses `buildEntityFooterUrl()` → `utm_source=pro` / `entity_footer` / `ecosystem` — exact EN copy in `footer.brand` + `footer.entityLink` ([`Page.astro`](src/layouts/Page.astro)).
 - Components: [`src/components/`](src/components/); styles: [`src/styles/global.css`](src/styles/global.css).
 - Assets, OG image, robots — [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) + [`docs/COMMANDS.md`](docs/COMMANDS.md).
 - [`CHANGELOG.md`](CHANGELOG.md) tracks daily updates.
@@ -52,6 +53,7 @@ Read [`docs/README.md`](docs/README.md) for the full index (purpose + when to up
 | Copy QA by section | [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) |
 | Strategy & CTA roadmap (long) | [`docs/STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md) |
 | UTM parameters + outbound URL builders (`outboundLinks.ts`) | [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md), [`src/constants/outboundLinks.ts`](src/constants/outboundLinks.ts) |
+| Agent lessons / gotchas | [`docs/LESSONS.md`](docs/LESSONS.md) |
 | QA checklist | [`docs/QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md) |
 | Mobile UX audit + interaction map | [`docs/MOBILE_UI_AUDIT.md`](docs/MOBILE_UI_AUDIT.md) |
 | Doc ownership rules | [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md) |

@@ -78,6 +78,44 @@ test.describe("smoke", () => {
     await expect(pasteStrip).toHaveClass(/hidden/);
   });
 
+  test("clarity demo copy reveals paste strip and copied state", async ({ page, context }) => {
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+    await page.goto("/leader/");
+    const demo = page.locator("#demo");
+    await demo.scrollIntoViewIfNeeded();
+    const copyBtn = demo.locator("button[data-copy-prompt]").first();
+    const pasteStrip = demo.locator('[data-paste-destination-strip="demo"]');
+    await expect(pasteStrip).toHaveClass(/hidden/);
+    await copyBtn.click();
+    await expect(copyBtn).toHaveAttribute("data-copied", "true");
+    await expect(copyBtn).toContainText("Prompt copied");
+    await expect(pasteStrip).not.toHaveClass(/hidden/);
+  });
+
+  test("PromoBanner sister CTA points to promptanatomy.cloud", async ({ page }) => {
+    await page.goto("/leader/");
+    const promo = page.getByRole("region", {
+      name: "Prove on a scenario before the full product.",
+    });
+    const sister = promo.getByRole("link", { name: "Practice the framework" });
+    await expect(sister).toBeVisible();
+    const href = await sister.getAttribute("href");
+    expect(href).toMatch(/promptanatomy\.cloud/);
+    expect(href).toMatch(/utm_campaign=sister_hub/);
+  });
+
+  test("FAQ sister hub link points to promptanatomy.cloud", async ({ page }) => {
+    await page.goto("/leader/");
+    const faq = page.locator("#faq");
+    await faq.scrollIntoViewIfNeeded();
+    await faq.getByText("New to structured prompts?").click();
+    const sister = faq.getByRole("link", { name: "Open framework practice on promptanatomy.cloud" });
+    await expect(sister).toBeVisible();
+    const href = await sister.getAttribute("href");
+    expect(href).toMatch(/promptanatomy\.cloud/);
+    expect(href).toMatch(/utm_campaign=framework_basics/);
+  });
+
   test("prompt anatomy links blocks to in-page sections", async ({ page }) => {
     await page.goto("/leader/");
     const anatomy = page.locator("#anatomy");

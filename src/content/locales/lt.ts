@@ -144,7 +144,7 @@ export const ltCopy = {
       subtitle: "Five short cases—then take the kit or open the full app.",
       primaryCta: "Start the scenario",
       secondaryCta: "Open the full app",
-      sisterCta: "Learn the framework",
+      sisterCta: "Practice the framework",
     },
     modules: {
       eyebrow: "Step 1 · Define your business context",
@@ -164,7 +164,7 @@ export const ltCopy = {
       contextStatusReady: "Context ready — included when you copy a module.",
       previewPromptLabel: "Preview compiled prompt",
       context: {
-        title: "Global context block",
+        title: "Global Context Block",
         subtitle: "Required once. Used in every module.",
         badge: "Saved in this session",
         companyLabel: "Company",
@@ -300,7 +300,7 @@ Hardening checklist:
         {
           id: "timeAudit",
           category: "Focus",
-          title: "Leverage filter",
+          title: "Impact filter",
           subtitle: "Identify what to cut, delegate, and prioritize next week.",
           bestFor: "Best for: calendar overload or unclear weekly priorities",
           outputPreviewLine: "Top 20% impact · Delegate list · Eliminate · Focus rules",
@@ -937,8 +937,9 @@ Eliminate now:
       secondary: "Atidaryti PromptAnatomy komandos standartą",
     },
     footer: {
-      brand: "PromptAnatomy · Executive OS",
-      tagline: "Static kit. No login. Your brief stays on your device.",
+      brand: "Part of Prompt Anatomy · Training & checkout →",
+      entityLink: "promptanatomy.app",
+      tagline: "Executive OS static kit. No login. Your brief stays on your device.",
       versionAria: "Site version",
       copyright: "© 2026 Prompt Anatomy",
       creator: "Created by Tomas Staniulis",

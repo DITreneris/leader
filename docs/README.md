@@ -27,6 +27,7 @@
 | [`STRATEGIC_REVISION_PLAN.md`](STRATEGIC_REVISION_PLAN.md) | Long-form product/IA/CTA roadmap + phased backlog (must stay consistent with [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md)) | Strategic scope, hero/CTA experiments, or phase status changes |
 | [`ROADMAP.md`](ROADMAP.md) | **Open backlog only** — what to do next | You close or add prioritized work items |
 | [`UTM_MATRIX.md`](UTM_MATRIX.md) | Canonical `utm_*` values for outbound links; implementation helpers in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts) | New links, campaigns, or URL builder changes |
+| [`LESSONS.md`](LESSONS.md) | Short agent-facing gotchas (hub entity footer, outbound pitfalls) | Recurring mistake or ecosystem contract lands |
 | [`QUALITY_ASSURANCE.md`](QUALITY_ASSURANCE.md) | QA checklist before release | Checks or deploy expectations change |
 | [`MOBILE_UI_AUDIT.md`](MOBILE_UI_AUDIT.md) | Mobile UX: touch targets, safe areas, hero menu, clipboard/library interactions | Mobile layout, `global.css`, or client copy/hash behavior changes materially |
 | [`DOCUMENT_MANAGEMENT.md`](DOCUMENT_MANAGEMENT.md) | Which doc is source of truth; changelog rules; **semver** (`package.json` ↔ `appVersion.ts`, footer `vX.Y.Z`) | Doc process or release/version policy changes |

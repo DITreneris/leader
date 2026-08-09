@@ -11,6 +11,7 @@ description: Landing copy, sections, EN-only development, conversion flow. Stati
 2. [`src/layouts/Page.astro`](../../src/layouts/Page.astro) — section order is canonical
 3. Edit [`src/content/locales/en.ts`](../../src/content/locales/en.ts) only for copy (**`lt.ts` is frozen**); scoped rules apply automatically
 4. Outbound changes → [`src/constants/outboundLinks.ts`](../../src/constants/outboundLinks.ts) + [`docs/UTM_MATRIX.md`](../../docs/UTM_MATRIX.md)
+5. Hub ecosystem gotchas → [`docs/LESSONS.md`](../../docs/LESSONS.md)
 
 ## Product filter
 
@@ -21,6 +22,21 @@ Every change should pass this test:
 - Does it keep the page simpler, not heavier?
 
 If the answer is no, do not add it.
+
+## Cut-only polish (erase words, add none)
+
+When the user asks for word cuts / micro polish with **no additional copy**:
+
+1. Spine marketing strings only — not prompt templates, library bodies, or ROI step prompts.
+2. Leave hub QW1b footer exact (see below).
+3. After deletes, re-read for grammatical US English (do not strand articles).
+4. Gotchas → [`docs/LESSONS.md`](../../docs/LESSONS.md) (cut-only spine polish).
+
+## Hub entity footer (do not regress)
+
+- Footer line 1 is the hub QW1b contract: `Part of Prompt Anatomy · Training & checkout →` + linked `promptanatomy.app` (`footer.brand` / `footer.entityLink`).
+- Build the href with **`buildEntityFooterUrl()`** only (`utm_source=pro`). Do not reuse `buildPromptAnatomyUrl` (`leader`) for that line.
+- Keep it a quiet footer text link — no card, sticky bar, hero overlay, or hard-sell price CTA. Founder stays on the copyright line.
 
 ## Standards (do not re-state here)
 

@@ -56,7 +56,7 @@ Rules:
 - **Design System v1 (tokens, primitives, templates, anti-patterns)**: [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)
 - **Palette and constraints**: `.cursor/rules/visual-and-copy.mdc`
 - **Global tokens/utilities**: `src/styles/global.css`
-- **Outbound URLs** (PromptAnatomy, Telegram, consumer-AI paste via `buildConsumerAiUrl`, sister learning hub via **`buildSisterHubUrl`** → **`https://promptanatomy.cloud`**, tracked `utm_*`): code in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts); catalog in [`docs/UTM_MATRIX.md`](UTM_MATRIX.md). Adding or changing destinations or parameters must keep both aligned (see banner hierarchy in **DESIGN_SYSTEM.md**). The legacy GitHub hub **`ditreneris.github.io/ceo/`** may remain in prose or [`public/llms.txt`](../public/llms.txt) as related context; shipped UI does not use a URL builder for that host.
+- **Outbound URLs** (PromptAnatomy, Telegram, consumer-AI paste via `buildConsumerAiUrl`, sister learning hub via **`buildSisterHubUrl`** → **`https://promptanatomy.cloud`**, hub entity footer via **`buildEntityFooterUrl`** → `utm_source=pro`, tracked `utm_*`): code in [`src/constants/outboundLinks.ts`](../src/constants/outboundLinks.ts); catalog in [`docs/UTM_MATRIX.md`](UTM_MATRIX.md); gotchas in [`docs/LESSONS.md`](LESSONS.md). Conversion CTAs keep `utm_source=leader`. Adding or changing destinations or parameters must keep both aligned (see banner hierarchy in **DESIGN_SYSTEM.md**). The legacy GitHub hub **`ditreneris.github.io/ceo/`** may remain in prose or [`public/llms.txt`](../public/llms.txt) as related context; shipped UI does not use a URL builder for that host.
 
 ### Domains (canonical product vs optional deploy)
 

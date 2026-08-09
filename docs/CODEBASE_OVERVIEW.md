@@ -9,7 +9,7 @@ This repository contains a lean **English-only (US-market)** CEO/COO executive p
 - `src/layouts/Page.astro` composes the one-page landing flow (used by `src/pages/index.astro` at `/`). Legacy `/en/` and `/lt/` are noindex redirect stubs only. Footer plus `InteractiveCopy.astro` handle copy-to-clipboard, demo tab state, and the fixed manual-copy hint; an inline script focuses hash targets for a11y.
 - `src/components/` contains section components (`PasteDestinationStrip` after module grid and demo copy surfaces ChatGPT / Claude / Gemini via `buildConsumerAiUrl` in `outboundLinks.ts`).
 - `src/content/copy.ts` re-exports `uiCopy` from `src/content/locales/en.ts` (active). `lt.ts` remains in repo as frozen archive.
-- `src/constants/outboundLinks.ts`: PromptAnatomy (tracked + legal), Telegram, **`buildConsumerAiUrl`** (paste-to-assistant), **`buildSisterHubUrl`** (`promptanatomy.cloud` — secondary learning CTA) (see [`docs/UTM_MATRIX.md`](UTM_MATRIX.md)).
+- `src/constants/outboundLinks.ts`: PromptAnatomy (tracked + legal), Telegram, **`buildConsumerAiUrl`** (paste-to-assistant), **`buildSisterHubUrl`** (`promptanatomy.cloud` — secondary learning CTA), **`buildEntityFooterUrl`** (hub QW1b entity line → `.app`, `utm_source=pro`) (see [`docs/UTM_MATRIX.md`](UTM_MATRIX.md), [`docs/LESSONS.md`](LESSONS.md)).
 - `src/styles/global.css` contains global styling and reusable visual helpers.
 - `public/assets/` contains visual assets for memes, diagrams, and screenshots.
 - `.cursor/rules/`, `.cursor/skills/`, and `AGENTS.md` guide future AI-assisted development.

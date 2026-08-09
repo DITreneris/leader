@@ -2,6 +2,52 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-08-09 (spine micro-cut · 40 words)
+
+### Changed
+
+- **EN cut-only polish:** [`en.ts`](src/content/locales/en.ts) — erased 40 zero-loss words on the conversion spine (hero → modules → promo → demo → anatomy → kit → FAQ/library touchpoints). No new copy. Prompt bodies and hub footer QW1b untouched.
+
+### Docs
+
+- [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md), [`docs/USER_JOURNEY.md`](docs/USER_JOURNEY.md) — eyebrow / promo / follow-up strings aligned to shipped cuts.
+- [`docs/LESSONS.md`](docs/LESSONS.md) — cut-only spine polish gotcha; skill pointer in [`.cursor/skills/executive-landing-improvement/SKILL.md`](.cursor/skills/executive-landing-improvement/SKILL.md); [`AGENTS.md`](AGENTS.md) index example updated.
+
+## 2026-08-09 (max-ROI EN session)
+
+### Changed
+
+- **US copy close-out:** [`en.ts`](src/content/locales/en.ts) — `Impact filter` (was Leverage filter); promo sister CTA **Practice the framework**; UI title **Global Context Block**; FAQ product host **PromptAnatomy.app**; Q1 **clarity practice** (feature casing).
+- **Conversion spine:** tighter modules subtitle/startHere/workflow labels; promo title *Prove the framework on one executive scenario.*; `#kit` title names Max Value Kit + PromptAnatomy.app; demo/library PDF touchpoints use Max Value Kit wording.
+- **ROI path trim:** shorter subtitle, totals, printable one-liner, and step value lines (prompts unchanged).
+- **SEO freshness:** [`pageSeo.ts`](src/constants/pageSeo.ts) `LEADER_PAGE_DATE_MODIFIED` → `2026-08-09`.
+
+### Fixed
+
+- **US English (earlier same day):** `Prioritise` → `Prioritize`; `theatre` → `theater`; Oxford comma; anatomy sentence case; em-dash spacing; ROI en dashes; trimmed `anatomy.referenceNote`.
+
+### Tests
+
+- [`e2e/smoke.spec.ts`](e2e/smoke.spec.ts) — demo copy success (paste strip + `data-copied`); PromoBanner + FAQ sister hub links to `promptanatomy.cloud`.
+- [`scripts/verify-build-artifacts.mjs`](scripts/verify-build-artifacts.mjs) — PromoBanner aria-label check aligned to Option A copy (no stale `Step 2:` prefix).
+
+### Docs
+
+- [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) — CC-US + promo/module rename notes.
+
+## 2026-08-09 (hub entity footer QW1b)
+
+### Changed
+
+- **Footer:** Canonical hub sibling entity line — `Part of Prompt Anatomy · Training & checkout → promptanatomy.app` — integrated into the existing footer brand row (tagline keeps Executive OS kit reassurance; founder stays on the copyright line).
+- **Outbound:** [`outboundLinks.ts`](src/constants/outboundLinks.ts) — `buildEntityFooterUrl()` with `utm_source=pro`, `utm_medium=entity_footer`, `utm_campaign=ecosystem` (live host `promptanatomy.pro`); other CTAs keep `utm_source=leader`.
+
+### Docs
+
+- [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md) — entity footer row replaces legacy `footer` / `brand` UTM.
+- [`docs/LESSONS.md`](docs/LESSONS.md) — new agent gotchas (QW1b + outbound rule); indexed from [`AGENTS.md`](AGENTS.md), [`docs/README.md`](docs/README.md), [`docs/DOCUMENT_MANAGEMENT.md`](docs/DOCUMENT_MANAGEMENT.md).
+- Agent stack aligned: [`AGENTS.md`](AGENTS.md), [`.cursor/skills/executive-landing-improvement/SKILL.md`](.cursor/skills/executive-landing-improvement/SKILL.md), [`.cursor/rules/project-direction.mdc`](.cursor/rules/project-direction.mdc), [`visual-and-copy.mdc`](.cursor/rules/visual-and-copy.mdc), [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md), [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md), [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md), [`docs/COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md) §16.
+
 ## 2026-06-09 (mobile audit v2 fixes)
 
 ### Fixed

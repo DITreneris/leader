@@ -19,7 +19,7 @@ import { APP_VERSION } from "../constants/appVersion";
 import {
   PROMPT_ANATOMY_PRIVACY_URL,
   PROMPT_ANATOMY_TERMS_URL,
-  buildPromptAnatomyUrl,
+  buildEntityFooterUrl,
   buildTelegramUrl,
 } from "../constants/outboundLinks";
 import { buildContactMailtoUrl } from "../constants/publisher";
@@ -69,7 +69,7 @@ const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c")
 /** Matches MemeMoment order (indices 3, 0, 2, 5); desktop `side` alternates left / right / left / right. */
 const memeSequenceAlts = copy.memes.sequenceImageAlts;
 
-const promptAnatomyFooterHref = buildPromptAnatomyUrl({ medium: "footer", campaign: "brand" });
+const entityFooterHref = buildEntityFooterUrl();
 const telegramHref = buildTelegramUrl();
 ---
 
@@ -168,14 +168,13 @@ const telegramHref = buildTelegramUrl();
     </main>
     <footer class="mx-auto flex max-w-7xl flex-col gap-4 border-t border-white/5 px-5 pb-10 pt-8 text-sm text-slate-500 sm:px-8 md:flex-row md:items-end md:justify-between">
       <div class="flex flex-col gap-1">
-        <p class="font-semibold text-slate-300">
-          {footerCopy.brand}
-          <span aria-hidden="true" class="mx-2 text-slate-600">·</span>
+        <p class="text-slate-400">
+          {footerCopy.brand}{" "}
           <a
-            href={promptAnatomyFooterHref}
-            class="focus-ring text-brand-accent transition hover:text-brand-accent-hover"
+            href={entityFooterHref}
+            class="focus-ring font-semibold text-brand-accent transition hover:text-brand-accent-hover"
           >
-            promptanatomy.app
+            {footerCopy.entityLink}
           </a>
         </p>
         <p>

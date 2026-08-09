@@ -3,8 +3,10 @@ import {
   PROMPT_ANATOMY_ORIGIN,
   PROMPT_ANATOMY_PRIVACY_URL,
   PROMPT_ANATOMY_TERMS_URL,
+  UTM_SOURCE_ENTITY_FOOTER,
   UTM_SOURCE_LEADER,
   buildConsumerAiUrl,
+  buildEntityFooterUrl,
   buildPromptAnatomyUrl,
   buildSisterHubUrl,
   buildTelegramUrl,
@@ -28,6 +30,16 @@ describe("outboundLinks", () => {
     expect(u.searchParams.get("utm_source")).toBe(UTM_SOURCE_LEADER);
     expect(u.searchParams.get("utm_medium")).toBe("hero");
     expect(u.searchParams.get("utm_campaign")).toBe("primary");
+  });
+
+  it("builds entity footer URL with pro ecosystem UTM (QW1b)", () => {
+    const url = buildEntityFooterUrl();
+    const u = new URL(url);
+    expect(u.origin + u.pathname).toBe(`${PROMPT_ANATOMY_ORIGIN}/`);
+    expect(u.searchParams.get("utm_source")).toBe(UTM_SOURCE_ENTITY_FOOTER);
+    expect(u.searchParams.get("utm_source")).toBe("pro");
+    expect(u.searchParams.get("utm_medium")).toBe("entity_footer");
+    expect(u.searchParams.get("utm_campaign")).toBe("ecosystem");
   });
 
   it("builds Telegram URL with social UTM", () => {

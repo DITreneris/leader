@@ -7,7 +7,7 @@ Canonical conversion spine for PromptAnatomy Executive OS. Section order = [`src
 | Step | Anchor | Section eyebrow | Hero nav (friendly) | Primary job |
 |------|--------|-----------------|---------------------|-------------|
 | — | (hero) | Executive decision kit | — | Orient |
-| **1** | `#context` | Step 1 · Define your business context | How it works | Fill context, pick module, copy brief |
+| **1** | `#context` | Step 1 · Define context | How it works | Fill context, pick module, copy brief |
 | bridge | — | Prove it next (PromoBanner) | — | Hand off to proof |
 | **2** | `#demo` | Step 2 · Prove on a scenario | Example | Clarity practice on sample scenario |
 | gate | `#safety-check` | Safety check (not numbered) | — | Risk review before send |

@@ -96,7 +96,7 @@ Analyze this capacity problem: [SITUATION]. Identify the bottleneck, false bottl
 
 ## Meetings
 
-Decisions, not status theatre.
+Decisions, not status theater.
 
 ### Decision meeting agenda
 
