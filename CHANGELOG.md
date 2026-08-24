@@ -2,6 +2,12 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-08-24 (Search Console HTML file)
+
+### Fixed
+
+- **Google site verification:** [`public/google7305663b2567346e.html`](public/google7305663b2567346e.html) ships at `https://promptanatomy.pro/google7305663b2567346e.html`. A file at the repo root (or a Windows ` (1)` download name) is not copied to `dist/` and returns 404.
+
 ## 2026-06-09 (mobile audit v2 fixes)
 
 ### Fixed

@@ -40,6 +40,7 @@ const REQUIRED_DIST_FILES = [
   "android-chrome-512x512.png",
   "og-image.png",
   "site.webmanifest",
+  "google7305663b2567346e.html",
 ];
 
 function fail(message) {
@@ -100,6 +101,11 @@ for (const relativePath of REQUIRED_DIST_FILES) {
   if (!existsSync(path.join(DIST, relativePath))) {
     fail(`Missing file: dist/${relativePath.replace(/\\/g, "/")}`);
   }
+}
+
+const googleVerify = readDist("google7305663b2567346e.html");
+if (googleVerify !== null && !googleVerify.includes("google-site-verification: google7305663b2567346e.html")) {
+  fail("dist/google7305663b2567346e.html must contain the Google Search Console verification token");
 }
 
 const ogImagePath = path.join(DIST, "og-image.png");
