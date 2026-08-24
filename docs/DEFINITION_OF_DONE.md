@@ -17,7 +17,7 @@ Single completion router for agents and humans. **Do not duplicate** checklists 
 | Visuals / CSS / new section | DS tokens; one primary CTA per major section | [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md), [`VISUAL_CONTENT_MAP.md`](VISUAL_CONTENT_MAP.md) |
 | Outbound / UTM links | `outboundLinks.test.ts` green | [`UTM_MATRIX.md`](UTM_MATRIX.md) |
 | SEO / FAQ / `llms.txt` | Four Global Context fields consistent; bump `LEADER_PAGE_DATE_MODIFIED` in [`pageSeo.ts`](../src/constants/pageSeo.ts) | [`QUALITY_ASSURANCE.md`](QUALITY_ASSURANCE.md) — SEO / GEO / AI crawl |
-| Memes | Four beats on page; run `npm run optimize:memes` if PNG changed | [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md) |
+| Memes | Three beats on page; run `npm run optimize:memes` if PNG changed | [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md) |
 | Deploy / env | Dual-deploy smoke per host; `npm run verify:build` with same `SITE_URL` + `BASE_PATH` as build | [`QUALITY_ASSURANCE.md`](QUALITY_ASSURANCE.md) — Dual-deploy smoke |
 | Verify scripts / CI guardrails | `npm run build` then `npm run verify` (or CI `verify:build` step) | [`docs/COMMANDS.md`](COMMANDS.md), [`localeParity.test.ts`](../src/content/locales/localeParity.test.ts) |
 | Executive library / `llms-full.txt` | Run `npm run generate:llms-full`; commit `public/llms-full.txt` | [`docs/COMMANDS.md`](COMMANDS.md) |

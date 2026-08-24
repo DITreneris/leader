@@ -38,10 +38,7 @@ test.describe("smoke", () => {
     await expect(promo).toBeVisible();
     const goldCta = promo.locator("a.cta-gradient").first();
     await expect(goldCta).toHaveAttribute("href", "#demo");
-    const paLink = promo.locator("a[href*='promptanatomy.app']").first();
-    await expect(paLink).toBeVisible();
-    const href = await paLink.getAttribute("href");
-    expect(href).toMatch(/utm_source=leader/);
+    await expect(promo.locator("a[href*='promptanatomy.app']")).toHaveCount(0);
   });
 
   test("macro step eyebrows appear on conversion spine", async ({ page }) => {

@@ -319,6 +319,7 @@ Eliminate now:
         },
       ],
       custom: {
+        expandSummary: "Need a task not listed?",
         eyebrow: "Custom",
         title: "Custom module",
         subtitle: "Create a prompt for a task not covered above.",
@@ -719,6 +720,7 @@ Eliminate now:
       eyebrow: "Step 2 · Prove on a scenario",
       title: "Pick a scenario. Structure the decision.",
       subtitle: "Choose one executive situation and copy a decision-ready prompt.",
+      sampleNote: "Sample scenario — your four context fields apply when you copy a module above.",
       scenarioHint: "",
       briefLabel: "Scenario brief",
       detailsTab: "Risks and questions",
@@ -843,10 +845,9 @@ Eliminate now:
       title: "Problema – ne prieiga prie DI. Problema – kontrolė.",
       delegationBridge: "Same theme as the Delegation scenario below.",
       sectionAriaLabel: "Įrodymo akimirka",
-      /** Eiliškumas kaip `Page.astro` MemeMoment (indeksai 3, 0, 2, 5). */
+      /** Eiliškumas kaip `Page.astro` MemeMoment (indeksai 3, 2, 5). */
       sequenceImageAlts: [
         "Meme: aiškus sprendimo briefas",
-        "Meme: DI chaosas",
         "Meme: delegavimo butelio kaklelis",
         "Meme: vadovo rinkinio struktūra ant stalo",
       ] as const,

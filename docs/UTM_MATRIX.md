@@ -6,7 +6,7 @@ Intent guardrail: keep `leader` CTAs framed as executive decision-ops handoff. P
 
 | Location | Medium | Campaign | Notes |
 |----------|--------|----------|--------|
-| PromoBanner primary (PromptAnatomy) | `modules` | `handoff` | Mid-page upgrade CTA from [`PromoBanner.astro`](../src/components/PromoBanner.astro); `utm_source=leader` |
+| PromoBanner PromptAnatomy (`modules` / `handoff`) | `modules` | `handoff` | **Unmounted 2026-08-24** — builder still in [`outboundLinks.ts`](../src/constants/outboundLinks.ts); do not render on Promo. Scale CTAs stay on `#kit` and hero mobile menu. |
 | PromoBanner sister hub (`promptanatomy.cloud`) | `modules` | `sister_hub` | Secondary text CTA in [`PromoBanner.astro`](../src/components/PromoBanner.astro); built via `buildSisterHubUrl`; `utm_source=leader` |
 | Hero primary CTA (gold, in-page) | — | — | In-page anchor `#context` in [`Hero.astro`](../src/components/Hero.astro) (no UTM). Note: “primary (gold)” refers to visual hierarchy, not UTM campaign naming. |
 | Hero outlined CTA (PromptAnatomy) | `hero` | `primary` | Outbound from [`Hero.astro`](../src/components/Hero.astro); `utm_source=leader` |

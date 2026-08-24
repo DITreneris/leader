@@ -95,7 +95,7 @@ Ankstesni **P1** (LanguageToggle compact, PromptLibrary Copy), **P2** (mobilaus 
 |-------------|-------|-----------|
 | Konteksto laukai | `ExecutiveModules.astro` | `data-context-field="company"|"goal"|"constraint"|"bottleneck"` — skaito `InteractiveCopy.astro` (`readContext`) kompiliuojant promptą. |
 | Konteksto būsena | `ExecutiveModules.astro` + `InteractiveCopy.astro` | `[data-context-status]` — `input` ant konteksto laukų atnaujina tuščio / paruošto tekstą (`contextStatusEmpty` / `contextStatusReady`). |
-| Modulio „Use module“ | `ExecutiveModules.astro` + `InteractiveCopy.astro` | `data-module-copy={id}` — `buildCompiledPrompt(...)`, tada `clipboard.writeText`; sėkmės atveju atskleidžia `[data-paste-destination-strip="context"]`. |
+| Modulio „Copy prompt“ | `ExecutiveModules.astro` + `InteractiveCopy.astro` | `data-module-copy={id}` — `buildCompiledPrompt(...)`, tada `clipboard.writeText`; sėkmės atveju atskleidžia `[data-paste-destination-strip="context"]`. |
 | Featured peržiūra | `ExecutiveModules.astro` + `InteractiveCopy.astro` | `[data-module-preview]` / `[data-module-preview-content]` — `<details>` atidarymas užpildo sukompiliuotą promptą. |
 | Custom modulis | `ExecutiveModules.astro` | `data-custom-task`, `data-custom-output`, `data-custom-preset`, `data-custom-copy`, `data-custom-error`. |
 | Paste juosta | `PasteDestinationStrip.astro` | `#context`: paslėpta iki pirmo sėkmingo modulio/custom kopijavimo; po kopijos lead → `postCopyLead`. |

@@ -94,13 +94,13 @@ Prefer these over inline `cta-gradient` + ad-hoc padding. Always keep class name
 
 | Tier | Class | Use |
 |------|-------|-----|
-| Primary gold | `.btn-primary-gold` + `.cta-gradient` + `.elevate-hover` | Hero, PromoBanner, demo copy, custom module compile |
-| Accent outline | `.btn-outline-accent` + `.elevate-hover` (optional) | Per-module copy, ROI step actions |
-| Neutral outline | `.btn-outline-neutral` + `.elevate-hover` (optional) | PromoBanner secondary (PromptAnatomy.app) |
+| Primary gold | `.btn-primary-gold` + `.cta-gradient` + `.elevate-hover` | Hero, PromoBanner (`#demo`), demo copy |
+| Accent outline | `.btn-outline-accent` + `.elevate-hover` (optional) | Per-module copy, custom compile, ROI step actions |
+| Neutral outline | `.btn-outline-neutral` + `.elevate-hover` (optional) | Secondary outbound where used (not Promo) |
 | Warning outline | `.btn-outline-warning` + `.type-cta-label` | SafetyCheck copy only |
 | Text link | Underlined `text-sm font-semibold` | Sister hub, footer, tertiary |
 
-**Module hierarchy:** custom compile = gold primary; per-module “Use module” = accent outline.
+**Module hierarchy:** custom compile and per-module **Copy prompt** = accent outline. Custom sits in a closed `<details>` so it does not compete with Promo gold → `#demo`.
 
 ---
 
@@ -125,7 +125,7 @@ Use a small number of **visual tiers** so callouts feel part of the same page, n
 | Tier | Pattern | Role |
 |------|---------|------|
 | **Ribbon** | `HighlightStrip` `band` (`context` / `panel`) | Short guidance, instructions, “start here” — no competing gold CTA on the same row. |
-| **Glass promo** | `HighlightStrip` `promo` (e.g. [`PromoBanner.astro`](../src/components/PromoBanner.astro)) | Mid-funnel next step: gold in-page `#demo`; outlined PromptAnatomy.app; tertiary text link to promptanatomy.cloud. |
+| **Glass promo** | `HighlightStrip` `promo` (e.g. [`PromoBanner.astro`](../src/components/PromoBanner.astro)) | Mid-funnel next step: gold in-page `#demo`; tertiary text link to promptanatomy.cloud. PromptAnatomy.app stays at `#kit`. |
 | **Gold commitment** | [`CourseCTA.astro`](../src/components/CourseCTA.astro) gradient block | Strongest download / asset moment after the narrative has landed (e.g. after safety check). |
 
 **Rule of thumb:** avoid stacking multiple “brightest” conversion surfaces with no vertical breathing space; see story order in [`Page.astro`](../src/layouts/Page.astro).
@@ -161,8 +161,7 @@ Maps “template” → existing components (reference implementation).
 | Tier | Visual | Destination |
 |------|--------|-------------|
 | 1 (gold) | `cta-gradient` | In-page `#demo` (clarity practice) |
-| 2 (outline) | Border button | PromptAnatomy.app (`buildPromptAnatomyUrl`, UTM `modules` / `handoff`) |
-| 3 (text) | Underlined link | promptanatomy.cloud (`buildSisterHubUrl`) |
+| 2 (text) | Underlined link | promptanatomy.cloud (`buildSisterHubUrl`) |
 
 - **New section:** use `SectionShell` + `SectionTitleBlock` unless you are intentionally using the **Hero** template.
 - **Diagrams:** SVG preferred; wrap in `DiagramContainer` (or equivalent classes) for frame consistency.

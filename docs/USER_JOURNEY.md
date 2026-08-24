@@ -83,10 +83,10 @@ Full scroll → `#anatomy` (blocks) → `#roi` (moves) → `#library`. Depth mus
 | Beat | Primary CTA intent | Destination |
 |------|-------------------|-------------|
 | Hero | Build my decision brief | `#context` |
-| Promo | Start the scenario | `#demo` |
+| Promo | Start the scenario | `#demo` only (no PromptAnatomy.app — scale stays at `#kit`) |
 | Demo end | Download PDF kit | `#kit` |
 | Kit | Download Max Value Kit | PDF |
-| Scale | Open PromptAnatomy | `promptanatomy.app` (UTM) |
+| Scale | Open PromptAnatomy | `promptanatomy.app` (UTM) from `#kit` and footer |
 
 See [`STRATEGIC_REVISION_PLAN.md`](STRATEGIC_REVISION_PLAN.md) §4.3 and [`UTM_MATRIX.md`](UTM_MATRIX.md).
 

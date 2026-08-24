@@ -104,6 +104,7 @@ Canonical files and policy:
 | Meta, canonical, OG | [`src/layouts/Page.astro`](../src/layouts/Page.astro), [`src/pages/index.astro`](../src/pages/index.astro) |
 | JSON-LD (`WebPage` dates, `FAQPage`, Organization) | [`src/utils/pageJsonLd.ts`](../src/utils/pageJsonLd.ts), [`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts) |
 | Indexable FAQ copy | [`src/content/locales/en.ts`](../src/content/locales/en.ts) (`lt.ts` frozen) |
+| Google Search Console HTML file | [`public/google7305663b2567346e.html`](../public/google7305663b2567346e.html) → live `https://promptanatomy.pro/google7305663b2567346e.html` (must live in `public/`, not repo root) |
 
 **When to bump `LEADER_PAGE_DATE_MODIFIED`:** meaningful landing copy, FAQ, or on-page SEO/schema changes ([`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts)).
 

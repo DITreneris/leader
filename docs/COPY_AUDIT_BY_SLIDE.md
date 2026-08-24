@@ -37,7 +37,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 | 0 | Puslapio karkasas | `<head>`, skip | `meta.*`, `a11y.*`, JSON-LD |
 | 1 | Hero | (header + hero blokas) | `nav.*`, `hero.*`, `heroDiagram.*` |
 | 2 | Meme 1 | — | `memes.items[3]` |
-| 3 | Meme 2 | — | `memes.items[0]` |
+| 3 | Meme 2 (unmounted 2026-08-24) | — | `memes.items[0]` reserved |
 | 4 | Kontekstas + moduliai | `#context` | `modules.*` |
 | 5 | Promo juosta | — | `promoBanner.*` |
 | 6 | Meme 3 | — | `memes.items[2]` |
@@ -142,21 +142,22 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ---
 
-## 3. Meme 2 (`memes.items[0]`)
+## 3. Meme 2 (`memes.items[0]`) — unmounted
 
-- **Pastabos:** kaip Meme 1; paveikslas `meme-01-ai-chaos.png`, `alt` EN `Page.astro`.
+- **2026-08-24:** `meme-01-ai-chaos.png` removed from [`Page.astro`](../src/layouts/Page.astro) (restated hero H1). Copy + assets reserved; see [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).
 
 **Veiksmai**
 
 - [x] P1: paveikslo `alt` – `memes.sequenceImageAlts` (žr. CC-10).
+- [x] **2026-08-24:** beat unmounted; `sequenceImageAlts` trimmed to three mounted beats.
 
 ---
 
 ## 5. Kontekstas + moduliai (`#context`)
 
 - **Failai:** [`ExecutiveModules.astro`](../src/components/ExecutiveModules.astro), [`InteractiveCopy.astro`](../src/components/InteractiveCopy.astro) (JS kompiliavimas)
-- **Raktai:** `modules.context`, `modules.contextFootnote`, `modules.contextMapAriaLabel`, `modules.contextMapInjectLabel`, `modules.contextMapCaption`, `modules.items[]`, `modules.custom`, `modules.rulesPreview`, `modules.roleLine`, fallback placeholderiai JS
-- **EN (shipped Option A):** `modules.eyebrow` = **Step 1 · Define context**; `workflowAriaLabel` = **Within Step 1: …**; `startHere` bridges to scenario via Promo without repeating Step numbers (no second gold CTA here). Žr. [`USER_JOURNEY.md`](USER_JOURNEY.md).
+- **Raktai:** `modules.context`, `modules.items[]`, `modules.custom` (incl. `expandSummary`), `modules.rulesPreview`, `modules.roleLine`, fallback placeholderiai JS
+- **EN (shipped 2026-08-24):** `modules.context.badge` = **Used when you copy**; `modules.copyButton` = **Copy prompt**; custom compile = outline, closed `<details>` (`expandSummary`). No gold CTA inside `#context`. Žr. [`USER_JOURNEY.md`](USER_JOURNEY.md).
 
 **LT**
 
@@ -174,11 +175,10 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **Veiksmai**
 
-- [x] P2: LT `context.badge` → **„Išlieka“** (EN lieka `PERSISTENT`).
+- [x] P2: LT `context.badge` → **„Išlieka“** (historical; shipped EN is **Used when you copy**).
 - [x] P2: `InteractiveCopy` – komentaras apie angliškus placeholderius tuštiems laukams.
 - [x] P3: modulių antraštės + pavyzdinės išvestys LT (`modules.items`, `modules.custom`).
-- [x] **2026-04-28:** `contextCopyHint` (`ExecutiveModules.astro`) — aiškumas, kad kontekstas įeina per modulio **Copy full prompt**, ne kaip atskiras blokas.
-- [x] **2026-04-29:** `modules.contextFootnote` — vienas sutrauktas puslapinio teksto blokas vietoj `contextWarning` + `contextCopyHint`; [`ContextFieldMap.astro`](../src/components/ds/ContextFieldMap.astro) (`ExecutiveModules.astro`) — 4 laukų → moduliai schema.
+- [x] **2026-08-24:** custom gold removed; `ContextFieldMap` / `contextFootnote` are not shipped (workflow rail only).
 
 ---
 
@@ -190,7 +190,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **LT / EN**
 
 - CTA hierarchija sutampa su konversijos kopėčiomis.
-- **EN (shipped Option A):** `promoBanner.eyebrow` = **Prove it next**; `ariaLabel` = **Prove on a scenario before the full product.** Gold → `#demo`.
+- **EN (shipped 2026-08-24):** `promoBanner.eyebrow` = **Prove it next**; `ariaLabel` = **Prove on a scenario before the full product.** Gold → `#demo`. No outlined PromptAnatomy.app (scale stays at `#kit`). Sister text → cloud. `secondaryCta` key unused.
 
 **Veiksmai**
 
@@ -198,6 +198,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 - [x] **2026-04-28:** `promoBanner.secondaryCta` nebe „static demo“ — **practice / clarity** (`Try the clarity practice first` / `Pirmiau – aiškumo praktika`); sinchronizuota su `nav.proof` ir `demo.eyebrow`.
 - [x] **2026-06-09:** Funnel continuity (tester #05) — gold **`Start the scenario`** → `#demo`; outlined PA **`Open the full app`**; tertiary sister → cloud. Meme index 2: `memes.delegationBridge` ties Delegation chip (not “scenario 1 of 5”).
 - [x] **2026-08-09:** Promo title *Prove the framework on one scenario.*; tertiary **`Practice the framework`**; module **Impact filter**; context UI **Global Context Block**; spine micro-cut (40 zero-loss words).
+- [x] **2026-08-24:** outlined PA **Open the full app** removed from Promo (proof-before-scale).
 
 ---
 
@@ -227,6 +228,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **EN (shipped 2026-06-09 — tester #06)**
 
 - Headline: *Pick a scenario. Structure the decision.* — ne „Get the brief“; CTA **Copy decision prompt**.
+- **2026-08-24:** `demo.sampleNote` — sample scenario does not include the four Global Context fields.
 - Vienas `max-w-5xl` panelis: chips + scenario `title` + brief stack (bottom line → decision → how to run it) + 3 tabai (**Risks and questions** / **Required input** / **Prompt preview**) + paste strip **reveal-on-copy** (parity su `#context`).
 - Meeting: `decisionBullets` sąrašas; kiti scenarijai — pastraipa.
 
@@ -279,7 +281,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **LT / EN**
 
 - „Pasiimk“ / „Take“ – imperatyvas antraštėje; derina su CTA agresyvumu.
-- **EN (shipped Option A):** `cta.eyebrow` = **Step 3 · Download the kit**; `nav.kitPdf` = **What you get** (unchanged).
+- **EN (shipped 2026-08-24):** `cta.eyebrow` = **Step 3 · Download the kit**; `cta.title` = **Download Max Value Kit.** (one job; PA.app stays on secondary button); `nav.kitPdf` = **What you get**.
 
 **Veiksmai**
 

@@ -27,9 +27,10 @@ import { buildClientCopyPayload } from "../utils/clientCopyPayload";
 import { buildLeaderPageJsonLd } from "../utils/pageJsonLd";
 
 /**
- * Meme images use `uiCopy[lang].memes.items` indices 3, 0, 2, 5 (see `Page.astro` order).
- * Image `alt` text is `uiCopy[lang].memes.sequenceImageAlts[0..3]` in that same order (localized).
+ * Meme images use `uiCopy[lang].memes.items` indices 3, 2, 5 (see `Page.astro` order).
+ * Image `alt` text is `uiCopy[lang].memes.sequenceImageAlts[0..2]` in that same order (localized).
  * Post–ClarityDemo beat: index 5 → reward_2.png (printable kit / structure on desk).
+ * Index 0 (AI chaos) is reserved / unmounted — see `docs/MEME_PRIORITY_REGISTRY.md`.
  *
  * Live order is documented in `docs/VISUAL_CONTENT_MAP.md`.
  */
@@ -66,7 +67,7 @@ const structuredData = buildLeaderPageJsonLd({
 });
 const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c");
 
-/** Matches MemeMoment order (indices 3, 0, 2, 5); desktop `side` alternates left / right / left / right. */
+/** Matches MemeMoment order (indices 3, 2, 5); desktop `side` zig-zags left / right / left. */
 const memeSequenceAlts = copy.memes.sequenceImageAlts;
 
 const entityFooterHref = buildEntityFooterUrl();
@@ -126,25 +127,15 @@ const telegramHref = buildTelegramUrl();
         loading="eager"
         fetchPriority="high"
       />
-      <MemeMoment
-        lang={lang}
-        index={0}
-        src="meme-01-ai-chaos.png"
-        alt={memeSequenceAlts[1]}
-        accent="gold"
-        side="right"
-        width={1280}
-        height={720}
-      />
       <ExecutiveModules lang={lang} />
       <PromoBanner lang={lang} />
       <MemeMoment
         lang={lang}
         index={2}
         src="meme-04-delegation-bottleneck.png"
-        alt={memeSequenceAlts[2]}
+        alt={memeSequenceAlts[1]}
         accent="gold"
-        side="left"
+        side="right"
         width={1280}
         height={720}
       />
@@ -153,9 +144,9 @@ const telegramHref = buildTelegramUrl();
         lang={lang}
         index={5}
         src="reward_2.png"
-        alt={memeSequenceAlts[3]}
+        alt={memeSequenceAlts[2]}
         accent="gold"
-        side="right"
+        side="left"
         width={1280}
         height={720}
       />

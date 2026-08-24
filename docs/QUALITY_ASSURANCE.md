@@ -70,7 +70,7 @@ Not in CI today; consider when the landing grows in interactivity:
 - Gradients, glass cards, and memes support the message rather than distract.
 - The before/after proof diagram renders (SVG) and stays low-text.
 - Visual breaks explain workflow control, safety, ROI, or system thinking.
-- Four `MemeMoment` beats are present on the live page (see `Page.astro` / `docs/VISUAL_CONTENT_MAP.md`); they remain fragmented recognition beats (no CTA).
+- Three `MemeMoment` beats are present on the live page (see `Page.astro` / `docs/VISUAL_CONTENT_MAP.md`); they remain fragmented recognition beats (no CTA).
 - No meme moment carries a CTA or eyebrow ladder; each one is a single recognition beat.
 - Visual breaks use memes and section rhythm; the former standalone “OS fit” block was removed—its message lives in the FAQ “vs prompt list” answer.
 - The library accordion opens the first category by default and keeps the rest collapsed.
@@ -117,7 +117,7 @@ After changes to [`integrations/robots-txt.mjs`](../integrations/robots-txt.mjs)
 6. If FAQ items changed, confirm `en.ts` `faq.items` and `llms.txt` stay consistent ([`docs/COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md) as needed).
 7. When ship includes copy or on-page SEO changes, bump **`LEADER_PAGE_DATE_MODIFIED`** in [`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts) and re-build.
 8. Optional: run 2–3 English product queries in Perplexity or ChatGPT (with browsing) and note whether Executive OS / Global Context Block citations match `llms.txt` and FAQ.
-9. Verify CTA hierarchy: in-page gold CTAs follow **`#context` → `#demo` → `#kit`** (Hero, PromoBanner, ClarityDemo follow-up, CourseCTA); PromptAnatomy.app is the **canonical product destination** after the funnel (outlined/text in Hero, PromoBanner, `#kit`, footer)—not gold before `#demo`; `promptanatomy.cloud` stays a tertiary learning path.
+9. Verify CTA hierarchy: in-page gold CTAs follow **`#context` → `#demo` → `#kit`** (Hero, PromoBanner, ClarityDemo follow-up, CourseCTA); PromptAnatomy.app is the **canonical product destination** after the funnel (outlined/text in Hero mobile menu, `#kit`, footer)—not on Promo and not gold before `#demo`; `promptanatomy.cloud` stays a tertiary learning path.
 
 ## Dual-deploy smoke checklist
 
@@ -125,7 +125,7 @@ After env or hosting changes, spot-check **each** production host:
 
 | Host | Build env | Spot-check |
 |------|-----------|------------|
-| **promptanatomy.pro** (primary) | `SITE_URL=https://promptanatomy.pro`, `BASE_PATH=/` | `/`, PDF kit, `/og-image.png`, `dist/robots.txt` `Sitemap:` → `https://promptanatomy.pro/sitemap-index.xml` |
+| **promptanatomy.pro** (primary) | `SITE_URL=https://promptanatomy.pro`, `BASE_PATH=/` | `/`, PDF kit, `/og-image.png`, Search Console file `/google7305663b2567346e.html`, `dist/robots.txt` `Sitemap:` → `https://promptanatomy.pro/sitemap-index.xml` |
 | **ditreneris.github.io/leader** (mirror) | `SITE_URL=https://<owner>.github.io`, `BASE_PATH=/leader` | `/leader/`, PDF under `/leader/assets/…`, sitemap under `/leader/` |
 
 Confirm canonical and `og:url` in `dist/index.html` match the host you built for. Legacy `/en/` and `/lt/` should redirect to root (301 on Vercel; noindex stubs on mirror).

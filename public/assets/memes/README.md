@@ -5,19 +5,18 @@ CEO-focused meme images used on the landing page as fragmented emotional rest mo
 Active assets (PNG masters in repo; **AVIF** + **WebP** derivatives generated for delivery — see below):
 
 - `reward_2.png` — printable kit / same structure on paper (post–`ClarityDemo` beat; `memes.items[5]`).
-- `meme-01-ai-chaos.png` — AI chaos / structure vs noise (`index={0}`, after first meme beat).
+- `meme-01-ai-chaos.png` — **not mounted** on the live page (removed 2026-08-24); asset kept for optional reuse / social.
 - `meme-02-meeting-overload.png` — **not mounted** on the live page (removed 2026-04-29); asset kept for optional reuse / social.
 - `meme-03-clear-decision.png` — structured AI turns random output into clear decisions.
 - `meme-04-delegation-bottleneck.png` — adding AI to an unclear process only makes the bottleneck more visible.
 
-Placement on the landing page (see `Page.astro`) — **four** `MemeMoment` beats, indices into `copy.memes.items`:
+Placement on the landing page (see `Page.astro`) — **three** `MemeMoment` beats, indices into `copy.memes.items`:
 
 1. After hero — `meme-03-clear-decision.png` (`index={3}`, gold accent).
-2. After first meme beat — `meme-01-ai-chaos.png` (`index={0}`, gold).
-3. After `PromoBanner`, before `ClarityDemo` — `meme-04-delegation-bottleneck.png` (`index={2}`, gold).
-4. Immediately after `ClarityDemo` — `reward_2.png` (`index={5}`, gold).
+2. After `PromoBanner`, before `ClarityDemo` — `meme-04-delegation-bottleneck.png` (`index={2}`, gold).
+3. Immediately after `ClarityDemo` — `reward_2.png` (`index={5}`, gold).
 
-Not mounted: `memes.items[1]` (spare copy); `memes.items[4]` + `meme-02-meeting-overload.png` removed from the stack **2026-04-29** (see [`docs/MEME_PRIORITY_REGISTRY.md`](../../../docs/MEME_PRIORITY_REGISTRY.md)).
+Not mounted: `memes.items[0]` + `meme-01-ai-chaos.png` removed **2026-08-24**; `memes.items[1]` (spare copy); `memes.items[4]` + `meme-02-meeting-overload.png` removed **2026-04-29** (see [`docs/MEME_PRIORITY_REGISTRY.md`](../../../docs/MEME_PRIORITY_REGISTRY.md)).
 
 Rules:
 

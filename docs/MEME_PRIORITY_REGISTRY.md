@@ -4,7 +4,9 @@
 
 **Canonical order:** [`src/layouts/Page.astro`](../src/layouts/Page.astro). Copy indices map to `uiCopy.memes.items[index]` in [`en.ts`](../src/content/locales/en.ts) / [`lt.ts`](../src/content/locales/lt.ts).
 
-**Shipped (2026-04-29):** post–`RoiPath` beat **`items[4]`** (`meme-02-meeting-overload.png`) **removed** from the page. `items[4]` copy remains in locales for optional reuse; `sequenceImageAlts` matches only the four mounted memes in `Page.astro` order.
+**Shipped (2026-08-24):** post-hero beat **`items[0]`** (`meme-01-ai-chaos.png`) **removed** from the page (restated the hero H1). `items[0]` copy remains in locales for optional reuse; `sequenceImageAlts` matches only the three mounted memes in `Page.astro` order.
+
+**Earlier (2026-04-29):** post–`RoiPath` beat **`items[4]`** (`meme-02-meeting-overload.png`) removed. `items[4]` copy remains in locales.
 
 ---
 
@@ -13,9 +15,8 @@
 | Order | `items` index | Asset | EN title (beat) | Role in journey |
 |-------|---------------|-------|-----------------|-----------------|
 | 1 | **3** | `meme-03-clear-decision.png` | Control creates results | After Hero — outcome-first emotional beat (proof lives in **HeroDecisionDiagram**). |
-| 2 | **0** | `meme-01-ai-chaos.png` | AI chaos | Pain before **`#context`** — structure vs noise. |
-| 3 | **2** | `meme-04-delegation-bottleneck.png` | Delegation bottleneck | Before **`#demo`** — vague brief → editor trap. |
-| 4 | **5** | `reward_2.png` | Keep the structure on your desk | Post-demo → kit / PDF cue toward **`#kit`**. |
+| 2 | **2** | `meme-04-delegation-bottleneck.png` | Delegation bottleneck | Before **`#demo`** — vague brief → editor trap. |
+| 3 | **5** | `reward_2.png` | Keep the structure on your desk | Post-demo → kit / PDF cue toward **`#kit`**. |
 
 ---
 
@@ -23,6 +24,7 @@
 
 | `items` index | Asset | EN title | Notes |
 |---------------|-------|----------|--------|
+| **0** | `meme-01-ai-chaos.png` | AI chaos | **Removed 2026-08-24** — restated hero H1; delayed `#context`. PNG/AVIF/WebP kept under [`public/assets/memes/`](../public/assets/memes/) for optional reuse. |
 | **1** | — | Structure creates control | Spare copy only; never wired in `Page.astro`. |
 | **4** | `meme-02-meeting-overload.png` | Leadership needs the system | **Removed 2026-04-29** — overlapped PromoBanner + PromptAnatomy; low marginal value after `RoiPath`. PNG may remain in [`public/assets/memes/`](../public/assets/memes/) for social reuse. |
 
@@ -32,9 +34,9 @@
 
 | Priority | Index | File | Rationale |
 |----------|-------|------|-----------|
-| Next candidate | **2** | `meme-04-delegation-bottleneck.png` | Demo already proves clarity; smallest loss after removing **4**. |
+| Next candidate | **2** | `meme-04-delegation-bottleneck.png` | Demo already proves clarity; smallest loss after removing **0** and **4**. |
 
-**Keep unless strategically trimming:** indices **0**, **3**, **5** (problem hook, proof bridge, kit reward).
+**Keep unless strategically trimming:** indices **3**, **5** (proof bridge, kit reward).
 
 ---
 

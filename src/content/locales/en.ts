@@ -96,7 +96,7 @@ export const enCopy = {
       eyebrow: "Executive decision kit",
       title: "Turn AI noise into one clear decision.",
       subtitle:
-        "Turn reports, KPIs, and competing opinions into a decision brief with owner and next action.",
+        "Reports, KPIs, and competing opinions become a decision brief with owner and next action.",
       inPageCta: "Build my decision brief",
       productCta: "Open the full app",
       ctaMeta: "Free · No login · Ready in 2 minutes",
@@ -165,7 +165,7 @@ export const enCopy = {
       context: {
         title: "Global Context Block",
         subtitle: "Required once. Used in every module.",
-        badge: "Saved in session",
+        badge: "Used when you copy",
         companyLabel: "Company",
         companyPlaceholder: "e.g., Series B B2B SaaS, 150 employees",
         goalLabel: "Current goal",
@@ -190,7 +190,7 @@ export const enCopy = {
       taskLabel: "Task",
       outputLabel: "What you get",
       explanationLabel: "Explanation",
-      copyButton: "Use module",
+      copyButton: "Copy prompt",
       copiedButton: "Prompt copied",
       items: [
         {
@@ -318,6 +318,7 @@ Eliminate now:
         },
       ],
       custom: {
+        expandSummary: "Need a task not listed?",
         eyebrow: "Custom",
         title: "Custom module",
         subtitle: "Create a prompt for a task not covered above.",
@@ -719,6 +720,7 @@ Eliminate now:
       eyebrow: "Step 2 · Prove on a scenario",
       title: "Pick a scenario. Structure the decision.",
       subtitle: "Choose one situation and copy a decision-ready prompt.",
+      sampleNote: "Sample scenario — your four context fields apply when you copy a module above.",
       scenarioHint: "",
       briefLabel: "Scenario brief",
       detailsTab: "Risks and questions",
@@ -839,10 +841,9 @@ Eliminate now:
       title: "The problem is not access to AI. It is control.",
       delegationBridge: "Same theme as the Delegation scenario below.",
       sectionAriaLabel: "Executive proof moment",
-      /** Order matches `Page.astro` MemeMoment sequence (indices 3, 0, 2, 5). */
+      /** Order matches `Page.astro` MemeMoment sequence (indices 3, 2, 5). */
       sequenceImageAlts: [
         "Meme: clear decision brief",
-        "Meme: AI chaos",
         "Meme: delegation bottleneck",
         "Meme: keep the executive kit structure on your desk",
       ] as const,
@@ -927,7 +928,7 @@ Eliminate now:
     },
     cta: {
       eyebrow: "Step 3 · Download the kit",
-      title: "Download Max Value Kit. Open PromptAnatomy.app when you need the team standard.",
+      title: "Download Max Value Kit.",
       subtitle: "",
       primary: "Download Max Value Kit",
       secondary: "Open PromptAnatomy team standard",

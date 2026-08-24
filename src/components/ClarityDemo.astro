@@ -21,6 +21,11 @@ const hasDecisionBullets =
 
 <SectionShell id="demo" anchorFocusable>
   <SectionTitleBlock eyebrow={demo.eyebrow} title={demo.title} subtitle={demo.subtitle} />
+  {
+    demo.sampleNote ? (
+      <p class="type-body-support mx-auto mt-4 max-w-3xl text-center">{demo.sampleNote}</p>
+    ) : null
+  }
 
   <p id="demo-scenario-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
 

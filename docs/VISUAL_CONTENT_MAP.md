@@ -28,13 +28,14 @@ Several `MemeMoment.astro` beats break up long reading. Copy always comes from `
 | Order | `index` | File | Copy beat (EN title) |
 |-------|---------|------|----------------------|
 | 1 | 3 | `meme-03-clear-decision.png` | Control creates results |
-| 2 | 0 | `meme-01-ai-chaos.png` | AI chaos |
-| 3 | 2 | `meme-04-delegation-bottleneck.png` | Delegation bottleneck |
-| 4 | 5 | `reward_2.png` | Keep the structure on your desk |
+| 2 | 2 | `meme-04-delegation-bottleneck.png` | Delegation bottleneck |
+| 3 | 5 | `reward_2.png` | Keep the structure on your desk |
 
 Desktop (`lg+`): **two-column asymmetric grid** — the **meme image always occupies the 1.25fr (wide) column** and copy the 0.75fr column. When **`side="left"`**, columns are **1.25fr | 0.75fr** (image left). When **`side="right"`** (zig-zag), [`MemeMoment.astro`](../src/components/MemeMoment.astro) uses **0.75fr | 1.25fr** so the image stays wide on the **right** (previously a bug put the image in the narrow column). Alternating **`side`** per [`Page.astro`](../src/layouts/Page.astro) is intentional. Below **`lg`**: stacked — full-width **16:9** image, then title + body (centered).
 
 Section flow between beats: `ExecutiveModules` (`#context`) → `PromoBanner` → `ClarityDemo` (`#demo`) → **meme index 5** → `SafetyCheck` → `CourseCTA` (`#kit`) → `PromptAnatomy` → `RoiPath` → `Faq` → `PromptLibrary` (`#library`).
+
+Removed **2026-08-24:** post-hero meme `items[0]` (`meme-01-ai-chaos.png`) — restated the hero H1; asset kept for optional reuse.
 
 Removed **2026-04-29:** post–`RoiPath` meme `items[4]` (`meme-02-meeting-overload.png`) — see [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).
 

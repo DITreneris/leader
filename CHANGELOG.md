@@ -2,6 +2,29 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-08-24 (Search Console HTML file)
+
+### Fixed
+
+- **Google site verification:** moved `google7305663b2567346e.html` into [`public/`](public/) so Astro ships it at `https://promptanatomy.pro/google7305663b2567346e.html`. A file at the repo root is not copied to `dist/` and returns 404. [`verify-build-artifacts.mjs`](scripts/verify-build-artifacts.mjs) now requires the file and token.
+
+## 2026-08-24 (max-ROI conversion spine)
+
+### Changed
+
+- **Faster Step 1:** unmounted AI-chaos meme (`meme-01-ai-chaos.png` / `memes.items[0]`). Live page is three beats: control → delegation → kit-on-desk. Chaos assets stay in `public/` for reuse.
+- **Proof before scale:** PromoBanner gold stays `#demo`; outlined PromptAnatomy.app removed (scale remains `#kit` + footer). Sister hub text unchanged.
+- **CTA discipline:** custom module is outline + closed `<details>` (`Need a task not listed?`). No gold inside `#context`.
+- **Honesty / labels:** context badge **Used when you copy**; module CTA **Copy prompt**; hero subtitle drops the second “Turn”; kit H2 is **Download Max Value Kit.**; demo adds a one-line sample-scenario note.
+
+### Tests
+
+- [`e2e/smoke.spec.ts`](e2e/smoke.spec.ts) + [`scripts/verify-build-artifacts.mjs`](scripts/verify-build-artifacts.mjs) — Promo must **not** contain `promptanatomy.app`.
+
+### Docs
+
+- Meme-count and CTA-contract docs aligned to three beats and Promo-without-PA (`MEME_PRIORITY_REGISTRY`, `VISUAL_CONTENT_MAP`, `CODEBASE_OVERVIEW`, `USER_JOURNEY`, `UTM_MATRIX`, `DESIGN_SYSTEM`, `DEFINITION_OF_DONE`, `QUALITY_ASSURANCE`, `LESSONS`).
+
 ## 2026-08-09 (spine micro-cut · 40 words)
 
 ### Changed

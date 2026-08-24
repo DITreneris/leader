@@ -206,72 +206,79 @@ const inputClass =
       }
     </div>
 
-    <ContentCard
-      surface="glass"
-      as="article"
-      padding="compact"
-      overflow="hidden"
-      moduleCard
-      moduleId="custom"
-      class="flex h-full flex-col"
-    >
-      <div class="flex-1">
-        <p class="type-eyebrow-inline text-brand-accent">{modules.custom.eyebrow}</p>
-        <h3 class="mt-3 text-xl font-black text-white">{modules.custom.title}</h3>
-        <p class="mt-2 text-sm leading-6 text-slate-200">{modules.custom.subtitle}</p>
+    <details class="group">
+      <summary
+        class="focus-ring summary-hover mb-4 flex min-h-11 cursor-pointer list-none items-center rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 text-sm font-semibold text-slate-200 outline-none [&::-webkit-details-marker]:hidden"
+      >
+        {modules.custom.expandSummary}
+      </summary>
+      <ContentCard
+        surface="glass"
+        as="article"
+        padding="compact"
+        overflow="hidden"
+        moduleCard
+        moduleId="custom"
+        class="flex h-full flex-col"
+      >
+        <div class="flex-1">
+          <p class="type-eyebrow-inline text-brand-accent">{modules.custom.eyebrow}</p>
+          <h3 class="mt-3 text-xl font-black text-white">{modules.custom.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-200">{modules.custom.subtitle}</p>
 
-        <div class="mt-5 grid gap-4 lg:grid-cols-2">
-          <div>
-            <label class="type-form-label-readable" for="custom-task">
-              {modules.custom.taskLabel}
-            </label>
-            <textarea
-              id="custom-task"
-              class:list={[inputClass, "min-h-36 radius-xl leading-6"]}
-              placeholder={modules.custom.taskPlaceholder}
-              data-custom-task
-            />
-          </div>
-
-          <div>
-            <label class="type-form-label-readable" for="custom-output">
-              {modules.custom.outputLabel}
-            </label>
-            <div class="mt-2 flex flex-wrap gap-2">
-              {
-                modules.custom.outputPresets.map((preset) => (
-                  <button
-                    type="button"
-                    class="focus-ring btn-chip min-h-11 rounded-full px-4 py-3 text-sm font-semibold"
-                    data-custom-preset={preset.id}
-                  >
-                    {preset.label}
-                  </button>
-                ))
-              }
+          <div class="mt-5 grid gap-4 lg:grid-cols-2">
+            <div>
+              <label class="type-form-label-readable" for="custom-task">
+                {modules.custom.taskLabel}
+              </label>
+              <textarea
+                id="custom-task"
+                class:list={[inputClass, "min-h-36 radius-xl leading-6"]}
+                placeholder={modules.custom.taskPlaceholder}
+                data-custom-task
+              />
             </div>
-            <textarea
-              id="custom-output"
-              class:list={[inputClass, "mt-3 min-h-36 radius-xl leading-6"]}
-              placeholder={modules.custom.outputPlaceholder}
-              data-custom-output
-            />
+
+            <div>
+              <label class="type-form-label-readable" for="custom-output">
+                {modules.custom.outputLabel}
+              </label>
+              <div class="mt-2 flex flex-wrap gap-2">
+                {
+                  modules.custom.outputPresets.map((preset) => (
+                    <button
+                      type="button"
+                      class="focus-ring btn-chip min-h-11 rounded-full px-4 py-3 text-sm font-semibold"
+                      data-custom-preset={preset.id}
+                    >
+                      {preset.label}
+                    </button>
+                  ))
+                }
+              </div>
+              <textarea
+                id="custom-output"
+                class:list={[inputClass, "mt-3 min-h-36 radius-xl leading-6"]}
+                placeholder={modules.custom.outputPlaceholder}
+                data-custom-output
+              />
+            </div>
           </div>
+
+          <p class="mt-3 text-sm font-semibold text-rose-100 hidden" data-custom-error role="status" aria-live="polite" />
         </div>
 
-        <p class="mt-3 text-sm font-semibold text-rose-100 hidden" data-custom-error role="status" aria-live="polite" />
-      </div>
-
-      <button
-        type="button"
-        class="focus-ring btn-primary-gold cta-gradient elevate-hover mt-5 max-w-xs self-start"
-        data-custom-copy
-        data-copy-label-i18n="modules.custom.copyButton"
-        data-copy-copied-i18n="modules.custom.copiedButton"
-      >
-        {modules.custom.copyButton}
-      </button>
-    </ContentCard>
+        <button
+          type="button"
+          class="focus-ring btn-outline-accent elevate-hover mt-5 max-w-xs self-start"
+          data-custom-copy
+          data-copy-label-i18n="modules.custom.copyButton"
+          data-copy-copied-i18n="modules.custom.copiedButton"
+        >
+          {modules.custom.copyButton}
+        </button>
+      </ContentCard>
+    </details>
 
     <PasteDestinationStrip lang={lang} surface="context" revealOnCopy />
   </div>

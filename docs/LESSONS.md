@@ -18,6 +18,13 @@ Short gotchas from shipped work. Prefer bullets; link to code/docs. Not a produc
 - LT UI is frozen — ship EN only; keep `lt.ts` key parity with English placeholders. Hub LT string applies only if bilingual UI is unfrozen.
 - After deploy: reply to hub with deploy URL + `EN only, UTM yes (pro / entity_footer / ecosystem)`.
 
+## Conversion spine CTA discipline — 2026-08-24
+
+- **Three memes only** (indices `3`, `2`, `5`). Do not remount `meme-01-ai-chaos.png` (`items[0]`) — it restates the hero H1 and delays `#context`.
+- **No gold inside `#context`.** Preset and custom module copy buttons stay outline. Custom stays in a closed `<details>` (`Need a task not listed?`). Gold in Step 1 lives on the hero CTA only.
+- **No PromptAnatomy.app on PromoBanner.** Gold → `#demo`; sister text → `.cloud`. Scale CTAs stay on `#kit` and the hub footer. `promoBanner.secondaryCta` is unused locale residue — do not render it.
+- Context badge must stay honest: **Used when you copy** (no sessionStorage). Do not reintroduce “Saved in session.”
+
 ## Durable outbound rule
 
 - Never hand-roll `promptanatomy.app` / `.cloud` / consumer-AI query strings. Use [`outboundLinks.ts`](../src/constants/outboundLinks.ts) and update [`UTM_MATRIX.md`](UTM_MATRIX.md) in the same change.
