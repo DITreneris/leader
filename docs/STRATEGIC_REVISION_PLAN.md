@@ -49,7 +49,7 @@
 ## 2. Situation summary (baseline)
 
 - **Strengths:** Strong copy model (decision, risk, trade-off, owner), consistent gold/navy system, clipboard UX with fallback, **`/en/` shipped** (`/lt/` opt-in via `siteLocale.ts`), PDF + schema + FAQ depth, nav anchors **`#context` / `#demo` / `#kit`**, spine order **demo before** anatomy + ROI **before** FAQ (library last).
-- **Open friction (revisit periodically):** Long vertical stack; hero **primary** still often off-site first; **multiple PDF touchpoints** (demo, CTA, library); safety messaging may still feel adjacent to ROI step copy—tune qualitatively, not by re-breaking the shipped stack without intent.
+- **Open friction (revisit periodically):** Long vertical stack; **multiple PDF touchpoints** (demo, CTA, library)—qualitative only after 2026-09-02 (n=16, no events); safety messaging may still feel adjacent to ROI step copy—tune qualitatively, not by re-breaking the shipped stack without intent. Desktop hero is in-page `#context` only (no off-site primary).
 
 Older issues **resolved** in code (keep for history in `CHANGELOG`): placeholder trust hidden, meme order **documented** (`VISUAL_CONTENT_MAP` + `Page.astro` comments), `#demo` in nav, SystemVisual **merged into FAQ** answer.
 
@@ -121,15 +121,15 @@ journey
 
 ### 4.1 Problems today
 
-- ~~Hero **primary** pushes **off-site** before practice~~ — **Hero shipped:** gold `#context` + outlined PA (2026-04-28).
+- ~~Hero **primary** pushes **off-site** before practice~~ — **Hero shipped (current):** gold `#context` only on desktop. PromptAnatomy outbound (`hero`/`primary`) is the **mobile-menu** `productCta` only. The 2026-04-28 outlined-on-hero button is gone.
 - ~~**PromoBanner** gold primary pushed PromptAnatomy.app before `#demo`~~ — **Fixed 2026-06-09:** gold `#demo`, outlined PA, tertiary cloud link; copy reframed to proof-before-scale.
 - **PDF** appears in mobile menu, demo follow-up, library, course CTA — good for reach, **bad for story** (“when should I click?”).
-- ~~**Two destinations** on AuthorityBridge split attention~~ — **AuthorityBridge removed 2026-04-29**; PA handoff remains via Hero / PromoBanner / `#kit` / footer.
+- ~~**Two destinations** on AuthorityBridge split attention~~ — **AuthorityBridge removed 2026-04-29**; PA handoff remains via PromoBanner / `#kit` / footer / **mobile menu** (not desktop hero).
 
 ### 4.2 CTA rules (revision policy)
 
 1. **One visual primary button** per major viewport section (hero strip, **`#context`** section end, **`#demo`** end, **`#kit`** band).
-2. **Hero:** **Shipped** = gold **in-page** primary (`#context`) + outlined PromptAnatomy outbound (UTM `hero`/`primary`) + **nav** links to **`#context` / `#demo` / `#kit`**. When iterating, choose consciously: comprehension-first (emphasize in-page anchors) vs product-led (emphasize PA)—see §4.1 tension.
+2. **Hero:** **Shipped** = gold **in-page** primary (`#context`) + **nav** links to **`#context` / `#demo` / `#kit`**. PromptAnatomy outbound (UTM `hero`/`primary`) is **mobile-menu only**. When iterating, choose consciously: comprehension-first (emphasize in-page anchors) vs product-led (emphasize PA)—see §4.1 tension. Do not re-add a desktop outlined PA button as a “restore.”
 3. **PromptAnatomy:** Reserve **primary** treatment for **after** demo or after first successful copy action (micro-commitment).
 4. **PDF:** Keep **one** “canonical” download moment in the main story (e.g. post-demo + repeated in footer or library only).
 5. **UTMs:** Keep existing parameters; document a **matrix** in `VISUAL_CONTENT_MAP.md` or a small `docs/UTM_MATRIX.md` so new links stay consistent.
@@ -143,7 +143,7 @@ journey
 | 3 | “Download CEO/COO kit (PDF)” | `#kit` / static PDF |
 | 4 | “Open PromptAnatomy” | `promptanatomy.app` with UTM |
 
-Hero gradient button currently emphasizes **`#context`** (comprehension-first); PromptAnatomy outbound remains available as an outlined hero CTA with UTM. **PromoBanner (shipped 2026-06-09):** gold **`#demo`**, outlined PA, text link to cloud — comprehension-first mid-funnel beat between `#context` and demo section.
+Hero gradient button emphasizes **`#context`** (comprehension-first). PromptAnatomy outbound is **mobile-menu only** (`hero`/`primary`). **PromoBanner (shipped 2026-06-09):** gold **`#demo`**, outlined PA, text link to cloud — comprehension-first mid-funnel beat between `#context` and demo section. Do not move PromoBanner or dedupe PDF from the 2026-09-02 30-day window (n=16; bounce is structural).
 
 ### 4.4 Authority bridge
 
@@ -285,7 +285,7 @@ Work is split so **each phase** leaves the site shippable (`npm run build`, Ligh
 
 ### Phase 1 — CTA and journey spine (3–7 days)
 
-**Status as of 2026-04-28: spine shipped per baseline.** **`ClarityDemo`** precedes **`PromptAnatomy`** + **`RoiPath`**; **`#kit`** (CourseCTA) comes **before** anatomy depth; FAQ sits **after `RoiPath`**, **above PromptLibrary**. **Hero:** gold primary CTA → **`#context`**; PromptAnatomy outbound is an outlined hero CTA (UTM `hero`/`primary`); **`#context` / `#demo` / `#kit`** also live in **header nav**.
+**Status as of 2026-04-28: spine shipped per baseline** (hero current-state **2026-09-02**). **`ClarityDemo`** precedes **`PromptAnatomy`** + **`RoiPath`**; **`#kit`** (CourseCTA) comes **before** anatomy depth; FAQ sits **after `RoiPath`**, **above PromptLibrary**. **Hero:** gold primary CTA → **`#context`**; PromptAnatomy outbound is the **mobile-menu** link (UTM `hero`/`primary`), not a desktop outlined button; **`#context` / `#demo` / `#kit`** also live in **header nav**.
 
 | # | Optional follow-ups (when testing conversion) |
 |---|-------------|
@@ -362,6 +362,7 @@ Use this table when choices are made so future agents do not revert blindly.
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
+| 2026-09-02 | Desktop outlined PromptAnatomy hero button is **gone**; UTM `hero`/`primary` stays on the **mobile-menu** `productCta` only. PromoBanner move and PDF touchpoint dedup are **not tickets** from Last 30 Days (16 visitors / 16 views / 100% bounce on `/` only — structural one-pager; no copy/kit/outbound events). | Docs had drifted to “outlined hero CTA.” Restoring a desktop PA button would fight the shipped comprehension-first ladder. n=16 cannot diagnose mid-funnel bounce. |
 | 2026-06-09 | **PromoBanner** gold primary → **`#demo`**; outlined PA; tertiary cloud text link; mid-funnel copy reframe | Comprehension-first ladder aligned to §4.3; PA product handoff after proof, not before demo |
 | 2026-04-29 | Post–`RoiPath` meme **`memes.items[4]`** (`meme-02-meeting-overload.png`) **unmounted** | Redundant vs PromoBanner / PromptAnatomy; lowest marginal clarity late in funnel — [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md) |
 | 2026-04-29 | **`AuthorityBridge`** section removed from landing | Duplicate PA / architecture story handled elsewhere |

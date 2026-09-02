@@ -117,7 +117,7 @@ After changes to [`integrations/robots-txt.mjs`](../integrations/robots-txt.mjs)
 6. If FAQ items changed, confirm `en.ts` `faq.items` and `llms.txt` stay consistent ([`docs/COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md) as needed).
 7. When ship includes copy or on-page SEO changes, bump **`LEADER_PAGE_DATE_MODIFIED`** in [`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts) and re-build.
 8. Optional: run 2–3 English product queries in Perplexity or ChatGPT (with browsing) and note whether Executive OS / Global Context Block citations match `llms.txt` and FAQ.
-9. Verify CTA hierarchy: in-page gold CTAs follow **`#context` → `#demo` → `#kit`** (Hero, PromoBanner, ClarityDemo follow-up, CourseCTA); PromptAnatomy.app is the **canonical product destination** after the funnel (outlined/text in Hero, PromoBanner, `#kit`, footer)—not gold before `#demo`; `promptanatomy.cloud` stays a tertiary learning path.
+9. Verify CTA hierarchy: in-page gold CTAs follow **`#context` → `#demo` → `#kit`** (Hero, PromoBanner, ClarityDemo follow-up, CourseCTA); PromptAnatomy.app is the **canonical product destination** after the funnel (PromoBanner, `#kit`, footer, **mobile-menu** `hero`/`primary`)—not a desktop hero button, and not gold before `#demo`; `promptanatomy.cloud` stays a tertiary learning path.
 
 ## Dual-deploy smoke checklist
 

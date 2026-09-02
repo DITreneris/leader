@@ -1,0 +1,31 @@
+---
+description: Local palace wake — decide checkout (promptanatomy.pro)
+alwaysApply: true
+---
+
+# agentsmemory — .pro checkout
+
+This folder is the Prompt Anatomy **decide** site (`promptanatomy.pro`, repo `DITreneris/leader`). Memory is the local palace at `http://127.0.0.1:8080/mcp` (user-level MCP). Cursor has no Stop hook — this rule is the write half.
+
+Default wing: `promptanatomy`. **Do not mint a `pro` or `leader` wing.** MCP `default_wing` is empty — every `am_*` call must pass `wing: promptanatomy`. `wing: "*"` only for a deliberate cross-project question.
+
+## First actions of every session
+
+1. `am_status` — `mode` must be `local`, workspace slug `local`. A different workspace is a stop — write nothing.
+2. `am_skillset` and follow it.
+3. `am_load_skill("promptanatomy")`.
+4. `am_bootstrap` with `wing: promptanatomy`.
+
+## Recall
+
+Ecosystem role Decide, CTA to `.app`, two-channel pricing (39/99 vs 399) → `am_search` wing `promptanatomy`. Checkout and access live on `.app`, not here.
+
+Hero: desktop gold `#context` only; PA `utm_source=leader` `hero`/`primary` is **mobile-menu only** — do not restore a desktop outlined button. Last 30 Days 2026-09-02: 16/16/100% structural — do not start bounce, events, PromoBanner move, or PDF dedup.
+
+## Persist
+
+`am_diary_write` agent_name `cursor-memory`, wing `promptanatomy` only when this session settled a **new** ecosystem fact. Do not re-file hub deploy/access canon.
+
+## Never mine into the palace
+
+This spoke's source, course JSON, sibling spoke repos. Do not dump the leader tree into drawers. Code stays here; palace stays memory.

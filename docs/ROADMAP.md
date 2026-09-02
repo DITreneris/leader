@@ -10,8 +10,8 @@ Historical decisions and long-form strategy: [`docs/STRATEGIC_REVISION_PLAN.md`]
 
 | Item | Intent | Notes |
 |------|--------|--------|
-| PDF touchpoint dedup | One canonical “when to download” story | PDF still appears in nav, demo follow-up, `#kit`, library — see strategic plan §4.1 |
-| PromoBanner position experiment | Move strip after `#demo` if analytics show mid-funnel bounce | P0 kept position; swap+copy only |
+| PDF touchpoint dedup | One canonical “when to download” story | Qualitative only. Last 30 Days 2026-09-02: n=16, no copy/kit events — not a sprint ticket. PDF still appears in nav, demo follow-up, `#kit`, library — see strategic plan §4.1 |
+| PromoBanner position experiment | **Deferred** — 30d cannot diagnose mid-funnel bounce | 2026-09-02 Production: 16 visitors / 16 views / 100% bounce on `/` only (structural one-pager). Do not move the strip from this window. |
 | Hero key naming | Done in P2 (`inPageCta` / `productCta`) | — |
 
 ---

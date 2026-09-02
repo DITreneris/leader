@@ -101,7 +101,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **Lygiavimas**
 
 - Pirminis (auksinis) CTA – **in-page** `href="#context"` su `hero.inPageCta` (be UTM); **2026-06-09:** `Build your decision brief`.
-- Antrinis CTA – tekstinė nuoroda į PromptAnatomy su `utm_medium=hero` ir `utm_campaign=primary` (`hero.productCta`; `docs/UTM_MATRIX.md`).
+- Antrinis CTA – **ne** ant desktop hero. `hero.productCta` su `utm_medium=hero` ir `utm_campaign=primary` yra **tik mobilaus meniu** paskutinė eilutė (`docs/UTM_MATRIX.md`). Desktop hero/header PA mygtuko neturi.
 
 **EN (shipped 2026-06-09)**
 

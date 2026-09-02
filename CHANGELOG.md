@@ -2,6 +2,13 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-09-02 (hero CTA docs sync)
+
+### Docs
+
+- **Hero outbound:** [`UTM_MATRIX.md`](docs/UTM_MATRIX.md), [`STRATEGIC_REVISION_PLAN.md`](docs/STRATEGIC_REVISION_PLAN.md), [`COPY_AUDIT_BY_SLIDE.md`](docs/COPY_AUDIT_BY_SLIDE.md), [`QUALITY_ASSURANCE.md`](docs/QUALITY_ASSURANCE.md) now match shipped [`Hero.astro`](src/components/Hero.astro) — PromptAnatomy `hero`/`primary` is **mobile-menu only**; desktop hero/header have no PA button.
+- **30-day close:** [`ROADMAP.md`](docs/ROADMAP.md) PromoBanner position experiment **deferred** (Production Last 30 Days: 16/16/100% bounce on `/` only — structural; cannot diagnose mid-funnel). PDF touchpoint dedup marked qualitative only.
+
 ## 2026-08-24 (Search Console HTML file)
 
 ### Fixed
