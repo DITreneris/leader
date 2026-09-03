@@ -132,6 +132,11 @@ if (landingHtml !== null) {
     fail(`dist/index.html: canonical should be ${expectedPageCanonical} (got ${canonical})`);
   }
 
+  const gscMeta = extractMetaNameContent(landingHtml, "google-site-verification");
+  if (gscMeta !== "IeoNpDUYy1zwRqccCAO41IxZwUW2MHvKzleVbLJkArE") {
+    fail("dist/index.html: google-site-verification must be the Search Console HTML-tag token");
+  }
+
   const ogUrl = extractMetaContent(landingHtml, "property", "og:url");
   if (!ogUrl?.startsWith("http")) {
     fail("dist/index.html: og:url must be an absolute URL");

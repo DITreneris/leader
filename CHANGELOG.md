@@ -2,6 +2,12 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-09-03 (Search Console HTML tag)
+
+### Changed
+
+- **Google site verification:** landing `<meta name="google-site-verification">` (`GOOGLE_SITE_VERIFICATION` in [`pageSeo.ts`](src/constants/pageSeo.ts)) so Search Console can verify `promptanatomy.pro` via the HTML-tag method. Existing file [`public/google7305663b2567346e.html`](public/google7305663b2567346e.html) stays.
+
 ## 2026-09-02 (hero CTA docs sync)
 
 ### Docs

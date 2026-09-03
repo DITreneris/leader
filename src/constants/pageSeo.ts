@@ -6,3 +6,6 @@ export const LEADER_PAGE_DATE_PUBLISHED = "2024-06-01";
 
 /** Last substantive content or SEO update (ISO 8601 date). */
 export const LEADER_PAGE_DATE_MODIFIED = "2026-06-10";
+
+/** Google Search Console HTML-tag verification for `promptanatomy.pro`. */
+export const GOOGLE_SITE_VERIFICATION = "IeoNpDUYy1zwRqccCAO41IxZwUW2MHvKzleVbLJkArE";

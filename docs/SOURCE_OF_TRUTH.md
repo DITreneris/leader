@@ -102,6 +102,7 @@ Canonical files and policy:
 | Short LLM-oriented summary + citable definitions | [`public/llms.txt`](../public/llms.txt) |
 | Sitemap (Astro integration; env-driven base) | [`astro.config.mjs`](../astro.config.mjs), emitted `sitemap-index.xml` |
 | Meta, canonical, OG | [`src/layouts/Page.astro`](../src/layouts/Page.astro), [`src/pages/index.astro`](../src/pages/index.astro) |
+| Google Search Console | HTML file [`public/google7305663b2567346e.html`](../public/google7305663b2567346e.html); HTML-tag meta `GOOGLE_SITE_VERIFICATION` in [`pageSeo.ts`](../src/constants/pageSeo.ts) → [`Page.astro`](../src/layouts/Page.astro) |
 | JSON-LD (`WebPage` dates, `FAQPage`, Organization) | [`src/utils/pageJsonLd.ts`](../src/utils/pageJsonLd.ts), [`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts) |
 | Indexable FAQ copy | [`src/content/locales/en.ts`](../src/content/locales/en.ts) (`lt.ts` frozen) |
 

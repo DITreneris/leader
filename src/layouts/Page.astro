@@ -16,6 +16,7 @@ import RoiPath from "../components/RoiPath.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 import { APP_VERSION } from "../constants/appVersion";
+import { GOOGLE_SITE_VERIFICATION } from "../constants/pageSeo";
 import {
   PROMPT_ANATOMY_PRIVACY_URL,
   PROMPT_ANATOMY_TERMS_URL,
@@ -79,6 +80,7 @@ const telegramHref = buildTelegramUrl();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={meta.description} />
+    <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
     <link rel="canonical" href={pageCanonical} />
     <link rel="alternate" type="text/plain" href={`${base}llms.txt`} title="LLM site summary" />
     <link rel="icon" type="image/svg+xml" href={faviconSvg} />
