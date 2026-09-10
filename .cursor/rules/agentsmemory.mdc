@@ -5,7 +5,7 @@ alwaysApply: true
 
 # agentsmemory — .pro checkout
 
-This folder is the Prompt Anatomy **decide** site (`promptanatomy.pro`, repo `DITreneris/leader`). Memory is the local palace at `http://127.0.0.1:8080/mcp` (user-level MCP). Cursor has no Stop hook — this rule is the write half.
+This folder is the Prompt Anatomy **decide** site (`promptanatomy.pro`, repo `DITreneris/leader`). Memory is the local palace at `http://127.0.0.1:8080/mcp` (user-level MCP). Cursor has `hooks.json`; the agentsmemory Cursor kit still has no write hook. `hooks/cursor` in 70_Memory_Agent nudges persist; this rule remains the protocol. Kill switch: `AGENTSMEMORY_DISABLE_HOOK=1`. Do not install MemPalace plugin or `mempalace-mcp`.
 
 Default wing: `promptanatomy`. **Do not mint a `pro` or `leader` wing.** MCP `default_wing` is empty — every `am_*` call must pass `wing: promptanatomy`. `wing: "*"` only for a deliberate cross-project question.
 

@@ -28,9 +28,10 @@ import { buildClientCopyPayload } from "../utils/clientCopyPayload";
 import { buildLeaderPageJsonLd } from "../utils/pageJsonLd";
 
 /**
- * Meme images use `uiCopy[lang].memes.items` indices 3, 0, 2, 5 (see `Page.astro` order).
- * Image `alt` text is `uiCopy[lang].memes.sequenceImageAlts[0..3]` in that same order (localized).
+ * Meme images use `uiCopy[lang].memes.items` indices 2, 5 (see `Page.astro` order).
+ * Image `alt` text is `uiCopy[lang].memes.sequenceImageAlts[0..1]` in that same order (localized).
  * Post–ClarityDemo beat: index 5 → reward_2.png (printable kit / structure on desk).
+ * Indices 3 and 0 were unmounted 2026-09-09 (time-to-copy: `#context` follows hero).
  *
  * Live order is documented in `docs/VISUAL_CONTENT_MAP.md`.
  */
@@ -67,7 +68,7 @@ const structuredData = buildLeaderPageJsonLd({
 });
 const serializedJsonLd = JSON.stringify(structuredData).replace(/</g, "\\u003c");
 
-/** Matches MemeMoment order (indices 3, 0, 2, 5); desktop `side` alternates left / right / left / right. */
+/** Matches MemeMoment order (indices 2, 5); desktop `side` alternates left / right. */
 const memeSequenceAlts = copy.memes.sequenceImageAlts;
 
 const promptAnatomyFooterHref = buildPromptAnatomyUrl({ medium: "footer", campaign: "brand" });
@@ -116,35 +117,13 @@ const telegramHref = buildTelegramUrl();
     <a href="#ctx-company" class="skip-link focus-ring">{copy.a11y.skipLink}</a>
     <Hero lang={lang} />
     <main>
-      <MemeMoment
-        lang={lang}
-        index={3}
-        src="meme-03-clear-decision.png"
-        alt={memeSequenceAlts[0]}
-        accent="gold"
-        side="left"
-        width={1280}
-        height={720}
-        loading="eager"
-        fetchPriority="high"
-      />
-      <MemeMoment
-        lang={lang}
-        index={0}
-        src="meme-01-ai-chaos.png"
-        alt={memeSequenceAlts[1]}
-        accent="gold"
-        side="right"
-        width={1280}
-        height={720}
-      />
       <ExecutiveModules lang={lang} />
       <PromoBanner lang={lang} />
       <MemeMoment
         lang={lang}
         index={2}
         src="meme-04-delegation-bottleneck.png"
-        alt={memeSequenceAlts[2]}
+        alt={memeSequenceAlts[0]}
         accent="gold"
         side="left"
         width={1280}
@@ -155,7 +134,7 @@ const telegramHref = buildTelegramUrl();
         lang={lang}
         index={5}
         src="reward_2.png"
-        alt={memeSequenceAlts[3]}
+        alt={memeSequenceAlts[1]}
         accent="gold"
         side="right"
         width={1280}

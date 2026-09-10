@@ -25,7 +25,7 @@
 
 ## What's on the page
 
-Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md) and [`src/layouts/Page.astro`](./src/layouts/Page.astro): **Hero + HeroDecisionDiagram** → **meme** → **meme** → **Global Context + Modules (`#context`)** → **PromoBanner** → **meme** → **ClarityDemo (`#demo`)** → **meme** → **SafetyCheck** → **CourseCTA (`#kit`)** → **PromptAnatomy** → **RoiPath** → **FAQ (`#faq`)** → **PromptLibrary** (four **`MemeMoment`** beats; see [`docs/MEME_PRIORITY_REGISTRY.md`](./docs/MEME_PRIORITY_REGISTRY.md)).
+Order matches [`docs/CODEBASE_OVERVIEW.md`](./docs/CODEBASE_OVERVIEW.md) and [`src/layouts/Page.astro`](./src/layouts/Page.astro): **Hero + HeroDecisionDiagram** → **Global Context + Modules (`#context`)** → **PromoBanner** → **meme** → **ClarityDemo (`#demo`)** → **meme** → **SafetyCheck** → **CourseCTA (`#kit`)** → **PromptAnatomy** → **RoiPath** → **FAQ (`#faq`)** → **PromptLibrary** (two **`MemeMoment`** beats; see [`docs/MEME_PRIORITY_REGISTRY.md`](./docs/MEME_PRIORITY_REGISTRY.md)).
 
 **Conversion ladder:** `#context` → `#demo` → `#kit` → [PromptAnatomy.app](https://www.promptanatomy.app)
 
@@ -84,9 +84,10 @@ Optional: `PUBLIC_FB_APP_ID` for Facebook `fb:app_id` meta (see [`.env.example`]
 
 **Pre-deploy checklist**
 
-- `SITE_URL` and `BASE_PATH` match the live URL shape.
+- `SITE_URL` and `BASE_PATH` match the live URL shape (`SITE_URL` stays apex `https://promptanatomy.pro` — do not set www as primary).
 - Open `dist/robots.txt` after build — confirm `Sitemap:` matches production.
 - Smoke-test hero, outbound PromptAnatomy links, PDF kit, `/og-image.png`.
+- Live `https://www.promptanatomy.pro/` should **308** to the apex. Host alias is the Vercel Domains panel, not [`vercel.json`](vercel.json). `http://www` TLS hop: [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) deploy verification step 6.
 
 ## English-only routing
 

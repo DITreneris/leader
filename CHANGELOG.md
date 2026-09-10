@@ -2,11 +2,34 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
-## 2026-09-03 (Search Console HTML tag)
+## 2026-09-09 (hero freeze + www hop)
+
+### Changed
+
+- **Time-to-copy spine:** unmounted pre-context memes (`meme-03-clear-decision`, `meme-01-ai-chaos`) so `#context` follows the hero. PromoBanner is gold **Start the scenario** → `#demo` plus sister cloud text only — no PromptAnatomy.app button. PNG assets kept for social. Scale CTA stays on `#kit`, footer, and mobile menu.
+
+### Docs
+
+- **Hero freeze:** restored the always-on Recall line in [`.cursor/rules/agentsmemory.mdc`](.cursor/rules/agentsmemory.mdc) (desktop gold `#context` only; PromptAnatomy `hero`/`primary` is mobile-menu only). [`e2e/smoke.spec.ts`](e2e/smoke.spec.ts) now asserts header + hero section have no PromptAnatomy.app link, and the open mobile menu exposes `utm_medium=hero` / `utm_campaign=primary`.
+- **www hop:** [`SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) deploy step 6 and [`README.md`](README.md) pre-deploy note that `https://www.promptanatomy.pro/` **308**s to apex; `http://www` **308**s to `https://www` first (Vercel TLS). Do not flatten that chain in `vercel.json`.
+- **Spine + UTM:** overview, meme registry, visual map, UTM matrix (`modules`/`handoff` unused), design-system PromoBanner tiers, journey anti-pattern, QA CTA check, strategic decision log.
+
+## 2026-09-07 (Search Console redirects + Vercel apex)
+
+### Confirmed
+
+- **GSC “Page with redirect”:** `http://promptanatomy.pro/`, `http://www.promptanatomy.pro/`, and `https://www.promptanatomy.pro/` are expected hygiene after Domain-property verify. Do not mark them fixed. Indexed URL stays `https://promptanatomy.pro/`.
+- **Vercel Domains:** `promptanatomy.pro` is Production (HTTPS 200). `https://www.promptanatomy.pro/` **308**s to the apex; `http://www.promptanatomy.pro/` **308**s to `https://www.promptanatomy.pro/` first (Vercel TLS hop). Keep `SITE_URL=https://promptanatomy.pro` — do not make www the primary host. Do not add a host redirect in `vercel.json`.
+
+## 2026-09-03 (Search Console Domain property)
 
 ### Changed
 
 - **Google site verification:** landing `<meta name="google-site-verification">` (`GOOGLE_SITE_VERIFICATION` in [`pageSeo.ts`](src/constants/pageSeo.ts)) so Search Console can verify `promptanatomy.pro` via the HTML-tag method. Existing file [`public/google7305663b2567346e.html`](public/google7305663b2567346e.html) stays.
+
+### Confirmed
+
+- **Search Console Domain property:** `promptanatomy.pro` verified 2026-09-03 via Porkbun apex TXT (nameservers `*.ns.porkbun.com`). HTML tag and HTML file remain as URL-prefix backups. Domain property does not use the page meta.
 
 ## 2026-09-02 (hero CTA docs sync)
 

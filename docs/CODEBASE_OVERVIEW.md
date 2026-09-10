@@ -19,21 +19,19 @@ This repository contains a lean **English-only (US-market)** CEO/COO executive p
 Canonical order is `src/layouts/Page.astro` (see also `docs/VISUAL_CONTENT_MAP.md` for meme indices and filenames).
 
 1. **Hero** (`Hero.astro`): header nav (`#context`, `#demo`, `#kit`) + outline **`Build a brief`** + **`HeroDecisionDiagram`** (Scattered inputs → arrow → Decision brief — sole above-fold proof surface).
-2. **Meme** — `copy.memes.items[3]` → `meme-03-clear-decision.png`.
-3. **Meme** — index `0` → `meme-01-ai-chaos.png`.
-4. **Executive modules + global context** (`#context`): compiled module prompts; readable output shapes.
-5. **`PromoBanner`**: contextual promo strip above the demo funnel.
-6. **Meme** — index `2` → `meme-04-delegation-bottleneck.png`.
-7. **ClarityDemo** (`#demo`): selectable scenarios + connector toward `#kit`.
-8. **Meme** — index `5` → `reward_2.png` (“keep the structure on your desk”).
-9. **`SafetyCheck`**: safety / escalation rule surface before heavy conversion.
-10. **CourseCTA** (`#kit`): Max Value Kit PDF + PromptAnatomy path.
-11. **PromptAnatomy**: depth in collapsed `<details>` (reference, not blocking).
-12. **RoiPath** (`#roi`): weekly cycle / printable line back to `#kit`.
-13. **Faq** (`#faq`): objections (JSON-LD FAQPage).
-14. **PromptLibrary** (`#library`): full accordion appendix; PDF jump above optional.
+2. **Executive modules + global context** (`#context`): compiled module prompts; readable output shapes.
+3. **`PromoBanner`**: gold `#demo` plus sister-hub text; no PromptAnatomy.app link.
+4. **Meme** — index `2` → `meme-04-delegation-bottleneck.png`.
+5. **ClarityDemo** (`#demo`): selectable scenarios + connector toward `#kit`.
+6. **Meme** — index `5` → `reward_2.png` (“keep the structure on your desk”).
+7. **`SafetyCheck`**: safety / escalation rule surface before heavy conversion.
+8. **CourseCTA** (`#kit`): Max Value Kit PDF + PromptAnatomy path.
+9. **PromptAnatomy**: depth in collapsed `<details>` (reference, not blocking).
+10. **RoiPath** (`#roi`): weekly cycle / printable line back to `#kit`.
+11. **Faq** (`#faq`): objections (JSON-LD FAQPage).
+12. **PromptLibrary** (`#library`): full accordion appendix; PDF jump above optional.
 
-Meme indices **`1`** and **`4`** are not mounted (`4` removed from the stack 2026-04-29 — see [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md)). Memes are emotional beats only—no primary CTAs on meme rows.
+Meme indices **`0`**, **`1`**, **`3`**, and **`4`** are not mounted (`3` and `0` unmounted 2026-09-09 for time-to-copy; `4` removed 2026-04-29 — see [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md)). Memes are emotional beats only—no primary CTAs on meme rows.
 
 ## Hash anchors (registry)
 

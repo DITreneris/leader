@@ -143,7 +143,6 @@ export const ltCopy = {
       title: "Test the framework on a real executive scenario.",
       subtitle: "Five short cases—then take the kit or open the full app.",
       primaryCta: "Start the scenario",
-      secondaryCta: "Open the full app",
       sisterCta: "Learn the framework",
     },
     modules: {
@@ -843,10 +842,8 @@ Eliminate now:
       title: "Problema – ne prieiga prie DI. Problema – kontrolė.",
       delegationBridge: "Same theme as the Delegation scenario below.",
       sectionAriaLabel: "Įrodymo akimirka",
-      /** Eiliškumas kaip `Page.astro` MemeMoment (indeksai 3, 0, 2, 5). */
+      /** Eiliškumas kaip `Page.astro` MemeMoment (indeksai 2, 5). */
       sequenceImageAlts: [
-        "Meme: aiškus sprendimo briefas",
-        "Meme: DI chaosas",
         "Meme: delegavimo butelio kaklelis",
         "Meme: vadovo rinkinio struktūra ant stalo",
       ] as const,

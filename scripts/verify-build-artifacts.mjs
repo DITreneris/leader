@@ -158,7 +158,7 @@ if (landingHtml !== null) {
     fail(`dist/index.html: data-kit-download href must end with .pdf (got ${kitDownload[1]})`);
   }
 
-  const promoLabel = "Step 2: prove on a scenario before the full product.";
+  const promoLabel = "Prove on a scenario before the full product.";
   const promoIndex = landingHtml.indexOf(promoLabel);
   if (promoIndex === -1) {
     fail("dist/index.html: PromoBanner aria-label copy not found (EN promo section missing?)");
@@ -173,14 +173,11 @@ if (landingHtml !== null) {
     } else if (goldMatch[1] !== "#demo") {
       fail(`dist/index.html: PromoBanner gold CTA must href="#demo" (got ${goldMatch[1]})`);
     }
-    const paInPromo = promoSection.match(/href="(https:\/\/[^"]*promptanatomy\.app[^"]*)"/i);
-    if (!paInPromo) {
-      fail("dist/index.html: PromoBanner should include outbound PromptAnatomy.app link");
-    } else {
-      const decodedPa = paInPromo[1].replace(/&#38;/g, "&");
-      if (!decodedPa.includes("utm_source=leader")) {
-        fail("dist/index.html: PromoBanner PA link must include utm_source=leader");
-      }
+    if (/href="(https:\/\/[^"]*promptanatomy\.app[^"]*)"/i.test(promoSection)) {
+      fail("dist/index.html: PromoBanner must not include outbound PromptAnatomy.app link");
+    }
+    if (!/promptanatomy\.cloud/i.test(promoSection)) {
+      fail("dist/index.html: PromoBanner should include sister hub promptanatomy.cloud link");
     }
   }
 }

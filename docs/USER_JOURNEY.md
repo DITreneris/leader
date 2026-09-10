@@ -75,7 +75,7 @@ Full scroll → `#anatomy` (blocks) → `#roi` (moves) → `#library`. Depth mus
 1. **Only Step 1 labeled** on page with no Step 2/3 eyebrows.
 2. **Four step systems** — macro Step, context rail, Anatomy Step, ROI Step.
 3. **Second gold CTA** at end of `#context` competing with PromoBanner → `#demo`.
-4. **PromptAnatomy primary** before demo or kit (proof-before-scale).
+4. **PromptAnatomy primary** before demo or kit (proof-before-scale). Do not put an outlined PromptAnatomy.app button on PromoBanner.
 5. **Renumbering nav** to Step 1/2/3 — keep How it works / Example / What you get.
 
 ## CTA ladder

@@ -3,7 +3,7 @@ import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 import HighlightStrip from "./ds/HighlightStrip.astro";
 import SectionShell from "./ds/SectionShell.astro";
-import { buildPromptAnatomyUrl, buildSisterHubUrl } from "../constants/outboundLinks";
+import { buildSisterHubUrl } from "../constants/outboundLinks";
 
 interface Props {
   lang: Language;
@@ -11,7 +11,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const b = uiCopy[lang].promoBanner;
-const promptAnatomyHref = buildPromptAnatomyUrl({ medium: "modules", campaign: "handoff" });
 const sisterHubHref = buildSisterHubUrl({ medium: "modules", campaign: "sister_hub" });
 ---
 
@@ -29,22 +28,12 @@ const sisterHubHref = buildSisterHubUrl({ medium: "modules", campaign: "sister_h
       </div>
 
       <div class="flex flex-col items-start gap-3 lg:shrink-0">
-        <div class="flex w-full flex-col gap-3 sm:flex-row">
-          <a
-            href="#demo"
-            class="focus-ring btn-primary-gold cta-gradient elevate-hover"
-          >
-            {b.primaryCta}
-          </a>
-          <a
-            href={promptAnatomyHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="focus-ring btn-outline-neutral elevate-hover rounded-full px-6 py-4 text-center normal-case tracking-wide"
-          >
-            {b.secondaryCta}
-          </a>
-        </div>
+        <a
+          href="#demo"
+          class="focus-ring btn-primary-gold cta-gradient elevate-hover"
+        >
+          {b.primaryCta}
+        </a>
         <a
           href={sisterHubHref}
           target="_blank"

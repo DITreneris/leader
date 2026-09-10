@@ -61,7 +61,7 @@ Rules:
 ### Domains (canonical product vs optional deploy)
 
 - **Canonical mother site (this repo):** `https://www.promptanatomy.app` — source of truth for [`outboundLinks.ts`](../src/constants/outboundLinks.ts), JSON-LD mother `Organization` / `WebSite` in [`pageJsonLd.ts`](../src/utils/pageJsonLd.ts), and copy that names the full product. Do **not** bulk-replace this domain because the static kit is hosted on another hostname.
-- **Primary Executive OS deploy (Vercel):** `https://promptanatomy.pro/` — public links in README and [`public/llms.txt`](../public/llms.txt) lead here (`BASE_PATH=/`, `SITE_URL=https://promptanatomy.pro`). Hosting surface only—not a replacement for the canonical PromptAnatomy product URL above.
+- **Primary Executive OS deploy (Vercel):** `https://promptanatomy.pro/` — public links in README and [`public/llms.txt`](../public/llms.txt) lead here (`BASE_PATH=/`, `SITE_URL=https://promptanatomy.pro`). Hosting surface only—not a replacement for the canonical PromptAnatomy product URL above. **Vercel Domains:** apex is Production; `www.promptanatomy.pro` 308s to the apex. Do not set www as primary (canonical tags, sitemap, and `SITE_URL` are apex).
 - **GitHub Pages mirror:** `https://ditreneris.github.io/leader/` — same static build with `BASE_PATH=/leader` (CI in [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)).
 
 Policy: use one primary CTA per major section; keep glass/elevation reserved for primary containers. New sections should prefer [`src/components/ds/`](../src/components/ds/) primitives documented in **DESIGN_SYSTEM.md**.
@@ -102,7 +102,7 @@ Canonical files and policy:
 | Short LLM-oriented summary + citable definitions | [`public/llms.txt`](../public/llms.txt) |
 | Sitemap (Astro integration; env-driven base) | [`astro.config.mjs`](../astro.config.mjs), emitted `sitemap-index.xml` |
 | Meta, canonical, OG | [`src/layouts/Page.astro`](../src/layouts/Page.astro), [`src/pages/index.astro`](../src/pages/index.astro) |
-| Google Search Console | HTML file [`public/google7305663b2567346e.html`](../public/google7305663b2567346e.html); HTML-tag meta `GOOGLE_SITE_VERIFICATION` in [`pageSeo.ts`](../src/constants/pageSeo.ts) → [`Page.astro`](../src/layouts/Page.astro) |
+| Google Search Console | **Domain property verified 2026-09-03** via Porkbun apex TXT (`*.ns.porkbun.com`). URL-prefix backups: HTML file [`public/google7305663b2567346e.html`](../public/google7305663b2567346e.html); HTML-tag meta `GOOGLE_SITE_VERIFICATION` in [`pageSeo.ts`](../src/constants/pageSeo.ts) → [`Page.astro`](../src/layouts/Page.astro). **Page with redirect** for `http://`, `http://www.`, and `https://www.` is expected — do not click “fixed”; index `https://promptanatomy.pro/` |
 | JSON-LD (`WebPage` dates, `FAQPage`, Organization) | [`src/utils/pageJsonLd.ts`](../src/utils/pageJsonLd.ts), [`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts) |
 | Indexable FAQ copy | [`src/content/locales/en.ts`](../src/content/locales/en.ts) (`lt.ts` frozen) |
 
@@ -115,7 +115,8 @@ Canonical files and policy:
 3. Open **`dist/robots.txt`** and confirm the **`Sitemap:`** line is a full URL to your live sitemap index (origin + base path, no guesswork).
 4. Spot-check **`dist/index.html`**: `link[rel=canonical]`, `property="og:url"`, and `property="og:image"` are **absolute** and match the host you actually serve.
 5. Legacy **`/en/`** and **`/lt/`**: Vercel serves HTTP **301** to `/` via [`vercel.json`](../vercel.json); GitHub Pages mirror uses **noindex** redirect stubs in `dist/en/index.html` and `dist/lt/index.html` (platform cannot emit true 301 from static HTML).
-6. If the **Executive OS public URL** changes, update the site line(s) in [`public/llms.txt`](../public/llms.txt) so AI/index citations stay accurate.
+6. **Vercel host aliases:** live `https://promptanatomy.pro/` is **200**; `https://www.promptanatomy.pro/` is **308** to the apex; `http://www.promptanatomy.pro/` **308**s to `https://www.promptanatomy.pro/` first (Vercel TLS hop). Do not add a host redirect in [`vercel.json`](../vercel.json) to flatten that chain. Path redirects (`/en/`, `/lt/`) are `vercel.json`; apex vs www is the Vercel Domains panel, not the repo.
+7. If the **Executive OS public URL** changes, update the site line(s) in [`public/llms.txt`](../public/llms.txt) so AI/index citations stay accurate.
 
 **Deploy hygiene (summary):** **`Sitemap:`** in emitted `dist/robots.txt` is written at build from `SITE_URL` + `BASE_PATH`. Wrong env ⇒ wrong canonicals, wrong social preview image URLs, and a useless `robots.txt` sitemap pointer.
 

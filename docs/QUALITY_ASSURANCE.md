@@ -117,7 +117,7 @@ After changes to [`integrations/robots-txt.mjs`](../integrations/robots-txt.mjs)
 6. If FAQ items changed, confirm `en.ts` `faq.items` and `llms.txt` stay consistent ([`docs/COPY_AUDIT_BY_SLIDE.md`](COPY_AUDIT_BY_SLIDE.md) as needed).
 7. When ship includes copy or on-page SEO changes, bump **`LEADER_PAGE_DATE_MODIFIED`** in [`src/constants/pageSeo.ts`](../src/constants/pageSeo.ts) and re-build.
 8. Optional: run 2–3 English product queries in Perplexity or ChatGPT (with browsing) and note whether Executive OS / Global Context Block citations match `llms.txt` and FAQ.
-9. Verify CTA hierarchy: in-page gold CTAs follow **`#context` → `#demo` → `#kit`** (Hero, PromoBanner, ClarityDemo follow-up, CourseCTA); PromptAnatomy.app is the **canonical product destination** after the funnel (PromoBanner, `#kit`, footer, **mobile-menu** `hero`/`primary`)—not a desktop hero button, and not gold before `#demo`; `promptanatomy.cloud` stays a tertiary learning path.
+9. Verify CTA hierarchy: in-page gold CTAs follow **`#context` → `#demo` → `#kit`** (Hero, PromoBanner, ClarityDemo follow-up, CourseCTA); PromptAnatomy.app is the **canonical product destination** after the funnel (`#kit`, footer, **mobile-menu** `hero`/`primary`)—not a desktop hero button, not PromoBanner, and not gold before `#demo`; `promptanatomy.cloud` stays a tertiary learning path.
 
 ## Dual-deploy smoke checklist
 
@@ -125,10 +125,10 @@ After env or hosting changes, spot-check **each** production host:
 
 | Host | Build env | Spot-check |
 |------|-----------|------------|
-| **promptanatomy.pro** (primary) | `SITE_URL=https://promptanatomy.pro`, `BASE_PATH=/` | `/`, PDF kit, `/og-image.png`, `dist/robots.txt` `Sitemap:` → `https://promptanatomy.pro/sitemap-index.xml` |
+| **promptanatomy.pro** (primary) | `SITE_URL=https://promptanatomy.pro`, `BASE_PATH=/` | `/` (HTTPS 200), PDF kit, `/og-image.png`, `dist/robots.txt` `Sitemap:` → `https://promptanatomy.pro/sitemap-index.xml`; live `https://www.promptanatomy.pro/` **308** → apex |
 | **ditreneris.github.io/leader** (mirror) | `SITE_URL=https://<owner>.github.io`, `BASE_PATH=/leader` | `/leader/`, PDF under `/leader/assets/…`, sitemap under `/leader/` |
 
-Confirm canonical and `og:url` in `dist/index.html` match the host you built for. Legacy `/en/` and `/lt/` should redirect to root (301 on Vercel; noindex stubs on mirror).
+Confirm canonical and `og:url` in `dist/index.html` match the host you built for. Legacy `/en/` and `/lt/` should redirect to root (301 on Vercel; noindex stubs on mirror). Live `https://www.promptanatomy.pro/` should **308** to `https://promptanatomy.pro/`.
 
 ## Release Readiness
 

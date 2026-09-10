@@ -14,7 +14,7 @@
 
 **Canonical “what shipped” references:** [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md), [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md), [`CHANGELOG.md`](../CHANGELOG.md), [`src/layouts/Page.astro`](../src/layouts/Page.astro).
 
-**Shipped baseline (do not contradict in backlog text):** Hero + **HeroDecisionDiagram** → memes **3 → 0 → 2** (with Promo between beats) → **ExecutiveModules `#context`** → **ClarityDemo `#demo`** → meme **5** → **SafetyCheck `#safety-check`** → **CourseCTA `#kit`** → **PromptAnatomy** → **RoiPath** → **Faq `#faq`** → **PromptLibrary `#library`**. (Four **`MemeMoment`** beats; **`memes.items[4]`** unmounted **2026-04-29** — [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).) **`BeforeAfter`** removed **2026-06-09** — proof consolidated in hero diagram. The old `FlowScheme` / `HeroTrust` / **`QuickPractice`** slide code lived in git history only after **2026-04-28** cleanup; live spine is **`ExecutiveModules`**, not QuickPractice.
+**Shipped baseline (do not contradict in backlog text):** Hero + **HeroDecisionDiagram** → **ExecutiveModules `#context`** → **PromoBanner** → meme **2** → **ClarityDemo `#demo`** → meme **5** → **SafetyCheck `#safety-check`** → **CourseCTA `#kit`** → **PromptAnatomy** → **RoiPath** → **Faq `#faq`** → **PromptLibrary `#library`**. (Two **`MemeMoment`** beats; **`memes.items[3]`** and **`items[0]`** unmounted **2026-09-09**; **`memes.items[4]`** unmounted **2026-04-29** — [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md).) **`BeforeAfter`** removed **2026-06-09** — proof consolidated in hero diagram. The old `FlowScheme` / `HeroTrust` / **`QuickPractice`** slide code lived in git history only after **2026-04-28** cleanup; live spine is **`ExecutiveModules`**, not QuickPractice.
 
 **Themes that drive the backlog in §1–12:** (1) one visually primary CTA per major section where possible; (2) deduplicate safety, PDF, and “free/static” messaging where still noisy; (3) keep depth (anatomy, 35-prompt library) optional and last.
 
@@ -86,7 +86,7 @@ flowchart TD
 
 ### 3.3 Current vs target section order (conceptual)
 
-**Current (shipped — see `Page.astro`):** Hero + HeroDecisionDiagram → meme(3) → meme(0) → `#context` (ExecutiveModules) → PromoBanner → meme(2) → `#demo` → meme(5) → SafetyCheck → `#kit` → PromptAnatomy (`#anatomy`) → RoiPath (`#roi`) → FAQ (`#faq`) → PromptLibrary (`#library`).
+**Current (shipped — see `Page.astro`):** Hero + HeroDecisionDiagram → `#context` (ExecutiveModules) → PromoBanner → meme(2) → `#demo` → meme(5) → SafetyCheck → `#kit` → PromptAnatomy (`#anatomy`) → RoiPath (`#roi`) → FAQ (`#faq`) → PromptLibrary (`#library`).
 
 **Target (conceptual — phases may implement partially; many items already match “target”):**
 
@@ -122,7 +122,7 @@ journey
 ### 4.1 Problems today
 
 - ~~Hero **primary** pushes **off-site** before practice~~ — **Hero shipped (current):** gold `#context` only on desktop. PromptAnatomy outbound (`hero`/`primary`) is the **mobile-menu** `productCta` only. The 2026-04-28 outlined-on-hero button is gone.
-- ~~**PromoBanner** gold primary pushed PromptAnatomy.app before `#demo`~~ — **Fixed 2026-06-09:** gold `#demo`, outlined PA, tertiary cloud link; copy reframed to proof-before-scale.
+- ~~**PromoBanner** gold primary pushed PromptAnatomy.app before `#demo`~~ — **Fixed 2026-06-09:** gold `#demo`; **2026-09-09:** outlined PA removed from PromoBanner (sister cloud text remains). Proof-before-scale.
 - **PDF** appears in mobile menu, demo follow-up, library, course CTA — good for reach, **bad for story** (“when should I click?”).
 - ~~**Two destinations** on AuthorityBridge split attention~~ — **AuthorityBridge removed 2026-04-29**; PA handoff remains via PromoBanner / `#kit` / footer / **mobile menu** (not desktop hero).
 
@@ -143,7 +143,7 @@ journey
 | 3 | “Download CEO/COO kit (PDF)” | `#kit` / static PDF |
 | 4 | “Open PromptAnatomy” | `promptanatomy.app` with UTM |
 
-Hero gradient button emphasizes **`#context`** (comprehension-first). PromptAnatomy outbound is **mobile-menu only** (`hero`/`primary`). **PromoBanner (shipped 2026-06-09):** gold **`#demo`**, outlined PA, text link to cloud — comprehension-first mid-funnel beat between `#context` and demo section. Do not move PromoBanner or dedupe PDF from the 2026-09-02 30-day window (n=16; bounce is structural).
+Hero gradient button emphasizes **`#context`** (comprehension-first). PromptAnatomy outbound is **mobile-menu only** (`hero`/`primary`) plus `#kit` and footer. **PromoBanner (shipped 2026-09-09):** gold **`#demo`** and sister cloud text only — no outlined PA. Do not move PromoBanner or dedupe PDF from the 2026-09-02 30-day window (n=16; bounce is structural). CTA thin is not a position experiment.
 
 ### 4.4 Authority bridge
 
@@ -362,6 +362,7 @@ Use this table when choices are made so future agents do not revert blindly.
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
+| 2026-09-09 | Pre-context memes **3** and **0** unmounted; PromoBanner outlined PromptAnatomy CTA **removed** (gold `#demo` + sister text only). `modules`/`handoff` unused. | Time-to-copy: `#context` follows hero. Proof-before-scale: do not sell `.app` on the promo beat. CTA thin is not a PromoBanner **move**. |
 | 2026-09-02 | Desktop outlined PromptAnatomy hero button is **gone**; UTM `hero`/`primary` stays on the **mobile-menu** `productCta` only. PromoBanner move and PDF touchpoint dedup are **not tickets** from Last 30 Days (16 visitors / 16 views / 100% bounce on `/` only — structural one-pager; no copy/kit/outbound events). | Docs had drifted to “outlined hero CTA.” Restoring a desktop PA button would fight the shipped comprehension-first ladder. n=16 cannot diagnose mid-funnel bounce. |
 | 2026-06-09 | **PromoBanner** gold primary → **`#demo`**; outlined PA; tertiary cloud text link; mid-funnel copy reframe | Comprehension-first ladder aligned to §4.3; PA product handoff after proof, not before demo |
 | 2026-04-29 | Post–`RoiPath` meme **`memes.items[4]`** (`meme-02-meeting-overload.png`) **unmounted** | Redundant vs PromoBanner / PromptAnatomy; lowest marginal clarity late in funnel — [`MEME_PRIORITY_REGISTRY.md`](MEME_PRIORITY_REGISTRY.md) |

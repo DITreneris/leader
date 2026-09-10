@@ -121,34 +121,26 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 ---
 
-## 2. Meme 1 (`memes.items[3]`)
+## 2. Meme 1 (`memes.items[3]`) — unmounted 2026-09-09
 
-- **Failai:** [`MemeMoment.astro`](../src/components/MemeMoment.astro), [`Page.astro`](../src/layouts/Page.astro) (eil. ~111–121)
-- **Raktai:** `memes.items[3]` (`[title, body]`)
-
-**LT / EN**
-
-- Turinio poros suvienodintos per indeksą – gerai laikytis `VISUAL_CONTENT_MAP`.
-
-**Ne locale**
-
-- ~~`Page.astro` `alt`~~ – dabar `memes.sequenceImageAlts[]`.
-- ~~`MemeMoment` sekcijos `aria-label`~~ – `memes.sectionAriaLabel`.
-- **2026-04-29:** `MemeMoment` — kai `side="right"`, `lg` tinklelis **`0.75fr | 1.25fr`**, kad meme visada būtų **plačiame** stulpelyje; visi mounted PNG master **1600×900** — žr. [`VISUAL_CONTENT_MAP.md`](VISUAL_CONTENT_MAP.md), [`public/assets/memes/README.md`](../public/assets/memes/README.md).
+- **Failai:** [`MemeMoment.astro`](../src/components/MemeMoment.astro), [`Page.astro`](../src/layouts/Page.astro)
+- **Raktai:** `memes.items[3]` (`[title, body]`) — copy stays in locales; PNG kept for social. Not on the live spine (time-to-copy: `#context` follows hero).
 
 **Veiksmai**
 
 - [x] P1: `alt` / `aria-label` iš locale.
+- [x] **2026-09-09:** unmounted from [`Page.astro`](../src/layouts/Page.astro).
 
 ---
 
-## 3. Meme 2 (`memes.items[0]`)
+## 3. Meme 2 (`memes.items[0]`) — unmounted 2026-09-09
 
-- **Pastabos:** kaip Meme 1; paveikslas `meme-01-ai-chaos.png`, `alt` EN `Page.astro`.
+- **Pastabos:** kaip Meme 1; `meme-01-ai-chaos.png` not on the live spine.
 
 **Veiksmai**
 
 - [x] P1: paveikslo `alt` – `memes.sequenceImageAlts` (žr. CC-10).
+- [x] **2026-09-09:** unmounted from [`Page.astro`](../src/layouts/Page.astro).
 
 ---
 
@@ -190,19 +182,20 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 **LT / EN**
 
 - CTA hierarchija sutampa su konversijos kopėčiomis.
-- **EN (shipped Option A):** `promoBanner.eyebrow` = **Prove it next**; `ariaLabel` = **Prove on a scenario before the full product.** Gold → `#demo`.
+- **EN (shipped Option A):** `promoBanner.eyebrow` = **Prove it next**; `ariaLabel` = **Prove on a scenario before the full product.** Gold → `#demo`. `subtitle` = **Five short cases—then download the kit.** No PromptAnatomy.app button on this beat.
 
 **Veiksmai**
 
 - [x] **2026-04-28:** Hero/meta ir `promoBanner.*` vs `cta.*` — skirtingas funnelis (vidurinis **handoff** į PA + „demo pirmiau“ vs `#kit` **atsisiuntimas** + PA); antraštės ir body nekopijuoja tos pačios frazės; EN/LT lygiagrečiai.
 - [x] **2026-04-28:** `promoBanner.secondaryCta` nebe „static demo“ — **practice / clarity** (`Try the clarity practice first` / `Pirmiau – aiškumo praktika`); sinchronizuota su `nav.proof` ir `demo.eyebrow`.
 - [x] **2026-06-09:** Funnel continuity (tester #05) — `title` *Test the framework on a real executive scenario.*; gold **`Start the scenario`** → `#demo`; outlined PA **`Open the full app`** (domain in `href` only); tertiary **`Learn the framework`** → cloud. Meme index 2: `memes.delegationBridge` ties Delegation chip (not “scenario 1 of 5”).
+- [x] **2026-09-09:** Dropped `promoBanner.secondaryCta` and the outlined PA link. Gold `#demo` + sister cloud text only.
 
 ---
 
 ## 7. Meme 3 (`memes.items[2]`)
 
-- **Pastabos:** kaip Meme 1–2 (`delegation-bottleneck`).
+- **Pastabos:** mounted after PromoBanner (`delegation-bottleneck`). First live meme beat after 2026-09-09.
 
 **Veiksmai**
 

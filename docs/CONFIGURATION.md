@@ -22,6 +22,8 @@ Variables are read at **build time** via [`scripts/lib/deploy-env.mjs`](../scrip
 | **Vercel** | Primary | `https://promptanatomy.pro` | `/` | https://promptanatomy.pro/ |
 | **GitHub Pages** | Mirror | `https://<owner>.github.io` | `/leader` | https://ditreneris.github.io/leader/ |
 
+Vercel Domains: `promptanatomy.pro` is Production; `www.promptanatomy.pro` 308s to the apex. Keep `SITE_URL` on the apex (no `www`). Path redirects `/en/` and `/lt/` stay in [`vercel.json`](../vercel.json).
+
 Each pipeline must set env to match the served URL. Wrong env produces wrong canonicals, social preview URLs, and sitemap pointers.
 
 GitHub Actions deploy: [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml) (Pages only).

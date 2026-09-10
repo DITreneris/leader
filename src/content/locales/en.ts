@@ -140,9 +140,8 @@ export const enCopy = {
       ariaLabel: "Prove on a scenario before the full product.",
       eyebrow: "Prove it next",
       title: "Test the framework on a real executive scenario.",
-      subtitle: "Five short cases—then take the kit or open the full app.",
+      subtitle: "Five short cases—then download the kit.",
       primaryCta: "Start the scenario",
-      secondaryCta: "Open the full app",
       sisterCta: "Learn the framework",
     },
     modules: {
@@ -839,10 +838,8 @@ Eliminate now:
       title: "The problem is not access to AI. It is control.",
       delegationBridge: "Same theme as the Delegation scenario below.",
       sectionAriaLabel: "Executive proof moment",
-      /** Order matches `Page.astro` MemeMoment sequence (indices 3, 0, 2, 5). */
+      /** Order matches `Page.astro` MemeMoment sequence (indices 2, 5). */
       sequenceImageAlts: [
-        "Meme: clear decision brief",
-        "Meme: AI chaos",
         "Meme: delegation bottleneck",
         "Meme: keep the executive kit structure on your desk",
       ] as const,

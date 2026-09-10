@@ -19,6 +19,14 @@ test.describe("smoke", () => {
     );
   });
 
+  test("hero column and header have no PromptAnatomy outbound", async ({ page }) => {
+    await page.goto("/leader/");
+    const heroSection = page.locator("section").filter({ has: page.getByTestId("hero-heading") });
+    await expect(heroSection.locator("a[href*='promptanatomy.app']")).toHaveCount(0);
+    await expect(heroSection.locator("a.btn-primary-gold")).toHaveAttribute("href", "#context");
+    await expect(page.locator("header a[href*='promptanatomy.app']")).toHaveCount(0);
+  });
+
   test("PromptAnatomy outbound link includes leader UTM", async ({ page }) => {
     await page.goto("/leader/");
     const link = page.locator("a[href*='promptanatomy.app'][target='_blank']").filter({ visible: true }).first();
@@ -30,6 +38,12 @@ test.describe("smoke", () => {
     expect(href).toMatch(/utm_campaign=/);
   });
 
+  test("main starts at context (no meme above Step 1)", async ({ page }) => {
+    await page.goto("/leader/");
+    const firstMainChild = page.locator("main > *").first();
+    await expect(firstMainChild).toHaveAttribute("id", "context");
+  });
+
   test("PromoBanner primary CTA targets clarity practice", async ({ page }) => {
     await page.goto("/leader/");
     const promo = page.getByRole("region", {
@@ -38,10 +52,9 @@ test.describe("smoke", () => {
     await expect(promo).toBeVisible();
     const goldCta = promo.locator("a.cta-gradient").first();
     await expect(goldCta).toHaveAttribute("href", "#demo");
-    const paLink = promo.locator("a[href*='promptanatomy.app']").first();
-    await expect(paLink).toBeVisible();
-    const href = await paLink.getAttribute("href");
-    expect(href).toMatch(/utm_source=leader/);
+    await expect(promo.locator("a[href*='promptanatomy.app']")).toHaveCount(0);
+    const sister = promo.locator("a[href*='promptanatomy.cloud']").first();
+    await expect(sister).toBeVisible();
   });
 
   test("macro step eyebrows appear on conversion spine", async ({ page }) => {
@@ -96,6 +109,11 @@ test.describe("smoke", () => {
     await menuBtn.click();
     await expect(menuBtn).toHaveAttribute("aria-expanded", "true");
     await expect(panel).toBeVisible();
+    const productCta = panel.locator("a[href*='promptanatomy.app']");
+    await expect(productCta).toBeVisible();
+    const productHref = await productCta.getAttribute("href");
+    expect(productHref).toMatch(/utm_medium=hero/);
+    expect(productHref).toMatch(/utm_campaign=primary/);
     await panel.getByRole("link", { name: "How it works" }).click();
     await expect(menuBtn).toHaveAttribute("aria-expanded", "false");
     await expect(panel).toBeHidden();
@@ -146,7 +164,7 @@ test.describe("smoke", () => {
 
   test("first meme image asset is served", async ({ page, request }) => {
     await page.goto("/leader/");
-    const response = await request.get("/leader/assets/memes/meme-03-clear-decision.png");
+    const response = await request.get("/leader/assets/memes/meme-04-delegation-bottleneck.png");
     expect(response.status()).toBe(200);
   });
 });
