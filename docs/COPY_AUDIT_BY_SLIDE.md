@@ -115,7 +115,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **Veiksmai**
 
-- [x] P1: Hero kietojo teksto i18n (`a11y.logoAriaLabel`, `brandSubtag`, `openMobileMenu`, `nav*Aria`, `languageToggleAria`).
+- [x] P1: Hero kietojo teksto i18n (`a11y.logoAriaLabel`, `brandSubtag`, `openMobileMenu`, `nav*Aria`). Language toggle removed (EN-only).
 - [x] **2026-04-28:** Du hero CTA (`Hero.astro`): `#context` (auksinis, be UTM) + PA outbound (kontūrinis, su UTM).
 - [x] **2026-06-09:** Konversijos kopija + hero diagramos modernizacija; antrinis CTA → tekstinė nuoroda.
 

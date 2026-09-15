@@ -5,12 +5,6 @@ export const AUTHOR_NAME = "Tomas Staniulis";
 
 export const CONTACT_EMAIL = "info@promptanatomy.app";
 
-export const MAILING_ADDRESS =
-  "Prompt Anatomy, 1311 Park St, Unit #654, Alameda, CA 94501, US";
-
-/** Short locality for visible footer (full street in JSON-LD only). */
-export const MAILING_ADDRESS_LOCALITY = "Alameda, CA";
-
 export const MAILING_STREET = "1311 Park St, Unit #654";
 
 export const MAILING_LOCALITY = "Alameda";

@@ -7,6 +7,7 @@ import {
   MAILING_POSTAL_CODE,
   MAILING_REGION,
   MAILING_STREET,
+  PUBLISHER_NAME,
 } from "../constants/publisher";
 import { SHIPPED_LOCALES } from "../constants/siteLocale";
 import type { Language } from "../content/copy";
@@ -76,7 +77,7 @@ export function buildLeaderPageJsonLd(input: {
       {
         "@type": "Organization",
         "@id": motherOrgId,
-        name: "Prompt Anatomy",
+        name: PUBLISHER_NAME,
         alternateName: ["Promptų anatomija", "PromptAnatomy"],
         url: "https://www.promptanatomy.app/",
         logo: {
@@ -98,7 +99,7 @@ export function buildLeaderPageJsonLd(input: {
         "@type": "WebSite",
         "@id": motherSiteId,
         url: "https://www.promptanatomy.app/",
-        name: "Prompt Anatomy",
+        name: PUBLISHER_NAME,
         publisher: { "@id": motherOrgId },
         inLanguage: [...SHIPPED_LOCALES],
       },
@@ -148,4 +149,4 @@ export function buildLeaderPageJsonLd(input: {
     ],
   };
 }
-
+

@@ -31,7 +31,7 @@ Historical decisions and long-form strategy: [`docs/STRATEGIC_REVISION_PLAN.md`]
 
 | Item | Owner | Notes |
 |------|-------|--------|
-| Sister repo reciprocal CTA | `DITreneris/lead` | Text link to `promptanatomy.pro/en/` after lesson / in promo-handoff |
+| Sister repo reciprocal CTA | `DITreneris/lead` | Text link to `https://promptanatomy.pro/` after lesson / in promo-handoff |
 | Executive output checklist UI | Leader P3 | Static self-check after demo (owner, deadline, trade-off, risk) — not framework quiz |
 
 ---

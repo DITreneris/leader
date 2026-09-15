@@ -111,47 +111,41 @@ const hasDecisionBullets =
 
       <div
         class="mt-6 inline-flex w-full flex-wrap items-stretch justify-center gap-1 radius-md border border-white/10 bg-slate-950/40 p-1 sm:w-auto sm:justify-start"
-        role="tablist"
+        role="group"
         aria-label={demo.secondaryTablistAriaLabel}
       >
         <button
           type="button"
-          class="focus-ring min-h-11 flex-1 radius-sm px-4 py-2.5 text-sm font-semibold text-slate-300 transition aria-selected:bg-brand-accent/20 aria-selected:text-white sm:min-h-0 sm:flex-none"
+          class="focus-ring min-h-11 flex-1 radius-sm px-4 py-2.5 text-sm font-semibold text-slate-300 transition aria-expanded:bg-brand-accent/20 aria-expanded:text-white sm:min-h-0 sm:flex-none"
           id="demo-tab-details"
-          role="tab"
           data-demo-tab="details"
-          aria-selected="false"
+          aria-expanded="false"
           aria-label={demo.detailsTab}
           aria-controls="demo-details-panel"
-          tabindex="0"
         >
           <span class="sm:hidden">{demo.detailsTabShort}</span>
           <span class="hidden sm:inline">{demo.detailsTab}</span>
         </button>
         <button
           type="button"
-          class="focus-ring min-h-11 flex-1 radius-sm px-4 py-2.5 text-sm font-semibold text-slate-300 transition aria-selected:bg-brand-accent/20 aria-selected:text-white sm:min-h-0 sm:flex-none"
+          class="focus-ring min-h-11 flex-1 radius-sm px-4 py-2.5 text-sm font-semibold text-slate-300 transition aria-expanded:bg-brand-accent/20 aria-expanded:text-white sm:min-h-0 sm:flex-none"
           id="demo-tab-input"
-          role="tab"
           data-demo-tab="input"
-          aria-selected="false"
+          aria-expanded="false"
           aria-label={demo.inputTab}
           aria-controls="demo-input-panel"
-          tabindex="-1"
         >
           <span class="sm:hidden">{demo.inputTabShort}</span>
           <span class="hidden sm:inline">{demo.inputTab}</span>
         </button>
         <button
           type="button"
-          class="focus-ring min-h-11 flex-1 radius-sm px-4 py-2.5 text-sm font-semibold text-slate-300 transition aria-selected:bg-brand-accent/20 aria-selected:text-white sm:min-h-0 sm:flex-none"
+          class="focus-ring min-h-11 flex-1 radius-sm px-4 py-2.5 text-sm font-semibold text-slate-300 transition aria-expanded:bg-brand-accent/20 aria-expanded:text-white sm:min-h-0 sm:flex-none"
           id="demo-tab-prompt"
-          role="tab"
           data-demo-tab="prompt"
-          aria-selected="false"
+          aria-expanded="false"
           aria-label={demo.promptTab}
           aria-controls="demo-prompt-panel"
-          tabindex="-1"
         >
           <span class="sm:hidden">{demo.promptTabShort}</span>
           <span class="hidden sm:inline">{demo.promptTab}</span>
@@ -169,8 +163,6 @@ const hasDecisionBullets =
       <div
         id="demo-details-panel"
         class="hidden mt-4 border-t border-white/10 pt-4"
-        role="tabpanel"
-        aria-labelledby="demo-tab-details"
       >
         <div class="grid gap-4 md:grid-cols-2">
           <div class="surface-panel radius-lg p-4">
@@ -199,8 +191,6 @@ const hasDecisionBullets =
       <div
         id="demo-input-panel"
         class="hidden mt-4 border-t border-white/10 pt-4"
-        role="tabpanel"
-        aria-labelledby="demo-tab-input"
       >
         <div class="surface-panel radius-lg p-4">
           <p class="type-micro-label-readable text-slate-400">
@@ -215,8 +205,6 @@ const hasDecisionBullets =
       <div
         id="demo-prompt-panel"
         class="hidden mt-4 border-t border-white/10 pt-4"
-        role="tabpanel"
-        aria-labelledby="demo-tab-prompt"
       >
         <div class="surface-panel radius-lg p-4">
           <p class="type-micro-label-readable text-slate-400">

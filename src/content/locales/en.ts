@@ -15,7 +15,6 @@ export const enCopy = {
       openMobileMenu: "Open menu",
       navPrimaryAria: "Primary",
       navMobileAria: "Mobile primary",
-      languageToggleAria: "Language",
       footerLegalNavAria: "Footer links",
     },
     faq: {
@@ -114,7 +113,6 @@ export const enCopy = {
           { label: "Ownership", detail: "Unassigned" },
         ],
       },
-      synthesis: { label: "AI synthesis" },
       brief: {
         decision: {
           label: "Decision",
@@ -718,7 +716,6 @@ Eliminate now:
       eyebrow: "Step 2 · Prove on a scenario",
       title: "Pick a scenario. Structure the decision.",
       subtitle: "Choose one executive situation and copy a decision-ready prompt.",
-      scenarioHint: "",
       briefLabel: "Scenario brief",
       detailsTab: "Risks and questions",
       detailsTabShort: "Risks",
@@ -729,14 +726,11 @@ Eliminate now:
       secondaryPanelHint: "Open a tab for risks, input, or the full prompt.",
       secondaryTablistAriaLabel: "More detail",
       promptBlockLabel: "Sample prompt to copy",
-      previewHint: "",
       followUpEyebrow: "Download the kit next",
       followUpText: "Download the printable decision kit—same structure offline.",
       followUpCta: "Download PDF kit",
-      pdfAgain: "jump to the kit download.",
       scenarioLiveStatus: "Scenario: {scenario}. Brief updated.",
       messyInputLabel: "Scenario setup",
-      connectorCaption: "Transforms",
       outputLabel: "Executive clarity output",
       insight: "Bottom line",
       decision: "Decision needed",
@@ -834,8 +828,6 @@ Eliminate now:
       },
     },
     memes: {
-      eyebrow: "Visual proof",
-      title: "The problem is not access to AI. It is control.",
       delegationBridge: "Same theme as the Delegation scenario below.",
       sectionAriaLabel: "Executive proof moment",
       /** Order matches `Page.astro` MemeMoment sequence (indices 2, 5). */

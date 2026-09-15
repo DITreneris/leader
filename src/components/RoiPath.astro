@@ -1,5 +1,5 @@
 ---
-import SectionHeader from "./SectionHeader.astro";
+import SectionTitleBlock from "./ds/SectionTitleBlock.astro";
 import SectionShell from "./ds/SectionShell.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
@@ -23,8 +23,6 @@ const accentClass = (accent: string) => {
       return "data-[active=true]:border-amber-200/70 data-[active=true]:shadow-[0_0_60px_rgba(232,185,60,0.20)] data-[active=true]:hover:border-amber-200/55";
     case "execution":
       return "data-[active=true]:border-emerald-200/55 data-[active=true]:shadow-[0_0_60px_rgba(16,185,129,0.14)] data-[active=true]:hover:border-emerald-200/45";
-    case "communication":
-      return "data-[active=true]:border-violet-200/55 data-[active=true]:shadow-[0_0_60px_rgba(167,139,250,0.14)] data-[active=true]:hover:border-violet-200/45";
     default:
       return "data-[active=true]:border-brand-accent/60 data-[active=true]:shadow-[0_0_60px_rgba(207,167,58,0.22)] data-[active=true]:hover:border-brand-accent/50";
   }
@@ -32,7 +30,7 @@ const accentClass = (accent: string) => {
 ---
 
 <SectionShell id="roi" labelledby="roi-heading" anchorFocusable>
-  <SectionHeader
+  <SectionTitleBlock
     eyebrow={roiPath.eyebrow}
     title={roiPath.title}
     subtitle={roiPath.subtitle}

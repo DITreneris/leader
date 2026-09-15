@@ -38,10 +38,30 @@ test.describe("smoke", () => {
     expect(href).toMatch(/utm_campaign=/);
   });
 
-  test("main starts at context (no meme above Step 1)", async ({ page }) => {
+  test("hero heading lives in main; header stays outside; no meme before Step 1", async ({ page }) => {
     await page.goto("/leader/");
-    const firstMainChild = page.locator("main > *").first();
-    await expect(firstMainChild).toHaveAttribute("id", "context");
+    const heading = page.getByTestId("hero-heading");
+    await expect(heading).toBeVisible();
+    await expect(page.locator("main").getByTestId("hero-heading")).toBeVisible();
+    await expect(page.getByTestId("site-header")).toBeVisible();
+    await expect(page.locator("main").getByTestId("site-header")).toHaveCount(0);
+
+    const contextIndex = await page.evaluate(() => {
+      const main = document.querySelector("main");
+      if (!main) return -1;
+      return Array.from(main.children).findIndex((el) => el.id === "context");
+    });
+    expect(contextIndex).toBeGreaterThan(0);
+
+    const memeBeforeContext = await page.evaluate(() => {
+      const main = document.querySelector("main");
+      const context = document.getElementById("context");
+      if (!main || !context) return true;
+      const children = Array.from(main.children);
+      const contextIdx = children.indexOf(context);
+      return children.slice(0, contextIdx).some((el) => el.tagName === "ASIDE");
+    });
+    expect(memeBeforeContext).toBe(false);
   });
 
   test("PromoBanner primary CTA targets clarity practice", async ({ page }) => {
@@ -89,6 +109,31 @@ test.describe("smoke", () => {
     await expect(copyBtn).toBeEnabled();
     const pasteStrip = demo.locator('[data-paste-destination-strip="demo"]');
     await expect(pasteStrip).toHaveClass(/hidden/);
+  });
+
+  test("hash targets receive focus on load", async ({ page }) => {
+    await page.goto("/leader/#safety-check");
+    await expect.poll(async () =>
+      page.evaluate(() => document.activeElement?.id ?? ""),
+    ).toBe("safety-check");
+
+    await page.goto("/leader/#faq");
+    await expect.poll(async () =>
+      page.evaluate(() => document.activeElement?.id ?? ""),
+    ).toBe("faq");
+  });
+
+  test("demo copy fallback reveals the prompt panel", async ({ page }) => {
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, "clipboard", { configurable: true, value: undefined });
+    });
+    await page.goto("/leader/");
+    const demo = page.locator("#demo");
+    await demo.scrollIntoViewIfNeeded();
+    await demo.locator("button[data-copy-prompt]").first().click();
+    const panel = page.locator("#demo-prompt-panel");
+    await expect(panel).not.toHaveClass(/hidden/);
+    await expect(panel.locator('[data-demo-field="prompt"]')).toBeVisible();
   });
 
   test("prompt anatomy links blocks to in-page sections", async ({ page }) => {

@@ -2,16 +2,16 @@
 
 **Apimtis:** statinė vieno puslapio iškrovimo (`src/layouts/Page.astro`), Tailwind + `global.css`, kliento skriptai (`InteractiveCopy.astro`, įterpti `<script>` kai kuriuose komponentuose).  
 **Data:** 2026-04-28.  
-**Atnaujinta:** 2026-06-09 — Mobile Audit v2 pataisymai (hero animacija, tap targets, iOS inputai); žr. skyrių **Įgyvendinta (2026-06-09)**. Anksčiau: 2026-04-29 — inkarų lentelė ir `#roi` (`RoiPath.astro`); hero nav politika žr. [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md) (Hash anchors).  
+**Atnaujinta:** 2026-09-15 — `LanguageToggle.astro` removed (EN-only); mobile menu is `role="dialog"` without `aria-modal` (page is not `inert`). 2026-06-09 — Mobile Audit v2 pataisymai (hero animacija, tap targets, iOS inputai); žr. skyrių **Įgyvendinta (2026-06-09)**. Anksčiau: 2026-04-29 — inkarų lentelė ir `#roi` (`RoiPath.astro`); hero nav politika žr. [`CODEBASE_OVERVIEW.md`](CODEBASE_OVERVIEW.md) (Hash anchors).  
 **Tikslas:** identifikuoti trikdžius, rizikas ir tobulinimo galimybes mažuose ekranuose; fiksuoti vartotojo interakcijas kaip vykdymo šaltinį QA ir ateities refaktoriams.
 
 ---
 
 ## Įgyvendinta (2026-04-28)
 
-- **`LanguageToggle` (`compact`):** `min-h-11 min-w-11` vietoje `min-h-8` ([`LanguageToggle.astro`](../src/components/LanguageToggle.astro)).
+- **Language toggle:** removed with EN-only shipping. Do not restore a language switcher.
 - **`PromptLibrary` Copy:** `min-h-11 py-3` ant bazės ([`PromptLibrary.astro`](../src/components/PromptLibrary.astro)).
-- **Hero mobilus meniu:** Tab **focus trap** atidarytai panelei; `Escape` uždaro tik kai meniu atidarytas; **`role="dialog"`**, **`aria-modal="true"`**, **`aria-label`** ant panelės ([`Hero.astro`](../src/components/Hero.astro)).
+- **Hero mobilus meniu:** Tab **focus trap** atidarytai panelei; `Escape` uždaro tik kai meniu atidarytas; **`role="dialog"`** (no `aria-modal` — rest of page is not `inert`); **`aria-labelledby`** ant panelės ([`SiteHeader.astro`](../src/components/SiteHeader.astro) after 2026-09-15 split).
 - **Viewport / korpusas:** meta **`viewport-fit=cover`** ([`Page.astro`](../src/layouts/Page.astro), [`index.astro`](../src/pages/index.astro)); **`body`** — `padding-*` iš `env(safe-area-inset-*)`; **`min-height: 100dvh`** su `@supports` fallback į `100vh` ([`global.css`](../src/styles/global.css)).
 - **Meme raster (C2):** [`MemeMoment.astro`](../src/components/MemeMoment.astro) — `<picture>` (**AVIF → WebP → PNG**); generavimas **`npm run optimize:memes`** ([`scripts/optimize-meme-images.mjs`](../scripts/optimize-meme-images.mjs), devDependency **`sharp`**).
 
@@ -55,7 +55,7 @@ Sąsaja iš esmės yra **vieno stulpelio**, su aiškiais horizontaliais tarpais 
 
 ### Išspręsta (2026-04-28)
 
-Ankstesni **P1** (LanguageToggle compact, PromptLibrary Copy), **P2** (mobilaus meniu focus trap + dialog semantika), **P3** (viewport-fit + safe-area ant `body`, `100dvh`) — įgyvendinta; žr. skyrių **Įgyvendinta** viršuje.
+Ankstesni **P1** (LanguageToggle compact — later removed with EN-only; PromptLibrary Copy), **P2** (mobilaus meniu focus trap + dialog semantika), **P3** (viewport-fit + safe-area ant `body`, `100dvh`) — įgyvendinta; žr. skyrių **Įgyvendinta** viršuje.
 
 ### Vis dar aktualu / backlog
 
@@ -68,7 +68,7 @@ Ankstesni **P1** (LanguageToggle compact, PromptLibrary Copy), **P2** (mobilaus 
 
 | Prioritetas | Veiksmas |
 |-------------|----------|
-| ~~A~~ | ~~Touch targets (LanguageToggle, PromptLibrary); hero meniu trap + dialog~~ — **įgyvendinta 2026-04-28.** |
+| ~~A~~ | ~~Touch targets (LanguageToggle — later removed; PromptLibrary); hero meniu trap + dialog~~ — **įgyvendinta 2026-04-28.** |
 | ~~B~~ | ~~`viewport-fit=cover`, safe-area ant `body`, `100dvh`~~ — **įgyvendinta 2026-04-28.** |
 | C | **Horizontalus scenarijų juostos scroll** (`#demo`) vietoje tik `flex-wrap` labai siauruose ekranuose — jei KPI rodo problemą. |
 | C | ~~**Memo PNG** dydis~~ — **įgyvendinta:** `MemeMoment` naudoja `<picture>` (AVIF/WebP) + PNG fallback; generavimas `npm run optimize:memes`. |

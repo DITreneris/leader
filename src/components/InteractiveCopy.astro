@@ -171,11 +171,8 @@
       inputPanelEl.classList.add("hidden");
       promptPanelEl?.classList.add("hidden");
       demoTabButtons.forEach((t) => {
-        t.setAttribute("aria-selected", "false");
-        t.tabIndex = -1;
+        t.setAttribute("aria-expanded", "false");
       });
-      const firstTab = document.querySelector<HTMLButtonElement>("[data-demo-tab=\"details\"]");
-      if (firstTab) firstTab.tabIndex = 0;
       return;
     }
     placeholderEl.classList.add("hidden");
@@ -183,10 +180,24 @@
     inputPanelEl.classList.toggle("hidden", next !== "input");
     promptPanelEl?.classList.toggle("hidden", next !== "prompt");
     demoTabButtons.forEach((t) => {
-      const selected = t.dataset.demoTab === next;
-      t.setAttribute("aria-selected", String(selected));
-      t.tabIndex = selected ? 0 : -1;
+      t.setAttribute("aria-expanded", String(t.dataset.demoTab === next));
     });
+  };
+
+  const revealDemoPromptForManualCopy = () => {
+    setDemoSubpanel("prompt");
+    const promptEl = document.querySelector<HTMLElement>("[data-demo-field=\"prompt\"]");
+    promptEl?.scrollIntoView({ block: "nearest" });
+    promptEl?.focus();
+  };
+
+  const revealModulePreviewForManualCopy = (moduleId: string) => {
+    const preview = document.querySelector<HTMLElement>(`[data-module-preview-content="${moduleId}"]`);
+    if (!preview) return;
+    const details = preview.closest("details");
+    if (details) details.open = true;
+    preview.scrollIntoView({ block: "nearest" });
+    preview.focus();
   };
 
   demoTabButtons.forEach((tab) => {
@@ -401,7 +412,7 @@ ${outputExampleJson}`.trim();
 
     if (!navigator.clipboard?.writeText) {
       showCopyHint(manualMessage());
-      document.querySelector<HTMLElement>("[data-demo-field=\"prompt\"]")?.focus();
+      revealDemoPromptForManualCopy();
       return;
     }
 
@@ -417,7 +428,7 @@ ${outputExampleJson}`.trim();
       }, 1400);
     } catch {
       showCopyHint(manualMessage());
-      document.querySelector<HTMLElement>("[data-demo-field=\"prompt\"]")?.focus();
+      revealDemoPromptForManualCopy();
     }
   });
 
@@ -466,6 +477,7 @@ ${outputExampleJson}`.trim();
 
       if (!navigator.clipboard?.writeText) {
         showCopyHint(manualMessage());
+        revealModulePreviewForManualCopy(moduleId);
         return;
       }
 
@@ -475,6 +487,7 @@ ${outputExampleJson}`.trim();
         revealPasteDestinationStrip();
       } catch {
         showCopyHint(manualMessage());
+        revealModulePreviewForManualCopy(moduleId);
       }
     });
   });

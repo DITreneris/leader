@@ -48,7 +48,7 @@
 
 ## 2. Situation summary (baseline)
 
-- **Strengths:** Strong copy model (decision, risk, trade-off, owner), consistent gold/navy system, clipboard UX with fallback, **`/en/` shipped** (`/lt/` opt-in via `siteLocale.ts`), PDF + schema + FAQ depth, nav anchors **`#context` / `#demo` / `#kit`**, spine order **demo before** anatomy + ROI **before** FAQ (library last).
+- **Strengths:** Strong copy model (decision, risk, trade-off, owner), consistent gold/navy system, clipboard UX with fallback, **English at `/`** (legacy `/en/` and `/lt/` are noindex redirect stubs; `lt.ts` is a frozen archive), PDF + schema + FAQ depth, nav anchors **`#context` / `#demo` / `#kit`**, spine order **demo before** anatomy + ROI **before** FAQ (library last).
 - **Open friction (revisit periodically):** Long vertical stack; **multiple PDF touchpoints** (demo, CTA, library)—qualitative only after 2026-09-02 (n=16, no events); safety messaging may still feel adjacent to ROI step copy—tune qualitatively, not by re-breaking the shipped stack without intent. Desktop hero is in-page `#context` only (no off-site primary).
 
 Older issues **resolved** in code (keep for history in `CHANGELOG`): placeholder trust hidden, meme order **documented** (`VISUAL_CONTENT_MAP` + `Page.astro` comments), `#demo` in nav, SystemVisual **merged into FAQ** answer.
@@ -187,7 +187,7 @@ Hero gradient button emphasizes **`#context`** (comprehension-first). PromptAnat
 
 | Action | Detail |
 |--------|--------|
-| **Order:** Intentional mapping **3, 0, 2, 5** (`items[1]` spare; `items[4]` + `meme-02-meeting-overload.png` **unmounted 2026-04-29**). Do not “fix” to `0…3` without updating `VISUAL_CONTENT_MAP` + comments. |
+| **Order:** Shipped beats are indices **2, 5** (`meme-04-delegation-bottleneck.png`, `reward_2.png`). Indices **3** and **0** unmounted **2026-09-09** (time-to-copy); **`items[1]`** spare copy; **`items[4]`** + `meme-02-meeting-overload.png` unmounted **2026-04-29**. PNG files stay on disk for social. Do not remount 3/0 before `#context`. |
 | **Docs:** `VISUAL_CONTENT_MAP.md` + `MEME_PRIORITY_REGISTRY.md` are canonical for meme ↔ file ↔ copy; keep in sync with `Page.astro`. |
 | **Optional:** Reduce further (e.g. to **three** moments); A/B via stakeholder review, not code flags unless you add env-based toggles later. |
 
@@ -279,7 +279,7 @@ Work is split so **each phase** leaves the site shippable (`npm run build`, Ligh
 
 ### Phase 0 — Quick wins (1–3 days)
 
-**Status as of 2026-04-28: closed** (updated **2026-04-29:** dropped mounted **`items[4]`** beat). Meme sequencing is **intentionally** mapped (indices **3, 0, 2, 5**; indices **1** spare, **4** unmounted) with `VISUAL_CONTENT_MAP.md` + `Page.astro` comments. Library strings live in **locales** + `PromptLibrary.astro`. Header nav exposes **`#context` / `#demo` / `#kit`**. Further doc-only QA: skim LT line lengths when editing Promo/Hero—not a reopened phase.
+**Status as of 2026-04-28: closed** (updated **2026-04-29:** dropped mounted **`items[4]`** beat; **2026-09-09:** unmounted indices **3** and **0** so `#context` is first in `<main>` after the hero). Shipped meme beats are indices **2, 5** with `VISUAL_CONTENT_MAP.md` + `Page.astro` comments. Library strings live in **locales** + `PromptLibrary.astro`. Header nav exposes **`#context` / `#demo` / `#kit`**. Further doc-only QA: skim LT line lengths when editing Promo/Hero—not a reopened phase.
 
 ---
 

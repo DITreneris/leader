@@ -96,7 +96,6 @@ Prefer these over inline `cta-gradient` + ad-hoc padding. Always keep class name
 |------|-------|-----|
 | Primary gold | `.btn-primary-gold` + `.cta-gradient` + `.elevate-hover` | Hero, PromoBanner, demo copy, custom module compile |
 | Accent outline | `.btn-outline-accent` + `.elevate-hover` (optional) | Per-module copy, ROI step actions |
-| Neutral outline | `.btn-outline-neutral` + `.elevate-hover` (optional) | CourseCTA secondary and similar; not PromoBanner |
 | Warning outline | `.btn-outline-warning` + `.type-cta-label` | SafetyCheck copy only |
 | Text link | Underlined `text-sm font-semibold` | Sister hub, footer, tertiary |
 
@@ -113,7 +112,6 @@ Prefer these over inline `cta-gradient` + ad-hoc padding. Always keep class name
 | `ContentCard` | `glass` / `surface` / `accent` surface, `lg` / `xl` radius, compact or comfort padding, optional `elevate-hover` |
 | `BulletSystem` | Disc list with consistent spacing (`default` \| `muted` text) |
 | `HighlightStrip` | Accent callout surfaces: `band` (inline strip), `promo` (glass + accent border + promo blurs) |
-| `DiagramContainer` | Figure shell for SVG/diagrams: glass frame, consistent padding |
 | `WorkflowStepRail` | **#context** only: three-step journey (define context → choose module → copy brief) |
 
 New sections should compose these primitives before inventing new layout classes.
@@ -126,7 +124,7 @@ Use a small number of **visual tiers** so callouts feel part of the same page, n
 |------|---------|------|
 | **Ribbon** | `HighlightStrip` `band` (`context` / `panel`) | Short guidance, instructions, “start here” — no competing gold CTA on the same row. |
 | **Glass promo** | `HighlightStrip` `promo` (e.g. [`PromoBanner.astro`](../src/components/PromoBanner.astro)) | Mid-funnel next step: gold in-page `#demo`; tertiary text link to promptanatomy.cloud. PromptAnatomy.app is not on this beat. |
-| **Gold commitment** | [`CourseCTA.astro`](../src/components/CourseCTA.astro) gradient block | Strongest download / asset moment after the narrative has landed (e.g. after safety check). |
+| **Gold commitment** | [`CourseCTA.astro`](../src/components/CourseCTA.astro) gradient block | Strongest download / asset moment after the narrative has landed (e.g. after safety check). Primary: slate filled PDF button. Secondary: outlined slate-on-gold PromptAnatomy link (not `.btn-outline-neutral`). |
 
 **Rule of thumb:** avoid stacking multiple “brightest” conversion surfaces with no vertical breathing space; see story order in [`Page.astro`](../src/layouts/Page.astro).
 
@@ -140,10 +138,10 @@ Maps “template” → existing components (reference implementation).
 
 | Template | Purpose | Typical building blocks |
 |----------|---------|-------------------------|
-| **Hero** | First screen: promise + nav + primary/secondary CTAs | `Hero.astro`, `HeroDecisionDiagram.astro` — **exception:** custom hero eyebrow pill, not `SectionTitleBlock` |
+| **Hero** | First screen: promise + nav + primary CTA | `SiteHeader.astro` (outside `<main>`), `Hero.astro` (inside `<main>`), `HeroDecisionDiagram.astro` — **exception:** custom hero eyebrow pill, not `SectionTitleBlock` |
 | **Content** | Modules, library, dense value | `SectionShell` + `SectionTitleBlock` + `ContentCard` grid or accordions (`ExecutiveModules`, `PromptLibrary`) |
-| **Comparison** | Before / after or contrast story | `SectionShell` + `SectionTitleBlock` + copy column + `DiagramContainer` (hero diagram ships proof; standalone BeforeAfter removed **2026-06-09**) |
-| **Process** | Steps, ROI path, flow | `SectionShell` + steps or `DiagramContainer` + `BulletSystem` where lists matter (e.g. `RoiPath`) |
+| **Comparison** | Before / after or contrast story | `SectionShell` + `SectionTitleBlock` + copy column + `HeroDecisionDiagram` (hero diagram ships proof; standalone BeforeAfter removed **2026-06-09**) |
+| **Process** | Steps, ROI path, flow | `SectionShell` + steps + `BulletSystem` where lists matter (e.g. `RoiPath`) |
 | **CTA** | Conversion band | One primary CTA per major section; `HighlightStrip` / `CourseCTA` patterns; gold `cta-gradient` for primary action |
 | **Reference** | Optional framework vocabulary (late funnel) | [`PromptAnatomy.astro`](../src/components/PromptAnatomy.astro) — collapsed `<details>`; per block: definition label + body, monospace **example** strip (always populated), **On this page** text link to `#context` / `#demo` / `#safety-check`. Use light bordered cards — **not** `surface-panel` form-style panels. |
 
@@ -164,7 +162,7 @@ Maps “template” → existing components (reference implementation).
 | 2 (text) | Underlined link | promptanatomy.cloud (`buildSisterHubUrl`) |
 
 - **New section:** use `SectionShell` + `SectionTitleBlock` unless you are intentionally using the **Hero** template.
-- **Diagrams:** SVG preferred; wrap in `DiagramContainer` (or equivalent classes) for frame consistency.
+- **Diagrams:** SVG preferred; wrap in a `glass-card` frame (see `HeroDecisionDiagram`) for consistency.
 
 ### Do not (DS v1)
 

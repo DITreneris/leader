@@ -294,10 +294,6 @@
   }
 }
 
-.border-surface {
-  border-color: var(--color-surface-border);
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -468,25 +464,6 @@ a {
   letter-spacing: 0.16em;
 }
 
-.btn-outline-neutral {
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.02);
-  color: rgb(255 255 255);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.025em;
-  transition:
-    background-color 160ms ease,
-    transform 200ms ease,
-    box-shadow 200ms ease,
-    border-color 200ms ease,
-    filter 200ms ease;
-}
-
-.btn-outline-neutral:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-
 .btn-outline-warning {
   border: 1px solid rgba(251, 191, 36, 0.5);
   color: rgb(254 243 199);
@@ -529,10 +506,6 @@ a {
 
 .logo-glow {
   filter: var(--drop-shadow-logo-glow);
-}
-
-.hidden-lang {
-  display: none !important;
 }
 
 summary.library-summary::-webkit-details-marker,

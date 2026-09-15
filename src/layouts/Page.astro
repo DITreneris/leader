@@ -5,6 +5,7 @@ import ClarityDemo from "../components/ClarityDemo.astro";
 import CourseCTA from "../components/CourseCTA.astro";
 import Faq from "../components/Faq.astro";
 import Hero from "../components/Hero.astro";
+import SiteHeader from "../components/SiteHeader.astro";
 import InteractiveCopy from "../components/InteractiveCopy.astro";
 import ExecutiveModules from "../components/ExecutiveModules.astro";
 import PromoBanner from "../components/PromoBanner.astro";
@@ -115,8 +116,9 @@ const telegramHref = buildTelegramUrl();
   </head>
   <body id="top">
     <a href="#ctx-company" class="skip-link focus-ring">{copy.a11y.skipLink}</a>
-    <Hero lang={lang} />
+    <SiteHeader lang={lang} />
     <main>
+      <Hero lang={lang} />
       <ExecutiveModules lang={lang} />
       <PromoBanner lang={lang} />
       <MemeMoment
@@ -124,7 +126,6 @@ const telegramHref = buildTelegramUrl();
         index={2}
         src="meme-04-delegation-bottleneck.png"
         alt={memeSequenceAlts[0]}
-        accent="gold"
         side="left"
         width={1280}
         height={720}
@@ -135,7 +136,6 @@ const telegramHref = buildTelegramUrl();
         index={5}
         src="reward_2.png"
         alt={memeSequenceAlts[1]}
-        accent="gold"
         side="right"
         width={1280}
         height={720}
@@ -217,7 +217,12 @@ const telegramHref = buildTelegramUrl();
     <script is:inline>
       (() => {
         const focusHashTarget = () => {
-          const hashdecode = decodeURIComponent(location.hash || "");
+          let hashdecode = "";
+          try {
+            hashdecode = decodeURIComponent(location.hash || "");
+          } catch {
+            return;
+          }
           if (!hashdecode || hashdecode === "#") return;
           const el = document.querySelector(hashdecode);
           if (el instanceof HTMLElement) el.focus({ preventScroll: true });

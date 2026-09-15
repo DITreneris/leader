@@ -3,14 +3,11 @@ import SectionShell from "./ds/SectionShell.astro";
 import type { Language } from "../content/copy";
 import { uiCopy } from "../content/copy";
 
-type AccentTone = "gold" | "amber" | "fuchsia" | "emerald" | "rose";
-
 type Props = {
   lang: Language;
   index: number;
   src: string;
   alt: string;
-  accent?: AccentTone;
   /** Desktop (`lg+`): asymmetric grid — image in wider column; flip column order when `right`. */
   side?: "left" | "right";
   width: number;
@@ -24,7 +21,6 @@ const {
   index,
   src,
   alt,
-  accent = "gold",
   side = "left",
   width,
   height,
@@ -35,35 +31,12 @@ const {
 const page = uiCopy[lang];
 const [memeTitle, memeBody] = page.memes.items[index];
 
-const accentMap: Record<AccentTone, { wrap: string; glow: string; rule: string }> = {
-  gold: {
-    wrap: "border-brand-accent/30 from-brand-accent/15",
-    glow: "bg-brand-accent/20",
-    rule: "from-transparent via-brand-accent/40 to-transparent",
-  },
-  amber: {
-    wrap: "border-amber-300/30 from-amber-500/15",
-    glow: "bg-amber-300/20",
-    rule: "from-transparent via-amber-300/40 to-transparent",
-  },
-  fuchsia: {
-    wrap: "border-fuchsia-300/30 from-fuchsia-500/15",
-    glow: "bg-fuchsia-300/20",
-    rule: "from-transparent via-fuchsia-300/40 to-transparent",
-  },
-  emerald: {
-    wrap: "border-emerald-300/30 from-emerald-500/15",
-    glow: "bg-emerald-300/20",
-    rule: "from-transparent via-emerald-300/40 to-transparent",
-  },
-  rose: {
-    wrap: "border-rose-300/30 from-rose-500/15",
-    glow: "bg-rose-300/20",
-    rule: "from-transparent via-rose-300/40 to-transparent",
-  },
+const tone = {
+  wrap: "border-brand-accent/30 from-brand-accent/15",
+  glow: "bg-brand-accent/20",
+  rule: "from-transparent via-brand-accent/40 to-transparent",
 };
 
-const tone = accentMap[accent];
 const baseUrl = import.meta.env.BASE_URL;
 const normalizeUrl = (pathSegment: string) =>
   `${baseUrl}${pathSegment}`.replace(/([^:]\/)\/+/g, "$1");

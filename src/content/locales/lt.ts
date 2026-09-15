@@ -16,7 +16,6 @@ export const ltCopy = {
       openMobileMenu: "Atidaryti meniu",
       navPrimaryAria: "Pagrindinė navigacija",
       navMobileAria: "Mobilioji navigacija",
-      languageToggleAria: "Kalba",
       footerLegalNavAria: "Nuorodos puslapio pabaigoje",
     },
     faq: {
@@ -115,7 +114,6 @@ export const ltCopy = {
           { label: "Ownership", detail: "Unassigned" },
         ],
       },
-      synthesis: { label: "AI synthesis" },
       brief: {
         decision: {
           label: "Decision",
@@ -718,7 +716,6 @@ Eliminate now:
       eyebrow: "Step 2 · Prove on a scenario",
       title: "Pick a scenario. Structure the decision.",
       subtitle: "Choose one executive situation and copy a decision-ready prompt.",
-      scenarioHint: "",
       briefLabel: "Scenario brief",
       detailsTab: "Risks and questions",
       detailsTabShort: "Risks",
@@ -729,14 +726,11 @@ Eliminate now:
       secondaryPanelHint: "Open a tab for risks, input, or the full prompt.",
       secondaryTablistAriaLabel: "More detail",
       promptBlockLabel: "Pavyzdinis kopijuojamas promptas",
-      previewHint: "",
       followUpEyebrow: "Download the kit next",
       followUpText: "Download the printable decision kit—same structure offline.",
       followUpCta: "Download PDF kit",
-      pdfAgain: "pereik prie atsisiuntimo.",
       scenarioLiveStatus: "Scenarijus: {scenario}. Briefas atnaujintas.",
       messyInputLabel: "Scenario setup",
-      connectorCaption: "Virsta",
       outputLabel: "Aiškus vadovo rezultatas",
       insight: "Esminė išvada",
       decision: "Reikalingas sprendimas",
@@ -838,8 +832,6 @@ Eliminate now:
       },
     },
     memes: {
-      eyebrow: "Vizualus įrodymas",
-      title: "Problema – ne prieiga prie DI. Problema – kontrolė.",
       delegationBridge: "Same theme as the Delegation scenario below.",
       sectionAriaLabel: "Įrodymo akimirka",
       /** Eiliškumas kaip `Page.astro` MemeMoment (indeksai 2, 5). */

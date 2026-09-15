@@ -85,7 +85,7 @@ Not in CI today; consider when the landing grows in interactivity:
 Reference: [`docs/DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md). Run these when adding a section, changing layout/CSS, or touching `src/components/ds/`.
 
 - **Tokens:** New surfaces use existing radius utilities (`.radius-sm` … `.radius-xl`), section rhythm (`.section-y*` + `px-5 sm:px-8`), and colors from `global.css` / `.cursor/rules/visual-and-copy.mdc` (no new arbitrary accent colors).
-- **Primitives:** Prefer [`src/components/ds/`](../src/components/ds/) (`SectionShell`, `SectionTitleBlock`, `ContentCard`, `BulletSystem`, `HighlightStrip`, `DiagramContainer`) for new or heavily edited sections; document short-lived exceptions in [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) or PR notes.
+- **Primitives:** Prefer [`src/components/ds/`](../src/components/ds/) (`SectionShell`, `SectionTitleBlock`, `ContentCard`, `BulletSystem`, `HighlightStrip`) for new or heavily edited sections; document short-lived exceptions in [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) or PR notes.
 - **CTA discipline:** At most one primary conversion CTA per major section; glass/elevation stays on primary containers (see Design System “Do not”).
 - **i18n:** User-visible string changes go in `en.ts` only (`lt.ts` frozen). If keys changed, `lt.ts` has matching keys (English placeholders OK).
 

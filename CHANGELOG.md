@@ -2,6 +2,23 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-09-15 (leftover cleanup)
+
+### Changed
+
+- **Demo copy fallback:** clipboard miss/throw now opens the prompt disclosure panel before focusing the prompt (`InteractiveCopy.astro`). Featured-module copy fallback opens the compiled-prompt `<details>` when present.
+- **Hash focus:** `#safety-check`, `#faq`, `#anatomy`, `#library`, and `#module-secondOrder` are focusable (`anchorFocusable` / `ContentCard` `tabindex="-1"`). Hash decode is try/caught.
+- **Demo disclosures:** Details / Input / Prompt are `aria-expanded` buttons (collapse still works); dropped fake `role="tablist"`. Mobile menu keeps `role="dialog"` without `aria-modal`.
+- **Hero in `<main>`:** `SiteHeader.astro` (nav + mobile menu) stays outside `<main>`; `Hero.astro` (h1 + diagram) is the first child of `<main>`. Skip-link remains `#ctx-company`. Desktop gold CTA is still `#context` only; PromptAnatomy `hero`/`primary` stays mobile-menu only.
+
+### Removed
+
+- Unused DS primitive `DiagramContainer.astro`; CSS leftovers `.btn-outline-neutral`, `.hidden-lang`, `.border-surface`; dead locale keys (`languageToggleAria`, `heroDiagram.synthesis`, unused demo/meme titles); unused publisher mailing aliases; unreferenced `public/Prompt_Anatomy_logo.png`. Meme PNG files for unmounted beats stay on disk.
+
+### Docs
+
+- Strategic plan, design system, QA primitives, overview hash registry, copy audit, mobile audit, and roadmap sister CTA now match shipped `Page.astro` (meme beats **2, 5**; English at `/`; no `/en/` landing).
+
 ## 2026-09-09 (hero freeze + www hop)
 
 ### Changed
