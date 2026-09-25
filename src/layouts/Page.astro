@@ -92,7 +92,7 @@ const telegramHref = buildTelegramUrl();
     <link rel="manifest" href={manifestUrl} />
     <meta property="og:site_name" content="Prompt Anatomy" />
     <meta property="og:title" content={meta.title} />
-    <meta property="og:description" content={meta.description} />
+    <meta property="og:description" content={meta.socialDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={pageCanonical} />
     <meta property="og:image" content={socialImageUrl} />
@@ -104,7 +104,7 @@ const telegramHref = buildTelegramUrl();
     {fbAppId && <meta property="fb:app_id" content={fbAppId} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={meta.title} />
-    <meta name="twitter:description" content={meta.description} />
+    <meta name="twitter:description" content={meta.socialDescription} />
     <meta name="twitter:image" content={socialImageUrl} />
     <meta name="twitter:image:alt" content={meta.socialImageAlt} />
     <meta name="theme-color" content="#0b1320" />

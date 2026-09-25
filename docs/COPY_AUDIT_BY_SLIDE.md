@@ -71,7 +71,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **Lygiavimas**
 
-- `og:*` ir `twitter:*` naudoja tą patį `meta.title` / `description` / `socialImageAlt` – vienas redagavimas abiem.
+- `og:description` and `twitter:description` use `meta.socialDescription`. Search `meta name="description"` and JSON-LD `WebPage.description` stay on `meta.description`. Title and `socialImageAlt` are still shared.
 
 **Ne locale**
 

@@ -2,8 +2,10 @@ export const enCopy = {
     meta: {
       title: "CEO/COO Executive Decision Kit | Prompt Anatomy",
       description:
-        "One executive workflow turns business noise into decision briefs with owners, risks, and deadlines. Static kit and demo—no login. Full team standard on PromptAnatomy.app.",
-      socialImageAlt: "Prompt Anatomy — CEO/COO Executive OS static kit and social preview.",
+        "One executive workflow turns business noise into a decision brief with an owner, risks, and a deadline. Static CEO/COO kit and demo. No login.",
+      socialDescription:
+        "Turn business noise into a decision brief with an owner, risks, and a deadline. Static kit. No login.",
+      socialImageAlt: "Prompt Anatomy — One clear decision. Run the 2-minute check.",
     },
     a11y: {
       skipLink: "Skip to the context fields",

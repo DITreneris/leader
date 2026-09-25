@@ -62,11 +62,15 @@ describe("locale parity (en.ts / lt.ts)", () => {
     for (const bundle of [enCopy, ltCopy] as const) {
       expect(bundle.meta.title.trim().length).toBeGreaterThan(0);
       expect(bundle.meta.description.trim().length).toBeGreaterThan(0);
+      expect(bundle.meta.socialDescription.trim().length).toBeGreaterThan(0);
     }
   });
 
   it("uses en.meta as single source for landing page SEO copy", () => {
     expect(enCopy.meta.title).toContain("Prompt Anatomy");
     expect(enCopy.meta.description).toMatch(/PromptAnatomy|executive|decision/i);
+    expect(enCopy.meta.description.length).toBeLessThanOrEqual(160);
+    expect(enCopy.meta.socialDescription.length).toBeLessThanOrEqual(125);
+    expect(enCopy.meta.socialDescription).toMatch(/decision brief/i);
   });
 });

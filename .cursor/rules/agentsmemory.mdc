@@ -20,7 +20,7 @@ Default wing: `promptanatomy`. **Do not mint a `pro` or `leader` wing.** MCP `de
 
 Ecosystem role Decide, CTA to `.app`, two-channel pricing (39/99 vs 399) → `am_search` wing `promptanatomy`. Checkout and access live on `.app`, not here.
 
-Hero: desktop gold `#context` only; PA `utm_source=leader` `hero`/`primary` is **mobile-menu only** — do not restore a desktop outlined button. Last 30 Days 2026-09-02: 16/16/100% structural — do not start bounce, events, PromoBanner move, or PDF dedup.
+Hero: `SiteHeader` stays outside `<main>`; hero `<section>` is first in `<main>`. Desktop gold `#context` only; PA `utm_source=leader` `hero`/`primary` is **mobile-menu only** — do not restore a desktop outlined button. Last 30 Days 2026-09-02: 16/16/100% structural — do not start bounce, events, PromoBanner move, or PDF dedup.
 
 ## Persist
 

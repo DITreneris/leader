@@ -24,7 +24,7 @@ This project is a lean **English-only** CEO/COO executive prompt operating kit f
 
 ## Architecture
 
-- [`src/pages/index.astro`](src/pages/index.astro) renders [`src/layouts/Page.astro`](src/layouts/Page.astro) at `/`; legacy `/en/` and `/lt/` are noindex redirect stubs — details in [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md).
+- [`src/pages/index.astro`](src/pages/index.astro) renders [`src/layouts/Page.astro`](src/layouts/Page.astro) at `/`; legacy `/en/` and `/lt/` are noindex redirect stubs — details in [`docs/CODEBASE_OVERVIEW.md`](docs/CODEBASE_OVERVIEW.md). `SiteHeader.astro` stays outside `<main>`; `Hero.astro` is the first child of `<main>`.
 - Copy (active): [`src/content/locales/en.ts`](src/content/locales/en.ts) via [`src/content/copy.ts`](src/content/copy.ts). Frozen archive: [`lt.ts`](src/content/locales/lt.ts).
 - Outbound URLs: [`src/constants/outboundLinks.ts`](src/constants/outboundLinks.ts) + [`docs/UTM_MATRIX.md`](docs/UTM_MATRIX.md); domains in [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) (Vercel: apex `https://promptanatomy.pro/` is Production; `www` 308s to apex — not `vercel.json`).
 - Components: [`src/components/`](src/components/); styles: [`src/styles/global.css`](src/styles/global.css).
@@ -34,7 +34,7 @@ This project is a lean **English-only** CEO/COO executive prompt operating kit f
 ## Cursor rules and skills
 
 - **Rules:** `.cursor/rules/` — `project-direction.mdc` (always on); scoped rules for `src/**` (`visual-and-copy.mdc`, `language-standard.mdc`, `astro-quality.mdc`) and `docs/**` US META (`us-localization-meta.mdc`). On conflict with shipped UI, **`src/layouts/Page.astro`** wins — then update the doc.
-- **Skill:** [`.cursor/skills/executive-landing-improvement/SKILL.md`](.cursor/skills/executive-landing-improvement/SKILL.md) — landing copy, sections, EN-only development, conversion polish (must stay aligned with rules above).
+- **Skill:** [`.cursor/skills/executive-landing-improvement/SKILL.md`](.cursor/skills/executive-landing-improvement/SKILL.md) — landing copy, sections, EN-only development, conversion polish (must stay aligned with rules above). Session traps: [`lessons.md`](.cursor/skills/executive-landing-improvement/lessons.md).
 
 ## Documentation map
 

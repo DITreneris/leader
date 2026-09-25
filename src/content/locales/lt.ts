@@ -3,6 +3,8 @@ export const ltCopy = {
       title: "CEO/COO sprendimų operacinis rinkinys | Prompt Anatomy",
       description:
         "Viena vadovo eiga paverčia verslo triukšmą sprendimo briefais su savininku, rizikomis ir terminais. Statinis rinkinys ir demo – be prisijungimo. Komandos standartas PromptAnatomy.app.",
+      socialDescription:
+        "Turn business noise into a decision brief with an owner, risks, and a deadline. Static kit. No login.",
       socialImageAlt:
         "Prompt Anatomy – CEO/COO Executive OS statinis rinkinys ir peržiūros paveikslas socialiniams tinklams.",
     },

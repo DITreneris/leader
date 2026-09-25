@@ -2,6 +2,13 @@
 
 Daily project updates for the PromptAnatomy Executive OS landing page.
 
+## 2026-09-25 (social card)
+
+### Changed
+
+- **OG image:** [`scripts/generate-og-image.mjs`](scripts/generate-og-image.mjs) now draws a left-aligned Satori text frame (bolt, CEO/COO pill, “One clear decision.”, “Run the 2-minute check.”). [`public/og-image.png`](public/og-image.png) stays 1200×630.
+- **Descriptions:** search and JSON-LD use `meta.description` (142). `og:description` and `twitter:description` use `meta.socialDescription` (101). English `socialImageAlt` matches the card.
+
 ## 2026-09-15 (leftover cleanup)
 
 ### Changed
@@ -18,6 +25,7 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 ### Docs
 
 - Strategic plan, design system, QA primitives, overview hash registry, copy audit, mobile audit, and roadmap sister CTA now match shipped `Page.astro` (meme beats **2, 5**; English at `/`; no `/en/` landing).
+- Landing skill + [`lessons.md`](.cursor/skills/executive-landing-improvement/lessons.md): SiteHeader/Hero split, clipboard-hidden-prompt, hash tabindex, e2e `site-header` testid.
 
 ## 2026-09-09 (hero freeze + www hop)
 
