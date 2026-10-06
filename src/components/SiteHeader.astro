@@ -10,24 +10,27 @@ interface Props {
 const { lang } = Astro.props;
 const c = uiCopy[lang];
 const promptAnatomyHref = buildPromptAnatomyUrl({ medium: "hero", campaign: "primary" });
+const mark = c.a11y.brandWordmark;
+const splitAt = mark.lastIndexOf(" ");
+const wordFirst = splitAt === -1 ? mark : mark.slice(0, splitAt);
+const wordSecond = splitAt === -1 ? "" : mark.slice(splitAt + 1);
 ---
 
 <div class="relative z-50 mx-auto max-w-7xl px-5 sm:px-8">
   <header class="flex items-center justify-between gap-3 py-4 sm:gap-4" data-testid="site-header">
     <a href="#top" class="focus-ring group flex min-w-0 items-center gap-2.5 sm:gap-3" aria-label={c.a11y.logoAriaLabel}>
-      <span class="logo-tile logo-glow flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ring-1 ring-white/10 sm:h-10 sm:w-10 sm:rounded-2xl">
+      <span class="logo-tile flex h-9 w-9 shrink-0 items-center justify-center rounded-[12px] ring-1 ring-white/10 sm:h-10 sm:w-10">
         <svg viewBox="0 0 32 32" aria-hidden="true" class="h-5 w-5 sm:h-6 sm:w-6">
           <path
-            fill="#fbd304"
+            fill="#cfa73a"
             transform="translate(4 3)"
             d="M13.5 1.5 4.5 14.25h6L8.25 22.5 19.5 9.75h-6L13.5 1.5z"
           />
         </svg>
       </span>
       <span class="min-w-0 leading-tight">
-        <span class="block text-sm font-black tracking-tight text-white sm:text-base">{c.a11y.brandWordmark}</span>
-        <span class="mt-0.5 block text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
-          {c.a11y.brandSubtag}
+        <span class="block text-base font-black tracking-tight">
+          <span class="text-white">{wordFirst}</span>{wordSecond && <span class="text-brand-accent"> {wordSecond}</span>}
         </span>
       </span>
     </a>

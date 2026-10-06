@@ -8,13 +8,13 @@
 @theme {
   --color-brand-dark: #0b1320;
   --color-brand-accent: #cfa73a;
-  --color-brand-accent-hover: #e8b93c;
+  --color-brand-accent-hover: #cfa73a;
 }
 
 :root {
   color-scheme: dark;
   font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   color: #f8fafc;
 
@@ -24,7 +24,7 @@
 
   --color-brand-dark: #0b1320;
   --color-brand-accent: #cfa73a;
-  --color-brand-accent-hover: #e8b93c;
+  --color-brand-accent-hover: #cfa73a;
   --color-cta-from: #ffcc33;
   --color-cta-to: #ffb300;
 
@@ -57,8 +57,7 @@
   --shadow-glow-accent:
     0 0 20px -4px rgba(207, 167, 58, 0.35),
     0 10px 25px -5px rgba(207, 167, 58, 0.15);
-  --shadow-cta-shadow: 0 6px 14px rgba(255, 179, 0, 0.3);
-  --drop-shadow-logo-glow: drop-shadow(0 0 6px rgba(255, 196, 0, 0.27));
+  --shadow-cta-shadow: 0 6px 14px rgba(11, 19, 32, 0.12);
 
   /* Border radius scale (premium consistency) */
   --radius-sm: 1rem;
@@ -456,7 +455,7 @@ a {
   border-radius: 9999px;
   padding: 0.875rem 1.5rem;
   text-align: center;
-  color: rgb(2 6 23);
+  color: #0b1320;
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 900;
@@ -499,13 +498,7 @@ a {
 }
 
 .logo-tile {
-  background: radial-gradient(circle at 30% 25%, rgba(207, 167, 58, 0.26), transparent 58%),
-    linear-gradient(145deg, rgba(11, 19, 32, 0.98), rgba(2, 6, 23, 0.82));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-.logo-glow {
-  filter: var(--drop-shadow-logo-glow);
+  background: #0b1320;
 }
 
 summary.library-summary::-webkit-details-marker,

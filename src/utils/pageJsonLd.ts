@@ -78,7 +78,7 @@ export function buildLeaderPageJsonLd(input: {
         "@type": "Organization",
         "@id": motherOrgId,
         name: PUBLISHER_NAME,
-        alternateName: ["Promptų anatomija", "PromptAnatomy"],
+        alternateName: ["Promptų Anatomija", "PromptAnatomy"],
         url: "https://www.promptanatomy.app/",
         logo: {
           "@type": "ImageObject",

@@ -66,6 +66,19 @@ describe("locale parity (en.ts / lt.ts)", () => {
     }
   });
 
+  it("locks the spoke lockup and entity footer", () => {
+    expect(enCopy.footer.brand).toBe("Part of Prompt Anatomy · Training & checkout");
+    expect(enCopy.a11y.logoAriaLabel).toBe("Prompt Anatomy");
+    const words = enCopy.a11y.brandWordmark.split(" ");
+    const splitAt = enCopy.a11y.brandWordmark.lastIndexOf(" ");
+    expect(splitAt).toBeGreaterThan(0);
+    expect(enCopy.a11y.brandWordmark.slice(0, splitAt).length).toBeGreaterThan(0);
+    expect(enCopy.a11y.brandWordmark.slice(splitAt + 1).length).toBeGreaterThan(0);
+    expect(words.filter((word) => word.length > 0).length).toBe(2);
+    expect("brandSubtag" in enCopy.a11y).toBe(false);
+    expect("brandSubtag" in ltCopy.a11y).toBe(false);
+  });
+
   it("uses en.meta as single source for landing page SEO copy", () => {
     expect(enCopy.meta.title).toContain("Prompt Anatomy");
     expect(enCopy.meta.description).toMatch(/PromptAnatomy|executive|decision/i);

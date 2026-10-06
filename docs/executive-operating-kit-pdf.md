@@ -1,6 +1,6 @@
 ---
 title: "CEO/COO Max Value Kit"
-subtitle: "PromptAnatomy Executive OS — printable"
+subtitle: "Prompt Anatomy — printable"
 author: "Prompt Anatomy"
 date: "2026"
 lang: en
@@ -79,8 +79,8 @@ Use this short kit for one leadership week. When the same method needs to become
 
 <https://www.promptanatomy.app/>
 
-PromptAnatomy Executive OS — scale the same method as a team-wide standard.
+Prompt Anatomy — scale the same method as a team-wide standard.
 
 ---
 
-*Full operating system: [www.promptanatomy.app](https://www.promptanatomy.app/)*
+*Training and checkout: [www.promptanatomy.app](https://www.promptanatomy.app/)*
