@@ -22,7 +22,7 @@ All npm scripts from root `package.json`. Run from the repository root.
 From [`.github/workflows/ci.yml`](../.github/workflows/ci.yml):
 
 1. `npm test`
-2. `npm audit --audit-level=high`
+2. `npm audit --omit=dev --audit-level=high`
 3. Matrix: `npm run build` + `npm run verify:build` for GitHub Pages **and** Vercel env (see [`CONFIGURATION.md`](CONFIGURATION.md))
 4. `npm run test:e2e` (GitHub Pages build)
 5. Lighthouse CI (`npx lhci autorun`)

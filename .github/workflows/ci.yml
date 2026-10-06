@@ -30,8 +30,8 @@ jobs:
       - name: Smoke prebuild (llms-full generator)
         run: npm run generate:llms-full
 
-      - name: Dependency audit (high or critical only)
-        run: npm audit --audit-level=high
+      - name: Dependency audit (high or critical, production only)
+        run: npm audit --omit=dev --audit-level=high
 
   verify-deploy:
     runs-on: ubuntu-latest

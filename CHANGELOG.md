@@ -4,6 +4,10 @@ Daily project updates for the PromptAnatomy Executive OS landing page.
 
 ## 2026-10-06 (spoke brand lockup)
 
+### Security
+
+- **Dependencies:** Astro is `7.3.5` (clears the critical AVIF advisory on 6.x) and `sharp` is `0.35.5`. `npm audit fix` moved `yaml` to `2.8.3`. Tailwind runs through `@tailwindcss/vite` because Vite 8 resolves `@import "tailwindcss"` as a file. `@emnapi/runtime` is a direct dependency so `astro check` can load the wasm compiler. CI audits production dependencies only (`npm audit --omit=dev --audit-level=high`). The Lighthouse CLI chain still has high findings in `extract-zip`, which has no patched release; do not force `@lhci/cli@0.6.1`.
+
 ### Changed
 
 - **Header mark:** [`SiteHeader.astro`](src/components/SiteHeader.astro) splits Prompt / Anatomy (white / `#cfa73a`), paints the bolt `#cfa73a` on a flat `#0b1320` tile, and drops the Executive OS badge and logo glow. The corner is `rounded-[12px]` (36px mobile, 40px from `sm`). Do not switch it to `rounded-xl`: local `--radius-xl` is `2rem`, which made a 32px corner on a 40px tile.

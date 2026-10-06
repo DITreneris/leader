@@ -25,7 +25,7 @@ The build must finish with:
 [`../.github/workflows/ci.yml`](../.github/workflows/ci.yml) runs, in order:
 
 1. `npm test` — Vitest unit tests (`src/**/*.test.ts`) for outbound URLs, client copy payload, and JSON-LD helpers.
-2. `npm audit --audit-level=high` — fails the job only on **high or critical** advisories. Moderate/low issues in dev-only chains (e.g. Lighthouse CLI, `@astrojs/check` / YAML language server) are tracked via Dependabot and upgrades; do not use `npm audit fix --force` without reviewing breaking changes.
+2. `npm audit --omit=dev --audit-level=high` — fails the job only on **high or critical** advisories in production dependencies. The Lighthouse CLI chain (`extract-zip`, `basic-ftp`, `puppeteer-core`) still reports high findings, and `extract-zip` has no patched release. `npm audit fix --force` would install `@lhci/cli@0.6.1` and break the Lighthouse job, so that chain stays with Dependabot.
 3. `npm run build` with `BASE_PATH=/leader` and `SITE_URL` matching the GitHub Pages host.
 4. Playwright E2E smoke (`npm run test:e2e`) against `astro preview` — hero visibility and PromptAnatomy UTM links.
 5. Lighthouse CI (see root [`lighthouserc.cjs`](../lighthouserc.cjs)).
