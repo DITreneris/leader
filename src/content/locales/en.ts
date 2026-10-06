@@ -11,9 +11,8 @@ export const enCopy = {
       skipLink: "Skip to the context fields",
       copyManual:
         "Copy blocked: select the prompt text above, then copy (long-press → Copy on phone, or Ctrl+C / ⌘+C on desktop).",
-      logoAriaLabel: "Prompt Anatomy Executive OS",
+      logoAriaLabel: "Prompt Anatomy",
       brandWordmark: "Prompt Anatomy",
-      brandSubtag: "Executive OS",
       openMobileMenu: "Open menu",
       navPrimaryAria: "Primary",
       navMobileAria: "Mobile primary",
@@ -41,7 +40,7 @@ export const enCopy = {
           bullets: [],
         },
         {
-          q: "What is PromptAnatomy Executive OS?",
+          q: "What is this decision kit?",
           a: "A static one-page decision operating kit for CEOs and COOs: Global Context Block plus executive modules so leadership briefs to AI stay consistent—no login, no upload of what you type. The full product and team standard are on promptanatomy.app.",
           bullets: [],
         },
@@ -924,7 +923,7 @@ Eliminate now:
       secondary: "Open PromptAnatomy team standard",
     },
     footer: {
-      brand: "PromptAnatomy · Executive OS",
+      brand: "Part of Prompt Anatomy · Training & checkout",
       tagline: "Static kit. No login. Your brief stays on your device.",
       versionAria: "Site version",
       copyright: "© 2026 Prompt Anatomy",

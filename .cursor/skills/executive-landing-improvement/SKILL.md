@@ -20,6 +20,7 @@ description: Landing copy, sections, EN-only development, conversion flow. Stati
 - Desktop gold CTA is `#context` only. PromptAnatomy `utm_source=leader` `hero`/`primary` is **mobile-menu only**.
 - Demo Details / Input / Prompt are disclosures (`aria-expanded`, collapse-on-retap), not a tablist.
 - Do not remount meme-01/03, restore `LanguageToggle`, move PromoBanner, or start bounce / PDF dedup.
+- Social card: `public/og-image.png` is the left-aligned decision frame (verb on the image). Search and JSON-LD stay `meta.description`; `og:description` and `twitter:description` stay `meta.socialDescription`. Do not merge those strings. Do not add the Satori package. Regenerate with `npm run generate:og`. Same URL `/og-image.png`.
 
 ## Product filter
 

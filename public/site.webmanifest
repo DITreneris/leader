@@ -1,7 +1,7 @@
 {
-  "name": "PromptAnatomy - Executive OS",
-  "short_name": "Executive OS",
-  "description": "CEO/COO executive prompt operating kit by PromptAnatomy.",
+  "name": "Prompt Anatomy",
+  "short_name": "Prompt Anatomy",
+  "description": "CEO/COO decision kit by Prompt Anatomy.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

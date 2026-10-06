@@ -30,14 +30,14 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <svg x="64" y="52" width="40" height="40" viewBox="0 0 30 30" aria-hidden="true">
-    <polygon points="${boltPoints}" fill="#fbd304"/>
+    <polygon points="${boltPoints}" fill="#cfa73a"/>
   </svg>
   <text x="120" y="80" fill="#9ca3af" font-family="${font}" font-size="20" font-weight="500">Prompt Anatomy</text>
   <rect x="64" y="188" width="176" height="40" rx="20" fill="none" stroke="#cfa73a" stroke-width="1"/>
   <text x="152" y="214" text-anchor="middle" fill="#cfa73a" font-family="${font}" font-size="18" font-weight="700" letter-spacing="0.04em">CEO / COO</text>
   <text x="64" y="300" fill="#f9fafb" font-family="${font}" font-size="64" font-weight="700" letter-spacing="-0.02em">One clear decision.</text>
   <text x="64" y="352" fill="#9ca3af" font-family="${font}" font-size="26" font-weight="500">Owner, risks, and a deadline.</text>
-  <text x="64" y="412" fill="#e8b93c" font-family="${font}" font-size="28" font-weight="600">Run the 2-minute check.</text>
+  <text x="64" y="412" fill="#cfa73a" font-family="${font}" font-size="28" font-weight="600">Run the 2-minute check.</text>
   <rect x="0" y="625" width="1200" height="5" fill="#cfa73a"/>
 </svg>`;
 

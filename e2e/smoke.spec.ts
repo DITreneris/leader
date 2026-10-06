@@ -70,7 +70,7 @@ test.describe("smoke", () => {
       name: "Prove on a scenario before the full product.",
     });
     await expect(promo).toBeVisible();
-    const goldCta = promo.locator("a.cta-gradient").first();
+    const goldCta = promo.locator("a.btn-outline-accent").first();
     await expect(goldCta).toHaveAttribute("href", "#demo");
     await expect(promo.locator("a[href*='promptanatomy.app']")).toHaveCount(0);
     const sister = promo.locator("a[href*='promptanatomy.cloud']").first();

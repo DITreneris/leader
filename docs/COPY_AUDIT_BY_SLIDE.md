@@ -22,7 +22,7 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 | CC-6 | EN `roiPath.printableKitLink` | „band“ → „banner“ (**P0 pataisyta**). | P0 |
 | CC-7 | LT `meta.socialImageAlt` | gramatinis derinimas (**P0 pataisyta**). | P0 |
 | CC-8 | LT `demo.scenarios.meeting.risks[0]` | `virs` → **`virsta`** (**P0 pataisyta**). | P0 |
-| CC-9 | Hero (`Hero.astro`) | Logotipo eilutė, `aria-label`, meniu – perkelta į `a11y.*` (**P1 įgyvendinta**). LT `brandSubtag` sutampa su footer „Vadovo OS“. | P1 |
+| CC-9 | Header (`SiteHeader.astro`) | Logotipo eilutė ir `aria-label` – `a11y.brandWordmark` / `logoAriaLabel` (**P1**). `brandSubtag` removed 2026-10-06; entity footer is the training-and-checkout sentence. | P1 |
 | CC-10 | Meme (`Page.astro` + `MemeMoment.astro`) | `img alt` (`memes.sequenceImageAlts`) ir sekcijos `aria-label` (`memes.sectionAriaLabel`) lokalizuoti (**P1 įgyvendinta**). | P1 |
 | CC-11 | `InteractiveCopy.astro` | Fallback `manualMessage()` pagal `html[lang]` LT/EN jei trūksta `copyManual` (**P2 įgyvendinta**). | P2 |
 | CC-12 | JSON-LD | **`WebPage`** `primaryImageOfPage` ImageObject su **`description: meta.socialImageAlt`**; **`FAQPage.inLanguage`** = puslapio locale (**P3**). | P3 |
@@ -375,19 +375,19 @@ Vienas vykdymo šaltinis: gramatika, stilius, EN/LT lygiavimas, a11y ir technini
 
 **LT**
 
-- ~~`brand` „Vadovo OS“ vs hero~~ – **suvienodinta** (`a11y.brandSubtag`).
+- Frozen archive. `footer.brand` is the English entity sentence. No header badge.
 
 **EN**
 
-- „Executive OS“ – brand line.
+- `footer.brand` is “Part of Prompt Anatomy · Training & checkout”. Header lockup has no badge. CC-9 is the header row.
 
 **Ne locale**
 
-- Nuoroda `promptanatomy.app` – fiksuota.
+- Nuoroda `promptanatomy.app` – fiksuota. Arrow before the link is `aria-hidden`.
 
 **Veiksmai**
 
-- [x] P1: footeryje `aria-label` iš `a11y.footerLegalNavAria` (EN „Legal“, LT „Teisinės nuorodos“); Hero `brandSubtag` LT sutampa su `footer.brand` („Vadovo OS“).
+- [x] P1: footeryje `aria-label` iš `a11y.footerLegalNavAria`. `brandSubtag` removed 2026-10-06.
 
 ---
 
