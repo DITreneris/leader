@@ -90,16 +90,16 @@ Use only: `.radius-sm` … `.radius-xl`, or meme-specific `.radius-meme-outer` /
 
 ### Buttons (composed recipes)
 
-Prefer these over inline `cta-gradient` + ad-hoc padding. Always keep class name `cta-gradient` on primary gold links/buttons for tests and legacy selectors.
+Prefer these over inline `cta-gradient` + ad-hoc padding. Keep `cta-gradient` on the two bright-gold controls: the hero `#context` link and the kit download. Promo, demo, and module actions stay `.btn-outline-accent` and keep their own padding.
 
 | Tier | Class | Use |
 |------|-------|-----|
-| Primary gold | `.btn-primary-gold` + `.cta-gradient` + `.elevate-hover` | Hero, PromoBanner, demo copy, custom module compile |
-| Accent outline | `.btn-outline-accent` + `.elevate-hover` (optional) | Per-module copy, ROI step actions |
+| Primary gold | `.btn-primary-gold` + `.cta-gradient` + `.elevate-hover` | Hero `#context`, kit download |
+| Accent outline | `.btn-outline-accent` plus flex, radius, and padding utilities | PromoBanner `#demo`, demo copy, module copy, ROI step actions |
 | Warning outline | `.btn-outline-warning` + `.type-cta-label` | SafetyCheck copy only |
 | Text link | Underlined `text-sm font-semibold` | Sister hub, footer, tertiary |
 
-**Module hierarchy:** custom compile = gold primary; per-module “Use module” = accent outline.
+**Module hierarchy:** custom compile and per-module “Use module” are accent outlines. The bright-gold controls are the hero `#context` link and the kit download.
 
 ---
 
@@ -123,8 +123,8 @@ Use a small number of **visual tiers** so callouts feel part of the same page, n
 | Tier | Pattern | Role |
 |------|---------|------|
 | **Ribbon** | `HighlightStrip` `band` (`context` / `panel`) | Short guidance, instructions, “start here” — no competing gold CTA on the same row. |
-| **Glass promo** | `HighlightStrip` `promo` (e.g. [`PromoBanner.astro`](../src/components/PromoBanner.astro)) | Mid-funnel next step: gold in-page `#demo`; tertiary text link to promptanatomy.cloud. PromptAnatomy.app is not on this beat. |
-| **Gold commitment** | [`CourseCTA.astro`](../src/components/CourseCTA.astro) gradient block | Strongest download / asset moment after the narrative has landed (e.g. after safety check). Primary: slate filled PDF button. Secondary: outlined slate-on-gold PromptAnatomy link (not `.btn-outline-neutral`). |
+| **Glass promo** | `HighlightStrip` `promo` (e.g. [`PromoBanner.astro`](../src/components/PromoBanner.astro)) | Mid-funnel next step: outline in-page `#demo`; tertiary text link to promptanatomy.cloud. PromptAnatomy.app is not on this beat. |
+| **Kit download** | [`CourseCTA.astro`](../src/components/CourseCTA.astro) navy card | Strongest download moment. Primary: gold PDF button. Secondary: white outline PromptAnatomy link. |
 
 **Rule of thumb:** avoid stacking multiple “brightest” conversion surfaces with no vertical breathing space; see story order in [`Page.astro`](../src/layouts/Page.astro).
 
@@ -158,7 +158,7 @@ Maps “template” → existing components (reference implementation).
 
 | Tier | Visual | Destination |
 |------|--------|-------------|
-| 1 (gold) | `cta-gradient` | In-page `#demo` (clarity practice) |
+| 1 (outline) | `btn-outline-accent` | In-page `#demo` (clarity practice) |
 | 2 (text) | Underlined link | promptanatomy.cloud (`buildSisterHubUrl`) |
 
 - **New section:** use `SectionShell` + `SectionTitleBlock` unless you are intentionally using the **Hero** template.

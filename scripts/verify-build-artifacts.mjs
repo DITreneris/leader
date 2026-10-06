@@ -165,13 +165,13 @@ if (landingHtml !== null) {
   } else {
     const sliceEnd = landingHtml.indexOf("</section>", promoIndex);
     const promoSection = sliceEnd === -1 ? landingHtml.slice(promoIndex) : landingHtml.slice(promoIndex, sliceEnd);
-    const goldMatch =
-      promoSection.match(/<a[^>]*class="[^"]*cta-gradient[^"]*"[^>]*href="([^"]+)"/i) ??
-      promoSection.match(/<a[^>]*href="([^"]+)"[^>]*class="[^"]*cta-gradient[^"]*"/i);
-    if (!goldMatch) {
-      fail("dist/index.html: PromoBanner gold cta-gradient link not found");
-    } else if (goldMatch[1] !== "#demo") {
-      fail(`dist/index.html: PromoBanner gold CTA must href="#demo" (got ${goldMatch[1]})`);
+    const promoMatch =
+      promoSection.match(/<a[^>]*class="[^"]*btn-outline-accent[^"]*"[^>]*href="([^"]+)"/i) ??
+      promoSection.match(/<a[^>]*href="([^"]+)"[^>]*class="[^"]*btn-outline-accent[^"]*"/i);
+    if (!promoMatch) {
+      fail("dist/index.html: PromoBanner outline link not found");
+    } else if (promoMatch[1] !== "#demo") {
+      fail(`dist/index.html: PromoBanner outline CTA must href="#demo" (got ${promoMatch[1]})`);
     }
     if (/href="(https:\/\/[^"]*promptanatomy\.app[^"]*)"/i.test(promoSection)) {
       fail("dist/index.html: PromoBanner must not include outbound PromptAnatomy.app link");
